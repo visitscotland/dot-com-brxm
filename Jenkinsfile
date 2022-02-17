@@ -201,7 +201,6 @@ pipeline {
       }
       steps{
         script{
-          //sh 'sh ./infrastructure/scripts/docker.sh'
           sh 'sh ./ci/infrastructure/scripts/infrastructure.sh --debug'
         }
         // make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
@@ -433,7 +432,7 @@ pipeline {
   post{
     success{
       script{
-        sh 'sh ./infrastructure/scripts/infrastructure.sh displayreport'
+        sh 'sh ./ci/infrastructure/scripts/infrastructure.sh displayreport'
       }
     }
     aborted{
