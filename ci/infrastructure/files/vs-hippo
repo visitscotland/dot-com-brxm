@@ -11,6 +11,28 @@ echo ""
 #set | egrep "BRANCH|BUILD|JENKINS|JOB|WORKSPACE"
 #echo ====/selected Jenkins environment variables ====
 
+# ==== PARSE COMMAND LINE ARGUMENTS ====
+METHOD=$1
+while [[ $# -gt 0 ]]; do
+  argument="$1"
+  THIS_VAR=`echo $argument | sed -e "s/=.*//g"`; #echo $THIS_VAR
+  THIS_VAL=`echo $argument | sed -e "s/.*=//g" | sed -s "s/--.*//g"`; #echo $THIS_VAL
+  if [ ! -z "$THIS_VAL" ]; then THIS_RESULT="$THIS_VAL"; elif [ ! "${2:0:2}" = "--" ]; then THIS_RESULT="$2"; else THIS_RESULT=""; fi
+  if [ "$VS_DEBUG" == "TRUE" ]; then echo -en "\nread \"$THIS_VAR\" from command line"; fi
+  case $THIS_VAR in
+    --debug) if [ ! -z "$THIS_RESULT" ]; then VS_DEBUG=$THIS_RESULT; else VS_DEBUG=TRUE; fi;;
+    --ssr-package-version) if [ ! -z "$THIS_RESULT" ]; then VS_SSR_PACKAGE_VERSION=$THIS_RESULT; fi;;
+    --ssr-package-name) if [ ! -z "$THIS_RESULT" ]; then VS_SSR_PACKAGE_NAME=$THIS_RESULT; fi;;
+    --repository-dir) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_REPOSITORY=$THIS_RESULT; fi;;
+    *)
+      if [ "$DEBUG" == "TRUE" ]; then echo -en " - not a valid argument - SKIPPING"; fi
+    ;;
+  esac
+  shift
+done
+echo -en "\n"
+# ====/PARSE COMMAND LINE ARGUMENTS ====
+
 # ==== ADJUSTABLE VARIABLES ====
 # we need to update these to set only if they're not set already, that way the Dev can override in the job template
 #  == Tomcat Variables ==
@@ -32,8 +54,9 @@ VS_OPTIONAL_SOFTWARE_DIR=/opt
 VS_PROJECT_BASE_DIR=/home/$TOMCAT_OS_USER
 VS_HIPPO_CMS_PATH=cms
 VS_HIPPO_SITE_PATH=site
+if [ -z "$VS_SSR_PACKAGE_VERSION"]; then VS_SSR_PACKAGE_VERSION="package"; fi
 if [ -z "$VS_SSR_PACKAGE_DIR" ]; then VS_SSR_PACKAGE_DIR=frontend; fi
-if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME=vs-ssr-package.tar.gz; fi
+if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME=vs-ssr-$VS_SSR_PACKAGE_VERSION.tar.gz; fi
 if [ -z "$VS_SSR_PACKAGE_PATH" ]; then VS_SSR_PACKAGE_PATH=ssr/server; fi
 if [ -z "$VS_SSR_PROXY_ON" ]; then VS_SSR_PROXY_ON=FALSE; fi
 if [ -z "$VS_SSR_PROXY_TARGET_HOST" ]; then VS_SSR_PROXY_TARGET_HOST="http://localhost:8080"; fi
@@ -55,6 +78,8 @@ JAVA_OPTS="-Dlog4j2.formatMsgNoLookups=true"
 VS_HIPPO_REPOSITORY_SUFFIX="$TOMCAT_PORT_NUMBER"_"$VS_DATESTAMP"
 # set VS_HIPPO_REPOSITORY_DIR to the computed value unless it is already set
 if [ -z "$VS_HIPPO_REPOSITORY_DIR" ]; then VS_HIPPO_REPOSITORY_DIR=$CATALINA_BASE/../$VS_HIPPO_REPOSITORY_PREFIX$VS_HIPPO_REPOSITORY_SUFFIX; else VS_HIPPO_REPOSITORY_OVERRIDE_DIR=TRUE; fi
+
+# ====/SETUP ====
 
 echo ""
 echo ==== VARIABLES ====

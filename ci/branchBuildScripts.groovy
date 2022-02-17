@@ -121,6 +121,17 @@ Map getPropParsers () {
       }
     ],
 
+    VS_REBUILD_NODE_MODULES : [ 
+      default: "false", 
+      parser : { rawValue ->
+        String parsedValue = rawValue?.toString()?.toBoolean()?.toString()
+        if ( parsedValue == null ) {
+          error("Could not parse build property VS_REBUILD_NODE_MODULES (value: ${rawValue}) to boolean!")
+        }
+        return parsedValue
+      }
+    ],
+
     VS_BUILD_DESCRIPTION : [
       default: "VS.COM Jenkins Build",
       parser: { rawValue ->

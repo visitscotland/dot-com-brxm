@@ -79,7 +79,7 @@ if [ -z "$VS_CONTAINER_SSH_PASS_HIPPO" ]; then VS_CONTAINER_SSH_PASS_HIPPO=hippo
 if [ -z "$VS_CONTAINER_UPDATES_DIR" ]; then VS_CONTAINER_UPDATES_DIR="../files"; fi
 #  ==== SSR Application Variables ====
 if [ -z "$VS_FRONTEND_DIR" ]; then VS_FRONTEND_DIR=frontend; fi
-if [ -z "$VS_SSR_PACKAGE_VERSION"]; then VS_SSR_PACKAGE_VERSION="0.1.0"; fi
+if [ -z "$VS_SSR_PACKAGE_VERSION"]; then VS_SSR_PACKAGE_VERSION="package"; fi
 if [ -z "$VS_SSR_PACKAGE_SOURCE" ]; then VS_SSR_PACKAGE_SOURCE="$VS_FRONTEND_DIR/ssr/server/ $VS_FRONTEND_DIR/dist/ssr/ $VS_FRONTEND_DIR/node_modules/ $VS_FRONTEND_DIR/build/"; fi
 if [ -z "$VS_SSR_PACKAGE_TARGET" ]; then VS_SSR_PACKAGE_TARGET="./target"; fi
 if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME="vs-ssr-$VS_SSR_PACKAGE_VERSION.tar.gz"; fi
@@ -106,6 +106,7 @@ while [[ $# -gt 0 ]]; do
     --debug) if [ ! -z "$THIS_RESULT" ]; then VS_DEBUG=$THIS_RESULT; else VS_DEBUG=TRUE; fi;;
     --ci-dir) if [ ! -z "$THIS_RESULT" ]; then VS_CI_DIR=$THIS_RESULT; fi;;
     --frontend-dir) if [ ! -z "$THIS_RESULT" ]; then VS_FRONTEND_DIR=$THIS_RESULT; fi;;
+    --ssr-package-version)  if [ ! -z "$THIS_RESULT" ]; then VS_SSR_PACKAGE_VERSION=$THIS_RESULT; fi;;
     --persistence) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_PERSISTENCE_METHOD=$THIS_RESULT; fi;;
     --persistence-method) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_PERSISTENCE_METHOD=$THIS_RESULT; fi;;
     --preserve-container) if [ ! -z "$THIS_RESULT" ]; then VS_CONTAINER_PRESERVE=$THIS_RESULT; else VS_CONTAINER_PRESERVE=TRUE; fi;;
@@ -717,8 +718,8 @@ containerCreateAndStart() {
 
 containerUpdates() {
   # check files for updated versions, if the checksum matches we want to update
-  TEST_FILES=("/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-test")
-  TEST_SUMS=("5c92fa2dfbc167d0163c1dc1d8690bfa" "a15eed06d6840e95cc7d68c5223b79ae" "" "")
+  TEST_FILES=("/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-test")
+  TEST_SUMS=("5c92fa2dfbc167d0163c1dc1d8690bfa" "a15eed06d6840e95cc7d68c5223b79ae" "165ae4f494a092da25a68d70070d85fb" "" "")
   for i in ${!TEST_FILES[@]}; do
     THIS_FILE="${TEST_FILES[$i]}"
     THIS_SUM="${TEST_SUMS[$i]}"
@@ -732,7 +733,7 @@ containerUpdates() {
       THIS_TEST=`docker exec $VS_CONTAINER_NAME md5sum $THIS_FILE 2>>$VS_CONTAINER_CONSOLE_FILE | awk '{print $1}'`
       echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - sum now: $THIS_TEST"
     else
-      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - no match"
+      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - no match for: $THIS_TEST"
     fi
   done
   docker exec $VS_CONTAINER_NAME /bin/bash -c "find /usr/local/bin -type f | xargs chmod +x"
