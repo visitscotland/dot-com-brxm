@@ -109,6 +109,7 @@ pipeline {
           expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
 	        expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
           expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
+          expression {return env.VS_SKIP_MAVEN_BUILD != 'TRUE'}
         }
       }
       steps {
