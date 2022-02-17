@@ -657,11 +657,11 @@ rebuildNodeModules() {
       cd $OLDPWD
     fi
   else
-    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] VS_REBUILD_NODE_MODULES was set to" """$VS_REBUILD_NODE_MODULES""" "skipping node_modules rebuild"
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] VS_REBUILD_NODE_MODULES was set to" $VS_REBUILD_NODE_MODULES "skipping node_modules rebuild"
   fi
   VS_FUNCTION_ENDTIME=`date +%s`
-  VS_FUNCTION_RUNTIME=$((VS_FUNCTION_STARTTIME-VS_FUNCTION_ENDTIME))
-  echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " ${FUNCNAME[0]} " took " $VS_FUNCTION_RUNTIME " to run"
+  VS_FUNCTION_RUNTIME=$((VS_FUNCTION_END-VS_FUNCTION_STARTTIMETIME))
+  echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " ${FUNCNAME[0]} " took " $VS_FUNCTION_RUNTIME " seconds to run"
   echo ""
 }
 
@@ -682,8 +682,8 @@ packageSSRArtifact() {
         FAIL_REASON="Failed to package SSR app from $VS_FRONTEND_DIR, command exited with $RETURN_CODE"
       fi
       VS_FUNCTION_ENDTIME=`date +%s`
-      VS_FUNCTION_RUNTIME=$((VS_FUNCTION_STARTTIME-VS_FUNCTION_ENDTIME))
-      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " ${FUNCNAME[0]} " took " $VS_FUNCTION_RUNTIME " in size"
+      VS_FUNCTION_RUNTIME=$((VS_FUNCTION_ENDTIME-VS_FUNCTION_STARTTIME))
+      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " ${FUNCNAME[0]} " took " $VS_FUNCTION_RUNTIME " seconds to run"
       echo ""
     fi
   fi
