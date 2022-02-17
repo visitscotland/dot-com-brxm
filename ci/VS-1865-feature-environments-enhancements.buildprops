@@ -18,8 +18,8 @@ VS_SKIP_LIGHTHOUSE_TESTS : false,
 // Description: Describes this build for logging purposes
 VS_BUILD_DESCRIPTION : "VS.COM Jenkins Build",
 
-VS_SKIP_MAVEN_BUILD: TRUE,
+VS_SKIP_MAVEN_BUILD: true,
 
-VS_REBUILD_NODE_MODULES: TRUE,
+VS_REBUILD_NODE_MODULES: true,
 
 ]
