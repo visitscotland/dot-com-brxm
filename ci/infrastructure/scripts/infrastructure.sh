@@ -653,7 +653,7 @@ prepareSSRApp() {
       RETURN_CODE=$?; echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - return code: " $RETURN_CODE
       VS_NODE_MODULES_SIZE=`du -hs node_modules | awk '{print $1}'`
       echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " node_modules directory " is " $VS_NODE_MODULES_SIZE " in size"
-      
+      cd $OLDPWD
     fi
   fi
 }
