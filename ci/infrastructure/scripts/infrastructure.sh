@@ -79,9 +79,10 @@ if [ -z "$VS_CONTAINER_SSH_PASS_HIPPO" ]; then VS_CONTAINER_SSH_PASS_HIPPO=hippo
 if [ -z "$VS_CONTAINER_UPDATES_DIR" ]; then VS_CONTAINER_UPDATES_DIR="../files"; fi
 #  ==== SSR Application Variables ====
 if [ -z "$VS_FRONTEND_DIR" ]; then VS_FRONTEND_DIR=frontend; fi
+if [ -z "$VS_SSR_PACKAGE_VERSION"]; then VS_SSR_PACKAGE_VERSION="0.1.0"
 if [ -z "$VS_SSR_PACKAGE_SOURCE" ]; then VS_SSR_PACKAGE_SOURCE="$VS_FRONTEND_DIR/ssr/server/ $VS_FRONTEND_DIR/dist/ssr/ $VS_FRONTEND_DIR/node_modules/ $VS_FRONTEND_DIR/build/"; fi
 if [ -z "$VS_SSR_PACKAGE_TARGET" ]; then VS_SSR_PACKAGE_TARGET="./target"; fi
-if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME="vs-ssr-package.tar.gz"; fi
+if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME="vs-ssr-$VS_SSR_PACKAGE_VERSION.tar.gz"; fi
 if [ -z "$VS_SSR_PROXY_ON" ]; then VS_SSR_PROXY_ON="TRUE"; fi
 if [ -z "$VS_SSR_APP_PORT" ]; then VS_SSR_APP_PORT=8082; fi
 #  ==== Other Variables ====
@@ -638,6 +639,24 @@ findHippoArtifact() {
   fi
   echo ""
 }
+# prepare SSR app
+prepareSSRApp() {
+  if [ "$VS_SSR_PROXY_ON" = "TRUE" ] && [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] preparing SSR application"
+    if [ -d "$VS_FRONTEND_DIR" ]; then
+      cd $VS_FRONTEND_DIR
+      VS_NODE_MODULES_SIZE=`du -hs node_modules | awk '{print $1}'`
+      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " node_modules directory " is " $VS_NODE_MODULES_SIZE " in size"
+      mv node_modules node_modules.build
+      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] running npm install"
+      npm install > $VS_CI_DIR/logs/npm_install.log 2>&1
+      RETURN_CODE=$?; echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - return code: " $RETURN_CODE
+      VS_NODE_MODULES_SIZE=`du -hs node_modules | awk '{print $1}'`
+      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " node_modules directory " is " $VS_NODE_MODULES_SIZE " in size"
+      
+    fi
+  fi
+}
 
 # package SSR app files
 packageSSRArtifact() {
@@ -810,7 +829,7 @@ containerStartTailon() {
 
 exportVSVariables() {
   echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] exporting VS variables to $VS_LAST_ENV and $VS_LAST_ENV$VS_LAST_ENV_QUOTED_SUFFIX and $VS_LAST_ENV$VS_LAST_ENV_GROOVY_SUFFIX to $PWD" | tee -a $VS_SCRIPT_LOG
-  set | egrep "^(VS_)" | egrep -v "^VS_LOG_DATESTAMP" | tee $VS_LAST_ENV | sed -e "s/^/env./" -e "s/=\([^'$]\)/=\"\1/" -e "s/\([^'=]\)$/\1\"/" | tee $VS_LAST_ENV$VS_LAST_ENV_QUOTED_SUFFIX | sed -e "s/=/ = /" > $VS_LAST_ENV$VS_LAST_ENV_GROOVY_SUFFIX
+  set | egrep "^(VS_)" | egrep -v "^VS_LOG_DATESTAMP" | tee $VS_CI_DIR/$VS_LAST_ENV | sed -e "s/^/env./" -e "s/=\([^'$]\)/=\"\1/" -e "s/\([^'=]\)$/\1\"/" | tee $VS_CI_DIR/$VS_LAST_ENV$VS_LAST_ENV_QUOTED_SUFFIX | sed -e "s/=/ = /" > $VS_CI_DIR/$VS_LAST_ENV$VS_LAST_ENV_GROOVY_SUFFIX
 }
 
 copyVSVariables() {
@@ -953,6 +972,7 @@ case $METHOD in
     findBasePort
     findDynamicPorts
     findHippoArtifact
+    prepareSSRApp
     packageSSRArtifact
     if [ ! "$VS_CONTAINER_PRESERVE" == "TRUE" ]; then
       containerCreateAndStart
