@@ -642,7 +642,7 @@ findHippoArtifact() {
 }
 # prepare SSR app
 rebuildNodeModules() {
-  if [ "$VS_SSR_PROXY_ON" = "TRUE" ] && [ ( "$VS_REBUILD_NODE_MODULES" = "TRUE" || "$VS_REBUILD_NODE_MODULES" = "true" ) ] && [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
+  if [ "$VS_SSR_PROXY_ON" = "TRUE" && ( "$VS_REBUILD_NODE_MODULES" = "TRUE" || "$VS_REBUILD_NODE_MODULES" = "true" ) && ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
     VS_FUNCTION_STARTTIME=`date +%s`
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] rebuilding node_modules folder"
     if [ -d "$VS_FRONTEND_DIR" ]; then
