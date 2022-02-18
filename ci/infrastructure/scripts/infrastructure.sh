@@ -643,12 +643,12 @@ findHippoArtifact() {
 # prepare SSR app
 rebuildNodeModules() {
   if [[ "$VS_SSR_PROXY_ON" = "TRUE" && ( "$VS_REBUILD_NODE_MODULES" = "TRUE" || "$VS_REBUILD_NODE_MODULES" = "true" ) && ! "$SAFE_TO_PROCEED" = "FALSE" ]]; then
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] rebuilding node_modules directory"
     VS_FUNCTION_STARTTIME=`date +%s`
-    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] rebuilding node_modules folder"
     if [ -d "$VS_FRONTEND_DIR" ]; then
       cd $VS_FRONTEND_DIR
       VS_NODE_MODULES_SIZE=`du -hs node_modules | awk '{print $1}'`
-      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] node_modules directory is " $VS_NODE_MODULES_SIZE " in size"
+      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] node_modules directory is $VS_NODE_MODULES_SIZE in size"
       if [ -d "node_modules.build" ]; then rm -rf node_modules.build; fi
       mv --force node_modules node_modules.build
       echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] running npm install"
