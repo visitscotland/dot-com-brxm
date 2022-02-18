@@ -21,9 +21,12 @@ while [[ $# -gt 0 ]]; do
   if [ "$VS_DEBUG" == "TRUE" ]; then echo -en "\nread \"$THIS_VAR\" from command line"; fi
   case $THIS_VAR in
     --debug) if [ ! -z "$THIS_RESULT" ]; then VS_DEBUG=$THIS_RESULT; else VS_DEBUG=TRUE; fi;;
+    --no-db) VS_BRXM_PERSISTENCE_METHOD=h2;;
+    --nodb) VS_BRXM_PERSISTENCE_METHOD=h2;;
+    --persistence-method) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_PERSISTENCE_METHOD=$THIS_RESULT; else VS_BRXM_PERSISTENCE_METHOD=h2; fi;;
+    --repository-dir) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_REPOSITORY=$THIS_RESULT; fi;;
     --ssr-package-version) if [ ! -z "$THIS_RESULT" ]; then VS_SSR_PACKAGE_VERSION=$THIS_RESULT; fi;;
     --ssr-package-name) if [ ! -z "$THIS_RESULT" ]; then VS_SSR_PACKAGE_NAME=$THIS_RESULT; fi;;
-    --repository-dir) if [ ! -z "$THIS_RESULT" ]; then VS_BRXM_REPOSITORY=$THIS_RESULT; fi;;
     *)
       if [ "$DEBUG" == "TRUE" ]; then echo -en " - not a valid argument - SKIPPING"; fi
     ;;
@@ -45,6 +48,7 @@ TOMCAT_DIR_PREFIX=tomcat_
 #  == Java Variables ==
 JAVA_MAJOR_VERSION=8
 #  == VS Variables ==
+if [ -z $VS_BRXM_PERSISTENCE_METHOD]; then VS_BRXM_PERSISTENCE_METHOD=h2; fi
 if [ -z $VS_HIPPO_REPOSITORY_CLEAN ]; then VS_HIPPO_REPOSITORY_CLEAN=FALSE; fi
 if [ -z $VS_HIPPO_REPOSITORY_PERSIST ]; then VS_HIPPO_REPOSITORY_PERSIST=FALSE; fi
 # - use with caution as this can add ~20 minutes to environment-ready time while Lucene rebuilds its index
@@ -195,7 +199,7 @@ else
   echo "ZIP was not found - a vulnerable log4j JAR may still be in use"
 fi
 
-if [ "$1" == "no-db" ]||[ "$1" == "nodb" ]; then
+if [ "$VS_BRXM_PERSISTENCE_METHOD" == "h2" ]||[ "$VS_BRXM_PERSISTENCE_METHOD" == "nodb" ]; then
   echo " - $1 stated, applying basic context.xml"
   cp -f $CATALINA_BASE/conf/context.xml.nodb $CATALINA_BASE/conf/context.xml
   echo " - $1 stated, applying basic setenv.sh"
