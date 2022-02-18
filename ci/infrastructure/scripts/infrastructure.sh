@@ -643,7 +643,7 @@ findHippoArtifact() {
 # prepare SSR app
 rebuildNodeModules() {
   VS_FUNCTION_STARTTIME=`date +%s`
-  if [ "$VS_SSR_PROXY_ON" = "TRUE" ] && [ "$VS_REBUILD_NODE_MODULES" = "TRUE" ] && [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
+  if [ "$VS_SSR_PROXY_ON" = "TRUE" ] && [ "$VS_REBUILD_NODE_MODULES" = "TRUE" || "$VS_REBUILD_NODE_MODULES" = "true" ] && [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] rebuilding node_modules folder"
     if [ -d "$VS_FRONTEND_DIR" ]; then
       cd $VS_FRONTEND_DIR
@@ -656,14 +656,15 @@ rebuildNodeModules() {
       VS_NODE_MODULES_SIZE=`du -hs node_modules | awk '{print $1}'`
       echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " node_modules directory " is " $VS_NODE_MODULES_SIZE " in size"
       cd $OLDPWD
+      VS_FUNCTION_ENDTIME=`date +%s`
+      VS_FUNCTION_RUNTIME=$((VS_FUNCTION_END-VS_FUNCTION_STARTTIMETIME))
+      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " ${FUNCNAME[0]} " took " $VS_FUNCTION_RUNTIME " seconds to run"
+      echo ""
     fi
   else
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] VS_REBUILD_NODE_MODULES was set to" $VS_REBUILD_NODE_MODULES "skipping node_modules rebuild"
+    echo ""
   fi
-  VS_FUNCTION_ENDTIME=`date +%s`
-  VS_FUNCTION_RUNTIME=$((VS_FUNCTION_END-VS_FUNCTION_STARTTIMETIME))
-  echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " ${FUNCNAME[0]} " took " $VS_FUNCTION_RUNTIME " seconds to run"
-  echo ""
 }
 
 # package SSR app files
