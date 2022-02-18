@@ -649,16 +649,17 @@ rebuildNodeModules() {
       cd $VS_FRONTEND_DIR
       VS_NODE_MODULES_SIZE=`du -hs node_modules | awk '{print $1}'`
       echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] node_modules directory is " $VS_NODE_MODULES_SIZE " in size"
+      if [ -d "node_modules.build" ]; then rm -rf node_modules.build; fi
       mv --force node_modules node_modules.build
       echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] running npm install"
       npm install > $VS_CI_DIR/logs/npm_install.log 2>&1
       RETURN_CODE=$?; echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - return code: " $RETURN_CODE
       VS_NODE_MODULES_SIZE=`du -hs node_modules | awk '{print $1}'`
-      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] node_modules directory is " $VS_NODE_MODULES_SIZE " in size"
+      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] node_modules directory is $VS_NODE_MODULES_SIZE in size"
       cd $OLDPWD
       VS_FUNCTION_ENDTIME=`date +%s`
-      VS_FUNCTION_RUNTIME=$((VS_FUNCTION_END-VS_FUNCTION_STARTTIMETIME))
-      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " ${FUNCNAME[0]} " took " $VS_FUNCTION_RUNTIME " seconds to run"
+      VS_FUNCTION_RUNTIME=$((VS_FUNCTION_ENDTIME-VS_FUNCTION_STARTTIMETIME))
+      echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] ${FUNCNAME[0]} took $VS_FUNCTION_RUNTIME seconds to run"
       echo ""
     fi
   else
@@ -677,7 +678,7 @@ packageSSRArtifact() {
       RETURN_CODE=$?; echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - return code: " $RETURN_CODE
       if [ -a $VS_SSR_PACKAGE_TARGET/$VS_SSR_PACKAGE_NAME ]; then
         VS_SSR_PACKAGE_SIZE=`ls -alh $VS_SSR_PACKAGE_TARGET/$VS_SSR_PACKAGE_NAME | awk '{print $5}'`
-        echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] " $VS_SSR_PACKAGE_NAME " is " $VS_SSR_PACKAGE_SIZE " in size"
+        echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] $VS_SSR_PACKAGE_NAME is $VS_SSR_PACKAGE_SIZE in size"
       fi
       if [ ! "$RETURN_CODE" = "0" ]; then
         SAFE_TO_PROCEED=FALSE
@@ -686,7 +687,7 @@ packageSSRArtifact() {
     fi
     VS_FUNCTION_ENDTIME=`date +%s`
     VS_FUNCTION_RUNTIME=$((VS_FUNCTION_ENDTIME-VS_FUNCTION_STARTTIME))
-    echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] " ${FUNCNAME[0]} " took " $VS_FUNCTION_RUNTIME " seconds to run"
+    echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] ${FUNCNAME[0]} took $VS_FUNCTION_RUNTIME seconds to run"
     echo ""
     
   fi
