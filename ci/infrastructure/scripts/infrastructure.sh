@@ -805,9 +805,9 @@ containerStartHippo() {
     #echo "about to execute $VS_DOCKER_CMD in container $VS_CONTAINER_NAME"
     #eval $VS_DOCKER_CMD 
     if [ "$VS_BRXM_PERSISTENCE_METHOD" == "mysql" ]; then
-      VS_DOCKER_CMD='docker exec -d $VS_CONTAINER_NAME /bin/bash -c "/usr/local/bin/vs-hippo >> $VS_CONTAINER_CONSOLE_FILE"'
+      VS_DOCKER_CMD='docker exec -d $VS_CONTAINER_NAME /bin/bash -c "/usr/local/bin/vs-hippo --persistence-method=mysql >> $VS_CONTAINER_CONSOLE_FILE"'
     else
-      VS_DOCKER_CMD='docker exec -d $VS_CONTAINER_NAME /bin/bash -c "/usr/local/bin/vs-hippo nodb >> $VS_CONTAINER_CONSOLE_FILE"'
+      VS_DOCKER_CMD='docker exec -d $VS_CONTAINER_NAME /bin/bash -c "/usr/local/bin/vs-hippo --persistence-method=h2 >> $VS_CONTAINER_CONSOLE_FILE"'
     fi
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] about to execute VS_DOCKER_CMD in container $VS_CONTAINER_NAME"
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - $VS_DOCKER_CMD"
