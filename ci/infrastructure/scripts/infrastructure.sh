@@ -689,7 +689,6 @@ packageSSRArtifact() {
     VS_FUNCTION_RUNTIME=$((VS_FUNCTION_ENDTIME-VS_FUNCTION_STARTTIME))
     echo "`eval $VS_LOG_DATESTAMP` DEBUG [$VS_SCRIPTNAME] ${FUNCNAME[0]} took $VS_FUNCTION_RUNTIME seconds to run"
     echo ""
-    
   fi
 }
 
