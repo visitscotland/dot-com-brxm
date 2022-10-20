@@ -17,9 +17,28 @@
     >
         <vs-megalink-multi-image
             img-src="${image}"
+            theme="${theme}"
             link-type="${megalink.type}"
             link-url="${megalink.link}"
-            theme="${theme}"
+            error-message="${label('essentials.global', 'third-party-error')}"
+            <#if megalink.itineraryTransport??>
+                transport="${megalink.itineraryTransport}"
+                transport-name="${label('transports', megalink.itineraryTransport)}"
+            </#if>
+            <#if megalink.itineraryDays??>
+                <#if megalink.itineraryDays = 1>
+                    days-label="${label('itinerary', 'day')}"
+                <#else>
+                    days-label="${label('itinerary', 'days')}"
+                </#if>
+                days="${megalink.itineraryDays}"
+            <#else>
+                days-label="${label('itinerary', 'day')}"
+            </#if>
+            <#if megalink.youtubeId??>
+                video-id="${megalink.youtubeId}"
+                video-btn-text="${label('video', 'video.play-btn')}"
+            </#if>
         >
             <template slot="vsMultiImageHeading">
                 ${megalink.label}</template>

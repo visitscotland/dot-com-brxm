@@ -40,7 +40,7 @@ class ResourceBundleServiceTest {
         lenient().when(registry.getBundle(BUNDLE)).thenReturn(fbBundle);
         lenient().when(registry.getBundle(BUNDLE, Locale.UK)).thenReturn(bundle);
 
-        service = new ResourceBundleService(new CommonUtilsService());
+        service = new ResourceBundleService();
 
         service.setResourceBundleRegistry(registry);
 
@@ -192,8 +192,8 @@ class ResourceBundleServiceTest {
     void getPlainLink_fromVideo(){
         lenient().when(registry.getBundle("essentials.global", Locale.GERMAN)).thenReturn(bundle);
 
-        when(bundle.containsKey("video.default-caption")).thenReturn(true);
-        when(bundle.getString("video.default-caption")).thenReturn("Play Video");
+        when(bundle.containsKey("video.play-btn")).thenReturn(true);
+        when(bundle.getString("video.play-btn")).thenReturn("Play Video");
 
         assertEquals("Watch it!",service.getVideoCtaLabel("Watch it!", Locale.GERMAN));
         assertEquals("Play Video",service.getVideoCtaLabel("", Locale.GERMAN));

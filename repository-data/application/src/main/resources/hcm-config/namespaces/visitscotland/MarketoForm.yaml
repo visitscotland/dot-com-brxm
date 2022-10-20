@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 32ed2976-e829-470e-bdc8-1af3868b6fe3
+          jcr:uuid: e212f562-1fe4-45b0-b990-09acbad4c4fd
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -24,25 +24,6 @@ definitions:
             hipposysedit:path: visitscotland:title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /marketoId:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:marketoId
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /munchkinId:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:munchkinId
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
           /translation:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -51,14 +32,32 @@ definitions:
             hipposysedit:path: visitscotland:translation
             hipposysedit:primary: false
             hipposysedit:type: OpenUiString
-          /guide:
+          /copy:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:guide
+            hipposysedit:path: visitscotland:copy
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [optional]
+          /configuration:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:jsonUrl
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, url]
+          /nonJavaScriptMessage:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:nonJavaScriptMessage
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -71,26 +70,12 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          visitscotland:marketoId: ''
-          visitscotland:munchkinId: ''
-          jcr:uuid: 4337de46-254a-42b5-bf3f-d069c480e441
+          jcr:uuid: 92e72440-56a6-49bd-9d96-936f4cbefe50
           hippostdpubwf:lastModificationDate: 2021-05-14T11:09:19.663+01:00
           hippostdpubwf:creationDate: 2021-05-14T11:09:19.664+01:00
           visitscotland:translation: ''
-          /visitscotland:guide:
-            jcr:primaryType: hippostd:html
-            hippostd:content: |-
-              <h3>Marketo id in Red</h3>
-
-              <h3>Munchkin id in Green</h3>
-
-              <p><img src="marketocode.jpg/{_document}/hippogallery:original" /></p>
-            /marketocode.jpg:
-              jcr:primaryType: hippo:facetselect
-              hippo:docbase: 87ed3d38-9b88-4b83-9da2-e3800afb6a87
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
+          visitscotland:nonJavaScriptMessage: ''
+          visitscotland:jsonUrl: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -108,38 +93,41 @@ definitions:
             field: title
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /marketoId:
-            jcr:primaryType: frontend:plugin
-            caption: Marketo Id
-            field: marketoId
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /munchkinId:
-            jcr:primaryType: frontend:plugin
-            caption: Munchkin Id
-            field: munchkinId
             hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /guide:
+              size: ''
+          /copy:
             jcr:primaryType: frontend:plugin
-            caption: Marketo Fields Guide
-            field: guide
+            caption: Copy
+            field: copy
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
+            hint: 'Recommended length: 250 characters'
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.appended.json: '{ readOnly : true}'
-              ckeditor.config.overlayed.json: '{toolbarGroups: [{ name: ''links''
-                },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
-                , removeButtons: ''Youtube,Table''}'
+              ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
+                {countSpacesAsChars: true, showCharCount: true, maxCharCount: 375}}'
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+          /jsonUrl:
+            jcr:primaryType: frontend:plugin
+            caption: Configuration JSON URL
+            field: configuration
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /nonJavaScriptMessage:
+            jcr:primaryType: frontend:plugin
+            caption: Non-JavaScript message
+            field: nonJavaScriptMessage
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation

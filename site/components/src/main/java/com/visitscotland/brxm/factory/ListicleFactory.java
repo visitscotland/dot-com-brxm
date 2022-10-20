@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
@@ -115,15 +116,22 @@ public class ListicleFactory {
             DMSLink dmsLink = (DMSLink) link;
             JsonNode product = dmsData.productCard(dmsLink.getProduct(), locale);
             if (product == null) {
-                contentLogger.warn("There is no product with the id '{}', ({}) ", dmsLink.getProduct(), link.getPath());
-                module.addErrorMessage("Main Link: There is no a product with the id " + dmsLink.getProduct());
+                String message = String.format("The DMS product added to '%s' was not found, please review the DMS Product id field in the document %s at: %s ", module.getTitle(), dmsLink.getDisplayName(), dmsLink.getPath());
+                contentLogger.warn(message);
+                module.addErrorMessage(message);
             }else {
-                processDMSMainProduct(module, dmsLink, product);
+                processDMSMainProduct(locale, module, dmsLink, product);
                 return linksService.createDmsLink(locale, dmsLink, product);
             }
         } else if (link instanceof CMSLink) {
             CMSLink cmsLink = (CMSLink) link;
-            EnhancedLink eLink = linksService.createEnhancedLink((Linkable) cmsLink.getLink(), module, locale,false);
+            Optional<EnhancedLink> optionalLink = linksService.createEnhancedLink((Linkable) cmsLink.getLink(), module, locale,false);
+            if (!optionalLink.isPresent()) {
+                String linkPath = cmsLink.getLink() == null ? "" : cmsLink.getLink().getPath();
+                contentLogger.error("Failed to add main product link to listicle item {} - check link is valid and published", linkPath);
+                return null;
+            }
+            EnhancedLink eLink = optionalLink.get();
             //Override default link label when the module has an override text
             if (!Contract.isEmpty(cmsLink.getLabel())){
                 eLink.setCta(linksService.formatLabel(cmsLink.getLink(), cmsLink.getLabel(), module, locale));
@@ -154,13 +162,14 @@ public class ListicleFactory {
      * Facilities are loaded from the dmsItem. Subtitle, Image and Coordinates are set only when the listicle item has
      * not defined the values
      */
-    private void processDMSMainProduct(ListicleModule item, DMSLink dmsLink, JsonNode product) {
+    private void processDMSMainProduct(Locale locale, ListicleModule item, DMSLink dmsLink, JsonNode product) {
         if (product == null) {
-            item.addErrorMessage("The product id does not match in the DMS");
-            contentLogger.warn("The product id was not provided or the product was not found (id={}), Listicle = {} - {}",  dmsLink.getProduct(), item.getHippoBean(), item.getHippoBean().getTitle());
+            String message = String.format("The DMS product added to '%s' was not found, please review the DMS Product id field in the document %s at: %s ", item.getTitle(), dmsLink.getDisplayName(), dmsLink.getPath());
+            item.addErrorMessage(message);
+            contentLogger.warn(message);
         } else {
             if (item.getImage() == null) {
-                item.setImage(imageFactory.createImage(product, item));
+                item.setImage(imageFactory.createImage(product, item, locale));
             } else if (item.getImage().getCoordinates() == null && product.has(LATITUDE)) {
                 Coordinates coordinates = new Coordinates(product.get(LATITUDE).asDouble(), product.get(LONGITUDE).asDouble());
                 item.getImage().setCoordinates(coordinates);

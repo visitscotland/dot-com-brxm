@@ -17,6 +17,7 @@
                         :href="href"
                         svg-fill="#ffffff"
                         svg-path="vs-logo"
+                        link-variant="on-dark"
                     />
 
                     <p class="vs-footer-copyright__text">
@@ -36,7 +37,7 @@ import VsSvgLink from '@components/elements/svg-link/SvgLink';
 
 import {
     VsRow, VsContainer, VsCol,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 
 /**
  * The VsFooterCopyright holds an image and copyright notices for the footer.
@@ -98,14 +99,14 @@ export default {
     .vs-footer-copyright__text {
         color: $color-white;
         margin: 0;
-        font-size: $font-size-sm;
+        font-size: $font-size-2;
 
         @include media-breakpoint-up(lg) {
-            font-size: $small-font-size;
+            font-size: $font-size-3;
         }
 
         @include media-breakpoint-up(xl) {
-            font-size: $font-size-base;
+            font-size: $font-size-4;
         }
     }
 }

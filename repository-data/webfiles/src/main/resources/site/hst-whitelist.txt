@@ -23,3 +23,5 @@ assets/
 fonts/
 js/
 frontend/
+static/
+manifest.webmanifest

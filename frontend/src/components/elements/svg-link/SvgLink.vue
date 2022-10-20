@@ -3,6 +3,8 @@
         class="vs-svg-link"
         data-test="vs-svg-link"
         :href="href"
+        :data-layer-value="dataLayerValue"
+        :variant="linkVariant"
     >
         <span
             class="sr-only"
@@ -15,6 +17,8 @@
             focusable="false"
             :path="svgPath"
             :fill="svgFill"
+            :width="svgWidth"
+            :height="svgHeight"
         />
     </VsLink>
 </template>
@@ -24,7 +28,8 @@ import VsSvg from '@components/elements/svg/Svg';
 import VsLink from '@components/elements/link/Link';
 
 /**
- * A component for an SVG wrapped in a link with accessible sr-only text
+ * An SVG link component provides an SVG wrapped in a
+ * link with accessible screen reader text.
  *
  * @displayName SVG Link
  */
@@ -38,46 +43,63 @@ export default {
     },
     props: {
         /**
-         * Accessiblity alt text for the svg link
+         * Accessiblity alt text for the SVG link
          */
         linkAltText: {
             type: String,
             required: true,
         },
         /**
-         * URL for the svg link
+         * The URL for the SVG link
          */
         href: {
             type: String,
             required: true,
         },
         /**
-         * Fill colour for svg
+         * The fill color of the SVG
          */
         svgFill: {
             type: String,
             default: '',
         },
         /**
-         * Path to svg to display on the svg link
+         * The path of the SVG to display, relative to /src/assets
          */
         svgPath: {
             type: String,
             required: true,
         },
+        /**
+         * The height attribute of the SVG
+         */
+        svgHeight: {
+            type: [Number, String],
+            default: '',
+        },
+        /**
+         * The width attribute of the SVG
+         */
+        svgWidth: {
+            type: [Number, String],
+            default: '',
+        },
+        /**
+        * If the click should trigger a dataLayerPush
+        */
+        dataLayerValue: {
+            type: String,
+            default: null,
+        },
+        /**
+         * Option to choose a pre-defined link variant
+         * `primary|on-dark`
+         */
+        linkVariant: {
+            type: String,
+            default: 'primary',
+            validator: (value) => value.match(/(primary|on-dark)/),
+        },
     },
 };
 </script>
-
-<docs>
-```jsx
-    <BsWrapper style="width: 200px;">
-        <VsSvgLink
-            link-alt-text="VisitScotland Home"
-            href="/"
-            svg-fill="#700e57"
-            svg-path="visitscotland"
-        />
-    </BsWrapper>
-```
-</docs>

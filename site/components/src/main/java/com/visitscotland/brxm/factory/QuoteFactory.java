@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.Optional;
 
 @Component
 public class QuoteFactory {
@@ -39,15 +40,18 @@ public class QuoteFactory {
 
         if (doc.getProduct() != null) {
             if (doc.getProduct().getLink() instanceof Linkable) {
-                EnhancedLink link = linkService.createEnhancedLink((Linkable) doc.getProduct().getLink(), module, locale, false);
-                if (link != null) {
-                    link.setLabel(linkService.createFindOutMoreLink(module, locale, doc.getProduct()).getLabel());
+                Optional<EnhancedLink> optionalLink = linkService.createEnhancedLink((Linkable) doc.getProduct().getLink(), module, locale, false);
+                if (optionalLink.isPresent()) {
+                    EnhancedLink link = optionalLink.get();
+                    link.setLabel(doc.getProduct().getLabel() != null? doc.getProduct().getLabel():link.getCta());
+                    if (link.getLabel() != null) {
+                        link.setLabel(linkService.createFindOutMoreLink(module, locale, doc.getProduct()).getLabel());
+                    }
                     quote.setLink(link);
                 }
             }
 
             if (quote.getLink() == null) {
-                module.addErrorMessage("The product provided for the quote is not valid, please review the document at: " + doc.getPath());
                 contentLogger.warn("The Product for this iCentre ({})is not a valid link.", doc.getPath());
             }
         }

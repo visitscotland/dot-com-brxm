@@ -2,16 +2,17 @@
 <#include "../../../../frontend/components/vs-article.ftl">
 
 <#include "../../global/image-with-caption.ftl">
-<#include "../../global/cms-errors.ftl">
+<#include "../../global/preview-warning.ftl">
 
 <#include "article-section.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.ArticleModule" -->
 <#-- @ftlvariable name="section" type="com.visitscotland.brxm.model.ArticleModuleSection" -->
+<#-- @ftlvariable name="editMode" type="java.lang.Boolean"-->
 
 <#macro article module>
     <@hst.manageContent hippobean=module.hippoBean />
-    <@cmsErrors errors=module.errorMessages!"" editMode=editMode />
+    <@previewWarning editMode module module.errorMessages />
 
     <#if module.image??>
         <#if module.image.cmsImage??>
@@ -25,20 +26,15 @@
         <#assign image = "" />
     </#if>
 
-    <vs-article>
+    <vs-article
+        title="${module.title}"
+        anchor-link="<#if module.anchor?has_content>${module.anchor}</#if>"
+    >
         <#if image?? && image?has_content>
             <template slot="vsArticleImg">
                 <@imageWithCaption imageSrc=image imageDetails=module.image />
             </template>
         </#if>
-
-        <template slot="vsArticleTitle">
-            <#if module.anchor?has_content>
-                <span id="${module.anchor}">${module.title}</span>
-            <#else>
-                ${module.title}
-            </#if>
-        </template>
 
         <template slot="vsArticleIntro">
             <@hst.html hippohtml=module.introduction/>

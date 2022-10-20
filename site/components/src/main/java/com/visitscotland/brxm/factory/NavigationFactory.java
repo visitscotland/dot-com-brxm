@@ -2,11 +2,14 @@ package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.components.navigation.MenuItem;
 import com.visitscotland.brxm.components.navigation.RootMenuItem;
+import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.hippobeans.CMSLink;
 import com.visitscotland.brxm.hippobeans.FeaturedWidget;
 import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.brxm.hippobeans.ProductsSearch;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.model.navigation.FeaturedEvent;
 import com.visitscotland.brxm.model.navigation.FeaturedItem;
 import com.visitscotland.brxm.model.navigation.NavigationWidget;
 import com.visitscotland.brxm.services.LinkService;
@@ -22,10 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.MissingFormatArgumentException;
+import java.util.*;
 
 @Component
 public class NavigationFactory {
@@ -36,15 +36,18 @@ public class NavigationFactory {
     static final String STATIC = "navigation.static";
     static final String CTA_SUFFIX = ".cta";
     static final String NAVIGATION_PREFIX = "navigation.";
+    static final String WIDGET_LIST = "widgetList";
 
     private ResourceBundleService bundle;
     private HippoUtilsService utils;
     private LinkService linkService;
+    private ProductSearchBuilder productSearchBuilder;
 
-    public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService) {
+    public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService, ProductSearchBuilder productSearchBuilder) {
         this.bundle = bundle;
         this.utils = utils;
         this.linkService = linkService;
+        this.productSearchBuilder = productSearchBuilder;
     }
 
     /**
@@ -115,7 +118,7 @@ public class NavigationFactory {
      */
     private NavigationWidget createWidget(HstRequest request, HippoBean bean) {
         if (bean instanceof FeaturedWidget) {
-           return addFeatureItem((FeaturedWidget) bean, request.getLocale());
+            return addFeatureItem((FeaturedWidget) bean, request);
         } else {
             contentLogger.warn("Skipping Unexpected document type: {}", bean.getClass().getSimpleName());
         }
@@ -126,28 +129,65 @@ public class NavigationFactory {
     /**
      * Adds a Featured Navigation Widget
      */
-    private NavigationWidget addFeatureItem(FeaturedWidget document, Locale locale) {
-       FeaturedItem widget = new FeaturedItem();
-        ArrayList<EnhancedLink> items = new ArrayList<>();
+    private NavigationWidget addFeatureItem(FeaturedWidget document, HstRequest request) {
+        NavigationWidget widget;
+        if (document.getItems().size() == 1 && document.getItems().get(0) instanceof ProductsSearch) {
+            widget = addFeatureEvent((ProductsSearch) document.getItems().get(0), document, request.getLocale());
+        } else {
+            List<CMSLink> cmsLinks = new ArrayList<>();
+            for (HippoBean item : document.getItems()) {
+                if (!(item instanceof CMSLink)) {
+                    contentLogger.error("{} found in featured item - expected CMSLink", item.getClass().getSimpleName());
+                    return null;
+                }
+                cmsLinks.add((CMSLink) item);
+            }
+            return addFeatureItem(cmsLinks, document, request);
+        }
+        return widget;
+    }
 
-        for (CMSLink cmsLink : document.getItems()) {
+    private FeaturedItem addFeatureItem(List<CMSLink> cmsLinks, FeaturedWidget document, HstRequest request) {
+        FeaturedItem widget = new FeaturedItem();
+
+        List<EnhancedLink> enhancedLinks = new ArrayList<>();
+        for (CMSLink cmsLink : cmsLinks) {
             if (!(cmsLink.getLink() instanceof Linkable)){
                 contentLogger.warn("An incorrect Type of link has been set in a featured item: {}", document.getPath());
                 continue;
             }
-            EnhancedLink link = linkService.createEnhancedLink((Linkable) cmsLink.getLink(), widget, locale, false);
+            Optional<EnhancedLink> optionalLink = linkService.createEnhancedLink((Linkable) cmsLink.getLink(), widget, request.getLocale(), false);
 
-            if (!Contract.isEmpty(cmsLink.getLabel())){
-                link.setCta(cmsLink.getLabel());
-            } else {
-                contentLogger.warn("A CTA Text has not been provided for the featured Item {}", document.getPath());
+            if (!optionalLink.isPresent()) {
+                contentLogger.warn("Failed to create widget: {}. Check link is published & valid", document.getPath());
+                continue;
             }
-            items.add(link);
+            EnhancedLink link = optionalLink.get();
+            link.setCta(bundle.getCtaLabel(cmsLink.getLabel(), request.getLocale()));
+            enhancedLinks.add(link);
         }
-
-        widget.setLinks(items);
         widget.setHippoBean(document);
+        widget.setLinks(enhancedLinks);
+
+        if (widget.getErrorMessages() != null ) {
+            List<FeaturedItem> listWidget;
+            if (request.getModel(WIDGET_LIST) == null) {
+                listWidget = new ArrayList<>();
+            } else {
+                listWidget = request.getModel(WIDGET_LIST);
+            }
+            listWidget.add(widget);
+            request.setModel(WIDGET_LIST, listWidget);
+        }
         return widget;
+    }
+
+    private FeaturedEvent addFeatureEvent(ProductsSearch productsSearch, FeaturedWidget document, Locale locale) {
+        String productSearchApi = productSearchBuilder.fromHippoBean(productsSearch).size(1).locale(locale).buildCannedSearch();
+        FeaturedEvent featuredEvent = new FeaturedEvent();
+        featuredEvent.setApiUrl(productSearchApi);
+        featuredEvent.setHippoBean(document);
+        return featuredEvent;
     }
 
     /**
@@ -159,6 +199,8 @@ public class NavigationFactory {
      * @param locale   Request Locale
      */
     private void createMenuItemFromPage(MenuItem menuItem, Page document, String bundleId, Locale locale) {
+        menuItem.setPage(document);
+
         //If the menu hasn't been set we use the title coming from the document.
         if (Contract.isEmpty(menuItem.getTitle())) {
             if (!Contract.isEmpty(document.getBreadcrumb())) {

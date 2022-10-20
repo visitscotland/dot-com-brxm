@@ -3,10 +3,10 @@
 <#include "./multi-image/megalinks-multi-image.ftl">
 <#include "./link-list/megalinks-link-list.ftl">
 <#include "./single-image/megalinks-single-image.ftl">
-<#include "../../global/cms-errors.ftl">
+<#include "../../global/preview-warning.ftl">
 
 <#macro megalinks item type theme="">
-    <@cmsErrors errors=item.errorMessages!"" editMode=editMode />
+
 
     <#if type=="MultiImageLinksModule">
         <#assign variant = "multi-image">
@@ -20,12 +20,17 @@
         <#assign showTeaser = item.teaserVisible?string('true', 'false') />
     </#if>
 
+    <@previewWarning editMode item item.errorMessages/>
     <vs-megalinks 
         variant="${variant}"
         title="${item.title}"
         theme="${theme}"
         <#if item.cta?? && type != "SingleImageLinksModule">button-link="${item.cta.link}"</#if>
+        no-cookies-message="${label('video', 'video.no-cookies')}"
+        cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
+        no-js-message="${label('video', 'video.no-js')}"
     >
+
         <template slot="vsMegalinksHeading">
             ${item.title}
         </template>

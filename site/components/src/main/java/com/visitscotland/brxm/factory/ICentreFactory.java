@@ -3,7 +3,6 @@ package com.visitscotland.brxm.factory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.hippobeans.ICentre;
 import com.visitscotland.brxm.hippobeans.Image;
-import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ICentreModule;
 import com.visitscotland.brxm.model.LinkType;
@@ -20,6 +19,7 @@ import com.visitscotland.utils.DataServiceUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import vs.ase.dms.ProductTypes;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -113,7 +113,6 @@ public class ICentreFactory {
         if (!Contract.isEmpty(location)) {
             return getVicList(location, locale);
         } else {
-            //TODO: Create labels
             String url = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link", locale);
             String text = bundle.getResourceBundle(BUNDLE_ID, "icentre.description.link.text", locale);
 
@@ -147,8 +146,8 @@ public class ICentreFactory {
                     child.get(DMSConstants.MapSearch.PROPERTIES).has(DMSConstants.MapSearch.ID)) {
                 String label = child.get(DMSConstants.MapSearch.PROPERTIES).get(DMSConstants.MapSearch.NAME).asText();
                 String id = child.get(DMSConstants.MapSearch.PROPERTIES).get(DMSConstants.MapSearch.ID).asText();
-                String languagePath = Language.getLanguageForLocale(locale).getDMSPathVariable();
-                String url = properties.getDmsHost() + DataServiceUtils.getProductURL(label, id, DMSConstants.TYPE_SERVICES, languagePath);
+                String languagePath = Language.getLanguageForLocale(locale).getPathVariable();
+                String url = properties.getDmsHost() + DataServiceUtils.getProductURL(label, id, ProductTypes.TOURIST_INFO.getUrlPath(), languagePath);
                 vicList.add(new FlatLink(label, url, LinkType.INTERNAL));
             }
         }

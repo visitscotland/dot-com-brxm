@@ -69,17 +69,7 @@ export default {
         }
 
         &__outro {
-            font-size: $small-font-size;
+            font-size: $font-size-3;
         }
     }
 </style>
-
-<docs>
-```jsx
-    <VsCannedSearchPrice
-        priceIntro="Price from"
-        price="£110"
-        priceOutro="Per room per night (breakfast inc.)"
-    />
-```
-</docs>

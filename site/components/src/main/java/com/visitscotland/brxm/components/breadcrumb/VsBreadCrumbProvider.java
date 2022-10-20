@@ -11,10 +11,12 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenuItem;
 import org.onehippo.forge.breadcrumb.components.BreadcrumbProvider;
+import org.onehippo.forge.breadcrumb.om.Breadcrumb;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collections;
 import java.util.List;
 
 
@@ -36,9 +38,26 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
         super(component);
     }
 
+    @Override
+    public Breadcrumb getBreadcrumb(HstRequest request) {
+        Breadcrumb breadcrumb;
+        try {
+            breadcrumb = super.getBreadcrumb(request);
+
+            if (breadcrumb.getItems().isEmpty() && request.getRequestContext().getContentBean() != null) {
+                breadcrumb = new Breadcrumb(Collections.singletonList(getBreadcrumbItem(request, request.getRequestContext().getContentBean())), breadcrumb.getSeparator(), null);
+            }
+        } catch (NullPointerException e){
+            breadcrumb = new Breadcrumb(Collections.singletonList(getBreadcrumbItem(request, request.getRequestContext().getContentBean())), "|", null);
+        }
+
+        return breadcrumb;
+    }
+
     /**
      * Create a Breadcrumb item from a Navigation Item (MenuItem).
      */
+    @Override
     protected BreadcrumbItem getBreadcrumbItem(HstRequest request, HstSiteMenuItem menuItem) {
         if (menuItem.resolveToSiteMapItem() != null) {
             HippoBean bean = getComponent().getBeanForResolvedSiteMapItem(request, menuItem.resolveToSiteMapItem());
@@ -60,6 +79,7 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
     /**
      * Creates a breadcrumb item from a Content driven page (Hippo bean)
      */
+    @Override
     protected BreadcrumbItem getBreadcrumbItem(final HstRequest request, final HippoBean bean,
                                                final boolean navigationStateful) {
         final HstRequestContext context = request.getRequestContext();

@@ -15,14 +15,9 @@ public class ResourceBundleService {
 
     private static final Logger logger = LoggerFactory.getLogger(ResourceBundleService.class.getName());
     private static final Logger contentLogger = LoggerFactory.getLogger("content");
+    private static final String GLOBAL_BUNDLE_FILE = "essentials.global";
 
     ResourceBundleRegistry registry;
-
-    private CommonUtilsService common;
-
-    public ResourceBundleService (CommonUtilsService common){
-        this.common = common;
-    }
 
     /**
      * ResourceBundleRegistry is not a Spring Component, therefore when Spring is wiring the component it cannot
@@ -35,8 +30,6 @@ public class ResourceBundleService {
         }
         return registry;
     }
-
-
 
     /**
      * Gets a string for the given key from this resource bundle or one of its parents.
@@ -118,7 +111,7 @@ public class ResourceBundleService {
                 if (Contract.isEmpty(value) && locale != null && !optional) {
                     value = getResourceBundle(bundleName,key, (Locale) null, false);
                     if (!Contract.isEmpty(value)) {
-                        logContentIssue("The label key {} does not exists for the %s channel. Resource Bundle key {}", key, bundle.getLocale(), bundleName);
+                        logContentIssue("The label key {} does not exists for the {} channel. Resource Bundle key {}", key, locale, bundleName);
                     }
                 }
             }
@@ -186,7 +179,7 @@ public class ResourceBundleService {
         if (!Contract.isEmpty(overrideText)) {
             return overrideText;
         } else {
-            return getResourceBundle("essentials.global", bundleKey,  locale);
+            return getResourceBundle(GLOBAL_BUNDLE_FILE, bundleKey,  locale);
         }
     }
 
@@ -195,6 +188,10 @@ public class ResourceBundleService {
     }
 
     public String getVideoCtaLabel(String overrideText, Locale locale){
-        return getCtaLabel(overrideText, "video.default-caption", locale);
+        return getCtaLabel(overrideText, "video.play-btn", locale);
+    }
+
+    public String getFindOutMoreAboutCta(String title, Locale locale) {
+        return String.format("%s %s", getResourceBundle(GLOBAL_BUNDLE_FILE, "find-out-more-about", locale), title);
     }
 }

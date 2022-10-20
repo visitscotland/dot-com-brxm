@@ -1,12 +1,9 @@
-<#include "../../../frontend/components/vs-svg.ftl">
 <#include "../../../frontend/components/vs-social-credit-link.ftl">
 <#include "../../../frontend/components/vs-image-with-caption.ftl">
 <#include "../../../frontend/components/vs-caption.ftl">
 
-<#macro imageWithCaption imageSrc imageDetails variant="fullwidth" isHero="false" mobileOverlap="false" alignment="left" isVideo="false" videoId="" videoTitle="" videoBtn="">
+<#macro imageWithCaption imageSrc imageDetails variant="fullwidth" isHero="false" mobileOverlap="false" alignment="left" isVideo="false" videoId="" videoTitle="" videoBtn="" useLazyLoading="true" noAltText="false">
     <vs-image-with-caption
-        alt-text="${(imageDetails.altText)!'${label("essentials.global", "default.alt-text")}'}"
-        image-src="${imageSrc}"
         latitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.latitude)!''}</#if>"
         longitude="<#if variant != 'fullwidth'>${(imageDetails.coordinates.longitude)!''}</#if>"
         variant="${variant}"
@@ -15,18 +12,37 @@
         :mobile-overlap="${mobileOverlap}"
         :is-video="${isVideo}"
         video-id="${videoId}"
+        no-cookies-message="${label('video', 'video.no-cookies')}"
+        no-js-message="${label('video', 'video.no-js')}"
+        cookie-link-text="${label('essentials.global', 'cookie.link-message')}"
+        :use-lazy-loading="${useLazyLoading}"
+        error-message="${label('essentials.global', 'third-party-error')}"
         <#if videoBtn?? && videoBtn != "">
             play-button-text="${videoBtn}"
         <#else>
             play-button-text="${label('video', 'video.play-btn')}"
         </#if>
     >
-        <template slot="video-alert">
-            ${label('video', 'video.no-js')}
-        </template>
         <template slot="video-title">
             ${videoTitle}
         </template>
+
+        <vs-img
+            src="${imageSrc}"
+            <#if noAltText?? && noAltText == "true">
+                alt=""
+            <#else>
+                alt="${(imageDetails.altText)!'${label("essentials.global", "default.alt-text")}'}"
+            </#if>
+            srcset="${imageSrc}?size=xs 300w, 
+                    ${imageSrc}?size=sm 600w,
+                    ${imageSrc}?size=md 1200w, 
+                    ${imageSrc}?size=lg 2048w"
+            sizes="(min-width: 768px) 75vw, 100vw"
+            low-res-image="${imageSrc}?size=xxs"
+            :use-lazy-loading="${useLazyLoading}"
+        >
+        </vs-img>
 
         <vs-caption
             slot="img-caption"
@@ -35,24 +51,28 @@
             variant="${variant}"
             text-align="${alignment}"
         >
-            <span slot="caption">
+            <template slot="caption">
                 ${label('essentials.global', 'image.title')}: ${(imageDetails.description)!''}
-            </span>
+            </template>
 
             <#if imageDetails.source?has_content>
-                <vs-svg slot="toggle-icon" path="${imageDetails.source + '-bg'}" height="24" width="24"></vs-svg>
+                <vs-icon
+                    slot="toggle-icon"
+                    name="${imageDetails.source + '-filled'}"
+                    size="md"
+                ></vs-icon>
 
                 <vs-social-credit-link
-                    slot="social-link"
+                    slot="credit"
                     credit="<#if imageDetails.credit??>${imageDetails.credit}<#else>${label('essentials.global', 'image.no.credit')}</#if>"
                     social-post-url="${imageDetails.postUrl}"
                     source="${imageDetails.source}"
                 ></vs-social-credit-link>
             <#else>
                 <#if imageDetails.credit?has_content>
-                    <span slot="credit">
+                    <template slot="credit">
                         &copy; ${imageDetails.credit}
-                    </span>
+                    </template>
                 </#if>
             </#if>
         </vs-caption>

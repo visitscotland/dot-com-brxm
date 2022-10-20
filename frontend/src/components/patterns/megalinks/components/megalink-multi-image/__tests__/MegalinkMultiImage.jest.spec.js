@@ -1,6 +1,9 @@
 import { shallowMount } from '@vue/test-utils';
 import VsMegalinkMultiImage from '../MegalinkMultiImage';
 
+const videoId = '12345';
+const videoBtnText = 'Play Video';
+
 const factoryShallowMount = () => shallowMount(VsMegalinkMultiImage, {
     propsData: {
         featured: true,
@@ -9,6 +12,12 @@ const factoryShallowMount = () => shallowMount(VsMegalinkMultiImage, {
         linkType: 'external',
         linkUrl: 'www.visitscotland.com',
         theme: 'dark',
+        days: '3',
+        daysLabel: 'days',
+        transport: 'bus',
+        transportName: 'Bus',
+        videoId,
+        videoBtnText,
     },
     slots: {
         vsMultiImageHeading: 'Multi-image heading',
@@ -31,6 +40,19 @@ describe('VsMegalinkMultiImage', () => {
         });
         it('renders the correct theme class', () => {
             expect(wrapper.find('[data-test="megalink-multi-image-featured"]').classes()).toContain('vs-megalink-multi-image--dark');
+        });
+        it('renders card panels if days and transport are provided', () => {
+            expect(wrapper.find('[data-test="vs-itinerary-panels"]').exists()).toBe(true);
+        });
+
+        it('should accept a `videoId` property and pass it to the stretched-link-card', () => {
+            const cardStub = wrapper.find('VsStretchedLinkCard-stub');
+            expect(cardStub.attributes().videoid).toBe(videoId);
+        });
+
+        it('should accept a `videoBtnText` property and pass it to the stretched-link-card', () => {
+            const cardStub = wrapper.find('VsStretchedLinkCard-stub');
+            expect(cardStub.attributes().videobtntext).toBe(videoBtnText);
         });
     });
 

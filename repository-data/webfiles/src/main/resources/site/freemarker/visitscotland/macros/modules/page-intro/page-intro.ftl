@@ -4,10 +4,11 @@
 <#include "./summary-box.ftl">
 <#include "./social-share.ftl">
 <#include "../../shared/theme-calculator.ftl">
-<#include "../../../macros/global/cms-errors.ftl">
 <#include "../../global/image-with-caption.ftl">
+<#include "../../global/preview-warning.ftl">
 <#include "../../../macros/modules/video/video.ftl">
 <#include "../../../macros/modules/modal/modal.ftl">
+<#include "../../../functions/data-layer.ftl">
 
 <#include "../../../../frontend/components/vs-page-intro.ftl">
 <#include "../../../../frontend/components/vs-container.ftl">
@@ -17,21 +18,30 @@
 <#include "../../../../frontend/components/vs-description-list.ftl">
 <#include "../../../../frontend/components/vs-description-list-item.ftl">
 <#include "../../../../frontend/components/vs-alert.ftl">
+<#include "../../../../frontend/components/vs-tag-manager-wrapper.ftl">
 
 <#-- @ftlvariable name="content" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#-- @ftlvariable name="heroDetails" type="com.visitscotland.brxm.model.FlatImage" -->
 <#-- @ftlvariable name="itinerary" type="com.visitscotland.brxm.model.ItineraryPage" -->
+<#-- @ftlvariable name="introTheme" type="int" -->
 
-<#macro pageIntro content heroDetails="" itinerary="" simplePage="" >
-    <#if simplePage?has_content>
-        <#assign themeName = themeCalculator(1, "", [])>
+<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false >
+    <@previewWarning editMode content alerts!"" />
+    <#if lightBackground>
+        <#assign themeName = themeCalculator(1)>
     <#else>
-        <#assign themeName = themeCalculator(introTheme, "", [])>
+        <#assign themeName = themeCalculator(introTheme)>
     </#if>
 
     <#if content.heroImage??>
         <@hst.link var="hero" hippobean=content.heroImage.original/>
     </#if>
+
+    <!-- payload prop to be updated by back end -->
+    <#--    ${pageViewDLEvent()}-->
+            <vs-tag-manager-wrapper
+                :payload="${pageViewDLEvent(content)}"
+            ></vs-tag-manager-wrapper>
 
     <div class="has-edit-button">
         <vs-page-intro 
@@ -70,7 +80,7 @@
                                 </vs-col>
                         </@modal>
 
-                        <@imageWithCaption 
+                        <@imageWithCaption
                             imageSrc=heroSrc
                             imageDetails=heroDetails
                             variant="large"
@@ -79,7 +89,7 @@
                             videoId="${heroVideo.youtubeId}"
                             videoTitle="${heroVideo.label}"
                             videoBtn="${ctaText}"
-                            
+                            useLazyLoading="false"
                         />
                     <#else>
                         <@imageWithCaption 
@@ -88,6 +98,7 @@
                             variant="large"
                             isHero="true"
                             isVideo="false"
+                            useLazyLoading="false"
                         />
                     </#if>
                 </template>
@@ -105,9 +116,11 @@
                 <@socialShare nojs=false />
             </template>
 
-            <template slot="vsIntroContent">
-                <@hst.html hippohtml=content.introduction/>
-            </template>
+            <#if !searchResultsPage??>
+                <template slot="vsIntroContent">
+                    <@hst.html hippohtml=content.introduction/>
+                </template>
+            </#if>
 
             <#if itinerary?has_content>
                 <#if itinerary.firstStopLocation?has_content && itinerary.lastStopLocation?has_content>

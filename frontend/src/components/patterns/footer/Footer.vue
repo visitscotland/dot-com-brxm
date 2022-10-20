@@ -1,49 +1,51 @@
 <template>
-    <div
+    <footer
         class="vs-footer pt-6 pt-md-9"
         data-unique-id="vs-footer"
-        role="navigation"
+        id="site-footer"
     >
-        <VsFooterNavList break-point="md">
-            <!-- @slot Contains accordion item for each menu list  -->
-            <slot name="accordion-items" />
+        <nav>
+            <VsFooterNavList break-point="md">
+                <!-- @slot Contains accordion item for each menu list  -->
+                <slot name="accordion-items" />
 
-            <VsCol
-                cols="12"
-                lg="3"
-                xl="2"
-                class="d-none d-lg-block"
-                data-unique-id="vs-footer-social_links"
-            >
-                <!-- @slot Contains social menu for large screens  -->
-                <slot name="social-menu" />
-            </VsCol>
-        </VsFooterNavList>
+                <VsCol
+                    cols="12"
+                    lg="3"
+                    xl="2"
+                    class="d-none d-lg-block"
+                    data-unique-id="vs-footer-social_links"
+                >
+                    <!-- @slot Contains social menu for large screens  -->
+                    <slot name="social-menu" />
+                </VsCol>
+            </VsFooterNavList>
 
-        <div class="vs-footer__social-menu-wrapper border-top border-secondary-light">
-            <VsContainer>
-                <VsRow>
-                    <VsCol
-                        cols="12"
-                        class="d-block d-lg-none"
-                        data-unique-id="vs-footer-mobile_social_links"
-                    >
-                        <!-- @slot Contains social menu for screens medium and below -->
-                        <slot name="social-menu" />
-                    </VsCol>
-                </VsRow>
-            </VsContainer>
-        </div>
+            <div class="vs-footer__social-menu-wrapper border-top border-secondary-light">
+                <VsContainer>
+                    <VsRow>
+                        <VsCol
+                            cols="12"
+                            class="d-block d-lg-none"
+                            data-unique-id="vs-footer-mobile_social_links"
+                        >
+                            <!-- @slot Contains social menu for screens medium and below -->
+                            <slot name="social-menu" />
+                        </VsCol>
+                    </VsRow>
+                </VsContainer>
+            </div>
 
-        <slot />
-    </div>
+            <slot />
+        </nav>
+    </footer>
 </template>
 
 <script>
 import VsFooterNavList from '@components/patterns/footer/components/FooterNavList';
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 
 /**
  * This component is the main Footer wrapper for the bottom of the page.

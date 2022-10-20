@@ -24,10 +24,14 @@
                             {{ title }}
                         </VsHeading>
 
-                        <div class="vs-megalinks__intro-content lead">
+                        <VsRichTextWrapper
+                            class="vs-megalinks__intro-content"
+                            v-if="!!this.$slots['vsMegalinksIntro']"
+                            data-test="vs-megalinks__intro-content"
+                        >
                             <!-- @slot Slot to contain optional intro content -->
                             <slot name="vsMegalinksIntro" />
-                        </div>
+                        </VsRichTextWrapper>
                     </div>
                 </VsCol>
             </VsRow>
@@ -41,7 +45,10 @@
                         class="vs-megalinks__button"
                         data-test="vs-megalinks__button"
                     >
-                        <VsButton :href="buttonLink">
+                        <VsButton
+                            :href="buttonLink"
+                            :on-dark="theme === 'dark'"
+                        >
                             <!-- @slot Slot to contain button text -->
                             <slot name="vsMegalinksButton" />
                         </VsButton>
@@ -55,11 +62,12 @@
 <script>
 import VsHeading from '@components/elements/heading/Heading';
 import VsButton from '@components/elements/button/Button';
+import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
 import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 
 /**
  * Megalinks wrapper used with Megalinks components.
@@ -76,6 +84,7 @@ export default {
         VsCol,
         VsHeading,
         VsButton,
+        VsRichTextWrapper,
     },
     props: {
         /**
@@ -111,6 +120,29 @@ export default {
             default: 'light',
             validator: (value) => value.match(/(light|dark)/),
         },
+        /**
+        * A message explaining why the component has been disabled js is disabled, is provided
+        * for descendent components to inject
+        */
+        noJsMessage: {
+            type: String,
+            default: '',
+        },
+        /**
+        * A message explaining why the component has been disabled with disabled cookies, is
+        * provided for descendent components to inject
+        */
+        noCookiesMessage: {
+            type: String,
+            default: '',
+        },
+        /**
+        *  Text for the link to the cookies preference centre.
+        */
+        cookieLinkText: {
+            type: String,
+            default: '',
+        },
     },
     computed: {
         megalinksClasses() {
@@ -119,6 +151,14 @@ export default {
                 `vs-megalinks--${this.theme}`,
             ];
         },
+    },
+    provide() {
+        return {
+            noJsMessage: this.noJsMessage,
+            noCookiesMessage: this.noCookiesMessage,
+            cookieLinkText: this.cookieLinkText,
+            theme: this.theme,
+        };
     },
 };
 </script>
@@ -169,13 +209,6 @@ export default {
             }
         }
 
-        .vs-megalinks__intro-content,
-        .vs-megalinks__intro-content .vs-rich-text-wrapper {
-            margin-top: $spacer-6;
-            font-size: $lead-font-size;
-            line-height: $line-height-s;
-        }
-
         .vs-megalinks__button {
             width: 100%;
             text-align: center;
@@ -201,12 +234,6 @@ export default {
             .vs-megalinks__intro {
                 text-align: center;
                 margin-bottom: $spacer-9;
-            }
-
-            .vs-megalinks__intro-content,
-            .vs-megalinks__intro-content .vs-rich-text-wrapper {
-                font-size: $font-size-lg;
-                line-height: $line-height-m;
             }
 
             &--multi-image {
@@ -272,6 +299,12 @@ export default {
         title="A megalinks multi image component"
         class="vs-megalinks--multi-image"
         buttonLink="http://www.visitscotland.com"
+        noJsMessage="JavaScript is needed to watch this video."
+        noCookiesMessage="Cookies are needed to watch this video."
+        :noCookiesLink="{
+            url: 'https://google.com',
+            label: 'Update my cookie settings'
+        }"
     >
         <template slot="vsMegalinksIntro">
             <p>Sed at mauris a est dictum luctus. Nullam viverra
@@ -290,14 +323,17 @@ export default {
                     <VsCol
                         cols="12"
                         md="6"
-                        lg="12"
+                        xl="12"
                     >
                         <VsMegalinkMultiImage
                             featured
                             imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                             imgAlt="This is the alt text"
-                            linkType="internal"
-                            linkUrl="https://www.visitscotland.com"
+                            linkType="video"
+                            linkUrl="#"
+                            videoId="g-Fhvj7vW-E"
+                            videoBtnText="Play Video"
+                            errorMessage="We're sorry, there's been an error"
                         >
                             <template slot="vsMultiImageHeading">
                                 The Edinburgh International Festival
@@ -312,13 +348,14 @@ export default {
                     <VsCol
                         cols="12"
                         md="6"
-                        lg="4"
+                        xl="4"
                     >
                         <VsMegalinkMultiImage
                             imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                             imgAlt="This is the alt text 1"
                             linkType="external"
                             linkUrl="https://www.visitscotland.com"
+                            errorMessage="Something went wrong"
                         >
                             <template slot="vsMultiImageHeading">
                                 Count 7,000 shining stars in the iconic galloway forest
@@ -333,13 +370,16 @@ export default {
                     <VsCol
                         cols="12"
                         md="6"
-                        lg="4"
+                        xl="4"
                     >
                         <VsMegalinkMultiImage
                             imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                             imgAlt="This is the alt text 2"
-                            linkType="external"
-                            linkUrl="https://www.visitscotland.com"
+                            linkType="video"
+                            linkUrl="#"
+                            videoId="N3r5rCN9iaE"
+                            videoBtnText="Play Video"
+                            errorMessage="We're sorry, there's been an error"
                         >
                             <template slot="vsMultiImageHeading">
                                 Count 7,000 shining stars in the iconic galloway forest
@@ -359,16 +399,31 @@ export default {
                                 some recomm…</p>
                             </template>
                         </VsMegalinkMultiImage>
+                        <VsModal
+                            modalId="N3r5rCN9iaE"
+                            closeBtnText="Close"
+                            :isVideoModal="true"
+                        >
+                            <VsRow>
+                                <VsCol cols="12">
+                                    <VsVideo
+                                        videoId="N3r5rCN9iaE"
+                                        class="mb-8"
+                                    />
+                                </VsCol>
+                            </VsRow>
+                        </VsModal>
                     </VsCol>
                     <VsCol
                         cols="12"
                         md="6"
-                        lg="4"
+                        xl="4"
                     >
                         <VsMegalinkMultiImage
                             imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                             linkType="download"
                             linkUrl="https://www.visitscotland.com"
+                            errorMessage="Something went wrong"
                         >
                             <template slot="vsMultiImageHeading">
                                 Soar through the air on a boat of Falkirk Wheel (PDF 3MB)
@@ -388,6 +443,7 @@ export default {
                             imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                             linkType="download"
                             linkUrl="https://www.visitscotland.com"
+                            errorMessage="Something went wrong"
                         >
                             <template slot="vsMultiImageHeading">
                                 Soar through the air on a boat of Falkirk Wheel (PDF 3MB)
@@ -407,6 +463,7 @@ export default {
                             imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                             linkType="download"
                             linkUrl="https://www.visitscotland.com"
+                            errorMessage="Something went wrong"
                         >
                             <template slot="vsMultiImageHeading">
                                 Soar through the air on a boat of Falkirk Wheel (PDF 3MB)
@@ -421,7 +478,7 @@ export default {
                     <VsCol
                         cols="12"
                         md="6"
-                        lg="12"
+                        xl="12"
                     >
                         <VsMegalinkMultiImage
                             featured
@@ -430,6 +487,11 @@ export default {
                             imgAlt="This is the alt text"
                             linkType="internal"
                             linkUrl="https://www.visitscotland.com"
+                            days="6"
+                            daysLabel="days"
+                            transport="bus"
+                            transportName="bus"
+                            errorMessage="Something went wrong"
                         >
                             <template slot="vsMultiImageHeading">
                                 The Edinburgh International Festival
@@ -472,7 +534,7 @@ export default {
                     <VsCol
                         cols="12"
                         md="6"
-                        lg="12"
+                        xl="12"
                     >
                         <vs-megalink-multi-image
                             featured
@@ -481,6 +543,7 @@ export default {
                             linkType="internal"
                             theme="dark"
                             linkUrl="https://www.visitscotland.com"
+                            errorMessage="Something went wrong"
                         >
                             <template slot="vsMultiImageHeading">
                                 The Edinburgh International Festival and summer festival
@@ -495,7 +558,47 @@ export default {
                     <VsCol
                         cols="12"
                         md="6"
-                        lg="4"
+                        xl="4"
+                    >
+                        <vs-megalink-multi-image
+                            imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                            imgAlt="This is the alt text 1"
+                            linkType="video"
+                            theme="dark"
+                            linkUrl="https://www.visitscotland.com"
+                            videoId="N3r5rCN9iaE"
+                            videoBtnText="Play Video"
+                            errorMessage="We're sorry, there's been an error"
+                        >
+                            <template slot="vsMultiImageHeading">
+                                Count 7,000 shining stars in the iconic galloway forest
+                            </template>
+                            <template slot="vsMultiImageContent">
+                                <p>Right across the country, you’ll find amazing
+                                places to eat and drink from local markets to renowned
+                                restaurants. Here are some recomm…</p>
+                            </template>
+                        </vs-megalink-multi-image>
+
+                        <VsModal
+                            modalId="N3r5rCN9iaE"
+                            closeBtnText="Close"
+                            :isVideoModal="true"
+                        >
+                            <VsRow>
+                                <VsCol cols="12">
+                                    <VsVideo
+                                        videoId="N3r5rCN9iaE"
+                                        class="mb-8"
+                                    />
+                                </VsCol>
+                            </VsRow>
+                        </VsModal>
+                    </VsCol>
+                    <VsCol
+                        cols="12"
+                        md="6"
+                        xl="4"
                     >
                         <vs-megalink-multi-image
                             imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
@@ -503,6 +606,7 @@ export default {
                             linkType="external"
                             theme="dark"
                             linkUrl="https://www.visitscotland.com"
+                            errorMessage="Something went wrong"
                         >
                             <template slot="vsMultiImageHeading">
                                 Count 7,000 shining stars in the iconic galloway forest
@@ -517,7 +621,7 @@ export default {
                     <VsCol
                         cols="12"
                         md="6"
-                        lg="4"
+                        xl="4"
                     >
                         <vs-megalink-multi-image
                             imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
@@ -525,28 +629,11 @@ export default {
                             linkType="external"
                             theme="dark"
                             linkUrl="https://www.visitscotland.com"
-                        >
-                            <template slot="vsMultiImageHeading">
-                                Count 7,000 shining stars in the iconic galloway forest
-                            </template>
-                            <template slot="vsMultiImageContent">
-                                <p>Right across the country, you’ll find amazing
-                                places to eat and drink from local markets to renowned
-                                restaurants. Here are some recomm…</p>
-                            </template>
-                        </vs-megalink-multi-image>
-                    </VsCol>
-                    <VsCol
-                        cols="12"
-                        md="6"
-                        lg="4"
-                    >
-                        <vs-megalink-multi-image
-                            imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
-                            imgAlt="This is the alt text 1"
-                            linkType="external"
-                            theme="dark"
-                            linkUrl="https://www.visitscotland.com"
+                            days="6"
+                            daysLabel="days"
+                            transport="bus"
+                            transportName="bus"
+                            errorMessage="Something went wrong"
                         >
                             <template slot="vsMultiImageHeading">
                                 Count 7,000 shining stars in the iconic galloway forest
@@ -579,8 +666,11 @@ export default {
             <vs-megalink-link-list
                 imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                 imgAlt="This is the alt text"
-                linkType="internal"
-                linkUrl="https://www.visitscotland.com"
+                linkType="video"
+                linkUrl="#"
+                videoId="tfk7J6XZju4"
+                videoBtnText="Play Video"
+                errorMessage="We're sorry, there's been an error"
             >
                 <template slot="vsLinkListHeading">
                     The Edinburgh International Festival and summer festival
@@ -591,6 +681,20 @@ export default {
                     restaurants.</p>
                 </template>
             </vs-megalink-link-list>
+            <VsModal
+                modalId="tfk7J6XZju4"
+                closeBtnText="Close"
+                :isVideoModal="true"
+            >
+                <VsRow>
+                    <VsCol cols="12">
+                        <VsVideo
+                            videoId="tfk7J6XZju4"
+                            class="mb-8"
+                        />
+                    </VsCol>
+                </VsRow>
+            </VsModal>
         </VsCol>
         <VsCol
             cols="12"
@@ -601,6 +705,7 @@ export default {
                 imgAlt="This is the alt text 1"
                 linkType="external"
                 linkUrl="https://www.visitscotland.com"
+                errorMessage="Something went wrong"
             >
                 <template slot="vsLinkListHeading">
                     Count 7,000 shining stars in the iconic galloway forest
@@ -619,8 +724,11 @@ export default {
             <vs-megalink-link-list
                 imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                 imgAlt="This is the alt text 2"
-                linkType="external"
-                linkUrl="https://www.visitscotland.com"
+                linkType="video"
+                linkUrl="#"
+                videoId="zZCUFjSiWpE"
+                videoBtnText="Play Video"
+                errorMessage="We're sorry, there's been an error"
             >
                 <template slot="vsLinkListHeading">
                     Count 7,000 shining stars in the iconic galloway forest
@@ -632,6 +740,20 @@ export default {
                     Here are some recomm…</p>
                 </template>
             </vs-megalink-link-list>
+            <VsModal
+                modalId="zZCUFjSiWpE"
+                closeBtnText="Close"
+                :isVideoModal="true"
+            >
+                <VsRow>
+                    <VsCol cols="12">
+                        <VsVideo
+                            videoId="zZCUFjSiWpE"
+                            class="mb-8"
+                        />
+                    </VsCol>
+                </VsRow>
+            </VsModal>
         </VsCol>
         <VsCol
             cols="12"
@@ -641,6 +763,7 @@ export default {
                 imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                 linkType="download"
                 linkUrl="https://www.visitscotland.com"
+                errorMessage="Something went wrong"
             >
                 <template slot="vsLinkListHeading">
                     Soar through the air on a boat of Falkirk Wheel (PDF 3MB)
@@ -674,6 +797,7 @@ export default {
                 linkType="internal"
                 theme="dark"
                 linkUrl="https://www.visitscotland.com"
+                errorMessage="Something went wrong"
             >
                 <template slot="vsLinkListHeading">
                     The Edinburgh International Festival and summer festival
@@ -695,6 +819,7 @@ export default {
                 linkType="external"
                 theme="dark"
                 linkUrl="https://www.visitscotland.com"
+                errorMessage="Something went wrong"
             >
                 <template slot="vsLinkListHeading">
                     Count 7,000 shining stars in the iconic galloway forest
@@ -716,6 +841,7 @@ export default {
                 linkType="external"
                 theme="dark"
                 linkUrl="https://www.visitscotland.com"
+                errorMessage="Something went wrong"
             >
                 <template slot="vsLinkListHeading">
                     Count 7,000 shining stars in the iconic galloway forest
@@ -737,6 +863,7 @@ export default {
                 linkType="download"
                 theme="dark"
                 linkUrl="https://www.visitscotland.com"
+                errorMessage="Something went wrong"
             >
                 <template slot="vsLinkListHeading">
                     Soar through the air on a boat of Falkirk Wheel (PDF 3MB)
@@ -766,19 +893,32 @@ export default {
                 buttonLink="www.visitscotland.com"
                 imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
             >
-                <template slot="vsSingleImageCaption">An image of Scotland</template>
-                <template slot="vsSingleImageCredit">@2020 Credit here</template>
+                <template slot="vsSingleImage">
+                    <VsImageWithCaption
+                        mobile-overlap
+                        alt-text="Image alt text"
+                        image-src="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                        errorMessage="Something went wrong"
+                    >
+                        <VsCaption
+                            slot="img-caption"
+                            text-align="right"
+                        >
+                            <template slot="caption">
+                                An image of Scotland
+                            </template>
+
+                            <template slot="credit">
+                                @2020 Credit here
+                            </template>
+                        </VsCaption>
+                    </VsImageWithCaption>
+                </template>
                 <template slot="vsSingleImageContent">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Integer et eros at est dignissim interdum. Fusce nisl metus,
-                        pharetra eu feugiat vitae, porttitor eget est. Vivamus
-                        condimentum urna vel ante tempor, a eleifend neque ultricies.
-                        Morbi convallis, felis id semper vulputate, nisl est porta quam,
-                        luctus vehicula sapien orci quis urna. Suspendisse accumsan leo
-                        diam, nec faucibus neque pulvinar vitae. Duis non rutrum felis,
-                        ut pretium purus. Nullam hendrerit quam vitae ipsum aliquam
-                        fermentum. Fusce gravida eu est in convallis.
+                        pharetra eu feugiat vitae, porttitor eget est.
                     </p>
                 </template>
                 <template slot="vsSingleImageLinks">
@@ -833,36 +973,52 @@ export default {
                 imgSrc="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
                 alternate
             >
-                <template slot="vsSingleImageCaption">An image of Scotland</template>
-                <template slot="vsSingleImageCredit">@2020 Credit here</template>
+                <template slot="vsSingleImage">
+                    <VsImageWithCaption
+                        mobile-overlap
+                        alt-text="Image alt text"
+                        image-src="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                        errorMessage="Something went wrong"
+                    >
+                        <VsCaption
+                            slot="img-caption"
+                            text-align="left"
+                        >
+                            <template slot="caption">
+                                An image of Scotland
+                            </template>
+
+                            <template slot="credit">
+                                @2020 Credit here
+                            </template>
+                        </VsCaption>
+                    </VsImageWithCaption>
+                </template>
                 <template slot="vsSingleImageContent">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Integer et eros at est dignissim interdum. Fusce nisl metus,
-                        pharetra eu feugiat vitae, porttitor eget est. Vivamus
-                        condimentum urna vel ante tempor, a eleifend neque ultricies.
-                        Morbi convallis, felis id semper vulputate, nisl est porta quam,
-                        luctus vehicula sapien orci quis urna. Suspendisse accumsan leo
-                        diam, nec faucibus neque pulvinar vitae. Duis non rutrum felis,
-                        ut pretium purus. Nullam hendrerit quam vitae ipsum aliquam
-                        fermentum. Fusce gravida eu est in convallis.
+                        pharetra eu feugiat vitae, porttitor eget est.
                     </p>
                 </template>
                 <template slot="vsSingleImageLinks">
                     <VsLinkListItem
                         href="www.visitscotland.com"
+                        variant="on-dark"
                     >
                         This is a link here
                     </VsLinkListItem>
                     <VsLinkListItem
                         href="www.visitscotland.com"
                         type="external"
+                        variant="on-dark"
                     >
                         This is an external link here
                     </VsLinkListItem>
                     <VsLinkListItem
                         href="www.visitscotland.com"
                         type="download"
+                        variant="on-dark"
                     >
                         This is a download link here
                     </VsLinkListItem>

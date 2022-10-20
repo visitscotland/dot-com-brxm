@@ -93,7 +93,7 @@ export default {
 
     .btn-primary.dropdown-toggle {
         padding: 0.3rem $spacer-3;
-        font-size: $font-size-sm;
+        font-size: $font-size-2;
         align-items: center;
 
         &:not(:disabled):not(.disabled):active {
@@ -101,7 +101,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $shadow-button-focus inset;
+            box-shadow: $shadow-button-focus-on-dark inset;
         }
     }
 
@@ -113,13 +113,8 @@ export default {
         }
 
         .btn-primary.dropdown-toggle:focus {
-            box-shadow: $shadow-button-focus inset;
+            box-shadow: $shadow-button-focus-on-dark inset;
         }
-    }
-
-    ul:focus {
-        outline: 3px solid $color-pink-tint-5;
-        outline-offset: -3px;
     }
 
     .dropdown-menu {
@@ -142,7 +137,7 @@ export default {
                 padding: $spacer-3;
                 color: $color-white;
                 text-decoration: none;
-                font-size: $font-size-sm;
+                font-size: $font-size-2;
                 line-height: $line-height-s;
 
                 &:hover, &:focus {
@@ -150,7 +145,7 @@ export default {
                 }
 
                 &:focus {
-                    outline: 3px solid $color-pink-tint-5;
+                    outline: 3px solid $color-yellow;
                     outline-offset: -3px;
                 }
             }

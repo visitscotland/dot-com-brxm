@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -21,16 +22,18 @@ public class DMSDataService {
         this.proxy = proxy;
     }
 
+
     /**
      * Returns a summary of the product as a JsonNode. This is usually use to show product cards
      *
-     * @param productId Id of the producct
+     * @param productId Id of the product
      * @param locale locale for translated texts
      *
      * @return JsonNode with the product card Information
      *
      *
      */
+    @Cacheable(value="dmsProduct")
     public JsonNode productCard(String productId, Locale locale) {
         String responseString = null;
 
@@ -67,8 +70,9 @@ public class DMSDataService {
      *
      * @param psb ProductSearchBuilder
      *
-     * @return
+     * @return Json node with DMS results
      */
+    @Cacheable (value="dmsProductSearch")
     public JsonNode legacyMapSearch(ProductSearchBuilder psb){
 
         String responseString = null;
@@ -92,5 +96,38 @@ public class DMSDataService {
         }
 
         return  null;
+    }
+
+    /**
+     * This method invokes the canned search endpoint to check if there are results coming
+     *
+     * @param toursUrl tours search url
+     *
+     * @return boolean to indicate if the search returns products
+     */
+    @Cacheable (value="dmsProductSearch")
+    public boolean cannedSearchHasResults(String toursUrl){
+
+        String responseString = null;
+
+        logger.info("Requesting data to the tms: {}", toursUrl);
+        try {
+            responseString = proxy.request(toursUrl);
+
+            if (responseString!=null) {
+
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode json = mapper.readTree(responseString);
+
+                if (json.has("data") ) {
+                    int count =  Integer.parseInt(String.valueOf(json.get("data").get("count")));
+                    return count>0;
+                }
+            }
+        } catch (JsonProcessingException e){
+            logger.error("The response could not be parsed:\n {}", responseString, e);
+        }
+
+        return false;
     }
 }

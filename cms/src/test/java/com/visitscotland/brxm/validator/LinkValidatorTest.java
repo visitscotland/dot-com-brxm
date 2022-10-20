@@ -44,6 +44,7 @@ class LinkValidatorTest {
     void LinksEmptyValues() throws RepositoryException {
         Node node = Mockito.mock(Node.class, RETURNS_DEEP_STUBS);
 
+        when(node.hasProperty(HIPPO_DOCBASE)).thenReturn(true);
         when(node.getProperty(HIPPO_DOCBASE).getString()).thenReturn(LinkValidator.EMPTY_DOCUMENT);
         when(context.createViolation("emptyLink")).thenReturn(mock(Violation.class));
 
@@ -56,7 +57,10 @@ class LinkValidatorTest {
             "visitscotland:OTYML,visitscotland:SharedLink",
             "visitscotland:MadeUpDocument,visitscotland:SharedLink",
             "visitscotland:Day,visitscotland:Stop",
-            "visitscotland:VideoLink,visitscotland:Video"
+            "visitscotland:VideoLink,visitscotland:Video",
+            "visitscotland:MapCategory,visitscotland:Destination",
+            "visitscotland:MapCategory,visitscotland:Stop",
+            "visitscotland:SpecialLinkCoordinates,visitscotland:Page"
     })
     @DisplayName("VS-2905 - Validates that links are correctly validated depending on the parent")
     void correctValues(String parentType, String childType) throws RepositoryException {
@@ -71,7 +75,10 @@ class LinkValidatorTest {
             "visitscotland:Day,visitscotland:SharedLink",
             "visitscotland:Day,visitscotland:Video",
             "visitscotland:VideoLink,visitscotland:Stop",
-            "visitscotland:VideoLink,visitscotland:Page"
+            "visitscotland:VideoLink,visitscotland:Page",
+            "visitscotland:MapCategory,visitscotland:Video",
+            "visitscotland:MapCategory,visitscotland:General",
+            "visitscotland:SpecialLinkCoordinates,visitscotland:Stop"
     })
     @DisplayName("VS-2905 - Invalid documents cause a validation exception")
     void incorrectValues(String parentType, String childType) throws RepositoryException {
@@ -84,6 +91,7 @@ class LinkValidatorTest {
         Node parentNode = Mockito.mock(Node.class, withSettings().defaultAnswer(RETURNS_DEEP_STUBS));
         Node childNode = Mockito.mock(Node.class, withSettings().defaultAnswer(RETURNS_DEEP_STUBS));
 
+        when(parentNode.hasProperty(HIPPO_DOCBASE)).thenReturn(true);
         when(parentNode.getProperty(HIPPO_DOCBASE).getString()).thenReturn("NODE-ID");
         when(mockSessionFactory.getHippoNodeByIdentifier("NODE-ID")).thenReturn(childNode);
 
@@ -91,6 +99,22 @@ class LinkValidatorTest {
         when(childNode.getPath()).thenReturn("/document/content/visitscotland-es");
 
         when(context.createViolation("channel")).thenReturn(mock(Violation.class));
+        assertTrue(validator.validate(context, parentNode).isPresent());
+    }
+
+    @Test
+    @DisplayName("VS-3348 - link to a deleted document")
+    void deletedDocumentChannel() throws RepositoryException {
+        Node parentNode = Mockito.mock(Node.class, withSettings().defaultAnswer(RETURNS_DEEP_STUBS));
+        Node childNode = Mockito.mock(Node.class, withSettings().defaultAnswer(RETURNS_DEEP_STUBS));
+
+        when(parentNode.hasProperty(HIPPO_DOCBASE)).thenReturn(true);
+        when(parentNode.getProperty(HIPPO_DOCBASE).getString()).thenReturn("NODE-ID");
+        when(mockSessionFactory.getHippoNodeByIdentifier("NODE-ID")).thenReturn(childNode);
+
+        when(childNode.getPath()).thenReturn("/content/attic/");
+
+        when(context.createViolation("removedLink")).thenReturn(mock(Violation.class));
         assertTrue(validator.validate(context, parentNode).isPresent());
     }
 
@@ -146,9 +170,10 @@ class LinkValidatorTest {
     private Node mockLink(String parentType, String childType, boolean expected) throws  RepositoryException{
         Node parentNode = Mockito.mock(Node.class, withSettings().lenient());
         Node childNode = Mockito.mock(Node.class, withSettings().lenient());
-        boolean isDefault = !LinkValidator.DAY.equals(parentType) && !LinkValidator.VIDEO.equals(parentType);
+        boolean isDefault = !LinkValidator.DAY.equals(parentType) && !LinkValidator.VIDEO.equals(parentType) && !LinkValidator.MAP.equals(parentType) && !LinkValidator.LINK_COORDINATES.equals(parentType);
 
         Property docbaseProp = mock(Property.class);
+        when(parentNode.hasProperty(HIPPO_DOCBASE)).thenReturn(true);
         when(docbaseProp.getString()).thenReturn("NODE-ID");
         when(parentNode.getProperty(HIPPO_DOCBASE)).thenReturn(docbaseProp);
         when(mockSessionFactory.getHippoNodeByIdentifier("NODE-ID")).thenReturn(childNode);

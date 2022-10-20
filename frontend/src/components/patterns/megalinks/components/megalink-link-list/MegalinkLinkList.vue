@@ -10,7 +10,20 @@
             :img-src="imgSrc"
             :img-alt="imgAlt"
             :theme="theme"
+            :video-id="videoId"
+            :video-btn-text="videoBtnText"
+            :error-message="errorMessage"
+            error-type="full"
         >
+            <VsStretchedLinkPanels
+                v-if="days && transport"
+                :days="days"
+                :transport="transport"
+                :transport-name="transportName"
+                slot="stretchedCardPanels"
+                :days-label="daysLabel"
+                data-test="vs-itinerary-panels"
+            />
             <span
                 slot="stretchedCardHeader"
                 class="vs-megalink-link-list__title"
@@ -22,7 +35,7 @@
 
             <VsRichTextWrapper
                 slot="stretchedCardContent"
-                class="lead vs-megalink-link-list__content"
+                class="vs-megalink-link-list__content"
                 data-test="megalink-link-list__content"
             >
                 <!-- @slot Slot to contain content -->
@@ -34,6 +47,7 @@
 
 <script>
 import VsStretchedLinkCard from '@components/patterns/stretched-link-card/StretchedLinkCard';
+import VsStretchedLinkPanels from '@components/patterns/stretched-link-card/components/StretchedLinkPanels';
 import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
 
 /**
@@ -50,6 +64,7 @@ export default {
     components: {
         VsStretchedLinkCard,
         VsRichTextWrapper,
+        VsStretchedLinkPanels,
     },
     props: {
         /**
@@ -69,12 +84,12 @@ export default {
         },
         /**
         * The type of link. This will set the icon.
-        * `external, internal, download`
+        * `external, internal, download, video`
         */
         linkType: {
             type: String,
             required: true,
-            validator: (value) => value.match(/(default|external|internal|download)/),
+            validator: (value) => value.match(/(default|external|internal|download|video)/),
         },
         /**
         * The component color theme
@@ -91,6 +106,57 @@ export default {
             type: String,
             required: true,
         },
+        /**
+        * Optional prop for number of days
+        */
+        days: {
+            type: String,
+            default: '',
+        },
+        /**
+        * Label for days - too allow translation in CMS
+        */
+        daysLabel: {
+            type: String,
+            default: 'days',
+        },
+        /**
+        * Optional prop for transport type (will show a the transport icon if used)
+        */
+        transport: {
+            type: String,
+            default: '',
+        },
+        /**
+        * Display-friendly transport name
+        * to allow for translation
+        */
+        transportName: {
+            type: String,
+            default: '',
+        },
+        /**
+         * An optional YouTube video ID
+         */
+        videoId: {
+            type: String,
+            default: '',
+        },
+        /**
+         * A label to add to the youtube play button if one is present.
+         * Only appears in certain page layouts.
+         */
+        videoBtnText: {
+            type: String,
+            default: 'Play Video',
+        },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorMessage: {
+            type: String,
+            default: '',
+        },
     },
 };
 </script>
@@ -101,6 +167,7 @@ export default {
         padding: $spacer-2 0 $spacer-3;
         position: relative;
         height: 100%;
+        width: 100%;
 
         &:after {
             content: '';
@@ -132,18 +199,45 @@ export default {
                 background: transparent;
                 padding: 0;
                 align-self: flex-start;
-                width: 66%;
+                width: 50%;
+
+                @include media-breakpoint-up(sm) {
+                    width: 66%;
+                }
             }
 
-            .vs-stretched-link-card__img {
-                width: 33%;
-                max-width: 33%;
+            .vs-stretched-link-card__img-container {
+                width: 50%;
+                max-width: 50%;
                 align-self: flex-start;
                 margin-right: $spacer-4;
+
+                @include media-breakpoint-up(sm) {
+                    width: 33%;
+                    max-width: 33%;
+                }
+
+                @include media-breakpoint-up(md) {
+                    padding-bottom: calc(#{$spacer-8} + #{$spacer-7});
+                }
+
+                @include media-breakpoint-up(xl) {
+                    padding-bottom: $spacer-0;
+                }
+
+                &--warning-full {
+                    width: 100%;
+                    max-width: 100%;
+                    height: 127px;
+                    overflow: hidden;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                }
             }
 
             .vs-megalink-link-list__title {
-                font-size: $font-size-sm;
+                font-size: $font-size-2;
                 letter-spacing: $letter-spacing-l;
                 line-height: $line-height-m;
             }
@@ -179,8 +273,8 @@ export default {
         }
 
         @include media-breakpoint-up(sm) {
-            .megalink-link-list__wrapper.card {
-                .megalink-link-list__content {
+            .vs-megalink-link-list__wrapper.card {
+                .vs-megalink-link-list__content {
                     display: block;
                 }
             }
@@ -189,7 +283,7 @@ export default {
         @include media-breakpoint-up(md) {
             .vs-megalink-link-list__wrapper.card {
                 .vs-megalink-link-list__title {
-                    font-size: $small-font-size;
+                    font-size: $font-size-3;
                 }
 
                 .vs-megalink-link-list__content {
@@ -202,7 +296,7 @@ export default {
                         -webkit-line-clamp: 3;
                         -webkit-box-orient: vertical;
                         overflow: hidden;
-                        font-size: $font-size-md;
+                        font-size: $font-size-5;
                         margin-bottom: 0;
                     }
                 }
@@ -211,8 +305,43 @@ export default {
             @include media-breakpoint-up(lg) {
                 .vs-megalink-link-list__wrapper.card {
                     .vs-megalink-link-list__content p {
-                         font-size: $font-size-base;
+                         font-size: $font-size-4;
                     }
+                }
+            }
+        }
+
+        .vs-stretched-link-panels {
+            width: calc(33% - #{$spacer-2});
+            right: auto;
+            left: $spacer-2;
+            justify-content: flex-end;
+
+            &__panel {
+                display: none;
+                width: 36px;
+                height: 36px;
+
+                &--days {
+                    display: flex;
+                    margin-right: $spacer-2;
+                }
+            }
+
+            &__days {
+                font-size: $font-size-5;
+                margin-bottom: 0;
+            }
+
+            @include media-breakpoint-up(xl) {
+                &__panel {
+                    width: 55px;
+                    height: 55px;
+                }
+
+                &__days {
+                    font-size: $font-size-6;
+                    margin-bottom: $spacer-1;
                 }
             }
         }
@@ -232,6 +361,10 @@ export default {
                     imgAlt="This is the alt text"
                     linkType="internal"
                     linkUrl="www.visitscotland.com"
+                    days="2"
+                    daysLabel="days"
+                    transport="bus"
+                    transportName="bus"
                 >
                     <template slot="vsLinkListHeading">
                         The Edinburgh International Festival and summer festival</template>

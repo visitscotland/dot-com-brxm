@@ -12,17 +12,15 @@
             <slot>
                 <VsImg
                     v-if="imageSrc"
-                    class="lazyload"
                     :src="imageSrc"
-                    :data-srcset="imageSrc"
                     :alt="altText"
-                    data-sizes="auto"
+                    :use-lazy-loading="useLazyLoading"
                 />
             </slot>
 
             <VsToggleButton
                 :img-src="imageSrc"
-                :toggle-id="`image_${imageSrc}`"
+                :toggle-id="uniqueCaptionId"
                 @toggleAction="toggleCaption"
             >
                 {{ toggleButtonText }}
@@ -35,10 +33,9 @@
             </VsToggleButton>
         </div>
 
-        <div class="vs-image-with-caption__captions">
+        <figcaption class="vs-image-with-caption__captions">
             <div
-                class="vs-image-with-caption__video-caption-wrapper"
-                :class="isHeroImage ? 'container' : ''"
+                class="vs-image-with-caption__video-caption-wrapper container-lg"
                 v-if="isVideo"
             >
                 <VsVideoCaption
@@ -46,11 +43,9 @@
                     :with-toggle-btn="true"
                     @toggleAction="toggleCaption"
                     :video-id="videoId"
+                    :cookie-link-text="cookieLinkText"
+                    :error-message="errorMessage"
                 >
-                    <!-- @slot Slot for the video alert message -->
-                    <template slot="video-alert">
-                        <slot name="video-alert" />
-                    </template>
                     <!-- @slot Slot for the video title text -->
                     <template slot="video-title">
                         <slot name="video-title" />
@@ -65,22 +60,25 @@
             <div
                 class="vs-image-with-caption__caption-wrapper"
                 :class="captionWrapperClasses"
-                :id="'image_' + imageSrc"
+                :id="uniqueCaptionId"
             >
                 <!-- @slot Slot for image caption component -->
                 <slot name="img-caption" />
             </div>
-        </div>
+        </figcaption>
     </figure>
 </template>
 
 <script>
 
-// eslint-disable-next-line no-unused-vars
-import { lazysizes } from 'lazysizes';
+import { v4 as uuidv4 } from 'uuid';
 import VsImg from '@components/elements/img/Img';
 import VsToggleButton from '@components/patterns/toggle-button/ToggleButton';
 import VsVideoCaption from '@components/patterns/video-caption/VideoCaption';
+import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
+import requiredCookiesData from '../../../utils/required-cookies-data';
+
+const cookieValues = requiredCookiesData.youtube;
 
 /**
  * Image with toggle to open a caption and image location map
@@ -96,6 +94,9 @@ export default {
         VsToggleButton,
         VsVideoCaption,
     },
+    mixins: [
+        verifyCookiesMixin,
+    ],
     props: {
         /**
          * The image alt text for screen readers
@@ -168,10 +169,50 @@ export default {
             type: String,
             default: '',
         },
+        /**
+        * A message explaining why the component has been disabled with disabled cookies, is
+        * provided for descendent components to inject
+        */
+        noCookiesMessage: {
+            type: String,
+            default: '',
+        },
+        /**
+        * Text used for the link which opens the cookie preference centre, is
+        * provided for descendent components to inject
+        */
+        cookieLinkText: {
+            type: String,
+            default: '',
+        },
+        /**
+        * A message explaining why the component has been disabled when js is disabled,
+        * is provided for descendent components to inject
+        */
+        noJsMessage: {
+            type: String,
+            default: '',
+        },
+        /*
+         * If true switches on lazy loading for the image
+        */
+        useLazyLoading: {
+            type: Boolean,
+            default: true,
+        },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorMessage: {
+            type: String,
+            default: '',
+        },
     },
     data() {
         return {
             showCaption: false,
+            requiredCookies: cookieValues,
+            uniqueCaptionId: '',
         };
     },
     computed: {
@@ -179,6 +220,7 @@ export default {
             return {
                 'vs-image-with-caption--closed-default': this.closedDefaultCaption,
                 'vs-image-with-caption--hero': this.isHeroImage,
+                'vs-image-with-caption--show-caption': !this.requiredCookiesExist && this.setCookieStatus === true,
                 'vs-image-with-caption--video': this.isVideo,
             };
         },
@@ -191,16 +233,31 @@ export default {
             };
         },
     },
+    created() {
+        this.generateCaptionId();
+    },
     methods: {
         toggleCaption() {
             this.showCaption = !this.showCaption;
         },
+        generateCaptionId() {
+            const randomUUID = uuidv4();
+            this.uniqueCaptionId = `vs-caption-${randomUUID}`;
+        },
+    },
+    provide() {
+        return {
+            noJsMessage: this.noJsMessage,
+            noCookiesMessage: this.noCookiesMessage,
+            cookieLinkText: this.cookieLinkText,
+            errorMessage: this.errorMessage,
+        };
     },
 };
 </script>
 
 <style lang="scss">
-    .vs-image-with-caption{
+    .vs-image-with-caption {
         position: relative;
 
         &__image-wrapper {
@@ -279,38 +336,47 @@ export default {
         }
 
         &--video {
-            .vs-image-with-caption__caption-wrapper {
-                display: none;
-                justify-content: flex-end;
+            &.vs-image-with-caption--hero {
+                .vs-image-with-caption__image-wrapper {
+                    .vs-toggle-btn {
+                        display: none;
+                    }
+                }
+            }
+
+            .vs-image-with-caption {
+                &__caption-wrapper {
+                    display: none;
+                    justify-content: flex-end;
+                }
             }
 
             .vs-image-with-caption__video-caption-wrapper {
                 margin-top: -50px;
-
-                .vs-video-caption {
-                    &__button {
-                        margin-left: $spacer-3;
-                    }
-
-                    .vs-toggle-btn {
-                        display: none;
-                        top: 10px;
-                        right: $spacer-2;
-                    }
-                }
             }
 
             .vs-image-with-caption__captions {
                 position: relative;
                 top: auto;
                 left: auto;
+                background: $color-gray-shade-6;
             }
 
             .vs-caption {
-                position: relative;
+                &__image-caption {
+                    margin-bottom: $spacer-2;
+                }
 
-                &--large {
-                    bottom: auto;
+                &__caption-info {
+                    padding-left: $spacer-5;
+                }
+
+                .row {
+                    margin: 0;
+                }
+
+                .col {
+                    padding: 0;
                 }
             }
 
@@ -328,16 +394,19 @@ export default {
                         right: auto;
                     }
                 }
+
+                &.vs-image-with-caption--show-caption {
+                    .vs-image-with-caption__caption-wrapper {
+                        display: flex;
+                        margin-top: $spacer-2;
+                    }
+                }
             }
 
             @include media-breakpoint-up(sm) {
                 .vs-image-with-caption__video-caption-wrapper {
                     .vs-video-caption {
                         width: 100%;
-
-                        &__button {
-                            margin-left: $spacer-2;
-                        }
                     }
                 }
             }
@@ -353,11 +422,7 @@ export default {
                     padding: 0;
 
                     .vs-video-caption {
-                        width: 310px;
-
-                        &__button {
-                            margin-left: 0;
-                        }
+                        width: 400px;
 
                         .vs-toggle-btn {
                             display: block;
@@ -373,6 +438,7 @@ export default {
                 .vs-caption {
                     position: absolute;
                     bottom: auto;
+                    width: 400px;
                 }
 
                 .vs-toggle-btn {
@@ -382,10 +448,11 @@ export default {
                 &.vs-image-with-caption--hero {
                      .vs-image-with-caption__captions {
                         position: absolute;
-                        bottom: 200px;
+                        bottom: 210px;
                         width: 100%;
                         right: 0;
                         z-index: 3;
+                        background: transparent;
                     }
                 }
             }
@@ -412,6 +479,10 @@ export default {
                             display: block;
                         }
                     }
+
+                    @include media-breakpoint-up(lg) {
+                        height: 100vh;
+                    }
                 }
 
                 &__caption-wrapper {
@@ -432,6 +503,7 @@ export default {
                         @include media-breakpoint-down(xs) {
                             text-align: left;
                             display: block;
+                            position: absolute;
 
                             .order-2 {
                                 order: 1;
@@ -478,7 +550,7 @@ export default {
     }
 
     @include no-js {
-        .vs-image-with-caption{
+        .vs-image-with-caption {
             &__image-wrapper {
                 .vs-toggle-btn {
                     display: none;
@@ -593,9 +665,7 @@ export default {
             style="max-width:300px"
         >
             <VsImg
-                class="lazyload"
                 :src="item.imageSrc"
-                :data-srcset="item.imageSrc"
                 :alt="item.altText"
                 data-sizes="auto">
             </VsImg>
@@ -622,14 +692,16 @@ export default {
             :key="`social-${index}`"
         >
             <VsImg
-                class="lazyload"
                 :src="item.imageSrc"
-                :data-srcset="item.imageSrc"
                 :alt="item.altText"
                 data-sizes="auto">
             </VsImg>
 
-            <VsSvg slot="toggle-icon" path="instagram-bg" height="24" width="24" />
+            <VsIcon
+                slot="toggle-icon"
+                name="instagram-filled"
+                size="md"
+            />
 
             <VsCaption
                 slot="img-caption"
@@ -642,7 +714,7 @@ export default {
                 </span>
 
                 <VsSocialCreditLink
-                    slot="socialLink"
+                    slot="credit"
                     :credit="item.credit"
                     :socialPostUrl="item.socialPostUrl"
                     :source="item.source"

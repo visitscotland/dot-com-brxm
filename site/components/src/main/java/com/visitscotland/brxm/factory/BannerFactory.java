@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
+import java.util.Collections;
 import java.util.Locale;
 import java.util.NoSuchElementException;
 
@@ -57,10 +58,17 @@ public class BannerFactory {
 
     private BannerModule getBannerModule(Banner document, Locale locale) {
         BannerModule module = new BannerModule();
-        module.setTitle(document.getTitle());
-        module.setCopy(document.getCopy());
+
         FlatLink ctaLink = linkService.createFindOutMoreLink(module, locale, document.getCtaLink());
-        module.setCtaLink(ctaLink);
+        if (ctaLink == null || ctaLink.getLink() == null) {
+            String errorMessage = String.format("Failed to create the emergency banner '%s' , please review the document attached at: %s", document.getDisplayName(), document.getPath() );
+            module.setErrorMessages(Collections.singletonList(errorMessage));
+            contentLogger.error(errorMessage);
+        }else{
+            module.setCopy(document.getCopy());
+            module.setCtaLink(ctaLink);
+        }
+        module.setHippoBean(document);
         return module;
     }
 }

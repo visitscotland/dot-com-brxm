@@ -9,6 +9,7 @@
             type="external"
             :class="icon"
             :aria-label="icon"
+            data-layer-value="socialMediaExternalLinkDataEvent"
         >
             <VsIcon
                 :name="icon"
@@ -23,6 +24,7 @@
 
 import VsLink from '@components/elements/link/Link';
 import VsIcon from '@components/elements/icon/Icon';
+import dataLayerMixin from '../../../../mixins/dataLayerMixin';
 
 /**
  * The FooterSocialItem is used inside the FooterSocialMenu to
@@ -39,6 +41,7 @@ export default {
         VsLink,
         VsIcon,
     },
+    mixins: [dataLayerMixin],
     props: {
         /**
          * The URL the link will point to
@@ -71,7 +74,7 @@ export default {
             background: $color-gray-shade-1;
             box-shadow: 0 0 0 2px $color-gray-shade-1;
             border: 1px solid $color-gray-shade-1;
-            border-radius: 0.5rem;
+            border-radius: $border-radius-xl;
             display: block;
             height: 42px;
             width: 42px;
@@ -106,28 +109,30 @@ export default {
                 }
             }
 
-            &:hover {
-                text-decoration: underline;
-            }
-
             &:focus {
-                box-shadow: $shadow-button-focus;
+                box-shadow: $shadow-button-focus-on-dark;
                 background-color: $color-white;
                 color: $color-gray-shade-1;
                 outline: none;
 
                 .vs-icon {
-                    fill: $color-gray-shade-1 !important;
+                    fill: $color-gray-shade-1;
                 }
-        }
+            }
+
+            &:hover {
+                text-decoration: underline;
+
+                .vs-icon {
+                    fill: $color-white;
+                }
+            }
 
             .vs-icon {
-                &.vs-icon--size-md {
-                    height: 100%;
-                    margin: 0 auto;
-                    fill: $color-white;
-                    display: block;
-                }
+                height: 100%;
+                margin: 0 auto;
+                fill: $color-white;
+                display: block;
 
                 &.vs-icon--external-link {
                     display: none;

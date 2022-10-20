@@ -3,17 +3,18 @@ import cookieMixin from '../../../../mixins/cookieMixin';
 
 import VsBanner from '../Banner';
 
-const titleSlotText = 'Banner title';
 const textSlotText = 'Banner text';
 const ctaSlotText = 'Banner link';
-const closeBtnSlotText = 'Close';
 
-const factoryShallowMount = () => shallowMount(VsBanner, {
+const factoryShallowMount = (propsData) => shallowMount(VsBanner, {
+    propsData: {
+        ...propsData,
+        closeBtnText: 'close',
+        dontShowAgain: true,
+    },
     slots: {
-        bannerTitle: titleSlotText,
         bannerText: textSlotText,
         bannerCta: ctaSlotText,
-        closeBtnText: closeBtnSlotText,
     },
 });
 
@@ -27,21 +28,32 @@ describe('VsBanner', () => {
         expect(wrapper.attributes('data-test')).toBe('vs-banner');
     });
 
-    describe(':slots', () => {
-        it('renders content inserted in a bannerTitle slot', () => {
-            expect(wrapper.text()).toContain(titleSlotText);
+    describe(':props', () => {
+        it('should render sr-only text `close` when passed `closeBtnText` prop', () => {
+            const closeBtn = wrapper.find('[data-test=vs-banner__close-btn]');
+            expect(closeBtn.text()).toContain('close');
         });
 
+        it('does not set a cookie if `dontShowAgain` is false', async() => {
+            wrapper.setProps({
+                dontShowAgain: false,
+            });
+            const mockSetCookie = jest.fn();
+            wrapper.vm.setHiddenCookie = mockSetCookie;
+
+            await wrapper.find('[data-test=vs-banner__close-btn]').trigger('click');
+
+            expect(mockSetCookie).not.toHaveBeenCalled();
+        });
+    });
+
+    describe(':slots', () => {
         it('renders content inserted in a bannerText slot', () => {
             expect(wrapper.text()).toContain(textSlotText);
         });
 
         it('renders content inserted in a bannerCta slot', () => {
             expect(wrapper.text()).toContain(ctaSlotText);
-        });
-
-        it('renders content inserted in a closeBtnText slot', () => {
-            expect(wrapper.text()).toContain(closeBtnSlotText);
         });
     });
 

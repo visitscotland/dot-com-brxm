@@ -1,13 +1,13 @@
 <template>
     <nav
         aria-label="breadcrumbs"
-        class="vs-breadcrumb py-4"
+        class="vs-breadcrumb py-2"
     >
         <BBreadcrumb
             class="flex-nowrap p-0 mb-0"
             v-bind="$attrs"
         >
-            <!-- @slot The breadcrumb content goes here -->
+            <!-- @slot Default slot for VsBreadcrumbItems -->
             <slot />
         </BBreadcrumb>
     </nav>
@@ -17,7 +17,8 @@
 import { BBreadcrumb } from 'bootstrap-vue';
 
 /**
- * Breadcrumbs are used to indicate the current page position within the navigational hierarchy.
+ * Breadcrumbs indicate where a user is in the website’s
+ * structure and lets them easily navigate between levels.
  *
  * @displayName Breadcrumb
  */
@@ -31,18 +32,3 @@ export default {
     },
 };
 </script>
-
-<docs>
-  ```jsx
-  <VsBreadcrumb>
-    <VsBreadcrumbItem
-      v-for="(item, index) in breadcrumb.breadcrumb"
-      :key="index"
-      :href="item.href"
-      :active="item.active"
-      :text="item.name"
-      >
-    </VsBreadcrumbItem>
-  </VsBreadcrumb>
-  ```
-</docs>

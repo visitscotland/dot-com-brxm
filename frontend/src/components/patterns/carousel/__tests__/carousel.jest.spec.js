@@ -65,13 +65,32 @@ describe('VsCarousel', () => {
     });
 
     describe(':methods', () => {
-        it('sets the correct active page on arrow click', async() => {
+        it('sets the correct active page when method is run', async() => {
+            const wrapper = factoryShallowMount();
+
+            await wrapper.setData({
+                totalSlides: 10,
+                currentWidth: 'lg',
+                maxPages: 3,
+            });
+
+            await wrapper.vm.initNavigation();
+
+            await wrapper.find('.vs-carousel__control--next').trigger('click');
+
+            expect(wrapper.vm.currentPage).toBe(1);
+        });
+
+        it('throttles page navigation to not work within a 250ms period of a previous nav event', async() => {
+            jest.useFakeTimers();
+
             const wrapper = factoryShallowMount();
 
             await wrapper.setData({
                 currentPage: 1,
                 totalSlides: 10,
                 currentWidth: 'lg',
+                maxPages: 3,
             });
 
             await wrapper.vm.initNavigation();
@@ -83,6 +102,13 @@ describe('VsCarousel', () => {
             await wrapper.find('.vs-carousel__control--prev').trigger('click');
 
             expect(wrapper.vm.currentPage).toBe(1);
+
+            // Fast-forward throttle timer on sliderNavigate
+            jest.runAllTimers();
+
+            await wrapper.find('.vs-carousel__control--prev').trigger('click');
+
+            expect(wrapper.vm.currentPage).toBe(0);
         });
 
         it('sets the correct active page on clicking navigation item', async() => {

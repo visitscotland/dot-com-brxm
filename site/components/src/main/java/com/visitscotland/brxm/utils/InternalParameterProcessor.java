@@ -21,28 +21,33 @@ public class InternalParameterProcessor {
     private static final Logger logger = LoggerFactory.getLogger(InternalParameterProcessor.class);
 
     private ResourceBundleService bundle;
+    private Properties properties;
     private HippoUtilsService utils;
 
-    public InternalParameterProcessor(ResourceBundleService bundle, HippoUtilsService utils) {
+    public InternalParameterProcessor(ResourceBundleService bundle, HippoUtilsService utils, Properties properties) {
         this.bundle = bundle;
         this.utils = utils;
+        this.properties = properties;
     }
 
     public static final String PARAM_SSO = "sso";
     public static final String PARAM_ROOT_PATH = "root-path";
     public static final String PARAM_EXTERNAL = "external";
+    public static final String PARAM_LOCALE ="vs-locale-ctx";
 
     public static final String PATH_PLACEHOLDER = "[PATH-PLACEHOLDER]";
 
     public static final String FULLY_QUALIFIED_URLS = "fullyQualified";
     public static final String LOGINREDIRECT_PARAMETERS = "loginredirectParameters";
-    public static final String GLOBAL_MENU_URLS = "placeholerLocalizedURLs";
+    public static final String LEGACY = "legacy";
+    public static final String GLOBAL_MENU_URLS = "placeholderLocalizedURLs";
 
     public void processParameters(HstRequest request) {
         final StringBuilder returnUrl = new StringBuilder("returnurl=");
         String external = utils.getParameterFromUrl(request, PARAM_EXTERNAL);
         String authority = getAuthority(request);
         String sso = utils.getParameterFromUrl(request, PARAM_SSO);
+        String legacy = utils.getParameterFromUrl(request, LEGACY);
 
         if (authority != null) {
             returnUrl.append(authority).append("/").append(PATH_PLACEHOLDER);
@@ -58,17 +63,18 @@ public class InternalParameterProcessor {
             returnUrl.append("&id=").append(sso);
         }
 
+        request.setModel(LEGACY, legacy == null?properties.isServeLegacyCss().toString():legacy);
         request.setModel(LOGINREDIRECT_PARAMETERS, returnUrl.toString());
     }
 
     /**
      * This piece of logic has been based on visitscotland (legacy project). The logic of this parameter was
      * spread between header.jsp & page-header.tag. The logic has been updated in order to fix a couple of issues
-     * related with url
+     * related to URLs
      * <p>
      * Some refactoring has been done to while copying the logic over in order to  fix some bugs and to make the logic a
      * bit more simple. I am not completely sure that this logic is useful but WebOps has advice to take a cautious
-     * approach and keep the functionality as It was (even though the specification doesn't states how these bits)
+     * approach and keep the functionality as It was (even though the specification doesn't states how these bits work)
      *
      * @return a URL containing just the schema and the domain (host) or {@code null} if the URL defined in root-path
      * is malformed
@@ -144,8 +150,8 @@ public class InternalParameterProcessor {
                     .build().normalize());
         }
 
-        if (locale != null && Language.getLanguageForLocale(locale).getCMSPathVariable().length() != 0) {
-            uri.append(Language.getLanguageForLocale(locale).getCMSPathVariable());
+        if (locale != null && Language.getLanguageForLocale(locale).getPathVariable().length() != 0) {
+            uri.append(Language.getLanguageForLocale(locale).getPathVariable());
         }
 
         uri.append("/").append(PATH_PLACEHOLDER);

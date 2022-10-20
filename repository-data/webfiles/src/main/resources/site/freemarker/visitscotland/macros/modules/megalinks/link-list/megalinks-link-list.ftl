@@ -1,5 +1,6 @@
 <#include "../../../../../include/imports.ftl">
 <#include "../../../../../frontend/components/vs-megalink-link-list.ftl">
+<#include "../../video/video-modal.ftl">
 
 <#macro linkList item showTeaser theme>
     <vs-row>
@@ -26,9 +27,28 @@
                     >
                         <vs-megalink-link-list
                             img-src="${image}"
-                            link-type="${listItem.type}"
                             theme="${theme}"
+                            link-type="${listItem.type}"
                             link-url="${listItem.link}"
+                            error-message="${label('essentials.global', 'third-party-error')}"
+                            <#if listItem.itineraryTransport??>
+                                transport="${listItem.itineraryTransport}"
+                                transport-name="${label('transports', listItem.itineraryTransport)}"
+                            </#if>
+                            <#if listItem.itineraryDays??>
+                                <#if listItem.itineraryDays = 1>
+                                    days-label="${label('itinerary', 'day')}"
+                                <#else>
+                                    days-label="${label('itinerary', 'days')}"
+                                </#if>
+                                days="${listItem.itineraryDays}"
+                            <#else>
+                                days-label="${label('itinerary', 'day')}"
+                            </#if>
+                            <#if listItem.youtubeId??>
+                                video-id="${listItem.youtubeId}"
+                                video-btn-text="${label('video', 'video.play-btn')}"
+                            </#if>
                         >
                             <template slot="vsLinkListHeading">
                                 ${listItem.label}
@@ -40,6 +60,10 @@
                             </#if>
                         </vs-megalink-link-list>
                     </vs-col>
+                
+                    <#if listItem.youtubeId??>
+                        <@videoModal videoId=listItem.youtubeId videoTitle=listItem.label />
+                    </#if>
                 </#list>
             </vs-row>
         </vs-col>

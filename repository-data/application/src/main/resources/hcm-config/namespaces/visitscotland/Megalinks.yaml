@@ -11,12 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4e2750e7-0c5a-487b-bdda-01b280b7c96a
+          jcr:uuid: 660930f3-640a-4d37-8a35-612ff0b8a0cc
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          hipposysedit:validators: ['visitscotland:megalinks-unique-link-validator']
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -34,6 +33,7 @@ definitions:
             hipposysedit:path: visitscotland:introduction
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [optional]
           /hideTeaser:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -55,7 +55,7 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: visitscotland:megalinkItems
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, required]
+            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:megalinks-unique-link-validator']
           /products:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -71,6 +71,7 @@ definitions:
             hipposysedit:path: visitscotland:layout
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
+            hipposysedit:validators: [required]
           /translation:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -91,14 +92,12 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: ecbb614c-7d8d-44b7-8784-268b44c3190c
+          jcr:uuid: 74d73625-7170-4596-8955-59a8a2fea38f
           hippostdpubwf:lastModificationDate: 2020-05-14T14:29:51.020+01:00
           hippostdpubwf:creationDate: 2020-05-14T14:29:51.020+01:00
           visitscotland:teaserVisible: true
           visitscotland:translation: ''
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
+          visitscotland:layout: Default
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -141,9 +140,9 @@ definitions:
             hint: Max length suggestion is 250.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{toolbarGroups: [{ name: ''links''
-                },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
-                , removeButtons: ''PickImage,Youtube,Table''}'
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''basicstyles''}, { name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
               ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
                 \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:375\
                 \   }  }"

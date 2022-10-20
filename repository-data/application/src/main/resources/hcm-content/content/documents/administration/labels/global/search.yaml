@@ -1,0 +1,82 @@
+/content/documents/administration/labels/global/search:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 5ee33cdb-b3ba-4179-b86b-807d2c305b03
+  hippo:name: Search
+  hippo:versionHistory: 8fef4b3b-66e5-4626-a532-4d9608a37c63
+  /search[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: cae657d0-e104-45f2-aceb-8ac8d1e99178
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: juanluis.hurtado
+    hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
+    hippostdpubwf:lastModificationDate: 2022-07-12T14:30:21.976+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: search
+    resourcebundle:keys: [clear-form, close-form, search, search-label]
+    resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
+        looking for?']
+    resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
+        Sie?']
+    resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
+      Buscar, '¿Qué estás buscando?']
+    resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
+      Rechercher, 'Que recherchez-vous ?']
+    resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
+      Cerca, 'Cosa stai cercando?']
+    resourcebundle:messages_nl: ['', '', '', '']
+  /search[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: a3e4662f-1fb8-4f9b-9820-a597fcbffe15
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: juanluis.hurtado
+    hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
+    hippostdpubwf:lastModificationDate: 2022-07-12T14:31:48.380+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: search
+    resourcebundle:keys: [clear-form, close-form, search, search-label]
+    resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
+        looking for?']
+    resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
+        Sie?']
+    resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
+      Buscar, '¿Qué estás buscando?']
+    resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
+      Rechercher, 'Que recherchez-vous ?']
+    resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
+      Cerca, 'Cosa stai cercando?']
+    resourcebundle:messages_nl: ['', '', '', '']
+  /search[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: ca1579c4-e2fb-4d50-b9a0-a2d1a4553596
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: juanluis.hurtado
+    hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
+    hippostdpubwf:lastModificationDate: 2022-07-12T14:31:48.380+02:00
+    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:publicationDate: 2022-07-13T17:54:55.148+02:00
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: search
+    resourcebundle:keys: [clear-form, close-form, search, search-label]
+    resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
+        looking for?']
+    resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
+        Sie?']
+    resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
+      Buscar, '¿Qué estás buscando?']
+    resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
+      Rechercher, 'Que recherchez-vous ?']
+    resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
+      Cerca, 'Cosa stai cercando?']
+    resourcebundle:messages_nl: ['', '', '', '']

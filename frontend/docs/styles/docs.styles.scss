@@ -7,6 +7,7 @@
 @import './docs.mixins.scss';
 @import './docs.functions.scss';
 @import './examples.styles.scss';
+@import './demos.styles.scss';
 
 /* LOCAL DESIGN TOKENS
  --------------------------------------------- */
@@ -153,6 +154,14 @@ h4[class^='rsg--heading'] a {
     color: $docs-color-heading;
 }
 
+// Heading, level 5
+h5[class^='rsg--heading'],
+h5[class^='rsg--heading'] a{
+    font-size: $size-s;
+    font-weight: $weight-semi-bold;
+}
+
+
 // Paragraphs
 p[class^='rsg--para'] {
     -webkit-font-smoothing: antialiased;
@@ -195,11 +204,10 @@ p[class^='rsg--para'] {
 }
 
 article[class^='rsg--root']{
+    div:first-of-type >
     p[class^='rsg--para'] {
         &:first-of-type{
             font-weight: 100;
-            font-size: 28px;
-            line-height: initial;
         }
     }
 }

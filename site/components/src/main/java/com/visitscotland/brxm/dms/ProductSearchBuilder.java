@@ -57,8 +57,10 @@ public class ProductSearchBuilder {
     private Boolean offers;
     private Boolean free;
     private Boolean safeTravels;
-    private Boolean goodToGo;
+    private String keywords;
     private Order order;
+    private Integer size;
+    private String channel;
 
     private final Set<String> categories = new TreeSet<>();
     private final Set<String> awards = new TreeSet<>();
@@ -95,8 +97,9 @@ public class ProductSearchBuilder {
             proximity(ps.getDistance());
             offers(ps.getOffers());
             free(ps.getFree());
-            goodToGo(ps.getGoodToGo());
+            keywords(ps.getKeywords());
             safeTravels(ps.getSafeTravels());
+            channel(ps.getChannel());
         }
         return this;
     }
@@ -235,14 +238,25 @@ public class ProductSearchBuilder {
         return this;
     }
 
-    public ProductSearchBuilder goodToGo(Boolean goodToGo){
-        this.goodToGo = goodToGo;
+    public ProductSearchBuilder channel(String channel){
+        this.channel = channel;
+
+        return this;
+    }
+
+    public ProductSearchBuilder keywords(String keywords){
+        this.keywords = keywords;
 
         return this;
     }
 
     public ProductSearchBuilder sortBy(String order){
         this.order = Order.fromValue(order);
+        return this;
+    }
+
+    public ProductSearchBuilder size(Integer size) {
+        this.size = size;
         return this;
     }
 
@@ -295,9 +309,9 @@ public class ProductSearchBuilder {
             }
         } else {
             if (Contract.isEmpty(properties.getDmsHost())) {
-                return composeUrl(Language.getLanguageForLocale(locale).getDMSPathVariable() + path);
+                return composeUrl(Language.getLanguageForLocale(locale).getPathVariable() + path);
             } else {
-                return composeUrl(properties.getDmsHost() + Language.getLanguageForLocale(locale).getDMSPathVariable() + path);
+                return composeUrl(properties.getDmsHost() + Language.getLanguageForLocale(locale).getPathVariable() + path);
             }
         }
     }
@@ -351,11 +365,18 @@ public class ProductSearchBuilder {
         if (Boolean.TRUE.equals(safeTravels)){
             compose = addParams(compose, FACILITY_PARAM, "safetrav");
         }
-        if (Boolean.TRUE.equals(goodToGo)){
-            compose = addParams(compose, FACILITY_PARAM, "goodtogo");
+        if (keywords != null){
+            compose = addParams(compose, KEYWORDS, keywords);
+        }
+        if (!Contract.isEmpty(channel)){
+            compose = addParams(compose, CHANNEL, channel);
         }
         if (Boolean.TRUE.equals(offers)){
             compose = addParams(compose, OFFERS, "true");
+        }
+
+        if (size != null) {
+            compose = addParams(compose, SIZE, size.toString());
         }
 
         //Add categories, awards, facilities and rating

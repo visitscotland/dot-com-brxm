@@ -5,6 +5,7 @@ import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
+import com.visitscotland.brxm.model.megalinks.MultiImageLinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.utils.Contract;
@@ -27,6 +28,8 @@ public class PageTemplateBuilder {
     //Static Constant
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
+    static final String SEARCH_RESULTS = "searchResultsPage";
+
 
     static final String[] alignment = {"right", "left"};
 
@@ -48,9 +51,15 @@ public class PageTemplateBuilder {
     private final StacklaFactory stacklaFactory;
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
+    private final PreviewModeFactory previewFactory;
+    private final MarketoFormFactory marketoFormFactory;
+
 
     @Autowired
-    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre, IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory, StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory) {
+    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
+               IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
+               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
+               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory) {
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentre;
         this.iKnowFactory = iKnow;
@@ -61,6 +70,8 @@ public class PageTemplateBuilder {
         this.stacklaFactory = stacklaFactory;
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
+        this.previewFactory = previewFactory;
+        this.marketoFormFactory = marketoFormFactory;
     }
 
     private Page getDocument(HstRequest request) {
@@ -95,6 +106,8 @@ public class PageTemplateBuilder {
                     page.modules.add(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
                 } else if (item instanceof CannedSearchTours) {
                     page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
+                } else if (item instanceof MarketoForm) {
+                    page.modules.add(marketoFormFactory.getModule((MarketoForm) item));
                 }
             } catch (MissingResourceException e){
                 logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);
@@ -104,6 +117,10 @@ public class PageTemplateBuilder {
         }
 
         setIntroTheme(request, page.modules);
+        //TODO try to move this to GeneralContentComponent
+        if (getDocument(request).getPath().contains("/site-search-results")){
+            request.setAttribute(SEARCH_RESULTS, true);
+        }
 
         request.setAttribute(PAGE_ITEMS, page.modules);
     }
@@ -126,11 +143,21 @@ public class PageTemplateBuilder {
             contentLogger.error("The document type LongCopy is not allowed in this page. Path {}", page.getPath());
         }
     }
+
     /**
      * Creates a LinkModule from a Megalinks document
      */
     private void processMegalinks(HstRequest request, PageConfiguration page, Megalinks item){
         LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
+        int numLinks = al.getLinks().size();
+        if (al instanceof MultiImageLinksModule) {
+            numLinks += ((MultiImageLinksModule) al).getFeaturedLinks().size();
+        }
+        if (numLinks == 0) {
+            contentLogger.error("Megalinks module at {} contains no valid items", item.getPath());
+            page.modules.add(previewFactory.createErrorModule(al));
+            return;
+        } 
 
         if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
             al.setAlignment(alignment[page.alignment++ % alignment.length]);
@@ -164,8 +191,8 @@ public class PageTemplateBuilder {
 
     /**
      * Sets the theme for the intro of the page based on the list of modules.
-     * @param request
-     * @param modules
+     * @param request HstRequest request
+     * @param modules List Modules
      */
     private void setIntroTheme(HstRequest request, List<Module<?>> modules){
         if(!modules.isEmpty() && modules.get(0) instanceof LinksModule){

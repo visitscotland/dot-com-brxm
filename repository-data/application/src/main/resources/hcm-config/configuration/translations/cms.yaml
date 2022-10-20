@@ -23,6 +23,7 @@ definitions:
         Choose a Stop document.
       visitscotland:link-validator#channel: You can’t link to a document from a different language.
       visitscotland:link-validator#emptyLink: Please select a link.
+      visitscotland:link-validator#removedLink: The document linked has been deleted, please link to a valid document.
       visitscotland:link-validator#linkToSelf: The document contains a link to itself.
       visitscotland:link-validator#translation: The current document has not been
         linked as expected, please link it again.
@@ -44,4 +45,12 @@ definitions:
       visitscotland:travel-tab-transport-validator: Travel type must be unique.
       visitscotland:link-validator#video: You can’t link to that type of document.
         Choose a Video document.
+      visitscotland:link-validator#map: You can’t link to that type of document.
+        Choose a Destination Page or Stop.
+      visitscotland:link-validator#mapcoordinates: You can’t link to that type of document.
+        Choose a General, Listicle or Itinerary page.
       visitscotland:youtube-url-validator: Enter a valid Youtube link URL
+      visitscotland:featured-widget-validator: Invalid featured widget
+      visitscotland:featured-widget-validator#multipleFeaturedEvent: Only 1 featured event allowed.
+      visitscotland:featured-widget-validator#notEvent: Product search must be an event search.
+      visitscotland:featured-widget-validator#mixedFeaturedWidget: Featured events and featured items can not be mixed - pick 2 featured items or 1 featured event.

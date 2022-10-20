@@ -1,3 +1,4 @@
+<#include "../../../include/imports.ftl">
 <#--
     This macro takes all the relevant information with SEO purposes from a document. Therefore, this macro
     has no use for Channel Manager pages
@@ -5,7 +6,6 @@
     TODO: SEO for Channel Manager pages (at the moment 0 CM pages have been created))
 
 -->
-<#include "../../../include/imports.ftl">
 
 <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#-- @ftlvariable name="orderedTranslations" type="java.util.List<com.visitscotland.brxm.hippobeans.BaseDocument>" -->
@@ -22,11 +22,6 @@
         <link rel="canonical" href="<@hst.link hippobean=document canonical=true fullyQualified=true/>" />
     </@hst.headContribution>
 
-    <#-- Meta Language Mark-up -->
-    <@hst.headContribution category="seo">
-        <meta http-equiv="content-language" content="${document.locale.language}" />
-    </@hst.headContribution>
-
     <#-- HREFLANG TAG -->
     <#if orderedTranslations?size gt 1>
         <#list orderedTranslations as translation>
@@ -38,7 +33,7 @@
 
     <#-- TITLE TAG -->
     <@hst.headContribution category="seo">
-        <title>${document.seoTitle?html} ${label("channel", "seo.title-suffix")}</title>
+        <title>${document.seoTitle?html} ${property("seo.title-suffix")}</title>
     </@hst.headContribution>
 
     <#-- META DESCRIPTION TAG -->
@@ -62,7 +57,7 @@
         <meta property="og:url" content="<@hst.link hippobean=document canonical=true fullyQualified=true/>" />
     </@hst.headContribution>
     <@hst.headContribution category="opengraph">
-        <meta property="og:site_name" content="${label("channel", "og.site-name")}" />
+        <meta property="og:site_name" content="${property("seo.og.site-name")}" />
     </@hst.headContribution>
     <@hst.headContribution category="opengraph">
         <meta property="og:locale" content="${document.locale.toLanguageTag()?lower_case}" />
@@ -74,7 +69,7 @@
         <meta name="twitter:card" content="summary_large_image" />
     </@hst.headContribution>
     <@hst.headContribution category="opengraph">
-        <meta name="twitter:site" content="${label("channel", "og.twitter.site")}" /><#-- TODO: lablel -->
+        <meta name="twitter:site" content="${property("seo.og.twitter.site")}" />
     </@hst.headContribution>
     <@hst.headContribution category="opengraph">
         <meta name="twitter:title" content="${document.seoTitle?html}" />

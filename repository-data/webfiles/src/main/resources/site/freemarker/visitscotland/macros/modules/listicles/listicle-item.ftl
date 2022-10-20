@@ -3,8 +3,8 @@
 <#include "../../../../frontend/components/vs-link.ftl">
 
 <#include "../../global/key-facilities.ftl">
+<#include "../../global/preview-warning.ftl">
 <#include "../../global/image-with-caption.ftl">
-<#include "../../global/cms-errors.ftl">
 
 <#macro listicleItem item>
 <#-- @ftlvariable name="listItem" type="com.visitscotland.brxm.hippobeans.ListicleItem" -->
@@ -26,12 +26,12 @@
     >
         <div slot="hippo-details" class="has-edit-button">
             <@hst.manageContent hippobean=item.hippoBean/>
-            <@cmsErrors errors=item.errorMessages!"" editMode=editMode />
+            <@previewWarning editMode item item.errorMessages />
         </div>
 
         <#if item.image?? && item.image?has_content>
             <div slot="image-slot">
-                <@imageWithCaption imageSrc=image imageDetails=item.image variant="large"/>
+                <@imageWithCaption imageSrc=image imageDetails=item.image variant="large" noAltText="true"/>
             </div>
         </#if>
 
@@ -45,7 +45,9 @@
                             <vs-link
                                 href="${cta.link}"
                                 <#if cta.type != "internal">type="${cta.type}"</#if>
-                            >${cta.label}</vs-link>
+                            >
+                                ${cta.label}<span class="sr-only">: ${item.title}</span>
+                            </vs-link>
                         </div>
 					</#if>
 				</#list>

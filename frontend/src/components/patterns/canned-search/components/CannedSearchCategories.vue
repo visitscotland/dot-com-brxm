@@ -52,18 +52,9 @@ export default {
 
 <style lang="scss">
     .vs-canned-search-categories {
-        font-size: $font-size-base;
+        font-size: $font-size-4;
         line-height: $line-height-s;
         font-weight: $font-weight-semi-bold;
         margin-bottom: $spacer-1;
     }
 </style>
-
-<docs>
-```jsx
-    const sampleAccom = require("../../../../assets/fixtures/canned-search/sample-accom.json");
-
-    <VsCannedSearchCategories
-        :categories="sampleAccom.locations"
-    />
-</docs>

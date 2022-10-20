@@ -2,6 +2,7 @@
     <VsMegaNav
         href="/"
         menu-toggle-alt-text="Toggle Menu"
+        search-button-text="Search"
     >
         <template #megaNavTopMenuItems>
             <VsMegaNavTopMenuItem
@@ -19,11 +20,8 @@
                     <VsMegaNavList
                         v-for="(subHeading, subHeadingIndex) in item.dropdownNav"
                         :key="subHeadingIndex"
+                        :list-heading="subHeading.title"
                     >
-                        <VsMegaNavListItem slot="navListHeading">
-                            {{ subHeading.title }}
-                        </VsMegaNavListItem>
-
                         <VsMegaNavListItem
                             slot="navListItems"
                             v-for="(navLink, navLinkIndex)
@@ -43,6 +41,15 @@
                             {{ subHeading.cta }}
                         </VsMegaNavListItem>
                     </VsMegaNavList>
+                </template>
+
+                <template
+                    slot="navFeaturedEvent"
+                    v-if="item.title === 'Things to do'"
+                >
+                    <MegaNavFeaturedEvent
+                        source-url="http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
+                    />
                 </template>
 
                 <template
@@ -109,25 +116,19 @@
                     :title="item.title"
                     level="1"
                     :control-id="mobileItemIndex.toString()"
+                    :cta-link="item.href"
+                    :cta-text="item.cta"
                     v-for="(item, mobileItemIndex) in header.mainNav"
                     :key="mobileItemIndex"
+                    @click.stop.native="$root.$emit('navAccordionClick', item.title)"
                 >
-                    <VsMegaNavList v-if="item.href && item.cta">
-                        <VsMegaNavListItem
-                            slot="navListHeading"
-                            :href="item.href"
-                            cta-link
-                        >
-                            {{ item.cta }}
-                        </VsMegaNavListItem>
-                    </VsMegaNavList>
-
                     <VsMegaNavAccordionItem
                         :title="subHeading.title"
                         level="2"
                         :control-id="subHeadingIndex.toString()"
                         v-for="(subHeading, subHeadingIndex) in item.dropdownNav"
                         :key="subHeadingIndex"
+                        @click.stop.native="$root.$emit('navAccordionClick', subHeading.title)"
                     >
                         <VsMegaNavList>
                             <VsMegaNavListItem
@@ -151,6 +152,13 @@
                         </VsMegaNavList>
                     </VsMegaNavAccordionItem>
                     <div class="featured-items">
+                        <template
+                            v-if="item.title === 'Things to do'"
+                        >
+                            <MegaNavFeaturedEvent
+                                source-url="http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
+                            />
+                        </template>
                         <template
                             v-if="item.title === 'Accommodation' || item.title === 'Inspiration'"
                         >

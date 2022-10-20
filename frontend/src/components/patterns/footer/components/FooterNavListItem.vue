@@ -7,7 +7,7 @@
         <VsLink
             :href="href"
             :type="type"
-            variant="dark"
+            variant="on-dark"
             data-test="vs-footer-nav-list-item__link"
         >
             {{ linkText }}
@@ -61,12 +61,12 @@ export default {
 <style lang="scss">
 .vs-footer-nav-list-item {
     list-style: none;
-    font-size: $small-font-size;
+    font-size: $font-size-3;
     line-height: $line-height-s;
     padding: $spacer-3 $spacer-8;
 
     .vs-link {
-        &--variant-dark {
+        &--variant-on-dark {
             color: $color-white;
             text-decoration: none;
         }

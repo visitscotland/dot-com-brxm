@@ -3,7 +3,6 @@ package com.visitscotland.brxm.config;
 import com.visitscotland.brxm.utils.NonTestable;
 import com.visitscotland.utils.info.About;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.utils.info.About;
 import freemarker.template.TemplateModelException;
 import org.hippoecm.hst.servlet.HstFreemarkerServlet;
 import org.slf4j.Logger;
@@ -24,12 +23,18 @@ public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
 
     private static final Logger logger = LoggerFactory.getLogger(VsHstFreemarkerServlet.class);
 
+    public static final String BRANCH_NAME = "VS_BRANCH_NAME";
+    public static final String AUTHOR = "VS_COMMIT_AUTHOR";
+    public static final String PR_ID = "CHANGE_ID";
+
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
 
         try {
-            getConfiguration().setSharedVariable("ResourceBundle", VsComponentManager.get(ResourceBundleService.class));
+            addObject("ResourceBundle", VsComponentManager.get(ResourceBundleService.class));
+            addObject("Properties", VsComponentManager.get(com.visitscotland.brxm.utils.Properties.class));
+            addObject("Logger", logger);
             includeVersionNumber();
             includeBranchInformation();
         } catch (TemplateModelException e) {
@@ -37,6 +42,12 @@ public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
         }
     }
 
+    /** Adds an object to Freemarker **/
+    public void addObject(String name, Object value) throws TemplateModelException {
+        getConfiguration().setSharedVariable(name, value);
+    }
+
+    /** Adds the build number to the template */
     private void includeVersionNumber() throws TemplateModelException {
         //Sets the version number as a Freemarker shared variable so it can be inserted to all pages.
         if (About.getVersion().equals("Unknown")){
@@ -46,28 +57,29 @@ public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
         }
     }
 
+    /** Includes branch information for CI pipelines */
     private void includeBranchInformation() throws TemplateModelException {
-        if (System.getenv().containsKey("VS_BRANCH_NAME")){
-            addVariable("ciBranch", System.getenv("VS_BRANCH_NAME"));
+        if (System.getenv().containsKey(BRANCH_NAME)){
+            addVariable("ciBranch", System.getenv(BRANCH_NAME));
 
-            if (System.getenv().containsKey("VS_COMMIT_AUTHOR")){
-                addVariable("ciCommitAuthor", System.getenv("VS_COMMIT_AUTHOR"));
+            if (System.getenv().containsKey(AUTHOR)){
+                addVariable("ciCommitAuthor", System.getenv(AUTHOR));
             }
-            if (System.getenv().containsKey("CHANGE_ID")){
-                addVariable("ciPrID", System.getenv("CHANGE_ID"));
+            if (System.getenv().containsKey(PR_ID)){
+                addVariable("ciPrID", System.getenv(PR_ID));
             }
         } else {
             try {
                 Properties p = new Properties();
                 p.load(getClass().getResourceAsStream("/ci/build-info.properties"));
-                if (p.containsKey("VS_BRANCH_NAME")){
-                    addVariable("ciBranch", p.get("VS_BRANCH_NAME"));
+                if (p.containsKey(BRANCH_NAME)){
+                    addVariable("ciBranch", p.get(BRANCH_NAME));
                 }
-                if (p.containsKey("VS_COMMIT_AUTHOR")){
-                    addVariable("ciCommitAuthor", p.get("VS_COMMIT_AUTHOR"));
+                if (p.containsKey(AUTHOR)){
+                    addVariable("ciCommitAuthor", p.get(AUTHOR));
                 }
-                if (p.containsKey("CHANGE_ID")){
-                    addVariable("ciPrID", p.get("CHANGE_ID"));
+                if (p.containsKey(PR_ID)){
+                    addVariable("ciPrID", p.get(PR_ID));
                 }
             } catch (IOException e) {
                 logger.error(e.getMessage());

@@ -1,9 +1,38 @@
 # READ THIS!!
 # - The paths added to this file should correspond with the root path in a yaml file.
-# - The SNAPSHOT version must go at the end and It should correspond with the version of the artefact,
+# - The SNAPSHOT version must go at the end, and It should correspond with the version of the artefact,
 # - Only One SNAPSHOT must exist in this file
 #
 # Check Confluence for a more in detail explanation. For a detailed explanation: TBD
 action-lists:
 - 0.1.0:
     /content/documents/administration/configuration/properties: reload
+- 1.0.1:
+    /content/documents/administration/labels/global: reload
+    /content/gallery/visitscotland/static: reload
+- 1.0.2:
+    /content/documents/administration/labels/global: reload
+    /content/documents/administration/labels/global/common-label: reload
+    /content/documents/administration/labels/global/facilities: reload
+    /content/documents/administration/labels/global/pagination: reload
+    /content/documents/administration/labels/global/social-share: reload
+- 1.0.4:
+    /content/documents/administration/configuration/default-properties: reload
+    /content/documents/administration/labels/global/common-label: reload
+    /content/documents/administration/labels/modules/product-search-widget: reload
+    /content/documents/administration/labels/pages/itinerary: reload
+- 1.0.5:
+    /content/documents/administration/labels/modules/video: reload
+    /content/documents/administration/configuration/default-properties: reload
+- 1.0.7:
+    /content/documents/administration/labels/modules/video: reload
+    /content/documents/administration/labels/global/common-label: reload
+- 1.0.8:
+    /content/documents/administration/configuration/default-properties: reload
+- 1.0.9:
+    /content/documents/administration/labels/modules/forms: reload
+- 1.0.10:
+    /content/documents/administration/configuration/default-properties: reload
+- 1.0.13:
+    /content/documents/administration/labels/modules/product-search-widget: reload
+    /content/documents/administration/labels/modules/forms: reload

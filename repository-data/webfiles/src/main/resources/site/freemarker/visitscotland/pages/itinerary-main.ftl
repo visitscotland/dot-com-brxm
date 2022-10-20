@@ -9,10 +9,11 @@
 <#include "../macros/modules/itineraries/itinerary-stop.ftl">
 <#include "../macros/modules/itineraries/itinerary-map.ftl">
 <#include "../macros/modules/page-intro/page-intro.ftl">
-<#include "../macros/global/cms-errors.ftl">
+<#include "../macros/global/otyml.ftl">
 <#include "../macros/shared/module-builder.ftl">
 <#include "../macros/modules/horizontal-list/horizontal-list.ftl">
 <#include "../macros/modules/signpost/signpost.ftl">
+<#include "../macros/modules/product-search/psr-module.ftl">
 
 <#-- Implicit Request Objects -->
 <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Itinerary" -->
@@ -35,7 +36,6 @@
 </#compress>
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
-    <@cmsErrors errors=alerts!"" editMode=editMode />
 
     <@pageIntro content=document heroDetails=heroImage itinerary=itinerary />
 
@@ -98,8 +98,10 @@
 
     <@socialShare nojs=true/>
 
+    <@productSearchWidget psrWidget />
+
     <#if otyml??>
-        <@horizontalList otyml />
+        <@otymlModule otyml editMode />
     </#if>
 
     <#if newsletterSignpost??>

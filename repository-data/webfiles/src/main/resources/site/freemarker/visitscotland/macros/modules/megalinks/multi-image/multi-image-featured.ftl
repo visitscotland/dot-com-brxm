@@ -20,9 +20,28 @@
             featured
             <#if lastFeatured == 'true'>last-featured</#if>
             img-src="${image}"
+            theme="${theme}"
             link-type="${feature.type}"
             link-url="${feature.link}"
-            theme="${theme}"
+            error-message="${label('essentials.global', 'third-party-error')}"
+            <#if feature.itineraryTransport??>
+                transport="${feature.itineraryTransport}"
+                transport-name="${label('transports', feature.itineraryTransport)}"
+            </#if>
+            <#if feature.itineraryDays??>
+                <#if feature.itineraryDays = 1>
+                    days-label="${label('itinerary', 'day')}"
+                <#else>
+                    days-label="${label('itinerary', 'days')}"
+                </#if>
+                days="${feature.itineraryDays}"
+            <#else>
+                days-label="${label('itinerary', 'day')}"
+            </#if>
+            <#if feature.youtubeId??>
+                video-id="${feature.youtubeId}"
+                video-btn-text="${label('video', 'video.play-btn')}"
+            </#if>
         >
             <template slot="vsMultiImageHeading">
                 ${feature.label}</template>

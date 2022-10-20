@@ -47,8 +47,18 @@ public class HTMLtoVueTransformer {
 
         while (matcher.find()) {
             String id = toKebabCase(matcher.group(3));
-            String vsHeading = String.format("<vs-heading level=\"%s\" id=\"%s\"%s>%s</vs-heading>",
-                    matcher.group(1), id, matcher.group(2), matcher.group(3));
+            String level = matcher.group(1);
+            String vsHeading;
+            if (level.equals("6")){
+                /* TODO: This is a workaround for VS-3489 and needs to be removed when that ticket is completed
+                 * Since this a temporarily fix no unit tests have been written
+                 */
+                vsHeading = String.format("<vs-heading level=\"4\" override-style-level=\"6\" id=\"%s\"%s>%s</vs-heading>",
+                        id, matcher.group(2), matcher.group(3));
+            } else {
+                vsHeading = String.format("<vs-heading level=\"%s\" id=\"%s\"%s>%s</vs-heading>",
+                        level, id, matcher.group(2), matcher.group(3));
+            }
             output = output.replace(matcher.group(), vsHeading);
         }
 
@@ -72,10 +82,10 @@ public class HTMLtoVueTransformer {
          * 2. The value of the attribute href
          * 3. Closing tag: "</a>"
          */
-        final Pattern aTag = Pattern.compile("(<a\\s)(\\S*+\\s)?href\\s?=\\s?\"(.*?)\".*?(</a>)");
+        final Pattern aTag = Pattern.compile("(<a\\s)(?:.+\\s)?href\\s?=\\s?\"(.*?)\".*?(</a>)");
         final int OPEN = 1;
-        final int HREF = 3;
-        final int CLOSE = 4;
+        final int HREF = 2;
+        final int CLOSE = 3;
 
         Matcher matcher = aTag.matcher(html);
         String output = html;

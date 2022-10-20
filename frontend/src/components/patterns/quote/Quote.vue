@@ -76,7 +76,7 @@ export default {
 <style lang="scss">
 .vs-quote {
     &__content {
-        font-size: $display2-size;
+        font-size: $font-size-8;
         font-weight: $font-weight-light;
         line-height: $line-height-s;
     }
@@ -87,7 +87,7 @@ export default {
 
         @include media-breakpoint-up(md) {
             margin-bottom: $spacer-1;
-            font-size: $display4-size;
+            font-size: $font-size-5;
         }
     }
 
@@ -96,7 +96,7 @@ export default {
 
         @include media-breakpoint-up(md) {
             line-height: $line-height-s;
-            font-size: $display4-size;
+            font-size: $font-size-5;
             margin-bottom: $spacer-7;
         }
     }
@@ -176,8 +176,6 @@ export default {
         <VsImg
             src="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
             alt="This is the alt text"
-            data-sizes="auto"
-            class="lazyload"
             slot="quoteImage">
         </VsImg>
         <p slot="quoteContent">

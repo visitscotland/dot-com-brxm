@@ -1,7 +1,8 @@
 package com.visitscotland.brxm.report.translation;
 
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.visitscotland.brxm.report.ReportException;
-import org.codehaus.jackson.map.util.StdDateFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +26,8 @@ public class TranslationReportRestController {
     }
 
     @GetMapping("/translation/untranslated")
-    public RestListContainer<DocumentTranslationReportModel> untranslatedFiles(@RequestParam String locale) {
-        if (!translationReportService.isLocaleSupported(locale)) {
+    public RestListContainer<DocumentTranslationReportModel> untranslatedFiles(@RequestParam(required = false) String locale) {
+        if (locale != null && !translationReportService.isLocaleSupported(locale)) {
             return new RestListContainer<>(Collections.emptyList());
         }
         return new RestListContainer<>(translationReportService.getUntranslatedDocuments(locale));

@@ -7,7 +7,8 @@
     >
         <VsLink
             :href="href"
-            :role="href === '#' ? '' : 'menuitem'"
+            role="menuitem"
+            data-layer-value="menuNavigationDataEvent"
         >
             <!-- @slot Default slot for nav link content  -->
             <slot />
@@ -17,6 +18,7 @@
 
 <script>
 import VsLink from '@components/elements/link/Link';
+import dataLayerMixin from '../../../../mixins/dataLayerMixin';
 
 /**
  *  Meganav list items with link and slot for link content
@@ -30,6 +32,7 @@ export default {
     components: {
         VsLink,
     },
+    mixins: [dataLayerMixin],
     props: {
         /**
          * The URL for the nav list link
@@ -84,7 +87,7 @@ export default {
         padding: $spacer-3 $spacer-9;
         border: 2px solid $color-gray-tint-7;
         line-height: 1.4;
-        font-size: $h4-font-size;
+        font-size: $font-size-4;
 
         @include media-breakpoint-up(lg) {
             border: 2px solid $color-white;
@@ -97,19 +100,8 @@ export default {
         }
 
         &:focus{
-            outline: 0;
-            border: 2px solid $color-pink;
-        }
-    }
-
-    &__heading{
-        border-bottom: 1px solid $color-gray-tint-5;
-        line-height: $line-height-standard;
-
-        .vs-link--variant-primary{
-            color: $color-secondary-gray-shade-3;
-            font-size: $h3-font-size;
-            cursor: text;
+            @extend %outline-link-focus;
+            outline-offset: -2px;
         }
     }
 
@@ -168,7 +160,7 @@ export default {
         .vs-link--variant-primary{
             background-color: $color-white;
             color: $color-pink;
-            font-size: $h3-font-size;
+            font-size: $font-size-5;
             line-height: $line-height-s;
             padding-left: $spacer-8;
             padding-right: $spacer-5;
@@ -201,11 +193,6 @@ export default {
             border: 2px solid $color-white;
             line-height: $line-height-s;
             padding: $spacer-1 $spacer-5;
-
-            &:focus{
-                outline: 0;
-                border: 2px solid $color-pink;
-            }
         }
 
         &__link{
@@ -227,61 +214,7 @@ export default {
                 }
             }
         }
-
-        &__heading{
-            border-bottom: 1px solid $color-gray-tint-5;
-
-            .vs-link--variant-primary{
-                font-size: $h2-font-size;
-            }
-        }
     }
 }
 
-/* needed for specificity */
-.vs-list.vs-list--unstyled {
-    .vs-mega-nav-list {
-        .vs-mega-nav-list-item__heading {
-            margin-bottom: $spacer-1;
-        }
-    }
-}
 </style>
-
-<docs>
-  ```jsx
-    <VsMegaNavList style="background-color: white;">
-        <VsMegaNavListItem slot="navListHeading">
-            Attractions
-        </VsMegaNavListItem>
-
-        <VsMegaNavListItem slot="navListItems" href="http://visitscotland.com">
-            20 Top Attractions
-        </VsMegaNavListItem>
-
-        <VsMegaNavListItem slot="navListItems" href="http://visitscotland.com">
-            Arts & Culture
-        </VsMegaNavListItem>
-
-        <VsMegaNavListItem slot="navListItems" href="http://visitscotland.com">
-            Castles
-        </VsMegaNavListItem>
-
-        <VsMegaNavListItem slot="navListItems" href="http://visitscotland.com">
-            Gardens & Parks
-        </VsMegaNavListItem>
-
-        <VsMegaNavListItem slot="navListItems" href="http://visitscotland.com">
-            Museums
-        </VsMegaNavListItem>
-
-        <VsMegaNavListItem
-            href="http://visitscotland.com"
-            subheading-link
-            slot="navHeadingCtaLink"
-        >
-            All Attractions
-        </VsMegaNavListItem>
-    </VsMegaNavList>
-  ```
-</docs>

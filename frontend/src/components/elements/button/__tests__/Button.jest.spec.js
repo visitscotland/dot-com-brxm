@@ -57,15 +57,6 @@ describe('VsButton', () => {
             expect(wrapper.classes(`btn-${testVariant}`)).toBe(true);
         });
 
-        it(':background - should accept and render a `background` property', () => {
-            const testBgColor = 'white';
-            const wrapper = factoryMount({
-                background: testBgColor,
-            });
-
-            expect(wrapper.classes(`btn-bg-${testBgColor}`)).toBe(true);
-        });
-
         it(':size - should accept and render a `size` property', () => {
             const testSize = 'sm';
             const wrapper = factoryShallowMount({
@@ -73,6 +64,20 @@ describe('VsButton', () => {
             });
 
             expect(wrapper.attributes('size')).toBe(testSize);
+        });
+
+        it(':onDark - should render the button with an `vs-button--on-dark` class', () => {
+            const wrapper = factoryMount({
+                onDark: true,
+            });
+            expect(wrapper.classes('vs-button--on-dark')).toBe(true);
+        });
+
+        it(':iconWithText - should render the button with an `vs-button--icon-with-text` class', () => {
+            const wrapper = factoryMount({
+                iconWithText: true,
+            });
+            expect(wrapper.classes('vs-button--icon-with-text')).toBe(true);
         });
 
         describe(':icon', () => {
@@ -131,26 +136,6 @@ describe('VsButton', () => {
 
                 expect(iconStub.attributes('orientation')).toBe('down');
             });
-
-            it('should set an `mr-2` class if `iconOnly` is not truthy', () => {
-                const wrapper = factoryShallowMount({
-                    icon: testIcon,
-                    iconOnly: false,
-                });
-                const iconStub = wrapper.find('vsicon-stub');
-
-                expect(iconStub.classes('mr-2')).toBe(true);
-            });
-
-            it('should *NOT* set an `mr-2` class if `iconOnly` is truthy', () => {
-                const wrapper = factoryShallowMount({
-                    icon: testIcon,
-                    iconOnly: true,
-                });
-                const iconStub = wrapper.find('vsicon-stub');
-
-                expect(iconStub.classes('mr-2')).toBe(false);
-            });
         });
 
         describe(':animate', () => {
@@ -201,6 +186,15 @@ describe('VsButton', () => {
                 wrapper.trigger('click');
                 expect(wrapper.classes('vs-button--is-animating')).toBe(false);
             });
+        });
+    });
+
+    describe(':methods', () => {
+        it('should emit `btnFocus` when `tabbedIn` method is called', () => {
+            const wrapper = factoryShallowMount();
+
+            wrapper.vm.tabbedIn();
+            expect(wrapper.emitted().btnFocus).toBeTruthy();
         });
     });
 

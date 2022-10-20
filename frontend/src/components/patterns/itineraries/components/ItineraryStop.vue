@@ -139,7 +139,7 @@ export default {
     .map-marker__count {
         color: $color-white;
         font-family: $headings-font-family;
-        font-size: 1rem;
+        font-size: $font-size-4;
         display: block;
         position: absolute;
         top: 4px;
@@ -299,16 +299,14 @@ export default {
                             <VsButton
                                 class="mb-3"
                                 button-size="md"
-                                background="white"
-                                variant="outline-primary"
+                                variant="secondary"
                                 href="#"
                                 icon="food"
                             >
                                 Nearby places to eat
                             </VsButton>
                             <VsButton
-                                background="white"
-                                variant="outline-primary"
+                                variant="secondary"
                                 href="#"
                                 icon="product-accommodation"
                             >

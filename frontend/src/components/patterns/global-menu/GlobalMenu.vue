@@ -1,5 +1,5 @@
 <template>
-    <div class="vs-global-menu">
+    <nav class="vs-global-menu">
         <VsContainer
             fluid="lg"
             class="px-1 px-sm-3"
@@ -36,13 +36,13 @@
                 </VsCol>
             </VsRow>
         </VsContainer>
-    </div>
+    </nav>
 </template>
 
 <script>
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/elements/layout';
+} from '@components/elements/grid';
 import VsGlobalMenuDropdown from './components/GlobalMenuDropdown';
 import VsGlobalMenuList from './components/GlobalMenuList';
 
@@ -114,7 +114,7 @@ export default {
     background: $color-purple;
     color: white;
     position: relative;
-    font-size: $font-size-sm;
+    font-size: $font-size-2;
     height: 28px;
     display: flex;
     align-items: center;

@@ -9,7 +9,6 @@ import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import com.visitscotland.utils.CoordinateUtils;
 import org.slf4j.Logger;
@@ -34,18 +33,16 @@ public class ItineraryFactory {
     private final ImageFactory imageFactory;
     private final DMSUtils utils;
     private final DocumentUtilsService documentUtils;
-    private final Properties properties;
     private final LinkService linkService;
 
 
     public ItineraryFactory(ResourceBundleService bundle, DMSDataService dmsData, ImageFactory imageFactory,
-                            DMSUtils utils, DocumentUtilsService documentUtils, Properties properties, LinkService linkService) {
+                            DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageFactory = imageFactory;
         this.utils = utils;
         this.documentUtils = documentUtils;
-        this.properties = properties;
         this.linkService = linkService;
     }
 
@@ -68,8 +65,9 @@ public class ItineraryFactory {
         for (Day day : page.getDays()) {
             for (Stop stop : day.getStops()) {
                 if (page.getStops() != null && page.getStops().containsKey(stop.getIdentifier())) {
-                    contentLogger.error("Duplicate stop {} found on itinerary {}", stop.getPath(), itinerary.getPath());
-                    page.addErrorMessage(String.format("Duplicate stop '%s' found on itinerary", stop.getTitle()));
+                    String message = String.format("Duplicate stop '%s' found on itinerary '%s', please review the document %s at: %s ", stop.getTitle(), itinerary.getTitle(), itinerary.getDisplayName(), itinerary.getPath());
+                    contentLogger.error(message);
+                    page.addErrorMessage(message);
                     continue;
                 }
 
@@ -142,7 +140,7 @@ public class ItineraryFactory {
         }
 
         if (stop.getStopItem() instanceof DMSLink) {
-            processDMSStop(locale, itinerary, module, (DMSLink) stop.getStopItem());
+            processDMSStop(locale, module, (DMSLink) stop.getStopItem());
         } else if (stop.getStopItem() instanceof ItineraryExternalLink) {
             processExternalStop(locale, module, (ItineraryExternalLink) stop.getStopItem());
         } else if (logger.isWarnEnabled()) {
@@ -194,7 +192,8 @@ public class ItineraryFactory {
         }
 
         if (externalLink.getExternalLink() != null) {
-            FlatLink ctaLink = linkService.createFindOutMoreLink(module, locale, externalLink.getExternalLink());
+            FlatLink ctaLink = linkService.createExternalLink(locale, externalLink.getExternalLink().getLink(),
+                    !externalLink.getExternalLink().getLabel().isEmpty()? externalLink.getExternalLink().getLabel(): bundle.getFindOutMoreAboutCta(module.getTitle(), locale));
             module.setCtaLink(ctaLink);
         }
 
@@ -206,22 +205,23 @@ public class ItineraryFactory {
     /**
      * Extracts all relevant information from the Product Card in order to enhance the Stop
      */
-    public void processDMSStop(Locale locale, Itinerary itinerary, ItineraryStopModule module, DMSLink dmsLink) {
+    public void processDMSStop(Locale locale, ItineraryStopModule module, DMSLink dmsLink) {
         JsonNode product = dmsData.productCard(dmsLink.getProduct(), locale);
 
         if (product == null) {
-            module.addErrorMessage("The product id does not match in the DMS");
+            String message = String.format("The DMS product added to '%s' was not found, please review the DMS Product id field at: %s ", module.getTitle(), dmsLink.getPath());
+            module.addErrorMessage(message);
             if (logger.isWarnEnabled()) {
-                contentLogger.warn("The product id does not match in the DMS for {}, Stop {}", itinerary.getName(), module.getIndex());
+                contentLogger.warn(message);
             }
             return;
         }
 
-        module.setCtaLink(linkService.createFindOutMoreLink(module, locale, dmsLink));
+        module.setCtaLink(linkService.createDmsLink(locale, dmsLink, product, bundle.getFindOutMoreAboutCta(module.getTitle(), locale)));
         module.setFacilities(utils.getKeyFacilities(product));
 
         if (module.getImage() == null && product.has(IMAGE)) {
-            module.setImage(imageFactory.createImage(product, module));
+            module.setImage(imageFactory.createImage(product, module, locale));
         }
 
         if (product.has(ADDRESS)) {

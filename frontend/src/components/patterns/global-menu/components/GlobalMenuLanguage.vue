@@ -17,7 +17,7 @@
         </template>
 
         <!-- No JS Version -->
-        <span
+        <li
             class="vs-global-menu__languages__label"
             role="menuitem"
         >
@@ -28,7 +28,7 @@
                 focusable="false"
             />
             {{ languageLabel }}
-        </span>
+        </li>
 
         <!-- @slot Default slot for Global Menu Language Items  -->
         <slot />
@@ -93,7 +93,7 @@ export default {
     .dropdown-menu {
         width: 100%;
         background: $color-purple;
-        font-size: $font-size-sm;
+        font-size: $font-size-2;
         margin: 0;
         max-height: 0;
         overflow: hidden;
@@ -121,7 +121,7 @@ export default {
 
     .btn-primary.dropdown-toggle {
         padding: 0.3rem $spacer-4;
-        font-size: $font-size-sm;
+        font-size: $font-size-2;
         background: $color-purple;
         border: none;
 
@@ -134,7 +134,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $shadow-button-focus inset;
+            box-shadow: $shadow-button-focus-on-dark inset;
         }
 
         &:hover {
@@ -207,7 +207,7 @@ export default {
             color: $color-white;
             padding: $spacer-3;
             line-height: $line-height-s;
-            font-size: $h4-font-size;
+            font-size: $font-size-4;
             margin: 0 auto;
 
             @include media-breakpoint-up(md) {

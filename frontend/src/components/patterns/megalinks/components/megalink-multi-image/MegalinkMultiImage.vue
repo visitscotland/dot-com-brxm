@@ -8,7 +8,21 @@
         :img-alt="imgAlt"
         :data-test="featured ? 'megalink-multi-image-featured' : 'megalink-multi-image-card'"
         :theme="theme"
+        :video-id="videoId"
+        :video-btn-text="videoBtnText"
+        :error-message="errorMessage"
+        :warning-size="featured ? 'normal' : 'small'"
     >
+        <VsStretchedLinkPanels
+            v-if="days && transport"
+            :days="days"
+            :transport="transport"
+            :transport-name="transportName"
+            slot="stretchedCardPanels"
+            :days-label="daysLabel"
+            data-test="vs-itinerary-panels"
+        />
+
         <span
             slot="stretchedCardHeader"
             class="vs-megalink-multi-image__title"
@@ -17,7 +31,7 @@
 
         <VsRichTextWrapper
             slot="stretchedCardContent"
-            class="lead vs-megalink-multi-image__content"
+            class="vs-megalink-multi-image__content"
             data-test="megalink-multi-image__content"
         >
             <!-- @slot Slot to contain content -->
@@ -28,6 +42,7 @@
 
 <script>
 import VsStretchedLinkCard from '@components/patterns/stretched-link-card/StretchedLinkCard';
+import VsStretchedLinkPanels from '@components/patterns/stretched-link-card/components/StretchedLinkPanels';
 import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
 
 /**
@@ -44,6 +59,7 @@ export default {
     components: {
         VsStretchedLinkCard,
         VsRichTextWrapper,
+        VsStretchedLinkPanels,
     },
     props: {
         /**
@@ -79,12 +95,12 @@ export default {
         },
         /**
         * The type of link. This will set the icon.
-        * `external, internal, download`
+        * `external, internal, download, video`
         */
         linkType: {
             type: String,
             required: true,
-            validator: (value) => value.match(/(default|external|internal|download)/),
+            validator: (value) => value.match(/(default|external|internal|download|video)/),
         },
         /**
         * The link destination
@@ -100,6 +116,57 @@ export default {
             type: String,
             default: 'light',
             validator: (value) => value.match(/(light|dark)/),
+        },
+        /**
+        * Optional prop for number of days
+        */
+        days: {
+            type: String,
+            default: '',
+        },
+        /**
+        * Label for days - too allow translation in CMS
+        */
+        daysLabel: {
+            type: String,
+            default: 'days',
+        },
+        /**
+        * Optional prop for transport type (will show a the transport icon if used)
+        */
+        transport: {
+            type: String,
+            default: '',
+        },
+        /**
+        * Display-friendly transport name
+        * to allow for translation
+        */
+        transportName: {
+            type: String,
+            default: '',
+        },
+        /**
+         * An optional YouTube video ID
+         */
+        videoId: {
+            type: String,
+            default: '',
+        },
+        /**
+         * A label to add to the youtube play button if one is present.
+         * Only appears in certain page layouts.
+         */
+        videoBtnText: {
+            type: String,
+            default: 'Play Video',
+        },
+        /**
+         * Message to show when there's an error with a third party
+        */
+        errorMessage: {
+            type: String,
+            default: '',
         },
     },
     computed: {
@@ -124,19 +191,11 @@ export default {
         margin-bottom: $spacer-8;
         transition: box-shadow $duration-slowly;
 
-        .vs-stretched-link {
-            color: $color-base-text;
-            text-decoration: none;
-            letter-spacing: 0;
+        &:hover {
+            box-shadow: $shadow_popover;
 
-            &:hover {
-                .vs-megalink-multi-image__title {
-                    text-decoration: underline;
-                }
-            }
-
-            &:focus {
-                outline: 2px solid $color-theme-primary;
+            .vs-megalink-multi-image__title {
+                text-decoration: underline;
             }
         }
 
@@ -149,12 +208,8 @@ export default {
             max-width: 100%;
         }
 
-        &:hover {
-            box-shadow: $shadow_card;
-        }
-
         .vs-megalink-multi-image__title {
-            font-size: $font-size-sm;
+            font-size: $font-size-2;
             line-height: $line-height-s;
             letter-spacing: $letter-spacing-xl;
         }
@@ -181,22 +236,38 @@ export default {
 
     .vs-megalink-multi-image--dark.card {
         .vs-stretched-link-card__title {
+            color: $color-white;
+
             .stretched-link {
                 color: $color-white;
             }
         }
 
         &:hover {
-            box-shadow: 10px 10px 20px $color-theme-dark;
+            box-shadow: $shadow_popover_dark;
+
+            &:not(.vs-megalink-multi-image--featured) {
+                background-color: $color-secondary-gray-shade-5;
+            }
         }
     }
 
     @include media-breakpoint-up(xl) {
+        .vs-megalinks--multi-image .vs-megalinks__links-wrapper .row {
+            width: calc(100% + #{$spacer-10} + #{$spacer-3});
+            margin-left: -#{$spacer-8};
+
+            [class*=col-] {
+                padding-left: $spacer-8;
+                padding-right: $spacer-8;
+            }
+        }
+
         .vs-megalink-multi-image.card {
             margin-bottom: $spacer-11;
 
             .vs-megalink-multi-image__title {
-                font-size: $small-font-size;
+                font-size: $font-size-3;
                 line-height: $line-height-s;
             }
 
@@ -209,9 +280,11 @@ export default {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
+            width: 100%;
+            transform: rotate(0deg);
 
             .vs-megalink-multi-image__title {
-                font-size: $h3-font-size;
+                font-size: $font-size-5;
                 letter-spacing: $letter-spacing-xxl;
             }
 
@@ -220,34 +293,83 @@ export default {
                 width: 16px;
             }
 
-            .vs-stretched-link-card__img {
-                width: calc(50% - 20px);
+            .vs-stretched-link-card__img-container {
+                width: 75%
             }
 
             .megalink-multi-image__content {
-                font-size: $font-size-md;
+                font-size: $font-size-5;
                 margin-top: $spacer-8;
                 line-height: $line-height-m;
             }
 
             .card-body {
-                max-width: calc(50% + 20px);
-                padding: $spacer-6 5% $spacer-5;
+                position: absolute !important;
+                background-color: $color-white;
+                width: 40%;
+                right: 0;
+                top: $spacer-10;
+                padding: $spacer-8;
+                transition: box-shadow $duration-slowly;
+            }
+
+            .vs-stretched-link-card__video-button {
+                position: fixed;
+            }
+
+            .stretched-link:after {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .vs-stretched-link-panels {
+                left: $spacer-5;
+                top: $spacer-5;
+            }
+
+            .vs-stretched-link-panels__panel:first-of-type {
+                margin-left: 0;
             }
 
             &.vs-megalink-multi-image--featured-last {
                 flex-direction: row-reverse;
-                // margin-top: $spacer-12;
-            }
-        }
 
-        @include media-breakpoint-up(xl) {
-            .megalink-multi-image--featured.card {
-                .card-body {
-                    padding: $spacer-9 5% $spacer-5;
+                .vs-stretched-link-panels {
+                    left: auto;
+                    right: $spacer-5;
                 }
-                .megalink-multi-image__content {
-                    margin-top: $spacer-8;
+
+                .card-body {
+                    left: $spacer-0;;
+                    right: auto;
+                }
+
+                .vs-stretched-link-card__video-button {
+                    left: auto;
+                    right: $spacer-2;
+                }
+            }
+
+            &:hover {
+                box-shadow: none !important;
+
+                .card-body {
+                    box-shadow: $shadow_popover;
+                }
+            }
+
+            &.vs-megalink-multi-image--dark {
+                .card-body {
+                    background-color: $color-secondary-gray-shade-5;
+                }
+
+                &:hover {
+                    .card-body {
+                        box-shadow: $shadow_popover_dark;
+                    }
                 }
             }
         }
@@ -270,6 +392,10 @@ export default {
                         imgAlt="This is the alt text"
                         linkType="internal"
                         linkUrl="www.visitscotland.com"
+                        days="2"
+                        daysLabel="days"
+                        transport="bus"
+                        transportName="bus"
                     >
                         <template slot="vsMultiImageHeading">
                             The Edinburgh International Festival and summer festival</template>
@@ -361,6 +487,10 @@ export default {
                         imgAlt="This is the alt text"
                         linkType="internal"
                         linkUrl="www.visitscotland.com"
+                        days="6"
+                        daysLabel="days"
+                        transport="bus"
+                        transportName="bus"
                     >
                         <template slot="vsMultiImageHeading">
                             The Edinburgh International Festival and summer festival</template>

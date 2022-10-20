@@ -61,21 +61,10 @@ export default {
 
 <style lang="scss">
     .vs-canned-search-dates__intro {
-        font-size: $small-font-size;
+        font-size: $font-size-3;
     }
 
     .vs-canned-search-dates__main {
         font-weight: bold;
     }
 </style>
-
-<docs>
-```jsx
-    const sampleEvent = require("../../../../assets/fixtures/canned-search/sample-event.json");
-
-    <VsCannedSearchDates
-        :period="sampleEvent.opening.period"
-        :label="sampleEvent.opening.label"
-    />
-```
-</docs>
