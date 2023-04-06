@@ -1,0 +1,1 @@
+!function(e,n){"object"==typeof exports&&"object"==typeof module?module.exports=n():"function"==typeof define&&define.amd?define([],n):"object"==typeof exports?exports.VsCannedSearchSubHeading=n():e.VsCannedSearchSubHeading=n()}(window,(function(){return(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[166],[],[["v/9N",0,1,2,3,4,5,6,9,12,30,84,55,115]]])}));

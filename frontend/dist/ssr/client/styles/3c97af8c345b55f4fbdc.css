@@ -1,0 +1,1 @@
+.vs-summary-box{display:flex;justify-content:center}@media(min-width:992px){.vs-summary-box{position:absolute;top:0;width:calc(100% - 2rem);z-index:1000}}.vs-summary-box__list{background-color:#fcca1b;width:350px}@media(min-width:992px){.vs-summary-box__list{width:400px}}

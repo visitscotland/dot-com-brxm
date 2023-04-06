@@ -57,8 +57,7 @@
 <#--  Usage: ${getUrl(navItem)} -->
 <#function getUrl item>
     <#if item.page??>
-        <#assign href><@hst.link hippobean=item.page fullyQualified=fullyQualifiedURLs/></#assign>
-        <#return href>
+        <#return item.plainLink>
     <#elseif item.hstLink??>
         <#return "pagenotfound">
     <#elseif item.externalLink??>
@@ -72,7 +71,7 @@
 <#--  Usage: ${escapeJSON(stop.opening)} -->
 <#function escapeJSON original isJsonObject>
     <#assign escaped = original?replace("'", "\\'")>
-    <#if isJsonObject == true>
+    <#if isJsonObject>
         <#assign escaped = escaped?replace("\"", "'")>
     <#else>
         <#assign escaped = escaped?replace("\"", "&quot;")>

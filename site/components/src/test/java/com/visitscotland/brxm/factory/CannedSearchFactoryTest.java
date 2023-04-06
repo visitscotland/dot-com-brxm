@@ -3,7 +3,6 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
-import com.visitscotland.brxm.dms.DMSProxy;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.CannedSearchMockBuilder;
@@ -11,6 +10,7 @@ import com.visitscotland.brxm.mock.CannedSearchToursMockBuilder;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.Properties;
 import org.hippoecm.hst.core.container.ComponentManager;
 import org.junit.jupiter.api.Assertions;
@@ -43,6 +43,9 @@ class CannedSearchFactoryTest {
     @Mock
     Properties properties;
 
+    @Mock
+    ContentLogger logger;
+
     @InjectMocks
     CannedSearchFactory factory;
 
@@ -55,9 +58,10 @@ class CannedSearchFactoryTest {
         ComponentManager context = mock(ComponentManager.class, withSettings().lenient());
         psBuilder = mock(ProductSearchBuilder.class, Answers.RETURNS_SELF);
         when(psBuilder.buildCannedSearch()).thenReturn(PSR_URL);
+        when(psBuilder.buildCannedSearchInternal()).thenReturn(PSR_URL);
         when(context.getComponent(ProductSearchBuilder.class)).thenReturn(psBuilder);
 
-        new VsComponentManager().setComponentManager(context);
+        VsComponentManager.setComponentManager(context);
     }
 
     @DisplayName("VS-2715 - When no cta for list view is provided then default cta should be used")

@@ -32,16 +32,14 @@
                 <template slot="icentreLinks">
                     ${module.description}
                     <#list module.links as iCentre>
-                        <vs-link href="${iCentre.link}">
-                            ${iCentre.label}
-                        </vs-link>
+                        <vs-link href="${iCentre.link}">${iCentre.label}</vs-link><#t>
                         <#if iCentre?counter == (module.links?size - 1)>
-                            &nbsp;and&nbsp;
+                            &nbsp;${label("tourism.information","icentre.and")}&nbsp;<#t>
                         <#else>
-                            <#if iCentre?has_next>,&nbsp;</#if>
+                            <#if iCentre?has_next>,&nbsp;</#if><#t>
                         </#if>
                     </#list>
-                    .
+                    .<#t>
                 </template>
                 
                 <#if module.quote??>
@@ -52,5 +50,4 @@
             </vs-icentre>
         </vs-container>
     </vs-module-wrapper>
-
 </#macro>

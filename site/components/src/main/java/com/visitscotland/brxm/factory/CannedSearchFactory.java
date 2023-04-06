@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.factory;
 
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
@@ -12,6 +11,7 @@ import com.visitscotland.brxm.model.CannedSearchModule;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
@@ -28,7 +28,7 @@ import java.util.Locale;
 public class CannedSearchFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(CannedSearchFactory.class);
-    private static final Logger contentLog = LoggerFactory.getLogger("content");
+
 
     static final String BUNDLE_ID = "canned-search";
 
@@ -36,12 +36,15 @@ public class CannedSearchFactory {
     private final LinkService linkService;
     private final Properties properties;
     private final DMSDataService dmsData;
+    private final Logger contentLog;
 
-    public CannedSearchFactory(ResourceBundleService bundle, LinkService linkService, Properties properties, DMSDataService dmsData){
+    public CannedSearchFactory(ResourceBundleService bundle, LinkService linkService, Properties properties, DMSDataService dmsData,
+            ContentLogger contentLogger){
         this.bundle = bundle;
         this.linkService = linkService;
         this.properties = properties;
         this.dmsData = dmsData;
+        this.contentLog = contentLogger;
     }
 
     public CannedSearchModule getCannedSearchModule(CannedSearch document, Locale locale){
@@ -62,7 +65,7 @@ public class CannedSearchFactory {
 
         module.setCannedSearchEndpoint(productSearch().fromHippoBean(document.getCriteria().getSearch()).locale(locale).buildCannedSearch());
 
-        if(!dmsData.cannedSearchHasResults(module.getCannedSearchEndpoint() + "&size=1")){
+        if(!dmsData.cannedSearchHasResults(productSearch().fromHippoBean(document.getCriteria().getSearch()).locale(locale).buildCannedSearchInternal() + "&size=1")){
            String message =String.format( "The Canned search module '%s' does not return any results, please review your search criteria for '%s' at: %s", document.getTitle(), document.getDisplayName(), document.getPath());
            module.addErrorMessage(message);
            contentLog.error(message);

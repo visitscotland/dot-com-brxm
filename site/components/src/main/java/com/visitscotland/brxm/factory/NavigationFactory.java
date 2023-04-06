@@ -14,15 +14,18 @@ import com.visitscotland.brxm.model.navigation.FeaturedItem;
 import com.visitscotland.brxm.model.navigation.NavigationWidget;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenu;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenuItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -31,7 +34,7 @@ import java.util.*;
 public class NavigationFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(NavigationFactory.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
+
 
     static final String STATIC = "navigation.static";
     static final String CTA_SUFFIX = ".cta";
@@ -42,21 +45,28 @@ public class NavigationFactory {
     private HippoUtilsService utils;
     private LinkService linkService;
     private ProductSearchBuilder productSearchBuilder;
+    private final Logger contentLogger;
 
-    public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService, ProductSearchBuilder productSearchBuilder) {
+    public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService, ProductSearchBuilder productSearchBuilder,
+                             ContentLogger contentLogger) {
         this.bundle = bundle;
         this.utils = utils;
         this.linkService = linkService;
         this.productSearchBuilder = productSearchBuilder;
+        this.contentLogger = contentLogger;
     }
 
     /**
      * Builds a VisitScotland enhanced menu from the out of the box menu
      */
-    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu) {
+    @Cacheable(
+            value = "navigation",
+            key = "{#request.locale, #hstSiteMenu.name, #cacheable}",
+            unless = "!#cacheable"
+    )
+    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, boolean cacheable) {
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
-
         if (hstSiteMenu != null) {
             //Calculate the resource bundle id
             String resourceBundle = NAVIGATION_PREFIX + hstSiteMenu.getName();
@@ -119,8 +129,12 @@ public class NavigationFactory {
     private NavigationWidget createWidget(HstRequest request, HippoBean bean) {
         if (bean instanceof FeaturedWidget) {
             return addFeatureItem((FeaturedWidget) bean, request);
+        } else if (bean instanceof HippoFolder) {
+            contentLogger.warn("The following Navigation item '{}' might be unpublished for locale: {}.",
+                    bean.getPath(), request.getLocale());
         } else {
-            contentLogger.warn("Skipping Unexpected document type: {}", bean.getClass().getSimpleName());
+            contentLogger.warn("Skipping Unexpected document type: {}, pointing at: {}, for locale: {}. ",
+                    bean.getClass().getSimpleName(), bean.getPath(), request.getLocale());
         }
 
         return null;
@@ -152,19 +166,19 @@ public class NavigationFactory {
 
         List<EnhancedLink> enhancedLinks = new ArrayList<>();
         for (CMSLink cmsLink : cmsLinks) {
-            if (!(cmsLink.getLink() instanceof Linkable)){
-                contentLogger.warn("An incorrect Type of link has been set in a featured item: {}", document.getPath());
-                continue;
-            }
-            Optional<EnhancedLink> optionalLink = linkService.createEnhancedLink((Linkable) cmsLink.getLink(), widget, request.getLocale(), false);
+            if (cmsLink.getLink() instanceof Linkable){
+                Optional<EnhancedLink> optionalLink = linkService.createEnhancedLink((Linkable) cmsLink.getLink(), widget, request.getLocale(), false);
 
-            if (!optionalLink.isPresent()) {
-                contentLogger.warn("Failed to create widget: {}. Check link is published & valid", document.getPath());
-                continue;
+                if (!optionalLink.isPresent()) {
+                    contentLogger.warn("Failed to create widget: {}. Check link is published & valid", document.getPath());
+                    continue;
+                }
+                EnhancedLink link = optionalLink.get();
+                link.setCta(bundle.getCtaLabel(cmsLink.getLabel(), request.getLocale()));
+                enhancedLinks.add(link);
+            } else {
+                contentLogger.warn("An incorrect Type of link has been set in a featured item: {}", document.getPath());
             }
-            EnhancedLink link = optionalLink.get();
-            link.setCta(bundle.getCtaLabel(cmsLink.getLabel(), request.getLocale()));
-            enhancedLinks.add(link);
         }
         widget.setHippoBean(document);
         widget.setLinks(enhancedLinks);
@@ -200,6 +214,7 @@ public class NavigationFactory {
      */
     private void createMenuItemFromPage(MenuItem menuItem, Page document, String bundleId, Locale locale) {
         menuItem.setPage(document);
+        menuItem.setPlainLink(utils.createUrl(document));
 
         //If the menu hasn't been set we use the title coming from the document.
         if (Contract.isEmpty(menuItem.getTitle())) {

@@ -1,0 +1,1 @@
+!function(e,o){"object"==typeof exports&&"object"==typeof module?module.exports=o():"function"==typeof define&&define.amd?define([],o):"object"==typeof exports?exports.VsIcon=o():e.VsIcon=o()}(window,(function(){return(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[207],[],[["oqxP",0,1,2,3,4,5,6,7,8,9,10,11,12,13,23,30,33,34,35,36]]])}));

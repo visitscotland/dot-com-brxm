@@ -1,0 +1,1 @@
+!function(e,n){"object"==typeof exports&&"object"==typeof module?module.exports=n():"function"==typeof define&&define.amd?define([],n):"object"==typeof exports?exports.VsCannedSearchPrice=n():e.VsCannedSearchPrice=n()}(window,(function(){return(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[163],[],[["aNqN",0,1,112]]])}));

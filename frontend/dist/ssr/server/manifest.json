@@ -1,0 +1,3245 @@
+{
+  "VsAccordion": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/ba7aafccefe19f852f8e.js"
+    ]
+  },
+  "VsAccordionItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/0e6ae29ededab9b9333d.js"
+    ],
+    "styles": [
+      "styles/0e6ae29ededab9b9333d.css"
+    ]
+  },
+  "VsAccordionToggle": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/db90c2650bd57d22ed4a.js"
+    ],
+    "styles": [
+      "styles/db90c2650bd57d22ed4a.css"
+    ]
+  },
+  "VsAddress": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/85bba390921eca4871a6.js"
+    ],
+    "styles": [
+      "styles/85bba390921eca4871a6.css"
+    ]
+  },
+  "VsAlert": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/6a8ab5b3aae7de7c2df7.js"
+    ],
+    "styles": [
+      "styles/6a8ab5b3aae7de7c2df7.css"
+    ]
+  },
+  "VsApp": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/2c7c4c433b8662761c49.js"
+    ],
+    "styles": [
+      "styles/2c7c4c433b8662761c49.css"
+    ]
+  },
+  "VsArticle": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/015c8fa5ff7ff1bbbb72.js"
+    ],
+    "styles": [
+      "styles/015c8fa5ff7ff1bbbb72.css"
+    ]
+  },
+  "VsArticleSection": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/3331a245e1d99ce229ff.js"
+    ],
+    "styles": [
+      "styles/3331a245e1d99ce229ff.css"
+    ]
+  },
+  "VsArticleSidebar": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/564c5932af2edfcf64ba.js"
+    ],
+    "styles": [
+      "styles/564c5932af2edfcf64ba.css"
+    ]
+  },
+  "VsBanner": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/43bb5ddcd027da236b23.js"
+    ],
+    "styles": [
+      "styles/43bb5ddcd027da236b23.css"
+    ]
+  },
+  "VsBreadcrumb": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/8fb2f0eda3cd6ee72068.js"
+    ]
+  },
+  "VsBreadcrumbItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/864472933c30c33149c9.js"
+    ],
+    "styles": [
+      "styles/864472933c30c33149c9.css"
+    ]
+  },
+  "VsButton": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/6725495958afb550d1b8.js"
+    ],
+    "styles": [
+      "styles/6725495958afb550d1b8.css"
+    ]
+  },
+  "VsCannedSearch": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/a9aa1e9d4d0e8df096a1.js"
+    ],
+    "styles": [
+      "styles/a9aa1e9d4d0e8df096a1.css"
+    ]
+  },
+  "VsCannedSearchBadges": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/8b57e4a2d81dd72e6df3.js"
+    ],
+    "styles": [
+      "styles/8b57e4a2d81dd72e6df3.css"
+    ]
+  },
+  "VsCannedSearchCategories": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/8b68122515fe4062b7c5.js"
+    ],
+    "styles": [
+      "styles/8b68122515fe4062b7c5.css"
+    ]
+  },
+  "VsCannedSearchCuisines": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/6f2ad892c279c2eab2bb.js"
+    ],
+    "styles": [
+      "styles/6f2ad892c279c2eab2bb.css"
+    ]
+  },
+  "VsCannedSearchDates": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/318a1647f84ae8fc2462.js"
+    ],
+    "styles": [
+      "styles/318a1647f84ae8fc2462.css"
+    ]
+  },
+  "VsCannedSearchDuration": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/08aa80d434261fa81378.js"
+    ],
+    "styles": [
+      "styles/08aa80d434261fa81378.css"
+    ]
+  },
+  "VsCannedSearchLogos": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/52352fdd32b749a041d1.js"
+    ],
+    "styles": [
+      "styles/52352fdd32b749a041d1.css"
+    ]
+  },
+  "VsCannedSearchPrice": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/eed61ba934f71008de43.js"
+    ],
+    "styles": [
+      "styles/eed61ba934f71008de43.css"
+    ]
+  },
+  "VsCannedSearchProductCard": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/80f7c448e66b43138ca2.js"
+    ],
+    "styles": [
+      "styles/80f7c448e66b43138ca2.css"
+    ]
+  },
+  "VsCannedSearchStars": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/ec4504fddf8fed75d6b6.js"
+    ],
+    "styles": [
+      "styles/ec4504fddf8fed75d6b6.css"
+    ]
+  },
+  "VsCannedSearchSubHeading": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/a6e8df9e5edac5ea2615.js"
+    ],
+    "styles": [
+      "styles/a6e8df9e5edac5ea2615.css"
+    ]
+  },
+  "VsCannedSearchSummaryBox": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/955bf8963184614bde24.js"
+    ],
+    "styles": [
+      "styles/955bf8963184614bde24.css"
+    ]
+  },
+  "VsCannedSearchTourDeparts": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/0ee60302bff36ed1f304.js"
+    ],
+    "styles": [
+      "styles/0ee60302bff36ed1f304.css"
+    ]
+  },
+  "VsCannedSearchTourRuns": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/4cabb6e08028fb29c6ad.js"
+    ],
+    "styles": [
+      "styles/4cabb6e08028fb29c6ad.css"
+    ]
+  },
+  "VsCaption": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/3a993bf00f7428c1c7df.js"
+    ],
+    "styles": [
+      "styles/3a993bf00f7428c1c7df.css"
+    ]
+  },
+  "VsCaptionImageMap": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/c488e88205f1d66e6fa4.js"
+    ],
+    "styles": [
+      "styles/c488e88205f1d66e6fa4.css"
+    ]
+  },
+  "VsCarousel": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/dc5dce3ff3c7962140e2.js"
+    ],
+    "styles": [
+      "styles/dc5dce3ff3c7962140e2.css"
+    ]
+  },
+  "VsCarouselSlide": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/8c09b486b804412c3f63.js"
+    ],
+    "styles": [
+      "styles/8c09b486b804412c3f63.css"
+    ]
+  },
+  "VsCheckbox": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/97600259721cb6fab52a.js"
+    ],
+    "styles": [
+      "styles/97600259721cb6fab52a.css"
+    ]
+  },
+  "VsCol": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/1092348ed0a8eeafb82e.js"
+    ]
+  },
+  "VsContainer": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/f7b0c79ba95651af9f6d.js"
+    ]
+  },
+  "VsCookieChecker": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/df3aa13f3b0a00a3c20c.js"
+    ]
+  },
+  "VsCookiesFallback": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/39808f887e9abcaed673.js"
+    ],
+    "styles": [
+      "styles/39808f887e9abcaed673.css"
+    ]
+  },
+  "VsDescriptionList": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/fb8dbe963255ddef96e1.js"
+    ],
+    "styles": [
+      "styles/fb8dbe963255ddef96e1.css"
+    ]
+  },
+  "VsDescriptionListDetail": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/6809f2e0aca52416b803.js"
+    ],
+    "styles": [
+      "styles/6809f2e0aca52416b803.css"
+    ]
+  },
+  "VsDescriptionListItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/b8be12378fbacb8a1ca3.js"
+    ],
+    "styles": [
+      "styles/b8be12378fbacb8a1ca3.css"
+    ]
+  },
+  "VsDescriptionListTerm": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/be27c0ec64d8820f70e8.js"
+    ],
+    "styles": [
+      "styles/be27c0ec64d8820f70e8.css"
+    ]
+  },
+  "VsDropdown": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/82167d776f6b20f7b2d0.js"
+    ],
+    "styles": [
+      "styles/82167d776f6b20f7b2d0.css"
+    ]
+  },
+  "VsDropdownItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/19ce689d0951a487a14a.js"
+    ]
+  },
+  "VsEmbedWrapper": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/3705af8d00bf620f0c3b.js"
+    ],
+    "styles": [
+      "styles/3705af8d00bf620f0c3b.css"
+    ]
+  },
+  "VsExample": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/90f3a0da8c03edc8a6c4.js"
+    ],
+    "styles": [
+      "styles/90f3a0da8c03edc8a6c4.css"
+    ]
+  },
+  "VsFavouritesList": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/148025e79fa08645211a.js"
+    ],
+    "styles": [
+      "styles/148025e79fa08645211a.css"
+    ]
+  },
+  "VsFavouritesListToggleButton": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/a4b2df25113f8c86b817.js"
+    ],
+    "styles": [
+      "styles/a4b2df25113f8c86b817.css"
+    ]
+  },
+  "VsFavouritesListViewButton": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/bae40b1e09147b0085ab.js"
+    ],
+    "styles": [
+      "styles/bae40b1e09147b0085ab.css"
+    ]
+  },
+  "VsFooter": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/f9aeee994c643c7422bf.js"
+    ],
+    "styles": [
+      "styles/f9aeee994c643c7422bf.css"
+    ]
+  },
+  "VsFooterAccordionItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/1c0a014b880e12c4b94a.js"
+    ],
+    "styles": [
+      "styles/1c0a014b880e12c4b94a.css"
+    ]
+  },
+  "VsFooterCopyright": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/0c6083431b6149694a6e.js"
+    ],
+    "styles": [
+      "styles/0c6083431b6149694a6e.css"
+    ]
+  },
+  "VsFooterExample": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/c52512d74507e12e9a98.js"
+    ]
+  },
+  "VsFooterNavList": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/dcd7acdf5b683a7d29dc.js"
+    ],
+    "styles": [
+      "styles/dcd7acdf5b683a7d29dc.css"
+    ]
+  },
+  "VsFooterNavListItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/9fe22df0c913faefb43d.js"
+    ],
+    "styles": [
+      "styles/9fe22df0c913faefb43d.css"
+    ]
+  },
+  "VsFooterSocialItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/9fc2899658bb9df74bbb.js"
+    ],
+    "styles": [
+      "styles/9fc2899658bb9df74bbb.css"
+    ]
+  },
+  "VsFooterSocialMenu": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/c9a68e52087413858d9f.js"
+    ],
+    "styles": [
+      "styles/c9a68e52087413858d9f.css"
+    ]
+  },
+  "VsFooterUtilityList": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/f45c01b35e7a34ba04ce.js"
+    ],
+    "styles": [
+      "styles/f45c01b35e7a34ba04ce.css"
+    ]
+  },
+  "VsGlobalMenu": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/709951cdf1f40f8e6c4a.js"
+    ],
+    "styles": [
+      "styles/709951cdf1f40f8e6c4a.css"
+    ]
+  },
+  "VsGlobalMenuDropdown": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/5cf13f423a47826e9025.js"
+    ],
+    "styles": [
+      "styles/5cf13f423a47826e9025.css"
+    ]
+  },
+  "VsGlobalMenuLanguage": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/323b6fdf0c56d8d741f9.js"
+    ],
+    "styles": [
+      "styles/323b6fdf0c56d8d741f9.css"
+    ]
+  },
+  "VsGlobalMenuLanguageItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/9dadd3c1d2cc8fa109b4.js"
+    ],
+    "styles": [
+      "styles/9dadd3c1d2cc8fa109b4.css"
+    ]
+  },
+  "VsGlobalMenuList": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/0d9a497121b22182d922.js"
+    ],
+    "styles": [
+      "styles/0d9a497121b22182d922.css"
+    ]
+  },
+  "VsHeading": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/7ca8ef5a1be2a70c9890.js"
+    ],
+    "styles": [
+      "styles/7ca8ef5a1be2a70c9890.css"
+    ]
+  },
+  "VsHtmlError": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/ce33d1ec4a2c7d2026d6.js"
+    ]
+  },
+  "VsIcentre": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/7f2e7d58c5105accdb63.js"
+    ],
+    "styles": [
+      "styles/7f2e7d58c5105accdb63.css"
+    ]
+  },
+  "VsIcon": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/9f33efcb100b7a0f2f6a.js"
+    ],
+    "styles": [
+      "styles/9f33efcb100b7a0f2f6a.css"
+    ]
+  },
+  "VsIconList": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/f7180d58856b4cfea136.js"
+    ],
+    "styles": [
+      "styles/f7180d58856b4cfea136.css"
+    ]
+  },
+  "VsIconListItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/997f2125614ad9e2512d.js"
+    ],
+    "styles": [
+      "styles/997f2125614ad9e2512d.css"
+    ]
+  },
+  "VsImageWithCaption": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/ef8e9a426db3a60fa876.js"
+    ],
+    "styles": [
+      "styles/ef8e9a426db3a60fa876.css"
+    ]
+  },
+  "VsImg": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/a6071a737386b40fec63.js"
+    ],
+    "styles": [
+      "styles/a6071a737386b40fec63.css"
+    ]
+  },
+  "VsInput": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/dd8f3513528a767d6c9f.js"
+    ],
+    "styles": [
+      "styles/dd8f3513528a767d6c9f.css"
+    ]
+  },
+  "VsItinerary": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/2e0d9fbd47b0f0fa71ae.js"
+    ],
+    "styles": [
+      "styles/2e0d9fbd47b0f0fa71ae.css"
+    ]
+  },
+  "VsItineraryBorderOverlapWrapper": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/5804aaa72f0aff4afd06.js"
+    ],
+    "styles": [
+      "styles/5804aaa72f0aff4afd06.css"
+    ]
+  },
+  "VsItineraryDay": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/6611ae36e55d721894ad.js"
+    ],
+    "styles": [
+      "styles/6611ae36e55d721894ad.css"
+    ]
+  },
+  "VsItineraryMap": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/d3178bbb87397c517d3d.js"
+    ],
+    "styles": [
+      "styles/d3178bbb87397c517d3d.css"
+    ]
+  },
+  "VsItineraryMapMarker": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/02fa790f819f21a25492.js"
+    ],
+    "styles": [
+      "styles/02fa790f819f21a25492.css"
+    ]
+  },
+  "VsItineraryStop": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/4cf6c3e91b8b9997388c.js"
+    ],
+    "styles": [
+      "styles/4cf6c3e91b8b9997388c.css"
+    ]
+  },
+  "VsItineraryStopInfo": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/98634e2c4fd2645e78c5.js"
+    ],
+    "styles": [
+      "styles/98634e2c4fd2645e78c5.css"
+    ]
+  },
+  "VsItineraryTips": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/bac5ae2c51cba5461315.js"
+    ],
+    "styles": [
+      "styles/bac5ae2c51cba5461315.css"
+    ]
+  },
+  "VsLink": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/47075fb6156f756b49ae.js"
+    ],
+    "styles": [
+      "styles/47075fb6156f756b49ae.css"
+    ]
+  },
+  "VsLinkList": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/d42d3368e087cbf2cfb5.js"
+    ],
+    "styles": [
+      "styles/d42d3368e087cbf2cfb5.css"
+    ]
+  },
+  "VsLinkListItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/ab9c6c15f1edb11ee1f3.js"
+    ],
+    "styles": [
+      "styles/ab9c6c15f1edb11ee1f3.css"
+    ]
+  },
+  "VsList": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/7765d4fa950fd0012b18.js"
+    ],
+    "styles": [
+      "styles/7765d4fa950fd0012b18.css"
+    ]
+  },
+  "VsListicleItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/5de036d0c2d736defa9e.js"
+    ],
+    "styles": [
+      "styles/5de036d0c2d736defa9e.css"
+    ]
+  },
+  "VsMarketoForm": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/491fcea556c8ab1d9e20.js"
+    ],
+    "styles": [
+      "styles/491fcea556c8ab1d9e20.css"
+    ]
+  },
+  "VsMegaNav": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/6946a8e1836dc3807258.js"
+    ],
+    "styles": [
+      "styles/6946a8e1836dc3807258.css"
+    ]
+  },
+  "VsMegaNavAccordionItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/0439ff221cfbbe743c80.js"
+    ],
+    "styles": [
+      "styles/0439ff221cfbbe743c80.css"
+    ]
+  },
+  "VsMegaNavDropdown": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/f59c46d1c5ae16d22cc2.js"
+    ],
+    "styles": [
+      "styles/f59c46d1c5ae16d22cc2.css"
+    ]
+  },
+  "VsMegaNavFeaturedEvent": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/0079c7f003fe3d30c0b5.js"
+    ],
+    "styles": [
+      "styles/0079c7f003fe3d30c0b5.css"
+    ]
+  },
+  "VsMegaNavFeaturedItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/33357953bfed5c90701d.js"
+    ],
+    "styles": [
+      "styles/33357953bfed5c90701d.css"
+    ]
+  },
+  "VsMegaNavList": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/80d634ac7bcc60228f73.js"
+    ],
+    "styles": [
+      "styles/80d634ac7bcc60228f73.css"
+    ]
+  },
+  "VsMegaNavListItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/25f0160363cf07a53982.js"
+    ],
+    "styles": [
+      "styles/25f0160363cf07a53982.css"
+    ]
+  },
+  "VsMegaNavMobileMenu": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/60e16641631a7cd51065.js"
+    ],
+    "styles": [
+      "styles/60e16641631a7cd51065.css"
+    ]
+  },
+  "VsMegaNavTopMenu": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/fa8b9a65f8147145aa5f.js"
+    ],
+    "styles": [
+      "styles/fa8b9a65f8147145aa5f.css"
+    ]
+  },
+  "VsMegaNavTopMenuItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/68b5e996ad1c6d59ff98.js"
+    ],
+    "styles": [
+      "styles/68b5e996ad1c6d59ff98.css"
+    ]
+  },
+  "VsMegalinkLinkList": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/28b9bd08014a2d956022.js"
+    ],
+    "styles": [
+      "styles/28b9bd08014a2d956022.css"
+    ]
+  },
+  "VsMegalinkMultiImage": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/7954cdfd02e454b74aeb.js"
+    ],
+    "styles": [
+      "styles/7954cdfd02e454b74aeb.css"
+    ]
+  },
+  "VsMegalinkSingleImage": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/d7c1e5d681a668ef1b3a.js"
+    ],
+    "styles": [
+      "styles/d7c1e5d681a668ef1b3a.css"
+    ]
+  },
+  "VsMegalinks": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/c9a5ef17bba61b68c453.js"
+    ],
+    "styles": [
+      "styles/c9a5ef17bba61b68c453.css"
+    ]
+  },
+  "VsMeganavExample": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/a25cd3bfdaeb43cb9b66.js"
+    ]
+  },
+  "VsModal": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/ffd887256215a3562910.js"
+    ],
+    "styles": [
+      "styles/ffd887256215a3562910.css"
+    ]
+  },
+  "VsModuleWrapper": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/54c8b9b8beb6f7182e53.js"
+    ],
+    "styles": [
+      "styles/54c8b9b8beb6f7182e53.css"
+    ]
+  },
+  "VsPageIntro": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/b9bb1c4eb0f328ccb796.js"
+    ],
+    "styles": [
+      "styles/b9bb1c4eb0f328ccb796.css"
+    ]
+  },
+  "VsPanel": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/f0f0b8193a2725c11857.js"
+    ],
+    "styles": [
+      "styles/f0f0b8193a2725c11857.css"
+    ]
+  },
+  "VsProductSearch": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/fc7164db97bb6d2305fb.js"
+    ],
+    "styles": [
+      "styles/fc7164db97bb6d2305fb.css"
+    ]
+  },
+  "VsProductSearchEmbed": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/6e655a5d5961dc0782fa.js"
+    ],
+    "styles": [
+      "styles/6e655a5d5961dc0782fa.css"
+    ]
+  },
+  "VsQuote": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/7dbfefdfad3cc45130a0.js"
+    ],
+    "styles": [
+      "styles/7dbfefdfad3cc45130a0.css"
+    ]
+  },
+  "VsRecaptcha": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/cc2f2e5c89436488f0c8.js"
+    ],
+    "styles": [
+      "styles/cc2f2e5c89436488f0c8.css"
+    ]
+  },
+  "VsRichTextWrapper": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/e4b5910d0aacb1220a89.js"
+    ],
+    "styles": [
+      "styles/e4b5910d0aacb1220a89.css"
+    ]
+  },
+  "VsRow": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/7a114dbbdc91d1eb9f89.js"
+    ],
+    "styles": [
+      "styles/7a114dbbdc91d1eb9f89.css"
+    ]
+  },
+  "VsSelect": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/446a98b01fed80942a64.js"
+    ],
+    "styles": [
+      "styles/446a98b01fed80942a64.css"
+    ]
+  },
+  "VsSiteSearch": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/3a7da62b6a29e2712681.js"
+    ],
+    "styles": [
+      "styles/3a7da62b6a29e2712681.css"
+    ]
+  },
+  "VsSiteSearchForm": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/ca81a5d2db26c6044772.js"
+    ],
+    "styles": [
+      "styles/ca81a5d2db26c6044772.css"
+    ]
+  },
+  "VsSkipTo": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/4916f8e62041e8fb7713.js"
+    ],
+    "styles": [
+      "styles/4916f8e62041e8fb7713.css"
+    ]
+  },
+  "VsSocialCreditLink": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/74f089cd707e6314b5dc.js"
+    ],
+    "styles": [
+      "styles/74f089cd707e6314b5dc.css"
+    ]
+  },
+  "VsSocialShare": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/4b69c1997d6fa240dbec.js"
+    ],
+    "styles": [
+      "styles/4b69c1997d6fa240dbec.css"
+    ]
+  },
+  "VsSocialShareItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/4ad9cd37fa5c8f3af1ed.js"
+    ],
+    "styles": [
+      "styles/4ad9cd37fa5c8f3af1ed.css"
+    ]
+  },
+  "VsStoreExampleStore": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/6314cde861844b871f9e.js"
+    ]
+  },
+  "VsStoreFavouritesStore": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/b04978ed12e526c1b7a1.js"
+    ]
+  },
+  "VsStoreItinerariesStore": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/dea1bfd160838a286f26.js"
+    ]
+  },
+  "VsStretchedLinkCard": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/a2fea4e38034c524934c.js"
+    ],
+    "styles": [
+      "styles/a2fea4e38034c524934c.css"
+    ]
+  },
+  "VsStretchedLinkPanels": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/d020e6c85e4a543a00dd.js"
+    ],
+    "styles": [
+      "styles/d020e6c85e4a543a00dd.css"
+    ]
+  },
+  "VsSummaryBoxDistanceListItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/05cbb02db4ef2c5d1d49.js"
+    ],
+    "styles": [
+      "styles/05cbb02db4ef2c5d1d49.css"
+    ]
+  },
+  "VsSummaryBoxList": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/1219fa020bf6696120b0.js"
+    ],
+    "styles": [
+      "styles/1219fa020bf6696120b0.css"
+    ]
+  },
+  "VsSummaryBoxListItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/79cdab6cbed2432c47b0.js"
+    ],
+    "styles": [
+      "styles/79cdab6cbed2432c47b0.css"
+    ]
+  },
+  "VsSvg": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/2354dcaa912ed8ef89de.js"
+    ]
+  },
+  "VsSvgLink": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/2114453dec99dc1883f1.js"
+    ],
+    "styles": [
+      "styles/2114453dec99dc1883f1.css"
+    ]
+  },
+  "VsTabItem": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/9cd1572b518185271595.js"
+    ],
+    "styles": [
+      "styles/9cd1572b518185271595.css"
+    ]
+  },
+  "VsTabs": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/58397da05061df6e4bd1.js"
+    ]
+  },
+  "VsTag": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/54daf9ced8f06b912fb0.js"
+    ],
+    "styles": [
+      "styles/54daf9ced8f06b912fb0.css"
+    ]
+  },
+  "VsTagManagerWrapper": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/bbb578105028d852a219.js"
+    ]
+  },
+  "VsToggleButton": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/1c5aab22f298e550ca76.js"
+    ],
+    "styles": [
+      "styles/1c5aab22f298e550ca76.css"
+    ]
+  },
+  "VsTooltip": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/faa710fd5f53f8792cdd.js"
+    ],
+    "styles": [
+      "styles/faa710fd5f53f8792cdd.css"
+    ]
+  },
+  "VsVideo": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/79a8dec21888a541e108.js"
+    ],
+    "styles": [
+      "styles/79a8dec21888a541e108.css"
+    ]
+  },
+  "VsVideoCaption": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/d7b60173a5b6ef6b705a.js"
+    ],
+    "styles": [
+      "styles/d7b60173a5b6ef6b705a.css"
+    ]
+  },
+  "VsVueXExample": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/3a0d851a6930b717b0a1.js"
+    ],
+    "styles": [
+      "styles/3a0d851a6930b717b0a1.css"
+    ]
+  },
+  "VsWarning": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/4f2f597d3a7a25f6f38f.js"
+    ],
+    "styles": [
+      "styles/4f2f597d3a7a25f6f38f.css"
+    ]
+  },
+  "main-server": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "scripts/51f052eadc4060f7de1e.js"
+    ],
+    "styles": [
+      "styles/51f052eadc4060f7de1e.css"
+    ]
+  }
+}

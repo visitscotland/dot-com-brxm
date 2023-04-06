@@ -1,10 +1,11 @@
 <!doctype html>
 <#include "../../include/imports.ftl">
 <#include "../macros/global/gtm.ftl">
+<#include "../macros/modules/skeleton/skeleton.ftl">
 <#include "headerContributions.ftl">
 <#include "footerContributions.ftl">
 
-<html data-version="${version}" lang="en">
+<html data-version="${version}" lang="${locale}">
     <head>
         <#if hstRequest.requestContext.channelManagerPreviewRequest>
             <link rel="stylesheet" href="<@hst.webfile path='/assets/css/cms-request.css'/>" type="text/css"/>
@@ -16,7 +17,8 @@
     </head>
     <body>
         <@gtm noscript=true />
-        <div class="no-js" data-vue-app-init>
+        <@skeleton />
+        <div class="no-js hydrate" data-vue-app-init>
             <@hst.include ref="top"/>
 
             <@hst.include ref="menu"/>

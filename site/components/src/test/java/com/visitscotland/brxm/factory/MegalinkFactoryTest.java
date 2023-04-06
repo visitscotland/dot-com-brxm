@@ -7,6 +7,7 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.junit.jupiter.api.Assertions;
@@ -26,7 +27,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-import static org.easymock.EasyMock.anyObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
@@ -50,6 +50,9 @@ public class MegalinkFactoryTest {
 
     @Mock
     ImageFactory imageFactory;
+
+    @Mock
+    ContentLogger logger;
 
     @Resource
     @InjectMocks

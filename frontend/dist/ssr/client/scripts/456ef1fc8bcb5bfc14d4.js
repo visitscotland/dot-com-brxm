@@ -1,0 +1,1 @@
+!function(e,n){"object"==typeof exports&&"object"==typeof module?module.exports=n():"function"==typeof define&&define.amd?define([],n):"object"==typeof exports?exports.VsCannedSearchCuisines=n():e.VsCannedSearchCuisines=n()}(window,(function(){return(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[159],[],[["g1E6",0,1,108]]])}));

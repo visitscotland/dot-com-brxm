@@ -1,0 +1,1 @@
+!function(e,o){"object"==typeof exports&&"object"==typeof module?module.exports=o():"function"==typeof define&&define.amd?define([],o):"object"==typeof exports?exports.VsHeading=o():e.VsHeading=o()}(window,(function(){return(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[204],[],[["kNtj",0,1,2,3,4,5,6,30,55]]])}));

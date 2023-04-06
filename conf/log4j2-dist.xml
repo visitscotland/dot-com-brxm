@@ -97,7 +97,10 @@
     <Logger name="org.apache.jackrabbit.core.query.lucene.ConsistencyCheck" level="info"/>
 
     <!-- project logging -->
-    <Logger name="com.visitscotland.brxm" level="info"/>
+    <Logger name="com.visitscotland.brxm" level="warn"/>
+    <Logger name="com.visitscotland.brxm.utils.ContentLogger" level="error"/>
+
+    <Logger name="org.onehippo.repository.update" level="debug" />
 
     <Root level="warn">
       <AppenderRef ref="site"/>

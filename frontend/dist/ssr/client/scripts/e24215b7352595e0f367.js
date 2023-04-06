@@ -1,0 +1,1 @@
+!function(e,o){"object"==typeof exports&&"object"==typeof module?module.exports=o():"function"==typeof define&&define.amd?define([],o):"object"==typeof exports?exports.VsProductSearchEmbed=o():e.VsProductSearchEmbed=o()}(window,(function(){return(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[247],[],[["4H2e",0,1,2,3,5,7,8,9,10,11,12,14,16,20,84,104,135]]])}));

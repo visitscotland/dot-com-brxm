@@ -219,7 +219,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 17f57fe1-bd0c-4c54-9bc0-c9e31e74dc10
     hippo:name: Links to itineries
-    hippo:versionHistory: 29a5bb9b-c311-488c-89d4-eb52d0c579ef
+    hippo:versionHistory: e85d246e-02e2-4fe9-9349-817081d2da47
     /links-to-itineries[1]:
       jcr:primaryType: visitscotland:Megalinks
       jcr:mixinTypes: ['mix:referenceable']
@@ -229,10 +229,11 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-05T08:35:34.459+01:00
-      hippostdpubwf:lastModificationDate: 2021-06-25T09:56:05.136+01:00
+      hippostdpubwf:lastModificationDate: 2023-02-24T10:07:05.290Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 85dbbd57-b66d-4e36-b9ee-a5473102db82
       hippotranslation:locale: en
+      visitscotland:layout: Default
       visitscotland:teaserVisible: true
       visitscotland:title: Links to some itineraries examples
       visitscotland:translation: ''
@@ -284,10 +285,11 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-05T08:35:34.459+01:00
-      hippostdpubwf:lastModificationDate: 2021-06-25T09:56:16.674+01:00
+      hippostdpubwf:lastModificationDate: 2023-02-24T10:07:20.162Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 85dbbd57-b66d-4e36-b9ee-a5473102db82
       hippotranslation:locale: en
+      visitscotland:layout: Default
       visitscotland:teaserVisible: true
       visitscotland:title: Links to some itineraries examples
       visitscotland:translation: ''
@@ -339,11 +341,12 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-05T08:35:34.459+01:00
-      hippostdpubwf:lastModificationDate: 2021-06-25T09:56:16.674+01:00
+      hippostdpubwf:lastModificationDate: 2023-02-24T10:07:20.162Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2021-06-25T09:56:18.780+01:00
+      hippostdpubwf:publicationDate: 2023-02-24T10:07:25.978Z
       hippotranslation:id: 85dbbd57-b66d-4e36-b9ee-a5473102db82
       hippotranslation:locale: en
+      visitscotland:layout: Default
       visitscotland:teaserVisible: true
       visitscotland:title: Links to some itineraries examples
       visitscotland:translation: ''
@@ -687,7 +690,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 04a015db-4c94-48ce-ba32-3d58bdebec97
     hippo:name: Articles
-    hippo:versionHistory: eafed760-ae5a-4af4-9715-56fc0f2e445f
+    hippo:versionHistory: 763e0968-0bac-49a2-86c2-72486a580c3c
     /articles[1]:
       jcr:primaryType: visitscotland:Megalinks
       jcr:mixinTypes: ['mix:referenceable']
@@ -697,11 +700,11 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-05T08:55:22.341+01:00
-      hippostdpubwf:lastModificationDate: 2022-01-20T17:09:11.676Z
+      hippostdpubwf:lastModificationDate: 2023-02-24T10:08:49.731Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 997337ee-c784-4b98-8912-de7da4b44010
       hippotranslation:locale: en
-      visitscotland:layout: Horizontal Links
+      visitscotland:layout: Default
       visitscotland:teaserVisible: true
       visitscotland:title: Articles examples
       visitscotland:translation: ''
@@ -747,11 +750,11 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-05T08:55:22.341+01:00
-      hippostdpubwf:lastModificationDate: 2022-01-20T17:09:11.200Z
+      hippostdpubwf:lastModificationDate: 2023-02-24T10:08:51.407Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 997337ee-c784-4b98-8912-de7da4b44010
       hippotranslation:locale: en
-      visitscotland:layout: Horizontal Links
+      visitscotland:layout: Default
       visitscotland:teaserVisible: true
       visitscotland:title: Articles examples
       visitscotland:translation: ''
@@ -797,12 +800,12 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-05T08:55:22.341+01:00
-      hippostdpubwf:lastModificationDate: 2022-01-20T17:09:11.200Z
+      hippostdpubwf:lastModificationDate: 2023-02-24T10:08:51.407Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2022-01-20T17:09:18.518Z
+      hippostdpubwf:publicationDate: 2023-02-24T10:08:54.416Z
       hippotranslation:id: 997337ee-c784-4b98-8912-de7da4b44010
       hippotranslation:locale: en
-      visitscotland:layout: Horizontal Links
+      visitscotland:layout: Default
       visitscotland:teaserVisible: true
       visitscotland:title: Articles examples
       visitscotland:translation: ''
@@ -935,9 +938,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-07T12:55:05.069Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T15:49:34.762+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:54:12.094Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: []
           hippotranslation:id: 2d502027-288c-49ee-ac6b-53c4c7c7182c
@@ -3770,7 +3774,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 178cc6ee-9b6a-4095-80b2-9026263d173e
         hippo:name: National musseum - free example
-        hippo:versionHistory: 2666d6fe-d19f-410b-89b5-c9b78557b6f5
+        hippo:versionHistory: bac07ff4-ea15-476c-86e9-bc1a44a55f40
         /national-musseum---free-example[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -3780,7 +3784,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2021-06-24T13:39:10.923+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:00.512Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
@@ -3800,12 +3804,6 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '246591'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /national-musseum---free-example[2]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -3815,7 +3813,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2021-06-24T13:40:01.567+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:08.176Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
@@ -3835,12 +3833,6 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '246591'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /national-musseum---free-example[3]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -3850,9 +3842,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-05T08:34:12.475+01:00
-          hippostdpubwf:lastModificationDate: 2021-06-24T13:40:01.567+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:08.176Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-06-24T13:40:04.410+01:00
+          hippostdpubwf:publicationDate: 2022-11-16T16:11:12.056Z
           hippotranslation:id: e6433e3e-29d9-485c-b409-fff4ee7307a9
           hippotranslation:locale: en
           visitscotland:subtitle: ''
@@ -3871,12 +3863,6 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '246591'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
       /clava-cairns:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -4000,26 +3986,28 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 8ef343ea-4650-4fb7-98d1-b34822be9817
         hippo:name: Culloden Battlefield
-        hippo:versionHistory: 93304889-99c5-4ca2-a4f4-555e942c4402
+        hippo:versionHistory: 071c8dc5-c972-4da5-86d1-3c8521a3b868
         /culloden-battlefield[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 2d5c59d9-f017-4081-a436-57cb87c75fe9
           hippo:availability: []
+          hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:38:28.294Z
-          hippostdpubwf:lastModificationDate: 2020-10-21T12:08:42.938Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:17.638Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 466c9a3c-0498-4d13-9b4c-d2593d675fcb
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Culloden Battlefield
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
+              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a rel="noopener noreferrer" href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
 
               <p>Duration of stay: 3 Hours</p>
           /visitscotland:tips:
@@ -4029,31 +4017,27 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '247471'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /culloden-battlefield[2]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: feda86a3-7723-4e84-b600-a06d2d69f2b2
           hippo:availability: [preview]
+          hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:38:28.294Z
-          hippostdpubwf:lastModificationDate: 2020-10-20T16:36:57.082Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:22.808Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 466c9a3c-0498-4d13-9b4c-d2593d675fcb
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Culloden Battlefield
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
+              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a rel="noopener noreferrer" href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
 
               <p>Duration of stay: 3 Hours</p>
           /visitscotland:tips:
@@ -4063,32 +4047,28 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '247471'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /culloden-battlefield[3]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 7bea6324-7765-4307-80c6-956bde7ac4b1
           hippo:availability: [live]
+          hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:38:28.294Z
-          hippostdpubwf:lastModificationDate: 2020-10-20T16:36:57.082Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:22.808Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-11-09T13:14:07.006Z
+          hippostdpubwf:publicationDate: 2022-11-16T16:11:27.912Z
           hippotranslation:id: 466c9a3c-0498-4d13-9b4c-d2593d675fcb
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Culloden Battlefield
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
+              <p>A prominent location during the Jacobite Rising in 1745. Head to the&nbsp;<a rel="noopener noreferrer" href="https://www.nts.org.uk/visit/places/culloden" title="" target="_blank">Battle of Culloden Visitor Centre</a>&nbsp;and feel like you are right at the very heart of the action as you immerse yourself in the 360-degree immersion theatre experience. Discover the unfolding story of the Jacobite Rising as you learn more about the Jacobite and Government perspectives with unique artefacts on display around the museum on the series of events that occurred. Make sure to pop into the gift shop and take a small piece of history home with you ranging from the flowers of the Battlefield to Culloden whisky.</p>
 
               <p>Duration of stay: 3 Hours</p>
           /visitscotland:tips:
@@ -4098,31 +4078,26 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '247471'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
       /dining-out:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 0aba5bc3-cfab-48cf-807f-f24dd702ab2b
         hippo:name: Dining Out Inverness
-        hippo:versionHistory: 852ff48d-1cac-4228-86c3-81db7318fb9d
+        hippo:versionHistory: c6464c36-c5d4-4a8d-b15e-d36c09f02096
         /dining-out[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: d56c0fc1-8761-4845-b2f4-591f7aaecdc0
           hippo:availability: []
+          hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:44:40.192Z
-          hippostdpubwf:lastModificationDate: 2020-11-24T13:35:12.933Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:32.201Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 2d7d4c8e-7326-4fcc-99aa-1d6c62ad3bd5
           hippotranslation:locale: en
-          visitscotland:subtitle: ''
+          visitscotland:subtitle: Loch Ness
           visitscotland:tipsTitle: ''
           visitscotland:title: Dining Out & Nightlife
           visitscotland:translation: ''
@@ -4130,27 +4105,29 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>After a long day of exploring the city, there is
               nothing better than sitting down while tucking into a delicious meal.
-              Just 10 miles outside of Inverness is&nbsp;<a href="http://www.thedoresinn.co.uk/"
-              title="" target="_blank">Dores Inn</a>, situated along the banks of
-              Loch Ness. Choose from a wide range of mouth-watering dishes and, with
-              its traditional furnishings and wood-burning stove, it is sure to set
-              the right ambience for the evening. Another scenic location that might
-              take your fancy is the&nbsp;<a href="http://riverhouseinverness.co.uk/"
-              title="" target="_blank">River House Restaurant</a>. You certainly won’t
-              go hungry here with the restaurant’s extensive food &amp; drink menu.
-              Working with local suppliers, you can always expect high quality dishes
-              that will certainly go down a treat. For starters, why not opt for the
-              pan-seared Isle of Harris scallops or Orkney crab on toast and for mains,
-              sink your teeth into a tasty 28-day matured Scottish ribeye – simply
-              delicious! Enjoy a night on the town! Inverness is certainly the place
-              to be to let your hair down!&nbsp;<a href="https://baroneinverness.com/"
-              title="" target="_blank">Bar One</a>&nbsp;is a great find if you are
-              looking to try a delicious cocktail or two while you lap up its lively
-              atmosphere. Watch the world go by at the&nbsp;<a href="https://www.castletavern.pub/"
+              Just 10 miles outside of Inverness is&nbsp;<a rel="noopener noreferrer"
+              href="http://www.thedoresinn.co.uk/" title="" target="_blank">Dores
+              Inn</a>, situated along the banks of Loch Ness. Choose from a wide range
+              of mouth-watering dishes and, with its traditional furnishings and wood-burning
+              stove, it is sure to set the right ambience for the evening. Another
+              scenic location that might take your fancy is the&nbsp;<a rel="noopener
+              noreferrer" href="http://riverhouseinverness.co.uk/" title="" target="_blank">River
+              House Restaurant</a>. You certainly won’t go hungry here with the restaurant’s
+              extensive food &amp; drink menu. Working with local suppliers, you can
+              always expect high quality dishes that will certainly go down a treat.
+              For starters, why not opt for the pan-seared Isle of Harris scallops
+              or Orkney crab on toast and for mains, sink your teeth into a tasty
+              28-day matured Scottish ribeye – simply delicious! Enjoy a night on
+              the town! Inverness is certainly the place to be to let your hair down!&nbsp;<a
+              rel="noopener noreferrer" href="https://baroneinverness.com/" title=""
+              target="_blank">Bar One</a>&nbsp;is a great find if you are looking
+              to try a delicious cocktail or two while you lap up its lively atmosphere.
+              Watch the world go by at the&nbsp;<a rel="noopener noreferrer" href="https://www.castletavern.pub/"
               title="" target="_blank">Castle Tavern</a>. Sample some of the best
               ales and meals on offer and when the weather is nice, make sure to soak
               up those rays in the beer garden. If you’re partial to sipping away
-              on a craft beer, then look no further than the&nbsp;<a href="https://www.blackislebrewery.com/black-isle-bar/"
+              on a craft beer, then look no further than the&nbsp;<a rel="noopener
+              noreferrer" href="https://www.blackislebrewery.com/black-isle-bar/"
               title="" target="_blank">Black Isle Brewery Bar</a>. Why not sink your
               teeth into one of their delicious wood-fired pizzas to go along with
               your meal?</p>
@@ -4166,7 +4143,7 @@
             /visitscotland:ExternalLink:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: ''
-              visitscotland:link: http://riverhouseinverness.co.uk/
+              visitscotland:link: https://riverhouseinverness.co.uk/
           /visitscotland:media:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 9fb38865-ca10-4ef4-bcab-a1097cc44487
@@ -4178,14 +4155,15 @@
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 553a38b2-52c3-4218-8dfc-cc712553e9a0
           hippo:availability: [preview]
+          hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:44:40.192Z
-          hippostdpubwf:lastModificationDate: 2020-11-24T13:35:12.898Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:56.205Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 2d7d4c8e-7326-4fcc-99aa-1d6c62ad3bd5
           hippotranslation:locale: en
-          visitscotland:subtitle: ''
+          visitscotland:subtitle: Loch Ness
           visitscotland:tipsTitle: ''
           visitscotland:title: Dining Out & Nightlife
           visitscotland:translation: ''
@@ -4193,27 +4171,29 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>After a long day of exploring the city, there is
               nothing better than sitting down while tucking into a delicious meal.
-              Just 10 miles outside of Inverness is&nbsp;<a href="http://www.thedoresinn.co.uk/"
-              title="" target="_blank">Dores Inn</a>, situated along the banks of
-              Loch Ness. Choose from a wide range of mouth-watering dishes and, with
-              its traditional furnishings and wood-burning stove, it is sure to set
-              the right ambience for the evening. Another scenic location that might
-              take your fancy is the&nbsp;<a href="http://riverhouseinverness.co.uk/"
-              title="" target="_blank">River House Restaurant</a>. You certainly won’t
-              go hungry here with the restaurant’s extensive food &amp; drink menu.
-              Working with local suppliers, you can always expect high quality dishes
-              that will certainly go down a treat. For starters, why not opt for the
-              pan-seared Isle of Harris scallops or Orkney crab on toast and for mains,
-              sink your teeth into a tasty 28-day matured Scottish ribeye – simply
-              delicious! Enjoy a night on the town! Inverness is certainly the place
-              to be to let your hair down!&nbsp;<a href="https://baroneinverness.com/"
-              title="" target="_blank">Bar One</a>&nbsp;is a great find if you are
-              looking to try a delicious cocktail or two while you lap up its lively
-              atmosphere. Watch the world go by at the&nbsp;<a href="https://www.castletavern.pub/"
+              Just 10 miles outside of Inverness is&nbsp;<a rel="noopener noreferrer"
+              href="http://www.thedoresinn.co.uk/" title="" target="_blank">Dores
+              Inn</a>, situated along the banks of Loch Ness. Choose from a wide range
+              of mouth-watering dishes and, with its traditional furnishings and wood-burning
+              stove, it is sure to set the right ambience for the evening. Another
+              scenic location that might take your fancy is the&nbsp;<a rel="noopener
+              noreferrer" href="http://riverhouseinverness.co.uk/" title="" target="_blank">River
+              House Restaurant</a>. You certainly won’t go hungry here with the restaurant’s
+              extensive food &amp; drink menu. Working with local suppliers, you can
+              always expect high quality dishes that will certainly go down a treat.
+              For starters, why not opt for the pan-seared Isle of Harris scallops
+              or Orkney crab on toast and for mains, sink your teeth into a tasty
+              28-day matured Scottish ribeye – simply delicious! Enjoy a night on
+              the town! Inverness is certainly the place to be to let your hair down!&nbsp;<a
+              rel="noopener noreferrer" href="https://baroneinverness.com/" title=""
+              target="_blank">Bar One</a>&nbsp;is a great find if you are looking
+              to try a delicious cocktail or two while you lap up its lively atmosphere.
+              Watch the world go by at the&nbsp;<a rel="noopener noreferrer" href="https://www.castletavern.pub/"
               title="" target="_blank">Castle Tavern</a>. Sample some of the best
               ales and meals on offer and when the weather is nice, make sure to soak
               up those rays in the beer garden. If you’re partial to sipping away
-              on a craft beer, then look no further than the&nbsp;<a href="https://www.blackislebrewery.com/black-isle-bar/"
+              on a craft beer, then look no further than the&nbsp;<a rel="noopener
+              noreferrer" href="https://www.blackislebrewery.com/black-isle-bar/"
               title="" target="_blank">Black Isle Brewery Bar</a>. Why not sink your
               teeth into one of their delicious wood-fired pizzas to go along with
               your meal?</p>
@@ -4229,7 +4209,7 @@
             /visitscotland:ExternalLink:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: ''
-              visitscotland:link: http://riverhouseinverness.co.uk/
+              visitscotland:link: https://riverhouseinverness.co.uk/
           /visitscotland:media:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 9fb38865-ca10-4ef4-bcab-a1097cc44487
@@ -4241,15 +4221,16 @@
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 2ea04e51-6eb1-43a1-9955-b1baeaf275a5
           hippo:availability: [live]
+          hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:44:40.192Z
-          hippostdpubwf:lastModificationDate: 2020-11-24T13:35:12.898Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:11:56.205Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-11-09T13:14:07.207Z
+          hippostdpubwf:publicationDate: 2022-11-16T16:11:59.314Z
           hippotranslation:id: 2d7d4c8e-7326-4fcc-99aa-1d6c62ad3bd5
           hippotranslation:locale: en
-          visitscotland:subtitle: ''
+          visitscotland:subtitle: Loch Ness
           visitscotland:tipsTitle: ''
           visitscotland:title: Dining Out & Nightlife
           visitscotland:translation: ''
@@ -4257,27 +4238,29 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>After a long day of exploring the city, there is
               nothing better than sitting down while tucking into a delicious meal.
-              Just 10 miles outside of Inverness is&nbsp;<a href="http://www.thedoresinn.co.uk/"
-              title="" target="_blank">Dores Inn</a>, situated along the banks of
-              Loch Ness. Choose from a wide range of mouth-watering dishes and, with
-              its traditional furnishings and wood-burning stove, it is sure to set
-              the right ambience for the evening. Another scenic location that might
-              take your fancy is the&nbsp;<a href="http://riverhouseinverness.co.uk/"
-              title="" target="_blank">River House Restaurant</a>. You certainly won’t
-              go hungry here with the restaurant’s extensive food &amp; drink menu.
-              Working with local suppliers, you can always expect high quality dishes
-              that will certainly go down a treat. For starters, why not opt for the
-              pan-seared Isle of Harris scallops or Orkney crab on toast and for mains,
-              sink your teeth into a tasty 28-day matured Scottish ribeye – simply
-              delicious! Enjoy a night on the town! Inverness is certainly the place
-              to be to let your hair down!&nbsp;<a href="https://baroneinverness.com/"
-              title="" target="_blank">Bar One</a>&nbsp;is a great find if you are
-              looking to try a delicious cocktail or two while you lap up its lively
-              atmosphere. Watch the world go by at the&nbsp;<a href="https://www.castletavern.pub/"
+              Just 10 miles outside of Inverness is&nbsp;<a rel="noopener noreferrer"
+              href="http://www.thedoresinn.co.uk/" title="" target="_blank">Dores
+              Inn</a>, situated along the banks of Loch Ness. Choose from a wide range
+              of mouth-watering dishes and, with its traditional furnishings and wood-burning
+              stove, it is sure to set the right ambience for the evening. Another
+              scenic location that might take your fancy is the&nbsp;<a rel="noopener
+              noreferrer" href="http://riverhouseinverness.co.uk/" title="" target="_blank">River
+              House Restaurant</a>. You certainly won’t go hungry here with the restaurant’s
+              extensive food &amp; drink menu. Working with local suppliers, you can
+              always expect high quality dishes that will certainly go down a treat.
+              For starters, why not opt for the pan-seared Isle of Harris scallops
+              or Orkney crab on toast and for mains, sink your teeth into a tasty
+              28-day matured Scottish ribeye – simply delicious! Enjoy a night on
+              the town! Inverness is certainly the place to be to let your hair down!&nbsp;<a
+              rel="noopener noreferrer" href="https://baroneinverness.com/" title=""
+              target="_blank">Bar One</a>&nbsp;is a great find if you are looking
+              to try a delicious cocktail or two while you lap up its lively atmosphere.
+              Watch the world go by at the&nbsp;<a rel="noopener noreferrer" href="https://www.castletavern.pub/"
               title="" target="_blank">Castle Tavern</a>. Sample some of the best
               ales and meals on offer and when the weather is nice, make sure to soak
               up those rays in the beer garden. If you’re partial to sipping away
-              on a craft beer, then look no further than the&nbsp;<a href="https://www.blackislebrewery.com/black-isle-bar/"
+              on a craft beer, then look no further than the&nbsp;<a rel="noopener
+              noreferrer" href="https://www.blackislebrewery.com/black-isle-bar/"
               title="" target="_blank">Black Isle Brewery Bar</a>. Why not sink your
               teeth into one of their delicious wood-fired pizzas to go along with
               your meal?</p>
@@ -4293,7 +4276,7 @@
             /visitscotland:ExternalLink:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: ''
-              visitscotland:link: http://riverhouseinverness.co.uk/
+              visitscotland:link: https://riverhouseinverness.co.uk/
           /visitscotland:media:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 9fb38865-ca10-4ef4-bcab-a1097cc44487
@@ -4305,22 +4288,24 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 56d04a55-ae5b-4357-a8fd-b20bebbe91c5
         hippo:name: Inverness Botanic Gardens
-        hippo:versionHistory: d4733be5-e50b-44d2-acad-4ddce101c7ee
+        hippo:versionHistory: 5428fe91-3482-4d39-aeb6-7bbd23b3254c
         /inverness-botanic-gardens[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: d03bac81-1005-4d1e-b52b-fe45ff6580c6
           hippo:availability: []
+          hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2020-10-22T15:27:03.592Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:05.317Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Inverness Botanic Gardens
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
@@ -4334,27 +4319,23 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '255531'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /inverness-botanic-gardens[2]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 36eff3e3-93aa-43f9-9c07-64f7847c464c
           hippo:availability: [preview]
+          hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2020-10-20T13:43:42.222Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:13.095Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Inverness Botanic Gardens
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
@@ -4368,28 +4349,24 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '255531'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
         /inverness-botanic-gardens[3]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 5196aa52-e7ac-4b86-8b14-0f6ebb427f36
           hippo:availability: [live]
+          hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-20T13:43:16.322Z
-          hippostdpubwf:lastModificationDate: 2020-10-20T13:43:42.222Z
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:12:13.095Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-11-09T13:14:07.832Z
+          hippostdpubwf:publicationDate: 2022-11-16T16:12:15.802Z
           hippotranslation:id: ff9e6db9-2526-4683-8006-d7df8d831d94
           hippotranslation:locale: en
           visitscotland:subtitle: ''
           visitscotland:tipsTitle: ''
           visitscotland:title: Inverness Botanic Gardens
+          visitscotland:translation: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
@@ -4403,12 +4380,6 @@
             jcr:primaryType: visitscotland:DMSLink
             visitscotland:label: ''
             visitscotland:product: '255531'
-          /visitscotland:media:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
       /inverness-museum-art-gallery:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -4758,6 +4729,109 @@
             /visitscotland:videoLink:
               jcr:primaryType: hippo:mirror
               hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
+      /cameron-house:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: fc1a1f69-c51a-4b65-8bef-3ba62452b6be
+        hippo:name: Cameron House
+        hippo:versionHistory: 6acd1323-59c7-407b-9901-1cab92c6003d
+        /cameron-house[1]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 5bb3e938-4ebe-41a0-82ad-55567cce676d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:54:47.065Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
+          hippotranslation:locale: en
+          visitscotland:subtitle: ''
+          visitscotland:title: Cameron House
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>A magnificent baronial mansion surrounded by 400
+              acres of countryside, Cameron House on Loch Lomond, blends traditional
+              Scottish influences with sumptuous contemporary décor to offer guests
+              a memorable stay in the finest surroundings.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:DMSLink
+            visitscotland:label: ''
+            visitscotland:product: '190371'
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /cameron-house[2]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 79033906-020b-4f42-8807-1fc5fcabf272
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:16.390Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
+          hippotranslation:locale: en
+          visitscotland:subtitle: ''
+          visitscotland:title: Cameron House
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>A magnificent baronial mansion surrounded by 400
+              acres of countryside, Cameron House on Loch Lomond, blends traditional
+              Scottish influences with sumptuous contemporary décor to offer guests
+              a memorable stay in the finest surroundings.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:DMSLink
+            visitscotland:label: ''
+            visitscotland:product: '190371'
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /cameron-house[3]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 536e7b5f-96d6-47af-bcf2-98384a2bc44f
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-11-18T12:54:47.065Z
+          hippostdpubwf:lastModificationDate: 2022-11-18T12:55:16.390Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2022-11-18T12:55:19.801Z
+          hippotranslation:id: a9105769-1564-4058-ae7e-84561072afea
+          hippotranslation:locale: en
+          visitscotland:subtitle: ''
+          visitscotland:title: Cameron House
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>A magnificent baronial mansion surrounded by 400
+              acres of countryside, Cameron House on Loch Lomond, blends traditional
+              Scottish influences with sumptuous contemporary décor to offer guests
+              a memorable stay in the finest surroundings.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:DMSLink
+            visitscotland:label: ''
+            visitscotland:product: '190371'
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
     /links:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
@@ -6712,7 +6786,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
         hippo:name: 'Only in Scotland: Why Scotland Needs You'
-        hippo:versionHistory: c6efc49c-2861-4ce2-826c-40db35eec616
+        hippo:versionHistory: 553e4781-3432-45b4-95fe-1aa106e4ee2d
         /only-in-scotland-why-scotland-needs-you[1]:
           jcr:primaryType: visitscotland:Video
           jcr:mixinTypes: ['mix:referenceable']
@@ -6720,14 +6794,13 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-05-11T16:38:04.967+01:00
-          hippostdpubwf:lastModificationDate: 2022-05-17T09:40:11.044+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-27T14:25:54.890+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 8a865d39-b8d2-4f7a-baa8-4347b8a23a14
           hippotranslation:locale: en
-          visitscotland:label: ''
+          visitscotland:label: 'Only in Scotland: Why Scotland Needs You'
           visitscotland:teaser: Scotland. The country you love needs you.
           visitscotland:title: 'Only in Scotland: Why Scotland Needs You'
           visitscotland:translation: ''
@@ -6747,11 +6820,11 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-05-11T16:38:04.967+01:00
-          hippostdpubwf:lastModificationDate: 2022-05-11T16:40:42.919+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-27T14:26:05.174+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 8a865d39-b8d2-4f7a-baa8-4347b8a23a14
           hippotranslation:locale: en
-          visitscotland:label: ''
+          visitscotland:label: 'Only in Scotland: Why Scotland Needs You'
           visitscotland:teaser: Scotland. The country you love needs you.
           visitscotland:title: 'Only in Scotland: Why Scotland Needs You'
           visitscotland:translation: ''
@@ -6771,12 +6844,12 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-05-11T16:38:04.967+01:00
-          hippostdpubwf:lastModificationDate: 2022-05-11T16:40:42.919+01:00
+          hippostdpubwf:lastModificationDate: 2022-10-27T14:26:05.174+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-07T10:09:41.944+01:00
+          hippostdpubwf:publicationDate: 2022-10-27T14:26:07.003+01:00
           hippotranslation:id: 8a865d39-b8d2-4f7a-baa8-4347b8a23a14
           hippotranslation:locale: en
-          visitscotland:label: ''
+          visitscotland:label: 'Only in Scotland: Why Scotland Needs You'
           visitscotland:teaser: Scotland. The country you love needs you.
           visitscotland:title: 'Only in Scotland: Why Scotland Needs You'
           visitscotland:translation: ''
@@ -8731,7 +8804,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: feec2d62-687a-47a6-a12d-177d48176891
       hippo:name: itineraries landing page
-      hippo:versionHistory: 72eba1c5-0682-4ed4-b858-cf9571c06284
+      hippo:versionHistory: 6b0c09c3-7867-4c3e-8532-e625e0b2a49e
       /content[1]:
         jcr:primaryType: visitscotland:General
         jcr:mixinTypes: ['mix:referenceable']
@@ -8739,14 +8812,13 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
-        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-06-25T09:58:52.867+01:00
-        hippostdpubwf:lastModificationDate: 2022-05-31T17:38:00.943+01:00
+        hippostdpubwf:lastModificationDate: 2023-03-30T12:24:43.294+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 096ebf00-630e-491f-b0bd-22b592cd3e9d
         hippotranslation:locale: en
-        visitscotland:breadcrumb: ''
+        visitscotland:breadcrumb: Accommodation
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
         visitscotland:seoDescription: Itineraries landing page description
@@ -8776,11 +8848,11 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-06-25T09:58:52.867+01:00
-        hippostdpubwf:lastModificationDate: 2022-01-20T18:33:53.083Z
+        hippostdpubwf:lastModificationDate: 2023-03-30T12:24:51.225+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 096ebf00-630e-491f-b0bd-22b592cd3e9d
         hippotranslation:locale: en
-        visitscotland:breadcrumb: ''
+        visitscotland:breadcrumb: Accommodation
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
         visitscotland:seoDescription: Itineraries landing page description
@@ -8810,12 +8882,12 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-06-25T09:58:52.867+01:00
-        hippostdpubwf:lastModificationDate: 2022-01-20T18:33:53.083Z
+        hippostdpubwf:lastModificationDate: 2023-03-30T12:24:51.225+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-01-20T18:33:55.460Z
+        hippostdpubwf:publicationDate: 2023-03-30T12:24:53.677+01:00
         hippotranslation:id: 096ebf00-630e-491f-b0bd-22b592cd3e9d
         hippotranslation:locale: en
-        visitscotland:breadcrumb: ''
+        visitscotland:breadcrumb: Accommodation
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
         visitscotland:seoDescription: Itineraries landing page description
@@ -10323,7 +10395,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: af7bc15d-bc33-4b84-ad01-e77eb5acde61
         hippo:name: Edinburgh
-        hippo:versionHistory: 564e1eb7-5fbb-40f5-b3fc-2eaabf5ce273
+        hippo:versionHistory: 692f9525-a5e6-4a93-ac6f-40a9d595272b
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -10331,10 +10403,9 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T16:56:49.027+01:00
+          hippostdpubwf:lastModificationDate: 2023-03-30T11:48:40.201+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: [cities]
           hippotranslation:id: 1fbcced7-88f7-4124-8470-b9ed88b5ead0
@@ -10347,8 +10418,7 @@
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Edinburgh seo title
           visitscotland:teaser: Edinburgh city teaser
-          visitscotland:title: Visit Edinburgh and discover the best things to see
-            and do in Scotland's capital
+          visitscotland:title: Edinburgh
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -10389,7 +10459,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:42:04.774+01:00
+          hippostdpubwf:lastModificationDate: 2023-03-30T11:49:00.450+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: [cities]
           hippotranslation:id: 1fbcced7-88f7-4124-8470-b9ed88b5ead0
@@ -10402,8 +10472,7 @@
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Edinburgh seo title
           visitscotland:teaser: Edinburgh city teaser
-          visitscotland:title: Visit Edinburgh and discover the best things to see
-            and do in Scotland's capital
+          visitscotland:title: Edinburgh
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -10444,9 +10513,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:42:04.774+01:00
+          hippostdpubwf:lastModificationDate: 2023-03-30T11:49:00.450+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T09:42:06.798+01:00
+          hippostdpubwf:publicationDate: 2023-03-30T11:49:09.824+01:00
           hippotaxonomy:keys: [cities]
           hippotranslation:id: 1fbcced7-88f7-4124-8470-b9ed88b5ead0
           hippotranslation:locale: en
@@ -10458,8 +10527,7 @@
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Edinburgh seo title
           visitscotland:teaser: Edinburgh city teaser
-          visitscotland:title: Visit Edinburgh and discover the best things to see
-            and do in Scotland's capital
+          visitscotland:title: Edinburgh
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -10662,7 +10730,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 1073ee1d-3527-4a16-8486-3a339f829dfc
         hippo:name: edinburgh map
-        hippo:versionHistory: e5dcccd1-8844-4e19-b4ef-97480acbdc00
+        hippo:versionHistory: 348e3a19-8d8c-44f4-bc39-a269972c8eb3
         /edinburgh-map[1]:
           jcr:primaryType: visitscotland:MapModule
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -10670,10 +10738,9 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-06-15T11:39:32.156+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T16:31:55.810+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:03:42.471Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: []
           hippotranslation:id: 3cc78bbf-6007-4623-80b3-19097c916111
@@ -10686,10 +10753,13 @@
             visitscotland:title: Featured Places
             /visitscotland:mapPins[1]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
+              hippo:docbase: d364cfc7-f59f-4869-9171-24f760b9978e
             /visitscotland:mapPins[2]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: e8202d3f-3d3e-43e2-8075-3cf9b212df05
+              hippo:docbase: e67cca0b-469d-4281-8815-0612f856f316
+            /visitscotland:mapPins[3]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 9830f174-d0eb-47bf-9b1a-02f86f43e17f
         /edinburgh-map[2]:
           jcr:primaryType: visitscotland:MapModule
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -10699,7 +10769,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-06-15T11:39:32.156+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T16:29:39.512+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:04:08.857Z
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: []
           hippotranslation:id: 3cc78bbf-6007-4623-80b3-19097c916111
@@ -10712,10 +10782,13 @@
             visitscotland:title: Featured Places
             /visitscotland:mapPins[1]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
+              hippo:docbase: d364cfc7-f59f-4869-9171-24f760b9978e
             /visitscotland:mapPins[2]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: e8202d3f-3d3e-43e2-8075-3cf9b212df05
+              hippo:docbase: e67cca0b-469d-4281-8815-0612f856f316
+            /visitscotland:mapPins[3]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 9830f174-d0eb-47bf-9b1a-02f86f43e17f
         /edinburgh-map[3]:
           jcr:primaryType: visitscotland:MapModule
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -10725,9 +10798,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-06-15T11:39:32.156+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T16:29:39.512+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-16T16:04:08.857Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T16:29:42.281+01:00
+          hippostdpubwf:publicationDate: 2022-11-16T16:04:11.491Z
           hippotaxonomy:keys: []
           hippotranslation:id: 3cc78bbf-6007-4623-80b3-19097c916111
           hippotranslation:locale: en
@@ -10739,10 +10812,13 @@
             visitscotland:title: Featured Places
             /visitscotland:mapPins[1]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
+              hippo:docbase: d364cfc7-f59f-4869-9171-24f760b9978e
             /visitscotland:mapPins[2]:
               jcr:primaryType: hippo:mirror
-              hippo:docbase: e8202d3f-3d3e-43e2-8075-3cf9b212df05
+              hippo:docbase: e67cca0b-469d-4281-8815-0612f856f316
+            /visitscotland:mapPins[3]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 9830f174-d0eb-47bf-9b1a-02f86f43e17f
       /article1-example:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -12398,7 +12474,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
         hippo:name: The Outer Hebrides
-        hippo:versionHistory: 7cb6fbe6-1b09-4b38-bda9-8303ade61769
+        hippo:versionHistory: 744f31c0-fffe-4c27-b4f7-d7ffcde61467
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -12408,9 +12484,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:42:45.782+01:00
+          hippostdpubwf:lastModificationDate: 2023-02-06T10:49:47.646Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [regions]
+          hippotaxonomy:keys: [cities]
           hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -12473,9 +12549,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:42:45.603+01:00
+          hippostdpubwf:lastModificationDate: 2023-02-06T10:49:57.096Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [regions]
+          hippotaxonomy:keys: [cities]
           hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -12538,10 +12614,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:42:45.603+01:00
+          hippostdpubwf:lastModificationDate: 2023-02-06T10:49:57.096Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T09:42:50.892+01:00
-          hippotaxonomy:keys: [regions]
+          hippostdpubwf:publicationDate: 2023-02-06T10:50:15.742Z
+          hippotaxonomy:keys: [cities]
           hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -13215,6 +13291,64 @@
             /visitscotland:links:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 8b4a3c11-8b84-4aa0-bccf-f407d18c1c44
+      /map-example:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 9fa6c231-6ea1-4a6f-8f75-df374e0c8d3b
+        hippo:name: Map example
+        hippo:versionHistory: 1af15d26-01cc-4f33-943f-18d3a5571304
+        /map-example[1]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: b83e1f05-ce04-4c59-8a08-05be9cc2ba04
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-06T10:37:49.059Z
+          hippostdpubwf:lastModificationDate: 2023-02-06T10:37:49.059Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: []
+          hippotranslation:id: 9c0d94c4-89d4-473a-b4b9-a4ba9081f97d
+          hippotranslation:locale: en
+          visitscotland:mapType: ''
+          visitscotland:tabTitle: ''
+          visitscotland:title: Map example
+        /map-example[2]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 0bcc8324-f02d-4c44-98c0-393df91dd845
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-06T10:37:49.059Z
+          hippostdpubwf:lastModificationDate: 2023-02-06T10:47:23.640Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: []
+          hippotranslation:id: 9c0d94c4-89d4-473a-b4b9-a4ba9081f97d
+          hippotranslation:locale: en
+          visitscotland:mapType: ''
+          visitscotland:tabTitle: ''
+          visitscotland:title: Map example
+        /map-example[3]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: c2cc42c9-09dd-46cd-b5b1-fe9dfc849390
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-02-06T10:37:49.059Z
+          hippostdpubwf:lastModificationDate: 2023-02-06T10:47:23.640Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-02-06T10:47:26.499Z
+          hippotaxonomy:keys: []
+          hippotranslation:id: 9c0d94c4-89d4-473a-b4b9-a4ba9081f97d
+          hippotranslation:locale: en
+          visitscotland:mapType: ''
+          visitscotland:tabTitle: ''
+          visitscotland:title: Map example
     /james-test:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
@@ -13227,7 +13361,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 5804b835-f014-4d99-b56b-da50fa07c5a0
         hippo:name: james-test
-        hippo:versionHistory: 17181d58-f644-476e-b4ba-5e42fa08f890
+        hippo:versionHistory: 594e6952-07df-4d66-82ac-3ed7ed57b0a6
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -13237,14 +13371,14 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-26T11:53:39.795Z
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:17:59.276+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-22T14:26:38.594Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [regions]
+          hippotaxonomy:keys: [cities]
           hippotranslation:id: ebc5d395-ff32-4782-bacf-4dfdc1167191
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:hideNewsletter: false
-          visitscotland:location: The Highlands
+          visitscotland:location: Dundee
           visitscotland:newsletter: true
           visitscotland:seoDescription: Test description
           visitscotland:seoNoIndex: false
@@ -13252,7 +13386,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Pellentesque maximus neque sit amet justo porttitor, eget vulputate
             quam luctu
-          visitscotland:title: Discover the breathtaking Highlands of Scotland
+          visitscotland:title: Discover the breathtaking Dundee
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -13296,14 +13430,14 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-26T11:53:39.795Z
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:18:18.401+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-22T14:26:54.605Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [regions]
+          hippotaxonomy:keys: [cities]
           hippotranslation:id: ebc5d395-ff32-4782-bacf-4dfdc1167191
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:hideNewsletter: false
-          visitscotland:location: The Highlands
+          visitscotland:location: Dundee
           visitscotland:newsletter: true
           visitscotland:seoDescription: Test description
           visitscotland:seoNoIndex: false
@@ -13311,7 +13445,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Pellentesque maximus neque sit amet justo porttitor, eget vulputate
             quam luctu
-          visitscotland:title: Discover the breathtaking Highlands of Scotland
+          visitscotland:title: Discover the breathtaking Dundee
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -13355,15 +13489,15 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-10-26T11:53:39.795Z
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:18:18.401+01:00
+          hippostdpubwf:lastModificationDate: 2022-11-22T14:26:54.605Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-10-13T08:18:20.392+01:00
-          hippotaxonomy:keys: [regions]
+          hippostdpubwf:publicationDate: 2022-11-22T14:26:58.241Z
+          hippotaxonomy:keys: [cities]
           hippotranslation:id: ebc5d395-ff32-4782-bacf-4dfdc1167191
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:hideNewsletter: false
-          visitscotland:location: The Highlands
+          visitscotland:location: Dundee
           visitscotland:newsletter: true
           visitscotland:seoDescription: Test description
           visitscotland:seoNoIndex: false
@@ -13371,7 +13505,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Pellentesque maximus neque sit amet justo porttitor, eget vulputate
             quam luctu
-          visitscotland:title: Discover the breathtaking Highlands of Scotland
+          visitscotland:title: Discover the breathtaking Dundee
           visitscotland:translation: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -13406,6 +13540,84 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
+      /map:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: de0cf6a7-b1c0-4d71-a7bd-f7ce0513508a
+        hippo:versionHistory: b18e0d55-601a-495b-9079-9eca0a6c9b06
+        /map[1]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: bd5964bc-9639-4c2b-9ee8-a69d07053ce5
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-11-18T17:47:04.964Z
+          hippostdpubwf:lastModificationDate: 2022-11-22T15:07:31.435Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a5488a6a-2b8a-41a6-b6e8-ec2f90b71ded
+          hippotranslation:locale: en
+          visitscotland:tabTitle: Explore this region
+          visitscotland:title: ''
+          /visitscotland:categories:
+            jcr:primaryType: visitscotland:MapCategory
+            visitscotland:title: ''
+            /visitscotland:mapPins[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8ef343ea-4650-4fb7-98d1-b34822be9817
+            /visitscotland:mapPins[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
+        /map[2]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: d8b15a86-9efc-48bb-9cf5-d39663546510
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-11-18T17:47:04.964Z
+          hippostdpubwf:lastModificationDate: 2022-11-22T15:12:27.732Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a5488a6a-2b8a-41a6-b6e8-ec2f90b71ded
+          hippotranslation:locale: en
+          visitscotland:tabTitle: Explore this region
+          visitscotland:title: ''
+          /visitscotland:categories:
+            jcr:primaryType: visitscotland:MapCategory
+            visitscotland:title: ''
+            /visitscotland:mapPins[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8ef343ea-4650-4fb7-98d1-b34822be9817
+            /visitscotland:mapPins[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
+        /map[3]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: ffeb1820-1d36-45a8-a789-38b9e3c0116a
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-11-18T17:47:04.964Z
+          hippostdpubwf:lastModificationDate: 2022-11-22T15:12:27.732Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2022-11-22T15:12:29.139Z
+          hippotranslation:id: a5488a6a-2b8a-41a6-b6e8-ec2f90b71ded
+          hippotranslation:locale: en
+          visitscotland:tabTitle: Explore this region
+          visitscotland:title: ''
+          /visitscotland:categories:
+            jcr:primaryType: visitscotland:MapCategory
+            visitscotland:title: ''
+            /visitscotland:mapPins[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8ef343ea-4650-4fb7-98d1-b34822be9817
+            /visitscotland:mapPins[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: f0c435ec-14f2-48a0-81b7-05507be62018
       /test-megalinks:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -14028,7 +14240,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 88deb6dd-d2cd-4d01-85d5-20f756d17dd0
       hippo:name: Destinatios and map
-      hippo:versionHistory: 595876c7-3445-4324-8f15-cb1148894f87
+      hippo:versionHistory: 4aa55032-923b-4bbd-bbed-b50b847cb87b
       /content[1]:
         jcr:primaryType: visitscotland:General
         jcr:mixinTypes: ['mix:referenceable']
@@ -14036,14 +14248,13 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
-        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-06-25T10:03:42.014+01:00
-        hippostdpubwf:lastModificationDate: 2022-05-31T17:46:27.463+01:00
+        hippostdpubwf:lastModificationDate: 2023-03-30T12:22:46.891+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 6b2f6fc5-802f-4be9-8506-eceeb17049cf
         hippotranslation:locale: en
-        visitscotland:breadcrumb: ''
+        visitscotland:breadcrumb: Places to go
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
         visitscotland:seoDescription: destinations and map
@@ -14053,7 +14264,7 @@
           most famous destinations, plus travel times from London, Ireland, major
           UK cities
         visitscotland:theme: Standard
-        visitscotland:title: Discover Scotland's regions, cities & destinations
+        visitscotland:title: Discover Scotland
         visitscotland:translation: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
@@ -14073,11 +14284,11 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-06-25T10:03:42.014+01:00
-        hippostdpubwf:lastModificationDate: 2022-01-20T18:32:50.047Z
+        hippostdpubwf:lastModificationDate: 2023-03-30T12:23:04.406+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 6b2f6fc5-802f-4be9-8506-eceeb17049cf
         hippotranslation:locale: en
-        visitscotland:breadcrumb: ''
+        visitscotland:breadcrumb: Places to go
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
         visitscotland:seoDescription: destinations and map
@@ -14087,7 +14298,7 @@
           most famous destinations, plus travel times from London, Ireland, major
           UK cities
         visitscotland:theme: Standard
-        visitscotland:title: Discover Scotland's regions, cities & destinations
+        visitscotland:title: Discover Scotland
         visitscotland:translation: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
@@ -14107,12 +14318,12 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-06-25T10:03:42.014+01:00
-        hippostdpubwf:lastModificationDate: 2022-01-20T18:32:50.047Z
+        hippostdpubwf:lastModificationDate: 2023-03-30T12:23:04.406+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-01-20T18:32:53.647Z
+        hippostdpubwf:publicationDate: 2023-03-30T12:23:07.980+01:00
         hippotranslation:id: 6b2f6fc5-802f-4be9-8506-eceeb17049cf
         hippotranslation:locale: en
-        visitscotland:breadcrumb: ''
+        visitscotland:breadcrumb: Places to go
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
         visitscotland:seoDescription: destinations and map
@@ -14122,7 +14333,7 @@
           most famous destinations, plus travel times from London, Ireland, major
           UK cities
         visitscotland:theme: Standard
-        visitscotland:title: Discover Scotland's regions, cities & destinations
+        visitscotland:title: Discover Scotland
         visitscotland:translation: ''
         /visitscotland:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
@@ -14250,7 +14461,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 8422f473-6a53-4d9e-bd22-a3efa115d1f8
       hippo:name: Main map
-      hippo:versionHistory: f55f491c-87c7-4c45-af6f-10c0d29430cf
+      hippo:versionHistory: 10351320-0f28-492d-92c4-14fdae1aec39
       /main-map[1]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14258,33 +14469,22 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-13T08:18:24.427+01:00
+        hippostdpubwf:lastModificationDate: 2022-11-16T14:36:24.319Z
         hippostdpubwf:lastModifiedBy: admin
-        hippotaxonomy:keys: [destinations]
+        hippotaxonomy:keys: []
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
         visitscotland:tabTitle: Explore places to go
-        visitscotland:title: ''
-        /visitscotland:categories:
-          jcr:primaryType: visitscotland:MapCategory
-          visitscotland:title: ''
-          /visitscotland:mapPins[1]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
-          /visitscotland:mapPins[2]:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 178cc6ee-9b6a-4095-80b2-9026263d173e
-          /visitscotland:mapPins[3]:
-            jcr:primaryType: visitscotland:SpecialLinkCoordinates
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
-            /visitscotland:coordinates:
-              jcr:primaryType: visitscotland:Coordinates
-              visitscotland:latitude: 56.797394
-              visitscotland:longitude: -5.003361
+        visitscotland:title: Map of Scotland
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
+            nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
+            pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
+            a diam.&nbsp;</p>
       /main-map[2]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -14294,13 +14494,13 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-13T08:18:35.466+01:00
+        hippostdpubwf:lastModificationDate: 2022-10-25T10:36:13.225+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys: [destinations]
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
         visitscotland:tabTitle: Explore places to go
-        visitscotland:title: ''
+        visitscotland:title: Map of Scotland
         /visitscotland:categories:
           jcr:primaryType: visitscotland:MapCategory
           visitscotland:title: ''
@@ -14319,6 +14519,12 @@
               jcr:primaryType: visitscotland:Coordinates
               visitscotland:latitude: 56.797394
               visitscotland:longitude: -5.003361
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
+            nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
+            pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
+            a diam.&nbsp;</p>
       /main-map[3]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14328,14 +14534,14 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-13T08:18:35.466+01:00
+        hippostdpubwf:lastModificationDate: 2022-10-25T10:36:13.225+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-10-13T08:18:37.617+01:00
+        hippostdpubwf:publicationDate: 2022-10-25T10:36:16.966+01:00
         hippotaxonomy:keys: [destinations]
         hippotranslation:id: 5c1c7d42-9e51-44f3-8c7e-8c78fe05ca34
         hippotranslation:locale: en
         visitscotland:tabTitle: Explore places to go
-        visitscotland:title: ''
+        visitscotland:title: Map of Scotland
         /visitscotland:categories:
           jcr:primaryType: visitscotland:MapCategory
           visitscotland:title: ''
@@ -14354,6 +14560,12 @@
               jcr:primaryType: visitscotland:Coordinates
               visitscotland:latitude: 56.797394
               visitscotland:longitude: -5.003361
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>This is an example of a map.&nbsp;&nbsp;Suspendisse
+            nec bibendum mauris. Maecenas nulla nibh, gravida non risus quis, sollicitudin
+            pulvinar purus. Pellentesque lacus massa, rhoncus et mollis semper, tempus
+            a diam.&nbsp;</p>
   /general-pages:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -14374,7 +14586,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 6e88a28a-6a08-4306-95dd-2337079a2701
         hippo:name: Standard Page Demo
-        hippo:versionHistory: 988ecb8e-40b1-41de-9557-926c41981f61
+        hippo:versionHistory: 8cd5187b-318d-4016-8378-41808568b602
         /content[1]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable']
@@ -14384,11 +14596,11 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T14:13:40.167+01:00
-          hippostdpubwf:lastModificationDate: 2022-01-20T18:31:21.992Z
+          hippostdpubwf:lastModificationDate: 2023-03-30T12:25:25.443+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 58ee69d1-6791-448e-83e5-5d42e1c1add9
           hippotranslation:locale: en
-          visitscotland:breadcrumb: standard
+          visitscotland:breadcrumb: Inspiration
           visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
           visitscotland:seoDescription: meta
@@ -14438,11 +14650,11 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T14:13:40.167+01:00
-          hippostdpubwf:lastModificationDate: 2022-01-20T18:31:21.927Z
+          hippostdpubwf:lastModificationDate: 2023-03-30T12:25:32.651+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 58ee69d1-6791-448e-83e5-5d42e1c1add9
           hippotranslation:locale: en
-          visitscotland:breadcrumb: standard
+          visitscotland:breadcrumb: Inspiration
           visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
           visitscotland:seoDescription: meta
@@ -14492,12 +14704,12 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T14:13:40.167+01:00
-          hippostdpubwf:lastModificationDate: 2022-01-20T18:31:21.927Z
+          hippostdpubwf:lastModificationDate: 2023-03-30T12:25:32.651+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-01-20T18:31:31.578Z
+          hippostdpubwf:publicationDate: 2023-03-30T12:25:36.170+01:00
           hippotranslation:id: 58ee69d1-6791-448e-83e5-5d42e1c1add9
           hippotranslation:locale: en
-          visitscotland:breadcrumb: standard
+          visitscotland:breadcrumb: Inspiration
           visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
           visitscotland:seoDescription: meta
@@ -14739,7 +14951,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: de088bfa-858e-4f19-98f1-a44840e58e75
         hippo:name: List Layout (1 item)
-        hippo:versionHistory: c56214ef-f9ba-41a2-8e08-d73a4b6f1ea2
+        hippo:versionHistory: 99970107-7c06-4457-a8a5-1eb849d9a1b8
         /list-layout-1-item[1]:
           jcr:primaryType: visitscotland:Megalinks
           jcr:mixinTypes: ['mix:versionable']
@@ -14749,12 +14961,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T15:16:59.759+01:00
+          hippostdpubwf:lastModificationDate: 2023-02-24T10:09:05.695Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 21992605-b5f0-4f92-8b6c-0927a27a3e1b
           hippotranslation:locale: en
           visitscotland:hideTeaser: false
-          visitscotland:layout: Horizontal Links
+          visitscotland:layout: Default
           visitscotland:list: true
           visitscotland:listLayout: true
           visitscotland:teaserVisible: true
@@ -14799,13 +15011,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T15:16:59.759+01:00
+          hippostdpubwf:lastModificationDate: 2023-02-24T10:09:05.695Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T15:17:04.398+01:00
+          hippostdpubwf:publicationDate: 2023-02-24T10:09:07.858Z
           hippotranslation:id: 21992605-b5f0-4f92-8b6c-0927a27a3e1b
           hippotranslation:locale: en
           visitscotland:hideTeaser: false
-          visitscotland:layout: Horizontal Links
+          visitscotland:layout: Default
           visitscotland:list: true
           visitscotland:listLayout: true
           visitscotland:teaserVisible: true
@@ -14850,12 +15062,12 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T15:16:34.295+01:00
+          hippostdpubwf:lastModificationDate: 2023-02-24T10:09:03.835Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 21992605-b5f0-4f92-8b6c-0927a27a3e1b
           hippotranslation:locale: en
           visitscotland:hideTeaser: false
-          visitscotland:layout: Horizontal Links
+          visitscotland:layout: Default
           visitscotland:list: true
           visitscotland:listLayout: true
           visitscotland:teaserVisible: true
@@ -15389,7 +15601,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: c8954124-26e4-4a6a-a459-09f9c68fca4d
         hippo:name: Horizontal List Layout
-        hippo:versionHistory: 77bd8a66-6deb-4fd1-80ab-7ea5756baed4
+        hippo:versionHistory: 9e4276fe-3cd2-42eb-8077-7aed0a8a6c90
         /horizontal-list-layout[1]:
           jcr:primaryType: visitscotland:Megalinks
           jcr:mixinTypes: ['mix:versionable']
@@ -15399,12 +15611,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T15:18:45.086+01:00
+          hippostdpubwf:lastModificationDate: 2023-02-24T10:09:31.465Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 7aa9e96b-038d-4618-a8f0-a5507408bf23
           hippotranslation:locale: en
           visitscotland:hideTeaser: false
-          visitscotland:layout: Horizontal Links
+          visitscotland:layout: Default
           visitscotland:list: true
           visitscotland:listLayout: true
           visitscotland:teaserVisible: true
@@ -15462,13 +15674,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T15:18:45.086+01:00
+          hippostdpubwf:lastModificationDate: 2023-02-24T10:09:31.465Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T15:19:09.433+01:00
+          hippostdpubwf:publicationDate: 2023-02-24T10:09:34.042Z
           hippotranslation:id: 7aa9e96b-038d-4618-a8f0-a5507408bf23
           hippotranslation:locale: en
           visitscotland:hideTeaser: false
-          visitscotland:layout: Horizontal Links
+          visitscotland:layout: Default
           visitscotland:list: true
           visitscotland:listLayout: true
           visitscotland:teaserVisible: true
@@ -15526,12 +15738,12 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-05-21T17:54:15.934+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T15:17:36.349+01:00
+          hippostdpubwf:lastModificationDate: 2023-02-24T10:09:28.846Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 7aa9e96b-038d-4618-a8f0-a5507408bf23
           hippotranslation:locale: en
           visitscotland:hideTeaser: false
-          visitscotland:layout: Horizontal Links
+          visitscotland:layout: Default
           visitscotland:list: true
           visitscotland:listLayout: true
           visitscotland:teaserVisible: true
@@ -16420,7 +16632,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: a34dd38f-6be3-45ca-b693-1812570bab19
       hippo:name: Long copy page
-      hippo:versionHistory: 5e675aad-2a0c-4abd-a9a4-a2bef06d3b5a
+      hippo:versionHistory: 6ea513ea-e737-4f99-afd7-534faefbbae3
       /content[1]:
         jcr:primaryType: visitscotland:General
         jcr:mixinTypes: ['mix:versionable']
@@ -16430,11 +16642,11 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-11-27T12:36:37.172Z
-        hippostdpubwf:lastModificationDate: 2022-01-20T18:30:19.320Z
+        hippostdpubwf:lastModificationDate: 2023-03-30T12:25:55.912+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: a427b6f8-d290-4543-ba14-3f24efed0b41
         hippotranslation:locale: en
-        visitscotland:breadcrumb: ''
+        visitscotland:breadcrumb: Travel & planning
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
         visitscotland:seoDescription: We are committed to continuing to improve our
@@ -16488,12 +16700,12 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-11-27T12:36:37.172Z
-        hippostdpubwf:lastModificationDate: 2022-01-20T18:30:19.320Z
+        hippostdpubwf:lastModificationDate: 2023-03-30T12:25:55.912+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-01-20T18:30:21.638Z
+        hippostdpubwf:publicationDate: 2023-03-30T12:25:59.709+01:00
         hippotranslation:id: a427b6f8-d290-4543-ba14-3f24efed0b41
         hippotranslation:locale: en
-        visitscotland:breadcrumb: ''
+        visitscotland:breadcrumb: Travel & planning
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
         visitscotland:seoDescription: We are committed to continuing to improve our
@@ -16547,11 +16759,11 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-11-27T12:36:37.172Z
-        hippostdpubwf:lastModificationDate: 2022-01-20T18:30:12.896Z
+        hippostdpubwf:lastModificationDate: 2023-03-30T12:25:48.660+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: a427b6f8-d290-4543-ba14-3f24efed0b41
         hippotranslation:locale: en
-        visitscotland:breadcrumb: ''
+        visitscotland:breadcrumb: Travel & planning
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
         visitscotland:seoDescription: We are committed to continuing to improve our
@@ -19549,7 +19761,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: ef87df25-604e-4275-bed6-39a0200d0874
       hippo:name: Megalinks Horizontal
-      hippo:versionHistory: 24bb1c65-67b7-4652-89dc-86575dcd0f44
+      hippo:versionHistory: 2ef7b7e7-54d8-4d82-9b50-7200e802a136
       /megalinks-horizontal[1]:
         jcr:primaryType: visitscotland:Megalinks
         jcr:mixinTypes: ['mix:versionable']
@@ -19559,11 +19771,11 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-03-03T16:35:49.826Z
-        hippostdpubwf:lastModificationDate: 2022-03-04T12:52:40.030Z
+        hippostdpubwf:lastModificationDate: 2023-02-24T10:08:33.575Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: e08992d8-7c17-4401-a623-95a1f7a233be
         hippotranslation:locale: en
-        visitscotland:layout: Horizontal Links
+        visitscotland:layout: Default
         visitscotland:teaserVisible: true
         visitscotland:title: Standard layout
         visitscotland:translation: ''
@@ -19592,11 +19804,11 @@
         hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-03-03T16:35:49.826Z
-        hippostdpubwf:lastModificationDate: 2022-03-08T11:22:44.723Z
+        hippostdpubwf:lastModificationDate: 2023-02-24T10:09:14.159Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: e08992d8-7c17-4401-a623-95a1f7a233be
         hippotranslation:locale: en
-        visitscotland:layout: Horizontal Links
+        visitscotland:layout: Default
         visitscotland:teaserVisible: true
         visitscotland:title: Standard layout
         visitscotland:translation: ''
@@ -19624,12 +19836,12 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-03-03T16:35:49.826Z
-        hippostdpubwf:lastModificationDate: 2022-03-04T12:52:40.030Z
+        hippostdpubwf:lastModificationDate: 2023-02-24T10:08:33.575Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-03-04T12:53:39.316Z
+        hippostdpubwf:publicationDate: 2023-02-24T10:08:40.453Z
         hippotranslation:id: e08992d8-7c17-4401-a623-95a1f7a233be
         hippotranslation:locale: en
-        visitscotland:layout: Horizontal Links
+        visitscotland:layout: Default
         visitscotland:teaserVisible: true
         visitscotland:title: Standard layout
         visitscotland:translation: ''

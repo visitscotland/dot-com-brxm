@@ -9,6 +9,7 @@ import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
 import com.visitscotland.utils.CoordinateUtils;
 import org.slf4j.Logger;
@@ -24,7 +25,7 @@ import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 public class ItineraryFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(ItineraryFactory.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
+
 
     static final String BUNDLE_FILE = "itinerary";
 
@@ -34,16 +35,18 @@ public class ItineraryFactory {
     private final DMSUtils utils;
     private final DocumentUtilsService documentUtils;
     private final LinkService linkService;
-
+    private final Logger contentLogger;
 
     public ItineraryFactory(ResourceBundleService bundle, DMSDataService dmsData, ImageFactory imageFactory,
-                            DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService) {
+                            DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
+                            ContentLogger contentLogger) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageFactory = imageFactory;
         this.utils = utils;
         this.documentUtils = documentUtils;
         this.linkService = linkService;
+        this.contentLogger = contentLogger;
     }
 
     /**
@@ -234,6 +237,12 @@ public class ItineraryFactory {
 
         if (product.has(LATITUDE) && product.has(LONGITUDE)) {
             module.setCoordinates(new Coordinates(product.get(LATITUDE).asDouble(), product.get(LONGITUDE).asDouble()));
+        } else {
+            String message = String.format("The DMS product added to '%s' does not have coordinates, please review the DMS Product id field at: %s ", module.getTitle(), dmsLink.getPath());
+            module.addErrorMessage(message);
+            if (logger.isWarnEnabled()) {
+                contentLogger.error(message);
+            }
         }
 
         if (product.has(TIME_TO_EXPLORE)) {

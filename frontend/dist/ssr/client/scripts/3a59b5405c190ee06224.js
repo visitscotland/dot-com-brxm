@@ -1,0 +1,1 @@
+!function(e,o){"object"==typeof exports&&"object"==typeof module?module.exports=o():"function"==typeof define&&define.amd?define([],o):"object"==typeof exports?exports.VsSvg=o():e.VsSvg=o()}(window,(function(){return(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[267],[],[["9sH5",0,1,2,3,4,5,6,7,12,23,30,34]]])}));

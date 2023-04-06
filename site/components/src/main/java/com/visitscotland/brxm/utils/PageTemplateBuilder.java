@@ -23,12 +23,10 @@ import java.util.MissingResourceException;
 public class PageTemplateBuilder {
 
     private static final Logger logger = LoggerFactory.getLogger(PageTemplateBuilder.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
 
     //Static Constant
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
-    static final String SEARCH_RESULTS = "searchResultsPage";
 
 
     static final String[] alignment = {"right", "left"};
@@ -47,31 +45,41 @@ public class PageTemplateBuilder {
     private final IKnowFactory iKnowFactory;
     private final ArticleFactory articleFactory;
     private final LongCopyFactory longCopyFactory;
-    private final IKnowCommunityFactory iKnowCommunityFactory;
     private final StacklaFactory stacklaFactory;
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
     private final MarketoFormFactory marketoFormFactory;
+    private final MapFactory mapFactory;
+    private final SkiFactory skiFactory;
+    private final DevModuleFactory devModuleFactory;
+    private final Properties properties;
+    private final Logger contentLogger;
 
 
     @Autowired
-    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentre,
-               IKnowFactory iKnow, ArticleFactory article, LongCopyFactory longcopy, IKnowCommunityFactory iKnowCommunityFactory,
-               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory, CannedSearchFactory cannedSearchFactory,
-               PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory) {
-        this.linksFactory = linksFactory;
-        this.iCentreFactory = iCentre;
-        this.iKnowFactory = iKnow;
+    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
+                               IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
+                               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory,
+                               CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory,
+                               MapFactory mapFactory, SkiFactory skiFactory, Properties properties,
+                               DevModuleFactory devModuleFactory, Logger contentLogger) {
         this.documentUtils = documentUtils;
-        this.articleFactory = article;
-        this.longCopyFactory = longcopy;
-        this.iKnowCommunityFactory = iKnowCommunityFactory;
+        this.linksFactory = linksFactory;
+        this.iCentreFactory = iCentreFactory;
+        this.iKnowFactory = iKnowFactory;
+        this.articleFactory = articleFactory;
+        this.longCopyFactory = longCopyFactory;
         this.stacklaFactory = stacklaFactory;
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
         this.marketoFormFactory = marketoFormFactory;
+        this.mapFactory = mapFactory;
+        this.devModuleFactory = devModuleFactory;
+        this.skiFactory = skiFactory;
+        this.properties = properties;
+        this.contentLogger = contentLogger;
     }
 
     private Page getDocument(HstRequest request) {
@@ -96,8 +104,8 @@ public class PageTemplateBuilder {
                     page.modules.add(articleFactory.getModule(request, (Article) item));
                 } else if (item instanceof LongCopy){
                     processLongCopy(request, page, (LongCopy) item);
-                } else if (item instanceof IknowCommunity) {
-                    page.modules.add(iKnowCommunityFactory.getIKnowCommunityModule((IknowCommunity) item, request.getLocale()));
+                } else if (item instanceof MapModule) {
+                    page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
                 } else if (item instanceof Stackla) {
                     page.modules.add(stacklaFactory.getStacklaModule((Stackla) item, request.getLocale()));
                 }  else if (item instanceof TravelInformation) {
@@ -108,6 +116,12 @@ public class PageTemplateBuilder {
                     page.modules.add(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
                 } else if (item instanceof MarketoForm) {
                     page.modules.add(marketoFormFactory.getModule((MarketoForm) item));
+                } else if (item instanceof SkiCentre){
+                    page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
+                } else if (item instanceof SkiCentreList){
+                    page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
+                } else if (item instanceof DevModule){
+                    page.modules.add(devModuleFactory.getModule((DevModule) item));
                 }
             } catch (MissingResourceException e){
                 logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);
@@ -117,10 +131,7 @@ public class PageTemplateBuilder {
         }
 
         setIntroTheme(request, page.modules);
-        //TODO try to move this to GeneralContentComponent
-        if (getDocument(request).getPath().contains("/site-search-results")){
-            request.setAttribute(SEARCH_RESULTS, true);
-        }
+
 
         request.setAttribute(PAGE_ITEMS, page.modules);
     }
@@ -154,10 +165,10 @@ public class PageTemplateBuilder {
             numLinks += ((MultiImageLinksModule) al).getFeaturedLinks().size();
         }
         if (numLinks == 0) {
-            contentLogger.error("Megalinks module at {} contains no valid items", item.getPath());
+            contentLogger.warn("Megalinks module at {} contains no valid items", item.getPath());
             page.modules.add(previewFactory.createErrorModule(al));
             return;
-        } 
+        }
 
         if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
             al.setAlignment(alignment[page.alignment++ % alignment.length]);
@@ -172,15 +183,20 @@ public class PageTemplateBuilder {
         page.modules.add(al);
     }
 
+    private boolean isICentreLanding(HstRequest request){
+        return request.getPathInfo().equals(properties.getSiteICentre().substring(0, properties.getSiteICentre().length() - 8));
+    }
     /**
      * Creates a LinkModule from a TouristInformation document
      */
     private void processTouristInformation(HstRequest request, PageConfiguration page, TourismInformation touristInfo, String location){
+        if (!isICentreLanding(request)) {
+            ICentreModule iCentreModule = iCentreFactory.getModule(touristInfo.getICentre(), request.getLocale(), location);
 
-        ICentreModule iCentreModule = iCentreFactory.getModule(touristInfo.getICentre(), request.getLocale(), location);
-        if (iCentreModule != null) {
-            iCentreModule.setHippoBean(touristInfo);
-            page.modules.add(iCentreModule);
+            if (iCentreModule != null) {
+                iCentreModule.setHippoBean(touristInfo);
+                page.modules.add(iCentreModule);
+            }
         }
 
         IKnowModule iKnowModule = iKnowFactory.getIKnowModule(touristInfo.getIKnow(), location, request.getLocale());

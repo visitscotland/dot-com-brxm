@@ -1,10 +1,10 @@
 /content/taxonomies:
   jcr:primaryType: hippotaxonomy:container
-  /Visitsctoland-categories:
+  /Visitscotland-categories:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo']
-    hippo:versionHistory: ed92f3e3-5f0e-49f6-ad40-8d2179c3fe57
-    /Visitsctoland-categories[1]:
+    hippo:versionHistory: 836086cf-b9ea-4a44-9639-ec231b9af7c5
+    /Visitscotland-categories[1]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
       jcr:uuid: cab42352-ce45-4925-93c8-e8507374f506
@@ -14,9 +14,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2022-06-16T16:51:54.452+01:00
+      hippostdpubwf:lastModificationDate: 2023-02-10T13:43:42.145Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2022-06-16T16:52:01.718+01:00
+      hippostdpubwf:publicationDate: 2023-02-10T13:43:49.189Z
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
         jcr:primaryType: hippotaxonomy:category
@@ -54,16 +54,16 @@
               hippotaxonomy:name: Ciudades
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Métropoles
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Städte
             /it:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Città
             /nl:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Steden
         /towns:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: towns
@@ -74,19 +74,19 @@
               hippotaxonomy:name: Towns
             /nl:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Plaatsen
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Villes
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Kleinstädte
             /es:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Pueblos
             /it:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Villaggi
         /islands:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: islands
@@ -97,16 +97,19 @@
               hippotaxonomy:name: Islands
             /nl:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Eilanden
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Îles
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Inseln
             /es:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Islas
+            /it:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Isole
         /regions:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: regions
@@ -115,7 +118,22 @@
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Regions
-    /Visitsctoland-categories[2]:
+            /de:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regionen
+            /es:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regiones
+            /it:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regioni
+            /nl:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regio's
+            /fr:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Régions
+    /Visitscotland-categories[2]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable', 'mix:versionable']
       jcr:uuid: 0149d1ec-eee8-445d-83cb-e22a48a26a30
@@ -124,7 +142,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2022-06-16T16:51:54.452+01:00
+      hippostdpubwf:lastModificationDate: 2023-02-10T13:43:42.145Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -163,16 +181,16 @@
               hippotaxonomy:name: Ciudades
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Métropoles
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Städte
             /it:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Città
             /nl:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Steden
         /towns:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: towns
@@ -183,19 +201,19 @@
               hippotaxonomy:name: Towns
             /nl:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Plaatsen
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Villes
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Kleinstädte
             /es:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Pueblos
             /it:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Villaggi
         /islands:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: islands
@@ -206,16 +224,19 @@
               hippotaxonomy:name: Islands
             /nl:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Eilanden
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Îles
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Inseln
             /es:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Islas
+            /it:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Isole
         /regions:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: regions
@@ -224,7 +245,22 @@
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Regions
-    /Visitsctoland-categories[3]:
+            /de:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regionen
+            /es:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regiones
+            /it:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regioni
+            /nl:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regio's
+            /fr:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Régions
+    /Visitscotland-categories[3]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
       jcr:uuid: 6270c674-cc98-4416-843b-31ebcee006c3
@@ -233,7 +269,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2022-06-16T16:45:14.162+01:00
+      hippostdpubwf:lastModificationDate: 2023-02-10T13:06:17.345Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -272,16 +308,16 @@
               hippotaxonomy:name: Ciudades
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Métropoles
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Städte
             /it:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Città
             /nl:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Cities
+              hippotaxonomy:name: Steden
         /towns:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: towns
@@ -292,19 +328,19 @@
               hippotaxonomy:name: Towns
             /nl:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Plaatsen
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Villes
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Kleinstädte
             /es:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Pueblos
             /it:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: towns
+              hippotaxonomy:name: Villaggi
         /islands:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: islands
@@ -315,16 +351,19 @@
               hippotaxonomy:name: Islands
             /nl:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Eilanden
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Îles
             /de:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Inseln
             /es:
               jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: islands
+              hippotaxonomy:name: Islas
+            /it:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Isole
         /regions:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: regions
@@ -333,3 +372,18 @@
             /en:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Regions
+            /de:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regionen
+            /es:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regiones
+            /it:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regioni
+            /nl:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Regio's
+            /fr:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Régions

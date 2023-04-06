@@ -14,6 +14,8 @@ import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.services.LinkService;
+import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.Properties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -26,8 +28,8 @@ import java.util.Collection;
 public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
-    private static final Logger contentLogger = LoggerFactory.getLogger("content");
-    private static final Logger freemarkerLogger = LoggerFactory.getLogger("freemarker");
+    //TODO: Content Logger?
+    private final Logger freemarkerLogger = LoggerFactory.getLogger("freemarker");
 
     public static final String DOCUMENT = "document";
     public static final String OTYML = "otyml";
@@ -37,12 +39,16 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String HERO_VIDEO = "heroVideo";
     public static final String PSR_WIDGET = "psrWidget";
 
+    public static final String SEARCH_RESULTS = "searchResultsPage";
+
     private final MegalinkFactory megalinkFactory;
     private final ImageFactory imageFactory;
     private final LinkService linksService;
     private final SignpostFactory signpostFactory;
     private final ProductSearchWidgetFactory psrFactory;
     private final PreviewModeFactory previewFactory;
+    private final Properties properties;
+    private final Logger contentLogger;
 
     public PageContentComponent() {
         megalinkFactory = VsComponentManager.get(MegalinkFactory.class);
@@ -51,6 +57,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         linksService = VsComponentManager.get(LinkService.class);
         psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
         previewFactory = VsComponentManager.get(PreviewModeFactory.class);
+        contentLogger = VsComponentManager.get(ContentLogger.class);
+        properties = VsComponentManager.get(Properties.class);
     }
 
     @Override
@@ -63,6 +71,17 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addNewsletterSignup(request);
         addProductSearchWidget(request);
         addLogging(request);
+        addFlags(request);
+    }
+
+    /**
+     * Add flags to the freekarker to indicate what type of page is being processed
+     * @param request
+     */
+    private void addFlags(HstRequest request){
+        if (request.getPathInfo().contains(properties.getSiteGlobalSearch())){
+            request.setAttribute(SEARCH_RESULTS, true);
+        }
     }
 
     /**
@@ -100,12 +119,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (page.getOtherThings() != null) {
             HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page.getOtherThings(), request.getLocale());
             if (Contract.isEmpty(otyml.getLinks())) {
-                contentLogger.error("OTYML at {} contains 0 published items. Skipping module", page.getOtherThings().getPath());
+                contentLogger.warn("OTYML at {} contains 0 published items. Skipping module", page.getOtherThings().getPath());
                 request.setAttribute(OTYML, previewFactory.createErrorModule(otyml));
                 return;
             }
             if (otyml.getLinks().size() < MegalinkFactory.MIN_ITEMS_CAROUSEL) {
-                contentLogger.error("OTYML at {} contains only {} published items. Expected a minimum of 5", page.getOtherThings().getPath(), otyml.getLinks().size());
+                contentLogger.warn("OTYML at {} contains only {} published items. Expected a minimum of 5", page.getOtherThings().getPath(), otyml.getLinks().size());
             }
             request.setAttribute(OTYML, otyml);
         }
@@ -114,18 +133,25 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
         if (!Contract.defaultIfNull(page.getHideNewsletter(), false)) {
-            SignpostModule signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
-            request.setAttribute(NEWSLETTER_SIGNPOST, signpost);
+            SignpostModule signpost;
+            if (request.getPathInfo().contains(properties.getSiteSkiSection())){
+                signpost = signpostFactory.createSnowAlertsModule(request.getLocale());
+            } else {
+                signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
+            }
+            if (signpost != null) {
+                request.setAttribute(NEWSLETTER_SIGNPOST, signpost);
+            }
         }
     }
 
     /**
      * Add the configuration related to the Product Search Widget for the page
-     *
-     * TODO: Check in FreeMarker if null so it can be deactivated in the future
      */
     private void addProductSearchWidget(HstRequest request){
-        request.setAttribute(PSR_WIDGET, psrFactory.getWidget(request));
+        if (!request.getPathInfo().contains(properties.getSiteSkiSection()) && !request.getPathInfo().contains(properties.getCampaignSection())){
+            request.setAttribute(PSR_WIDGET, psrFactory.getWidget(request));
+        }
     }
 
     public void addLogging(HstRequest request){

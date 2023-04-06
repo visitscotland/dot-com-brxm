@@ -1,0 +1,1 @@
+!function(e,n){"object"==typeof exports&&"object"==typeof module?module.exports=n():"function"==typeof define&&define.amd?define([],n):"object"==typeof exports?exports.VsCannedSearchBadges=n():e.VsCannedSearchBadges=n()}(window,(function(){return(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[157],[],[["DMC5",0,1,2,3,8,9,14,15,17,106]]])}));

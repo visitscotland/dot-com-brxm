@@ -3,11 +3,11 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.components.navigation.MenuComponent;
 import com.visitscotland.brxm.components.navigation.MenuItem;
 import com.visitscotland.brxm.components.navigation.RootMenuItem;
-import com.visitscotland.brxm.factory.NavigationFactory;
 import com.visitscotland.brxm.hippobeans.FeaturedWidget;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.mock.NavigationMockBuilder;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -46,6 +46,9 @@ class NavigationFactoryTest {
     @Mock
     HstSiteMenuItem hstMenuItem;
 
+    @Mock
+    ContentLogger logger;
+
     @InjectMocks
     NavigationFactory factory;
 
@@ -82,7 +85,7 @@ class NavigationFactoryTest {
 
         when(bundle.getResourceBundle(BUNDLE_ID, "home", LOCALE, true)).thenReturn("Home Page");
 
-        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"));
+        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"), false);
 
         Assertions.assertEquals(1, menu.getSiteMenuItems().size());
         Assertions.assertEquals("Home Page", ((MenuItem)menu.getSiteMenuItems().get(0)).getTitle());
@@ -99,7 +102,7 @@ class NavigationFactoryTest {
 
         mockLabels("home", "Resource Bundle Title", null);
 
-        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"));
+        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"), false);
 
         Assertions.assertEquals(1, menu.getSiteMenuItems().size());
         Assertions.assertEquals("Resource Bundle Title", ((MenuItem)menu.getSiteMenuItems().get(0)).getTitle());
@@ -113,7 +116,7 @@ class NavigationFactoryTest {
         hstMenuItem = newMockBuilder().name("home").addLink("url", page).breadcrumb("Breadcrumb Title").title("Page Title").build();
         addMenuToRequest(hstMenuItem);
 
-        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"));
+        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"), false);
 
         Assertions.assertEquals(1, menu.getSiteMenuItems().size());
         Assertions.assertEquals("Breadcrumb Title", ((MenuItem)menu.getSiteMenuItems().get(0)).getTitle());
@@ -126,7 +129,7 @@ class NavigationFactoryTest {
         hstMenuItem = newMockBuilder().addLink("url", null).build();
         addMenuToRequest(hstMenuItem);
 
-        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"));
+        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"), false);
 
         Assertions.assertEquals(0, menu.getSiteMenuItems().size());
     }
@@ -138,7 +141,7 @@ class NavigationFactoryTest {
         hstMenuItem = newMockBuilder().addLink("url", mock(HippoFolder.class)).build();
         addMenuToRequest(hstMenuItem);
 
-        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"));
+        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"), false);
 
         Assertions.assertEquals(0, menu.getSiteMenuItems().size());
     }
@@ -154,7 +157,7 @@ class NavigationFactoryTest {
 
         mockLabels("home",null, null);
 
-        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"));
+        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"), false);
 
         Assertions.assertEquals(0, menu.getSiteMenuItems().size());
     }
@@ -169,7 +172,7 @@ class NavigationFactoryTest {
         mockLabels("home", null, null);
         when(bundle.getResourceBundle(NavigationFactory.STATIC, "see-all-cta", request.getLocale())).thenReturn("See all %s");
 
-        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"));
+        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"), false);
 
         Assertions.assertEquals(1, menu.getSiteMenuItems().size());
         Assertions.assertEquals("See all Cities", ((MenuItem)menu.getSiteMenuItems().get(0)).getCta());
@@ -184,7 +187,7 @@ class NavigationFactoryTest {
 
         mockLabels("home", "Home Page", "See all");
 
-        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"));
+        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"), false);
 
         Assertions.assertEquals(1, menu.getSiteMenuItems().size());
         Assertions.assertEquals("See all", ((MenuItem)menu.getSiteMenuItems().get(0)).getCta());
@@ -201,7 +204,7 @@ class NavigationFactoryTest {
         mockLabels("home","Pages", null);
         when(bundle.getResourceBundle(NavigationFactory.STATIC, "see-all-cta", request.getLocale())).thenReturn(label);
 
-        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"));
+        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"), false);
 
         Assertions.assertEquals(1, menu.getSiteMenuItems().size());
         Assertions.assertEquals("See all", ((MenuItem)menu.getSiteMenuItems().get(0)).getCta());
@@ -232,7 +235,7 @@ class NavigationFactoryTest {
 
         addMenuToRequest(home);
 
-        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"));
+        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"), false);
 
         Assertions.assertEquals(1, menu.getSiteMenuItems().size());
         Assertions.assertEquals("home", (menu.getSiteMenuItems().get(0)).getName());
@@ -266,7 +269,7 @@ class NavigationFactoryTest {
 
         addMenuToRequest(home);
 
-        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"));
+        RootMenuItem menu = factory.buildMenu(request, request.getModel("menu"), false);
 
         MenuItem topLevelItem = (MenuItem) (menu.getSiteMenuItems().get(0)).getChildMenuItems().get(0);
         Assertions.assertNotNull(topLevelItem.getWidget());

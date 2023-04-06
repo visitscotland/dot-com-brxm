@@ -13,6 +13,7 @@ import com.visitscotland.brxm.mock.ListicleItemMockBuilder;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.VsException;
 import com.visitscotland.dataobjects.DataType;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -44,6 +45,8 @@ class ListicleFactoryTest {
     DMSUtils dmsUtils;
     @Mock
     DocumentUtilsService documentUtils;
+    @Mock
+    ContentLogger logger;
 
     @Resource
     @InjectMocks
@@ -226,7 +229,8 @@ class ListicleFactoryTest {
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
         when(imageFactory.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
-        when(linksService.createSimpleLink(any(), any(), any())).thenReturn(link);
+        when(linksService.createFindOutMoreLink(any(), any(), any())).thenReturn(link);
+
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
 
@@ -249,7 +253,7 @@ class ListicleFactoryTest {
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
         when(imageFactory.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
-        when(linksService.createSimpleLink(any(), any(), any())).thenReturn(link);
+        when(linksService.createFindOutMoreLink(any(), any(), any())).thenReturn(link);
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
 
@@ -258,7 +262,7 @@ class ListicleFactoryTest {
         FlatLink extraLink = module.getLinks().get(0);
 
         Assertions.assertEquals("www.visitspain.com", extraLink.getLink());
-        Assertions.assertEquals("Override text", extraLink.getLabel());
+        Assertions.assertEquals("Discover Spain", extraLink.getLabel());
         assertEquals(LinkType.EXTERNAL, extraLink.getType());
     }
 

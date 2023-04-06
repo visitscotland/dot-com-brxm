@@ -1,0 +1,1 @@
+!function(e,o){"object"==typeof exports&&"object"==typeof module?module.exports=o():"function"==typeof define&&define.amd?define([],o):"object"==typeof exports?exports.VsCannedSearchTourDeparts=o():e.VsCannedSearchTourDeparts=o()}(window,(function(){return(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[168],[],[["cTvo",0,1,2,3,7,8,9,10,11,13,14,16,18,117]]])}));
