@@ -189,7 +189,7 @@ public class PageTemplateBuilder {
             }
             personalisationModule.setModules(personalisationList);
             page.modules.add(personalisationModule);
-        }else{
+        } else {
             page.modules.add(al);
         }
     }
