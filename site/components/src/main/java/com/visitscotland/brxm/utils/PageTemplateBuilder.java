@@ -4,6 +4,7 @@ import com.visitscotland.brxm.components.content.GeneralContentComponent;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
 import com.visitscotland.brxm.model.megalinks.MultiImageLinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
@@ -27,7 +28,7 @@ public class PageTemplateBuilder {
     //Static Constant
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
-
+    static final String DEFAULT = "default";
 
     static final String[] alignment = {"right", "left"};
 
@@ -45,7 +46,7 @@ public class PageTemplateBuilder {
     private final IKnowFactory iKnowFactory;
     private final ArticleFactory articleFactory;
     private final LongCopyFactory longCopyFactory;
-    private final StacklaFactory stacklaFactory;
+    private final UserGeneratedContentFactory userGeneratedContentFactory;
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
@@ -60,7 +61,7 @@ public class PageTemplateBuilder {
     @Autowired
     public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
                                IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
-                               StacklaFactory stacklaFactory, TravelInformationFactory travelInformationFactory,
+                               UserGeneratedContentFactory userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, MarketoFormFactory marketoFormFactory,
                                MapFactory mapFactory, SkiFactory skiFactory, Properties properties,
                                DevModuleFactory devModuleFactory, Logger contentLogger) {
@@ -70,7 +71,7 @@ public class PageTemplateBuilder {
         this.iKnowFactory = iKnowFactory;
         this.articleFactory = articleFactory;
         this.longCopyFactory = longCopyFactory;
-        this.stacklaFactory = stacklaFactory;
+        this.userGeneratedContentFactory = userGeneratedContentFactory;
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
@@ -107,7 +108,7 @@ public class PageTemplateBuilder {
                 } else if (item instanceof MapModule) {
                     page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
                 } else if (item instanceof Stackla) {
-                    page.modules.add(stacklaFactory.getStacklaModule((Stackla) item, request.getLocale()));
+                    page.modules.add(userGeneratedContentFactory.getUGCModule((Stackla) item, request.getLocale()));
                 }  else if (item instanceof TravelInformation) {
                     page.modules.add(travelInformationFactory.getTravelInformation((TravelInformation) item, request.getLocale()));
                 }else if (item instanceof CannedSearch) {
@@ -132,13 +133,15 @@ public class PageTemplateBuilder {
 
         setIntroTheme(request, page.modules);
 
+        if (page.modules.isEmpty() && !getDocument(request).getSeoNoIndex()){
+            logger.warn("The page {} does not have any modules published", request.getRequestURI());
+        }
 
         request.setAttribute(PAGE_ITEMS, page.modules);
     }
 
     /**
      * Convert a LongCopy into a LongCopy module and adds it to the list of modules
-     *
      * Note: Consider to create a factory if the creation of the Module requires more logic.
      */
     private void processLongCopy(HstRequest request, PageConfiguration config, LongCopy document){
@@ -158,7 +161,7 @@ public class PageTemplateBuilder {
     /**
      * Creates a LinkModule from a Megalinks document
      */
-    private void processMegalinks(HstRequest request, PageConfiguration page, Megalinks item){
+    private void processMegalinks(HstRequest request, PageConfiguration page, Megalinks item) {
         LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
         int numLinks = al.getLinks().size();
         if (al instanceof MultiImageLinksModule) {
@@ -173,14 +176,39 @@ public class PageTemplateBuilder {
         if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
             al.setAlignment(alignment[page.alignment++ % alignment.length]);
         }
+
         if (Contract.isEmpty(al.getTitle()) && page.style > 0) {
             page.style--;
         }
-
         al.setThemeIndex(page.style++ % THEMES);
         al.setHippoBean(item);
 
-        page.modules.add(al);
+        if (!item.getPersonalization().isEmpty()) {
+            PersonalisationModule personalisationModule = new PersonalisationModule();
+            List<Module> personalisationList = new ArrayList<>();
+            al.setMarketoId(DEFAULT);
+            personalisationList.add(al);
+            for (Personalization personalisationMegalink : item.getPersonalization()){
+                personalisationList.add(processPersonalisation(request, (Megalinks)personalisationMegalink.getModule(), personalisationMegalink.getId(), al));
+            }
+            personalisationModule.setModules(personalisationList);
+            page.modules.add(personalisationModule);
+        }else{
+            page.modules.add(al);
+        }
+    }
+    private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent) {
+        LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
+
+        al.setThemeIndex(parent.getThemeIndex());
+        al.setHippoBean(item);
+
+        if (!Contract.isEmpty(marketoId)) {
+            al.setMarketoId(marketoId);
+        }
+
+        return al;
+
     }
 
     private boolean isICentreLanding(HstRequest request){
@@ -198,11 +226,12 @@ public class PageTemplateBuilder {
                 page.modules.add(iCentreModule);
             }
         }
+        if (properties.isIknowEnabled()) {
+            IKnowModule iKnowModule = iKnowFactory.getIKnowModule(touristInfo.getIKnow(), location, request.getLocale());
+            iKnowModule.setHippoBean(touristInfo);
 
-        IKnowModule iKnowModule = iKnowFactory.getIKnowModule(touristInfo.getIKnow(), location, request.getLocale());
-        iKnowModule.setHippoBean(touristInfo);
-
-        page.modules.add(iKnowModule);
+            page.modules.add(iKnowModule);
+        }
     }
 
     /**
@@ -218,10 +247,9 @@ public class PageTemplateBuilder {
 
     /**
      * Controls the configuration of the page.
-     *
      * It handles the list of modules as well as the memory for style and the alignment
      */
-    class PageConfiguration {
+    static class PageConfiguration {
         List<Module<?>> modules = new ArrayList<>();
 
         int style = 0;

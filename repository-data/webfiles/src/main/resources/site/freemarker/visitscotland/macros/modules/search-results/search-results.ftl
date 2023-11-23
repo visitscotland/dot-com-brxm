@@ -13,7 +13,7 @@
                 error-text = "${label('essentials.global', 'third-party-error')}"
                 no-js-text="${label('search', 'no-js')}"
             >
-                <template slot="embedWidget">
+                <template v-slot:embed-widget>
                     <div class="row">
                         <div class="col-12 col-lg-10 offset-lg-1 mb-4 mb-lg-8">
                             <div class="cludo-search-results__search-result-count search-result-count" role="status"></div>
@@ -31,6 +31,10 @@
             </vs-embed-wrapper>
         </div>
     </div>
+
+    <@hst.headContribution category="htmlHeadStyles">
+        <link rel="stylesheet" href="<@hst.webfile path='/frontend/styles/third-party/_cludo-search-results.css'/>" type="text/css"/>
+    </@hst.headContribution>
 </#macro>
 
 

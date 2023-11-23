@@ -69,3 +69,17 @@ action-lists:
     /content/documents/administration/labels/modules/map: reload
 - 1.2.7:
     /content/documents/administration/configuration/default-properties: reload
+- 1.2.8:
+    /content/documents/administration/labels/global/common-label: reload
+- 1.2.9:
+    /content/documents/administration/labels/modules/carbon-calculator: reload
+    /content/documents/administration/labels/modules/bespoke-maps: reload
+    /content/documents/administration/options/maps---dms-categories: reload
+    /content/documents/administration/labels/modules/map: reload
+- 2.0.4:
+    /content/documents/administration/labels/navigation/static: reload
+- 2.0.5:
+    /content/documents/administration/labels/modules/carbon-calculator: reload
+- 2.0.6:
+    /content/documents/administration/labels/modules/ugc: reload
+

@@ -13,7 +13,7 @@
     <#-- @ftlvariable name="hero" type="com.visitscotland.brxm.hippobeans.Image" -->
     <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.megalinks.LinksModule" -->
 </#compress>
-<#macro moduleBuilder module colourScheme=[]>
+<#macro moduleBuilder module pageIndex="" colourScheme=[]>
     <#assign themeName = themeCalculator(module.themeIndex, module, colourScheme)>
     <#if module.getType() == "MultiImageLinksModule" ||  module.getType() == "SingleImageLinksModule" || module.getType() == "ListLinksModule">
         <#assign moduleType = "megalinks">
@@ -21,11 +21,22 @@
         <#assign moduleType = module.getType()>
     </#if>
 
-    <div class="has-edit-button vs-module-wrapper__outer--${themeName}">
+    <div
+        class="has-edit-button vs-module-wrapper__outer--${themeName}"
+        <#if pageIndex?? >
+            id="section-${pageIndex}"
+        </#if>
+    >
         <#if module.hippoBean?? >
             <@hst.manageContent hippobean=module.hippoBean />
         </#if>
-        <#if moduleType == "megalinks">
+        <#if moduleType == "PersonalisationModule">
+        <div data-personalisation>
+            <#list module.modules as personalisedModule>
+                <@moduleBuilder personalisedModule pageIndex colourScheme />
+            </#list>
+        </div>
+        <#elseif moduleType == "megalinks">
             <@includeOnce "../modules/megalinks/megalinks.ftl" />
             <#-- all Megalinks modules except HorizontalListLinksModule -->
             <@megalinks item=module type=module.getType() theme=themeName />
@@ -44,15 +55,15 @@
         <#elseif moduleType == "LongCopyModule">
             <@includeOnce "../modules/long-copy/long-copy.ftl" />
             <@longCopy module/>
-        <#elseif moduleType == "StacklaModule">
-            <@includeOnce "../modules/stackla/stackla.ftl" />
-            <@stackla module/>
+        <#elseif moduleType == "UserGeneratedContentModule">
+            <@includeOnce "../modules/ugc/ugc.ftl" />
+            <@ugc module/>
         <#elseif moduleType == "TravelInformationModule">
             <@includeOnce "../modules/travel-information/travel-information.ftl" />
             <@travelInformation module/>
         <#elseif moduleType == "MapsModule">
-            <@includeOnce "../modules/map/map.ftl" />
-            <@map module/>
+            <@includeOnce "../modules/map-with-sidebar/map-with-sidebar.ftl" />
+            <@mapWithSidebar module/>
         <#elseif moduleType == "CannedSearchModule">
             <@includeOnce "../modules/canned-search/canned-search.ftl" />
             <@cannedSearch module themeName/>

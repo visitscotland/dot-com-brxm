@@ -24,7 +24,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.annotation.Resource;
 import java.util.*;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.LATITUDE;
@@ -48,7 +47,6 @@ class ListicleFactoryTest {
     @Mock
     ContentLogger logger;
 
-    @Resource
     @InjectMocks
     ListicleFactory factory;
 
@@ -60,11 +58,11 @@ class ListicleFactoryTest {
         when(page.getDescOrder()).thenReturn(Boolean.FALSE);
     }
 
-
     @Test
-    @DisplayName("Create a listicle page")
+    @DisplayName("Create a listicle page with modules")
     void createListiclePage() {
-        when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.emptyList());
+        ListicleItem item = new ListicleItemMockBuilder().title("Title").subtitle("Edinburgh").addDescription().extraLink().build();
+        when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
 
         Assertions.assertNotNull(factory.generateItems(Locale.UK, page));
     }

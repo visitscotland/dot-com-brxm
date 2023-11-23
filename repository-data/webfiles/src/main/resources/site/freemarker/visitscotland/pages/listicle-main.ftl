@@ -26,15 +26,20 @@
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
 
-    <@pageIntro content=document />
+    <@pageIntro content=document blog=blog/>
 
     <vs-container class="mt-6">
         <vs-row>
             <vs-col cols="12">
                 <ol style="list-style:none; margin:0; padding:0;">
-                    <#if items?? && items?has_content >
+                    <#if items?? && items?has_content>
                         <#list items as listItem>
-                            <@listicleItem item=listItem />
+                            <#if listItem?is_first>
+                                <#assign firstListicle="false">
+                            <#else>
+                                <#assign firstListicle="true">
+                            </#if>
+                            <@listicleItem item=listItem isFirstListicle=firstListicle/>
                         </#list>
                     </#if>
                 </ol>
@@ -48,7 +53,7 @@
                 <vs-col cols="12">
                     <vs-panel>
                         <#if document.listicleClosing.title?has_content>
-                            <template slot="vs-panel-title">
+                            <template v-slot:vs-panel-title>
                                 <vs-heading thin level="4">${document.listicleClosing.title}</vs-heading>
                             </template>
                         </#if>
