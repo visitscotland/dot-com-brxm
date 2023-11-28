@@ -97,6 +97,10 @@ public class LinkService {
             return createExternalLink(locale, ((ExternalLink) item).getLink(), bundle.getCtaLabel(((ExternalLink) item).getLabel(), locale), item.getPath());
         } else if (item instanceof CMSLink) {
             return createCMSLink(module, locale, (CMSLink) item);
+        } else if (item instanceof ProductsSearch) {
+            ProductSearchBuilder psb = productSearch().fromHippoBean((ProductsSearch)item ).locale(locale);
+
+            return new FlatLink(bundle.getCtaLabel(null, locale), psb.build(), LinkType.INTERNAL);
         }
         logger.warn("The document {} could not be turned into a link", item.getPath());
         module.addErrorMessage("The link was not correctly processed");
@@ -602,7 +606,11 @@ public class LinkService {
     }
 
     private String getYoutubeId(String url) {
-        return UriComponentsBuilder.fromUriString(url).build().getQueryParams().getFirst("v");
+        String id = UriComponentsBuilder.fromUriString(url).build().getQueryParams().getFirst("v");
+        if (Contract.isEmpty(id)){
+            logger.warn("The Youtube ID could not be calculated from the URL {}", url);
+        }
+        return id;
     }
 
 }
