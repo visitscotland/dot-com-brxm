@@ -609,28 +609,28 @@ findDynamicPorts() {
   echo ""
 }
 
-# search for latest Hippo distribution files if HIPPO_LATEST is not already set
+# search for latest Hippo distribution files if VS_HIPPO_LATEST is not already set
 findHippoArtifact() {
   if [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
-    if [ -z $HIPPO_LATEST ]; then
+    if [ -z $VS_HIPPO_LATEST ]; then
       # search in $WORKSPACE/target/ for files matching "*.tar.gz"
       echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] searching for latest Hippo distribution files in $WORKSPACE/target"
-      HIPPO_LATEST=`ls -alht $WORKSPACE/target/visit*.tar.gz | head -1 | awk '{print $9}'` 2>&1 > /dev/null
-      if [ -z "$HIPPO_LATEST" ]; then
+      VS_HIPPO_LATEST=`ls -alht $WORKSPACE/target/visit*.tar.gz | head -1 | awk '{print $9}'` 2>&1 > /dev/null
+      if [ -z "$VS_HIPPO_LATEST" ]; then
         # recursive search in $WORKSPACE/ for files matching "dot-com-brxm*.tar.gz"
         echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] no archive found in $WORKSPACE/target/, widening search"
-        HIPPO_LATEST=`find $WORKSPACE/ -name "dot-com-brxm*.tar.gz" | head -1`
+        VS_HIPPO_LATEST=`find $WORKSPACE/ -name "dot-com-brxm*.tar.gz" | head -1`
       fi
-      if [ ! -z "$HIPPO_LATEST" ]; then
-        echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - found $HIPPO_LATEST"
+      if [ ! -z "$VS_HIPPO_LATEST" ]; then
+        echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME]  - found $VS_HIPPO_LATEST"
       else
-        HIPPO_LATEST=NULL
+        VS_HIPPO_LATEST=NULL
         SAFE_TO_PROCEED=FALSE
         FAIL_REASON="no archive found in $WORKSPACE, giving up"
         echo " - $FAIL_REASON"
       fi
     else
-      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] search for distribution files will not be run as HIPPO_LATEST was overridden to $HIPPO_LATEST"
+      echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] search for distribution files will not be run as VS_HIPPO_LATEST was overridden to $VS_HIPPO_LATEST"
     fi
   else
     echo ""
@@ -730,8 +730,8 @@ containerStartSSH() {
 containerCopyHippoArtifact() {
     if [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
     echo ""
-    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] about to copy $HIPPO_LATEST to container $VS_CONTAINER_NAME:/home/hippo"
-    docker cp $HIPPO_LATEST $VS_CONTAINER_NAME:/home/hippo
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] about to copy $VS_HIPPO_LATEST to container $VS_CONTAINER_NAME:/home/hippo"
+    docker cp $VS_HIPPO_LATEST $VS_CONTAINER_NAME:/home/hippo
     RETURN_CODE=$?; echo $RETURN_CODE
     if [ ! "$RETURN_CODE" = "0" ]; then
       SAFE_TO_PROCEED=FALSE
@@ -931,6 +931,11 @@ case $METHOD in
     #checkVariables
     defaultSettings
     createBuildReport
+  ;;
+  findartifact)
+    checkVariables
+    defaultSettings
+    findHippoArtifact
   ;;
   *)
     echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] no function specified - running defaults"
