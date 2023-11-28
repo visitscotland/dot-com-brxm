@@ -203,6 +203,15 @@ pipeline {
       }
     } //end stage
 
+    stage ('vs deploy brcloud'){
+      steps{
+        script{
+          sh 'sh ./infrastructure/scripts/infrastructure.sh findartifact'
+	  echo "found ${env.VS_HIPPO_LATEST}"
+        }
+      }
+    }
+
     stage ('Build Actions'){
       parallel {
 
