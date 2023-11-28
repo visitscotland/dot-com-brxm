@@ -90,7 +90,7 @@ pipeline {
       when {
         allOf {
           expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
-	        expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+	  expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
           expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
         }
       }
@@ -182,7 +182,8 @@ pipeline {
 
           // If requested, build feature environment for feature branches prior to PR
           environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'true'
-        }
+          environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'TRUE'
+	}
       }
       steps{
         script{
