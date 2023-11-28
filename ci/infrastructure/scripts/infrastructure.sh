@@ -498,7 +498,7 @@ setPortRange() {
   # if the override port if in use the job must fail in the findBasePort proc
   if [ -z "$VS_CONTAINER_BASE_PORT_OVERRIDE" ]; then
     MIN_PORT=8001
-    MAX_PORT=8096
+    MAX_PORT=8090
   else
     MIN_PORT=$VS_CONTAINER_BASE_PORT_OVERRIDE
     MAX_PORT=$VS_CONTAINER_BASE_PORT_OVERRIDE
