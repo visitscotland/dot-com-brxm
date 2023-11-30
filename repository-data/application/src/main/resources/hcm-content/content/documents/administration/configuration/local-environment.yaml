@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 45278688-f372-4427-8e15-6b177cf51cc1
   hippo:name: Properties (Local Environment)
-  hippo:versionHistory: 09630161-4bbc-46c9-9379-4ff5c6d2a93b
+  hippo:versionHistory: 30a0f783-e0bd-4e48-8253-4ed49a553f3d
   /local-environment[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,7 +13,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-11-06T08:56:34.059Z
+    hippostdpubwf:lastModificationDate: 2023-11-30T16:33:17.707Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -42,7 +42,7 @@
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
       'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
       /site/data/internal, /site/site-search-results, /site-search-results, /test/examples/snow-sports,
-      '10.0', 'false', visitscotland1, 'true']
+      '10.0', 'false', visitscotland1, 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
       '', '', '', '', visitscotland1, '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,
@@ -62,7 +62,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-11-06T08:56:54.434Z
+    hippostdpubwf:lastModificationDate: 2023-11-30T16:33:35.311Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -91,7 +91,7 @@
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
       'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
       /site/data/internal, /site/site-search-results, /site-search-results, /test/examples/snow-sports,
-      '10.0', 'false', visitscotland1, 'true']
+      '10.0', 'false', visitscotland1, 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
       '', '', '', '', visitscotland1, '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,
@@ -111,9 +111,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-11-06T08:56:54.434Z
+    hippostdpubwf:lastModificationDate: 2023-11-30T16:33:35.311Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-11-06T08:56:59.903Z
+    hippostdpubwf:publicationDate: 2023-11-30T16:33:40.683Z
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
         \ to wider data\r\n\r\nThis token is configured by the environment variable\
@@ -141,7 +141,7 @@
       '1293271387429443', 'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089',
       'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY,
       /site/data/internal, /site/site-search-results, /site-search-results, /test/examples/snow-sports,
-      '10.0', 'false', visitscotland1, 'true']
+      '10.0', 'false', visitscotland1, 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
       '', '', '', '', visitscotland1, '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,

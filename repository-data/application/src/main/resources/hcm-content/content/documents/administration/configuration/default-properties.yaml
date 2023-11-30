@@ -100,11 +100,12 @@
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: 05a192f3-3cf0-47a9-ad38-b9ab86adf3ab
     hippo:availability: []
+    hippostd:holder: admin
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2023-11-07T14:43:31.862Z
+    hippostdpubwf:lastModificationDate: 2023-11-30T16:32:48.603Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [URL prefix for Instagram endpoints, '', Client Token
         for Instagram request, '', Encoding for requests made to dms data endpoints,
