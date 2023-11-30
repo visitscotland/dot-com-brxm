@@ -1,0 +1,3 @@
+/hst:hst/hst:configurations/business-events/hst:workspace/hst:sitemenus/main/About Us:
+  jcr:primaryType: hst:sitemenuitem
+  hst:repobased: false

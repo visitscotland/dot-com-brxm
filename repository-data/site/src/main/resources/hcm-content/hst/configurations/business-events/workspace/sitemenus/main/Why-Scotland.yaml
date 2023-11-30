@@ -1,0 +1,4 @@
+/hst:hst/hst:configurations/business-events/hst:workspace/hst:sitemenus/main/Why Scotland:
+  .meta:order-before: Key Sectors
+  jcr:primaryType: hst:sitemenuitem
+  hst:repobased: false

@@ -1,0 +1,5 @@
+/hst:hst/hst:configurations/business-events/hst:workspace/hst:sitemenus/main/Services:
+  .meta:order-before: Key Sectors
+  jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: root
+  hst:repobased: false

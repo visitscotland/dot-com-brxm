@@ -1,0 +1,4 @@
+/hst:hst/hst:configurations/business-events/hst:workspace/hst:sitemenus/main/Key Sectors:
+  .meta:order-before: Events and tradeshows
+  jcr:primaryType: hst:sitemenuitem
+  hst:repobased: false

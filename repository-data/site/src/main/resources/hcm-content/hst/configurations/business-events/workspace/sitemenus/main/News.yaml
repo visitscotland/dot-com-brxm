@@ -1,0 +1,5 @@
+/hst:hst/hst:configurations/business-events/hst:workspace/hst:sitemenus/main/News:
+  .meta:order-before: About Us
+  jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: sandbox/long-copy
+  hst:repobased: false
