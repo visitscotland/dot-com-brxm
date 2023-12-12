@@ -1,0 +1,6 @@
+/content/gallery/business-events/static:
+  jcr:primaryType: hippogallery:stdImageGallery
+  jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: 13b3069a-4fab-41b5-b536-e89af414884d
+  hippostd:foldertype: [new-visitscotland-Image-folder]
+  hippostd:gallerytype: ['visitscotland:Image']

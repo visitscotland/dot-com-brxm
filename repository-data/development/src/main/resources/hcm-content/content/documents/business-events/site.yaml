@@ -1,0 +1,237 @@
+/content/documents/business-events/site:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: a52a0b2e-90aa-45aa-936f-52ec9ce8de16
+  hippostd:foldertype: [new-document, new-folder]
+  /content:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: f1766861-9053-45f2-b452-5ac93b52b3be
+    hippo:name: Home Page
+    hippo:versionHistory: 71379965-b483-40cc-a25f-e91610d57856
+    /content[1]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: d01aa441-6271-4c8e-951d-ceaa9a36095e
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2023-11-30T16:28:57.347Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: a67eb8dd-5b8c-4657-8aec-e569637aa4b2
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: ''
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Hidden
+      visitscotland:seoDescription: Get all the information you need for your trip
+        to Scotland! Book accommodation, discover new places to visit, find amazing
+        things to do and more!
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland - Scotland's National Tourist Organisation
+      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
+        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:theme: Top-Level
+      visitscotland:title: Start your journey to change
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: d607431a-46f7-4ed1-a288-de6458bbdc97
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Welcome to VisitScotland Business Events. Your partners in Scotland for conferences, conventions, meetings, incentives and more!</p>
+
+          <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
+
+          <p>Join us on the #JourneyToChange. Join us in Scotland.</p>
+    /content[2]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 630cf993-096d-4bcf-9ad9-a4f0608ab5d9
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2023-11-30T16:36:23.588Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: a67eb8dd-5b8c-4657-8aec-e569637aa4b2
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: ''
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Hidden
+      visitscotland:seoDescription: Get all the information you need for your trip
+        to Scotland! Book accommodation, discover new places to visit, find amazing
+        things to do and more!
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland - Scotland's National Tourist Organisation
+      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
+        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:theme: Top-Level
+      visitscotland:title: Start your journey to change
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: d607431a-46f7-4ed1-a288-de6458bbdc97
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Welcome to VisitScotland Business Events. Your partners in Scotland for conferences, conventions, meetings, incentives and more!</p>
+
+          <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
+
+          <p>Join us on the #JourneyToChange. Join us in Scotland.</p>
+    /content[3]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 3da05317-7211-43c0-b47b-fb8c7888490c
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+      hippostdpubwf:lastModificationDate: 2023-11-30T16:28:57.347Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2023-11-30T16:29:05.953Z
+      hippotranslation:id: a67eb8dd-5b8c-4657-8aec-e569637aa4b2
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: ''
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Hidden
+      visitscotland:seoDescription: Get all the information you need for your trip
+        to Scotland! Book accommodation, discover new places to visit, find amazing
+        things to do and more!
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland - Scotland's National Tourist Organisation
+      visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
+        in Scotland for conferences, conventions, meetings, incentives and more!
+      visitscotland:theme: Top-Level
+      visitscotland:title: Start your journey to change
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: d607431a-46f7-4ed1-a288-de6458bbdc97
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>Welcome to VisitScotland Business Events. Your partners in Scotland for conferences, conventions, meetings, incentives and more!</p>
+
+          <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
+
+          <p>Join us on the #JourneyToChange. Join us in Scotland.</p>
+  /page-1:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: a7378984-571a-4824-95bd-c8af461e20d1
+    hippostd:foldertype: [new-document, new-folder]
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: c6c84629-2cee-43d5-9d22-7eb82c4c42d9
+      hippo:name: content
+      /content:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 84c0d3cc-ccfc-49fa-8be2-9f1a7ed2ca62
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+        hippostdpubwf:lastModificationDate: 2023-11-30T16:28:57.347Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 8e477452-a64a-49ec-8b00-2808dab5c9f3
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Hidden
+        visitscotland:seoDescription: Get all the information you need for your trip
+          to Scotland! Book accommodation, discover new places to visit, find amazing
+          things to do and more!
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: VisitScotland - Scotland's National Tourist Organisation
+        visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
+          in Scotland for conferences, conventions, meetings, incentives and more!
+        visitscotland:theme: Top-Level
+        visitscotland:title: Start your journey to change
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: d607431a-46f7-4ed1-a288-de6458bbdc97
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Welcome to VisitScotland Business Events. Your partners in Scotland for conferences, conventions, meetings, incentives and more!</p>
+
+            <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
+
+            <p>Join us on the #JourneyToChange. Join us in Scotland.</p>
+  /page-2:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 9df53417-b72b-46a5-aaa4-297f78a4757b
+    hippostd:foldertype: [new-document, new-folder]
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 3fec3575-b1f8-4ebc-b57f-d64ad055e347
+      hippo:name: content (copy)
+      /content:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: e41c690b-f702-400a-863e-64dfb4691fee
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
+        hippostdpubwf:lastModificationDate: 2023-11-30T16:28:57.347Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: eeb07464-05ac-4d2a-9346-4d814cf12adf
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Hidden
+        visitscotland:seoDescription: Get all the information you need for your trip
+          to Scotland! Book accommodation, discover new places to visit, find amazing
+          things to do and more!
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: VisitScotland - Scotland's National Tourist Organisation
+        visitscotland:teaser: Welcome to VisitScotland Business Events. Your partners
+          in Scotland for conferences, conventions, meetings, incentives and more!
+        visitscotland:theme: Top-Level
+        visitscotland:title: Start your journey to change
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: d607431a-46f7-4ed1-a288-de6458bbdc97
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Welcome to VisitScotland Business Events. Your partners in Scotland for conferences, conventions, meetings, incentives and more!</p>
+
+            <p>For years Scotland has welcomed the world's greatest thinkers, pioneers, innovators and leaders to the many international congresses, conferences and meetings we host. Scotland is an incredible destination for business events. Our world leading academia, research institutes, industries and innovation centres thrive on ideas, new challenges and the inspiration we can give and draw from delegates to our country.</p>
+
+            <p>Join us on the #JourneyToChange. Join us in Scotland.</p>

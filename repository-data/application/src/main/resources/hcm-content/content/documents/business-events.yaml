@@ -1,0 +1,6 @@
+/content/documents/business-events:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: c4e2cd61-bd78-489c-8b86-52e94963aee0
+  hippo:name: Business Events
+  hippostd:foldertype: [new-document, new-folder]
