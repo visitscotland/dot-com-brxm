@@ -3,12 +3,11 @@ def MAIL_TO = "webops@visitscotland.net"
 def thisAgent
 def VS_CONTAINER_BASE_PORT_OVERRIDE
 cron_string = ""
-if (BRANCH_NAME == "feature/DOPS-1442-automate-develop-brc.visitscotland.com" && (JOB_NAME == "develop-brc.visitscotland.com/feature%2FDOPS-1442-automate-develop-brc.visitscotland.com" || JOB_NAME == "develop-brc.visitscotland.com-mb/feature%2FDOPS-1442-automate-develop-brc.visitscotland.com")) {
-  thisAgent = "op-dev-xvcdocker-01"
-  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
-  env.VS_RELEASE_SNAPSHOT = "FALSE"
-  env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
-} 
+
+thisAgent = "op-dev-xvcdocker-01"
+env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
+env.VS_RELEASE_SNAPSHOT = "FALSE"
+env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
 
 import groovy.json.JsonSlurper
 
