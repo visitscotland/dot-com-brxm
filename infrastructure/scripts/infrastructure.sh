@@ -936,6 +936,11 @@ case $METHOD in
     checkVariables
     defaultSettings
     findHippoArtifact
+
+    # build VS_BRC_API_REMOTE_ARTEFACT to pass to BRC API server
+    VS_BRC_API_REMOTE_ARTEFACT="$LOGNAME"@"VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
+    echo "got: $VS_BRC_API_REMOTE_ARTEFACT"
+    curl -v "https://ci.visitscotland.com/ops/preview/job/visitscotland-multi/job/1_development/job/upload-distribution/buildWithParameters?token=e2c88bc701b075fe7341839a4e9c8914&artefact_remote_location=$VS_BRC_API_REMOTE_ARTEFACT&deploy_after_upload=false" 2>&1 | grep "<" | sed -s 's/^< //'
   ;;
   *)
     echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] no function specified - running defaults"
