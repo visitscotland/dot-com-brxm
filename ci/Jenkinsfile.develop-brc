@@ -30,6 +30,7 @@ pipeline {
   triggers { cron( cron_string ) }
   environment {
     MAVEN_SETTINGS = credentials('maven-settings')
+    VS_BRC_API_UPLOAD_JOB_KEY = credentials('vs-brc-api-upload-job-key')
     // from 20200804 VS_SSR_PROXY_ON will only affect whether the SSR app is packaged and sent to the container, using or bypassing will be set via query string
     VS_SSR_PROXY_ON = 'TRUE'
     // VS_CONTAINER_PRESERVE is set to TRUE in the ingrastructure build script, if this is set to FALSE the container will be rebuilt every time and the repository wiped
@@ -37,7 +38,7 @@ pipeline {
     // VS_BRXM_PERSISTENCE_METHOD can be set to either 'h2' or 'mysql' - do not change during the lifetime of a container or it will break the repo
     VS_BRXM_PERSISTENCE_METHOD = 'h2'
     // VS_SKIP_BUILD_FOR_BRANCH is useful for testing, only ever set to your working branch name - never to a variable!
-    VS_SKIP_BUILD_FOR_BRANCH = 'feature/VS-1865-feature-environments-enhancements-log4j'
+    VS_SKIP_BUILD_FOR_BRANCH = 'feature/DOPS-1442-automate-develop-brc.visitscotland.com'
     // VS_COMMIT_AUTHOR is required by later stages which will fail if it's not set, default value of jenkins@visitscotland.net
     // turns out if you set it here it will not be overwritten by the load later in the pipeline
     //VS_COMMIT_AUTHOR = 'jenkins@visitscotland.net'
