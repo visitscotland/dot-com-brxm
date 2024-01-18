@@ -641,6 +641,7 @@ findHippoArtifact() {
 
 brcUpload() {
 	# TODO: Upload function to go here.
+ 	false
 }
 
 # package SSR app files
