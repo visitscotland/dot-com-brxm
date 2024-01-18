@@ -639,6 +639,10 @@ findHippoArtifact() {
   echo ""
 }
 
+brcUpload() {
+	# TODO: Upload function to go here.
+}
+
 # package SSR app files
 packageSSRArtifact() {
   if [ "$VS_SSR_PROXY_ON" = "TRUE" ] && [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
@@ -936,11 +940,19 @@ case $METHOD in
     checkVariables
     defaultSettings
     findHippoArtifact
-
+  ;;
+  brcupload)
+    checkVariables
+    defaultSettings
+    findHippoArtifact
+############################################################################
+# This section to be split out to a seperate function and explicit values  #
+# replaced with variables.                                                 #
     # build VS_BRC_API_REMOTE_ARTEFACT to pass to BRC API server
     VS_BRC_API_REMOTE_ARTEFACT="$LOGNAME"@"$VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
     echo "got: $VS_BRC_API_REMOTE_ARTEFACT using: $VS_BRC_API_UPLOAD_JOB_KEY"
     curl -v "https://ci.visitscotland.com/ops/preview/job/visitscotland/job/1_development/job/upload-distribution/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&artefact_remote_location=$VS_BRC_API_REMOTE_ARTEFACT&deploy_after_upload=false" 2>&1 | grep "<" | sed -s 's/^< //'
+############################################################################
   ;;
   *)
     echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] no function specified - running defaults"
