@@ -639,9 +639,34 @@ findHippoArtifact() {
   echo ""
 }
 
-brcUpload() {
+uploadHippoArtifactBRC() {
 	# TODO: Upload function to go here.
- 	false
+  if [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
+    if [ ! -z "$VS_HIPPO_LATEST" ] && [ ! "$VS_HIPPO_LATEST" = "NULL" ]; then
+      if [ ! -z "$VS_HOST_IP_ADDRESS" ] && [ ! -z "$VS_HOST_FQDN" ]; then
+        if [ "VS_BRC_API_REMOTE_TRANSFER_METHOD" = "SSH" ]; then
+          VS_BRC_API_REMOTE_ARTEFACT="$LOGNAME"@"$VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
+        elif [ "VS_BRC_API_REMOTE_TRANSFER_METHOD" = "HTTP" ]; then
+          false
+          # need to figure out the workspace's URL (from Jenkins variables and then append VS_HIPPO_LATEST
+          # e.g. VS_BRC_API_REMOTE_ARTEFACT="$__SCHEME"://"$__JENKINS_HOST"/"$__JENKINS_JOB"/"$VS_HIPPO_LATEST (but path only)"
+        else
+          SAFE_TO_PROCEED=FALSE
+          FAIL_REASON="no valid VS_BRC_API_REMOTE_TRANSFER_METHOD found"
+          echo " - $FAIL_REASON"
+        fi
+      else
+        SAFE_TO_PROCEED=FALSE
+        FAIL_REASON="no source address was set for this server, remote server would not be able to connect"
+        echo " - $FAIL_REASON"
+      fi
+    else
+      SAFE_TO_PROCEED=FALSE
+      FAIL_REASON="VS_HIPPO_LATEST was not set, no artifact is available"
+      echo " - $FAIL_REASON"
+    fi
+    echo "got: $VS_BRC_API_REMOTE_ARTEFACT using: $VS_BRC_API_UPLOAD_JOB_KEY"
+  fi
 }
 
 # package SSR app files
@@ -946,14 +971,25 @@ case $METHOD in
     checkVariables
     defaultSettings
     findHippoArtifact
-############################################################################
-# This section to be split out to a seperate function and explicit values  #
-# replaced with variables.                                                 #
-    # build VS_BRC_API_REMOTE_ARTEFACT to pass to BRC API server
+####################################################################################################
+# This section to be split out to a seperate function and explicit values replaced with variables. #
+    # build VS_BRC_API_REMOTE_ARTEFACT varialbe to pass to BRC API server
+    #  - LOGNAME is known from the shell
+    #  - VS_HOST_IP_ADDRESS is computed in the "defaultSettings" function
+    #  - VS_HIPPO_LATEST is computed in the "findHippoArtifact" function
     VS_BRC_API_REMOTE_ARTEFACT="$LOGNAME"@"$VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
     echo "got: $VS_BRC_API_REMOTE_ARTEFACT using: $VS_BRC_API_UPLOAD_JOB_KEY"
-    curl -v "https://ci.visitscotland.com/ops/preview/job/visitscotland/job/1_development/job/upload-distribution/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&artefact_remote_location=$VS_BRC_API_REMOTE_ARTEFACT&deploy_after_upload=false" 2>&1 | grep "<" | sed -s 's/^< //'
-############################################################################
+    # create meaningfully named variables to represent all the components parts of the remote job
+    #  - https ~= VS_BRC_API_SERVER_SCHEME
+    #  - ci.visitscotland.com ~= VS_BRC_API_SERVER_HOST
+    #  - ops/preview ~= VS_BRC_API_SERVER_CONTEXT
+    #  - job/visitscotland/job/1_development/job/upload-distribution ~= VS_BRC_API_SERVER_JOB_PATH ! NOTE: this one will change depending on the environment !
+    #  - /buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&artefact_remote_location=$VS_BRC_API_REMOTE_ARTEFACT&deploy_after_upload=false
+    #   - what do we do here? VS_BRC_API_SERVER_JOB_PARAMS?
+    #    - do we just assume that this specific job will always be built with parameters?
+    #    - or do we make it a required part of the call to allow for future flexibility, current transparecy in Jenkinsfile, and a possible route to using JENKINS variables rather than job variables?
+    curl -v "https://ci.visitscotland.com/ops/preview/job/visitscotland/job/1_development/job/upload-distribution/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&artefact_remote_location=$VS_BRC_API_REMOTE_ARTEFACT&deploy_after_upload=true" 2>&1 | grep "<" | sed -s 's/^< //'
+####################################################################################################
   ;;
   *)
     echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] no function specified - running defaults"
