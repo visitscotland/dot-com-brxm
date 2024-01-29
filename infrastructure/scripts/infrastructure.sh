@@ -988,7 +988,7 @@ case $METHOD in
     #   - what do we do here? VS_BRC_API_SERVER_JOB_PARAMS?
     #    - do we just assume that this specific job will always be built with parameters?
     #    - or do we make it a required part of the call to allow for future flexibility, current transparecy in Jenkinsfile, and a possible route to using JENKINS variables rather than job variables?
-    curl -v "https://ci.visitscotland.com/ops/preview/job/visitscotland/job/1_development/job/upload-distribution/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&artefact_remote_location=$VS_BRC_API_REMOTE_ARTEFACT&deploy_after_upload=true" 2>&1 | grep "<" | sed -s 's/^< //'
+    curl -v "https://ci.visitscotland.com/ops/preview/job/visitscotland/job/1_development/job/upload-distribution/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&artefact_remote_location=$VS_BRC_API_REMOTE_ARTEFACT&deploy_after_upload=true&artefact_overwrite=true" 2>&1 | grep "<" | sed -s 's/^< //'
 ####################################################################################################
   ;;
   *)
