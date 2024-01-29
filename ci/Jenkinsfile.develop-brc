@@ -206,7 +206,7 @@ pipeline {
     stage ('vs deploy brcloud'){
       steps{
         script{
-          sh 'sh ./infrastructure/scripts/infrastructure.sh findartifact'
+          sh 'sh ./infrastructure/scripts/infrastructure.sh brcupload'
 	  echo "found ${env.VS_HIPPO_LATEST}"
         }
       }
