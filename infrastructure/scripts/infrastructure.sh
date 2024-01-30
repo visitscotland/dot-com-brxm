@@ -235,6 +235,7 @@ defaultSettings() {
   else
     VS_BRC_API_ENVIRONMENT_JOB_PATH=not-set
   fi
+  VS_BRC_API_SERVER_JOB_URL="$VS_BRC_API_SERVER_SCHEME://$VS_BRC_API_SERVER_HOST/$VS_BRC_API_SERVER_CONTEXT/job/$VS_BRC_API_STACK_NAME/job/$VS_BRC_API_ENVIRONMENT_JOB_PATH/job/$VS_BRC_API_JOB_NAME"
   # mail settings - build
   if [ -z "$VS_MAIL_NOTIFY_BUILD_TO" ]; then VS_MAIL_NOTIFY_BUILD_TO=$VS_COMMIT_AUTHOR; fi
   VS_MAIL_NOTIFY_BUILD_SENDER="$VS_PARENT_JOB_NAME"
@@ -670,9 +671,9 @@ uploadHippoArtifactBRC() {
     if [ ! -z "$VS_HIPPO_LATEST" ] && [ ! "$VS_HIPPO_LATEST" = "NULL" ]; then
       if [ ! -z "$VS_HOST_IP_ADDRESS" ]; then
           VS_BRC_API_REMOTE_ARTIFACT="$LOGNAME"@"$VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
-          VS_BRC_API_SERVER_JOB_URL="$VS_BRC_API_SERVER_SCHEME://$VS_BRC_API_SERVER_HOST/$VS_BRC_API_SERVER_CONTEXT/job/$VS_BRC_API_STACK_NAME/job/$VS_BRC_API_ENVIRONMENT_JOB_PATH/job/$VS_BRC_API_JOB_NAME/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&deploy_after_upload=$VS_BRC_API_DEPLOY_AFTER_UPLOAD&artefact_overwrite=$VS_BRC_API_ARTIFACT_OVERWRITE&artefact_remote_location=$VS_BRC_API_REMOTE_ARTIFACT"
-          echo "attempting to upload $VS_HIPPO_LATEST with $VS_BRC_API_SERVER_JOB_URL"
-          curl -v "$VS_BRC_API_SERVER_JOB_URL" 2>&1 | grep "<" | sed -s 's/^< //'
+          VS_BRC_API_JOB_PARAMETERS="/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&deploy_after_upload=$VS_BRC_API_DEPLOY_AFTER_UPLOAD&artefact_overwrite=$VS_BRC_API_ARTIFACT_OVERWRITE&artefact_remote_location=$VS_BRC_API_REMOTE_ARTIFACT"
+          echo "attempting to upload $VS_HIPPO_LATEST with curl $VS_BRC_API_SERVER_JOB_URL"
+          curl -v "$VS_BRC_API_SERVER_JOB_URL$VS_BRC_API_JOB_PARAMETERS" 2>&1 | grep "<" | sed -s 's/^< //'
       else
         SAFE_TO_PROCEED=FALSE
         FAIL_REASON="no source address was set for this server, remote server would not be able to connect"

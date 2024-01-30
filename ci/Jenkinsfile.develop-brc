@@ -51,6 +51,7 @@ pipeline {
     VS_SKIP_BRC_UPL = 'FALSE'
     VS_BRC_STACK_URI = 'visitscotland'
     VS_BRC_ENV = 'demo'
+    VS_BRC_API_STACK_NAME = 'visitscotland'
     VS_BRC_STACK_URL = "https://api-${VS_BRC_STACK_URI}.onehippo.io"
     VS_BRC_STACK_API_VERSION = 'v3'
     VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node16'
@@ -207,7 +208,6 @@ pipeline {
       steps{
         script{
           sh 'sh ./infrastructure/scripts/infrastructure.sh upload-to-brcloud'
-	  echo "found ${env.VS_HIPPO_LATEST}"
         }
       }
     }
