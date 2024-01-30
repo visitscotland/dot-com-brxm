@@ -668,26 +668,10 @@ findHippoArtifact() {
 uploadHippoArtifactBRC() {
   if [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
     if [ ! -z "$VS_HIPPO_LATEST" ] && [ ! "$VS_HIPPO_LATEST" = "NULL" ]; then
-      if [ ! -z "$VS_HOST_IP_ADDRESS" ] && [ ! -z "$VS_HOST_FQDN" ]; then
-        if [ "$VS_BRC_API_REMOTE_TRANSFER_METHOD" = "SSH" ]; then
+      if [ ! -z "$VS_HOST_IP_ADDRESS" ]; then
           VS_BRC_API_REMOTE_ARTIFACT="$LOGNAME"@"$VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
-####################################################################################################
-# This section to be split out to a seperate function and explicit values replaced with variables. #
-    # create meaningfully named variables to represent all the components parts of the remote job
-    #  - job/[visitscotland]/job/[1_development]/job/[upload-distribution] ~= VS_BRC_API_SERVER_JOB_PATH ! NOTE: this one will change depending on the environment !  
-    #  - /buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&artefact_remote_location=$VS_BRC_API_REMOTE_ARTEFACT&deploy_after_upload=false
-    #   - what do we do here? VS_BRC_API_SERVER_JOB_PARAMS?
-    #    - do we just assume that this specific job will always be built with parameters?
-    #    - or do we make it a required part of the call to allow for future flexibility, current transparecy in Jenkinsfile, and a possible route to using JENKINS variables rather than job variables?
-####################################################################################################
           VS_BRC_API_SERVER_JOB_URL=$VS_BRC_API_SERVER_SCHEME://$VS_BRC_API_SERVER_HOST/$VS_BRC_API_SERVER_CONTEXT/job/$VS_BRC_API_STACK_NAME/job/$VS_BRC_API_ENVIRONMENT_JOB_PATH/job/$VS_BRC_API_JOB_NAME/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&deploy_after_upload=$VS_BRC_API_DEPLOY_AFTER_UPLOAD&artefact_overwrite=$VS_BRC_API_ARTIFACT_OVERWRITE&artefact_remote_location=$VS_BRC_API_REMOTE_ARTIFACT
           curl -v "$VS_BRC_API_SERVER_JOB_URL" 2>&1 | grep "<" | sed -s 's/^< //'
-        elif [ "$VS_BRC_API_REMOTE_TRANSFER_METHOD" = "HTTP" ]; then
-          false
-          # this is a placeholder for future development
-          # we'd need to figure out the workspace's URL (from Jenkins variables and then append VS_HIPPO_LATEST)
-          # e.g. VS_BRC_API_REMOTE_ARTEFACT="$__SCHEME"://"$__JENKINS_HOST"/"$__JENKINS_JOB"/"$VS_HIPPO_LATEST (but path only)"
-          # - thoughts at 2024-01-30: SCP is better, for http we'd need to make the workspace available to anonymous users and work out the node's number
         else
           SAFE_TO_PROCEED=FALSE
           FAIL_REASON="no valid VS_BRC_API_REMOTE_TRANSFER_METHOD found"
