@@ -30,7 +30,7 @@
 # gp: don't start tomcat with container - done
 # gp: additional check to see if mySQL is required - create a CMD without mysql - done
 # ====/DONE ====
-# gavin was 'ere
+
 # ==== SETUP ====
 # ==== ADJUSTABLE VARIABLES ====
 #  == VS Variables ==
