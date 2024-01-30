@@ -55,6 +55,7 @@ pipeline {
     VS_BRC_STACK_URL = "https://api-${VS_BRC_STACK_URI}.onehippo.io"
     VS_BRC_STACK_API_VERSION = 'v3'
     VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node16'
+    VS_SSR_PROXY_TARGET_HOST = 'http://develop-brc.visitscotland.com'
   }
 
   tools {
@@ -207,7 +208,7 @@ pipeline {
     stage ('vs deploy brCloud'){
       steps{
         script{
-          sh 'sh ./infrastructure/scripts/infrastructure.sh upload-to-brcloud'
+          sh 'sh ./infrastructure/scripts/infrastructure.sh upload-to-brcloud --deploy'
         }
       }
     }
