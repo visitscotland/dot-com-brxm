@@ -203,10 +203,10 @@ pipeline {
       }
     } //end stage
 
-    stage ('vs deploy brcloud'){
+    stage ('vs deploy brCloud'){
       steps{
         script{
-          sh 'sh ./infrastructure/scripts/infrastructure.sh brcupload'
+          sh 'sh ./infrastructure/scripts/infrastructure.sh upload-to-brcloud'
 	  echo "found ${env.VS_HIPPO_LATEST}"
         }
       }

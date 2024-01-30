@@ -84,6 +84,18 @@ if [ -z "$VS_SSR_PACKAGE_TARGET" ]; then VS_SSR_PACKAGE_TARGET="./target"; fi
 if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME="vs-ssr-package.tar.gz"; fi
 if [ -z "$VS_SSR_PROXY_ON" ]; then VS_SSR_PROXY_ON="TRUE"; fi
 if [ -z "$VS_SSR_APP_PORT" ]; then VS_SSR_APP_PORT=8082; fi
+#  ==== brC API Server Variables
+if [ -z "$VS_BRC_API_SERVER_SCHEME" ]; then VS_BRC_API_SERVER_SCHEME=https; fi
+if [ -z "$VS_BRC_API_SERVER_HOST" ]; then VS_BRC_API_SERVER_HOST=ci.visitscotland.com; fi
+if [ -z "$VS_BRC_API_SERVER_CONTEXT" ]; then VS_BRC_API_SERVER_CONTEXT=ops/preview; fi
+if [ -z "$VS_BRC_API_REMOTE_TRANSFER_METHOD" ]; then VS_BRC_API_REMOTE_TRANSFER_METHOD=SSH; fi
+if [ -z "$VS_BRC_API_STACK_NAME" ]; then VS_BRC_API_STACK_NAME=not-set; fi
+if [ -z "$VS_BRC_API_ENVIRONMENT_NAME" ]; then VS_BRC_API_ENVIRONMENT_NAME=development; fi
+# note: valid environment names are listed in defaultSettings function
+if [ -z "$VS_BRC_API_ENVIRONMENT_JOB_PATH" ]; then VS_BRC_API_ENVIRONMENT_JOB_PATH=1_development; fi
+if [ -z "$VS_BRC_API_JOB_NAME" ]; then VS_BRC_API_JOB_NAME=upload-distribution; fi
+if [ -z "$VS_BRC_API_DEPLOY_AFTER_UPLOAD" ]; then VS_BRC_API_DEPLOY_AFTER_UPLOAD=true; fi
+if [ -z "$VS_BRC_API_ARTIFACT_OVERWRITE" ]; then VS_BRC_API_ARTIFACT_OVERWRITE=false; fi
 #  ==== Other Variables ====
 VS_JENKINS_LAST_ENV=jenkins-last-env
 VS_LAST_ENV=vs-last-env
@@ -208,6 +220,20 @@ defaultSettings() {
     VS_PROXY_QS_SSR="&vs_ssr_proxy=on"
   else
     VS_PROXY_QS_SSR="&vs_ssr_proxy=off"
+  fi
+  # VS BRC API server settings
+  if [ "$VS_BRC_API_ENVIRONMENT_NAME" == "stack" ]; then
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=0_$VS_BRC_API_ENVIRONMENT_NAME
+  elif [ "$VS_BRC_API_ENVIRONMENT_NAME" == "development" ]; then
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=1_$VS_BRC_API_ENVIRONMENT_NAME
+  elif [ "$VS_BRC_API_ENVIRONMENT_NAME" == "testing" ]; then
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=2_$VS_BRC_API_ENVIRONMENT_NAME
+  elif [ "$VS_BRC_API_ENVIRONMENT_NAME" == "staging" ]; then
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=3_$VS_BRC_API_ENVIRONMENT_NAME
+  elif [ "$VS_BRC_API_ENVIRONMENT_NAME" == "production" ]; then
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=4_$VS_BRC_API_ENVIRONMENT_NAME
+  else
+    VS_BRC_API_ENVIRONMENT_JOB_PATH=not-set
   fi
   # mail settings - build
   if [ -z "$VS_MAIL_NOTIFY_BUILD_TO" ]; then VS_MAIL_NOTIFY_BUILD_TO=$VS_COMMIT_AUTHOR; fi
@@ -640,16 +666,28 @@ findHippoArtifact() {
 }
 
 uploadHippoArtifactBRC() {
-	# TODO: Upload function to go here.
   if [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
     if [ ! -z "$VS_HIPPO_LATEST" ] && [ ! "$VS_HIPPO_LATEST" = "NULL" ]; then
       if [ ! -z "$VS_HOST_IP_ADDRESS" ] && [ ! -z "$VS_HOST_FQDN" ]; then
-        if [ "VS_BRC_API_REMOTE_TRANSFER_METHOD" = "SSH" ]; then
-          VS_BRC_API_REMOTE_ARTEFACT="$LOGNAME"@"$VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
-        elif [ "VS_BRC_API_REMOTE_TRANSFER_METHOD" = "HTTP" ]; then
+        if [ "$VS_BRC_API_REMOTE_TRANSFER_METHOD" = "SSH" ]; then
+          VS_BRC_API_REMOTE_ARTIFACT="$LOGNAME"@"$VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
+####################################################################################################
+# This section to be split out to a seperate function and explicit values replaced with variables. #
+    # create meaningfully named variables to represent all the components parts of the remote job
+    #  - job/[visitscotland]/job/[1_development]/job/[upload-distribution] ~= VS_BRC_API_SERVER_JOB_PATH ! NOTE: this one will change depending on the environment !  
+    #  - /buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&artefact_remote_location=$VS_BRC_API_REMOTE_ARTEFACT&deploy_after_upload=false
+    #   - what do we do here? VS_BRC_API_SERVER_JOB_PARAMS?
+    #    - do we just assume that this specific job will always be built with parameters?
+    #    - or do we make it a required part of the call to allow for future flexibility, current transparecy in Jenkinsfile, and a possible route to using JENKINS variables rather than job variables?
+####################################################################################################
+          VS_BRC_API_SERVER_JOB_URL=$VS_BRC_API_SERVER_SCHEME://$VS_BRC_API_SERVER_HOST/$VS_BRC_API_SERVER_CONTEXT/job/$VS_BRC_API_STACK_NAME/job/$VS_BRC_API_ENVIRONMENT_JOB_PATH/job/$VS_BRC_API_JOB_NAME/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&deploy_after_upload=$VS_BRC_API_DEPLOY_AFTER_UPLOAD&artefact_overwrite=$VS_BRC_API_ARTIFACT_OVERWRITE&artefact_remote_location=$VS_BRC_API_REMOTE_ARTIFACT
+          curl -v "$VS_BRC_API_SERVER_JOB_URL" 2>&1 | grep "<" | sed -s 's/^< //'
+        elif [ "$VS_BRC_API_REMOTE_TRANSFER_METHOD" = "HTTP" ]; then
           false
-          # need to figure out the workspace's URL (from Jenkins variables and then append VS_HIPPO_LATEST
+          # this is a placeholder for future development
+          # we'd need to figure out the workspace's URL (from Jenkins variables and then append VS_HIPPO_LATEST)
           # e.g. VS_BRC_API_REMOTE_ARTEFACT="$__SCHEME"://"$__JENKINS_HOST"/"$__JENKINS_JOB"/"$VS_HIPPO_LATEST (but path only)"
+          # - thoughts at 2024-01-30: SCP is better, for http we'd need to make the workspace available to anonymous users and work out the node's number
         else
           SAFE_TO_PROCEED=FALSE
           FAIL_REASON="no valid VS_BRC_API_REMOTE_TRANSFER_METHOD found"
@@ -967,29 +1005,11 @@ case $METHOD in
     defaultSettings
     findHippoArtifact
   ;;
-  brcupload)
+  upload-to-brcloud)
     checkVariables
     defaultSettings
     findHippoArtifact
-####################################################################################################
-# This section to be split out to a seperate function and explicit values replaced with variables. #
-    # build VS_BRC_API_REMOTE_ARTEFACT varialbe to pass to BRC API server
-    #  - LOGNAME is known from the shell
-    #  - VS_HOST_IP_ADDRESS is computed in the "defaultSettings" function
-    #  - VS_HIPPO_LATEST is computed in the "findHippoArtifact" function
-    VS_BRC_API_REMOTE_ARTEFACT="$LOGNAME"@"$VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
-    echo "got: $VS_BRC_API_REMOTE_ARTEFACT using: $VS_BRC_API_UPLOAD_JOB_KEY"
-    # create meaningfully named variables to represent all the components parts of the remote job
-    #  - https ~= VS_BRC_API_SERVER_SCHEME
-    #  - ci.visitscotland.com ~= VS_BRC_API_SERVER_HOST
-    #  - ops/preview ~= VS_BRC_API_SERVER_CONTEXT
-    #  - job/visitscotland/job/1_development/job/upload-distribution ~= VS_BRC_API_SERVER_JOB_PATH ! NOTE: this one will change depending on the environment !
-    #  - /buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&artefact_remote_location=$VS_BRC_API_REMOTE_ARTEFACT&deploy_after_upload=false
-    #   - what do we do here? VS_BRC_API_SERVER_JOB_PARAMS?
-    #    - do we just assume that this specific job will always be built with parameters?
-    #    - or do we make it a required part of the call to allow for future flexibility, current transparecy in Jenkinsfile, and a possible route to using JENKINS variables rather than job variables?
-    curl -v "https://ci.visitscotland.com/ops/preview/job/visitscotland/job/1_development/job/upload-distribution/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&artefact_remote_location=$VS_BRC_API_REMOTE_ARTEFACT&deploy_after_upload=true&artefact_overwrite=true" 2>&1 | grep "<" | sed -s 's/^< //'
-####################################################################################################
+    uploadHippoArtifactBRC
   ;;
   *)
     echo "`eval $VS_LOG_DATESTAMP` WARN  [$VS_SCRIPTNAME] no function specified - running defaults"
