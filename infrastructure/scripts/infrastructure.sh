@@ -672,11 +672,6 @@ uploadHippoArtifactBRC() {
           VS_BRC_API_REMOTE_ARTIFACT="$LOGNAME"@"$VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
           VS_BRC_API_SERVER_JOB_URL=$VS_BRC_API_SERVER_SCHEME://$VS_BRC_API_SERVER_HOST/$VS_BRC_API_SERVER_CONTEXT/job/$VS_BRC_API_STACK_NAME/job/$VS_BRC_API_ENVIRONMENT_JOB_PATH/job/$VS_BRC_API_JOB_NAME/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&deploy_after_upload=$VS_BRC_API_DEPLOY_AFTER_UPLOAD&artefact_overwrite=$VS_BRC_API_ARTIFACT_OVERWRITE&artefact_remote_location=$VS_BRC_API_REMOTE_ARTIFACT
           curl -v "$VS_BRC_API_SERVER_JOB_URL" 2>&1 | grep "<" | sed -s 's/^< //'
-        else
-          SAFE_TO_PROCEED=FALSE
-          FAIL_REASON="no valid VS_BRC_API_REMOTE_TRANSFER_METHOD found"
-          echo " - $FAIL_REASON"
-        fi
       else
         SAFE_TO_PROCEED=FALSE
         FAIL_REASON="no source address was set for this server, remote server would not be able to connect"
@@ -688,7 +683,11 @@ uploadHippoArtifactBRC() {
       echo " - $FAIL_REASON"
     fi
     echo "got: $VS_BRC_API_REMOTE_ARTEFACT using: $VS_BRC_API_UPLOAD_JOB_KEY"
+  else
+    echo ""
+    echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] upload of distribution files to brCloud will not be run due to previous failures"
   fi
+  echo ""
 }
 
 # package SSR app files
