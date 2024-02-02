@@ -110,7 +110,7 @@
       <dependency>
         <groupId>com.visitscotland</groupId>
         <artifactId>data-service-api</artifactId>
-        <version>1.3.1</version>
+        <version>1.3.2</version>
       </dependency>
 
       <dependency>
@@ -784,7 +784,7 @@
   </profiles>
 
   <scm>
-    <connection>scm:git:https://github.com/visitscotland/visitscotland-2019.git</connection>
+    <connection>scm:git:https://github.com/visitscotland/dot-com-brxm-pipeline-poc.git</connection>
     <developerConnection/>
     <url/>
   </scm>
