@@ -10,7 +10,7 @@
 
   <name>www.visitscotland.com CMS Pages Repository Data</name>
   <description>www.visitscotland.com CMS Pages Repository Data</description>
-  <artifactId>dot-com-brxm-repository-data</artifactId>
+  <artifactId>dot-com-brxm-pipeline-poc-repository-data</artifactId>
   <packaging>pom</packaging>
 
   <modules>

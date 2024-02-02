@@ -4,13 +4,13 @@
 
   <parent>
     <groupId>com.visitscotland</groupId>
-    <artifactId>dot-com-brxm-repository-data</artifactId>
+    <artifactId>dot-com-brxm-pipeline-poc-repository-data</artifactId>
     <version>2.0.7-SNAPSHOT</version>
   </parent>
 
   <name>www.visitscotland.com CMS Pages Repository Data For Site Development</name>
   <description>www.visitscotland.com CMS Pages Repository Data For Site Development</description>
-  <artifactId>dot-com-brxm-repository-data-site-development</artifactId>
+  <artifactId>dot-com-brxm-pipeline-poc-repository-data-site-development</artifactId>
 
   <build>
     <defaultGoal>install</defaultGoal>
