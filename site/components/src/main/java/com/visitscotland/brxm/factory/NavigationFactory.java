@@ -25,6 +25,7 @@ import org.hippoecm.hst.core.sitemenu.HstSiteMenu;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenuItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -40,10 +41,10 @@ public class NavigationFactory {
     static final String NAVIGATION_PREFIX = "navigation.";
     static final String WIDGET_LIST = "widgetList";
 
-    private ResourceBundleService bundle;
-    private HippoUtilsService utils;
-    private LinkService linkService;
-    private ProductSearchBuilder productSearchBuilder;
+    private final ResourceBundleService bundle;
+    private final HippoUtilsService utils;
+    private final LinkService linkService;
+    private final ProductSearchBuilder productSearchBuilder;
     private final Logger contentLogger;
 
     public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService, ProductSearchBuilder productSearchBuilder,
@@ -56,12 +57,16 @@ public class NavigationFactory {
     }
 
     /**
-     * Builds a VisitScotland enhanced menu from the out of the box menu
+     * Builds a VisitScotland enhanced menu from the out-of-the-box menu
      */
-    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu) {
+    @Cacheable(
+            value = "navigation",
+            key = "{#request.locale, #hstSiteMenu.name, #cacheable}",
+            unless = "!#cacheable"
+    )
+    public RootMenuItem buildMenu(HstRequest request, HstSiteMenu hstSiteMenu, boolean cacheable) {
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
-
         if (hstSiteMenu != null) {
             //Calculate the resource bundle id
             String resourceBundle = NAVIGATION_PREFIX + hstSiteMenu.getName();
@@ -81,8 +86,7 @@ public class NavigationFactory {
     /**
      * Creates a new MenuItem that Matches with Bloomreach's MenuItem specification. which enhanced information
      * about the linked item
-     *
-     * If the item happens to be a widget the  MenuItem is descarded and a Navigation Widget is returned instead
+     * If the item happens to be a widget the  MenuItem is discarded and a Navigation Widget is returned instead
      */
     private Object getMenuItem(HstRequest request, HstSiteMenuItem hstItem, String resourceBundle) {
         MenuItem menuItem = new MenuItem(hstItem);
@@ -99,6 +103,8 @@ public class NavigationFactory {
             } else if (bean != null) {
                 return createWidget(request, bean);
             }
+        } else if (!Contract.isEmpty(hstItem.getExternalLink())){
+            menuItem.setExternalLink(linkService.localize(request.getLocale(), hstItem.getExternalLink()));
         }
 
         if (menuItem.getTitle() != null) {
@@ -209,6 +215,7 @@ public class NavigationFactory {
      */
     private void createMenuItemFromPage(MenuItem menuItem, Page document, String bundleId, Locale locale) {
         menuItem.setPage(document);
+        menuItem.setPlainLink(utils.createUrl(document));
 
         //If the menu hasn't been set we use the title coming from the document.
         if (Contract.isEmpty(menuItem.getTitle())) {

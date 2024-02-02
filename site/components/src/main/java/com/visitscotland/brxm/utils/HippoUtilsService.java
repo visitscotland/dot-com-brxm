@@ -60,6 +60,16 @@ public class HippoUtilsService {
         return createUrl(document, true);
     }
 
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public String createUrlFromNode(String path, boolean localize) {
+        try {
+            return createUrl(getDocumentFromContent(path), localize);
+        } catch (QueryException | ObjectBeanManagerException | RepositoryException e) {
+            logger.warn("A link could not be created for {}", path);
+            return null;
+        }
+    }
+
     public String createUrl(Page document, boolean localize) {
         if (document == null) {
             logger.info("The linked page does not exist.");
@@ -135,10 +145,14 @@ public class HippoUtilsService {
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
     public <T extends HippoBean> T getDocumentFromNode(Node jcrNode) throws QueryException, ObjectBeanManagerException {
-        HippoBean bean = RequestContextProvider.get().getQueryManager()
-                .createQuery(jcrNode).execute().getHippoBeans().nextHippoBean();
+        HstQueryResult result = RequestContextProvider.get().getQueryManager().createQuery(jcrNode).execute();
 
-        return (T) bean.getObjectConverter().getObject(bean.getNode());
+        if (result.getSize() > 0){
+            HippoBean bean = result.getHippoBeans().nextHippoBean();
+            return (T) bean.getObjectConverter().getObject(bean.getNode());
+        }
+
+        return null;
     }
 
     /**
@@ -277,7 +291,8 @@ public class HippoUtilsService {
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
     public Locale getRequestLocale(){
-        return RequestContextProvider.get().getPreferredLocale();
+        Locale locale = RequestContextProvider.get().getPreferredLocale();
+        return locale==null?Locale.UK:locale;
     }
 
     /**

@@ -79,7 +79,7 @@ if [ -z "$VS_CONTAINER_SSH_PASS_HIPPO" ]; then VS_CONTAINER_SSH_PASS_HIPPO=hippo
 if [ -z "$VS_CONTAINER_UPDATES_DIR" ]; then VS_CONTAINER_UPDATES_DIR="../files"; fi
 #  ==== SSR Application Variables ====
 if [ -z "$VS_FRONTEND_DIR" ]; then VS_FRONTEND_DIR=ui-integration; fi
-if [ -z "$VS_SSR_PACKAGE_SOURCE" ]; then VS_SSR_PACKAGE_SOURCE="$VS_FRONTEND_DIR/ssr/server/ $VS_FRONTEND_DIR/node_modules/@visitscotland/vs-component-library/dist/ssr/ $VS_FRONTEND_DIR/node_modules/ $VS_FRONTEND_DIR/build/"; fi
+if [ -z "$VS_SSR_PACKAGE_SOURCE" ]; then VS_SSR_PACKAGE_SOURCE="$VS_FRONTEND_DIR/ssr/server/ $VS_FRONTEND_DIR/node_modules/@visitscotland/component-library/dist/ssr/ $VS_FRONTEND_DIR/node_modules/ $VS_FRONTEND_DIR/build/"; fi
 if [ -z "$VS_SSR_PACKAGE_TARGET" ]; then VS_SSR_PACKAGE_TARGET="./target"; fi
 if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME="vs-ssr-package.tar.gz"; fi
 if [ -z "$VS_SSR_PROXY_ON" ]; then VS_SSR_PROXY_ON="TRUE"; fi
@@ -568,7 +568,7 @@ findDynamicPorts() {
   echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] finding free ports from $VS_CONTAINER_BASE_PORT in increments of $VS_CONTAINER_PORT_INCREMENT to dynamically map to other services on the new container - up to $VS_CONTAINER_DYN_PORT_MAX"
   THIS_PORT=$VS_CONTAINER_BASE_PORT
   echo "" > $VS_MAIL_NOTIFY_BUILD_MESSAGE_EXTRA
-  for VS_CONTAINER_INT_PORT in `set | grep "VS_CONTAINER_INT_PORT_"`; do
+  for VS_CONTAINER_INT_PORT in `set | grep -E "^VS_CONTAINER_INT_PORT_"`; do
     VS_CONTAINER_SERVICE=`echo "$VS_CONTAINER_INT_PORT" | sed -e "s/.*_//g" | sed -e "s/=.*//g"`
     VS_CONTAINER_SERVICE_PORT=`echo "$VS_CONTAINER_INT_PORT" | sed -e "s/.*=//g"`
     VS_CONTAINER_SERVICE_LIST=$VS_CONTAINER_SERVICE_LIST" "$VS_CONTAINER_SERVICE
