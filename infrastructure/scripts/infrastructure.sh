@@ -673,7 +673,7 @@ uploadHippoArtifactBRC() {
       if [ ! -z "$VS_HOST_IP_ADDRESS" ]; then
           VS_BRC_API_REMOTE_ARTIFACT="$LOGNAME"@"$VS_HOST_IP_ADDRESS":"$VS_HIPPO_LATEST"
           VS_BRC_API_JOB_PARAMETERS="/buildWithParameters?token=$VS_BRC_API_UPLOAD_JOB_KEY&deploy_after_upload=$VS_BRC_API_DEPLOY_AFTER_UPLOAD&artefact_overwrite=$VS_BRC_API_ARTIFACT_OVERWRITE&artefact_remote_location=$VS_BRC_API_REMOTE_ARTIFACT"
-          echo "attempting to upload $VS_HIPPO_LATEST with curl $VS_BRC_API_SERVER_JOB_URL"
+          echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] attempting to upload $VS_HIPPO_LATEST with using $VS_BRC_API_SERVER_JOB_URL"
           curl -v "$VS_BRC_API_SERVER_JOB_URL$VS_BRC_API_JOB_PARAMETERS" 2>&1 | grep "<" | sed -s 's/^< //'
       else
         SAFE_TO_PROCEED=FALSE
