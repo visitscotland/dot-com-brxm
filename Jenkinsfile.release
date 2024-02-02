@@ -12,7 +12,7 @@ pipeline {
 
     stage('automation build') {
       when {
-        branch 'feature/release-automation-jenkins-develop' // only runs on this branch for now
+        branch 'release/*' // only runs on this branch for now
       }
       steps {
         echo "  Branch: ${BRANCH_NAME}"
@@ -20,7 +20,7 @@ pipeline {
         echo "   Stage: ${BUILD_DISPLAY_NAME}"
 //        echo "-s maven: ${MAVEN_SETTINGS}"
 //        sh 'mvn clean install -DskipTests -s $MAVEN_SETTINGS'
-        sh 'mvn clean package' // we don't need verify yet, since we don't have IT tests in place
+        sh 'mvn clean verify' // we don't need verify yet, since we don't have IT tests in place (we can use -package)
         sh 'mvn --batch-mode deploy -Pdist'
       }
       post {
