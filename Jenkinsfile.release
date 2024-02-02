@@ -20,8 +20,8 @@ pipeline {
         echo "   Stage: ${BUILD_DISPLAY_NAME}"
 //        echo "-s maven: ${MAVEN_SETTINGS}"
 //        sh 'mvn clean install -DskipTests -s $MAVEN_SETTINGS'
-        sh 'mvn clean verify'
-        sh 'mvn deploy -Pdist'
+        sh 'mvn clean package' // we don't need verify yet, since we don't have IT tests in place
+        sh 'mvn --batch-mode deploy -Pdist'
       }
       post {
         success {
