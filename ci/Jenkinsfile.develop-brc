@@ -5,7 +5,7 @@ def VS_CONTAINER_BASE_PORT_OVERRIDE
 cron_string = ""
 
 //thisAgent = "op-dev-xvcdocker-01"
-thisAgent = "docker02"
+thisAgent = "docker-02"
 env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
 env.VS_RELEASE_SNAPSHOT = "FALSE"
 env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
