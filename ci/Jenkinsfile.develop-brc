@@ -104,7 +104,7 @@ stage ('vs compile & package') {
         }
       }
       steps {
-        sh './infrastructure/scripts/infrastructure.sh setvars'
+        sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
         sh 'mvn -f pom.xml clean package'
       }
       post {
