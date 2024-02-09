@@ -105,7 +105,7 @@ stage ('vs compile & package') {
       }
       steps {
         sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
-        sh 'export HOME=$WORKSPACE; mvn -s /usr/share/maven/ref/settings.xml -f pom.xml clean package'
+        sh 'mvn -f pom.xml clean package'
       }
       post {
         success {
