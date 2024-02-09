@@ -226,6 +226,10 @@ stage ('vs compile & package') {
 	}
       }
       steps{
+        dir("${env.WORKSPACE}") {
+          unstash name: 'brxm-artifact'
+          unstash name: 'ssr-files'
+        }
         script{
           //sh 'sh ./infrastructure/scripts/docker.sh'
           sh 'sh ./infrastructure/scripts/infrastructure.sh --debug'
