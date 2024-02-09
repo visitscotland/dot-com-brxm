@@ -139,7 +139,7 @@ stage ('vs compile & package') {
       }
       post {
         success {
-          sh 'mvn -f pom.xml install -Pdist-with-development-data'
+          sh 'export HOME=$WORKSPACE; mvn -s /usr/share/maven/ref/settings.xml -f pom.xml install -Pdist-with-development-data'
           mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
         }
         failure {
