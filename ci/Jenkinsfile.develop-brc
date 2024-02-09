@@ -4,12 +4,17 @@ def thisAgent
 def VS_CONTAINER_BASE_PORT_OVERRIDE
 cron_string = ""
 
-//thisAgent = "op-dev-xvcdocker-01"
-thisAgent = "docker-02"
+thisAgent = "op-dev-xvcdocker-01"
 env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
 env.VS_RELEASE_SNAPSHOT = "FALSE"
 env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
+env.VS_USE_DOCKER_BUILDER = "FALSE"
 
+if (VS_USE_DOCKER_BUILDER == "TRUE") {
+  thisAgent = "docker-02"
+} else {
+  thisAgent = "op-dev-xvcdocker-01"
+}
 import groovy.json.JsonSlurper
 
 pipeline {
@@ -85,15 +90,40 @@ pipeline {
           }
         }
 
-        sh 'printenv'
+        sh 'printenv > printenv.pre-build'
       }
     }
 
-    stage ('vs compile & package') {
+stage ('vs compile & package') {
       when {
         allOf {
           expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
 	        expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+          expression {return env.VS_USE_DOCKER_BUILDER != 'TRUE'}
+          expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
+        }
+      }
+      steps {
+        sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
+        sh 'export HOME=$WORKSPACE; mvn -s /usr/share/maven/ref/settings.xml -f pom.xml clean package'
+      }
+      post {
+        success {
+          sh 'mvn -f pom.xml install -Pdist-with-development-data'
+          mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
+        }
+        failure {
+          mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build FAILED at ${env.STAGE_NAME} for  ${env.JOB_NAME}", to: "${MAIL_TO}";
+        }
+      }
+    }
+
+    stage ('vs compile & package in docker') {
+      when {
+        allOf {
+          expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
+	        expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
+          expression {return env.VS_USE_DOCKER_BUILDER = 'TRUE'}
           expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
         }
       }
@@ -105,7 +135,7 @@ pipeline {
       }
       steps {
         //sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
-        sh 'mvn -f pom.xml clean package'
+        sh 'export HOME=$WORKSPACE; mvn -s /usr/share/maven/ref/settings.xml -f pom.xml clean package'
       }
       post {
         success {
