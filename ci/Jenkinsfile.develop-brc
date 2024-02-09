@@ -104,7 +104,7 @@ stage ('vs compile & package') {
         }
       }
       steps {
-        sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
+        sh './infrastructure/scripts/infrastructure.sh setvars'
         sh 'mvn -f pom.xml clean package'
       }
       post {
@@ -123,7 +123,7 @@ stage ('vs compile & package') {
         allOf {
           expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
 	        expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
-          expression {return env.VS_USE_DOCKER_BUILDER = 'TRUE'}
+          expression {return env.VS_USE_DOCKER_BUILDER == 'TRUE'}
           expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
         }
       }
