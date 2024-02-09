@@ -141,7 +141,7 @@ stage ('vs compile & package') {
         success {
           sh 'export HOME=$WORKSPACE; mvn -s /usr/share/maven/ref/settings.xml -f pom.xml install -Pdist-with-development-data'
           stash includes: 'target/*', name: 'brxm-artifact'
-          stash includes: 'ui-integration/ssr/server/*,ui-integration/node_modules/*,ui-integration/build/*', name: 'ssr-files'
+          stash includes: 'ui-integration/ssr/server/*,ui-integration/node_modules/**/*,ui-integration/build/*', name: 'ssr-files'
           mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
         }
         failure {
