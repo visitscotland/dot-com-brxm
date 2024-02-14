@@ -1,0 +1,36 @@
+pipeline {
+  agent any
+  environment {
+    MAVEN_SETTINGS = credentials('maven-settings')
+  }
+  tools {
+    maven 'Maven 3.5.4'
+    jdk 'jdk11'
+  }
+
+  stages {
+
+    stage('automation build') {
+      when {
+        branch 'release/*' // only runs on this branch for now
+      }
+      steps {
+        echo "  Branch: ${BRANCH_NAME}"
+        echo "Job Name: ${JOB_NAME}"
+        echo "   Stage: ${BUILD_DISPLAY_NAME}"
+//        echo "-s maven: ${MAVEN_SETTINGS}"
+//        sh 'mvn clean install -DskipTests -s $MAVEN_SETTINGS'
+        sh 'mvn clean verify' // we don't need verify yet, since we don't have IT tests in place (we can use -package)
+        sh 'mvn --batch-mode deploy -Pdist'
+      }
+      post {
+        success {
+          echo "Automation succeeded on branch: ${BRANCH_NAME}"
+        }
+        failure {
+          echo "Automation failed on branch: ${BRANCH_NAME}"
+        }
+      }
+    }
+  }
+}

@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.visitscotland</groupId>
-    <artifactId>dot-com-brxm-site</artifactId>
-    <version>2.0.7</version>
+    <artifactId>dot-com-brxm-pipeline-poc-site</artifactId>
+    <version>2.0.8</version>
   </parent>
-  <artifactId>dot-com-brxm-webapp</artifactId>
+  <artifactId>dot-com-brxm-pipeline-poc-webapp</artifactId>
   <packaging>war</packaging>
   <name>www.visitscotland.com CMS Pages Site Webapp</name>
   <description>www.visitscotland.com CMS Pages Site Webapp</description>
@@ -15,18 +15,18 @@
   <dependencies>
     <dependency>
       <groupId>com.visitscotland</groupId>
-      <artifactId>dot-com-brxm-repository-data-site</artifactId>
+      <artifactId>dot-com-brxm-pipeline-poc-repository-data-site</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>com.visitscotland</groupId>
-      <artifactId>dot-com-brxm-repository-data-webfiles</artifactId>
+      <artifactId>dot-com-brxm-pipeline-poc-repository-data-webfiles</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>com.visitscotland</groupId>
-      <artifactId>dot-com-brxm-components</artifactId>
-      <version>2.0.7</version>
+      <artifactId>dot-com-brxm-pipeline-poc-components</artifactId>
+      <version>2.0.8</version>
     </dependency>
     <dependency>
       <groupId>org.onehippo.cms7.hst.toolkit-resources.addon</groupId>

@@ -29,6 +29,6 @@ assignees: ''
 | :--------------------------------------- |
 
 
-### B) dot-com-brxm-ssr
+### B) dot-com-brxm-pipeline-poc-ssr
 
 ### Add any further project information needed here
