@@ -29,12 +29,15 @@ pipeline {
         '''
         sh 'mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false'
         sh 'mvn clean verify' // we don't need verify yet, since we don't have IT tests in place (we can use -package)
-        sh 'mvn --batch-mode deploy -Pdist 2>&1 | tee deploy.log'
+        sh 'mvn --batch-mode deploy -Pdist 2>&1 | tee $GIT_COMMIT.log'
       }
       post {
         success {
           echo "Automation succeeded on branch: ${BRANCH_NAME}"
-          sh 'cat deploy.log | grep "Uploaded" | grep ".tar.gz"'
+          // trying to run complex shell commands within the pipeline script doesn't work - use a shell script as before
+          //sh "ARTIFACT_URL=\$(grep "Uploaded" ${GIT_COMMIT.log} | grep ".tar.gz" | sed -e "s/.*\(http\)/\1/; s/\(\.tar\.gz\).*/\1/")"
+          //sh "ARTIFACT_URL=\$(grep "Uploaded" ${GIT_COMMIT.log} | grep ".tar.gz" | awk '{print $5}')"
+          //sh 'echo "Respository URL: $ARTIFACT_URL"'
         }
         failure {
           echo "Automation failed on branch: ${BRANCH_NAME}"
