@@ -330,7 +330,7 @@
                 <goal>hotfix-start</goal>
               </goals>
               <configuration>
-                <pushRemote>false</pushRemote>
+                <pushRemote>true</pushRemote>
                 <allowSnapshots>true</allowSnapshots>
 
                 <gitFlowConfig>
