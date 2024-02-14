@@ -34,8 +34,10 @@ pipeline {
       post {
         success {
           echo "Automation succeeded on branch: ${BRANCH_NAME}"
-          sh 'ARTIFACT_URL=$cat $GIT_COMMIT.log | grep "Uploaded" | grep ".tar.gz" | sed -e "s/.*\(http\)/\1/; s/\(\.tar\.gz\).*/\1/")'
-          sh 'echo "Respository URL: $ARTIFACT_URL"'
+          // trying to run complex shell commands within the pipeline script doesn't work - use a shell script as before
+          //sh "ARTIFACT_URL=\$(grep "Uploaded" ${GIT_COMMIT.log} | grep ".tar.gz" | sed -e "s/.*\(http\)/\1/; s/\(\.tar\.gz\).*/\1/")"
+          //sh "ARTIFACT_URL=\$(grep "Uploaded" ${GIT_COMMIT.log} | grep ".tar.gz" | awk '{print $5}')"
+          //sh 'echo "Respository URL: $ARTIFACT_URL"'
         }
         failure {
           echo "Automation failed on branch: ${BRANCH_NAME}"
