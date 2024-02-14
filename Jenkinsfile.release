@@ -2,6 +2,8 @@ pipeline {
   agent {label 'op-dev-xvcdocker-01'}
   environment {
     MAVEN_SETTINGS = credentials('maven-settings')
+    GIT_COMMITER_NAME = 'JenkinsCI'
+    GIT_COMMITER_EMAIL = 'net@visitscotland.net'
   }
   tools {
     maven 'Maven 3.5.4'
@@ -20,6 +22,11 @@ pipeline {
         echo "   Stage: ${BUILD_DISPLAY_NAME}"
 //        echo "-s maven: ${MAVEN_SETTINGS}"
 //        sh 'mvn clean install -DskipTests -s $MAVEN_SETTINGS'
+        sh '''
+          git config --global user.name "${GIT_COMMITER_NAME}"
+          git config --global user.email "${GIT_COMMITER_EMAIL}"
+          echo; echo "= GIT CONFIG AFTER CONFIG ="; git config -l; echo
+        '''
         sh 'mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false'
         sh 'mvn clean verify' // we don't need verify yet, since we don't have IT tests in place (we can use -package)
         sh 'mvn --batch-mode deploy -Pdist'
