@@ -2,7 +2,7 @@
 
 #Shelve current workspace
 branch=$(git branch --show-current)
-git stash > null
+git stash > /dev/null
 
 git checkout main
 git pull
@@ -13,4 +13,4 @@ mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies t
 
 #Recover the workspace to the state previous to run the command
 git checkout "$branch"
-git stash apply > null
+git stash apply > /dev/null
