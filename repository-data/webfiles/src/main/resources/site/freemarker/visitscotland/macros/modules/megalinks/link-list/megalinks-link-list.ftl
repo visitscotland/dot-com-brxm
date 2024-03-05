@@ -35,7 +35,7 @@
                                 transport-name="${label('transports', listItem.itineraryTransport)}"
                             </#if>
                             <#if listItem.itineraryDays??>
-                                <#if listItem.itineraryDays = 1>
+                                <#if listItem.itineraryDays == 1>
                                     days-label="${label('itinerary', 'day')}"
                                 <#else>
                                     days-label="${label('itinerary', 'days')}"
@@ -61,7 +61,7 @@
                     </vs-col>
                 
                     <#if listItem.youtubeId??>
-                        <@videoModal videoId=listItem.youtubeId videoTitle=listItem.label />
+                        <@videoModal video=listItem />
                     </#if>
                 </#list>
             </vs-row>
