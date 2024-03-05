@@ -93,7 +93,7 @@ if [ -z "$VS_BRC_API_REMOTE_TRANSFER_METHOD" ]; then VS_BRC_API_REMOTE_TRANSFER_
 if [ -z "$VS_BRC_API_STACK_NAME" ]; then VS_BRC_API_STACK_NAME=not-set; fi
 if [ -z "$VS_BRC_API_ENVIRONMENT_NAME" ]; then VS_BRC_API_ENVIRONMENT_NAME=development; fi
 # note: valid environment names are listed in defaultSettings function
-if [ -z "$VS_BRC_API_ENVIRONMENT_JOB_PATH" ]; then VS_BRC_API_ENVIRONMENT_JOB_PATH=1_development; fi
+if [ -z "$VS_BRC_API_ENVIRONMENT_JOB_PATH" ]; then VS_BRC_API_ENVIRONMENT_JOB_PATH=$VS_BRC_API_ENVIRONMENT_NAME; fi
 if [ -z "$VS_BRC_API_JOB_NAME" ]; then VS_BRC_API_JOB_NAME=upload-distribution; fi
 if [ -z "$VS_BRC_API_DEPLOY_AFTER_UPLOAD" ]; then VS_BRC_API_DEPLOY_AFTER_UPLOAD=true; fi
 if [ -z "$VS_BRC_API_ARTIFACT_OVERWRITE" ]; then VS_BRC_API_ARTIFACT_OVERWRITE=false; fi
@@ -236,7 +236,7 @@ defaultSettings() {
   else
     VS_BRC_API_ENVIRONMENT_JOB_PATH=not-set
   fi
-  VS_BRC_API_SERVER_JOB_URL="$VS_BRC_API_SERVER_SCHEME://$VS_BRC_API_SERVER_HOST/$VS_BRC_API_SERVER_CONTEXT/job/$VS_BRC_API_STACK_NAME/job/$VS_BRC_API_ENVIRONMENT_JOB_PATH/job/$VS_BRC_API_JOB_NAME"
+VS_BRC_API_SERVER_JOB_URL="$VS_BRC_API_SERVER_SCHEME://$VS_BRC_API_SERVER_HOST/$VS_BRC_API_SERVER_CONTEXT/job/$VS_BRC_API_STACK_NAME/job/$VS_BRC_API_ENVIRONMENT_JOB_PATH/job/$VS_BRC_API_JOB_NAME"
   # mail settings - build
   if [ -z "$VS_MAIL_NOTIFY_BUILD_TO" ]; then VS_MAIL_NOTIFY_BUILD_TO=$VS_COMMIT_AUTHOR; fi
   VS_MAIL_NOTIFY_BUILD_SENDER="$VS_PARENT_JOB_NAME"
@@ -685,7 +685,7 @@ uploadHippoArtifactBRC() {
       FAIL_REASON="VS_HIPPO_LATEST was not set, no artifact is available"
       echo " - $FAIL_REASON"
     fi
-  else
+      else
     echo ""
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] upload of distribution files to brCloud will not be run due to previous failures"
   fi
