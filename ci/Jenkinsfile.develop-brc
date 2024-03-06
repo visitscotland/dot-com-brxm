@@ -133,7 +133,7 @@ stage ('vs compile & package in docker') {
           label 'docker-02'
         }
       }
-      steps {
+      steps {   
         //sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
         sh 'export HOME=$WORKSPACE; mvn -s /usr/share/maven/ref/settings.xml -f pom.xml clean package'
       }
@@ -223,14 +223,24 @@ stage ('vs compile & package in docker') {
           // If requested, build feature environment for feature branches prior to PR
           environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'true'
           environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'TRUE'
-	}
+        }
       }
       steps{
         dir("${env.WORKSPACE}") {
-          unstash name: 'brxm-artifact'
-          unstash name: 'ssr-files'
+          script {
+            try {
+              unstash 'brxm-artifact'
+            } catch (e) {
+              print "Unstash brxm-artifact failed, ignoring"
+            }
+            try {
+              unstash 'ssr-files'
+            } catch (e) {
+              print "Unstash ssr-files failed, ignoring"
+            }
+          }
         }
-        script{
+      script{
           //sh 'sh ./infrastructure/scripts/docker.sh'
           sh 'sh ./infrastructure/scripts/infrastructure.sh --debug'
         }
