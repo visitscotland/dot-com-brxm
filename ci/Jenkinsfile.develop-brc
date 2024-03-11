@@ -74,22 +74,7 @@ pipeline {
     stage ('Pre-build') {
 
       steps {
-        // Set any defined build property overrides for this work-in-progress branch
-        script {
-
-          // Set any supported build property overrides defined in ci/BRANCH_NAME.buildprops
-          branchBuildScripts = load("./ci/branchBuildScripts.groovy")
-
-          // Set the buildprop environment variables either to their default values or any specified overrides
-          Map buildProps = branchBuildScripts.loadPropOverrides("${env.WORKSPACE}" + "/ci/", branchBuildScripts.getBranchKey())
-          Map buildPropParsers = branchBuildScripts.getPropParsers()
-          buildPropParsers.each {
-            k, v ->
-              String parsedValue = ( buildProps?.containsKey(k) ? v.parser(buildProps[k]) : v.default )
-              env."${k}" = parsedValue
-          }
-        }
-
+        // We are not running the buildprops importer in this pipeline.
         sh 'printenv > printenv.pre-build'
       }
     }
