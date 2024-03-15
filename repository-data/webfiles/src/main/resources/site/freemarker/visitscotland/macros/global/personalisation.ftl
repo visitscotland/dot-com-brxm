@@ -1,7 +1,7 @@
 <#macro personalisation>
     <#if (!editMode) >
     <@hst.headContribution category="htmlBodyEndScripts">
-        <!-- Marketo RTP tag --> 
+        <!-- Marketo RTP tag
         <script type='text/javascript'>
         (function(c,h,a,f,i,l,e){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         c[a].a=i;c[a].l=l;c[a].e=e;var g=h.createElement("script");g.async=true;g.type="text/javascript";
@@ -11,7 +11,7 @@
         rtp('send','view');
         rtp('get', 'campaign',true);
         </script>
-        <!-- End of RTP tag -->
+        End of RTP tag -->
     </@hst.headContribution>
     <@hst.headContribution category="htmlBodyEndScripts">
         <script type="text/javascript">
