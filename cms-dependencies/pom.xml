@@ -86,12 +86,12 @@
     <dependency>
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
-      <version>1.12.5</version>
+      <version>${io-micrometer.version}</version>
     </dependency>
     <dependency>
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-jmx</artifactId>
-      <version>1.5.5</version>
+      <version>${io-micrometer.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.slf4j</groupId>
