@@ -74,22 +74,7 @@ pipeline {
     stage ('Pre-build') {
 
       steps {
-        // Set any defined build property overrides for this work-in-progress branch
-        script {
-
-          // Set any supported build property overrides defined in ci/BRANCH_NAME.buildprops
-          branchBuildScripts = load("./ci/branchBuildScripts.groovy")
-
-          // Set the buildprop environment variables either to their default values or any specified overrides
-          Map buildProps = branchBuildScripts.loadPropOverrides("${env.WORKSPACE}" + "/ci/", branchBuildScripts.getBranchKey())
-          Map buildPropParsers = branchBuildScripts.getPropParsers()
-          buildPropParsers.each {
-            k, v ->
-              String parsedValue = ( buildProps?.containsKey(k) ? v.parser(buildProps[k]) : v.default )
-              env."${k}" = parsedValue
-          }
-        }
-
+        // We are not running the buildprops importer in this pipeline.
         sh 'printenv > printenv.pre-build'
       }
     }
@@ -133,7 +118,7 @@ stage ('vs compile & package in docker') {
           label 'docker-02'
         }
       }
-      steps {
+      steps {   
         //sh 'sh ./infrastructure/scripts/infrastructure.sh setvars'
         sh 'export HOME=$WORKSPACE; mvn -s /usr/share/maven/ref/settings.xml -f pom.xml clean package'
       }
@@ -223,14 +208,24 @@ stage ('vs compile & package in docker') {
           // If requested, build feature environment for feature branches prior to PR
           environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'true'
           environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'TRUE'
-	}
+        }
       }
       steps{
         dir("${env.WORKSPACE}") {
-          unstash name: 'brxm-artifact'
-          unstash name: 'ssr-files'
+          script {
+            try {
+              unstash 'brxm-artifact'
+            } catch (e) {
+              print "Unstash brxm-artifact failed, ignoring"
+            }
+            try {
+              unstash 'ssr-files'
+            } catch (e) {
+              print "Unstash ssr-files failed, ignoring"
+            }
+          }
         }
-        script{
+      script{
           //sh 'sh ./infrastructure/scripts/docker.sh'
           sh 'sh ./infrastructure/scripts/infrastructure.sh --debug'
         }
@@ -263,9 +258,11 @@ stage ('vs compile & package in docker') {
             branch 'develop' 
           }
           steps {
-            withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
-              sh "PATH=/usr/bin:$PATH; mvn sonar:sonar -Dsonar.host.url=http://172.28.87.209:9000 -s $MAVEN_SETTINGS"
-              // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
+                  sh "PATH=/usr/bin:$PATH; mvn sonar:sonar -Dsonar.host.url=http://172.28.87.209:9000 -s $MAVEN_SETTINGS"
+                  // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
+                }
             }
           }
         }
@@ -278,14 +275,16 @@ stage ('vs compile & package in docker') {
             scannerHome = tool 'SonarQube_4.0'
           }
           steps {
-            withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
-              sh '''
-                PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
-                -Dsonar.sources=./ui-integration \
-                -Dsonar.projectKey=VS2019-FE \
-                -Dsonar.host.url=http://172.28.87.209:9000 \
-                -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
-              '''
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
+                  sh '''
+                    PATH=/usr/bin:$PATH; ${scannerHome}/bin/sonar-scanner \
+                    -Dsonar.sources=./ui-integration \
+                    -Dsonar.projectKey=VS2019-FE \
+                    -Dsonar.host.url=http://172.28.87.209:9000 \
+                    -Dsonar.login=9fa63cfd51d94fb8e437b536523c15a9b45ee2c1
+                '''
+                }
               // setting PATH=/usr/bin:$PATH; above allows NodeJS 10.16.3 to be the default and prevents and error at the CSS scan
             }
           }
