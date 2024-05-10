@@ -166,6 +166,8 @@ mkdir $CATALINA_BASE/bin
 if [ -d $CATALINA_BASE/bin ]; then echo " - success $CATALINA_BASE/bin"; fi
 mkdir $CATALINA_BASE/logs
 if [ -d $CATALINA_BASE/logs ]; then echo " - success $CATALINA_BASE/logs"; fi
+if [ -d $CATALINA_BASE/logs ]&&[ ! -h $CATALINA_BASE/logs/console.out ]; then ln -s /tmp/console.out $CATALINA_BASE/logs/; fi
+if [ -h $CATALINA_BASE/logs/console.out ]; then echo " - success $CATALINA_BASE/logs/console.out"; fi
 
 # copy necessary files from CATALINA_HOME to CATALINA_BASE
 #  if these are not readable - because Tomcat was installed by root - we may need to use CATALINA_REF
