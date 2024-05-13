@@ -772,9 +772,11 @@ containerCreateAndStart() {
 }
 
 containerUpdates() {
-  # check files for updated versions, if the checksum matches we want to update
-  TEST_FILES=("/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-test")
-  TEST_SUMS=("5c92fa2dfbc167d0163c1dc1d8690bfa" "a15eed06d6840e95cc7d68c5223b79ae" "165ae4f494a092da25a68d70070d85fb" "" "")
+  # check files for updated versions, if the checksum matches we've found a version of the file earlier than this script requires and want to update
+  #  - this was originally seen as better than a pure versioning system as it allows a locally modified version to be used for testing without fear of overwrite
+  #  - to-do: gp-20240513 replace the MD5 check with a versioning system, always overwrite the scripts with SCM versions, remove scripts from the image
+  TEST_FILES=("/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "" "/usr/local/bin/vs-test")
+  TEST_SUMS=("5c92fa2dfbc167d0163c1dc1d8690bfa" "a15eed06d6840e95cc7d68c5223b79ae" "165ae4f494a092da25a68d70070d85fb" "69f81c5752890bcaaf237c7a92a39e5d" "" "")
   for i in ${!TEST_FILES[@]}; do
     THIS_FILE="${TEST_FILES[$i]}"
     THIS_SUM="${TEST_SUMS[$i]}"
