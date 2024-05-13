@@ -1,1 +1,0 @@
-(window.webpackJsonp_name_=window.webpackJsonp_name_||[]).push([[72],{ZfO2:function(a,n,t){"use strict";t.d(n,"a",(function(){return o}));Math.min;var o=Math.max;Math.abs,Math.ceil,Math.floor,Math.pow,Math.round}}]);
