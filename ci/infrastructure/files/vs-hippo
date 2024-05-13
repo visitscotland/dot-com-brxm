@@ -46,7 +46,7 @@ TOMCAT_PATCH_VERSION=21
 TOMCAT_PORT_NUMBER=8080
 TOMCAT_DIR_PREFIX=tomcat_
 #  == Java Variables ==
-JAVA_MAJOR_VERSION=8
+JAVA_MAJOR_VERSION=11
 #  == VS Variables ==
 if [ -z $VS_BRXM_PERSISTENCE_METHOD]; then VS_BRXM_PERSISTENCE_METHOD=h2; fi
 if [ -z $VS_HIPPO_REPOSITORY_CLEAN ]; then VS_HIPPO_REPOSITORY_CLEAN=FALSE; fi
@@ -202,9 +202,9 @@ else
 fi
 
 if [ "$VS_BRXM_PERSISTENCE_METHOD" == "h2" ]||[ "$VS_BRXM_PERSISTENCE_METHOD" == "nodb" ]; then
-  echo " - $1 stated, applying basic context.xml"
+  echo " - called with VS_BRXM_PERSISTENCE_METHOD=$VS_BRXM_PERSISTENCE_METHOD, applying basic context.xml"
   cp -f $CATALINA_BASE/conf/context.xml.nodb $CATALINA_BASE/conf/context.xml
-  echo " - $1 stated, applying basic setenv.sh"
+  echo " - called with VS_BRXM_PERSISTENCE_METHOD=$VS_BRXM_PERSISTENCE_METHOD, applying basic setenv.sh"
   cp -f $CATALINA_BASE/bin/setenv.sh.nodb $CATALINA_BASE/bin/setenv.sh
 fi
 
