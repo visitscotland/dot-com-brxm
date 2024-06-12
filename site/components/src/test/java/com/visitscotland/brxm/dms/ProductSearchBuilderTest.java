@@ -387,16 +387,15 @@ class ProductSearchBuilderTest {
                 .build();
 
         validateUrl(url);
-        assertTrue(url.contains("areaproxdist=6.5"),
+        assertFalse(url.contains("areaproxdist=6.5"),
                 String.format("The Generated URL is expected to have the parameter areaproxdist (%s) ", url)
                 );
-        assertTrue(url.contains("locprox=1"));
+        assertTrue(url.contains("locprox=0"));
     }
 
     @Test
     @DisplayName("Proximity - Empty value is replaced with default value")
     void proximity_empty() {
-        when(properties.getDmsMapDefaultDistance()).thenReturn(10.1);
         mockLocationDistrictLoader("Leith");
         String url = createBuilder().productTypes(DEFAULT_TYPE)
                 .location("Leith")
@@ -404,16 +403,12 @@ class ProductSearchBuilderTest {
                 .build();
 
         validateUrl(url);
-        assertTrue(url.contains("areaproxdist=10.1"),
-                String.format("The Generated URL is expected to have the parameter areaproxdist and locprox (%s) ", url)
-                );
-        assertTrue(url.contains("locprox=1"));
+        assertTrue(url.contains("locprox=0"));
     }
 
     @Test
     @DisplayName("Proximity - Zero value is treated as empty value (CMS Limitation overcome)")
     void proximity_zero() {
-        when(properties.getDmsMapDefaultDistance()).thenReturn(10.1);
         mockLocationDistrictLoader("Leith");
         String url = createBuilder().productTypes(DEFAULT_TYPE)
                 .location("Leith")
@@ -421,11 +416,7 @@ class ProductSearchBuilderTest {
                 .build();
 
         validateUrl(url);
-        assertTrue(
-                url.contains("areaproxdist=10.1"),
-                String.format("The Generated URL is expected to have the parameter areaproxdist and locprox (%s) ", url)
-                );
-        assertTrue(url.contains("locprox=1"));
+        assertTrue(url.contains("locprox=0"));
     }
 
     @Test
@@ -547,8 +538,7 @@ class ProductSearchBuilderTest {
 
         assertTrue(url.contains("prodtypes=even"), "The parameter hasn't been populated");
         assertTrue(url.contains("loc=Skye") && url.contains("locplace=555"), "The parameters for location haven't been populated");
-        assertTrue(url.contains("areaproxdist=4"), "The parameter proximity hasn't been populated");
-        assertTrue(url.contains("locprox=1"), "The parameter proximity hasn't been populated");
+        assertTrue(url.contains("locprox=0"), "The parameter proximity hasn't been populated");
         assertFalse(url.contains("cat="), "The parameter for category should not contain any value");
         assertFalse(url.contains("fac_id="), "The parameter for facilities should not contain any value");
     }
