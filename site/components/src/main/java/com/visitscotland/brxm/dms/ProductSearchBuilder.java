@@ -343,7 +343,7 @@ public class ProductSearchBuilder {
             compose = addParams(compose, AVAILABILITY, "off");
         }
 
-        //Variable set to 1 only for District or Coordinates, other types can't search by distance therefore this value should remain 0
+        //Variable set to 1 only for Coordinates, other types can't search by distance therefore this value should remain 0
         String locProx = "0";
 
         //The list of parameters is different if a location is provided from latitude and longitude
@@ -351,9 +351,6 @@ public class ProductSearchBuilder {
             LocationObject loc = locationLoader.getLocation(location, locale);
 
             compose = addParams(compose, "POLYGON".equals(loc.getType()) ? LOCATION_POLYGON_PARAM : LOCATION_PLACE_PARAM, loc.getKey());
-            if ("DISTRICT".equals(loc.getType())){
-                locProx = "1";
-            }
 
             try {
                 compose = addParams(compose, LOCATION_NAME_PARAM, URLEncoder.encode(loc.getName(), "UTF-8"));
