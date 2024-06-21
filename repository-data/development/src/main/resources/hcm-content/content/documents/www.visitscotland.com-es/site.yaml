@@ -21,14 +21,14 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-06-21T09:44:03.177+01:00
+      hippostdpubwf:lastModificationDate: 2024-06-21T10:05:44.846+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
       hippotranslation:locale: es
       visitscotland:breadcrumb: ''
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
-      visitscotland:pswPosition: Default
+      visitscotland:pswPosition: Top
       visitscotland:seoDescription: Get all the information you need for your trip
         to Scotland! Book accommodation, discover new places to visit, find amazing
         things to do and more!
@@ -64,14 +64,14 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-06-21T09:44:00.374+01:00
+      hippostdpubwf:lastModificationDate: 2024-06-21T10:05:42.125+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
       hippotranslation:locale: es
       visitscotland:breadcrumb: ''
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
-      visitscotland:pswPosition: Default
+      visitscotland:pswPosition: Top
       visitscotland:seoDescription: Get all the information you need for your trip
         to Scotland! Book accommodation, discover new places to visit, find amazing
         things to do and more!
@@ -107,15 +107,15 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2024-06-21T09:44:03.177+01:00
+      hippostdpubwf:lastModificationDate: 2024-06-21T10:05:44.846+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2024-06-21T09:44:05.082+01:00
+      hippostdpubwf:publicationDate: 2024-06-21T10:05:47.314+01:00
       hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
       hippotranslation:locale: es
       visitscotland:breadcrumb: ''
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
-      visitscotland:pswPosition: Default
+      visitscotland:pswPosition: Top
       visitscotland:seoDescription: Get all the information you need for your trip
         to Scotland! Book accommodation, discover new places to visit, find amazing
         things to do and more!
