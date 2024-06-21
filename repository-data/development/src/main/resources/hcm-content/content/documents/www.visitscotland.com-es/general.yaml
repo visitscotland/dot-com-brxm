@@ -25,7 +25,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 23878497-cd38-4094-bb45-e1ca444bde7c
         hippo:name: 404notfound (ES)
-        hippo:versionHistory: 7fae3192-ac3e-4ab6-9c8b-09b917b4330e
+        hippo:versionHistory: ea009594-13c4-4c00-89ff-bc36b990875a
         /content[1]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:versionable']
@@ -35,12 +35,13 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-12-14T12:06:04.695Z
-          hippostdpubwf:lastModificationDate: 2022-03-30T10:55:48.874+01:00
+          hippostdpubwf:lastModificationDate: 2024-06-21T09:44:30.423+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c7558344-b1af-47eb-9d4d-62e58c97f961
           hippotranslation:locale: es
           visitscotland:breadcrumb: 404 Error
           visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
           visitscotland:seoDescription: Page not found
           visitscotland:seoNoIndex: true
           visitscotland:seoTitle: Page not found
@@ -69,12 +70,13 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-12-14T12:06:04.695Z
-          hippostdpubwf:lastModificationDate: 2022-03-30T10:55:44.959+01:00
+          hippostdpubwf:lastModificationDate: 2024-06-21T09:44:27.232+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c7558344-b1af-47eb-9d4d-62e58c97f961
           hippotranslation:locale: es
           visitscotland:breadcrumb: 404 Error
           visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
           visitscotland:seoDescription: Page not found
           visitscotland:seoNoIndex: true
           visitscotland:seoTitle: Page not found
@@ -103,13 +105,14 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-12-14T12:06:04.695Z
-          hippostdpubwf:lastModificationDate: 2022-03-30T10:55:48.874+01:00
+          hippostdpubwf:lastModificationDate: 2024-06-21T09:44:30.423+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-03-30T10:55:50.583+01:00
+          hippostdpubwf:publicationDate: 2024-06-21T09:44:33.402+01:00
           hippotranslation:id: c7558344-b1af-47eb-9d4d-62e58c97f961
           hippotranslation:locale: es
           visitscotland:breadcrumb: 404 Error
           visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
           visitscotland:seoDescription: Page not found
           visitscotland:seoNoIndex: true
           visitscotland:seoTitle: Page not found
@@ -142,7 +145,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 8a00eaa6-5711-4d7d-9a8d-3fe195a2a0bd
         hippo:name: 500error (ES)
-        hippo:versionHistory: 918fe6b7-412f-46fa-8dc9-9fed5dce01a6
+        hippo:versionHistory: 7f02fc7a-7370-4212-8544-c9b23d9beca4
         /content[1]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:versionable']
@@ -152,12 +155,13 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-12-14T12:06:12.962Z
-          hippostdpubwf:lastModificationDate: 2022-03-30T11:08:12.531+01:00
+          hippostdpubwf:lastModificationDate: 2024-06-21T09:44:40.692+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: e792278f-42ea-4506-a021-cd6e4e944b4a
           hippotranslation:locale: es
           visitscotland:breadcrumb: 500 Error
           visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
           visitscotland:seoDescription: '500'
           visitscotland:seoNoIndex: true
           visitscotland:seoTitle: '500'
@@ -184,12 +188,13 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-12-14T12:06:12.962Z
-          hippostdpubwf:lastModificationDate: 2022-03-30T11:08:02.557+01:00
+          hippostdpubwf:lastModificationDate: 2024-06-21T09:44:37.137+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: e792278f-42ea-4506-a021-cd6e4e944b4a
           hippotranslation:locale: es
           visitscotland:breadcrumb: 500 Error
           visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
           visitscotland:seoDescription: '500'
           visitscotland:seoNoIndex: true
           visitscotland:seoTitle: '500'
@@ -216,13 +221,14 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-12-14T12:06:12.962Z
-          hippostdpubwf:lastModificationDate: 2022-03-30T11:08:12.531+01:00
+          hippostdpubwf:lastModificationDate: 2024-06-21T09:44:40.692+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-03-30T11:08:18.098+01:00
+          hippostdpubwf:publicationDate: 2024-06-21T09:44:42.257+01:00
           hippotranslation:id: e792278f-42ea-4506-a021-cd6e4e944b4a
           hippotranslation:locale: es
           visitscotland:breadcrumb: 500 Error
           visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
           visitscotland:seoDescription: '500'
           visitscotland:seoNoIndex: true
           visitscotland:seoTitle: '500'

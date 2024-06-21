@@ -1,4 +1,5 @@
 /hst:hst/hst:configurations/business-events-freemarker/hst:workspace/hst:sitemenus/main/why-scotland:
-  .meta:order-before: key-sectors
+  .meta:order-before: resources-support
   jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: sandbox/modules/long-copy
   hst:repobased: false
