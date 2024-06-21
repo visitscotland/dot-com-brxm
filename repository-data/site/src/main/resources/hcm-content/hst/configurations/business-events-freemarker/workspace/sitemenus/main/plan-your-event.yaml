@@ -1,0 +1,4 @@
+/hst:hst/hst:configurations/business-events-freemarker/hst:workspace/hst:sitemenus/main/plan-your-event:
+  jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: sandbox/modules/megalinks
+  hst:repobased: false

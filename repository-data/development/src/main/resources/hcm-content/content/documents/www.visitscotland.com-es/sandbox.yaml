@@ -17,7 +17,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 5e78d35a-8fcd-4b10-b4b9-958ca6943e79
       hippo:name: Localized URLs Demo
-      hippo:versionHistory: 98e86fb8-4ecf-430d-ad2a-b4d65349663e
+      hippo:versionHistory: 7abfa7ed-4e89-4ec7-a4ef-b6b41d79c121
       /content[1]:
         jcr:primaryType: visitscotland:General
         jcr:mixinTypes: ['mix:referenceable']
@@ -27,12 +27,13 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-08-25T15:57:37.526+01:00
-        hippostdpubwf:lastModificationDate: 2021-08-25T16:16:44.105+01:00
+        hippostdpubwf:lastModificationDate: 2024-06-21T09:45:34.847+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 69288741-1c97-47a7-bf0b-f30e8b3858ee
         hippotranslation:locale: es
         visitscotland:breadcrumb: ''
         visitscotland:hideNewsletter: false
+        visitscotland:pswPosition: Default
         visitscotland:seoDescription: Hi! Welcome to the VisitScotland website, how
           can we help you?
         visitscotland:seoNoIndex: false
@@ -65,12 +66,13 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-08-25T15:57:37.526+01:00
-        hippostdpubwf:lastModificationDate: 2021-08-25T16:16:44.026+01:00
+        hippostdpubwf:lastModificationDate: 2024-06-21T09:45:37.809+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 69288741-1c97-47a7-bf0b-f30e8b3858ee
         hippotranslation:locale: es
         visitscotland:breadcrumb: ''
         visitscotland:hideNewsletter: false
+        visitscotland:pswPosition: Default
         visitscotland:seoDescription: Hi! Welcome to the VisitScotland website, how
           can we help you?
         visitscotland:seoNoIndex: false
@@ -103,13 +105,14 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-08-25T15:57:37.526+01:00
-        hippostdpubwf:lastModificationDate: 2021-08-25T16:16:44.026+01:00
+        hippostdpubwf:lastModificationDate: 2024-06-21T09:45:37.809+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2021-08-25T16:16:48.535+01:00
+        hippostdpubwf:publicationDate: 2024-06-21T09:45:40.561+01:00
         hippotranslation:id: 69288741-1c97-47a7-bf0b-f30e8b3858ee
         hippotranslation:locale: es
         visitscotland:breadcrumb: ''
         visitscotland:hideNewsletter: false
+        visitscotland:pswPosition: Default
         visitscotland:seoDescription: Hi! Welcome to the VisitScotland website, how
           can we help you?
         visitscotland:seoNoIndex: false
@@ -1077,7 +1080,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: e6b2c183-b099-45e3-9697-db5fabbf2762
       hippo:name: Article page (ES)
-      hippo:versionHistory: 6f4669aa-a415-4658-bb3f-379ba818485f
+      hippo:versionHistory: 0b5efc71-a1bf-4067-ad13-4c82fd28c5d3
       /content[1]:
         jcr:primaryType: visitscotland:General
         jcr:mixinTypes: ['mix:versionable']
@@ -1087,7 +1090,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T14:29:23.437+01:00
-        hippostdpubwf:lastModificationDate: 2022-06-16T14:29:23.395+01:00
+        hippostdpubwf:lastModificationDate: 2024-06-21T09:46:08.645+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 2652febc-9606-4736-ab2c-03d6aa3852a3
         hippotranslation:locale: es
@@ -1095,6 +1098,7 @@
         visitscotland:diff: ''
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
+        visitscotland:pswPosition: Default
         visitscotland:seoDescription: description
         visitscotland:seoNoIndex: false
         visitscotland:seoTitle: title
@@ -1126,15 +1130,56 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T14:29:23.437+01:00
-        hippostdpubwf:lastModificationDate: 2022-06-16T14:29:23.395+01:00
+        hippostdpubwf:lastModificationDate: 2024-06-21T09:46:08.645+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-06-16T14:32:43.541+01:00
+        hippostdpubwf:publicationDate: 2024-06-21T09:46:10.739+01:00
         hippotranslation:id: 2652febc-9606-4736-ab2c-03d6aa3852a3
         hippotranslation:locale: es
         visitscotland:breadcrumb: ''
         visitscotland:diff: ''
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
+        visitscotland:pswPosition: Default
+        visitscotland:seoDescription: description
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: title
+        visitscotland:teaser: Experiencing Ben Nevis Scotland's landscape is scattered
+          with Munros and mist-shrouded hills...
+        visitscotland:theme: Simple
+        visitscotland:title: Discover The mountain with its head in the clouds
+        visitscotland:translation: ''
+        visitscotland:translationFlag: true
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>In light of COVID-19, everyone's health and safety
+            is the most important thing. Please follow the advice of the&nbsp;<a href="https://www.visitscotland.com/about/practical-information/covid-19-recovery-phases/"
+            title="Covid 19 Recovery Phases">current phase from the Scottish Government</a>,
+            and always stay 2 metres away from those outwith your own household both
+            indoors and outdoors.*</p>
+      /content[3]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 67f4d521-1909-4eaf-a04b-89eee838f000
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-06-16T14:29:23.437+01:00
+        hippostdpubwf:lastModificationDate: 2024-06-21T09:46:06.127+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 2652febc-9606-4736-ab2c-03d6aa3852a3
+        hippotranslation:locale: es
+        visitscotland:breadcrumb: ''
+        visitscotland:diff: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Default
         visitscotland:seoDescription: description
         visitscotland:seoNoIndex: false
         visitscotland:seoTitle: title
@@ -1387,7 +1432,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: ba24293e-f5b1-4cf9-9e76-8631270b2b78
         hippo:name: Trip ideas (ES)
-        hippo:versionHistory: df03ce8e-8b6c-4362-8ce3-6a16b7f9bfca
+        hippo:versionHistory: bb4db2b2-2f0a-4a1d-a3c7-ce35e8c88184
         /content[1]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:versionable']
@@ -1397,7 +1442,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-06-16T14:32:11.851+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T14:32:11.812+01:00
+          hippostdpubwf:lastModificationDate: 2024-06-21T09:46:21.187+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 5a2e97d3-a839-466c-b97c-b8b720681320
           hippotranslation:locale: es
@@ -1405,6 +1450,7 @@
           visitscotland:diff: ''
           visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
+          visitscotland:pswPosition: Default
           visitscotland:seoDescription: Trip ideas desc
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Trip ideas
@@ -1431,15 +1477,51 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-06-16T14:32:11.851+01:00
-          hippostdpubwf:lastModificationDate: 2022-06-16T14:32:11.812+01:00
+          hippostdpubwf:lastModificationDate: 2024-06-21T09:46:21.187+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-06-16T14:32:43.738+01:00
+          hippostdpubwf:publicationDate: 2024-06-21T09:46:23.069+01:00
           hippotranslation:id: 5a2e97d3-a839-466c-b97c-b8b720681320
           hippotranslation:locale: es
           visitscotland:breadcrumb: ''
           visitscotland:diff: ''
           visitscotland:hideNewsletter: false
           visitscotland:newsletter: true
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Trip ideas desc
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Trip ideas
+          visitscotland:teaser: Enjoy with our selections of trip ideas
+          visitscotland:theme: Standard
+          visitscotland:title: Discover some of our trip ideas
+          visitscotland:translation: ''
+          visitscotland:translationFlag: true
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 38e2d695-f644-4c92-a62a-a8a7247ba63b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>You can find all the listicles created by VS developers</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 95f2a500-d32d-4675-80ee-e438e8c1f182
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2022-06-16T14:32:11.851+01:00
+          hippostdpubwf:lastModificationDate: 2024-06-21T09:46:18.510+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 5a2e97d3-a839-466c-b97c-b8b720681320
+          hippotranslation:locale: es
+          visitscotland:breadcrumb: ''
+          visitscotland:diff: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:newsletter: true
+          visitscotland:pswPosition: Default
           visitscotland:seoDescription: Trip ideas desc
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Trip ideas
@@ -2294,7 +2376,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 904afb08-5e56-4213-8390-4dac0a4dfc6e
       hippo:name: Destinatios and map (ES)
-      hippo:versionHistory: 410a26af-0a8a-4cab-8cd0-1e040bb6cf79
+      hippo:versionHistory: 4bfbf43e-9fe3-4408-94f1-c0663399f092
       /content[1]:
         jcr:primaryType: visitscotland:General
         jcr:mixinTypes: ['mix:versionable']
@@ -2304,7 +2386,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T15:11:30.838+01:00
-        hippostdpubwf:lastModificationDate: 2022-06-16T15:11:30.386+01:00
+        hippostdpubwf:lastModificationDate: 2024-06-21T09:46:56.286+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 6b2f6fc5-802f-4be9-8506-eceeb17049cf
         hippotranslation:locale: es
@@ -2312,6 +2394,7 @@
         visitscotland:diff: ''
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
+        visitscotland:pswPosition: Default
         visitscotland:seoDescription: destinations and map
         visitscotland:seoNoIndex: false
         visitscotland:seoTitle: destinations and map
@@ -2340,15 +2423,53 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2022-06-16T15:11:30.838+01:00
-        hippostdpubwf:lastModificationDate: 2022-06-16T15:11:30.386+01:00
+        hippostdpubwf:lastModificationDate: 2024-06-21T09:46:56.286+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-06-16T15:26:03.848+01:00
+        hippostdpubwf:publicationDate: 2024-06-21T09:46:57.805+01:00
         hippotranslation:id: 6b2f6fc5-802f-4be9-8506-eceeb17049cf
         hippotranslation:locale: es
         visitscotland:breadcrumb: ''
         visitscotland:diff: ''
         visitscotland:hideNewsletter: false
         visitscotland:newsletter: true
+        visitscotland:pswPosition: Default
+        visitscotland:seoDescription: destinations and map
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: destinations and map
+        visitscotland:teaser: Discover Scotland's regions, cities & some of the country's
+          most famous destinations, plus travel times from London, Ireland, major
+          UK cities
+        visitscotland:theme: Standard
+        visitscotland:title: Discover Scotland's regions, cities & destinations
+        visitscotland:translation: ''
+        visitscotland:translationFlag: true
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: d607431a-46f7-4ed1-a288-de6458bbdc97
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>All the destinations are here</p>
+      /content[3]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 69bb770d-1f9a-42af-af6f-d08ebc65beb5
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-06-16T15:11:30.838+01:00
+        hippostdpubwf:lastModificationDate: 2024-06-21T09:46:53.464+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 6b2f6fc5-802f-4be9-8506-eceeb17049cf
+        hippotranslation:locale: es
+        visitscotland:breadcrumb: ''
+        visitscotland:diff: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Default
         visitscotland:seoDescription: destinations and map
         visitscotland:seoNoIndex: false
         visitscotland:seoTitle: destinations and map
