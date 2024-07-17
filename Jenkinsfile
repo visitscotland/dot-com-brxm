@@ -157,7 +157,7 @@ stage ('vs compile & package in docker') {
         }
       }
       steps {
-        sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
+        sh './ci/infrastructure/scripts/infrastructure.sh setvars'
         sh '''
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
