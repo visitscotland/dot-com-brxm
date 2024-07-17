@@ -143,7 +143,7 @@ checkVariables() {
   if [ ! "$DEBUG" == "TRUE" ]; then clear; fi
   echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] ==== Checking variables to ensure environment is set up ===="
   if [ ! "$LOGNAME" = "jenkins" ] && [[ ! "$VS_AGENT_IS_DOCKER" =~ "TRUE|true" ]]; then
-    echo"`eval $VS_LOG_DATESTAMP` ERROR [$VS_SCRIPTNAME] $VS_SCRIPTNAME was not called by the user Jenkins, please switch user"
+    echo "`eval $VS_LOG_DATESTAMP` ERROR [$VS_SCRIPTNAME] $VS_SCRIPTNAME was not called by the user Jenkins, please switch user"
     exit 3
   elif [ "$LOGNAME" = "jenkins" ] && [ ! -z "$JENKINS_SERVER_COOKIE" ]; then
     echo "`eval $VS_LOG_DATESTAMP` INFO  [$VS_SCRIPTNAME] $VS_SCRIPTNAME appears to be running from a Jenkins job"
