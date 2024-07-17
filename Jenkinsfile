@@ -3,36 +3,59 @@ def MAIL_TO = "webops@visitscotland.net"
 def thisAgent
 def VS_CONTAINER_BASE_PORT_OVERRIDE
 cron_string = ""
+// set any environment-specific environment variables here using the format: env.MY_VAR = "conditional_value" }
+// please see ci/README_PIPELINE_VARIABLES.md or consult Web Operations for details on environment variables and their purposes
+echo "== Setting conditional environment variables"
 if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop" || JOB_NAME == "develop.visitscotland.com-mb/develop")) {
-  //thisAgent = "op-dev-xvcdocker-01"
+  echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
   thisAgent = "xvcdocker"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8099"
   env.VS_RELEASE_SNAPSHOT = "FALSE"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-nightly.visitscotland.com/develop" || JOB_NAME == "develop-nightly.visitscotland.com-mb/develop")) {
-  //thisAgent = "op-dev-xvcdocker-01"
+  echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
   thisAgent = "xvcdocker"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8098"
   env.VS_CONTAINER_PRESERVE = "FALSE"
   cron_string = "@midnight"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-stable.visitscotland.com/develop" || JOB_NAME == "develop-stable.visitscotland.com-mb/develop")) {
-  //thisAgent = "op-dev-xvcdocker-01"
+  echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
   thisAgent = "xvcdocker"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8100"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "feature.visitscotland.com/develop" || JOB_NAME == "feature.visitscotland.com-mb/develop")) {
-  //thisAgent = "op-dev-xvcdocker-01"
+  echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
   thisAgent = "xvcdocker"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
-} else if (BRANCH_NAME == "feature/VS-1865-feature-environments-enhancements" && (JOB_NAME == "feature.visitscotland.com-mb/feature%2FVS-1865-feature-environments-enhancements")) {
-  //thisAgent = "op-dev-xvcdocker-01"
+} else if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements" && (JOB_NAME ==~ "feature.visitscotland.(com|org)(-mb)?/ops%2Ffeature-environment(s)-enhancements")) {
+  echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
   thisAgent = "xvcdocker"
-  //env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
+  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
+  env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
+  env.VS_CONTAINER_PRESERVE = "FALSE"
   //cron_string = "*/2 * * * *"
 } else {
   env.VS_RELEASE_SNAPSHOT = "FALSE"
-  // thisAgent should always be set to op-dev-xvcdocker-01 unless you have been informed otherwise!
-  //thisAgent = "op-dev-xvcdocker-01"
+  // thisAgent should always be set to "xvcdocker" unless you have been informed otherwise!
   thisAgent = "xvcdocker"
 }
+echo "==/Setting conditional environment variables"
+
+// set or override any default environment variables here using the format: if (!env.MY_VAR) { env.MY_VAR = "default_value" }
+// please see ci/README_PIPELINE_VARIABLES.md or consult Web Operations for details on environment variables and their purposes
+// NOTE: these values will only be set if currently null, they may have been set by the "conditional environment variables" section above
+echo "== Setting default environment variables"
+if (!env.VS_SSR_PROXY_ON) { env.VS_SSR_PROXY_ON = "TRUE" }
+if (!env.VS_CONTAINER_PRESERVE) { env.VS_CONTAINER_PRESERVE = "TRUE" }
+if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
+if (!env.VS_SKIP_BUILD_FOR_BRANCH) { env.VS_SKIP_BUILD_FOR_BRANCH = "feature/VS-1865-feature-environments-enhancements-log4j" }
+if (!env.VS_BRC_STACK_URI) { env.VS_BRC_STACK_URI = "visitscotland" }
+if (!env.VS_BRC_ENV) { env.VS_BRC_ENV = "demo" }
+if (!env.VS_BRC_STACK_URL) { env.VS_BRC_STACK_URL = "https://api.${VS_BRC_STACK_URI}.bloomreach.cloud" }
+if (!env.VS_BRC_STACK_API_VERSION) { env.VS_BRC_STACK_API_VERSION = "v3" }
+if (!env.VS_DOCKER_IMAGE_NAME) { env.VS_DOCKER_IMAGE_NAME = "vs/vs-brxm15:node18" }
+if (!env.VS_DOCKER_BUILDER_IMAGE_NAME) { env.VS_DOCKER_BUILDER_IMAGE_NAME = "vs/vs-brxm15-builder:node18" }
+if (!env.VS_USE_DOCKER_BUILDER) { env.VS_USE_DOCKER_BUILDER = "TRUE" }
+if (!env.VS_RUN_BRC_STAGES) { VS_RUN_BRC_STAGES = "FALSE" }
+echo "==/Setting default environment variables"
 
 import groovy.json.JsonSlurper
 
@@ -50,31 +73,6 @@ pipeline {
   triggers { cron( cron_string ) }
   environment {
     MAVEN_SETTINGS = credentials('maven-settings')
-    // from 20200804 VS_SSR_PROXY_ON will only affect whether the SSR app is packaged and sent to the container, using or bypassing will be set via query string
-    VS_SSR_PROXY_ON = 'TRUE'
-    // VS_CONTAINER_PRESERVE is set to TRUE in the infrastructure build script, if this is set to FALSE the container will be rebuilt every time and the repository wiped
-    VS_CONTAINER_PRESERVE = 'TRUE'
-    // VS_BRXM_PERSISTENCE_METHOD can be set to either 'h2' or 'mysql' - do not change during the lifetime of a container or it will break the repo
-    VS_BRXM_PERSISTENCE_METHOD = 'h2'
-    // VS_SKIP_BUILD_FOR_BRANCH is useful for testing, only ever set to your working branch name - never to a variable!
-    VS_SKIP_BUILD_FOR_BRANCH = 'feature/VS-1865-feature-environments-enhancements-log4j'
-    // VS_COMMIT_AUTHOR is required by later stages which will fail if it's not set, default value of jenkins@visitscotland.net
-    // turns out if you set it here it will not be overwritten by the load later in the pipeline
-    //VS_COMMIT_AUTHOR = 'jenkins@visitscotland.net'
-    VS_RUN_BRC_STAGES = 'FALSE'
-    // -- 20200712: TEST and PACKAGE stages might need VS_SKIP set to TRUE as they just run the ~4 minute front-end build every time
-    VS_SKIP_BRC_BLD = 'FALSE'
-    VS_SKIP_BRC_TST = 'FALSE'
-    VS_SKIP_BRC_PKG = 'FALSE'
-    VS_SKIP_BRC_CXN = 'FALSE'
-    VS_SKIP_BRC_UPL = 'FALSE'
-    VS_BRC_STACK_URI = 'visitscotland'
-    VS_BRC_ENV = 'demo'
-    VS_BRC_STACK_URL = "https://api-${VS_BRC_STACK_URI}.onehippo.io"
-    VS_BRC_STACK_API_VERSION = 'v3'
-    VS_DOCKER_IMAGE_NAME = 'vs/vs-brxm15:node18'
-    VS_DOCKER_BUILDER_IMAGE_NAME = 'vs/vs-brxm15-builder:node18'
-    VS_USE_DOCKER_BUILDER = "TRUE"
   }
 
   tools {
@@ -88,22 +86,28 @@ pipeline {
 
       steps {
         // Set any defined build property overrides for this work-in-progress branch
+        sh '''
+          set +x
+          echo; echo "running stage $STAGE_NAME on $HOSTNAME"
+          echo; echo "== printenv in $STAGE_NAME =="; printenv | sort; echo "==/printenv in $STAGE_NAME =="; echo
+        '''
+        // make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
         script {
-
-          // Set any supported build property overrides defined in ci/BRANCH_NAME.buildprops
-          branchBuildScripts = load("./ci/branchBuildScripts.groovy")
-
-          // Set the buildprop environment variables either to their default values or any specified overrides
-          Map buildProps = branchBuildScripts.loadPropOverrides("${env.WORKSPACE}" + "/ci/", branchBuildScripts.getBranchKey())
-          Map buildPropParsers = branchBuildScripts.getPropParsers()
-          buildPropParsers.each {
-            k, v ->
-              String parsedValue = ( buildProps?.containsKey(k) ? v.parser(buildProps[k]) : v.default )
-              env."${k}" = parsedValue
+          if (fileExists("$WORKSPACE/ci/$BRANCH_NAME.properties")) {
+            echo "loading environment variables from $WORKSPACE/ci/$BRANCH_NAME.properties"
+            load "$WORKSPACE/ci/$BRANCH_NAME.properties"
+            sh '''
+		set +x
+		echo
+		echo "== printenv after load of $WORKSPACE/ci/$BRANCH_NAME.properties in $STAGE_NAME =="
+		printenv | sort
+		echo "==/printenv after load of $WORKSPACE/ci/$BRANCH_NAME.properties in $STAGE_NAME =="
+		echo
+	    '''
+          } else {
+            echo "cannot load environment variables, file $BRANCH_NAME.properties does not exist"
           }
         }
-
-        sh 'printenv'
       }
     } // end stage
 
@@ -271,7 +275,7 @@ stage ('vs compile & package in docker') {
           }
         }
         script{
-          sh 'sh ./ci/infrastructure/scripts/infrastructure.sh --debug'
+          sh './ci/infrastructure/scripts/infrastructure.sh --debug'
         }
         // make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
         script {
