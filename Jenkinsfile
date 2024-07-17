@@ -5,33 +5,33 @@ def VS_CONTAINER_BASE_PORT_OVERRIDE
 cron_string = ""
 if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop" || JOB_NAME == "develop.visitscotland.com-mb/develop")) {
   //thisAgent = "op-dev-xvcdocker-01"
-  thisAgent = "docker-02"
+  thisAgent = "xvcdocker"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8099"
   env.VS_RELEASE_SNAPSHOT = "FALSE"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-nightly.visitscotland.com/develop" || JOB_NAME == "develop-nightly.visitscotland.com-mb/develop")) {
   //thisAgent = "op-dev-xvcdocker-01"
-  thisAgent = "docker-02"
+  thisAgent = "xvcdocker"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8098"
   env.VS_CONTAINER_PRESERVE = "FALSE"
   cron_string = "@midnight"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "develop-stable.visitscotland.com/develop" || JOB_NAME == "develop-stable.visitscotland.com-mb/develop")) {
   //thisAgent = "op-dev-xvcdocker-01"
-  thisAgent = "docker-02"
+  thisAgent = "xvcdocker"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8100"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME == "feature.visitscotland.com/develop" || JOB_NAME == "feature.visitscotland.com-mb/develop")) {
   //thisAgent = "op-dev-xvcdocker-01"
-  thisAgent = "docker-02"
+  thisAgent = "xvcdocker"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
 } else if (BRANCH_NAME == "feature/VS-1865-feature-environments-enhancements" && (JOB_NAME == "feature.visitscotland.com-mb/feature%2FVS-1865-feature-environments-enhancements")) {
   //thisAgent = "op-dev-xvcdocker-01"
-  thisAgent = "docker-02"
+  thisAgent = "xvcdocker"
   //env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
   //cron_string = "*/2 * * * *"
 } else {
   env.VS_RELEASE_SNAPSHOT = "FALSE"
   // thisAgent should always be set to op-dev-xvcdocker-01 unless you have been informed otherwise!
   //thisAgent = "op-dev-xvcdocker-01"
-  thisAgent = "docker-02"
+  thisAgent = "xvcdocker"
 }
 
 import groovy.json.JsonSlurper
