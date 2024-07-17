@@ -89,7 +89,6 @@ pipeline {
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
           echo; echo "== printenv in $STAGE_NAME =="; printenv | sort; echo "==/printenv in $STAGE_NAME =="; echo
-          echo "VS_BRANCH_SPECIFIC_PROPERTY='"'vs-branch-specific-value'"'" > $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE
         '''
         // make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
         script {
