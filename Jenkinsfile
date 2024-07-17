@@ -89,8 +89,10 @@ pipeline {
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
           echo; echo "== printenv in $STAGE_NAME =="; printenv | sort; echo "==/printenv in $STAGE_NAME =="; echo
+          echo; echo "looking for branch specific properties file at $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE"
+          echo " - if the pipeline fails at this point please check the format of your properties file!"
         '''
-        // make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
+        // make all branch-specific variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
         script {
           if (fileExists("$WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE")) {
             echo "loading environment variables from $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE"
