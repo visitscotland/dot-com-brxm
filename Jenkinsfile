@@ -44,12 +44,6 @@ pipeline {
     // gp: investigate milestone caclulation to cancel current build if a new one starts
     // - see: https://stackoverflow.com/questions/40760716/jenkins-abort-running-build-if-new-one-is-started/44326216
     // - see: https://www.jenkins.io/doc/pipeline/steps/pipeline-milestone-step/#pipeline-milestone-step
-    // gp: investigate the use of stash/unstash to make build artefacts available to other nodes
-    //     - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
-    //     - this could potentially allow the running of all Lighthouse tests on a separate node
-    //     - experiment with a simple echo on a different node (stash/unstash)
-    //     DONE
-    // gp: change sonarqube project target to a short version of the project name
     timestamps()
   }
   agent {label thisAgent}
@@ -58,7 +52,7 @@ pipeline {
     MAVEN_SETTINGS = credentials('maven-settings')
     // from 20200804 VS_SSR_PROXY_ON will only affect whether the SSR app is packaged and sent to the container, using or bypassing will be set via query string
     VS_SSR_PROXY_ON = 'TRUE'
-    // VS_CONTAINER_PRESERVE is set to TRUE in the ingrastructure build script, if this is set to FALSE the container will be rebuilt every time and the repository wiped
+    // VS_CONTAINER_PRESERVE is set to TRUE in the infrastructure build script, if this is set to FALSE the container will be rebuilt every time and the repository wiped
     VS_CONTAINER_PRESERVE = 'TRUE'
     // VS_BRXM_PERSISTENCE_METHOD can be set to either 'h2' or 'mysql' - do not change during the lifetime of a container or it will break the repo
     VS_BRXM_PERSISTENCE_METHOD = 'h2'
@@ -111,7 +105,7 @@ pipeline {
 
         sh 'printenv'
       }
-    }
+    } // end stage
 
     stage ('vs compile & package') {
       when {
@@ -124,7 +118,7 @@ pipeline {
         }
       }
       steps {
-        sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
+        sh './ci/infrastructure/scripts/infrastructure.sh setvars'
         // -- 20200712: QUESTION FOR SE, "why do we not build with-development-data?"
         sh 'mvn -f pom.xml clean package'
       }
@@ -170,9 +164,11 @@ stage ('vs compile & package in docker') {
         success {
           sh '''
             set +x
-            echo; echo "running stage $STAGE_NAME post-success on $HOSTNAME"
+            echo; echo "stage $STAGE_NAME succeeded on $HOSTNAME"
+            echo; echo "entering post-success steps for $STAGE_NAME on $HOSTNAME"
             export HOME=$WORKSPACE
             export MAVEN_OPTS="-Duser.home=$HOME"
+            echo; echo "running mvn --batch-mode -Pdist-with-development-data on $HOSTNAME"
             mvn --batch-mode install -Pdist-with-development-data
           '''
           stash allowEmpty: true, includes: 'target/*', name: 'brxm-artifact'
@@ -183,9 +179,9 @@ stage ('vs compile & package in docker') {
           mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build FAILED at ${env.STAGE_NAME} for  ${env.JOB_NAME}", to: "${MAIL_TO}";
         }
       }
-    }
+    } // end stage
 
-    // -- 20200712: The three 'brxm' and the two 'brc' stages are based on https://developers.bloomreach.com/blog/2019/set-up-continuous-deployment-of-your-brxm-project-in-brcloud-using-jenkins.html
+    // -- 2020-07-12: The three 'brxm' and the two 'brc' stages are based on https://developers.bloomreach.com/blog/2019/set-up-continuous-deployment-of-your-brxm-project-in-brcloud-using-jenkins.html
     // --           in time, the connect, upload and deploy stages will be moved into bash scripts and run from a different Jenkins server
 
     // -- 20200712: QUESTION FOR SE, "why do each of the next three profiles run a UI step that takes ~3.5 minutes?"
@@ -256,6 +252,7 @@ stage ('vs compile & package in docker') {
 
           // If requested, build feature environment for feature branches prior to PR
           environment name: 'VS_BUILD_FEATURE_ENVIRONMENT', value: 'true'
+          expression {return env.VS_BUILD_FEATURE_ENVIRONMENT ==~ /(TRUE|true)/}
         }
       }
       steps{
@@ -282,6 +279,14 @@ stage ('vs compile & package in docker') {
             echo "loading environment variables from $WORKSPACE/ci/vs-last-env.quoted"
             load "$WORKSPACE/ci/vs-last-env.quoted"
             echo "found ${env.VS_COMMIT_AUTHOR}"
+            sh '''
+		set +x
+		echo
+		echo "== printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
+		printenv | sort
+		echo "==/printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME =="
+		echo
+	    '''
           } else {
             echo "cannot load environment variables, file does not exist"
           }
@@ -289,7 +294,7 @@ stage ('vs compile & package in docker') {
       }
     } //end stage
 
-    stage ('Build Actions'){
+    stage ('post-build actions'){
       parallel {
 
         stage('SonarQube BE Scan') {
@@ -418,7 +423,7 @@ stage ('vs compile & package in docker') {
                       sh 'mvn -B -f pom.xml deploy -Pdist-with-development-data -s $MAVEN_SETTINGS'
                   }
               }
-          }
+          } //end stage
 
         stage('Release to Nexus') {
           when {
@@ -442,9 +447,9 @@ stage ('vs compile & package in docker') {
               sh "mvn versions:set -DremoveSnapshot"
               sh "mvn -B clean  deploy -Pdist -Drevision=$NEW_TAG -Dchangelist= -DskipTests -s $MAVEN_SETTINGS"
           }
-        }
-      }
-    }
+        } //end stage
+      } // end parallel stages
+    } // end post-build actions
 
     stage('Lighthouse Testing'){
       when {
@@ -493,17 +498,6 @@ stage ('vs compile & package in docker') {
       }
     }
 
-// -- 20200712: entire section commented out as it currently serves no purpose
-//    stage ('Availability notice'){
-//    // -- "input" section commented out for now - useful for when there is genuinely a need to pause for an answer
-//    //input{
-//    //  message "This environment will run until the next push is made the bitbucket repo."
-//    //}
-//      steps {
-//        sh 'echo "This environment will run until the next commit to bitbucket is detected."'
-//      }
-//    }
-
   } //end stages
 
   post{
@@ -534,3 +528,12 @@ def readEnvironmentVariables(path){
     env."${key}" = "${value}"
   }
 }
+
+// TO-DO:
+// gp: change sonarqube project target to a short version of the project name
+
+// DONE:
+// gp: investigate the use of stash/unstash to make build artefacts available to other nodes
+//     - see: https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
+//     - this could potentially allow the running of all Lighthouse tests on a separate node
+//     - experiment with a simple echo on a different node (stash/unstash)
