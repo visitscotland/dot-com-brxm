@@ -29,7 +29,7 @@ if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop"
   echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
   thisAgent = "xvcdocker"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
-  env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
+  //env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
   env.VS_CONTAINER_PRESERVE = "FALSE"
   //cron_string = "*/2 * * * *"
 } else {
@@ -54,7 +54,8 @@ if (!env.VS_BRC_STACK_API_VERSION) { env.VS_BRC_STACK_API_VERSION = "v3" }
 if (!env.VS_DOCKER_IMAGE_NAME) { env.VS_DOCKER_IMAGE_NAME = "vs/vs-brxm15:node18" }
 if (!env.VS_DOCKER_BUILDER_IMAGE_NAME) { env.VS_DOCKER_BUILDER_IMAGE_NAME = "vs/vs-brxm15-builder:node18" }
 if (!env.VS_USE_DOCKER_BUILDER) { env.VS_USE_DOCKER_BUILDER = "TRUE" }
-if (!env.VS_RUN_BRC_STAGES) { VS_RUN_BRC_STAGES = "FALSE" }
+if (!env.VS_RUN_BRC_STAGES) { env.VS_RUN_BRC_STAGES = "FALSE" }
+if (!env.VS_BRANCH_PROPERTIES_FILE) { env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.BRANCH_NAME.lastIndexOf('/') + 1) + ".properties" }
 echo "==/Setting default environment variables"
 
 import groovy.json.JsonSlurper
@@ -81,31 +82,30 @@ pipeline {
   }
 
   stages {
-
     stage ('Pre-build') {
-
       steps {
         // Set any defined build property overrides for this work-in-progress branch
         sh '''
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
           echo; echo "== printenv in $STAGE_NAME =="; printenv | sort; echo "==/printenv in $STAGE_NAME =="; echo
+          echo "VS_BRANCH_SPECIFIC_PROPERTY='"'vs-branch-specific-value'"'" > $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE
         '''
         // make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
         script {
-          if (fileExists("$WORKSPACE/ci/$BRANCH_NAME.properties")) {
-            echo "loading environment variables from $WORKSPACE/ci/$BRANCH_NAME.properties"
-            load "$WORKSPACE/ci/$BRANCH_NAME.properties"
+          if (fileExists("$WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE")) {
+            echo "loading environment variables from $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE"
+            load "$WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE"
             sh '''
-		set +x
-		echo
-		echo "== printenv after load of $WORKSPACE/ci/$BRANCH_NAME.properties in $STAGE_NAME =="
-		printenv | sort
-		echo "==/printenv after load of $WORKSPACE/ci/$BRANCH_NAME.properties in $STAGE_NAME =="
-		echo
-	    '''
+              set +x
+              echo
+              echo "== printenv after load of $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME =="
+              printenv | sort
+              echo "==/printenv after load of $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME =="
+              echo
+            '''
           } else {
-            echo "cannot load environment variables, file $BRANCH_NAME.properties does not exist"
+            echo "branch specific properties won't be loaded, file $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE does not exist"
           }
         }
       }
