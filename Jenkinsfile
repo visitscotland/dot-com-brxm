@@ -151,13 +151,13 @@ stage ('vs compile & package in docker') {
       agent {
         docker {
           image '$VS_DOCKER_BUILDER_IMAGE_NAME'
-          args '-v $JENKINS_HOME/.m2:$WORKSPACE/.m2:rw,z'
+          args '-v $JENKINS_HOME/.m2:$WORKSPACE/.m2:rw,z --env VS_AGENT_IS_DOCKER=TRUE'
           label 'thisAgent'
           reuseNode true
         }
       }
       steps {
-        //sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
+        sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
         sh '''
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
