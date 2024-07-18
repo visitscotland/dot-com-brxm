@@ -25,12 +25,12 @@ if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop"
   echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
   thisAgent = "xvcdocker"
   env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
-} else if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements" && (JOB_NAME ==~ "feature.visitscotland.(com|org)(-mb)?/ops%2Ffeature-environment(s)-enhancements")) {
+} else if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements" && (JOB_NAME ==~ "feature.visitscotland.(com|org)(-mb)?/ops%2Ffeature-environment(s)?-enhancements")) {
   echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
   thisAgent = "xvcdocker"
-  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8096"
+  env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8091"
   //env.VS_BUILD_FEATURE_ENVIRONMENT = "TRUE"
-  env.VS_CONTAINER_PRESERVE = "FALSE"
+  //env.VS_CONTAINER_PRESERVE = "FALSE"
   //cron_string = "*/2 * * * *"
 } else {
   env.VS_RELEASE_SNAPSHOT = "FALSE"
