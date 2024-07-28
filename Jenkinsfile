@@ -55,6 +55,7 @@ if (!env.VS_DOCKER_IMAGE_NAME) { env.VS_DOCKER_IMAGE_NAME = "vs/vs-brxm15:node18
 if (!env.VS_DOCKER_BUILDER_IMAGE_NAME) { env.VS_DOCKER_BUILDER_IMAGE_NAME = "vs/vs-brxm15-builder:node18" }
 if (!env.VS_USE_DOCKER_BUILDER) { env.VS_USE_DOCKER_BUILDER = "TRUE" }
 if (!env.VS_RUN_BRC_STAGES) { env.VS_RUN_BRC_STAGES = "FALSE" }
+if (!env.VS_BRANCH_PROPERTIES_DIR) { env.VS_BRANCH_PROPERTIES_DIR = "ci/properties" }
 if (!env.VS_BRANCH_PROPERTIES_FILE) { env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.BRANCH_NAME.lastIndexOf('/') + 1) + ".properties" }
 echo "==/Setting default environment variables"
 
@@ -89,24 +90,24 @@ pipeline {
           set +x
           echo; echo "running stage $STAGE_NAME on $HOSTNAME"
           echo; echo "== printenv in $STAGE_NAME =="; printenv | sort; echo "==/printenv in $STAGE_NAME =="; echo
-          echo; echo "looking for branch specific properties file at $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE"
+          echo; echo "looking for branch specific properties file at $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
           echo " - if the pipeline fails at this point please check the format of your properties file!"
         '''
         // make all branch-specific variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
         script {
-          if (fileExists("$WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE")) {
-            echo "loading environment variables from $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE"
-            load "$WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE"
+          if (fileExists("$WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE")) {
+            echo "loading environment variables from $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
+            load "$WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
             sh '''
               set +x
               echo
-              echo "== printenv after load of $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME =="
+              echo "== printenv after load of $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME =="
               printenv | sort
-              echo "==/printenv after load of $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME =="
+              echo "==/printenv after load of $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME =="
               echo
             '''
           } else {
-            echo "branch specific properties won't be loaded, file $WORKSPACE/ci/$VS_BRANCH_PROPERTIES_FILE does not exist"
+            echo "branch specific properties won't be loaded, file $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE does not exist"
           }
         }
       }
