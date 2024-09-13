@@ -13,13 +13,9 @@ import java.util.stream.Collectors;
 @HippoEssentialsGenerated(internalName = "visitscotland:ArticleSection")
 @Node(jcrType = "visitscotland:ArticleSection")
 public class ArticleSection extends HippoCompound {
-
-    public static final String COPY = "visitscotland:copy";
-    public static final String MEDIA = "visitscotland:media";
-
-    @HippoEssentialsGenerated(internalName = COPY)
+    @HippoEssentialsGenerated(internalName = "visitscotland:copy")
     public HippoHtml getCopy() {
-        return getHippoHtml(COPY);
+        return getHippoHtml("visitscotland:copy");
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:Quote")
@@ -27,9 +23,9 @@ public class ArticleSection extends HippoCompound {
         return getBean("visitscotland:Quote", Quote.class);
     }
 
-    @HippoEssentialsGenerated(internalName = MEDIA, allowModifications = false)
+    @HippoEssentialsGenerated(internalName = "visitscotland:media", allowModifications = false)
     public List<HippoBean> getMedia() {
-        return getChildBeansByName(MEDIA, HippoBean.class).stream().map(hippoBean -> {
+        return getChildBeansByName("visitscotland:media", HippoBean.class).stream().map(hippoBean -> {
                     if (hippoBean instanceof HippoMirror) {
                         return ((HippoMirror) hippoBean).getReferencedBean();
                     }

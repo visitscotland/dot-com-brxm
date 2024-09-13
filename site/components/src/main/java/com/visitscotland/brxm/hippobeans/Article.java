@@ -10,13 +10,6 @@ import java.util.Calendar;
 @HippoEssentialsGenerated(internalName = "visitscotland:Article")
 @Node(jcrType = "visitscotland:Article")
 public class Article extends BaseDocument {
-
-    public static final String MEDIA = "visitscotland:media";
-    public static final String COPY = "visitscotland:copy";
-    public static final String PARAGRAPH = "visitscotland:paragraph";
-    public static final String THEME = "visitscotland:theme";
-
-    //    private final static String
     @HippoEssentialsGenerated(internalName = "visitscotland:title")
     public String getTitle() {
         return getSingleProperty("visitscotland:title");
@@ -27,23 +20,24 @@ public class Article extends BaseDocument {
         return getSingleProperty("visitscotland:anchor");
     }
 
-    @HippoEssentialsGenerated(internalName = MEDIA, allowModifications = false)
+    @HippoEssentialsGenerated(internalName = "visitscotland:media", allowModifications = false)
     public List<HippoBean> getMedia() {
-        return getMedia(MEDIA);
+        return getMedia("visitscotland:media");
     }
 
-    public HippoBean getMediaItem() {
+    public HippoBean getMediaItem(){
         return getOnlyChild(getMedia());
     }
 
-    @HippoEssentialsGenerated(internalName = COPY)
+    @HippoEssentialsGenerated(internalName = "visitscotland:copy")
     public HippoHtml getCopy() {
-        return getHippoHtml(COPY);
+        return getHippoHtml("visitscotland:copy");
     }
 
-    @HippoEssentialsGenerated(internalName = PARAGRAPH)
+    @HippoEssentialsGenerated(internalName = "visitscotland:paragraph")
     public List<ArticleSection> getParagraph() {
-        return getChildBeansByName(PARAGRAPH, ArticleSection.class);
+        return getChildBeansByName("visitscotland:paragraph",
+                ArticleSection.class);
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:diff")
@@ -69,15 +63,5 @@ public class Article extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:translationDeadline")
     public Calendar getTranslationDeadline() {
         return getSingleProperty("visitscotland:translationDeadline");
-    }
-
-    @HippoEssentialsGenerated(internalName = THEME)
-    public String getTheme() {
-        return getSingleProperty(THEME);
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:nest")
-    public Boolean getNest() {
-        return getSingleProperty("visitscotland:nest");
     }
 }

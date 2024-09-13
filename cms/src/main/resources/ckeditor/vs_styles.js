@@ -4,11 +4,11 @@
     CKEDITOR.stylesSet.add('article', [
         {
             element: 'h3',
-            name: 'Heading'
+            name: 'H3'
         },
         {
             element: 'h6',
-            name: 'Subheading'
+            name: 'H4'
         }
     ]);
 
