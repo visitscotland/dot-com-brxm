@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a07f0760-0111-45fd-906c-eea4b145e8d7
+          jcr:uuid: 461ae6b2-0a2a-4bbb-8772-edf33c74285d
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -83,6 +83,79 @@ definitions:
             hipposysedit:path: visitscotland:nest
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+        /hipposysedit:nodetype[2]:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 7ef83ab0-c0ef-46c2-9cd1-dc5ebde3f683
+          hipposysedit:node: true
+          hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-copy-validator']
+          /title:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, 'visitscotland:medium-string-validator']
+          /copy:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:copy
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+          /anchor:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:anchor
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [non-empty-spaces]
+          /paragraph:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:paragraph
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:ArticleSection
+          /translation:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:translation
+            hipposysedit:primary: false
+            hipposysedit:type: OpenUiString
+          /media:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:media
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
+          /staticdropdown:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:theme
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+          /nest:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:nest
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -96,12 +169,38 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
           visitscotland:anchor: ''
-          jcr:uuid: b412faaa-fdbe-402c-aef4-cebc513d6745
+          jcr:uuid: 3fb4c3c2-fc9c-401e-910e-4cab0a08baeb
           hippostdpubwf:lastModificationDate: 2020-12-11T10:07:47.311Z
           hippostdpubwf:creationDate: 2020-12-11T10:07:47.312Z
           visitscotland:translation: ''
           visitscotland:nest: false
-          visitscotland:theme: Article
+          visitscotland:theme: Standard
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /visitscotland:paragraph:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+        /hipposysedit:prototype[2]:
+          jcr:primaryType: nt:unstructured
+          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
+            'hippotranslation:translated', 'mix:referenceable', 'visitscotland:translatable']
+          jcr:uuid: d626faf5-6863-425d-9ff7-c6d6646fa7bd
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2020-12-11T10:07:47.312Z
+          hippostdpubwf:lastModificationDate: 2020-12-11T10:07:47.311Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: Standard
+          visitscotland:title: ''
+          visitscotland:translation: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -131,7 +230,8 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Article,Accordion,Content List,Key Benefits,Key Statistics,Step by Step
+              selectable.options: Standard,Accordion,Content List,Key Benefits,Key
+                Statistics,Step by Step
           /nest:
             jcr:primaryType: frontend:plugin
             caption: Nest in previous module
