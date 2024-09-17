@@ -133,25 +133,25 @@ public class ArticleFactory {
                 ArticleModuleSection section = module.getSections().get(i);
 
                 if (section.getCopy().getContent().indexOf("<h3>") != section.getCopy().getContent().lastIndexOf("<h3>")) {
-                    module.addErrorMessage(String.format("The paragraph #{} contains multiple headings and only one is allowed.", i));
+                    module.addErrorMessage(String.format("The paragraph #%s contains multiple headings and only one is allowed.", i));
                 } else if (section.getCopy().getContent().indexOf("</h3>") - section.getCopy().getContent().indexOf("</h3>") > 84) {
-                    module.addErrorMessage(String.format("The heading line in paragraph #{} is too long. It should not be longer than 80 characters.", i));
+                    module.addErrorMessage(String.format("The heading line in paragraph #%s is too long. It should not be longer than 80 characters.", i));
                 }
                 if (module.getLayout().equals(BULLET_LIST)) {
                     if (section.getCopy().getContent().indexOf("<p>") - section.getCopy().getContent().lastIndexOf("</p>") > 204) {
-                        module.addErrorMessage(String.format("The copy in paragraph #{} is too long. It should not be longer than 200 characters, excluding the heading.", i));
+                        module.addErrorMessage(String.format("The copy in paragraph #%s is too long. It should not be longer than 200 characters, excluding the heading.", i));
                     }
                 } else if (module.getLayout().equals(IMAGE_LIST)) {
                     if (section.getCopy().getContent().indexOf("<p>") - section.getCopy().getContent().lastIndexOf("</p>") > 304) {
-                        module.addErrorMessage(String.format("The copy in paragraph #{} is too long. It should not be longer than 300 characters, excluding the heading.", i));
+                        module.addErrorMessage(String.format("The copy in paragraph #%s is too long. It should not be longer than 300 characters, excluding the heading.", i));
                     }
                 }
 
                 if (module.getLayout().equals(BULLET_LIST) && module.getImage() != null) {
-                    module.addErrorMessage(String.format("The paragraph #{} contains an image and it will not be displayed.", i));
+                    module.addErrorMessage(String.format("The paragraph #%s contains an image and it will not be displayed.", i));
                 }
                 if (section.getQuote() != null) {
-                    module.addErrorMessage(String.format("The paragraph #{} contains an quote and it will not be displayed", i));
+                    module.addErrorMessage(String.format("The paragraph #%s contains an quote and it will not be displayed", i));
                 }
             }
         }
