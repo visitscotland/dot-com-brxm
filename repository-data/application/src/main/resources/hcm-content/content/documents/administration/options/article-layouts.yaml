@@ -1,0 +1,36 @@
+/content/documents/administration/options/article-layouts:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 1dc89507-0170-472b-87f4-8718f89ccc3c
+  hippo:name: Article Layouts
+  /article-layouts:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: e62626e7-e942-4c43-b86b-548a66e99cfd
+    hippo:availability: [live, preview]
+    hippotranslation:id: 8151ccf7-a5bd-433e-bf24-12cfa179d8ca
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: ''
+      selection:label: Standard
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: accordion
+      selection:label: Accordion
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: visual-list
+      selection:label: Visual List
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: horizontal-list
+      selection:label: Horizontal Facts
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: bullet-list
+      selection:label: Styled Bullet List
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: numbered-list
+      selection:label: Styled Numbered List
