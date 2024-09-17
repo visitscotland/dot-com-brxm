@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 461ae6b2-0a2a-4bbb-8772-edf33c74285d
+          jcr:uuid: 230fd115-8259-4576-b044-4101502ccfca
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -66,15 +66,6 @@ definitions:
             hipposysedit:path: visitscotland:media
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator]
-          /staticdropdown:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:theme
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators: [required]
           /nest:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -83,10 +74,18 @@ definitions:
             hipposysedit:path: visitscotland:nest
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /theme:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:theme
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
         /hipposysedit:nodetype[2]:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 7ef83ab0-c0ef-46c2-9cd1-dc5ebde3f683
+          jcr:uuid: 1808e26f-67ce-4af8-8945-1b41058ca3ef
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -140,14 +139,6 @@ definitions:
             hipposysedit:path: visitscotland:media
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator]
-          /staticdropdown:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:theme
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
           /nest:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -156,6 +147,14 @@ definitions:
             hipposysedit:path: visitscotland:nest
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /theme:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:theme
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -169,12 +168,12 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
           visitscotland:anchor: ''
-          jcr:uuid: 3fb4c3c2-fc9c-401e-910e-4cab0a08baeb
+          jcr:uuid: 18f4e348-8b8e-4ee6-a2e7-54bc71aacd16
           hippostdpubwf:lastModificationDate: 2020-12-11T10:07:47.311Z
           hippostdpubwf:creationDate: 2020-12-11T10:07:47.312Z
           visitscotland:translation: ''
           visitscotland:nest: false
-          visitscotland:theme: Standard
+          visitscotland:theme: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -187,7 +186,7 @@ definitions:
           jcr:primaryType: nt:unstructured
           jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
             'hippotranslation:translated', 'mix:referenceable', 'visitscotland:translatable']
-          jcr:uuid: d626faf5-6863-425d-9ff7-c6d6646fa7bd
+          jcr:uuid: 9edf8b70-afb8-4651-b80e-8c80596428e9
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -198,7 +197,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           visitscotland:anchor: ''
           visitscotland:nest: false
-          visitscotland:theme: Standard
+          visitscotland:theme: ''
           visitscotland:title: ''
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -224,14 +223,14 @@ definitions:
           /theme:
             jcr:primaryType: frontend:plugin
             caption: Layout
-            field: staticdropdown
+            field: theme
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Standard,Accordion,Content List,Key Benefits,Key
-                Statistics,Step by Step
+              source: /content/documents/administration/options/article-layouts
+              showDefault: 'false'
           /nest:
             jcr:primaryType: frontend:plugin
             caption: Nest in previous module
