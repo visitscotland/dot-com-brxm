@@ -21,7 +21,8 @@ definitions:
         \ it = query(session,\"//content/documents//element(*, visitscotland:Article)[not(@visitscotland:theme)]\"\
         )\r\n\r\n        int i = 0\r\n\r\n        while (it.hasNext()){\r\n      \
         \      Node n = it.next()\r\n            i++;\r\n            n.setProperty(\"\
-        visitscotland:theme\", \"\")\r\n        }\r\n\r\n        log.info(\"$i Article\
+        visitscotland:theme\", \"\")\r\n            n.setProperty(\"\visitscotland:nest\", false)
+        \r\n        }\r\n\r\n        log.info(\"$i Article\
         \ documents have been updated\")\r\n    }\r\n\r\n    @Override\r\n    boolean\
         \ doUpdate(Node node) {\r\n        removeAltText(node.session)\r\n       \
         \ return true\r\n    }\r\n\r\n    /**\r\n     * Executes a query and log when\
