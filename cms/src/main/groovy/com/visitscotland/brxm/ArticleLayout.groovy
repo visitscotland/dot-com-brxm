@@ -32,6 +32,7 @@ class ArticleLayout extends BaseNodeUpdateVisitor {
             Node n = it.next()
             i++;
             n.setProperty("visitscotland:theme", "")
+            n.setProperty("visitscotland:nest", false)
         }
 
         log.info("$i Article documents have been updated")
