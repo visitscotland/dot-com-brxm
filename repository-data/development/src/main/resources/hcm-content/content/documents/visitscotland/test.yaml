@@ -6958,6 +6958,8 @@
           hippotranslation:id: c62b31d0-0841-4c20-b6f7-636e36534659
           hippotranslation:locale: en
           visitscotland:anchor: introduction
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: The mountain with its head in the clouds
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -7023,6 +7025,8 @@
           hippotranslation:id: c62b31d0-0841-4c20-b6f7-636e36534659
           hippotranslation:locale: en
           visitscotland:anchor: introduction
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: The mountain with its head in the clouds
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -7089,6 +7093,8 @@
           hippotranslation:id: c62b31d0-0841-4c20-b6f7-636e36534659
           hippotranslation:locale: en
           visitscotland:anchor: introduction
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: The mountain with its head in the clouds
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -7160,6 +7166,8 @@
           hippotranslation:id: 1f34b1a2-6aa9-4dc1-89da-89da3dd577f6
           hippotranslation:locale: en
           visitscotland:anchor: routes
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Routes to the summit
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -7255,6 +7263,8 @@
           hippotranslation:id: 1f34b1a2-6aa9-4dc1-89da-89da3dd577f6
           hippotranslation:locale: en
           visitscotland:anchor: routes
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Routes to the summit
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -7351,6 +7361,8 @@
           hippotranslation:id: 1f34b1a2-6aa9-4dc1-89da-89da3dd577f6
           hippotranslation:locale: en
           visitscotland:anchor: routes
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Routes to the summit
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -17946,6 +17958,8 @@
           hippotranslation:id: d5405c11-eb05-4a24-a3c2-5d97486808f2
           hippotranslation:locale: en
           visitscotland:anchor: introduction
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: The mountain with its head in the clouds
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -18014,6 +18028,8 @@
           hippotranslation:id: d5405c11-eb05-4a24-a3c2-5d97486808f2
           hippotranslation:locale: en
           visitscotland:anchor: introduction
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: The mountain with its head in the clouds
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -18083,6 +18099,8 @@
           hippotranslation:id: d5405c11-eb05-4a24-a3c2-5d97486808f2
           hippotranslation:locale: en
           visitscotland:anchor: introduction
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: The mountain with its head in the clouds
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -18158,6 +18176,8 @@
           hippotranslation:id: 5e0fc71f-5844-48ba-92e8-97f760987dbf
           hippotranslation:locale: en
           visitscotland:anchor: routes
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Routes to the summit
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -18259,6 +18279,8 @@
           hippotranslation:id: 5e0fc71f-5844-48ba-92e8-97f760987dbf
           hippotranslation:locale: en
           visitscotland:anchor: routes
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Routes to the summit
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -18360,6 +18382,8 @@
           hippotranslation:id: 5e0fc71f-5844-48ba-92e8-97f760987dbf
           hippotranslation:locale: en
           visitscotland:anchor: routes
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Routes to the summit
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -18466,6 +18490,8 @@
           hippotranslation:id: af564db8-39b9-4144-b7a2-1e1753713a72
           hippotranslation:locale: en
           visitscotland:anchor: faq
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Frequently asked questions
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -18564,6 +18590,8 @@
           hippotranslation:id: af564db8-39b9-4144-b7a2-1e1753713a72
           hippotranslation:locale: en
           visitscotland:anchor: faq
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Frequently asked questions
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -18663,6 +18691,8 @@
           hippotranslation:id: af564db8-39b9-4144-b7a2-1e1753713a72
           hippotranslation:locale: en
           visitscotland:anchor: faq
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Frequently asked questions
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -18767,6 +18797,8 @@
           hippotranslation:id: 8ab1d09e-7d89-4c9e-8d4a-d5a6e7daad67
           hippotranslation:locale: en
           visitscotland:anchor: acco-see-do
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Places to stay & things to do
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -18850,6 +18882,8 @@
           hippotranslation:id: 8ab1d09e-7d89-4c9e-8d4a-d5a6e7daad67
           hippotranslation:locale: en
           visitscotland:anchor: acco-see-do
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Places to stay & things to do
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -18934,6 +18968,8 @@
           hippotranslation:id: 8ab1d09e-7d89-4c9e-8d4a-d5a6e7daad67
           hippotranslation:locale: en
           visitscotland:anchor: acco-see-do
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Places to stay & things to do
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -19150,6 +19186,8 @@
           hippotranslation:id: 7da16744-ebfa-4985-8b07-07826e82ddcf
           hippotranslation:locale: en
           visitscotland:anchor: dark-skies
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A dark skies and Burns Night celebration in Ayrshire
             and Dumfries & Galloway
           /visitscotland:copy:
@@ -19231,6 +19269,8 @@
           hippotranslation:id: 7da16744-ebfa-4985-8b07-07826e82ddcf
           hippotranslation:locale: en
           visitscotland:anchor: dark-skies
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A dark skies and Burns Night celebration in Ayrshire
             and Dumfries & Galloway
           /visitscotland:copy:
@@ -19313,6 +19353,8 @@
           hippotranslation:id: 7da16744-ebfa-4985-8b07-07826e82ddcf
           hippotranslation:locale: en
           visitscotland:anchor: dark-skies
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A dark skies and Burns Night celebration in Ayrshire
             and Dumfries & Galloway
           /visitscotland:copy:
@@ -19400,6 +19442,8 @@
           hippotranslation:id: f25530e0-d25c-4a47-844f-47f23b0cbb3d
           hippotranslation:locale: en
           visitscotland:anchor: whisky
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A whisky lover's winter break on Islay
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -19456,6 +19500,8 @@
           hippotranslation:id: f25530e0-d25c-4a47-844f-47f23b0cbb3d
           hippotranslation:locale: en
           visitscotland:anchor: whisky
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A whisky lover's winter break on Islay
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -19513,6 +19559,8 @@
           hippotranslation:id: f25530e0-d25c-4a47-844f-47f23b0cbb3d
           hippotranslation:locale: en
           visitscotland:anchor: whisky
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A whisky lover's winter break on Islay
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -19575,6 +19623,8 @@
           hippotranslation:id: e183fc7e-6637-471a-a249-164d5d51ad1d
           hippotranslation:locale: en
           visitscotland:anchor: culture
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A weekend of arts and culture in Glasgow
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -19627,6 +19677,8 @@
           hippotranslation:id: e183fc7e-6637-471a-a249-164d5d51ad1d
           hippotranslation:locale: en
           visitscotland:anchor: culture
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A weekend of arts and culture in Glasgow
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -19680,6 +19732,8 @@
           hippotranslation:id: e183fc7e-6637-471a-a249-164d5d51ad1d
           hippotranslation:locale: en
           visitscotland:anchor: culture
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A weekend of arts and culture in Glasgow
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -19738,6 +19792,8 @@
           hippotranslation:id: 003cb8bb-091c-4a3d-8385-17fee3bbb123
           hippotranslation:locale: en
           visitscotland:anchor: coastline
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A getaway exploring the Moray coastline
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -19790,6 +19846,8 @@
           hippotranslation:id: 003cb8bb-091c-4a3d-8385-17fee3bbb123
           hippotranslation:locale: en
           visitscotland:anchor: coastline
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A getaway exploring the Moray coastline
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -19843,6 +19901,8 @@
           hippotranslation:id: 003cb8bb-091c-4a3d-8385-17fee3bbb123
           hippotranslation:locale: en
           visitscotland:anchor: coastline
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A getaway exploring the Moray coastline
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -19901,6 +19961,8 @@
           hippotranslation:id: a836113b-f70d-4326-9e1e-35d226c55aea
           hippotranslation:locale: en
           visitscotland:anchor: outdoors
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: An active winter break in the great outdoors
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -19953,6 +20015,8 @@
           hippotranslation:id: a836113b-f70d-4326-9e1e-35d226c55aea
           hippotranslation:locale: en
           visitscotland:anchor: outdoors
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: An active winter break in the great outdoors
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -20006,6 +20070,8 @@
           hippotranslation:id: a836113b-f70d-4326-9e1e-35d226c55aea
           hippotranslation:locale: en
           visitscotland:anchor: outdoors
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: An active winter break in the great outdoors
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
@@ -20065,6 +20131,8 @@
           hippotranslation:id: cc928b13-7583-41db-9602-acae8394b2dd
           hippotranslation:locale: en
           visitscotland:anchor: dark-skies
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A dark skies and Burns Night celebration in Ayrshire
             and Dumfries & Galloway
           /visitscotland:copy:
@@ -20136,6 +20204,8 @@
           hippotranslation:id: cc928b13-7583-41db-9602-acae8394b2dd
           hippotranslation:locale: en
           visitscotland:anchor: dark-skies
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A dark skies and Burns Night celebration in Ayrshire
             and Dumfries & Galloway
           /visitscotland:copy:
@@ -20208,6 +20278,8 @@
           hippotranslation:id: cc928b13-7583-41db-9602-acae8394b2dd
           hippotranslation:locale: en
           visitscotland:anchor: dark-skies
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: A dark skies and Burns Night celebration in Ayrshire
             and Dumfries & Galloway
           /visitscotland:copy:

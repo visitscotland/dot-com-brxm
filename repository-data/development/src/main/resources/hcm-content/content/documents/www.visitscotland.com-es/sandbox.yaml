@@ -153,6 +153,8 @@
         hippotranslation:id: 45899a9d-7412-4e1b-a0bc-e35c49eca292
         hippotranslation:locale: es
         visitscotland:anchor: ''
+        visitscotland:nest: false
+        visitscotland:theme: ''
         visitscotland:title: Family holidays in Scotland
         visitscotland:translation: ''
         /visitscotland:copy:
@@ -200,6 +202,8 @@
         hippotranslation:id: 45899a9d-7412-4e1b-a0bc-e35c49eca292
         hippotranslation:locale: es
         visitscotland:anchor: ''
+        visitscotland:nest: false
+        visitscotland:theme: ''
         visitscotland:title: Family holidays in Scotland
         visitscotland:translation: ''
         /visitscotland:copy:
@@ -248,6 +252,8 @@
         hippotranslation:id: 45899a9d-7412-4e1b-a0bc-e35c49eca292
         hippotranslation:locale: es
         visitscotland:anchor: ''
+        visitscotland:nest: false
+        visitscotland:theme: ''
         visitscotland:title: Family holidays in Scotland
         visitscotland:translation: ''
         /visitscotland:copy:

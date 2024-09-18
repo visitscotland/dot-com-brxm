@@ -11090,6 +11090,8 @@
           hippotranslation:id: 2833e100-1154-48d0-9c29-2aa2967d5958
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -11122,6 +11124,8 @@
           hippotranslation:id: 2833e100-1154-48d0-9c29-2aa2967d5958
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -11155,6 +11159,8 @@
           hippotranslation:id: 2833e100-1154-48d0-9c29-2aa2967d5958
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -11434,6 +11440,8 @@
           hippotranslation:id: 4fc0c7aa-bbaa-4279-a29c-aa87fe34b06f
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -11467,6 +11475,8 @@
           hippotranslation:id: 4fc0c7aa-bbaa-4279-a29c-aa87fe34b06f
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -11735,6 +11745,8 @@
           hippotranslation:id: 52686f24-89e3-42bd-9133-68e9668fb064
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -11768,6 +11780,8 @@
           hippotranslation:id: 52686f24-89e3-42bd-9133-68e9668fb064
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -12056,6 +12070,8 @@
           hippotranslation:id: 11904641-0769-41d5-bca7-dca4e4171c83
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -12089,6 +12105,8 @@
           hippotranslation:id: 11904641-0769-41d5-bca7-dca4e4171c83
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -12325,6 +12343,8 @@
           hippotranslation:id: eaebf9c2-ec7b-40e5-a91b-571529f61489
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -12358,6 +12378,8 @@
           hippotranslation:id: eaebf9c2-ec7b-40e5-a91b-571529f61489
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -12462,6 +12484,8 @@
           hippotranslation:id: 720245f1-da6b-41c7-ae61-2dc24b642e96
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Article test 1
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -16307,6 +16331,8 @@
         hippotranslation:id: 5334df0e-22f9-4166-996d-5d461420769a
         hippotranslation:locale: en
         visitscotland:anchor: introduction
+        visitscotland:nest: false
+        visitscotland:theme: ''
         visitscotland:title: The mountain with its head in the clouds
         visitscotland:translation: ''
         /visitscotland:copy:
@@ -16376,6 +16402,8 @@
         hippotranslation:id: 5334df0e-22f9-4166-996d-5d461420769a
         hippotranslation:locale: en
         visitscotland:anchor: introduction
+        visitscotland:nest: false
+        visitscotland:theme: ''
         visitscotland:title: The mountain with its head in the clouds
         visitscotland:translation: ''
         /visitscotland:copy:
@@ -16445,6 +16473,8 @@
         hippotranslation:id: 5334df0e-22f9-4166-996d-5d461420769a
         hippotranslation:locale: en
         visitscotland:anchor: introduction
+        visitscotland:nest: false
+        visitscotland:theme: ''
         visitscotland:title: The mountain with its head in the clouds
         visitscotland:translation: ''
         /visitscotland:copy:
@@ -16519,6 +16549,8 @@
         hippotranslation:id: a4277f65-84a0-48df-b57b-3c8859d9a9f3
         hippotranslation:locale: en
         visitscotland:anchor: routes
+        visitscotland:nest: false
+        visitscotland:theme: ''
         visitscotland:title: Routes to the summit
         visitscotland:translation: ''
         /visitscotland:copy:
@@ -16620,6 +16652,8 @@
         hippotranslation:id: a4277f65-84a0-48df-b57b-3c8859d9a9f3
         hippotranslation:locale: en
         visitscotland:anchor: routes
+        visitscotland:nest: false
+        visitscotland:theme: ''
         visitscotland:title: Routes to the summit
         visitscotland:translation: ''
         /visitscotland:copy:
@@ -16722,6 +16756,8 @@
         hippotranslation:id: a4277f65-84a0-48df-b57b-3c8859d9a9f3
         hippotranslation:locale: en
         visitscotland:anchor: routes
+        visitscotland:nest: false
+        visitscotland:theme: ''
         visitscotland:title: Routes to the summit
         visitscotland:translation: ''
         /visitscotland:copy:

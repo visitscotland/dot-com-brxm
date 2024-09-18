@@ -1322,6 +1322,8 @@
           hippotranslation:id: c7b32ed3-d5d5-4a36-8d9a-a35b8722625b
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Isle of Skye
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -1375,6 +1377,8 @@
           hippotranslation:id: c7b32ed3-d5d5-4a36-8d9a-a35b8722625b
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Isle of Skye
           visitscotland:translation: ''
           /visitscotland:copy:
@@ -1429,6 +1433,8 @@
           hippotranslation:id: c7b32ed3-d5d5-4a36-8d9a-a35b8722625b
           hippotranslation:locale: en
           visitscotland:anchor: ''
+          visitscotland:nest: false
+          visitscotland:theme: ''
           visitscotland:title: Isle of Skye
           visitscotland:translation: ''
           /visitscotland:copy:
