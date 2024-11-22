@@ -56,6 +56,23 @@ definitions:
           hst:mountpoint: /hst:visitscotland/hst:sites/bsh-freemarker
           hst:pagemodelapi: resourceapi
           visitscotland:site: bsh
+        /bsh-api:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:mount
+          jcr:mixinTypes: ['visitscotland:hosts']
+          hst:homepage: root
+          hst:locale: en_GB
+          hst:mountpoint: /hst:visitscotland/hst:sites/bsh
+          hst:pagemodelapi: resourceapi
+          hst:responseheaders: ['Access-Control-Allow-Origin: *']
+          visitscotland:cmsProperties: cms.local.config
+          visitscotland:siteProperties: bsh.local.config
+          /api:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:mount
+            hst:ismapped: false
+            hst:namedpipeline: JaxrsRestPlainPipeline
+            hst:types: [rest]
     /hst:hst/hst:hosts:
       hst:defaultcontextpath: /site
       hst:locale: en_GB
