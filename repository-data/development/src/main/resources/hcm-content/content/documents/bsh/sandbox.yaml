@@ -1,5 +1,4 @@
 /content/documents/bsh/sandbox:
-  .meta:order-before: test
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
   jcr:uuid: 3ba12366-9b59-47aa-8063-a7efa2165322
@@ -38,7 +37,7 @@
       visitscotland:seoTitle: Welcome to Business Support Hub
       visitscotland:skill: ''
       visitscotland:teaser: Software development
-      visitscotland:theme: Top-Level
+      visitscotland:theme: top-level
       visitscotland:title: Sandbox for developeers
       visitscotland:translation: ''
       visitscotland:type: ''
@@ -80,7 +79,7 @@
       visitscotland:seoTitle: Welcome to Business Support Hub
       visitscotland:skill: ''
       visitscotland:teaser: Software development
-      visitscotland:theme: Top-Level
+      visitscotland:theme: top-level
       visitscotland:title: Sandbox for developeers
       visitscotland:translation: ''
       visitscotland:type: ''
@@ -123,7 +122,7 @@
       visitscotland:seoTitle: Welcome to Business Support Hub
       visitscotland:skill: ''
       visitscotland:teaser: Software development
-      visitscotland:theme: Top-Level
+      visitscotland:theme: top-level
       visitscotland:title: Sandbox for developeers
       visitscotland:translation: ''
       visitscotland:type: ''
@@ -1479,7 +1478,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: a2ba1a3e-d330-4c56-b696-0e99ee64f00f
         hippo:name: Standard Page
-        hippo:versionHistory: ef7601b2-b6f0-4391-848e-51eda4819d7a
+        hippo:versionHistory: 047a76db-36ce-4ed1-a70a-f9b5302f9a3d
         /content[1]:
           jcr:primaryType: visitscotland:GeneralBSH
           jcr:mixinTypes: ['mix:referenceable']
@@ -1490,7 +1489,7 @@
           hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-23T18:04:31.347+01:00
+          hippostdpubwf:lastModificationDate: 2024-11-22T10:44:54.298Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: b92e256b-2878-4524-9c0d-2525bab74e8b
           hippotranslation:locale: en
@@ -1507,8 +1506,9 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Standard'
+          visitscotland:theme: standard
           visitscotland:title: Standard Page
+          visitscotland:topic: []
           visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -1536,7 +1536,7 @@
           hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-23T18:04:35.155+01:00
+          hippostdpubwf:lastModificationDate: 2024-11-22T10:45:00.586Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: b92e256b-2878-4524-9c0d-2525bab74e8b
           hippotranslation:locale: en
@@ -1553,8 +1553,9 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Standard'
+          visitscotland:theme: standard
           visitscotland:title: Standard Page
+          visitscotland:topic: []
           visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -1582,9 +1583,9 @@
           hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-10-23T18:04:35.155+01:00
+          hippostdpubwf:lastModificationDate: 2024-11-22T10:45:00.586Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2024-10-23T18:04:37.523+01:00
+          hippostdpubwf:publicationDate: 2024-11-22T10:45:12.950Z
           hippotranslation:id: b92e256b-2878-4524-9c0d-2525bab74e8b
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -1600,8 +1601,9 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: ' Standard'
+          visitscotland:theme: standard
           visitscotland:title: Standard Page
+          visitscotland:topic: []
           visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -2103,7 +2105,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: a932ccea-5cee-49fa-b80f-8dc2bbcd790b
         hippo:name: Top-Level Page
-        hippo:versionHistory: b290a6a8-c052-49f4-9282-2ffce2e4ca2f
+        hippo:versionHistory: 67e87384-2cfe-4b36-8fe5-d92788a180b7
         /content[1]:
           jcr:primaryType: visitscotland:GeneralBSH
           jcr:mixinTypes: ['mix:referenceable']
@@ -2114,7 +2116,7 @@
           hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-08-30T16:08:52.438+01:00
+          hippostdpubwf:lastModificationDate: 2024-11-22T10:55:56.028Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 58578698-c37e-4b52-b7fa-f58033c94c40
           hippotranslation:locale: en
@@ -2122,7 +2124,7 @@
           visitscotland:hideNewsletter: false
           visitscotland:publishDate: 0001-01-01T12:00:00Z
           visitscotland:readingTime: 0
-          visitscotland:regions: [all.of.scotland]
+          visitscotland:regions: []
           visitscotland:sectors: []
           visitscotland:seoDescription: This is an example of a page
           visitscotland:seoNoIndex: false
@@ -2131,8 +2133,10 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Top Level  Page
+          visitscotland:topic: []
+          visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
@@ -2159,7 +2163,7 @@
           hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-08-30T16:09:06.521+01:00
+          hippostdpubwf:lastModificationDate: 2024-11-22T10:55:59.160Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 58578698-c37e-4b52-b7fa-f58033c94c40
           hippotranslation:locale: en
@@ -2167,7 +2171,7 @@
           visitscotland:hideNewsletter: false
           visitscotland:publishDate: 0001-01-01T12:00:00Z
           visitscotland:readingTime: 0
-          visitscotland:regions: [all.of.scotland]
+          visitscotland:regions: []
           visitscotland:sectors: []
           visitscotland:seoDescription: This is an example of a page
           visitscotland:seoNoIndex: false
@@ -2176,8 +2180,10 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Top Level  Page
+          visitscotland:topic: []
+          visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
@@ -2204,16 +2210,16 @@
           hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-08-30T16:09:06.521+01:00
+          hippostdpubwf:lastModificationDate: 2024-11-22T10:55:59.160Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2024-09-04T13:47:43.877+01:00
+          hippostdpubwf:publicationDate: 2024-11-22T10:56:02.389Z
           hippotranslation:id: 58578698-c37e-4b52-b7fa-f58033c94c40
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
           visitscotland:hideNewsletter: false
           visitscotland:publishDate: 0001-01-01T12:00:00Z
           visitscotland:readingTime: 0
-          visitscotland:regions: [all.of.scotland]
+          visitscotland:regions: []
           visitscotland:sectors: []
           visitscotland:seoDescription: This is an example of a page
           visitscotland:seoNoIndex: false
@@ -2222,8 +2228,10 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Top Level  Page
+          visitscotland:topic: []
+          visitscotland:type: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
@@ -2753,7 +2761,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Simple
+          visitscotland:theme: simple
           visitscotland:title: Simple Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -2798,7 +2806,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Simple
+          visitscotland:theme: simple
           visitscotland:title: Simple Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -2844,7 +2852,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Simple
+          visitscotland:theme: simple
           visitscotland:title: Simple Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -3247,7 +3255,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Standard
+          visitscotland:theme: standard
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -3292,7 +3300,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Standard
+          visitscotland:theme: standard
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -3338,7 +3346,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Standard
+          visitscotland:theme: standard
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -3397,7 +3405,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -3454,7 +3462,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -3512,7 +3520,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -3710,7 +3718,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -3758,7 +3766,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -3807,7 +3815,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -3984,7 +3992,7 @@
         visitscotland:seoTitle: Pages
         visitscotland:skill: ''
         visitscotland:teaser: Demo Page for Page Types
-        visitscotland:theme: Top-Level
+        visitscotland:theme: top-level
         visitscotland:title: Pages
         visitscotland:type: ''
         /visitscotland:heroImage:
@@ -4023,7 +4031,7 @@
         visitscotland:seoTitle: Pages
         visitscotland:skill: ''
         visitscotland:teaser: Demo Page for Page Types
-        visitscotland:theme: Top-Level
+        visitscotland:theme: top-level
         visitscotland:title: Pages
         visitscotland:type: ''
         /visitscotland:heroImage:
@@ -4063,7 +4071,7 @@
         visitscotland:seoTitle: Pages
         visitscotland:skill: ''
         visitscotland:teaser: Demo Page for Page Types
-        visitscotland:theme: Top-Level
+        visitscotland:theme: top-level
         visitscotland:title: Pages
         visitscotland:type: ''
         /visitscotland:heroImage:
@@ -4127,7 +4135,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Standard
+          visitscotland:theme: standard
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -4173,7 +4181,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Standard
+          visitscotland:theme: standard
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -5309,7 +5317,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Standard
+          visitscotland:theme: standard
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -5355,7 +5363,7 @@
           visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
             nulla nunc, viverra eros.
-          visitscotland:theme: Standard
+          visitscotland:theme: standard
           visitscotland:title: Standard Page
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -6409,7 +6417,7 @@
             visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
               nulla nunc, viverra eros.
-            visitscotland:theme: Standard
+            visitscotland:theme: standard
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -6455,7 +6463,7 @@
             visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
               nulla nunc, viverra eros.
-            visitscotland:theme: Standard
+            visitscotland:theme: standard
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -7590,7 +7598,7 @@
             visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
               nulla nunc, viverra eros.
-            visitscotland:theme: Standard
+            visitscotland:theme: standard
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -7636,7 +7644,7 @@
             visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
               nulla nunc, viverra eros.
-            visitscotland:theme: Standard
+            visitscotland:theme: standard
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -9186,7 +9194,7 @@
             visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
               nulla nunc, viverra eros.
-            visitscotland:theme: Standard
+            visitscotland:theme: standard
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -9232,7 +9240,7 @@
             visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
               nulla nunc, viverra eros.
-            visitscotland:theme: Standard
+            visitscotland:theme: standard
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -10166,7 +10174,7 @@
             visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
               nulla nunc, viverra eros.
-            visitscotland:theme: Standard
+            visitscotland:theme: standard
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -10212,7 +10220,7 @@
             visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
               nulla nunc, viverra eros.
-            visitscotland:theme: Standard
+            visitscotland:theme: standard
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -11146,7 +11154,7 @@
             visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
               nulla nunc, viverra eros.
-            visitscotland:theme: Standard
+            visitscotland:theme: standard
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -11191,7 +11199,7 @@
             visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
               nulla nunc, viverra eros.
-            visitscotland:theme: Top-Level
+            visitscotland:theme: top-level
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -11237,7 +11245,7 @@
             visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
               elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
               nulla nunc, viverra eros.
-            visitscotland:theme: Standard
+            visitscotland:theme: standard
             visitscotland:title: Standard Page
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -12428,7 +12436,7 @@
           visitscotland:skill: ''
           visitscotland:teaser: This document represents a collection of Links to
             internal sites, external sites or a combination of both
-          visitscotland:theme: Standard
+          visitscotland:theme: standard
           visitscotland:title: Links Module
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -12470,7 +12478,7 @@
           visitscotland:skill: ''
           visitscotland:teaser: This document represents a collection of Links to
             internal sites, external sites or a combination of both
-          visitscotland:theme: Standard
+          visitscotland:theme: standard
           visitscotland:title: Links Module
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -12513,7 +12521,7 @@
           visitscotland:skill: ''
           visitscotland:teaser: This document represents a collection of Links to
             internal sites, external sites or a combination of both
-          visitscotland:theme: Standard
+          visitscotland:theme: standard
           visitscotland:title: Links Module
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -12683,7 +12691,7 @@
         visitscotland:seoTitle: Demo Page for Document Types
         visitscotland:skill: ''
         visitscotland:teaser: This is a demo page about Document Types.
-        visitscotland:theme: Top-Level
+        visitscotland:theme: top-level
         visitscotland:title: Demo Page for Document Types
         visitscotland:type: ''
         /visitscotland:heroImage:
@@ -12731,7 +12739,7 @@
         visitscotland:seoTitle: Demo Page for Document Types
         visitscotland:skill: ''
         visitscotland:teaser: This is a demo page about Document Types.
-        visitscotland:theme: Top-Level
+        visitscotland:theme: top-level
         visitscotland:title: Demo Page for Document Types
         visitscotland:type: ''
         /visitscotland:heroImage:
@@ -12780,7 +12788,7 @@
         visitscotland:seoTitle: Demo Page for Document Types
         visitscotland:skill: ''
         visitscotland:teaser: This is a demo page about Document Types.
-        visitscotland:theme: Top-Level
+        visitscotland:theme: top-level
         visitscotland:title: Demo Page for Document Types
         visitscotland:type: ''
         /visitscotland:heroImage:
@@ -12844,7 +12852,7 @@
           visitscotland:skill: ''
           visitscotland:teaser: This is a demo page about CTA Banners, used to highlight
             key information and prompt users to act.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Demo Page for CTA Banner
           visitscotland:type: ''
           /visitscotland:heroImage:
@@ -12885,7 +12893,7 @@
           visitscotland:skill: ''
           visitscotland:teaser: This is a demo page about CTA Banners, used to highlight
             key information and prompt users to act.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Demo Page for CTA Banner
           visitscotland:type: ''
           /visitscotland:heroImage:
@@ -12927,7 +12935,7 @@
           visitscotland:skill: ''
           visitscotland:teaser: This is a demo page about CTA Banners, used to highlight
             key information and prompt users to act.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Demo Page for CTA Banner
           visitscotland:type: ''
           /visitscotland:heroImage:
@@ -13086,7 +13094,7 @@
         visitscotland:seoNoIndex: false
         visitscotland:seoTitle: Sandbox for Features
         visitscotland:teaser: Features!
-        visitscotland:theme: Top-Level
+        visitscotland:theme: top-level
         visitscotland:title: Sandbox for Features
         visitscotland:translation: ''
         /visitscotland:heroImage:
@@ -13124,7 +13132,7 @@
         visitscotland:seoNoIndex: false
         visitscotland:seoTitle: Sandbox for Features
         visitscotland:teaser: Features!
-        visitscotland:theme: Top-Level
+        visitscotland:theme: top-level
         visitscotland:title: Sandbox for Features
         visitscotland:translation: ''
         /visitscotland:heroImage:
@@ -13161,7 +13169,7 @@
         visitscotland:seoNoIndex: false
         visitscotland:seoTitle: Sandbox for Features
         visitscotland:teaser: Features!
-        visitscotland:theme: Top-Level
+        visitscotland:theme: top-level
         visitscotland:title: Sandbox for Features
         visitscotland:translation: ''
         /visitscotland:heroImage:
@@ -13218,7 +13226,7 @@
             visitscotland:seoNoIndex: false
             visitscotland:seoTitle: Breadcrumbs
             visitscotland:teaser: Breadcrumbs!
-            visitscotland:theme: Top-Level
+            visitscotland:theme: top-level
             visitscotland:title: Sandbox Breadcrumb
             visitscotland:translation: ''
             /visitscotland:heroImage:
@@ -13255,7 +13263,7 @@
             visitscotland:seoNoIndex: false
             visitscotland:seoTitle: Breadcrumbs
             visitscotland:teaser: Breadcrumbs!
-            visitscotland:theme: Top-Level
+            visitscotland:theme: top-level
             visitscotland:title: Sandbox Breadcrumb
             visitscotland:translation: ''
             /visitscotland:heroImage:
@@ -13293,7 +13301,7 @@
             visitscotland:seoNoIndex: false
             visitscotland:seoTitle: Breadcrumbs
             visitscotland:teaser: Breadcrumbs!
-            visitscotland:theme: Top-Level
+            visitscotland:theme: top-level
             visitscotland:title: Sandbox Breadcrumb
             visitscotland:translation: ''
             /visitscotland:heroImage:
@@ -13336,7 +13344,7 @@
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Breadcrumbs
           visitscotland:teaser: Breadcrumbs!
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Sandbox Breadcrumb
           visitscotland:translation: ''
           /visitscotland:heroImage:
@@ -13372,7 +13380,7 @@
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Breadcrumbs
           visitscotland:teaser: Breadcrumbs!
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Sandbox Breadcrumb
           visitscotland:translation: ''
           /visitscotland:heroImage:
@@ -13409,7 +13417,7 @@
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Breadcrumbs
           visitscotland:teaser: Breadcrumbs!
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Sandbox Breadcrumb
           visitscotland:translation: ''
           /visitscotland:heroImage:
@@ -13461,7 +13469,7 @@
           visitscotland:seoTitle: Demo Page for Nesting Modules
           visitscotland:skill: ''
           visitscotland:teaser: This demo page is focused on Nesting Modules.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Demo Page for Nesting Modules
           visitscotland:type: ''
           /visitscotland:heroImage:
@@ -13500,7 +13508,7 @@
           visitscotland:seoTitle: Demo Page for Nesting Modules
           visitscotland:skill: ''
           visitscotland:teaser: This demo page is focused on Nesting Modules.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Demo Page for Nesting Modules
           visitscotland:type: ''
           /visitscotland:heroImage:
@@ -13540,7 +13548,7 @@
           visitscotland:seoTitle: Demo Page for Nesting Modules
           visitscotland:skill: ''
           visitscotland:teaser: This demo page is focused on Nesting Modules.
-          visitscotland:theme: Top-Level
+          visitscotland:theme: top-level
           visitscotland:title: Demo Page for Nesting Modules
           visitscotland:type: ''
           /visitscotland:heroImage:
@@ -15523,7 +15531,7 @@
             visitscotland:seoTitle: Demo Page for Nesting Modules
             visitscotland:skill: ''
             visitscotland:teaser: This demo page is focused on Nesting Modules.
-            visitscotland:theme: Top-Level
+            visitscotland:theme: top-level
             visitscotland:title: Demo Page for Nesting Modules
             visitscotland:type: ''
             /visitscotland:heroImage:
@@ -15563,7 +15571,7 @@
             visitscotland:seoTitle: Demo Page for Nesting Modules
             visitscotland:skill: ''
             visitscotland:teaser: This demo page is focused on Nesting Modules.
-            visitscotland:theme: Top-Level
+            visitscotland:theme: top-level
             visitscotland:title: Demo Page for Nesting Modules
             visitscotland:type: ''
             /visitscotland:heroImage:
