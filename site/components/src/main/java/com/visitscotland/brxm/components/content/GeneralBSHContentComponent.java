@@ -22,8 +22,8 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
 
     private static final Logger logger = LoggerFactory.getLogger(GeneralBSHContentComponent.class);
 
-    static final String ERROR_CODE = "errorCode";
-    public static final String READ_DATA = "readData";
+    private static final String ERROR_CODE = "errorCode";
+    private static final String READ_DATA = "readData";
 
 
     private final PageTemplateBuilder builder;
