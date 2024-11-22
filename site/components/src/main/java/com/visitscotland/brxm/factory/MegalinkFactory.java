@@ -185,17 +185,21 @@ public class MegalinkFactory {
         target.setTitle(doc.getTitle());
         target.setIntroduction(doc.getIntroduction());
 
-        addSpecialFields(doc, target);
+        addSpecialFields(doc, target, locale);
 
         if (doc.getProductItem() != null) {
             target.setCta(linkService.createFindOutMoreLink(target, locale, doc.getProductItem()));
         }
     }
 
-    private void addSpecialFields(Megalinks doc, LinksModule<?> module){
+    private void addSpecialFields(Megalinks doc, LinksModule<?> module, Locale locale){
         if (doc instanceof MegalinksBSH){
-            module.setNested(Boolean.TRUE.equals(((MegalinksBSH) doc).getNested()));
-            module.setAnchor(((MegalinksBSH) doc).getAnchor());
+            MegalinksBSH megalinksBSH = (MegalinksBSH) doc;
+            module.setNested(Boolean.TRUE.equals(megalinksBSH.getNested()));
+            module.setAnchor(megalinksBSH.getAnchor());
+            if (megalinksBSH.getProductsCMS() != null) {
+                module.setCta(linkService.createFindOutMoreLink(module, locale, (megalinksBSH.getProductsCMS())));
+            }
         }
     }
 
