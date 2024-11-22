@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ffa7b86c-fc0c-42ec-81a6-adedf369e401
   hippo:name: Global
-  hippo:versionHistory: 18931fdb-4831-475f-8cab-b961f3b18169
+  hippo:versionHistory: b08ff489-af3b-47e5-a527-bc9e8c84f39d
   /common-label[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,9 +13,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2024-11-20T17:47:21.137Z
+    hippostdpubwf:lastModificationDate: 2024-11-21T17:05:14.981Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-11-20T17:47:23.994Z
+    hippostdpubwf:publicationDate: 2024-11-21T17:05:18.946Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '']
     resourcebundle:id: essentials.global
@@ -28,7 +28,7 @@
       /content/gallery/visitscotland/static/placeholder-logo.jpg, Find out more about,
       Manage cookie settings, 'Sorry, something''s gone wrong. We can''t display this
         content at the moment.', 'Reading time: %s minute', 'Reading time: %s minutes',
-      Back to top, minute read]
+      Back to top, '%s minute read']
     resourcebundle:messages_de: [Mehr erfahren, Kein Titel, Download, Ausstattung,
       Startseite, Beschreibung einblenden, Kein Urheber verfügbar, Bild, Schließen,
       Artikel ansehen, /content/gallery/visitscotland/static/placeholder-logo.jpg,
@@ -68,7 +68,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2024-11-20T17:47:21.137Z
+    hippostdpubwf:lastModificationDate: 2024-11-21T17:05:14.981Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '']
@@ -82,7 +82,7 @@
       /content/gallery/visitscotland/static/placeholder-logo.jpg, Find out more about,
       Manage cookie settings, 'Sorry, something''s gone wrong. We can''t display this
         content at the moment.', 'Reading time: %s minute', 'Reading time: %s minutes',
-      Back to top, minute read]
+      Back to top, '%s minute read']
     resourcebundle:messages_de: [Mehr erfahren, Kein Titel, Download, Ausstattung,
       Startseite, Beschreibung einblenden, Kein Urheber verfügbar, Bild, Schließen,
       Artikel ansehen, /content/gallery/visitscotland/static/placeholder-logo.jpg,
@@ -118,7 +118,6 @@
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: f6ae492b-7620-4657-9783-c120d4cf32e4
     hippo:availability: []
-    hippostd:holder: admin
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
