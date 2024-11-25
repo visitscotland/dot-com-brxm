@@ -66,12 +66,13 @@ public class SignpostFactory {
 
         FlatImage image = new FlatImage();
         image.setCmsImage(ctaBanner.getImage());
+
         module.setCta(cta);
         module.setImage(image);
         module.setTitle(ctaBanner.getTitle());
         module.setCopy(ctaBanner.getIntroduction());
         module.setHippoBean(ctaBanner);
-        module.setAnchor(ctaBanner.getAnchor());
+        module.setAnchor(ctaBanner.getAnchor().orElseGet(module::getTitle));
         module.setNested(Boolean.TRUE.equals(ctaBanner.getNested()));
 
         return module;
