@@ -5,9 +5,18 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 public class SignpostModule extends Module {
 
     private String title;
+    private boolean nested;
     private HippoHtml copy;
     private FlatLink cta;
     private FlatImage image;
+
+    public boolean isNested() {
+        return nested;
+    }
+
+    public void setNested(boolean nested) {
+        this.nested = nested;
+    }
 
     public String getTitle() {
         return title;
