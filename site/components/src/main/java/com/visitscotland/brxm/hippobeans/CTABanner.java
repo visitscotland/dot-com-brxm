@@ -3,8 +3,8 @@ package com.visitscotland.brxm.hippobeans;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
-import com.visitscotland.brxm.hippobeans.Image;
-import com.visitscotland.brxm.hippobeans.CMSLink;
+
+import java.util.Optional;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:CTABanner")
 @Node(jcrType = "visitscotland:CTABanner")
@@ -35,7 +35,7 @@ public class CTABanner extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:anchor")
-    public String getAnchor() {
-        return getSingleProperty("visitscotland:anchor");
+    public Optional<String> getAnchor() {
+        return Optional.ofNullable(getSingleProperty("visitscotland:anchor"));
     }
 }
