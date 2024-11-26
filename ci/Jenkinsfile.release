@@ -8,9 +8,10 @@
 def MAIL_TO = "webops@visitscotland.net"
 def MAIL_TO_NET = 'net@visitscotland.com'
 def CC_DEV1 = 'Jose.Calcines@visitscotland.com'
-def CC_DEV2 = 'Juanluis.hurtado@visitscotland.com'
+def CC_DEV2 = 'Juanluis.Hurtado@visitscotland.com'
 def CC_DEV3 = 'Matthew.Syrigos@visitscotland.com'
-def CC_DEV_LIST = "cc:${CC_DEV1}, cc:${CC_DEV2}, cc:${CC_DEV3}"
+def CC_DEV4 = 'Martin.Taylor@visitscotland.com'
+def CC_DEV_LIST = "cc:${CC_DEV1}, cc:${CC_DEV2}, cc:${CC_DEV3}, cc:${CC_DEV4}"
 
 def thisAgent
 // Define the SSR filename
@@ -156,53 +157,6 @@ pipeline {
                 }
 
                 sh 'printenv'
-            }
-        }
-
-        stage ('vs compile & package') {
-            when {
-                allOf {
-                    expression {return env.VS_RUN_BRC_STAGES != 'TRUE'}
-                    expression {return env.VS_SKIP_VS_BLD != 'TRUE'}
-                    expression {return env.VS_USE_DOCKER_BUILDER != 'TRUE'}
-                    expression {return env.BRANCH_NAME != env.VS_SKIP_BUILD_FOR_BRANCH}
-                    expression {return env.VS_SKIP_MAVEN_BUILD != 'true'}
-                }
-            }
-            steps {
-                sh '''
-                  set +x
-                  echo "== setting essential git variables =="
-                  git config --global user.name "${GIT_COMMITER_NAME}"
-                  git config --global user.email "${GIT_COMMITER_EMAIL}"
-                  echo; echo "= GIT CONFIG AFTER CONFIG ="; git config -l; echo
-                '''
-                //sh 'mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false'
-                sh 'mvn versions:use-releases'
-                sh '''
-                  set +x
-                  # unsetting BRANCH_NAME variable as the Java build uses its presence to determine whether or not to add the development banner
-                  set BRANCH_NAME_TEMP=$BRANCH_NAME; unset BRANCH_NAME
-                  # we are using "package" rather than "verify" for now since we don't have IT tests yet
-                  mvn clean package
-                  # reinstating BRANCH_NAME variable
-                  set BRANCH_NAME=$BRANCH_NAME_TEMP; unset BRANCH_NAME_TEMP
-                '''
-                script {
-		    VS_MVN_BUILD_SUCCESS = 'TRUE'
-		    echo "VS_MVN_BUILD_SUCCESS is set to ${VS_MVN_BUILD_SUCCESS}"
-		}
-                // running "infrastructure.sh setvars" here to prevent earlier creation of build-info.properties which causes the addition of the development banner
-                sh 'sh ./ci/infrastructure/scripts/infrastructure.sh setvars'
-            }
-            post {
-                success {
-                    sh 'mvn install -Pdist'
-                    mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build succeeded at ${env.STAGE_NAME} for ${env.JOB_NAME}", to: "${MAIL_TO}";
-                }
-                failure {
-                    mail bcc: '', body: "<b>Notification</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Maven build FAILED at ${env.STAGE_NAME} for  ${env.JOB_NAME}", to: "${MAIL_TO}";
-                }
             }
         }
 
@@ -581,30 +535,10 @@ pipeline {
                             if (distroPackageResponseCode == '200') {
                                 echo "Distribution's URL in the Nexus is valid. File exists."
                                 // since the file exists, notify the email recipients of its actual name in the Nexus
-                                // regex: release_candidates-\d+
-                                def releaseCandidateRegExPattern = /release_candidates-\d+/
-                                // Extract the pattern value from the VS_RELEASE_PACKAGE_NEXUS_URL
-                                def releaseCandidateRegExMatcher = (VS_RELEASE_PACKAGE_NEXUS_URL =~ releaseCandidateRegExPattern)
-                                if (releaseCandidateRegExMatcher) {
-                                    VS_RELEASE_CANDIDATE_NEXUS_FILENAME = releaseCandidateRegExMatcher[0]
-                                    echo "Extracted Value: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
-                                } else {
-                                    echo "No matches found for regex pattern: ${releaseCandidateRegExPattern}"
-                                    echo "Checking for SNAPSHOT... (should we be releasing snapshots?)"
 
-                                    // regex: -SNAPSHOT
-                                    def snapshotRegExPattern = /-SNAPSHOT/
-                                    // Extract the pattern value from the VS_RELEASE_PACKAGE_NEXUS_URL
-                                    def snapshotRegExMatcher = (VS_RELEASE_PACKAGE_NEXUS_URL =~ snapshotRegExPattern)
-                                    if (snapshotRegExMatcher) {
-                                        // Store the part of the URL after the last '/' in the global variable (to be used in the email)
-                                        VS_RELEASE_CANDIDATE_NEXUS_FILENAME = VS_RELEASE_PACKAGE_NEXUS_URL.substring(VS_RELEASE_PACKAGE_NEXUS_URL.lastIndexOf('/') + 1)
-                                        // Store the matched value in a variable
-                                        echo "Matched snapshot name in the Nexus: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
-                                    } else {
-                                        echo "No snapshot matches found for regex pattern: ${snapshotRegExPattern}"
-                                    }
-                                }
+                                // Store the part of the URL after the last '/' in the global variable (to be used in the email)
+                                VS_RELEASE_CANDIDATE_NEXUS_FILENAME = VS_RELEASE_PACKAGE_NEXUS_URL.substring(VS_RELEASE_PACKAGE_NEXUS_URL.lastIndexOf('/') + 1)
+                                echo "Release filename in the Nexus: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
                             } else {
                                 echo "Distribution's URL in the Nexus is invalid (maybe a rule error?). Response code: ${distroPackageResponseCode}"
                             }
@@ -735,6 +669,11 @@ pipeline {
                     if (VS_ERROR_LINES_EMAIL)
                         distributionReleaseBody=VS_ERROR_LINES_EMAIL
 
+                    // accessing GIT_URL env variable (might want to use artifactId via mvn help plugin instead)
+                    def git_url = env.GIT_URL
+                    def repoName = git_url.substring(git_url.lastIndexOf('/') + 1, git_url.lastIndexOf('.git'))
+                    echo "Repository Name (to be used in the email's title): ${repoName}"
+
                     def emailBody = """
                       <html>
                       <head>
@@ -747,7 +686,7 @@ pipeline {
                         </style>
                       </head>
                       <body>
-                        <h1>Package details for release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL}, <a href="${env.BUILD_URL}">Jenkins Build ${env.BUILD_NUMBER}</a> - ${VS_PIPELINE_OUTCOME_EMAIL}</h1>
+                        <h1>${repoName}: Package details for release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL}, <a href="${env.BUILD_URL}">Jenkins Build ${env.BUILD_NUMBER}</a> - ${VS_PIPELINE_OUTCOME_EMAIL}</h1>
                         <p>Here are the details for the artefacts (distribution/release and SSR packages) related to the current aforementioned build.</p>
                         <h2>Release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} artefact</h2>
                         ${distributionReleaseBody}
@@ -764,7 +703,7 @@ pipeline {
                       </html>
                       """
                     emailext(
-                            subject: "[Release] v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} - build #${env.BUILD_NUMBER} - ${VS_PIPELINE_OUTCOME_EMAIL} - Artefacts' Info",
+                            subject: "[Release] ${repoName} v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} - build #${env.BUILD_NUMBER} - ${VS_PIPELINE_OUTCOME_EMAIL}",
                             body: "${emailBody}",
                             to: "${MAIL_TO_NET}, ${VS_COMMIT_AUTHOR}, ${CC_DEV_LIST}",
                             mimeType: 'text/html'

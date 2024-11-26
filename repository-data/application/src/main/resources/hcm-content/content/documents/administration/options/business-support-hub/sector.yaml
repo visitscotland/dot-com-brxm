@@ -29,5 +29,9 @@
       selection:label: Events
     /selection:listitem[5]:
       jcr:primaryType: selection:listitem
+      selection:key: food-drink
+      selection:label: Food and Drink
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
       selection:key: tour
       selection:label: Tours

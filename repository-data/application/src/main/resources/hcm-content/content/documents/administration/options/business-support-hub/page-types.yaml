@@ -1,0 +1,24 @@
+/content/documents/administration/options/business-support-hub/page-types:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: b30148b6-a255-413a-9bc9-8029a38bd26d
+  hippo:name: Page Types
+  /page-types:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 1ade4a4f-2f42-4f9d-b078-b9bcf739e4de
+    hippo:availability: [live, preview]
+    hippotranslation:id: 1f70466c-d021-4a0d-8cd6-e7a905498b75
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: top-level
+      selection:label: Top-Level
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: standard
+      selection:label: Standard
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: simple
+      selection:label: Simple

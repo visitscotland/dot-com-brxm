@@ -1,12 +1,14 @@
 package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.hippobeans.Blog;
+import com.visitscotland.brxm.hippobeans.GeneralBSH;
 import com.visitscotland.brxm.hippobeans.Profile;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Locale;
 
@@ -26,10 +28,8 @@ public class BlogFactory {
         if (doc.getAuthor() instanceof Profile) {
             blog.setAuthorName(doc.getAuthor().getName());
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd, yyy", locale);
-        blog.setPublishDate(sdf.format(doc.getPublishDate().getTime()));
+        blog.setPublishDate(formatPublishDate(doc.getPublishDate(), locale));
         if (doc.getReadingTime() > 0) {
-            //TODO consider moving the labels to modules in the future depending on the next phases
             String readTime = bundle.getResourceBundle(BLOG_LABELS,"read-time.plural", locale);
             if (doc.getReadingTime() < 2) {
                 readTime = bundle.getResourceBundle(BLOG_LABELS,"read-time.singular", locale);
@@ -42,4 +42,22 @@ public class BlogFactory {
         return blog;
     }
 
+    public FlatBlog getPageReadData(GeneralBSH page, Locale locale) {
+        FlatBlog blog = new FlatBlog();
+        blog.setPublishDate(formatPublishDate(page.getPublishDate(), locale));
+        if (page.getReadingTime() > 0) {
+            String readTime = bundle.getSiteResourceBundle(BLOG_LABELS,"read-time.generic", locale);
+            blog.setReadingTime(String.format(readTime, page.getReadingTime().toString()));
+        }
+
+        return blog;
+    }
+
+    public String formatPublishDate(Calendar date, Locale locale){
+        if (date != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd, yyy", locale);
+            return sdf.format(date.getTime());
+        }
+        return null;
+    }
 }
