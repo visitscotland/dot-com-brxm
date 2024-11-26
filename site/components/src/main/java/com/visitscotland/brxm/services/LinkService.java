@@ -513,15 +513,14 @@ public class LinkService {
         if (sharedLink instanceof SharedLinkBSH) {
             SharedLinkBSH sharedLinkBSH = (SharedLinkBSH) sharedLink;
             link.setSource(sharedLinkBSH.getSource());
-            //TODO setBSHFields(link, sharedLinkBSH.getType(), sharedLinkBSH.getSectors(), sharedLinkBSH.getSkill(), sharedLinkBSH.getTopic(), sharedLinkBSH.getRegions());
-
+            setBSHFields(link, sharedLinkBSH.getType(), sharedLinkBSH.getSectors(), sharedLinkBSH.getSkill(), sharedLinkBSH.getTopic(), sharedLinkBSH.getRegions());
         }
+
         if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
             link.setImage(imageFactory.createImage(product, module, locale));
         } else {
             link.setImage(imageFactory.createImage(sharedLink.getImage(), module, locale));
         }
-
 
         if (sharedLink.getLinkType() instanceof ExternalDocument || sharedLink.getLinkType() instanceof FileLink) {
             link.setLabel(formatLabel(sharedLink, sharedLink.getTitle(), module, locale));
