@@ -4,8 +4,6 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
-import java.util.Optional;
-
 @HippoEssentialsGenerated(internalName = "visitscotland:CTABanner")
 @Node(jcrType = "visitscotland:CTABanner")
 public class CTABanner extends BaseDocument {
@@ -35,7 +33,7 @@ public class CTABanner extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:anchor")
-    public Optional<String> getAnchor() {
-        return Optional.ofNullable(getSingleProperty("visitscotland:anchor"));
+    public String getAnchor() {
+        return getSingleProperty("visitscotland:anchor");
     }
 }
