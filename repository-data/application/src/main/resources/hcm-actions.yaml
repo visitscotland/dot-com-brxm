@@ -91,4 +91,5 @@ action-lists:
     /content/documents/administration/options/bsh---skill: delete
     /content/documents/administration/options/bsh---region: delete
 - 2.5.2:
+    /content/documents/administration/options/business-support-hub/sector: reload
     /content/documents/administration/labels/global/common-label: reload
