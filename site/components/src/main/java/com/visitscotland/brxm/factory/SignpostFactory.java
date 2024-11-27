@@ -20,7 +20,6 @@ import java.util.Locale;
 public class SignpostFactory {
 
     private static final String BUNDLE_ID = "newsletter-signpost";
-    private static final String BE_BUNDLE_ID = "be.newsletter-signpost";
 
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
@@ -57,9 +56,9 @@ public class SignpostFactory {
     }
 
     public SignpostModule createModule (CTABanner ctaBanner){
-        SignpostModule signpostModule = new SignpostModule();
+        SignpostModule module = new SignpostModule();
         Linkable linkable = (Linkable) ctaBanner.getCtaLink().getLink();
-        FlatLink cta = linkService.createSimpleLink(linkable,signpostModule, null);
+        FlatLink cta = linkService.createSimpleLink(linkable, module, null);
 
         if (Contract.isNull(cta.getLink())) {
             return null;
@@ -67,12 +66,15 @@ public class SignpostFactory {
 
         FlatImage image = new FlatImage();
         image.setCmsImage(ctaBanner.getImage());
-        signpostModule.setCta(cta);
-        signpostModule.setImage(image);
-        signpostModule.setTitle(ctaBanner.getTitle());
-        signpostModule.setCopy(ctaBanner.getIntroduction());
+        module.setCta(cta);
+        module.setImage(image);
+        module.setTitle(ctaBanner.getTitle());
+        module.setCopy(ctaBanner.getIntroduction());
+        module.setHippoBean(ctaBanner);
+        module.setAnchor(ctaBanner.getAnchor());
+        module.setNested(Boolean.TRUE.equals(ctaBanner.getNested()));
 
-        return signpostModule;
+        return module;
     }
 
     private SignpostModule createSignPostModule(String bundleName, String prefix, Locale locale) {

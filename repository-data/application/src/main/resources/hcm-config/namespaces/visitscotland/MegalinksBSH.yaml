@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b90bc191-2b3d-49e5-aaad-2433f87027c4
+          jcr:uuid: 3562aaf3-59b5-4fec-9638-8995de333453
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Megalinks', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -33,6 +33,15 @@ definitions:
             hipposysedit:path: visitscotland:nested
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /CMSLink:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:productsCMS
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:CMSLink
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -48,7 +57,7 @@ definitions:
           visitscotland:teaserVisible: true
           visitscotland:anchor: ''
           visitscotland:nested: false
-          jcr:uuid: 02a9994a-1d22-4170-9b26-67bacbbf772a
+          jcr:uuid: 35cf9236-b571-4c92-a1ec-1e1fe330a99d
           hippostdpubwf:lastModificationDate: 2024-10-04T12:48:11.520+01:00
           hippostdpubwf:creationDate: 2024-10-04T12:48:11.521+01:00
           visitscotland:layout: Default
@@ -100,6 +109,16 @@ definitions:
               ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
                 [{ name: ''basicstyles''}, { name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
                 , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+          /layout:
+            jcr:primaryType: frontend:plugin
+            caption: Layout
+            field: layout
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Default,List
           /nested:
             jcr:primaryType: frontend:plugin
             caption: Nest under the previous module
@@ -109,14 +128,18 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /anchor:
+          /singleImageLinks:
             jcr:primaryType: frontend:plugin
-            caption: Anchor Text
-            field: anchor
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
+            caption: Single Image view
+            compoundList: visitscotland:SingleImageModule
+            contentPickerType: links
+            field: singleImageLinks
+            hint: ''
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxitems: 1
           /megalinkItems:
             jcr:primaryType: frontend:plugin
             caption: Links
@@ -129,3 +152,20 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxitems: 12
+          /productsCMS:
+            jcr:primaryType: frontend:plugin
+            caption: Overall CTA
+            field: CMSLink
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /anchor:
+            jcr:primaryType: frontend:plugin
+            caption: Anchor Text
+            field: anchor
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
