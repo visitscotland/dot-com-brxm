@@ -6,13 +6,13 @@ import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SignpostModule;
+import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -26,12 +26,18 @@ public class SignpostFactory {
     private final SiteProperties properties;
     private final HippoUtilsService hippoUtilsService;
     private final LinkService linkService;
+    private final AnchorFormatter anchorFormatter;
 
-    public SignpostFactory(ResourceBundleService bundle, SiteProperties properties, HippoUtilsService hippoUtilsService, LinkService linkService) {
+    public SignpostFactory(ResourceBundleService bundle,
+                           SiteProperties properties,
+                           HippoUtilsService hippoUtilsService,
+                           LinkService linkService,
+                           AnchorFormatter anchorFormatter) {
         this.bundle = bundle;
         this.properties = properties;
         this.hippoUtilsService = hippoUtilsService;
         this.linkService = linkService;
+        this.anchorFormatter = anchorFormatter;
     }
 
     public SignpostModule createNewsletterSignpostModule(Locale locale) {
@@ -74,7 +80,7 @@ public class SignpostFactory {
         module.setCopy(ctaBanner.getIntroduction());
         module.setHippoBean(ctaBanner);
         module.setNested(Boolean.TRUE.equals(ctaBanner.getNested()));
-        module.setAnchor(StringUtils.getIfBlank(ctaBanner.getAnchor(), ctaBanner::getTitle));
+        module.setAnchor(anchorFormatter.getAnchorOrFallback(ctaBanner.getAnchor(), ctaBanner::getTitle));
 
         return module;
     }
