@@ -1,5 +1,5 @@
 /hst:hst/hst:configurations/visitscotland/hst:workspace/hst:sitemenus/main/see-do:
-  .meta:order-before: accommodation
+  .meta:order-before: destinations-map
   jcr:primaryType: hst:sitemenuitem
   hst:referencesitemapitem: test
   hst:repobased: false

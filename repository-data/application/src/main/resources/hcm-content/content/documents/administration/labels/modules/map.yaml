@@ -1,5 +1,4 @@
 /content/documents/administration/labels/modules/map:
-  .meta:order-before: canned-search
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ac89a8cf-a2c8-4cd6-bf14-91afb3d68e3e
