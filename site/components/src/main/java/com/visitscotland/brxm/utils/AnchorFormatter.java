@@ -21,7 +21,8 @@ public final class AnchorFormatter {
 
     private String formatString(String string) {
         return string
-            .replaceAll("[^a-zA-Z0-9]+", "-")
+            .toLowerCase()
+            .replaceAll("[^a-z0-9]+", "-")
             .replaceAll("-+$", "")
             .toLowerCase();
     }
