@@ -1,5 +1,4 @@
 /content/documents/administration/labels/global/search:
-  .meta:order-before: common-label
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 767ac847-a632-4058-80eb-226bc9ed0f2f
