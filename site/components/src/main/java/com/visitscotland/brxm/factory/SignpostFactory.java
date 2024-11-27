@@ -12,6 +12,7 @@ import com.visitscotland.brxm.utils.HippoHtmlWrapper;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -72,8 +73,8 @@ public class SignpostFactory {
         module.setTitle(ctaBanner.getTitle());
         module.setCopy(ctaBanner.getIntroduction());
         module.setHippoBean(ctaBanner);
-        module.setAnchor(ctaBanner.getAnchor().orElseGet(module::getTitle));
         module.setNested(Boolean.TRUE.equals(ctaBanner.getNested()));
+        module.setAnchor(StringUtils.getIfBlank(ctaBanner.getAnchor(), ctaBanner::getTitle));
 
         return module;
     }
