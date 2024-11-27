@@ -60,15 +60,12 @@ class AnchorFormatterTest {
 
     @Test
     void testGetAnchorOrFallback_FormatsFallbackCorrectly() {
-        // Arrange
         final String fallback = "Fallback String with !@#Symbols ?";
 
         when(fallbackSupplier.get()).thenReturn(fallback);
 
         final String result = anchorFormatter.getAnchorOrFallback(null, fallbackSupplier);
 
-        // Assert
         Assertions.assertEquals("fallback-string-with-symbols", result);
     }
-
 }
