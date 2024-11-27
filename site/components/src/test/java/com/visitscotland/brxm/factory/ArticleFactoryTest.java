@@ -1,8 +1,14 @@
 package com.visitscotland.brxm.factory;
 
-import com.visitscotland.brxm.hippobeans.*;
+import com.visitscotland.brxm.hippobeans.Article;
+import com.visitscotland.brxm.hippobeans.ArticleSection;
+import com.visitscotland.brxm.hippobeans.Image;
+import com.visitscotland.brxm.hippobeans.Quote;
+import com.visitscotland.brxm.hippobeans.Video;
+import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.services.LinkService;
+import com.visitscotland.brxm.utils.AnchorFormatter;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.mock.core.component.MockHstRequest;
@@ -31,7 +37,12 @@ class ArticleFactoryTest {
     LinkService linkService;
 
     @Mock
+    AnchorFormatter anchorFormatter;
+
+    @Mock
     QuoteFactory embedder;
+
+    private static final String DUMMY_ANCHOR = "dummy-anchor";
 
     @Test
     @DisplayName("Main Article - Populates all fields")
@@ -40,14 +51,16 @@ class ArticleFactoryTest {
         Article article = mock(Article.class);
         when(article.getMediaItem()).thenReturn(mock(Image.class));
         when(article.getTitle()).thenReturn("Title");
-        when(article.getAnchor()).thenReturn("anchor");
+        when(article.getAnchor()).thenReturn(DUMMY_ANCHOR);
         when(article.getCopy()).thenReturn(mock(HippoHtml.class));
+        when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
         ArticleModule module = factory.getModule(request, article);
 
         verify(imageFactory, only()).getImage(any(Image.class), any(), any());
+        verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
         assertEquals("Title", module.getTitle());
-        assertEquals("anchor", module.getAnchor());
+        assertEquals(DUMMY_ANCHOR, module.getAnchor());
         assertEquals(HippoHtml.class, module.getIntroduction().getClass());
         assertEquals(article, module.getHippoBean());
     }
@@ -58,17 +71,20 @@ class ArticleFactoryTest {
         HstRequest request = new MockHstRequest();
         Article article = mock(Article.class);
         VideoLink videoLink = mock(VideoLink.class);
+
         when(videoLink.getVideoLink()).thenReturn(mock(Video.class));
         when(article.getMediaItem()).thenReturn(videoLink);
         when(article.getTitle()).thenReturn("Title");
-        when(article.getAnchor()).thenReturn("anchor");
+        when(article.getAnchor()).thenReturn(DUMMY_ANCHOR);
         when(article.getCopy()).thenReturn(mock(HippoHtml.class));
+        when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
         ArticleModule module = factory.getModule(request, article);
 
         verify(linkService, only()).createVideo(any(Video.class), any(), any());
+        verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
         assertEquals("Title", module.getTitle());
-        assertEquals("anchor", module.getAnchor());
+        assertEquals(DUMMY_ANCHOR, module.getAnchor());
         assertEquals(HippoHtml.class, module.getIntroduction().getClass());
         assertEquals(article, module.getHippoBean());
     }
@@ -85,12 +101,14 @@ class ArticleFactoryTest {
         when(section.getMediaItem()).thenReturn(mock(Image.class));
         when(section.getQuote()).thenReturn(mock(Quote.class));
         when(article.getParagraph()).thenReturn(Arrays.asList(section, section));
-        when(article.getAnchor()).thenReturn("anchor-link");
+        when(article.getAnchor()).thenReturn(DUMMY_ANCHOR);
+        when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
         ArticleModule module = factory.getModule(request, article);
 
         verify(imageFactory, times(2)).getImage(any(Image.class), any(), any());
         verify(embedder, times(2)).getQuote(any(Quote.class), any(), any());
+        verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
         assertEquals(2, module.getSections().size());
     }
 
@@ -107,13 +125,14 @@ class ArticleFactoryTest {
         when(section.getCopy()).thenReturn(mock(HippoHtml.class));
         when(section.getQuote()).thenReturn(mock(Quote.class));
         when(article.getParagraph()).thenReturn(Arrays.asList(section, section));
-        when(article.getAnchor()).thenReturn("anchor-link");
-
+        when(article.getAnchor()).thenReturn(DUMMY_ANCHOR);
+        when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
         ArticleModule module = factory.getModule(request, article);
 
         verify(linkService, times(2)).createVideo(any(Video.class), any(), any());
         verify(embedder, times(2)).getQuote(any(Quote.class), any(), any());
+        verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
         assertEquals(2, module.getSections().size());
     }
 }
