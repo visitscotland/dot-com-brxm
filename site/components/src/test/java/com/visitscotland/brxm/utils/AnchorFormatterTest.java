@@ -1,6 +1,5 @@
-package com.visitscotland.brxm.services;
+package com.visitscotland.brxm.utils;
 
-import com.visitscotland.brxm.utils.AnchorFormatter;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.Assertions;
