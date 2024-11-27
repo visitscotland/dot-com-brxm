@@ -12,7 +12,7 @@ public final class AnchorFormatter {
     public AnchorFormatter() { }
 
     public String getAnchorOrFallback(String anchor, Supplier<String> fallback) {
-        if( Objects.isNull(anchor) || StringUtils.isBlank(anchor)) {
+        if(Objects.isNull(anchor) || StringUtils.isBlank(anchor)) {
             return formatString(fallback.get());
         }
 
