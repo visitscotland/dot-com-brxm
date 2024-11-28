@@ -3,6 +3,7 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
+import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -25,11 +26,16 @@ public class ArticleFactory {
     private final ImageFactory imageFactory;
     private final LinkService linkService;
     private final QuoteFactory quoteEmbedder;
+    private final AnchorFormatter anchorFormatter;
 
-    public ArticleFactory(ImageFactory imageFactory, QuoteFactory quoteEmbedder, LinkService linkService){
+    public ArticleFactory(ImageFactory imageFactory,
+                          QuoteFactory quoteEmbedder,
+                          LinkService linkService,
+                          AnchorFormatter anchorFormatter) {
         this.imageFactory = imageFactory;
         this.quoteEmbedder = quoteEmbedder;
         this.linkService = linkService;
+        this.anchorFormatter = anchorFormatter;
     }
 
     public ArticleModule getModule(HstRequest request, Article doc){
@@ -43,7 +49,7 @@ public class ArticleFactory {
 
         setImage(module, doc, request.getLocale());
 
-        module.setAnchor(getAnchor(doc));
+        module.setAnchor(anchorFormatter.getAnchorOrFallback(doc.getAnchor(), doc::getTitle));
 
         setSections(module, doc, request.getLocale());
 
