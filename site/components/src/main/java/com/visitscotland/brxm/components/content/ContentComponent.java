@@ -2,6 +2,8 @@ package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.utils.PersonalisationService;
+
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -18,17 +20,19 @@ import java.util.Optional;
 public class ContentComponent extends EssentialsContentComponent {
     private static final Logger logger = LoggerFactory.getLogger(ContentComponent.class);
     private final HippoUtilsService hippoUtilsService;
+    private final PersonalisationService personalisationService;
     public static final String PAGE_PATH = "content";
 
     public ContentComponent() {
         hippoUtilsService = VsComponentManager.get(HippoUtilsService.class);
+        personalisationService = VsComponentManager.get(PersonalisationService.class);
     }
 
     @Override
     public void setContentBeanWith404(HstRequest request, HstResponse response) {
         Optional<HippoBean> contentBean = hippoUtilsService.getContentBeanWithTranslationFallback(request);
         if (contentBean.isPresent() && contentBean.get().getPath().endsWith("/" + PAGE_PATH)) {
-            request.setModel("document", contentBean.get());
+            request.setModel("document", personalisationService.getPersonalisedVariant(request.getRequestContext(), contentBean.get()));
         } else {
             this.pageNotFound(response);
         }

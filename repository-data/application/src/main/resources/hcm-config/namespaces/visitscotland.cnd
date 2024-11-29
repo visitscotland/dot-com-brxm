@@ -158,6 +158,9 @@
 [visitscotland:OTYML] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:POCnalisation] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:Personalization] > hippo:compound, hippostd:relaxed
   orderable
 

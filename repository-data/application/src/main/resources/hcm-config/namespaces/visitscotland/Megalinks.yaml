@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a1ca6ab8-4baf-4d84-8fe7-78510afbe4bf
+          jcr:uuid: 8b24203a-1080-4504-8a40-45dd4c591960
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -88,6 +88,14 @@ definitions:
             hipposysedit:path: visitscotland:personalization
             hipposysedit:primary: false
             hipposysedit:type: visitscotland:Personalization
+          /POCnalisation:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:POCnalisation
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:POCnalisation
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -100,12 +108,16 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: eb916953-0042-4da9-a921-1fb49e6654ed
+          jcr:uuid: 415f0957-584f-41cd-a543-a3ec45befd3e
           hippostdpubwf:lastModificationDate: 2020-05-14T14:29:51.020+01:00
           hippostdpubwf:creationDate: 2020-05-14T14:29:51.020+01:00
           visitscotland:teaserVisible: true
           visitscotland:translation: ''
           visitscotland:layout: Default
+          /visitscotland:POCnalisation:
+            jcr:primaryType: visitscotland:POCnalisation
+            visitscotland:sectors: []
+            visitscotland:isVariant: false
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -225,5 +237,14 @@ definitions:
             field: personalization
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /POCnalisation:
+            jcr:primaryType: frontend:plugin
+            caption: POCnalisation
+            field: POCnalisation
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

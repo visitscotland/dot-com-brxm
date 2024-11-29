@@ -13853,12 +13853,136 @@
           visitscotland:nonJavaScriptMessage: ''
           visitscotland:title: Ski Form
           visitscotland:translation: ''
+    /content-us:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 0848fcd5-1485-4e7a-934a-b495cd685481
+      hippo:name: Pages landing (copy)
+      hippo:versionHistory: 02787511-7003-4807-8adf-ed5c7fc61925
+      /content-us[1]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: cb82ed3a-8aef-4b65-99dd-d82d39d47474
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-05-20T13:45:46.649+01:00
+        hippostdpubwf:lastModificationDate: 2024-11-07T15:45:57.367Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 6565990b-c50f-44ac-a9f6-4cc47123e1fc
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Default
+        visitscotland:seoDescription: Meta description
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Meta title
+        visitscotland:teaser: Page types are templates to hold content.
+        visitscotland:theme: Standard
+        visitscotland:title: Page types
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: ece9b7e3-75e0-4817-8b83-6fd2f06ccd7e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Page types are templates to hold content. They can vary greatly in complexity - some pages just have a header and&nbsp;intro, others have lots of data that must be added to create the page.</p>
+
+            <p>To avoid confusion, pages here are shown without additional&nbsp;modules and just display their own data.</p>
+        /visitscotland:POCnalisation:
+          jcr:primaryType: visitscotland:POCnalisation
+          visitscotland:country: us
+      /content-us[2]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 7af6dae1-886e-4084-a871-00abb9fd12b8
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-05-20T13:45:46.649+01:00
+        hippostdpubwf:lastModificationDate: 2024-11-07T15:45:54.575Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 6565990b-c50f-44ac-a9f6-4cc47123e1fc
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Default
+        visitscotland:seoDescription: Meta description
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Meta title
+        visitscotland:teaser: Page types are templates to hold content.
+        visitscotland:theme: Standard
+        visitscotland:title: Page types
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: ece9b7e3-75e0-4817-8b83-6fd2f06ccd7e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Page types are templates to hold content. They can vary greatly in complexity - some pages just have a header and&nbsp;intro, others have lots of data that must be added to create the page.</p>
+
+            <p>To avoid confusion, pages here are shown without additional&nbsp;modules and just display their own data.</p>
+        /visitscotland:POCnalisation:
+          jcr:primaryType: visitscotland:POCnalisation
+          visitscotland:country: us
+      /content-us[3]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 48043d60-88fd-41ac-99ae-6de52d63b193
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-05-20T13:45:46.649+01:00
+        hippostdpubwf:lastModificationDate: 2024-11-07T15:45:57.367Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2024-11-07T15:45:58.808Z
+        hippotranslation:id: 6565990b-c50f-44ac-a9f6-4cc47123e1fc
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:newsletter: true
+        visitscotland:pswPosition: Default
+        visitscotland:seoDescription: Meta description
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Meta title
+        visitscotland:teaser: Page types are templates to hold content.
+        visitscotland:theme: Standard
+        visitscotland:title: Page types
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: ece9b7e3-75e0-4817-8b83-6fd2f06ccd7e
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Page types are templates to hold content. They can vary greatly in complexity - some pages just have a header and&nbsp;intro, others have lots of data that must be added to create the page.</p>
+
+            <p>To avoid confusion, pages here are shown without additional&nbsp;modules and just display their own data.</p>
+        /visitscotland:POCnalisation:
+          jcr:primaryType: visitscotland:POCnalisation
+          visitscotland:country: us
   /content:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 5e0d09e3-fdf2-479e-880d-8052730ec4e5
     hippo:name: Test landing page
-    hippo:versionHistory: 42b0ae50-8a9d-4e0b-b143-1b3c80a94d7a
+    hippo:versionHistory: aaf46677-97c5-4fee-a14c-fac5eddbab71
     /content[1]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -13866,15 +13990,17 @@
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
+      hippostd:transferable: false
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-25T14:08:10.992+01:00
-      hippostdpubwf:lastModificationDate: 2023-07-21T11:33:43.639+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-13T10:54:04.686Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 4f812572-ca3a-4f99-a01a-b1154c17417e
       hippotranslation:locale: en
       visitscotland:breadcrumb: Test Data
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
       visitscotland:seoDescription: This area is designed to hold stable content to
         test layout and functionality of the site.
       visitscotland:seoNoIndex: false
@@ -13897,7 +14023,14 @@
 
           <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
 
-          <p>Please see the <a href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+          <p>Please see the <a rel="noopener noreferrer" href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+
+          <p>&nbsp;</p>
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:country: ''
+        visitscotland:isVariant: false
+        visitscotland:sectors: []
     /content[2]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -13907,13 +14040,14 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-25T14:08:10.992+01:00
-      hippostdpubwf:lastModificationDate: 2023-07-21T11:34:03.328+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-08T14:52:09.695Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 4f812572-ca3a-4f99-a01a-b1154c17417e
       hippotranslation:locale: en
       visitscotland:breadcrumb: Test Data
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
       visitscotland:seoDescription: This area is designed to hold stable content to
         test layout and functionality of the site.
       visitscotland:seoNoIndex: false
@@ -13937,6 +14071,10 @@
           <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
 
           <p>Please see the <a href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:isVariant: false
+        visitscotland:sectors: []
     /content[3]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -13946,14 +14084,15 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-25T14:08:10.992+01:00
-      hippostdpubwf:lastModificationDate: 2023-07-21T11:34:03.328+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-08T14:52:09.695Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2023-07-21T11:34:05.199+01:00
+      hippostdpubwf:publicationDate: 2024-11-08T14:52:10.923Z
       hippotranslation:id: 4f812572-ca3a-4f99-a01a-b1154c17417e
       hippotranslation:locale: en
       visitscotland:breadcrumb: Test Data
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
       visitscotland:seoDescription: This area is designed to hold stable content to
         test layout and functionality of the site.
       visitscotland:seoNoIndex: false
@@ -13977,12 +14116,16 @@
           <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
 
           <p>Please see the <a href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:isVariant: false
+        visitscotland:sectors: []
   /test-landing-page-links:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 865a8912-d7e6-4431-9b36-5a209fd549b5
     hippo:name: Test landing page links
-    hippo:versionHistory: bf90c8b9-ea93-4d74-80bf-1aca5bcd88f8
+    hippo:versionHistory: 145151e0-b976-466b-94e1-363b71b21cd5
     /test-landing-page-links[1]:
       jcr:primaryType: visitscotland:Megalinks
       jcr:mixinTypes: ['mix:referenceable']
@@ -13992,7 +14135,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
-      hippostdpubwf:lastModificationDate: 2022-06-16T15:21:51.221+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-08T14:52:00.056Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: cbbc6226-475a-4c36-b34c-8767d1b07351
       hippotranslation:locale: en
@@ -14018,6 +14161,10 @@
         /visitscotland:links:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 0b020b39-a623-4535-a813-3706f20308b2
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:isVariant: false
+        visitscotland:sectors: []
     /test-landing-page-links[2]:
       jcr:primaryType: visitscotland:Megalinks
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -14027,7 +14174,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
-      hippostdpubwf:lastModificationDate: 2022-06-16T15:21:54.653+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-08T14:52:00.996Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: cbbc6226-475a-4c36-b34c-8767d1b07351
       hippotranslation:locale: en
@@ -14053,6 +14200,10 @@
         /visitscotland:links:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 0b020b39-a623-4535-a813-3706f20308b2
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:isVariant: false
+        visitscotland:sectors: []
     /test-landing-page-links[3]:
       jcr:primaryType: visitscotland:Megalinks
       jcr:mixinTypes: ['mix:referenceable']
@@ -14062,9 +14213,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
-      hippostdpubwf:lastModificationDate: 2022-06-16T15:21:54.653+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-08T14:52:00.996Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2022-06-16T15:21:57.451+01:00
+      hippostdpubwf:publicationDate: 2024-11-08T14:52:04.213Z
       hippotranslation:id: cbbc6226-475a-4c36-b34c-8767d1b07351
       hippotranslation:locale: en
       visitscotland:layout: Default
@@ -14089,6 +14240,10 @@
         /visitscotland:links:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 0b020b39-a623-4535-a813-3706f20308b2
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:isVariant: false
+        visitscotland:sectors: []
   /examples:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -19224,15 +19379,17 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-01-11T14:55:22.432Z
-          hippostdpubwf:lastModificationDate: 2021-06-25T15:04:49.589+01:00
+          hippostdpubwf:lastModificationDate: 2024-11-13T10:55:14.352Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 7da16744-ebfa-4985-8b07-07826e82ddcf
           hippotranslation:locale: en
           visitscotland:anchor: dark-skies
           visitscotland:title: A dark skies and Burns Night celebration in Ayrshire
             and Dumfries & Galloway
+          visitscotland:translation: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -24968,3 +25125,485 @@
     hippostd:foldertype: [new-translated-folder-test, new-document]
     hippotranslation:id: 9cd10ddf-3093-4f58-943d-3c6cd1c9220d
     hippotranslation:locale: en
+  /content-us:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 8d2540cf-f33d-4e61-99cb-ae257194e158
+    hippo:name: Test landing page - US
+    hippo:versionHistory: 60f43385-7c1e-4fdf-8281-2aa8a9b0b82e
+    /content-us[1]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 4e150962-d6cb-44dd-9ca8-5e93082de4c1
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:08:10.992+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-08T14:51:16.464Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9515e2cb-96f3-4a02-87b8-60bbf6a43cc6
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: Test Data
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
+      visitscotland:seoDescription: This area is designed to hold stable content to
+        test layout and functionality of the site.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland .com test area
+      visitscotland:teaser: This area is designed to hold stable content to test layout
+        and functionality of the site.
+      visitscotland:theme: Top-Level
+      visitscotland:title: VisitScotland .com Test Area
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 43c4e6d8-5284-444c-be54-4f251f34fa9b
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>This area is designed to hold stable content to test layout and functionality of the site.&nbsp;</p>
+
+          <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
+
+          <p>Please see the <a href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:country: us
+        visitscotland:isVariant: true
+        visitscotland:sectors: []
+    /content-us[2]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: bb9eb57f-e616-4cbc-929f-8d3144abaa13
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:08:10.992+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-21T10:37:27.207Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9515e2cb-96f3-4a02-87b8-60bbf6a43cc6
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: Test Data
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
+      visitscotland:seoDescription: This area is designed to hold stable content to
+        test layout and functionality of the site.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland .com test area
+      visitscotland:teaser: This area is designed to hold stable content to test layout
+        and functionality of the site.
+      visitscotland:theme: Top-Level
+      visitscotland:title: VisitScotland .com Test Area
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 43c4e6d8-5284-444c-be54-4f251f34fa9b
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>This area is designed to hold stable content to test layout and functionality of the site.&nbsp;</p>
+
+          <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
+
+          <p>Please see the <a href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:country: us
+        visitscotland:isVariant: true
+        visitscotland:sectors: []
+    /content-us[3]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: cb32be52-940c-45ee-bc47-83ef2f7f1503
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:08:10.992+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-08T14:51:16.464Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-11-08T14:51:17.832Z
+      hippotranslation:id: 9515e2cb-96f3-4a02-87b8-60bbf6a43cc6
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: Test Data
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
+      visitscotland:seoDescription: This area is designed to hold stable content to
+        test layout and functionality of the site.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland .com test area
+      visitscotland:teaser: This area is designed to hold stable content to test layout
+        and functionality of the site.
+      visitscotland:theme: Top-Level
+      visitscotland:title: VisitScotland .com Test Area
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 43c4e6d8-5284-444c-be54-4f251f34fa9b
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>This area is designed to hold stable content to test layout and functionality of the site.&nbsp;</p>
+
+          <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
+
+          <p>Please see the <a href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:country: us
+        visitscotland:isVariant: true
+        visitscotland:sectors: []
+  /test-landing-page-links---event:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 24c028b8-98fb-49b1-a355-56cacf5cc65a
+    hippo:name: Test landing page links - event
+    hippo:versionHistory: 72b2c604-7494-48d6-96df-657c7b205cdc
+    /test-landing-page-links---event[1]:
+      jcr:primaryType: visitscotland:Megalinks
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 51f7dd72-f6b2-4eca-8c67-f64207449f32
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-08T14:51:21.856Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ce871069-cba1-4b1e-998b-a756a17f2bec
+      hippotranslation:locale: en
+      visitscotland:layout: Default
+      visitscotland:teaserVisible: true
+      visitscotland:title: Hey you are interested in events!
+      visitscotland:translation: ''
+      /visitscotland:megalinkItems[1]:
+        jcr:primaryType: visitscotland:MegalinkItem
+        visitscotland:feature: false
+        /visitscotland:links:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 3f7c6470-d897-489a-b02a-52d56d124dca
+      /visitscotland:megalinkItems[2]:
+        jcr:primaryType: visitscotland:MegalinkItem
+        visitscotland:feature: false
+        /visitscotland:links:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:isVariant: true
+        visitscotland:sectors: [accommodation, event]
+    /test-landing-page-links---event[2]:
+      jcr:primaryType: visitscotland:Megalinks
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: ac38d71e-f0b0-483b-907f-bf9aeadbe612
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-08T14:51:19.063Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ce871069-cba1-4b1e-998b-a756a17f2bec
+      hippotranslation:locale: en
+      visitscotland:layout: Default
+      visitscotland:teaserVisible: true
+      visitscotland:title: Hey you are interested in events!
+      visitscotland:translation: ''
+      /visitscotland:megalinkItems[1]:
+        jcr:primaryType: visitscotland:MegalinkItem
+        visitscotland:feature: false
+        /visitscotland:links:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 3f7c6470-d897-489a-b02a-52d56d124dca
+      /visitscotland:megalinkItems[2]:
+        jcr:primaryType: visitscotland:MegalinkItem
+        visitscotland:feature: false
+        /visitscotland:links:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:isVariant: true
+        visitscotland:sectors: [accommodation, event]
+    /test-landing-page-links---event[3]:
+      jcr:primaryType: visitscotland:Megalinks
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: e8c1f18b-5355-4585-bfd4-856578fe468b
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-08T14:51:21.856Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-11-08T14:51:23.202Z
+      hippotranslation:id: ce871069-cba1-4b1e-998b-a756a17f2bec
+      hippotranslation:locale: en
+      visitscotland:layout: Default
+      visitscotland:teaserVisible: true
+      visitscotland:title: Hey you are interested in events!
+      visitscotland:translation: ''
+      /visitscotland:megalinkItems[1]:
+        jcr:primaryType: visitscotland:MegalinkItem
+        visitscotland:feature: false
+        /visitscotland:links:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 3f7c6470-d897-489a-b02a-52d56d124dca
+      /visitscotland:megalinkItems[2]:
+        jcr:primaryType: visitscotland:MegalinkItem
+        visitscotland:feature: false
+        /visitscotland:links:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:isVariant: true
+        visitscotland:sectors: [accommodation, event]
+  /content-fr:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: ba7ffa24-4b20-4b78-a10c-218f991b0e50
+    hippo:name: Test landing page - FR
+    hippo:versionHistory: 33436cf9-fa3f-423d-ad23-674952a6b5d1
+    /content-fr[1]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: e4caee00-cd4d-4174-874e-a1166cd2639b
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:08:10.992+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-21T11:32:29.966Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: f08ac2ec-0736-44cd-bb98-6ef97dc635f9
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: Test Data
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
+      visitscotland:seoDescription: This area is designed to hold stable content to
+        test layout and functionality of the site.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland .com test area
+      visitscotland:teaser: This area is designed to hold stable content to test layout
+        and functionality of the site.
+      visitscotland:theme: Top-Level
+      visitscotland:title: VisitScotland .com Test Area for France
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>This area is designed to hold stable content to test layout and functionality of the site.&nbsp;</p>
+
+          <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
+
+          <p>Please see the <a href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:country: fr
+        visitscotland:isVariant: true
+        visitscotland:sectors: []
+    /content-fr[2]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: da8e4734-f020-4e29-87ee-ba7e880140c1
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:08:10.992+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-21T11:32:17.885Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: f08ac2ec-0736-44cd-bb98-6ef97dc635f9
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: Test Data
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
+      visitscotland:seoDescription: This area is designed to hold stable content to
+        test layout and functionality of the site.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland .com test area
+      visitscotland:teaser: This area is designed to hold stable content to test layout
+        and functionality of the site.
+      visitscotland:theme: Top-Level
+      visitscotland:title: VisitScotland .com Test Area for France
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>This area is designed to hold stable content to test layout and functionality of the site.&nbsp;</p>
+
+          <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
+
+          <p>Please see the <a href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:country: fr
+        visitscotland:isVariant: true
+        visitscotland:sectors: []
+    /content-fr[3]:
+      jcr:primaryType: visitscotland:General
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 01e42404-dcf7-41f2-bf64-8420ed382f0b
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:08:10.992+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-21T11:32:29.966Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-11-21T11:32:31.178Z
+      hippotranslation:id: f08ac2ec-0736-44cd-bb98-6ef97dc635f9
+      hippotranslation:locale: en
+      visitscotland:breadcrumb: Test Data
+      visitscotland:hideNewsletter: false
+      visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
+      visitscotland:seoDescription: This area is designed to hold stable content to
+        test layout and functionality of the site.
+      visitscotland:seoNoIndex: false
+      visitscotland:seoTitle: VisitScotland .com test area
+      visitscotland:teaser: This area is designed to hold stable content to test layout
+        and functionality of the site.
+      visitscotland:theme: Top-Level
+      visitscotland:title: VisitScotland .com Test Area for France
+      visitscotland:translation: ''
+      /visitscotland:heroImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /visitscotland:introduction:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <p>This area is designed to hold stable content to test layout and functionality of the site.&nbsp;</p>
+
+          <p>The area is split into page types and modules - this should help site contributors to understand the distinction between the two document types. It also contains an examples area which demonstates the ways in which pages can be created and can also be used for regression testing of module and page configurations.</p>
+
+          <p>Please see the <a href="https://confluence.visitscotland.com/display/VCE/CMS+testing+area" target="_blank">testing area Confluence page</a>&nbsp;or contact one of the UI Dev team for more information about the uses and goals of this area.</p>
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:country: fr
+        visitscotland:isVariant: true
+        visitscotland:sectors: []
+  /test-landing-page-links---us---tours:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 5fa6f4b8-5130-4574-a9e4-4bdce1bdeb1c
+    hippo:name: Test landing page links - us - tours
+    hippo:versionHistory: 3af37b95-ee9a-48f0-b863-f1cbed5b6d27
+    /test-landing-page-links---us---tours[1]:
+      jcr:primaryType: visitscotland:Megalinks
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 95fd1f40-4ce2-4f37-b5ca-b7e6ec9555dd
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-21T11:33:11.782Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: aab18d0a-a26b-4ba3-bae7-8b196cc72264
+      hippotranslation:locale: en
+      visitscotland:layout: Default
+      visitscotland:teaserVisible: true
+      visitscotland:title: ''
+      visitscotland:translation: ''
+      /visitscotland:megalinkItems:
+        jcr:primaryType: visitscotland:MegalinkItem
+        visitscotland:feature: false
+        /visitscotland:links:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 0b020b39-a623-4535-a813-3706f20308b2
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:country: us
+        visitscotland:isVariant: true
+        visitscotland:sectors: [tour]
+    /test-landing-page-links---us---tours[2]:
+      jcr:primaryType: visitscotland:Megalinks
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: c90d14d7-84b2-4c11-8773-58e7f9cbf56c
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-21T11:33:08.367Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: aab18d0a-a26b-4ba3-bae7-8b196cc72264
+      hippotranslation:locale: en
+      visitscotland:layout: Default
+      visitscotland:teaserVisible: true
+      visitscotland:title: ''
+      visitscotland:translation: ''
+      /visitscotland:megalinkItems:
+        jcr:primaryType: visitscotland:MegalinkItem
+        visitscotland:feature: false
+        /visitscotland:links:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 0b020b39-a623-4535-a813-3706f20308b2
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:country: us
+        visitscotland:isVariant: true
+        visitscotland:sectors: [tour]
+    /test-landing-page-links---us---tours[3]:
+      jcr:primaryType: visitscotland:Megalinks
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 3938861e-93a4-4f8a-b528-4a23f859faa8
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-05-25T14:13:14.618+01:00
+      hippostdpubwf:lastModificationDate: 2024-11-21T11:33:11.782Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-11-21T11:33:13.450Z
+      hippotranslation:id: aab18d0a-a26b-4ba3-bae7-8b196cc72264
+      hippotranslation:locale: en
+      visitscotland:layout: Default
+      visitscotland:teaserVisible: true
+      visitscotland:title: ''
+      visitscotland:translation: ''
+      /visitscotland:megalinkItems:
+        jcr:primaryType: visitscotland:MegalinkItem
+        visitscotland:feature: false
+        /visitscotland:links:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 0b020b39-a623-4535-a813-3706f20308b2
+      /visitscotland:POCnalisation:
+        jcr:primaryType: visitscotland:POCnalisation
+        visitscotland:country: us
+        visitscotland:isVariant: true
+        visitscotland:sectors: [tour]

@@ -5,6 +5,7 @@ import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.LocalizedURL;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -34,14 +35,16 @@ public class DocumentUtilsService {
 
     private final HippoUtilsService utils;
     private final ResourceBundleService bundle;
+    private final PersonalisationService personalisationService;
     private final CMSProperties cmsProperties;
     private final SiteProperties siteProperties;
     private final Logger contentLog;
 
-    public DocumentUtilsService(HippoUtilsService utils, ResourceBundleService bundle, CMSProperties cmsProperties,
+    public DocumentUtilsService(HippoUtilsService utils, ResourceBundleService bundle, PersonalisationService personalisationService, CMSProperties cmsProperties,
                                 SiteProperties siteProperties, ContentLogger contentLogger) {
         this.utils = utils;
         this.bundle = bundle;
+        this.personalisationService = personalisationService;
         this.cmsProperties = cmsProperties;
         this.siteProperties = siteProperties;
         this.contentLog = contentLogger;
@@ -97,12 +100,12 @@ public class DocumentUtilsService {
                         }
                     }
 
-                    if (allowed) {
+                    if (allowed && !personalisationService.isPersonalisationVariant(jcrNode)) {
                         Object hippoBean = utils.getDocumentFromNode(jcrNode);
 
                         //The document is added if the type matches
                         if (hippoBean != null) {
-                            documents.add((T) hippoBean);
+                            documents.add((T) personalisationService.getPersonalisedVariant(RequestContextProvider.get(), (HippoBean) hippoBean));
                         }
                     }
                 }
@@ -171,7 +174,7 @@ public class DocumentUtilsService {
         List<B> sortedTranslations = new ArrayList<>();
         // The ordering of translations for SEO purposes is defined in VS-1416 (see issue comments)
         // This is stored as a comma separated list in the channel properties file
-        String seoSortOrderProperty = Contract.defaultIfNull(siteProperties.getChannelOrder(), "");
+        String seoSortOrderProperty = "";//Contract.defaultIfNull(siteProperties.getChannelOrder(), "");
         for (String locale: seoSortOrderProperty.split(",")) {
             for (BaseDocument bean : availableTranslations){
                 if (locale != null && bean.getLocale().getLanguage().equals(locale)){

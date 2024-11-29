@@ -2,6 +2,7 @@ package com.visitscotland.brxm.hippobeans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import com.visitscotland.brxm.hippobeans.POCnalisation;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:General")
 @Node(jcrType = "visitscotland:General")
@@ -50,5 +51,10 @@ public class General extends Page {
     @HippoEssentialsGenerated(internalName = "visitscotland:pswPosition")
     public String getPswPosition() {
         return getSingleProperty("visitscotland:pswPosition");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:POCnalisation")
+    public POCnalisation getPOCnalisation() {
+        return getBean("visitscotland:POCnalisation", POCnalisation.class);
     }
 }

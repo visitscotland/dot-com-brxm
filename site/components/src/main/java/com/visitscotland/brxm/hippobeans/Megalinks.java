@@ -6,6 +6,7 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import java.util.List;
 import java.util.Calendar;
+import com.visitscotland.brxm.hippobeans.POCnalisation;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:Megalinks")
 @Node(jcrType = "visitscotland:Megalinks")
@@ -85,5 +86,10 @@ public class Megalinks extends BaseDocument {
     public List<Personalization> getPersonalization() {
         return getChildBeansByName("visitscotland:personalization",
                 Personalization.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:POCnalisation")
+    public POCnalisation getPOCnalisation() {
+        return getBean("visitscotland:POCnalisation", POCnalisation.class);
     }
 }

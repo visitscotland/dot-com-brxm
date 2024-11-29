@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 6e55b518-bee1-4e39-b0a2-fc9ab8121a59
+          jcr:uuid: 1b1b9b90-8425-4bcb-aab5-44babeb8d2f9
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -33,6 +33,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators: [required]
+          /POCnalisation:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:POCnalisation
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:POCnalisation
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -50,7 +58,7 @@ definitions:
           visitscotland:title: ''
           visitscotland:seoTitle: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: e0b8d0f4-ac11-4c9d-94da-f374a516ef9f
+          jcr:uuid: 136fa164-9c91-4e43-8b94-3879185c3802
           hippostdpubwf:lastModificationDate: 2020-09-25T13:13:22.744+01:00
           hippostdpubwf:creationDate: 2020-09-25T13:13:22.744+01:00
           visitscotland:theme: Standard
@@ -66,6 +74,10 @@ definitions:
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+          /visitscotland:POCnalisation:
+            jcr:primaryType: visitscotland:POCnalisation
+            visitscotland:sectors: []
+            visitscotland:isVariant: false
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -238,3 +250,11 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: Default,Top,Bottom,Hidden
+          /POCnalisation:
+            jcr:primaryType: frontend:plugin
+            caption: POCnalisation
+            field: POCnalisation
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
