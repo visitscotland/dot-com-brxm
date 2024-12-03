@@ -6,6 +6,7 @@ import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SignpostModule;
+import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
@@ -20,18 +21,23 @@ import java.util.Locale;
 public class SignpostFactory {
 
     private static final String BUNDLE_ID = "newsletter-signpost";
-    private static final String BE_BUNDLE_ID = "be.newsletter-signpost";
 
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private final HippoUtilsService hippoUtilsService;
     private final LinkService linkService;
+    private final AnchorFormatter anchorFormatter;
 
-    public SignpostFactory(ResourceBundleService bundle, SiteProperties properties, HippoUtilsService hippoUtilsService, LinkService linkService) {
+    public SignpostFactory(ResourceBundleService bundle,
+                           SiteProperties properties,
+                           HippoUtilsService hippoUtilsService,
+                           LinkService linkService,
+                           AnchorFormatter anchorFormatter) {
         this.bundle = bundle;
         this.properties = properties;
         this.hippoUtilsService = hippoUtilsService;
         this.linkService = linkService;
+        this.anchorFormatter = anchorFormatter;
     }
 
     public SignpostModule createNewsletterSignpostModule(Locale locale) {
@@ -57,9 +63,9 @@ public class SignpostFactory {
     }
 
     public SignpostModule createModule (CTABanner ctaBanner){
-        SignpostModule signpostModule = new SignpostModule();
+        SignpostModule module = new SignpostModule();
         Linkable linkable = (Linkable) ctaBanner.getCtaLink().getLink();
-        FlatLink cta = linkService.createSimpleLink(linkable,signpostModule, null);
+        FlatLink cta = linkService.createSimpleLink(linkable, module, null);
 
         if (Contract.isNull(cta.getLink())) {
             return null;
@@ -67,12 +73,16 @@ public class SignpostFactory {
 
         FlatImage image = new FlatImage();
         image.setCmsImage(ctaBanner.getImage());
-        signpostModule.setCta(cta);
-        signpostModule.setImage(image);
-        signpostModule.setTitle(ctaBanner.getTitle());
-        signpostModule.setCopy(ctaBanner.getIntroduction());
 
-        return signpostModule;
+        module.setCta(cta);
+        module.setImage(image);
+        module.setTitle(ctaBanner.getTitle());
+        module.setCopy(ctaBanner.getIntroduction());
+        module.setHippoBean(ctaBanner);
+        module.setNested(Boolean.TRUE.equals(ctaBanner.getNested()));
+        module.setAnchor(anchorFormatter.getAnchorOrFallback(ctaBanner.getAnchor(), ctaBanner::getTitle));
+
+        return module;
     }
 
     private SignpostModule createSignPostModule(String bundleName, String prefix, Locale locale) {

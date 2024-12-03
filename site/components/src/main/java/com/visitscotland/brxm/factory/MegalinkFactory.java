@@ -4,6 +4,7 @@ import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.*;
+import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
@@ -33,13 +34,18 @@ public class MegalinkFactory {
     private final ResourceBundleService bundle;
     private final ImageFactory imageFactory;
     private final Logger contentLogger;
+    private final AnchorFormatter anchorFormatter;
 
-    public MegalinkFactory(LinkService linkService, ResourceBundleService bundle, ImageFactory imageFactory,
-                           ContentLogger contentLogger) {
+    public MegalinkFactory(LinkService linkService,
+                           ResourceBundleService bundle,
+                           ImageFactory imageFactory,
+                           ContentLogger contentLogger,
+                           AnchorFormatter anchorFormatter) {
         this.linkService = linkService;
         this.bundle = bundle;
         this.imageFactory = imageFactory;
         this.contentLogger = contentLogger;
+        this.anchorFormatter = anchorFormatter;
     }
 
     public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) {
@@ -185,17 +191,21 @@ public class MegalinkFactory {
         target.setTitle(doc.getTitle());
         target.setIntroduction(doc.getIntroduction());
 
-        addSpecialFields(doc, target);
+        addSpecialFields(doc, target, locale);
 
         if (doc.getProductItem() != null) {
             target.setCta(linkService.createFindOutMoreLink(target, locale, doc.getProductItem()));
         }
     }
 
-    private void addSpecialFields(Megalinks doc, LinksModule<?> module){
+    private void addSpecialFields(Megalinks doc, LinksModule<?> module, Locale locale){
         if (doc instanceof MegalinksBSH){
-            module.setNested(Boolean.TRUE.equals(((MegalinksBSH) doc).getNested()));
-            module.setAnchor(((MegalinksBSH) doc).getAnchor());
+            MegalinksBSH megalinksBSH = (MegalinksBSH) doc;
+            module.setNested(Boolean.TRUE.equals(megalinksBSH.getNested()));
+            module.setAnchor(anchorFormatter.getAnchorOrFallback(megalinksBSH.getAnchor(), megalinksBSH::getTitle));
+            if (megalinksBSH.getProductsCMS() != null) {
+                module.setCta(linkService.createFindOutMoreLink(module, locale, (megalinksBSH.getProductsCMS())));
+            }
         }
     }
 

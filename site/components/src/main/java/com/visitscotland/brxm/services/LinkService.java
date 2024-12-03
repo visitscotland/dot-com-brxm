@@ -27,6 +27,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -478,6 +479,13 @@ public class LinkService {
             if (itinerary.getTransports().length > 0) {
                 link.setItineraryTransport(itinerary.getTransports()[0]);
             }
+        }  else if (page instanceof GeneralBSH){
+            GeneralBSH generalBSH = (GeneralBSH) page;
+            if (generalBSH.getReadingTime() > 0) {
+                //TODO change the resource bundle to use the global one
+                link.setReadTime(generalBSH.getReadingTime() +" "+ bundle.getResourceBundle("bsh.megalinks", "readtime", locale));
+            }
+            setBSHFields(link, generalBSH.getType(), generalBSH.getSectors(), generalBSH.getSkill(), generalBSH.getTopic(), generalBSH.getRegions());
         }
 
         return link;
@@ -503,20 +511,22 @@ public class LinkService {
         }
 
         if (sharedLink instanceof SharedLinkBSH) {
-            link.setSource(((SharedLinkBSH) sharedLink).getSource());
+            SharedLinkBSH sharedLinkBSH = (SharedLinkBSH) sharedLink;
+            link.setSource(sharedLinkBSH.getSource());
+            setBSHFields(link, sharedLinkBSH.getType(), sharedLinkBSH.getSectors(), sharedLinkBSH.getSkill(), sharedLinkBSH.getTopic(), sharedLinkBSH.getRegions());
         }
+
         if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
             link.setImage(imageFactory.createImage(product, module, locale));
-        }else{
+        } else {
             link.setImage(imageFactory.createImage(sharedLink.getImage(), module, locale));
         }
 
-
-        if (sharedLink.getLinkType() instanceof ExternalDocument) {
+        if (sharedLink.getLinkType() instanceof ExternalDocument || sharedLink.getLinkType() instanceof FileLink) {
             link.setLabel(formatLabel(sharedLink, sharedLink.getTitle(), module, locale));
             link.setType(LinkType.DOWNLOAD);
 
-            if (addCategory) {
+            if (addCategory && sharedLink.getLinkType() instanceof ExternalDocument) {
                 link.setCategory(((ExternalDocument) sharedLink.getLinkType()).getCategory());
             }
         } else {
@@ -624,6 +634,32 @@ public class LinkService {
             logger.warn("The Youtube ID could not be calculated from the URL {}", url);
         }
         return id;
+    }
+
+
+
+    /**
+     * Populates the specific fields for the Business support hub website
+     *
+     * @param link  the link/card that is being built
+     * @param contentType    the field content type
+     * @param sectors   sectors selected
+     * @param skill skill level field
+     * @param sectors sectors selected
+     * @param regions regions selected
+     */
+    private void setBSHFields (EnhancedLink link, String contentType, String[] sectors, String skill, String[] topics, String[] regions){
+        link.setContentType(contentType);
+        if (sectors != null) {
+            link.setSector(List.of(sectors));
+        }
+        link.setSkillLevel(skill);
+        if (topics != null) {
+            link.setTopic(List.of(topics));
+        }
+        if (regions != null) {
+            link.setRegion(List.of(regions));
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 /content/documents/www.visitscotland.com-es:
-  .meta:order-before: business-events
+  # If this meta order changes. Please flag to the owner of the PR and reject it
+  .meta:order-before: www.visitscotland.com-fr
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
   jcr:uuid: bac4c4b8-bb9d-45fa-8af5-dbffc7be8654
