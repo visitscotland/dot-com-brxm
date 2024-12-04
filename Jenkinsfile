@@ -94,7 +94,7 @@ pipeline {
                 sh '''
                     set +x
                     echo; echo "running stage $STAGE_NAME on $HOSTNAME"
-                    echo "== printenv in $STAGE_NAME =="; printenv | sort; echo "==/printenv in $STAGE_NAME ==" > printenv.prepare
+                    printenv | sort; > printenv.prepare
                     echo; echo "looking for branch specific properties file at $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
                     echo " - if the pipeline fails at this point please check the format of your properties file!"
                 '''
