@@ -87,14 +87,13 @@ pipeline {
             steps {
                 // Set any defined build property overrides for this work-in-progress branch
                 sh '''
-                    printenv | sort > printenv.pre-build
+                    printenv | sort > printenv.prepare
                     ./ci/infrastructure/scripts/infrastructure.sh setvars
                     printenv | sort > printenv.pre-build.setvars
                 '''
                 sh '''
                     set +x
                     echo; echo "running stage $STAGE_NAME on $HOSTNAME"
-                    printenv | sort; > printenv.prepare
                     echo; echo "looking for branch specific properties file at $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
                     echo " - if the pipeline fails at this point please check the format of your properties file!"
                 '''
@@ -103,12 +102,7 @@ pipeline {
                     if (fileExists("$WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE")) {
                         echo "loading environment variables from $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
                         load "$WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE"
-                        sh '''
-                            set +x
-                            echo "== printenv after load of $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME ==" > printenv.prepare.loadvars
-                            printenv | sort >> printenv.pre-build.setvars
-                            echo "==/printenv after load of $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE in $STAGE_NAME ==" >> printenv.prepare.loadvars
-                        '''
+                        sh 'set +x; printenv | sort > printev.prepare.loadvars'
                     } else {
                         echo "branch specific properties won't be loaded, file $WORKSPACE/$VS_BRANCH_PROPERTIES_DIR/$VS_BRANCH_PROPERTIES_FILE does not exist"
                     }
@@ -256,12 +250,7 @@ pipeline {
 						echo "loading environment variables from $WORKSPACE/ci/vs-last-env.quoted"
 						load "$WORKSPACE/ci/vs-last-env.quoted"
 						echo "found ${env.VS_COMMIT_AUTHOR}"
-						sh '''
-							set +x
-							echo "== printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME ==" > printenv.buildfeatureenv.loadvars
-							printenv | sort >> printenv.buildfeatureenv.loadvars
-							echo "==/printenv after load of $WORKSPACE/ci/vs-last-env.quoted in $STAGE_NAME ==" >> printenv.buildfeatureenv.loadvars
-						'''
+						sh 'set +x; printenv | sort > printenv.buildfeatureenv.loadvars'
 					} else {
 						echo "cannot load environment variables, file does not exist"
 					}
