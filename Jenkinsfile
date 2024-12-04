@@ -248,7 +248,7 @@ pipeline {
 					}
 				}
 				script{
-					sh './ci/infrastructure/scripts/infrastructure.sh --debug'
+					sh './ci/infrastructure/scripts/infrastructure.sh'
 				}
 				// make all VS_ variables available to pipeline, load file must be in env.VARIABLE="VALUE" format
 				script {
