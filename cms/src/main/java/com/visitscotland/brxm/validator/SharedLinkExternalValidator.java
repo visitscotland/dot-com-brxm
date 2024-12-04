@@ -34,7 +34,7 @@ public class SharedLinkExternalValidator implements Validator<Node> {
                 for (NodeIterator it = node.getNodes(SharedLink.LINK_TYPES); it.hasNext(); ) {
                     Node link = it.nextNode();
                     if (link.isNodeType("visitscotland:ExternalLink")) {
-                        if (node.hasProperty("visitscotland:websiteType") && !node.getProperty("visitscotland:websiteType").getString().isEmpty()){
+                        if (node.hasProperty("visitscotland:websiteType") && node.getProperty("visitscotland:websiteType").getString().isEmpty()){
                             return Optional.of(context.createViolation());
                         }
                     }
