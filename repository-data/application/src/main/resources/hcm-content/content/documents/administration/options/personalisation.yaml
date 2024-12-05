@@ -1,0 +1,6 @@
+/content/documents/administration/options/personalisation:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 425c0c4a-bab1-44f0-b60c-da146da9c43b
+  hippo:name: Personalisation
+  hippostd:foldertype: [new-untranslated-folder-value-list, new-value-list]
