@@ -1075,7 +1075,8 @@ createBuildReport() {
       for SITE in $VS_BRXM_DSSR_SITES; do
         echo " - https://$SITE/resourceapi?vs_brxm_host=$VS_HOST_IP_ADDRESS&vs_brxm_port=$VS_CONTAINER_BASE_PORT&vs-no-redirect" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
       done
-      echo "NOTE: the vs-no-redirect query string parameter prevents cookies being set for this request"
+      echo "NOTE: the vs-no-redirect query string parameter allows the content to be served without redirecting to a bare URL"
+      echo "      this is necessary to allow non-browser requests, such as those from the front-end to the resourceapi, to be served"
       echo "      to view a fully integrated SPA-SDK/DSSR site, please use the configuration URL provided by the CI job for that site/branch"
       echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
     fi
