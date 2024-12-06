@@ -10,4 +10,17 @@ public class VisitorContext {
     public String getCountry() {
         return this.country;
     }
+
+    static class Builder {
+        private String country;
+
+        Builder withCountry(String country) {
+            this.country = country;
+            return this;
+        }
+
+        VisitorContext build() {
+            return new VisitorContext(country);
+        }
+    }
 }
