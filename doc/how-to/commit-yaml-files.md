@@ -1,9 +1,5 @@
 # Working with yaml files in BloomReach
 
-# Table of Content
-1.
-
-
 ## Changes related to *.meta:order-before*
 
 When Cargo bootstraps development data from YAML files, some transformations are applied to the data. However, the 
