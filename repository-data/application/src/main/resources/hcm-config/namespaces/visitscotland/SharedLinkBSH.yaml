@@ -11,11 +11,12 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 898bcfdd-0e0e-41a2-b13a-a26c9d41b917
+          jcr:uuid: 8f15e813-2799-4301-b3ed-648814215ec6
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:SharedLink', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
+          hipposysedit:validators: ['visitscotland:shared-link-bsh-external']
           /source:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -79,6 +80,14 @@ definitions:
             hipposysedit:path: visitscotland:topic
             hipposysedit:primary: false
             hipposysedit:type: String
+          /linkType:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:websiteType
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -93,7 +102,7 @@ definitions:
           visitscotland:source: ''
           visitscotland:title: ''
           visitscotland:teaser: ''
-          jcr:uuid: 3e375512-566c-4b97-b28f-13c9a6937203
+          jcr:uuid: d042c0b9-a99f-4210-805b-de05da54919a
           hippostdpubwf:lastModificationDate: 2024-09-24T14:11:39.340+01:00
           hippostdpubwf:creationDate: 2024-09-24T14:11:39.340+01:00
           visitscotland:sectors: []
@@ -102,6 +111,7 @@ definitions:
           visitscotland:regions: []
           visitscotland:type: ''
           visitscotland:topic: []
+          visitscotland:websiteType: ''
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -169,7 +179,7 @@ definitions:
               maxlength: ''
           /linkTypes:
             jcr:primaryType: frontend:plugin
-            caption: Link Type
+            caption: Link
             compoundList: visitscotland:ExternalLink,visitscotland:FileLink
             contentPickerType: links
             field: linkTypes
@@ -190,6 +200,16 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               orientation: vertical
               source: /content/documents/administration/options/business-support-hub/content-types
+          /websiteType:
+            jcr:primaryType: frontend:plugin
+            caption: Website Type
+            field: linkType
+            hint: Only applicable for External Links
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/options/business-support-hub/external-links
           /sectors:
             jcr:primaryType: frontend:plugin
             caption: Sector-specific?
