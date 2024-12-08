@@ -6,15 +6,28 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 final class PersonalisationHandler {
+    // Prevent unwanted instantiation
     private PersonalisationHandler() { }
 
     static void processValveContext(ValveContext valveContext) {
         final HttpServletRequest request = valveContext.getServletRequest();
-        final VisitorContext visitorContext = new VisitorContext.Builder()
-            .withCountry(getCountryFromRequest(request))
-            .build();
 
-        appendVisitorContextToRequestContext(visitorContext, valveContext);
+        getCountryFromRequest(request)
+            .ifPresent(visitorCountry -> {
+                final VisitorContext visitorContext = createVisitorContext(visitorCountry);
+                appendVisitorContextToRequestContext(visitorContext, valveContext);
+            });
+    }
+
+    private static VisitorContext createVisitorContext(String country) {
+        return new VisitorContext.Builder()
+            .withCountry(country)
+            .build();
+    }
+
+    private static Optional<String> getCountryFromRequest(final HttpServletRequest request) {
+        final String visitorCountry = request.getHeader("Visitor-Country");
+        return Optional.ofNullable(visitorCountry);
     }
 
     private static void appendVisitorContextToRequestContext(VisitorContext visitorContext,
@@ -22,11 +35,5 @@ final class PersonalisationHandler {
         valveContext
             .getRequestContext()
             .setAttribute("visitorContext", visitorContext);
-    }
-
-    private static String getCountryFromRequest(final HttpServletRequest request) {
-        return Optional
-            .ofNullable(request.getHeader("Visitor-Country"))
-            .orElseThrow(CountryNotPresentException::new);
     }
 }

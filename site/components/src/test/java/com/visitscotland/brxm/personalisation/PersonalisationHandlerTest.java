@@ -13,8 +13,6 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import static org.junit.Assert.assertThrows;
-
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
@@ -25,10 +23,8 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class PersonalisationHandlerTest {
-    @InjectMocks
-    private MockValveContext valveContext;
-    @Mock
-    private HstRequest hstRequest;
+    @Mock private HstRequest hstRequest;
+    @InjectMocks private MockValveContext valveContext;
 
     private final ArgumentCaptor<VisitorContext> visitorContextCaptor;
 
@@ -39,9 +35,15 @@ class PersonalisationHandlerTest {
     }
 
     @Test
-    void When_ProcessValveContext_With_NoVisitorCountryPresent_Expect_CountryNotFoundException() {
+    void When_ProcessValveContext_With_NoVisitorCountryPresent_Expect_RequestContextSetAttributeNotCalled() {
+        final HstRequestContext hstRequestContext = mock(HstRequestContext.class);
+
         when(hstRequest.getHeader(VISITOR_COUNTRY_HEADER)).thenReturn(null);
-        assertThrows(CountryNotPresentException.class, () -> PersonalisationHandler.processValveContext(valveContext));
+        when(hstRequest.getRequestContext()).thenReturn(hstRequestContext);
+
+        PersonalisationHandler.processValveContext(valveContext);
+
+        verify(valveContext.getRequestContext(), times(0)).setAttribute(anyString(), any(VisitorContext.class));
     }
 
     @Test
