@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.module;
+package com.visitscotland.brxm.page;
 
 @FunctionalInterface
 public interface Configurable {
