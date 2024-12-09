@@ -47,4 +47,26 @@
         </property>
     </bean>
 
+    <bean id="personalisationValve" class="com.visitscotland.brxm.personalisation.PersonalisationValve">
+        <property name="valveName" value="personalisationValve" />
+        <property name="afterValves" value="securityValve" />
+        <property name="beforeValves" value="localizationValve" />
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject">
+            <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+                <property name="targetObject" ref="org.hippoecm.hst.core.container.Pipelines"/>
+                <property name="targetMethod" value="getPipeline"/>
+                <property name="arguments">
+                    <value>DefaultSitePipeline</value>
+                </property>
+            </bean>
+        </property>
+        <property name="targetMethod" value="addProcessingValve" />
+        <property name="arguments">
+            <ref bean="personalisationValve" />
+        </property>
+    </bean>
+
 </beans>
