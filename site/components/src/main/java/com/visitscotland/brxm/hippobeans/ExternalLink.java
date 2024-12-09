@@ -8,6 +8,9 @@ import org.hippoecm.hst.content.beans.standard.HippoCompound;
 @HippoEssentialsGenerated(internalName = "visitscotland:ExternalLink")
 @Node(jcrType = "visitscotland:ExternalLink")
 public class ExternalLink extends HippoCompound implements UrlLink {
+
+    public static final String PRIMARY_TYPE = "visitscotland:ExternalLink";
+
     @HippoEssentialsGenerated(internalName = "visitscotland:link")
     public String getLink() {
         return getSingleProperty("visitscotland:link");
