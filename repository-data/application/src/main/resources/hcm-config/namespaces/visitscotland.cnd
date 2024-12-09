@@ -96,7 +96,7 @@
 [visitscotland:FormCompoundMarketo] > hippo:compound, hippostd:relaxed
   orderable
 
-[visitscotland:FormCompoundSCRM] > hippo:compound, hippostd:relaxed
+[visitscotland:FormCompoundCRM] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:General] > hippostd:relaxed, hippotranslation:translated, visitscotland:Page, visitscotland:translatable

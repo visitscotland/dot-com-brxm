@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/FormCompoundSCRM:
+    /hippo:namespaces/visitscotland/FormCompoundCRM:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
       jcr:uuid: 201c3102-a701-4688-8a05-b0ccabb2171f
@@ -36,7 +36,7 @@ definitions:
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:FormCompoundSCRM
+          jcr:primaryType: visitscotland:FormCompoundCRM
           visitscotland:jsonURL: ''
           visitscotland:url: ''
       /editor:templates:

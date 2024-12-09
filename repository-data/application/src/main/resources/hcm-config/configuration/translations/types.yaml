@@ -47,7 +47,7 @@ definitions:
       /en:
         jcr:primaryType: hipposys:resourcebundle
         jcr:name: FEPL
-    /hippo:configuration/hippo:translations/hippo:types/visitscotland:FormCompoundSCRM:
+    /hippo:configuration/hippo:translations/hippo:types/visitscotland:FormCompoundCRM:
       jcr:primaryType: hipposys:resourcebundles
       /en:
         jcr:primaryType: hipposys:resourcebundle

@@ -4,9 +4,9 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 
-@HippoEssentialsGenerated(internalName = "visitscotland:FormCompoundSCRM")
-@Node(jcrType = "visitscotland:FormCompoundSCRM")
-public class FormCompoundSCRM extends HippoCompound {
+@HippoEssentialsGenerated(internalName = "visitscotland:FormCompoundCRM")
+@Node(jcrType = "visitscotland:FormCompoundCRM")
+public class FormCompoundCRM extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "visitscotland:jsonURL")
     public String getJsonURL() {
         return getSingleProperty("visitscotland:jsonURL");
