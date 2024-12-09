@@ -41,11 +41,7 @@ echo "==/Setting conditional environment variables"
 // please see ci/README_PIPELINE_VARIABLES.md or consult Web Operations for details on environment variables and their purposes
 // NOTE: these values will only be set if currently null, they may have been set by the "conditional environment variables" section above
 echo "== Setting default environment variables"
-if (!env.VS_SSR_PROXY_ON) { env.VS_SSR_PROXY_ON = "TRUE" }
-if (!env.VS_CONTAINER_PRESERVE) { env.VS_CONTAINER_PRESERVE = "TRUE" }
-if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
-if (!env.VS_BRXM_DSSR_SITES) { env.VS_BRXM_DSSR_SITES = "feature-businessevents.visitscotland.com feature-support.visitscotland.org" }
-if (!env.VS_SKIP_BUILD_FOR_BRANCH) { env.VS_SKIP_BUILD_FOR_BRANCH = "feature/VS-1865-feature-environments-enhancements-log4j" }
+if (!env.VS_SKIP_BUILD_FOR_BRANCH) { env.VS_SKIP_BUILD_FOR_BRANCH = "ops/feature-environments-enhancements" }
 if (!env.VS_BRC_API_STACK_NAME) { env.VS_BRC_API_STACK_NAME = "visitscotland" }
 if (!env.VS_BRC_ENV) { env.VS_BRC_ENV = "demo" }
 if (!env.VS_BRC_API_STACK_NAME) { env.VS_BRC_API_STACK_NAME = "visitscotland" }
@@ -57,6 +53,16 @@ if (!env.VS_RUN_BRC_STAGES) { env.VS_RUN_BRC_STAGES = "FALSE" }
 if (!env.VS_BRANCH_PROPERTIES_DIR) { env.VS_BRANCH_PROPERTIES_DIR = "ci/properties" }
 if (!env.VS_BRANCH_PROPERTIES_FILE) { env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.BRANCH_NAME.lastIndexOf('/') + 1) + ".properties" }
 echo "==/Setting default environment variables"
+
+echo "== Setting default application variables"
+if (!env.VS_BRXM_DSSR_SITES) { env.VS_BRXM_DSSR_SITES = "feature-businessevents.visitscotland.com feature-support.visitscotland.org" }
+if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
+if (!env.VS_SSR_PROXY_ON) { env.VS_SSR_PROXY_ON = "TRUE" }
+echo "==/Setting default application variables"
+
+echo "== Setting default container variables"
+if (!env.VS_CONTAINER_PRESERVE) { env.VS_CONTAINER_PRESERVE = "TRUE" }
+echo "==/Setting default container variables"
 
 import groovy.json.JsonSlurper
 
