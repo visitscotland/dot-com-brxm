@@ -7,6 +7,13 @@ import java.util.HashMap;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+/**
+ * Implementation of the {@link PageConfigurer} interface to manage and configure models for a web page.
+ * <p>
+ * This class is responsible for associating models with a given {@link HstRequest} and conditionally adding models
+ * based on filters. The configured models are set in the {@link HstRequest} during the configuration process.
+ * </p>
+ */
 public class PageModelConfigurer implements PageConfigurer {
     private HstRequest request;
     private final Map<String, Object> models;
@@ -28,9 +35,9 @@ public class PageModelConfigurer implements PageConfigurer {
     }
 
     @Override
-    public <T> PageConfigurer addModuleIf(String moduleName, Supplier<T> module, Predicate<T> filter) {
-        if(filter.test(module.get())) {
-            this.models.put(moduleName, module.get());
+    public <T> PageConfigurer addModelIf(String modelName, Supplier<T> model, Predicate<T> filter) {
+        if(filter.test(model.get())) {
+            this.models.put(modelName, model.get());
         }
 
         return this;

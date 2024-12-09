@@ -8,5 +8,5 @@ import java.util.function.Supplier;
 public interface PageConfigurer extends Configurable {
     PageConfigurer forRequest(HstRequest request);
     <T> PageConfigurer addModel(String modelName, Supplier<T> model);
-    <T> PageConfigurer addModuleIf(String moduleName, Supplier<T> module, Predicate<T> filter);
+    <T> PageConfigurer addModelIf(String modelName, Supplier<T> model, Predicate<T> filter);
 }
