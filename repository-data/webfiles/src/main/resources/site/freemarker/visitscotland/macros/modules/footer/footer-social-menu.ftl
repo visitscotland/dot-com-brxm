@@ -3,6 +3,8 @@
 <#include "../../../../frontend/components/vs-footer-social-item.ftl">
 <#include "../../../../frontend/components/vs-list.ftl">
 
+<#include "../../shared/icon-lookup.ftl">
+
 <#macro footerSocialMenu>
     <vs-footer-social-menu>
         <template v-slot:title>
@@ -11,19 +13,19 @@
 
         <vs-footer-social-item
             href="${optionalLabel('navigation.social-media', 'facebook')}"
-            icon="facebook"
+            icon="${iconLookup('facebook')}"
         ></vs-footer-social-item>
         <vs-footer-social-item
             href="${optionalLabel('navigation.social-media', 'twitter')}"
-            icon="x-twitter"
+            icon="${iconLookup('x-twitter')}"
         ></vs-footer-social-item>
         <vs-footer-social-item
             href="${optionalLabel('navigation.social-media', 'youtube')}"
-            icon="youtube"
+            icon="${iconLookup('youtube')}"
         ></vs-footer-social-item>
         <vs-footer-social-item
             href="${optionalLabel('navigation.social-media', 'instagram')}"
-            icon="instagram"
+            icon="${iconLookup('instagram')}"
         ></vs-footer-social-item>
     </vs-footer-social-menu>
 </#macro>
