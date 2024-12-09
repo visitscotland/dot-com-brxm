@@ -47,6 +47,11 @@ definitions:
       /en:
         jcr:primaryType: hipposys:resourcebundle
         jcr:name: FEPL
+    /hippo:configuration/hippo:translations/hippo:types/visitscotland:FormCompoundCRM:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Stakeholder CRM
     /hippo:configuration/hippo:translations/hippo:types/visitscotland:FormCompoundMarketo:
       jcr:primaryType: hipposys:resourcebundles
       /en:
