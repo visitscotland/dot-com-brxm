@@ -118,3 +118,6 @@ definitions:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.ExternalDocumentValidator
       visitscotland:types: [pdf, docx, xlsx, jpg, png, eps, svg]
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:shared-link-bsh-external:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.SharedLinkExternalValidator
