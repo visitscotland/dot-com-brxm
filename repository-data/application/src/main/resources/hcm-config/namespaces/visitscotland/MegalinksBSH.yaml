@@ -42,6 +42,20 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: visitscotland:CMSLink
             hipposysedit:validators: [optional]
+          /megalinkItems:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:megalinkItems
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:megalinks-unique-link-validator']
+          /singleImageLinks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:singleImageLinks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
