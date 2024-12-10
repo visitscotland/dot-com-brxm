@@ -114,6 +114,7 @@ public class FormFactory {
         module.setTitle(document.getTitle());
         module.setNoJavaScriptMessage(document.getNonJavaScriptMessage());
         module.setCopy(document.getCopy());
+        module.setHippoBean(document);
 
         if (cfg instanceof FormCompoundFepl) {
             module.setConfig(getFeplConfiguration((FormCompoundFepl) document.getFormConfiguration()));
