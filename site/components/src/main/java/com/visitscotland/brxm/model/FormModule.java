@@ -1,11 +1,12 @@
 package com.visitscotland.brxm.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.visitscotland.brxm.hippobeans.Form;
 import com.visitscotland.brxm.hippobeans.MarketoForm;
 import com.visitscotland.brxm.model.form.FormConfiguration;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
-public class FormModule extends Module<MarketoForm> {
+public class FormModule extends Module<Form> {
 
     private String title;
     private String jsonUrl;
