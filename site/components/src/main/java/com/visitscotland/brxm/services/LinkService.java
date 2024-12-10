@@ -514,20 +514,19 @@ public class LinkService {
             SharedLinkBSH sharedLinkBSH = (SharedLinkBSH) sharedLink;
             link.setSource(sharedLinkBSH.getSource());
             setBSHFields(link, sharedLinkBSH.getType(), sharedLinkBSH.getSectors(), sharedLinkBSH.getSkill(), sharedLinkBSH.getTopic(), sharedLinkBSH.getRegions());
-
         }
+
         if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
             link.setImage(imageFactory.createImage(product, module, locale));
-        }else{
+        } else {
             link.setImage(imageFactory.createImage(sharedLink.getImage(), module, locale));
         }
-
 
         if (sharedLink.getLinkType() instanceof ExternalDocument || sharedLink.getLinkType() instanceof FileLink) {
             link.setLabel(formatLabel(sharedLink, sharedLink.getTitle(), module, locale));
             link.setType(LinkType.DOWNLOAD);
 
-            if (addCategory) {
+            if (addCategory && sharedLink.getLinkType() instanceof ExternalDocument) {
                 link.setCategory(((ExternalDocument) sharedLink.getLinkType()).getCategory());
             }
         } else {
