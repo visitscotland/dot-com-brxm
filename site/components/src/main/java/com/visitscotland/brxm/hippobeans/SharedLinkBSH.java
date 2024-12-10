@@ -6,6 +6,9 @@ import org.hippoecm.hst.content.beans.Node;
 @HippoEssentialsGenerated(internalName = "visitscotland:SharedLinkBSH")
 @Node(jcrType = "visitscotland:SharedLinkBSH")
 public class SharedLinkBSH extends SharedLink {
+
+    public static final String WEBSITE_TYPE = "visitscotland:websiteType";
+
     @HippoEssentialsGenerated(internalName = "visitscotland:source")
     public String getSource() {
         return getSingleProperty("visitscotland:source");
@@ -39,5 +42,10 @@ public class SharedLinkBSH extends SharedLink {
     @HippoEssentialsGenerated(internalName = "visitscotland:topic")
     public String[] getTopic() {
         return getMultipleProperty("visitscotland:topic");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:websiteType")
+    public String getWebsiteType() {
+        return getSingleProperty("visitscotland:websiteType");
     }
 }

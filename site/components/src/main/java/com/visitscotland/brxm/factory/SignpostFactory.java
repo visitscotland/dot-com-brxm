@@ -6,6 +6,7 @@ import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SignpostModule;
+import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
@@ -25,12 +26,18 @@ public class SignpostFactory {
     private final SiteProperties properties;
     private final HippoUtilsService hippoUtilsService;
     private final LinkService linkService;
+    private final AnchorFormatter anchorFormatter;
 
-    public SignpostFactory(ResourceBundleService bundle, SiteProperties properties, HippoUtilsService hippoUtilsService, LinkService linkService) {
+    public SignpostFactory(ResourceBundleService bundle,
+                           SiteProperties properties,
+                           HippoUtilsService hippoUtilsService,
+                           LinkService linkService,
+                           AnchorFormatter anchorFormatter) {
         this.bundle = bundle;
         this.properties = properties;
         this.hippoUtilsService = hippoUtilsService;
         this.linkService = linkService;
+        this.anchorFormatter = anchorFormatter;
     }
 
     public SignpostModule createNewsletterSignpostModule(Locale locale) {
@@ -66,13 +73,14 @@ public class SignpostFactory {
 
         FlatImage image = new FlatImage();
         image.setCmsImage(ctaBanner.getImage());
+
         module.setCta(cta);
         module.setImage(image);
         module.setTitle(ctaBanner.getTitle());
         module.setCopy(ctaBanner.getIntroduction());
         module.setHippoBean(ctaBanner);
-        module.setAnchor(ctaBanner.getAnchor());
         module.setNested(Boolean.TRUE.equals(ctaBanner.getNested()));
+        module.setAnchor(anchorFormatter.getAnchorOrFallback(ctaBanner.getAnchor(), ctaBanner::getTitle));
 
         return module;
     }

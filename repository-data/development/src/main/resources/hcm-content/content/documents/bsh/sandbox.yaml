@@ -185,10 +185,11 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-09-25T17:01:40.525+01:00
-            hippostdpubwf:lastModificationDate: 2024-09-25T17:01:40.525+01:00
+            hippostdpubwf:lastModificationDate: 2024-12-04T20:49:29.407Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 21068f6f-5c67-40f9-b574-58fd79ed6f81
             hippotranslation:locale: en
+            visitscotland:regions: []
             visitscotland:sectors: []
             visitscotland:skill: ''
             visitscotland:source: Scotland Tourism Board
@@ -196,7 +197,10 @@
               Scotland! Book accommodation, discover new places to visit, find amazing
               things to do and more!
             visitscotland:title: VisitScotland Consumer Website
+            visitscotland:topic: []
+            visitscotland:type: ''
             visitscotland:types: []
+            visitscotland:websiteType: external
             /visitscotland:image:
               jcr:primaryType: hippogallerypicker:imagelink
               hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -216,10 +220,11 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-09-25T17:01:40.525+01:00
-            hippostdpubwf:lastModificationDate: 2024-09-25T17:03:12.988+01:00
+            hippostdpubwf:lastModificationDate: 2024-12-04T20:49:27.886Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 21068f6f-5c67-40f9-b574-58fd79ed6f81
             hippotranslation:locale: en
+            visitscotland:regions: []
             visitscotland:sectors: []
             visitscotland:skill: ''
             visitscotland:source: Scotland Tourism Board
@@ -227,7 +232,10 @@
               Scotland! Book accommodation, discover new places to visit, find amazing
               things to do and more!
             visitscotland:title: VisitScotland Consumer Website
+            visitscotland:topic: []
+            visitscotland:type: ''
             visitscotland:types: []
+            visitscotland:websiteType: external
             /visitscotland:image:
               jcr:primaryType: hippogallerypicker:imagelink
               hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -13059,6 +13067,589 @@
             /visitscotland:link:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 2435b3e4-b59b-4d10-a5a5-1c8762915064
+    /form:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 8b143691-f331-4459-8c0b-c3c2a99646cc
+      hippo:name: Form
+      hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+      hippotranslation:id: 376e47d0-df65-49be-8a50-42c149013adb
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 23d16d1e-fd2e-4cb9-92af-0cd8913e55ac
+        hippo:name: Forms
+        hippo:versionHistory: 2245400c-9187-47b7-aebc-493788642c7b
+        /content[1]:
+          jcr:primaryType: visitscotland:GeneralBSH
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 48109096-3a9a-4457-9a19-3cdcaf2c1125
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
+          hippostdpubwf:lastModificationDate: 2024-12-03T15:36:53.500Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: c0b2a5c5-c945-4fe0-9f29-d47549fe11f0
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: []
+          visitscotland:sectors: []
+          visitscotland:seoDescription: Forms
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Forms
+          visitscotland:skill: ''
+          visitscotland:teaser: xplore different form types and their integration
+            in this demo page.
+          visitscotland:theme: top-level
+          visitscotland:title: Demo Page for Forms
+          visitscotland:topic: []
+          visitscotland:type: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>This is a demo page about Forms and their role in gathering user input for various purposes. Forms are essential components of a website, designed to capture data and facilitate interactions between users and systems.</p>
+
+              <p>The three types of forms available here are:</p>
+
+              <ol>
+               <li>Bloom Reach Engagement (through BREG): These forms enable seamless data collection tailored to personalized marketing campaigns.</li>
+               <li>FEPL (Form to Email Processor Layer): This type directs form data to email processors, ensuring quick and efficient responses.</li>
+               <li>CRM (through the Data Processing Stack): These forms integrate with data processing systems to support advanced customer relationship management</li>
+              </ol>
+        /content[2]:
+          jcr:primaryType: visitscotland:GeneralBSH
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: a4f178cb-6eb6-40d4-8b16-acfd1cefaf65
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
+          hippostdpubwf:lastModificationDate: 2024-12-03T15:35:14.871Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: c0b2a5c5-c945-4fe0-9f29-d47549fe11f0
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: []
+          visitscotland:sectors: []
+          visitscotland:seoDescription: Forms
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Forms
+          visitscotland:skill: ''
+          visitscotland:teaser: xplore different form types and their integration
+            in this demo page.
+          visitscotland:theme: top-level
+          visitscotland:title: Demo Page for Forms
+          visitscotland:topic: []
+          visitscotland:type: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>This is a demo page about Forms and their role in gathering user input for various purposes. Forms are essential components of a website, designed to capture data and facilitate interactions between users and systems.</p>
+
+              <p>The three types of forms available here are:</p>
+
+              <ol>
+               <li>Bloom Reach Engagement (through BREG): These forms enable seamless data collection tailored to personalized marketing campaigns.</li>
+               <li>FEPL (Form to Email Processor Layer): This type directs form data to email processors, ensuring quick and efficient responses.</li>
+               <li>CRM (through the Data Processing Stack): These forms integrate with data processing systems to support advanced customer relationship management</li>
+              </ol>
+        /content[3]:
+          jcr:primaryType: visitscotland:GeneralBSH
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 8925f063-d660-4852-9674-c191d031a047
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
+          hippostdpubwf:lastModificationDate: 2024-12-03T15:36:53.500Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-12-03T15:37:20.802Z
+          hippotranslation:id: c0b2a5c5-c945-4fe0-9f29-d47549fe11f0
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: []
+          visitscotland:sectors: []
+          visitscotland:seoDescription: Forms
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Forms
+          visitscotland:skill: ''
+          visitscotland:teaser: xplore different form types and their integration
+            in this demo page.
+          visitscotland:theme: top-level
+          visitscotland:title: Demo Page for Forms
+          visitscotland:topic: []
+          visitscotland:type: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>This is a demo page about Forms and their role in gathering user input for various purposes. Forms are essential components of a website, designed to capture data and facilitate interactions between users and systems.</p>
+
+              <p>The three types of forms available here are:</p>
+
+              <ol>
+               <li>Bloom Reach Engagement (through BREG): These forms enable seamless data collection tailored to personalized marketing campaigns.</li>
+               <li>FEPL (Form to Email Processor Layer): This type directs form data to email processors, ensuring quick and efficient responses.</li>
+               <li>CRM (through the Data Processing Stack): These forms integrate with data processing systems to support advanced customer relationship management</li>
+              </ol>
+      /breg:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 7ee01717-0130-44d1-843f-b384935eda3a
+        hippo:name: Breg - Newsletter
+        hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+        hippotranslation:id: 317fbfa5-fcc5-45fb-971d-07a2d9ddb450
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 73697416-562d-46d3-a962-047d826e316c
+          hippo:versionHistory: 82246546-d9e7-4d62-ac6a-a25228618578
+          /content[1]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: fca3c578-da17-468a-ba5c-4562e1d75c2a
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:52.983Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 2048c580-b999-4eba-9d84-84a178515243
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: f7abc9c9-469f-4140-a6aa-17f27db5c7f1
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:56.439Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 2048c580-b999-4eba-9d84-84a178515243
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: e9ce8455-36b9-4491-b91c-b996e701053f
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:56.439Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-11-28T16:03:59.260Z
+            hippotranslation:id: 2048c580-b999-4eba-9d84-84a178515243
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+        /breg-form:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: c7af8ff3-bf68-473f-a85e-f62e937d4f5b
+          hippo:name: BREG Form
+          hippo:versionHistory: a3b83b40-36f4-46b3-8f82-5ab9542480b7
+          /breg-form[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 8ce31e48-9dc2-4bd0-b277-d93195c512c2
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2024-12-03T15:47:56.940Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 75f015de-fd05-4ea2-aac6-51901f6cd9df
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Subscribe to our newsletter
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: BSHMAIL_001
+              visitscotland:activityDescription: Website opt in for Support Hub newsletter
+              visitscotland:activitySource: BSH Web Form
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-business-support.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: business_support_hub
+                visitscotland:value: BSHMAIL_001
+          /breg-form[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: f78eaa5a-3fc2-4785-a8ae-d4d58ed092f2
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2024-12-03T15:49:38.352Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 75f015de-fd05-4ea2-aac6-51901f6cd9df
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Subscribe to our newsletter
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: BSHMAIL_001
+              visitscotland:activityDescription: Website opt in for Support Hub newsletter
+              visitscotland:activitySource: BSH Web Form
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-business-support.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: business_support_hub
+                visitscotland:value: BSHMAIL_001
+          /breg-form[3]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 6d4c040c-0f38-486c-aff7-f781e946a9a7
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2024-12-03T15:49:38.352Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-12-03T15:49:52.989Z
+            hippotranslation:id: 75f015de-fd05-4ea2-aac6-51901f6cd9df
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Subscribe to our newsletter
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: BSHMAIL_001
+              visitscotland:activityDescription: Website opt in for Support Hub newsletter
+              visitscotland:activitySource: BSH Web Form
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-business-support.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: business_support_hub
+                visitscotland:value: BSHMAIL_001
+      /scrm-data-stack:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 4cd0f3b9-41c9-46f1-ada9-d13036f64e98
+        hippo:name: SCRM (Data Stack) - ??
+        hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+        hippotranslation:id: cab85378-c858-43df-892b-98b2bb58af53
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 41a327d3-77c4-4e62-834b-392f90e39182
+          hippo:name: content
+          hippo:versionHistory: b1783462-6bbd-4c07-8cff-be0799fad1ac
+          /content[1]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 70e6033b-7e5d-4480-b51a-83474009b3ee
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-12-09T09:23:28.261Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: ef7034a1-fa2c-43ff-9d29-0152949daa4e
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: Data Processing Form
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Data Processing Form
+            visitscotland:skill: ''
+            visitscotland:teaser: Data Processing Form
+            visitscotland:theme: simple
+            visitscotland:title: Data Processing Form
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Data Processing Form</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: e44da899-ae44-4493-a25c-10837b9cccad
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-12-09T09:19:44.516Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: ef7034a1-fa2c-43ff-9d29-0152949daa4e
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: Data Processing Form
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Data Processing Form
+            visitscotland:skill: ''
+            visitscotland:teaser: Data Processing Form
+            visitscotland:theme: simple
+            visitscotland:title: Data Processing Form
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Data Processing Form</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: b739acde-2805-4e77-b217-739a81573077
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-12-09T09:23:28.261Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-12-09T11:43:32.204Z
+            hippotranslation:id: ef7034a1-fa2c-43ff-9d29-0152949daa4e
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: Data Processing Form
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Data Processing Form
+            visitscotland:skill: ''
+            visitscotland:teaser: Data Processing Form
+            visitscotland:theme: simple
+            visitscotland:title: Data Processing Form
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Data Processing Form</p>
+        /scrm---data-processing-form:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 8bd130c8-69c5-4d76-b197-e94aa0b4861d
+          hippo:name: SCRM / Data processing Form
+          hippo:versionHistory: 2ccbe351-ec9e-465b-840c-49023155835c
+          /scrm---data-processing-form[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 48e63570-e4c3-444e-baac-d7aed6a63197
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2024-12-09T11:59:15.351Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 29e33ab9-c95f-471d-82ed-48f1973a32a2
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: Please, activate JavaScript to make
+              the enquiry
+            visitscotland:title: Business Support Enquiries
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundCRM
+              visitscotland:jsonURL: https://static.visitscotland.com/forms/enquiries/business-support-enquiries.json
+              visitscotland:url: http://172.29.25.17:9080/api/support/enquiry
+          /scrm---data-processing-form[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 06795138-efe0-4655-ab42-7db404d092ca
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2024-12-09T11:59:06.124Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 29e33ab9-c95f-471d-82ed-48f1973a32a2
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: Please, activate JavaScript to make
+              the enquiry
+            visitscotland:title: Business Support Enquiries
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundCRM
+              visitscotland:jsonURL: https://static.visitscotland.com/forms/enquiries/business-support-enquiries.json
+              visitscotland:url: http://172.29.25.17:9080/api/support/enquiry
+          /scrm---data-processing-form[3]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 3441f175-9dd4-4efa-91a7-ca2093e95fdd
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2024-12-09T11:59:15.351Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-12-09T11:59:19.472Z
+            hippotranslation:id: 29e33ab9-c95f-471d-82ed-48f1973a32a2
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: Please, activate JavaScript to make
+              the enquiry
+            visitscotland:title: Business Support Enquiries
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundCRM
+              visitscotland:jsonURL: https://static.visitscotland.com/forms/enquiries/business-support-enquiries.json
+              visitscotland:url: http://172.29.25.17:9080/api/support/enquiry
   /features:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']

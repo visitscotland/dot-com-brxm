@@ -1,0 +1,20 @@
+/content/documents/administration/options/business-support-hub/external-links:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 5f777648-55cf-4690-9d32-760a6e68ef7e
+  hippo:name: External Links
+  /external-links:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 7debb2ea-30a9-418f-b7b8-2cd3f6fb8138
+    hippo:availability: [live, preview]
+    hippotranslation:id: c9061f08-9073-4cf2-ad19-6dacdae2d964
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: partner
+      selection:label: Partner Website
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: external
+      selection:label: External Website
