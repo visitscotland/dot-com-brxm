@@ -51,7 +51,12 @@ if (!env.VS_DOCKER_BUILDER_IMAGE_NAME) { env.VS_DOCKER_BUILDER_IMAGE_NAME = "vs/
 if (!env.VS_USE_DOCKER_BUILDER) { env.VS_USE_DOCKER_BUILDER = "TRUE" }
 if (!env.VS_RUN_BRC_STAGES) { env.VS_RUN_BRC_STAGES = "FALSE" }
 if (!env.VS_BRANCH_PROPERTIES_DIR) { env.VS_BRANCH_PROPERTIES_DIR = "ci/properties" }
-if (!env.VS_BRANCH_PROPERTIES_FILE) { env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.BRANCH_NAME.lastIndexOf('/') + 1) + ".properties" }
+if (!env.VS_BRANCH_PROPERTIES_FILE && !env.CHANGE_BRANCH) {
+	env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.BRANCH_NAME.lastIndexOf('/') + 1) + ".properties" 
+} else {
+	env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.CHANGE_BRANCH.lastIndexOf('/') + 1) + ".properties" 
+}
+
 echo "==/Setting default environment variables"
 
 echo "== Setting default application variables"
