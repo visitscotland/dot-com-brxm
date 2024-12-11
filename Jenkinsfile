@@ -53,7 +53,7 @@ if (!env.VS_RUN_BRC_STAGES) { env.VS_RUN_BRC_STAGES = "FALSE" }
 if (!env.VS_BRANCH_PROPERTIES_DIR) { env.VS_BRANCH_PROPERTIES_DIR = "ci/properties" }
 if (!env.VS_BRANCH_PROPERTIES_FILE && !env.CHANGE_BRANCH) {
 	env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.BRANCH_NAME.lastIndexOf('/') + 1) + ".properties" 
-} else {
+} else if (!env.VS_BRANCH_PROPERTIES_FILE && env.CHANGE_BRANCH) {
 	env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.CHANGE_BRANCH.lastIndexOf('/') + 1) + ".properties" 
 }
 
