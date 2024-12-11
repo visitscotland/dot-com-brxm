@@ -54,7 +54,7 @@ if (!env.VS_BRANCH_PROPERTIES_DIR) { env.VS_BRANCH_PROPERTIES_DIR = "ci/properti
 if (!env.VS_BRANCH_PROPERTIES_FILE && !env.CHANGE_BRANCH) {
 	env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.BRANCH_NAME.lastIndexOf('/') + 1) + ".properties" 
 } else if (!env.VS_BRANCH_PROPERTIES_FILE && env.CHANGE_BRANCH) {
-	env.VS_BRANCH_PROPERTIES_FILE = env.BRANCH_NAME.substring(env.CHANGE_BRANCH.lastIndexOf('/') + 1) + ".properties" 
+	env.VS_BRANCH_PROPERTIES_FILE = env.CHANGE_BRANCH.substring(env.CHANGE_BRANCH.lastIndexOf('/') + 1) + ".properties" 
 }
 
 echo "==/Setting default environment variables"
