@@ -223,6 +223,16 @@ sed -i 's/^\(common.loader=\).*/\1\"\$\{catalina\.base\}\/lib\",\"\$\{catalina\.
 sed -i 's/^\(shared.loader=\).*/\1\"$\{catalina\.base\}\/shared\/lib\",\"\$\{catalina\.base\}\/shared\/lib\/\*\.jar\"/' $CATALINA_BASE/conf/catalina.properties
 echo " - after:  " `cat $CATALINA_BASE/conf/catalina.properties | egrep "(common|shared)\.loader"`
 
+# use sed to modify the copied catalina.properties - add SPA/DSSR preview URLs
+echo ""
+echo using sed to modify the basic catalina.properties
+echo " - before: " $(cat $CATALINA_BASE/conf/catalina.properties | grep -E "^VS_BRXM(_[A-Z][A-Z][A-Z])?_SPA_URL(_[A-Z][A-Z][A-Z])?")
+sed -i '/^VS_BRXM\(_[A-Z][A-Z][A-Z]\)\?_SPA_URL\(_[A-Z][A-Z][A-Z]\)\?=.*$/d' $CATALINA_BASE/conf/catalina.properties
+for THIS_VS_BRXM_SPA_URL in $(printenv | grep -E "^VS_BRXM(_[A-Z][A-Z][A-Z])?_SPA_URL(_[A-Z][A-Z][A-Z])?"); do
+  echo $THIS_VS_BRXM_SPA_URL >> $CATALINA_BASE/conf/catalina.properties
+done
+echo " - after:  " $(cat $CATALINA_BASE/conf/catalina.properties | grep -E "^VS_BRXM(_[A-Z][A-Z][A-Z])?_SPA_URL(_[A-Z][A-Z][A-Z])?")
+
 # use sed to modify the copied context.xml - change the repository directory daily
 if [ "$VS_HIPPO_REPOSITORY_PERSIST" = "FALSE" ]&&[ "$VS_HIPPO_REPOSITORY_OVERRIDE_DIR" = "FALSE" ]; then
   echo ""
