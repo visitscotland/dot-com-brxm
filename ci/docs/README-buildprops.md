@@ -1,3 +1,7 @@
+###################################################################################################################################################
+## NOTE: The buildprops method of including branch-specific properties has been removed in favour of the simpler "load" method used in the pipeline
+##       The documentation for the simple properties override mechanism is documented in the ci/properties directory
+###################################################################################################################################################
 # Introduction
 
 Continuous integration files
