@@ -1,8 +1,12 @@
 package com.visitscotland.brxm.personalisation;
 
 import org.hippoecm.hst.container.valves.AbstractOrderableValve;
+
 import org.hippoecm.hst.core.container.ContainerException;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.container.ValveContext;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Valve responsible for extracting user-specific information from the request.
@@ -24,7 +28,10 @@ final class PersonalisationValve extends AbstractOrderableValve {
     @Override
     public void invoke(ValveContext valveContext) throws ContainerException {
         try {
-            PersonalisationHandler.processValveContext(valveContext);
+            final HttpServletRequest servletRequest = valveContext.getServletRequest();
+            final HstRequestContext requestContext = valveContext.getRequestContext();
+
+            PersonalisationRequestHandler.processRequest(servletRequest, requestContext);
         } finally {
             valveContext.invokeNext();
         }
