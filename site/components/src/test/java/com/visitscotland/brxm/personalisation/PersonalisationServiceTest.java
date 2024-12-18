@@ -66,18 +66,11 @@ class PersonalisationServiceTest {
                 .withCountry(UNITED_KINGDOM)
                 .build();
 
-            requestContextProviderMock
-                .when(RequestContextProvider::get)
-                .thenReturn(requestContext);
-
-            when(personalisedVariant.getCountry())
-                .thenReturn(UNITED_STATES);
-
+            requestContextProviderMock.when(RequestContextProvider::get).thenReturn(requestContext);
+            when(personalisedVariant.getCountry()).thenReturn(UNITED_STATES);
             when(hippoBean.getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class))
                 .thenReturn(List.of(personalisedVariant));
-
-            when(requestContext.getAttribute(eq(VISITOR_CONTEXT_ATTRIBUTE)))
-                .thenReturn(visitorContext);
+            when(requestContext.getAttribute(eq(VISITOR_CONTEXT_ATTRIBUTE))).thenReturn(visitorContext);
 
             final List<HippoBean> result = personalisationService.getPersonalisedVariants(hippoBean);
 
