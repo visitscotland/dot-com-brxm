@@ -19,8 +19,7 @@ import org.mockito.Mock;
 import java.util.Collections;
 import java.util.List;
 
-import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class PersonalisationServiceTest {
@@ -30,6 +29,9 @@ class PersonalisationServiceTest {
     private final PersonalisationService personalisationService;
 
     private static final String PERSONALIZATION_JCR_TYPE = "visitscotland:personalization";
+    private static final String VISITOR_CONTEXT_ATTRIBUTE = "visitorContext";
+    private static final String UNITED_STATES = "US";
+    private static final String UNITED_KINGDOM = "UK";
 
     @BeforeEach
     void setUp() {
@@ -45,12 +47,41 @@ class PersonalisationServiceTest {
     }
 
     @Test
-    void When_GetPersonalisedVariants_WithHippoBeanWithNoPersonalizationCompounds_Expect_EmptyList() {
+    void When_GetPersonalisedVariants_With_NoPersonalizationCompounds_Expect_EmptyList() {
         when(hippoBean.getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class))
             .thenReturn(Collections.emptyList());
 
         final List<HippoBean> result = personalisationService.getPersonalisedVariants(hippoBean);
 
+        verify(hippoBean, times(1))
+            .getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class);
         Assertions.assertEquals(0, result.size());
+    }
+
+    @Test
+    void When_GetPersonalisedVariants_With_PersonalizationCompoundsNotMatchingVisitorContext_Expect_EmptyList() {
+        try (MockedStatic<RequestContextProvider> requestContextProviderMock = mockStatic(RequestContextProvider.class)) {
+            final Personalization personalisedVariant = mock(Personalization.class);
+            final VisitorContext visitorContext = new VisitorContext.Builder()
+                .withCountry(UNITED_KINGDOM)
+                .build();
+
+            requestContextProviderMock
+                .when(RequestContextProvider::get)
+                .thenReturn(requestContext);
+
+            when(personalisedVariant.getCountry())
+                .thenReturn(UNITED_STATES);
+
+            when(hippoBean.getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class))
+                .thenReturn(List.of(personalisedVariant));
+
+            when(requestContext.getAttribute(eq(VISITOR_CONTEXT_ATTRIBUTE)))
+                .thenReturn(visitorContext);
+
+            final List<HippoBean> result = personalisationService.getPersonalisedVariants(hippoBean);
+
+            Assertions.assertEquals(0, result.size());
+        }
     }
 }

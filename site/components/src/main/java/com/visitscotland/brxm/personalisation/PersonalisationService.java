@@ -23,6 +23,7 @@ public class PersonalisationService {
         return personalisationCompounds
             .stream()
             .filter(this::matchesVisitorContextCountry)
+            .map(Personalization::getModule)
             .collect(Collectors.toUnmodifiableList());
     }
 
