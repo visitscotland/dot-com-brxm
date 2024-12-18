@@ -84,4 +84,26 @@ class PersonalisationServiceTest {
             Assertions.assertEquals(0, result.size());
         }
     }
+
+    @Test
+    void When_GetPersonalisedVariants_With_PersonalizationCompoundsMatchingVisitorContext_Expect_ListOfReferencedHippoBeans() {
+        try (MockedStatic<RequestContextProvider> requestContextProviderMock = mockStatic(RequestContextProvider.class)) {
+            final Personalization personalisedVariant = mock(Personalization.class);
+            final VisitorContext visitorContext = new VisitorContext.Builder()
+                .withCountry(UNITED_KINGDOM)
+                .build();
+
+            requestContextProviderMock.when(RequestContextProvider::get).thenReturn(requestContext);
+            when(personalisedVariant.getCountry()).thenReturn(UNITED_KINGDOM);
+            when(personalisedVariant.getModule()).thenReturn(new MockHippoBean());
+            when(hippoBean.getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class))
+                .thenReturn(List.of(personalisedVariant));
+            when(requestContext.getAttribute(eq(VISITOR_CONTEXT_ATTRIBUTE))).thenReturn(visitorContext);
+
+            final List<HippoBean> result = personalisationService.getPersonalisedVariants(hippoBean);
+
+            verify(personalisedVariant, times(1)).getModule();
+            Assertions.assertEquals(1, result.size());
+        }
+    }
 }
