@@ -11,6 +11,8 @@ import com.visitscotland.brxm.hippobeans.Blog;
 @HippoEssentialsGenerated(internalName = "visitscotland:Page")
 @Node(jcrType = "visitscotland:Page")
 public class Page extends BaseDocument implements TranslationParent, Linkable {
+    public static final String PRIMARY_TYPE = "visitscotland:Page";
+
     @HippoEssentialsGenerated(internalName = "visitscotland:seoTitle")
     public String getSeoTitle() {
         return getSingleProperty("visitscotland:seoTitle");
