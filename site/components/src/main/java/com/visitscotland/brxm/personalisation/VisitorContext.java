@@ -1,6 +1,6 @@
 package com.visitscotland.brxm.personalisation;
 
-public class VisitorContext {
+class VisitorContext {
     private final String country;
 
     VisitorContext(String country) {
