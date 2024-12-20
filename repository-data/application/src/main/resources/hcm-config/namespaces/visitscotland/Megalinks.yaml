@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a1ca6ab8-4baf-4d84-8fe7-78510afbe4bf
+          jcr:uuid: 98da310e-d37e-40ab-8438-6b6a07ee0ad7
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -80,14 +80,14 @@ definitions:
             hipposysedit:path: visitscotland:translation
             hipposysedit:primary: false
             hipposysedit:type: OpenUiString
-          /personalization:
+          /Variant:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
-            hipposysedit:multiple: true
+            hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:personalization
+            hipposysedit:path: visitscotland:Variant
             hipposysedit:primary: false
-            hipposysedit:type: visitscotland:Personalization
+            hipposysedit:type: visitscotland:Variant
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -100,12 +100,16 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: eb916953-0042-4da9-a921-1fb49e6654ed
+          jcr:uuid: 1256bdd9-61fa-4ab7-8cd9-77bc0fd0a90c
           hippostdpubwf:lastModificationDate: 2020-05-14T14:29:51.020+01:00
           hippostdpubwf:creationDate: 2020-05-14T14:29:51.020+01:00
           visitscotland:teaserVisible: true
           visitscotland:translation: ''
           visitscotland:layout: Default
+          /visitscotland:Variant:
+            jcr:primaryType: visitscotland:Variant
+            visitscotland:boolean: false
+            visitscotland:country: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -219,11 +223,12 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ui.extension: translationDiff
-          /personalization:
+          /Variant:
             jcr:primaryType: frontend:plugin
-            caption: Personalization
-            field: personalization
+            caption: Variant
+            field: Variant
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.right.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

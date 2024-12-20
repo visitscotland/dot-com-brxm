@@ -22,8 +22,7 @@ public class Megalinks extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "visitscotland:singleImageLinks", allowModifications = false)
     public List<SingleImageModule> getSingleImageLinks() {
-        return getChildBeansByName("visitscotland:singleImageLinks",
-                SingleImageModule.class);
+        return getChildBeansByName("visitscotland:singleImageLinks", SingleImageModule.class);
     }
 
     public SingleImageModule getSingleImageModule() {
@@ -32,8 +31,7 @@ public class Megalinks extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "visitscotland:megalinkItems", allowModifications = false)
     public List<MegalinkItem> getMegalinkItems() {
-        return getChildBeansByName("visitscotland:megalinkItems",
-                MegalinkItem.class);
+        return getChildBeansByName("visitscotland:megalinkItems", MegalinkItem.class);
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:teaserVisible")
@@ -43,8 +41,7 @@ public class Megalinks extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "visitscotland:products", allowModifications = false)
     public List<HippoCompound> getProducts() {
-        return getChildBeansByName("visitscotland:products",
-                HippoCompound.class);
+        return getChildBeansByName("visitscotland:products", HippoCompound.class);
     }
 
     public HippoCompound getProductItem() {
@@ -81,9 +78,8 @@ public class Megalinks extends BaseDocument {
         return getSingleProperty("visitscotland:translationDeadline");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:personalization")
-    public List<Personalization> getPersonalization() {
-        return getChildBeansByName("visitscotland:personalization",
-                Personalization.class);
+    @HippoEssentialsGenerated(internalName = "visitscotland:Variant")
+    public Variant getVariant() {
+        return getBean("visitscotland:Variant", Variant.class);
     }
 }
