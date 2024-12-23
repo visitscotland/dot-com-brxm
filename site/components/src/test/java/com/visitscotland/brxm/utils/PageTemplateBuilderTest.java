@@ -8,6 +8,7 @@ import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.mock.TouristInformationMockBuilder;
+import com.visitscotland.brxm.personalisation.PersonalisationService;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import org.hippoecm.hst.mock.core.component.MockHstRequest;
 import org.junit.jupiter.api.*;
@@ -62,6 +63,9 @@ class PageTemplateBuilderTest {
 
     @Mock
     ContentLogger logger;
+
+    @Mock
+    PersonalisationService personalisationService;
 
     @InjectMocks
     PageTemplateBuilder builder;
