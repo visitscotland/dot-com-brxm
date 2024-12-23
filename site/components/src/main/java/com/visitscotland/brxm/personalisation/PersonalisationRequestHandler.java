@@ -15,10 +15,7 @@ final class PersonalisationRequestHandler {
             .filter(PersonalisationRequestHandler::isValidCountry);
 
         if (visitorCountry.isPresent() && visitorContextDoesNotExist(requestContext)) {
-            final VisitorContext visitorContext = new VisitorContext.Builder()
-                .withCountry(visitorCountry.get())
-                .build();
-
+            final VisitorContext visitorContext = new VisitorContext(visitorCountry.get());
             requestContext.setAttribute("visitorContext", visitorContext);
         }
     }
