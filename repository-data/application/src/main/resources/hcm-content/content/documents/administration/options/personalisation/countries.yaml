@@ -1,13 +1,13 @@
 /content/documents/administration/options/personalisation/countries:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['mix:referenceable']
-  jcr:uuid: 794f123a-8212-470d-bbb0-8c53e1def4c1
+  jcr:uuid: 6a09351b-18d0-43c2-8195-173d43f0b072
   /countries:
     jcr:primaryType: selection:valuelist
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-    jcr:uuid: 6bcc28c8-fc06-439d-9cb8-8e28ca63fc27
+    jcr:uuid: 6acfa156-934d-43e4-93b4-43b7efa2ec7b
     hippo:availability: [live, preview]
-    hippotranslation:id: c9016102-31e1-49fe-bfd1-e34889ab06aa
+    hippotranslation:id: adc8d61c-7808-4c15-93d4-cfc3e6406719
     hippotranslation:locale: inherited - from query
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
