@@ -45,14 +45,19 @@ class PersonalisationServiceTest {
 
     @Test
     void When_GetPersonalisedVariants_With_NoPersonalizationCompounds_Expect_EmptyList() {
+        final List<Personalization> personalizationCompounds = Collections.emptyList();
+
         when(hippoBean.getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class))
-            .thenReturn(Collections.emptyList());
+            .thenReturn(personalizationCompounds);
 
         final List<HippoBean> result = personalisationService.getPersonalisedVariants(hippoBean);
 
-        verify(hippoBean, times(1))
-            .getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class);
-        Assertions.assertEquals(0, result.size());
+        verify(hippoBean, times(1)).getChildBeansByName(
+            PERSONALIZATION_JCR_TYPE,
+            Personalization.class
+        );
+
+        Assertions.assertTrue(result.isEmpty());
     }
 
     @Test
@@ -73,7 +78,7 @@ class PersonalisationServiceTest {
 
             final List<HippoBean> result = personalisationService.getPersonalisedVariants(hippoBean);
 
-            Assertions.assertEquals(0, result.size());
+            Assertions.assertTrue(result.isEmpty());
         }
     }
 
