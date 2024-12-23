@@ -1,0 +1,27 @@
+/content/documents/administration/options/personalisation/countries:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: 794f123a-8212-470d-bbb0-8c53e1def4c1
+  /countries:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 6bcc28c8-fc06-439d-9cb8-8e28ca63fc27
+    hippo:availability: [live, preview]
+    hippotranslation:id: c9016102-31e1-49fe-bfd1-e34889ab06aa
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: GB
+      selection:label: United Kingdom of Great Britain and Northern Ireland
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: US
+      selection:label: United States of America
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: FR
+      selection:label: France
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: DE
+      selection:label: Germany

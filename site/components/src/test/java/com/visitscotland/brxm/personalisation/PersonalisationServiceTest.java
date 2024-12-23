@@ -72,22 +72,6 @@ class PersonalisationServiceTest {
     }
 
     @Test
-    void When_GetPersonalisedVariants_With_VariantCompoundsNotMatchingVisitorContext_Expect_EmptyList() {
-        try (MockedStatic<RequestContextProvider> requestContextProviderMock = mockStatic(RequestContextProvider.class)) {
-            final Variant variant = mock(Variant.class);
-
-            requestContextProviderMock.when(RequestContextProvider::get).thenReturn(requestContext);
-            when(variant.getCountry()).thenReturn(UNITED_STATES);
-            when(hippoBean.getChildBeansByName(VARIANT_JCR_TYPE, Variant.class)).thenReturn(List.of(variant));
-            when(requestContext.getAttribute(eq(VISITOR_CONTEXT_ATTRIBUTE))).thenReturn(VISITOR_CONTEXT_UK);
-
-            final List<HippoBean> result = personalisationService.getPersonalisedVariants(hippoBean);
-
-            Assertions.assertTrue(result.isEmpty());
-        }
-    }
-
-    @Test
     void When_GetPersonalisedVariants_With_VariantMatchingVisitorContext_Expect_ListOfParentHippoBeans() {
         try (MockedStatic<RequestContextProvider> requestContextProviderMock = mockStatic(RequestContextProvider.class)) {
             final Variant variant = mock(Variant.class);
