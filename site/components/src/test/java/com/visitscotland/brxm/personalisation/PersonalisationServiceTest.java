@@ -15,15 +15,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.MockedStatic;
 import org.mockito.Mock;
 
-import java.util.Collections;
 import java.util.List;
 
-import static org.mockito.Mockito.eq;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.eq;
 
 @ExtendWith(MockitoExtension.class)
 class PersonalisationServiceTest {
@@ -45,16 +44,13 @@ class PersonalisationServiceTest {
 
     @Test
     void When_GetPersonalisedVariants_With_NoPersonalizationCompounds_Expect_EmptyList() {
-        final List<Personalization> personalizationCompounds = Collections.emptyList();
-
-        when(hippoBean.getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class))
-            .thenReturn(personalizationCompounds);
+        when(hippoBean.getChildBeans(PERSONALIZATION_JCR_TYPE))
+            .thenReturn(List.of());
 
         final List<HippoBean> result = personalisationService.getPersonalisedVariants(hippoBean);
 
-        verify(hippoBean, times(1)).getChildBeansByName(
-            PERSONALIZATION_JCR_TYPE,
-            Personalization.class
+        verify(hippoBean, times(1)).getChildBeans(
+            PERSONALIZATION_JCR_TYPE
         );
 
         Assertions.assertTrue(result.isEmpty());
@@ -64,15 +60,14 @@ class PersonalisationServiceTest {
     void When_GetPersonalisedVariants_With_PersonalizationCompoundsNotMatchingVisitorContext_Expect_EmptyList() {
         try (MockedStatic<RequestContextProvider> requestContextProviderMock = mockStatic(RequestContextProvider.class)) {
             final Personalization personalisedVariant = mock(Personalization.class);
-            final List<Personalization> personalizationCompounds = List.of(personalisedVariant);
 
             requestContextProviderMock
                 .when(RequestContextProvider::get)
                 .thenReturn(requestContext);
             when(personalisedVariant.getCountry())
                 .thenReturn(UNITED_STATES);
-            when(hippoBean.getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class))
-                .thenReturn(personalizationCompounds);
+            when(hippoBean.getChildBeans(PERSONALIZATION_JCR_TYPE))
+                .thenReturn(List.of(personalisedVariant));
             when(requestContext.getAttribute(eq(VISITOR_CONTEXT_ATTRIBUTE)))
                 .thenReturn(VISITOR_CONTEXT_UK);
 
@@ -86,7 +81,6 @@ class PersonalisationServiceTest {
     void When_GetPersonalisedVariants_With_PersonalizationCompoundsMatchingVisitorContext_Expect_ListOfReferencedHippoBeans() {
         try (MockedStatic<RequestContextProvider> requestContextProviderMock = mockStatic(RequestContextProvider.class)) {
             final Personalization personalisedVariant = mock(Personalization.class);
-            final List<Personalization> personalizationCompounds = List.of(personalisedVariant);
 
             requestContextProviderMock
                 .when(RequestContextProvider::get)
@@ -95,8 +89,8 @@ class PersonalisationServiceTest {
                 .thenReturn(UNITED_KINGDOM);
             when(personalisedVariant.getModule())
                 .thenReturn(new MockHippoBean());
-            when(hippoBean.getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class))
-                .thenReturn(personalizationCompounds);
+            when(hippoBean.getChildBeans(PERSONALIZATION_JCR_TYPE))
+                .thenReturn(List.of(personalisedVariant));
             when(requestContext.getAttribute(eq(VISITOR_CONTEXT_ATTRIBUTE)))
                 .thenReturn(VISITOR_CONTEXT_UK);
 
@@ -111,13 +105,12 @@ class PersonalisationServiceTest {
     void When_GetPersonalisedVariants_With_NoVisitorContextPresent_Expect_EmptyList() {
         try (MockedStatic<RequestContextProvider> requestContextProviderMock = mockStatic(RequestContextProvider.class)) {
             final Personalization personalisedVariant = mock(Personalization.class);
-            final List<Personalization> personalizationCompounds = List.of(personalisedVariant);
 
             requestContextProviderMock
                 .when(RequestContextProvider::get)
                 .thenReturn(requestContext);
-            when(hippoBean.getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class))
-                .thenReturn(personalizationCompounds);
+            when(hippoBean.getChildBeans(PERSONALIZATION_JCR_TYPE))
+                .thenReturn(List.of(personalisedVariant));
             when(requestContext.getAttribute(eq(VISITOR_CONTEXT_ATTRIBUTE)))
                 .thenReturn(null);
 
@@ -131,7 +124,6 @@ class PersonalisationServiceTest {
     void When_GetPersonalisedVariants_With_NoModulePresent_Expect_EmptyList() {
         try (MockedStatic<RequestContextProvider> requestContextProviderMock = mockStatic(RequestContextProvider.class)) {
             final Personalization personalisedVariant = mock(Personalization.class);
-            final List<Personalization> personalizationCompounds = List.of(personalisedVariant);
 
             requestContextProviderMock
                 .when(RequestContextProvider::get)
@@ -140,8 +132,8 @@ class PersonalisationServiceTest {
                 .thenReturn(UNITED_KINGDOM);
             when(personalisedVariant.getModule())
                 .thenReturn(null);
-            when(hippoBean.getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class))
-                .thenReturn(personalizationCompounds);
+            when(hippoBean.getChildBeans(PERSONALIZATION_JCR_TYPE))
+                .thenReturn(List.of(personalisedVariant));
             when(requestContext.getAttribute(eq(VISITOR_CONTEXT_ATTRIBUTE)))
                 .thenReturn(VISITOR_CONTEXT_UK);
 

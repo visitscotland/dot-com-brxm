@@ -19,7 +19,7 @@ import static com.visitscotland.brxm.hippobeans.Personalization.PERSONALIZATION_
 public class PersonalisationService {
     public List<HippoBean> getPersonalisedVariants(HippoBean hippoBean) {
         final List<Personalization> personalisationCompounds = hippoBean
-            .getChildBeansByName(PERSONALIZATION_JCR_TYPE, Personalization.class);
+            .getChildBeans(PERSONALIZATION_JCR_TYPE);
 
         return personalisationCompounds
             .stream()
