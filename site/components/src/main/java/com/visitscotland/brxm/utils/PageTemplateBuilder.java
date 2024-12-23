@@ -8,6 +8,7 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
 import com.visitscotland.brxm.model.megalinks.MultiImageLinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
+import com.visitscotland.brxm.personalisation.PersonalisationService;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.utils.Contract;
@@ -59,6 +60,7 @@ public class PageTemplateBuilder {
     private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
     private final SiteProperties properties;
+    private final PersonalisationService personalisationService;
 
     private final ResourceBundleService bundle;
     private final Logger contentLogger;
@@ -70,7 +72,8 @@ public class PageTemplateBuilder {
                                UserGeneratedContentFactory userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                                MapFactory mapFactory, SkiFactory skiFactory, SiteProperties properties,
-                               DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger, SignpostFactory signPostFactory) {
+                               DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger, SignpostFactory signPostFactory,
+                               PersonalisationService personalisationService) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentreFactory;
@@ -89,6 +92,7 @@ public class PageTemplateBuilder {
         this.bundle = bundle;
         this.contentLogger = contentLogger;
         this.signPostFactory = signPostFactory;
+        this.personalisationService = personalisationService;
     }
 
     private Page getDocument(HstRequest request) {
@@ -124,7 +128,15 @@ public class PageTemplateBuilder {
 
     private void addModule(HstRequest request, PageConfiguration page, BaseDocument item, String location){
         if (item instanceof Megalinks) {
-            processMegalinks(request, page, (Megalinks) item);
+            final boolean isVariant = personalisationService.isVariant(item);
+
+            if(isVariant) {
+                personalisationService
+                    .getPersonalisedVariants(item)
+                    .forEach(variant -> processMegalinks(request, page, (Megalinks) variant));
+            } else {
+                processMegalinks(request, page, (Megalinks) item);
+            }
         } else if (item instanceof TourismInformation) {
             processTouristInformation(request,page, (TourismInformation) item, location);
         } else if (item instanceof Article){
@@ -221,20 +233,20 @@ public class PageTemplateBuilder {
         al.setThemeIndex(page.style++ % THEMES);
         al.setHippoBean(item);
 
-        if (!item.getPersonalization().isEmpty()) {
-            PersonalisationModule personalisationModule = new PersonalisationModule();
-            List<Module> personalisationList = new ArrayList<>();
-            al.setMarketoId(DEFAULT);
-            personalisationList.add(al);
-            for (Personalization personalisationMegalink : item.getPersonalization()) {
-                personalisationList.add(processPersonalisation(request, (Megalinks)personalisationMegalink.getModule(), personalisationMegalink.getId(), al));
-            }
-            personalisationModule.setModules(personalisationList);
-
-            page.modules.add(personalisationModule);
-        } else {
-            page.modules.add(al);
-        }
+//        if (!item.getPersonalization().isEmpty()) {
+//            PersonalisationModule personalisationModule = new PersonalisationModule();
+//            List<Module> personalisationList = new ArrayList<>();
+//            al.setMarketoId(DEFAULT);
+//            personalisationList.add(al);
+//            for (Personalization personalisationMegalink : item.getPersonalization()) {
+//                personalisationList.add(processPersonalisation(request, (Megalinks)personalisationMegalink.getModule(), personalisationMegalink.getId(), al));
+//            }
+//            personalisationModule.setModules(personalisationList);
+//
+//            page.modules.add(personalisationModule);
+//        } else {
+//        }
+        page.modules.add(al);
 
         addGlobalLabel(request, "third-party-error");
     }
