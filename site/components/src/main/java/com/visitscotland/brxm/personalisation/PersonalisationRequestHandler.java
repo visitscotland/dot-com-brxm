@@ -15,25 +15,24 @@ final class PersonalisationRequestHandler {
             .filter(PersonalisationRequestHandler::isValidCountry);
 
         if (visitorCountry.isPresent() && visitorContextDoesNotExist(requestContext)) {
-            final VisitorContext visitorContext = new VisitorContext.Builder()
-                .withCountry(visitorCountry.get())
-                .build();
+            final VisitorContext visitorContext = new VisitorContext(visitorCountry.get());
 
             requestContext.setAttribute("visitorContext", visitorContext);
         }
     }
 
     private static Optional<String> extractCountryFromRequest(final HttpServletRequest servletRequest) {
-        return Optional.ofNullable(servletRequest.getHeader("Visitor-Country"));
+        final String countryHeader = servletRequest.getHeader("Visitor-Country");
+        return Optional.ofNullable(countryHeader);
+    }
+
+    private static boolean visitorContextDoesNotExist(final HstRequestContext requestContext) {
+        final VisitorContext visitorContext = (VisitorContext) requestContext.getAttribute("visitorContext");
+        return Optional.ofNullable(visitorContext).isEmpty();
     }
 
     private static boolean isValidCountry(String country) {
         final Validator<String> validator = new CountryValidator();
         return validator.isValid(country);
-    }
-
-    private static boolean visitorContextDoesNotExist(final HstRequestContext requestContext) {
-        return Optional.ofNullable(requestContext.getAttribute("visitorContext"))
-            .isEmpty();
     }
 }
