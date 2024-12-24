@@ -143,6 +143,32 @@ class MapPageValidatorTest {
         assertFalse(result.isPresent());
     }
 
+    @Test
+    //TODO: Is the block of code tested by this method in use?
+    void testValidate_GeneralPageWithNoMapKeyAndMapType() throws Exception {
+        // Setup the mock nodes
+        Node node = mock(Node.class, RETURNS_DEEP_STUBS);
+        ValidationContext context = mock(ValidationContext.class);
+
+        when(node.getParent().getParent().getNode("content")).thenReturn(Mockito.mock(Node.class));
+
+        // Mock the utils service to recognize as GeneralPage
+        when(utilsService.getDocumentFromNode(any(Node.class), eq(true))).thenReturn(mock(General.class));
+
+        // Mock node properties
+        when(node.hasProperty(MapModule.MAP_KEYS)).thenReturn(false);
+        when(node.getProperty(MapModule.MAP_TYPE).getValue().getString()).thenReturn("");
+
+        // Mock violation creation
+        when(context.createViolation(MapPageValidator.VIOLATION_GENERAL_PAGE)).thenReturn(mock(Violation.class));
+
+        // Execute validation
+        Optional<Violation> result = validator.validate(context, node);
+
+        // Verify
+        assertTrue(result.isPresent());
+    }
+
     //TODO: Should we remove the taxonomy field from destination?
     @Test
     @DisplayName("Destination Pages do not allow Taxonomies??")
