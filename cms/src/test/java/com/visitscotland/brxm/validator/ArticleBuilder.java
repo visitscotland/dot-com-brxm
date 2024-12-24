@@ -32,17 +32,13 @@ public class ArticleBuilder {
      * This method is going to be called from an iterator. In order to verify that the mock ignores the elements of the
      * list, we need to mock items on the list that won't be used.
      */
-    private Node mockSectionNode(){
-        return Mockito.mock(Node.class, withSettings().lenient().defaultAnswer(Answers.RETURNS_DEEP_STUBS));
-    }
-
     ArticleBuilder section(boolean hasImage) throws RepositoryException {
-        Node section = mockSectionNode();
+        Node section = Mockito.mock(Node.class, Answers.RETURNS_DEEP_STUBS);
 
-        when(section.hasNode(ArticleSection.MEDIA)).thenReturn(true);
-        when(section.getNode(ArticleSection.MEDIA).hasProperty(ArticleImageValidator.DEFAULT_HIPPO_LINK))
+        lenient().when(section.hasNode(ArticleSection.MEDIA)).thenReturn(true);
+        lenient().when(section.getNode(ArticleSection.MEDIA).hasProperty(ArticleImageValidator.DEFAULT_HIPPO_LINK))
                 .thenReturn(true);
-        when(section.getNode(ArticleSection.MEDIA).getProperty(ArticleImageValidator.DEFAULT_HIPPO_LINK)
+        lenient().when(section.getNode(ArticleSection.MEDIA).getProperty(ArticleImageValidator.DEFAULT_HIPPO_LINK)
                 .getString()).thenReturn(hasImage? "IMAGE-UUID": ImageValidator.EMPTY_IMAGE);
 
         sections.add(section);
@@ -50,10 +46,14 @@ public class ArticleBuilder {
         return this;
     }
 
+    /**
+     * This method is going to be called from an iterator. In order to verify that the mock ignores the elements of the
+     * list, we need to mock items on the list that won't be used.
+     */
     ArticleBuilder section(String title) throws RepositoryException {
-        Node section = mockSectionNode();
+        Node section = Mockito.mock(Node.class, Answers.RETURNS_DEEP_STUBS);
 
-        when(section.getProperty(ArticleStyledSection.HEADING).getString()).thenReturn(title);
+        lenient().when(section.getProperty(ArticleStyledSection.HEADING).getString()).thenReturn(title);
 
         sections.add(section);
 
