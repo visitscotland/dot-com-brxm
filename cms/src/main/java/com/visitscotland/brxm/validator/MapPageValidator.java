@@ -21,7 +21,7 @@ import java.util.Optional;
  */
 public class MapPageValidator implements Validator<Node> {
 
-    static final String GENERAL_PAGE = "generalPage";
+    static final String VIOLATION_GENERAL_PAGE = "generalPage";
     private static final Logger logger = LoggerFactory.getLogger(MapPageValidator.class);
 
     public HippoUtilsService getUtilsService() {
@@ -38,18 +38,16 @@ public class MapPageValidator implements Validator<Node> {
                     taxonomyKeys = node.getProperty(MapModule.MAP_KEYS).getValues();
 
                     if (taxonomyKeys.length > 1) {
-                        return Optional.of(validationContext.createViolation(GENERAL_PAGE));
-                    } else {
-                        if (taxonomyKeys.length > 0) {
-                            Taxonomy vsTaxonomyTree = getUtilsService().getTaxonomy();
-                            if (vsTaxonomyTree.getCategoryByKey(taxonomyKeys[0].getString()).getChildren().isEmpty()) {
-                                return Optional.of(validationContext.createViolation(GENERAL_PAGE));
-                            }
+                        return Optional.of(validationContext.createViolation(VIOLATION_GENERAL_PAGE));
+                    } else if (taxonomyKeys.length == 1) {
+                        Taxonomy vsTaxonomyTree = getUtilsService().getTaxonomy();
+                        if (vsTaxonomyTree.getCategoryByKey(taxonomyKeys[0].getString()).getChildren().isEmpty()) {
+                            return Optional.of(validationContext.createViolation(VIOLATION_GENERAL_PAGE));
                         }
                     }
                 } else {
                     if (node.getProperty(MapModule.MAP_TYPE).getValue().getString().isEmpty()) {
-                        return Optional.of(validationContext.createViolation(GENERAL_PAGE));
+                        return Optional.of(validationContext.createViolation(VIOLATION_GENERAL_PAGE));
                     }
                 }
             } else {
