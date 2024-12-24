@@ -7,12 +7,16 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import java.util.Calendar;
 import java.util.List;
 
-/** 
+/**
  * TODO: Beanwriter: Failed to create getter for node type: hippo:compound
  */
 @HippoEssentialsGenerated(internalName = "visitscotland:MapModule")
 @Node(jcrType = "visitscotland:MapModule")
 public class MapModule extends BaseDocument {
+
+    public static final String MAP_KEYS = "hippotaxonomy:keys";
+    public static final String MAP_TYPE = "visitscotland:mapType";
+
     @HippoEssentialsGenerated(internalName = "visitscotland:title")
     public String getTitle() {
         return getSingleProperty("visitscotland:title");
