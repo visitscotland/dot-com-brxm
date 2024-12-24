@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Violation;
@@ -29,12 +28,6 @@ class SharedLinkExternalValidatorTest {
 
     private SharedLinkExternalValidator validator;
 
-    @Mock
-    private ValidationContext context;
-
-    @Mock
-    private Node node;
-
     @BeforeEach
     void setUp() {
         validator = new SharedLinkExternalValidator();
@@ -45,6 +38,8 @@ class SharedLinkExternalValidatorTest {
     @DisplayName("Website type Property is mandatory for External Links")
     void testValidate_ExternalLinkWithEmptyWebsiteType(String value, Boolean isValid) throws Exception {
         NodeIterator nodeIterator = mock(NodeIterator.class);
+        Node node = mock(Node.class);
+        ValidationContext context = mock(ValidationContext.class);
         Node link = mock(Node.class);
         Property websiteTypeProperty = mock(Property.class);
 
@@ -77,6 +72,8 @@ class SharedLinkExternalValidatorTest {
     @DisplayName("Website type is only mandatory for External Links")
     void testValidate_NoExternalLinks() throws Exception {
         NodeIterator nodeIterator = mock(NodeIterator.class);
+        Node node = mock(Node.class);
+        ValidationContext context = mock(ValidationContext.class);
         Node link = mock(Node.class);
 
         // Setup: Mock node with non-external link
@@ -98,6 +95,8 @@ class SharedLinkExternalValidatorTest {
     @DisplayName("Return violation when RepositoryException is thrown")
     void testValidate_RepositoryException() throws Exception {
         Violation violation = mock(Violation.class);
+        Node node = mock(Node.class);
+        ValidationContext context = mock(ValidationContext.class);
 
         // Setup: Throw exception during iteration
         when(node.getNodes(SharedLink.LINK_TYPES)).thenThrow(new RepositoryException());
