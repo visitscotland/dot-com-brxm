@@ -106,39 +106,4 @@ class ArticleImageValidatorTest {
 
         Assertions.assertFalse(violation.isEmpty());
     }
-
-    private static class ArticleBuilder {
-
-        private final Node node;
-        private final List<Node> sections = new ArrayList<>();
-
-        ArticleBuilder() throws RepositoryException {
-            node = Mockito.mock(Node.class, Mockito.RETURNS_DEEP_STUBS);
-
-        }
-
-        ArticleBuilder theme(String theme) throws RepositoryException {
-            when(node.getProperty(Article.THEME).getValue().getString()).thenReturn(theme);
-            return this;
-        }
-
-        ArticleBuilder section(boolean hasImage) throws RepositoryException {
-
-            Node section = Mockito.mock(Node.class, Mockito.RETURNS_DEEP_STUBS);
-            lenient().when(section.hasNode(ArticleSection.MEDIA)).thenReturn(true);
-            lenient().when(section.getNode(ArticleSection.MEDIA).hasProperty(ArticleImageValidator.DEFAULT_HIPPO_LINK))
-                    .thenReturn(true);
-            lenient().when(section.getNode(ArticleSection.MEDIA).getProperty(ArticleImageValidator.DEFAULT_HIPPO_LINK)
-                    .getString()).thenReturn(hasImage? "IMAGE-UUID": ImageValidator.EMPTY_IMAGE);
-
-            sections.add(section);
-
-            return this;
-        }
-
-        Node build() throws RepositoryException {
-            when(node.getNodes(Article.PARAGRAPH)).thenReturn(new SimpleNodeIterator(sections));
-            return node;
-        }
-    }
 }
