@@ -3,6 +3,7 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.FormModule;
 import com.visitscotland.brxm.model.form.BregConfiguration;
+import com.visitscotland.brxm.model.form.CRMConfiguration;
 import com.visitscotland.brxm.model.form.FeplConfiguration;
 import com.visitscotland.brxm.model.form.MarketoConfiguration;
 import com.visitscotland.brxm.utils.ContentLogger;
@@ -27,6 +28,7 @@ public class FormFactory {
         this.contentLogger = contentLogger;
     }
 
+    @Deprecated
     public FormModule getModule(MarketoForm document) {
         MarketoConfiguration cfg = getMarketoConfiguration(document);
 
@@ -96,6 +98,15 @@ public class FormFactory {
         return cfg;
     }
 
+    private CRMConfiguration getCRMConfiguration(FormCompoundCRM crm){
+        CRMConfiguration cfg = new CRMConfiguration();
+        cfg.setRecaptcha(properties.getFormsRecaptcha());
+        cfg.setSubmitUrl(crm.getUrl());
+        cfg.setJsonUrl(crm.getJsonURL());
+
+        return cfg;
+    }
+
     public FormModule getModule(Form document) {
         HippoCompound cfg = document.getFormConfiguration();
 
@@ -103,6 +114,7 @@ public class FormFactory {
         module.setTitle(document.getTitle());
         module.setNoJavaScriptMessage(document.getNonJavaScriptMessage());
         module.setCopy(document.getCopy());
+        module.setHippoBean(document);
 
         if (cfg instanceof FormCompoundFepl) {
             module.setConfig(getFeplConfiguration((FormCompoundFepl) document.getFormConfiguration()));
@@ -110,6 +122,8 @@ public class FormFactory {
             module.setConfig(getMarketoConfiguration(document.getFormConfiguration()));
         } else if (cfg instanceof FormCompoundBreg) {
             module.setConfig(getBregConfiguration((FormCompoundBreg) document.getFormConfiguration()));
+        } else if (cfg instanceof FormCompoundCRM) {
+            module.setConfig(getCRMConfiguration((FormCompoundCRM) document.getFormConfiguration()));
         } else {
             contentLogger.warn("The Form document '{}' does not have a valid configuration. It won't appear on the page", document.getPath());
             return null;
