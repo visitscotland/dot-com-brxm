@@ -16,7 +16,7 @@ definitions:
       max.file.size: 1M
       max.width: 2048
       max.height: 1536
-      extensions.allowed: ['*.jpg', '*.jpeg']
+      extensions.allowed: ['*.jpg', '*.jpeg', '*.svg']
     /hippo:configuration/hippo:frontend/cms/cms-advanced-search/genericFilters:
       document.type.namespaces: [visitscotland]
       document.type.excluded: ['visitscotland:basedocument', 'visitscotland:Page']
