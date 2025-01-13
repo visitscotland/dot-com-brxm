@@ -4,26 +4,25 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
-public class Module<T extends HippoBean> {
-
-    private T hippoBean;
-
+public class Module<H extends HippoBean> {
+    private H hippoBean;
     private String anchor;
-
     private List<String> errorMessages;
-
     private String marketoId;
+    private Map<String, String> labels;
 
-    public String getType(){
+    public String getType() {
         return getClass().getSimpleName();
     }
 
-    public T getHippoBean() {
+    public H getHippoBean() {
         return hippoBean;
     }
 
-    public void setHippoBean(T hippoBean) {
+    public void setHippoBean(H hippoBean) {
         this.hippoBean = hippoBean;
     }
 
@@ -50,12 +49,15 @@ public class Module<T extends HippoBean> {
         errorMessages.add(message);
     }
 
-    public String getMarketoId() {
-        return marketoId;
+    public void setLabels(Map<String, String> labels) {
+        this.labels = labels;
+    }
+
+    public Optional<Map<String, String>> getLabels() {
+        return Optional.ofNullable(labels);
     }
 
     public void setMarketoId(String marketoId) {
         this.marketoId = marketoId;
     }
-
 }
