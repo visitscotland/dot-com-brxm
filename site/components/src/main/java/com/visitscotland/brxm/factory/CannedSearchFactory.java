@@ -23,14 +23,12 @@ import vs.ase.dms.ProductTypes;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Locale;
+import java.util.Map;
 
 @Component
 public class CannedSearchFactory {
-
     private static final Logger logger = LoggerFactory.getLogger(CannedSearchFactory.class);
-
-
-    static final String BUNDLE_ID = "canned-search";
+    private static final String BUNDLE_ID = "canned-search";
 
     private final ResourceBundleService bundle;
     private final LinkService linkService;
@@ -38,8 +36,11 @@ public class CannedSearchFactory {
     private final DMSDataService dmsData;
     private final Logger contentLog;
 
-    public CannedSearchFactory(ResourceBundleService bundle, LinkService linkService, CMSProperties properties, DMSDataService dmsData,
-            ContentLogger contentLogger){
+    protected CannedSearchFactory(ResourceBundleService bundle,
+                               LinkService linkService,
+                               CMSProperties properties,
+                               DMSDataService dmsData,
+                               ContentLogger contentLogger) {
         this.bundle = bundle;
         this.linkService = linkService;
         this.properties = properties;
@@ -47,14 +48,14 @@ public class CannedSearchFactory {
         this.contentLog = contentLogger;
     }
 
-    public CannedSearchModule getCannedSearchModule(CannedSearch document, Locale locale){
-        logger.info("Creating CannedSearchModule for {}", document.getPath());
+    public CannedSearchModule<CannedSearch> getCannedSearchModule(CannedSearch document, Locale locale) {
+        final CannedSearchModule<CannedSearch> module = new CannedSearchModule<>();
 
-        CannedSearchModule module = new CannedSearchModule ();
         module.setHippoBean(document);
         module.setTitle(document.getTitle());
         module.setProductType(document.getCriteria().getSearch().getProductType());
         module.setDescription(document.getCopy());
+        module.setLabels(addLabels(locale));
 
         FlatLink viewAllCta = linkService.createFindOutMoreLink(module, locale, document.getCriteria());
 
@@ -75,17 +76,17 @@ public class CannedSearchFactory {
             module.setCredit(bundle.getResourceBundle(BUNDLE_ID,"canned-search.credit-events", locale));
         }
 
-
         return module;
     }
 
-    public CannedSearchModule getCannedSearchToursModule(CannedSearchTours document, Locale locale) {
-        logger.info("Creating CannedSearchToursModule for {}", document.getPath());
-        CannedSearchModule module = new CannedSearchModule();
+    public CannedSearchModule<CannedSearchTours> getCannedSearchToursModule(CannedSearchTours document, Locale locale) {
+        final CannedSearchModule<CannedSearchTours> module = new CannedSearchModule<>();
+
         module.setHippoBean(document);
         module.setTitle(document.getTitle());
         module.setDescription(document.getCopy());
         module.setProductType("tour");
+        module.setLabels(addLabels(locale));
 
         URL documentToursSearchUrl;
         try {
@@ -122,11 +123,14 @@ public class CannedSearchFactory {
         return module;
     }
 
+    private Map<String, String> addLabels(final Locale locale) {
+        return bundle.getAllLabels("essentials.pagination", locale);
+    }
+
     /**
      * Fetches a new Product Search Object
      */
     private ProductSearchBuilder productSearch(){
         return VsComponentManager.get(ProductSearchBuilder.class);
     }
-
 }
