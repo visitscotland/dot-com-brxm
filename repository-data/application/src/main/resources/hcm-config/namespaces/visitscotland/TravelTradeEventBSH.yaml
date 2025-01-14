@@ -70,11 +70,6 @@ definitions:
             jcr:primaryType: visitscotland:ExternalLink
             visitscotland:label: ''
             visitscotland:link: ''
-          /visitscotland:DateOptionalTimeC:
-            jcr:primaryType: visitscotland:DateOptionalTimeC
-            visitscotland:boolean: false
-            visitscotland:double: 0.0
-            visitscotland:string: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
