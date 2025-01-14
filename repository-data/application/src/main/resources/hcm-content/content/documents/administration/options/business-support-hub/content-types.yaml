@@ -17,7 +17,7 @@
     /selection:listitem[2]:
       jcr:primaryType: selection:listitem
       selection:key: case-study
-      selection:label: Case Study
+      selection:label: Case study
     /selection:listitem[3]:
       jcr:primaryType: selection:listitem
       selection:key: guide
@@ -25,4 +25,8 @@
     /selection:listitem[4]:
       jcr:primaryType: selection:listitem
       selection:key: how-to
-      selection:label: How to
+      selection:label: How-to
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: partner
+      selection:label: Partner website
