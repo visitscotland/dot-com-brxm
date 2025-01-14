@@ -31,6 +31,7 @@ definitions:
             hipposysedit:path: visitscotland:email
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [email]
           /deadline:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
