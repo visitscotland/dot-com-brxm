@@ -30,7 +30,7 @@ public class DocumentUtilsService {
 
     public static final String DOCUMENT_TYPE = "jcr:primaryType";
     public static final String HIPPO_HANDLE = "hippo:handle";
-    public static final String HIPPO_FOLDER = "hippostd:page";
+    public static final String HIPPO_FOLDER = "hippostd:folder";
 
     private final HippoUtilsService utils;
     private final ResourceBundleService bundle;
