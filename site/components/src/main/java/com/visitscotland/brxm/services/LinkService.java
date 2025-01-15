@@ -497,7 +497,7 @@ public class LinkService {
      * @param sharedLink  SharedLink document that contains extra information
      * @param module      Module to feed with any possible issue found while creating the page.
      * @param locale      Language for the label
-     * @param addCategory wether or not the category field is populated.
+     * @param addCategory whether the category field is populated.
      */
     private EnhancedLink enhancedLinkFromSharedLink(SharedLink sharedLink, Module<?> module, Locale locale, boolean addCategory) {
         EnhancedLink link = new EnhancedLink();
@@ -513,6 +513,9 @@ public class LinkService {
         if (sharedLink instanceof SharedLinkBSH) {
             SharedLinkBSH sharedLinkBSH = (SharedLinkBSH) sharedLink;
             link.setSource(sharedLinkBSH.getSource());
+            if (!Contract.isEmpty(sharedLinkBSH.getWebsiteType())) {
+                link.setCategory(utils.getValueMap("bsh-external-links").get(sharedLinkBSH.getWebsiteType()));
+            }
             setBSHFields(link, sharedLinkBSH.getType(), sharedLinkBSH.getSectors(), sharedLinkBSH.getSkill(), sharedLinkBSH.getTopic(), sharedLinkBSH.getRegions());
         }
 
