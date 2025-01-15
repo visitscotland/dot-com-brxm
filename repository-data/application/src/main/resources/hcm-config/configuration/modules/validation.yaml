@@ -121,3 +121,15 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:shared-link-bsh-external:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.SharedLinkExternalValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/time:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
+      regexp.pattern: ^(|([0-1]?[0-9]|2[0-3]):[0-5][0-9])$
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/currency:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
+      regexp.pattern: ^$|^[A-Z]*$
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/timezone:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
+      regexp.pattern: ^$|^[A-Z]*$

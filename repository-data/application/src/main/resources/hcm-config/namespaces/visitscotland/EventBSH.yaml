@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a6dd82ac-80a9-40a7-8a20-83bdb7092c48
+          jcr:uuid: 9865a012-28e7-4526-b2aa-549f89968977
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -24,7 +24,7 @@ definitions:
             hipposysedit:path: visitscotland:title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required, 'visitscotland:medium-string-validator']
           /summary:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -42,6 +42,7 @@ definitions:
             hipposysedit:path: visitscotland:organiser
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: ['visitscotland:extrashort-string-validator']
           /ctaLink:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -92,6 +93,7 @@ definitions:
             hipposysedit:path: visitscotland:startTime
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [time]
           /endTime:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -100,6 +102,7 @@ definitions:
             hipposysedit:path: visitscotland:endTime
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [time]
           /price:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -128,7 +131,7 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:endTime: ''
           visitscotland:startTime: ''
-          jcr:uuid: 0f4e8854-16bb-43cb-9a85-e7477c8db5d2
+          jcr:uuid: 05948079-70a5-4dfb-82d2-6dec7f3838b4
           hippostdpubwf:lastModificationDate: 2025-01-14T14:09:59.739Z
           hippostdpubwf:creationDate: 2025-01-14T14:09:59.739Z
           /visitscotland:summary:
@@ -196,10 +199,11 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /venue:
             jcr:primaryType: frontend:plugin
-            caption: Venue
+            caption: Venue/Location
             field: venue
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /startDate:

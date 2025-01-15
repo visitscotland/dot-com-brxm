@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 82393a94-e51f-49c2-b567-b2e59d4e2a5e
+          jcr:uuid: 70e42a18-c01d-4895-9f1b-2654989b0942
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:EventBSH', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -32,14 +32,23 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [email]
-          /deadline:
+          /calendardate:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: visitscotland:deadline
             hipposysedit:primary: false
-            hipposysedit:type: Date
+            hipposysedit:type: CalendarDate
+          /timezone:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:timezone
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [timezone]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -61,9 +70,10 @@ definitions:
           visitscotland:international: false
           visitscotland:email: ''
           visitscotland:deadline: 0001-01-01T12:00:00Z
-          jcr:uuid: 28768f88-9494-4732-8c4f-0c393c6aa698
+          jcr:uuid: 1acb69d9-0e57-4209-b534-6d2883eb4460
           hippostdpubwf:lastModificationDate: 2025-01-14T14:40:47.007Z
           hippostdpubwf:creationDate: 2025-01-14T14:40:47.007Z
+          visitscotland:timezone: GMT
           /visitscotland:summary:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -143,15 +153,17 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /endDate:
+          /timezone:
             jcr:primaryType: frontend:plugin
-            caption: End Date
-            field: endDate
+            caption: Timezone
+            field: timezone
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              size: '4'
+              maxlength: '4'
           /organiser:
             jcr:primaryType: frontend:plugin
             caption: Organiser
@@ -163,16 +175,18 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /venue:
             jcr:primaryType: frontend:plugin
-            caption: Venue
+            caption: Venue/Location
             field: venue
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /online:
+          /endDate:
             jcr:primaryType: frontend:plugin
-            caption: Online
-            field: online
+            caption: End Date
+            field: endDate
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
@@ -185,11 +199,10 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /international:
+          /online:
             jcr:primaryType: frontend:plugin
-            caption: International
-            field: international
-            hint: ''
+            caption: Online
+            field: online
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
@@ -203,15 +216,6 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /deadline:
-            jcr:primaryType: frontend:plugin
-            caption: Registration Deadline
-            field: deadline
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /ctaLink:
             jcr:primaryType: frontend:plugin
             caption: CTA Link
@@ -219,5 +223,22 @@ definitions:
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /international:
+            jcr:primaryType: frontend:plugin
+            caption: International
+            field: international
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /deadline:
+            jcr:primaryType: frontend:plugin
+            caption: Registration Deadline
+            field: calendardate
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

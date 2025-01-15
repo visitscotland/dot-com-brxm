@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: ce26a426-cf51-4727-a844-e991ce8101d9
+          jcr:uuid: 4b5beb7e-6228-421f-88d9-eaf4240619dd
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -32,7 +32,7 @@ definitions:
             hipposysedit:path: visitscotland:currency
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required, currency]
           /vat:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -95,6 +95,8 @@ definitions:
             wicket.id: ${cluster.id}.middle.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: '3'
+              size: '3'
           /vat:
             jcr:primaryType: frontend:plugin
             caption: VAT included
