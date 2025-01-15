@@ -575,11 +575,13 @@ public class LinkService {
      * @return Formatted label
      */
     public String formatLabel(HippoBean linkable, String label, Module<?> module, Locale locale) {
-        if (linkable instanceof SharedLink && ((SharedLink) linkable).getLinkType() instanceof ExternalDocument) {
-            return label + getDownloadText(((ExternalDocument) ((SharedLink) linkable).getLinkType()).getLink(), locale, module);
-        } else {
-            return label;
+        if (linkable instanceof SharedLink){
+            HippoBean linkType = ((SharedLink) linkable).getLinkType();
+            if (linkType instanceof ExternalDocument || linkType instanceof FileLink) {
+                return label + getDownloadText(((UrlLink) linkType).getLink(), locale, module);
+            }
         }
+        return label;
     }
 
     public String getDownloadText(String link) {
