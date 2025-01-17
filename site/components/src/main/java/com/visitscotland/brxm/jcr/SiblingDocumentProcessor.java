@@ -4,6 +4,7 @@ import com.visitscotland.brxm.utils.HippoUtilsService;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
@@ -32,16 +33,16 @@ public class SiblingDocumentProcessor {
     }
 
     public Set<HippoDocument> getSiblingDocuments(final HippoBean hippoBean, Supplier<Set<String>> allowedJcrTypes) throws RepositoryException {
-        return getSiblingJcrNodes(hippoBean);
+        return getSiblingHippoDocuments(hippoBean);
     }
 
-    private Set<HippoDocument> getSiblingJcrNodes(final HippoBean hippoBean) throws RepositoryException {
+    private Set<HippoDocument> getSiblingHippoDocuments(final HippoBean hippoBean) throws RepositoryException {
         return getNodeIterator(hippoBean)
             .map(this::getNodesFromNodeIterator)
             .orElse(Collections.emptySet())
             .stream()
-            .filter(this::isNodePermitted)
-            .map(this::getHippoDocuments)
+            .filter(this::isNodeAuthorised)
+            .map(this::getHippoDocumentFromNode)
             .filter(Optional::isPresent)
             .map(Optional::get)
             .collect(Collectors.toSet());
@@ -66,11 +67,11 @@ public class SiblingDocumentProcessor {
         return nodes;
     }
 
-    private boolean isNodePermitted(final Node node) {
+    private boolean isNodeAuthorised(final Node node) {
         return false;
     }
 
-    private Optional<HippoDocument> getHippoDocuments(final Node node) {
+    private Optional<HippoDocument> getHippoDocumentFromNode(final Node node) {
         try {
             return Optional.of(hippoUtilsService.getDocumentFromNode(node));
         } catch (QueryException | ObjectBeanManagerException exception) {
