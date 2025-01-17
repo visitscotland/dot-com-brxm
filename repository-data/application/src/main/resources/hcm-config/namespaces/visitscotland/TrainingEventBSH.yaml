@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 2dc42028-4978-44bf-b8e6-51acfb97e647
+          jcr:uuid: bf6f2f89-9841-4cd9-ace6-e7f072456c46
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:EventBSH', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -57,7 +57,7 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: d8b49779-db14-41df-a917-3bea2e2cdd12
+          jcr:uuid: 7bb2b2c3-4e23-45c2-85d7-4306016fff03
           hippostdpubwf:lastModificationDate: 2025-01-14T14:46:07.421Z
           hippostdpubwf:creationDate: 2025-01-14T14:46:07.421Z
           visitscotland:regions: ''
@@ -227,7 +227,7 @@ definitions:
               source: /content/documents/administration/options/business-support-hub/topics---training-events
           /ctaLink:
             jcr:primaryType: frontend:plugin
-            caption: CTA Link
+            caption: Event Link
             field: ctaLink
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 9865a012-28e7-4526-b2aa-549f89968977
+          jcr:uuid: b6ff33aa-8dab-4391-a3b1-fecf3f65150a
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -131,7 +131,7 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:endTime: ''
           visitscotland:startTime: ''
-          jcr:uuid: 05948079-70a5-4dfb-82d2-6dec7f3838b4
+          jcr:uuid: 9ab370f6-fc2b-4224-81dc-db09ae32ed55
           hippostdpubwf:lastModificationDate: 2025-01-14T14:09:59.739Z
           hippostdpubwf:creationDate: 2025-01-14T14:09:59.739Z
           /visitscotland:summary:
@@ -259,7 +259,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /ctaLink:
             jcr:primaryType: frontend:plugin
-            caption: CTA Link
+            caption: Event Link
             field: ctaLink
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin

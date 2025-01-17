@@ -156,6 +156,13 @@
       hippostd:foldertype: [new-bsh-training-folder]
       hippotranslation:id: e06161a7-76e1-4fc2-afdc-4a048eff0f45
       hippotranslation:locale: en
+      /2025:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 34cce74d-6ecd-40b7-905c-3bb733b02692
+        hippostd:foldertype: [new-bsh-training-folder, new-bsh-training-event]
+        hippotranslation:id: ac25e02a-9e59-4d16-b787-6c504346b95c
+        hippotranslation:locale: en
     /industry:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
@@ -165,6 +172,13 @@
       hippostd:foldertype: [new-bsh-industry-folder]
       hippotranslation:id: 7621cb03-8773-492b-838e-eceea61ab969
       hippotranslation:locale: en
+      /2025:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 957af6d4-8910-4fae-bac6-2692a988feb7
+        hippostd:foldertype: [new-bsh-industry-folder, new-bsh-industry-event]
+        hippotranslation:id: 2920f9df-174f-4ad2-a3f7-2182594119ad
+        hippotranslation:locale: en
     /trade:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
@@ -174,6 +188,13 @@
       hippostd:foldertype: [new-bsh-trade-folder]
       hippotranslation:id: 780c203c-933e-466c-8f84-41211ae4ec9b
       hippotranslation:locale: en
+      /2025:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: ffcd29f3-a8e4-4287-a3f6-d02c1f40b84a
+        hippostd:foldertype: [new-bsh-trade-folder, new-bsh-trade-event]
+        hippotranslation:id: 4cc50e84-6253-4509-8186-d1cea654b7bc
+        hippotranslation:locale: en
   /shared:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
