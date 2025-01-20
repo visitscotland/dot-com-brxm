@@ -21,17 +21,17 @@
       selection:label: Active and Outdoor
     /selection:listitem[3]:
       jcr:primaryType: selection:listitem
-      selection:key: attraction
-      selection:label: Visitor Attraction
+      selection:key: event
+      selection:label: Events and Festivals
     /selection:listitem[4]:
       jcr:primaryType: selection:listitem
-      selection:key: event
-      selection:label: Events
+      selection:key: food-drink
+      selection:label: Food Tourism
     /selection:listitem[5]:
       jcr:primaryType: selection:listitem
-      selection:key: food-drink
-      selection:label: Food and Drink
+      selection:key: tour
+      selection:label: Tours, Guides and Transport
     /selection:listitem[6]:
       jcr:primaryType: selection:listitem
-      selection:key: tour
-      selection:label: Tours
+      selection:key: attraction
+      selection:label: Visitor Attraction

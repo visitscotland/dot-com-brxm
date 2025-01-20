@@ -93,3 +93,7 @@ action-lists:
 - 2.5.2:
     /content/documents/administration/options/business-support-hub/sector: reload
     /content/documents/administration/labels/global/common-label: reload
+- 2.6.2:
+    /content/documents/administration/options/business-support-hub/regions: reload
+
+

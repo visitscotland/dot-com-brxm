@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b6ff33aa-8dab-4391-a3b1-fecf3f65150a
+          jcr:uuid: 255c22ac-2384-40ae-b9bc-8aa3d4d7738d
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -131,7 +131,7 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:endTime: ''
           visitscotland:startTime: ''
-          jcr:uuid: 9ab370f6-fc2b-4224-81dc-db09ae32ed55
+          jcr:uuid: 315d06c1-cd0a-4468-80bf-f26aa7fd6053
           hippostdpubwf:lastModificationDate: 2025-01-14T14:09:59.739Z
           hippostdpubwf:creationDate: 2025-01-14T14:09:59.739Z
           /visitscotland:summary:
@@ -166,7 +166,7 @@ definitions:
             wicket.id: ${cluster.id}.right
           /title:
             jcr:primaryType: frontend:plugin
-            caption: Title
+            caption: Event Title
             field: title
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -175,7 +175,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /summary:
             jcr:primaryType: frontend:plugin
-            caption: Summary
+            caption: Event Summary
             field: summary
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -183,11 +183,20 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
-                \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:750\
+                \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:350\
                 \   }  }"
               ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
                 [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
                 , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+          /ctaLink:
+            jcr:primaryType: frontend:plugin
+            caption: Event Link
+            field: ctaLink
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /organiser:
             jcr:primaryType: frontend:plugin
             caption: Organiser
@@ -197,19 +206,19 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /venue:
-            jcr:primaryType: frontend:plugin
-            caption: Venue/Location
-            field: venue
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /startDate:
             jcr:primaryType: frontend:plugin
             caption: Start Date
             field: startDate
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /endDate:
+            jcr:primaryType: frontend:plugin
+            caption: End Date
+            field: endDate
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
@@ -231,21 +240,21 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /endDate:
-            jcr:primaryType: frontend:plugin
-            caption: End Date
-            field: endDate
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /online:
             jcr:primaryType: frontend:plugin
             caption: Online
             field: online
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /venue:
+            jcr:primaryType: frontend:plugin
+            caption: Venue/Location
+            field: venue
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /price:
@@ -255,14 +264,5 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
             hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /ctaLink:
-            jcr:primaryType: frontend:plugin
-            caption: Event Link
-            field: ctaLink
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

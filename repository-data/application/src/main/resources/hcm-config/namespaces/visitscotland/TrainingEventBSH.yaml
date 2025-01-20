@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: bf6f2f89-9841-4cd9-ace6-e7f072456c46
+          jcr:uuid: f31d98d6-14b4-4573-86a3-0f61370d2ac4
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:EventBSH', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -23,14 +23,6 @@ definitions:
             hipposysedit:path: visitscotland:sectors
             hipposysedit:primary: false
             hipposysedit:type: String
-          /regions:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:regions
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
           /topics:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -39,6 +31,14 @@ definitions:
             hipposysedit:path: visitscotland:topics
             hipposysedit:primary: false
             hipposysedit:type: String
+          /region:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:region
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -57,12 +57,12 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 7bb2b2c3-4e23-45c2-85d7-4306016fff03
+          jcr:uuid: 7b00476b-03c3-4fd8-95d5-e6d28e477bbf
           hippostdpubwf:lastModificationDate: 2025-01-14T14:46:07.421Z
           hippostdpubwf:creationDate: 2025-01-14T14:46:07.421Z
-          visitscotland:regions: ''
           visitscotland:sectors: []
           visitscotland:topics: []
+          visitscotland:region: ''
           /visitscotland:summary:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -95,7 +95,7 @@ definitions:
             wicket.id: ${cluster.id}.right
           /title:
             jcr:primaryType: frontend:plugin
-            caption: Title
+            caption: Event Title
             field: title
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -104,7 +104,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /summary:
             jcr:primaryType: frontend:plugin
-            caption: Summary
+            caption: Event Summary
             field: summary
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -112,11 +112,20 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
-                \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:750\
+                \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:350\
                 \   }  }"
               ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
                 [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
                 , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+          /ctaLink:
+            jcr:primaryType: frontend:plugin
+            caption: Event Link
+            field: ctaLink
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /venue:
             jcr:primaryType: frontend:plugin
             caption: Venue/Location
@@ -135,36 +144,11 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /price:
-            jcr:primaryType: frontend:plugin
-            caption: Price
-            field: price
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /startDate:
             jcr:primaryType: frontend:plugin
             caption: Start Date
             field: startDate
             hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /startTime:
-            jcr:primaryType: frontend:plugin
-            caption: Start Time
-            field: startTime
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /endTime:
-            jcr:primaryType: frontend:plugin
-            caption: End Time
-            field: endTime
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
@@ -178,6 +162,23 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /startTime:
+            jcr:primaryType: frontend:plugin
+            caption: Start Time
+            field: startTime
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /endTime:
+            jcr:primaryType: frontend:plugin
+            caption: End Time
+            field: endTime
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /online:
             jcr:primaryType: frontend:plugin
             caption: Online
@@ -186,6 +187,16 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /region:
+            jcr:primaryType: frontend:plugin
+            caption: Region
+            field: region
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/administration/options/business-support-hub/regions
           /sectors:
             jcr:primaryType: frontend:plugin
             caption: sectors
@@ -200,17 +211,15 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/business-support-hub/sector
-          /regions:
+          /price:
             jcr:primaryType: frontend:plugin
-            caption: Region
-            field: regions
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
+            caption: Price
+            field: price
             hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              orientation: vertical
-              source: /content/documents/administration/options/business-support-hub/regions
           /topics:
             jcr:primaryType: frontend:plugin
             caption: topics
@@ -225,12 +234,3 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/business-support-hub/topics---training-events
-          /ctaLink:
-            jcr:primaryType: frontend:plugin
-            caption: Event Link
-            field: ctaLink
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig

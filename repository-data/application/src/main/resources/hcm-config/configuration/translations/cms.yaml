@@ -85,4 +85,4 @@ definitions:
         External Links
       currency: Currency Code format, only 3 capital letters allowed
       time: Format allowed is HH:MM
-      timezone: IANA Time Zones format needed
+      timezone: 3 or 4 capital letters allowed.
