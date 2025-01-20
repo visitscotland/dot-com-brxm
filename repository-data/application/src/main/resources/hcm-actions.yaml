@@ -95,3 +95,5 @@ action-lists:
     /content/documents/administration/labels/global/common-label: reload
 - 2.5.3:
     /content/documents/administration/options/business-support-hub/content-types: reload
+    /content/documents/administration/options/business-support-hub/regions: reload
+
