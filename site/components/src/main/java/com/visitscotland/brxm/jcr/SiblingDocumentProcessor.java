@@ -5,8 +5,8 @@ import com.visitscotland.brxm.utils.HippoUtilsService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
+import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 
@@ -17,7 +17,6 @@ import javax.jcr.NodeIterator;
 import javax.jcr.Node;
 
 import java.util.stream.Collectors;
-import java.util.function.Supplier;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.HashSet;
@@ -26,21 +25,23 @@ import java.util.Set;
 @Component
 public class SiblingDocumentProcessor {
     private static final Logger logger = LogManager.getLogger(SiblingDocumentProcessor.class);
+    private static final String PRIMARY_JCR_TYPE = "jcr:primaryType";
+    private static final String HIPPO_PAGE_JCR_TYPE = "visitscotland:page";
+    private static final String HIPPO_FOLDER_JCR_TYPE = "hippostd:folder";
+    private static final String HIPPO_HANDLE_JCR_TYPE = "hippo:handle";
+
     private final HippoUtilsService hippoUtilsService;
 
     protected SiblingDocumentProcessor(HippoUtilsService hippoUtilsService) {
         this.hippoUtilsService = hippoUtilsService;
     }
 
-    public Set<HippoDocument> getSiblingDocuments(final HippoBean hippoBean, Supplier<Set<String>> allowedJcrTypes) throws RepositoryException {
-        return getSiblingHippoDocuments(hippoBean);
-    }
-
-    private Set<HippoDocument> getSiblingHippoDocuments(final HippoBean hippoBean) throws RepositoryException {
+    private Set<HippoDocument> getSiblingDocuments(final HippoBean hippoBean) throws RepositoryException {
         return getNodeIterator(hippoBean)
             .map(this::getNodesFromNodeIterator)
             .orElse(Collections.emptySet())
             .stream()
+            .parallel()
             .filter(this::isNodeAuthorised)
             .map(this::getHippoDocumentFromNode)
             .filter(Optional::isPresent)
@@ -49,12 +50,13 @@ public class SiblingDocumentProcessor {
     }
 
     private Optional<NodeIterator> getNodeIterator(final HippoBean hippoBean) throws RepositoryException {
-        return Optional.ofNullable(hippoBean
+        final NodeIterator nodeIterator = hippoBean
             .getNode()
             .getParent()
             .getParent()
-            .getNodes()
-        );
+            .getNodes();
+
+        return Optional.ofNullable(nodeIterator);
     }
 
     private Set<Node> getNodesFromNodeIterator(final NodeIterator nodeIterator) {
@@ -68,7 +70,16 @@ public class SiblingDocumentProcessor {
     }
 
     private boolean isNodeAuthorised(final Node node) {
-        return false;
+        try {
+            final String primaryJcrType = node.getProperty(PRIMARY_JCR_TYPE).getString();
+
+            return !(primaryJcrType.equals(HIPPO_HANDLE_JCR_TYPE))
+                && !(primaryJcrType.equals(HIPPO_FOLDER_JCR_TYPE))
+                && !node.isNodeType(HIPPO_PAGE_JCR_TYPE);
+        } catch (RepositoryException exception) {
+            logger.error("An exception occurred while checking if a JCR Node was authorised", exception);
+            return false;
+        }
     }
 
     private Optional<HippoDocument> getHippoDocumentFromNode(final Node node) {
