@@ -26,10 +26,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Component
 public class LinkService {
@@ -654,16 +652,24 @@ public class LinkService {
      * @param regions regions selected
      */
     private void setBSHFields (EnhancedLink link, String contentType, String[] sectors, String skill, String[] topics, String[] regions){
-        link.setContentType(contentType);
+        link.setContentType(utils.getValueMap("bsh-content-types").get(contentType));
+        link.setSkillLevel(utils.getValueMap("bsh-skill-levels").get(skill));
         if (sectors != null) {
-            link.setSector(List.of(sectors));
+            link.setSector(Arrays.stream(sectors)
+                    .map(sector -> utils.getValueMap("bsh-sectors").get(sector))
+                    .collect(Collectors.toList()));
         }
-        link.setSkillLevel(skill);
         if (topics != null) {
             link.setTopic(List.of(topics));
+            link.setTopic(Arrays.stream(topics)
+                    .map(topic -> utils.getValueMap("bsh-topics").get(topic))
+                    .collect(Collectors.toList()));
         }
         if (regions != null) {
             link.setRegion(List.of(regions));
+            link.setRegion(Arrays.stream(regions)
+                    .map(region -> utils.getValueMap("bsh-regions").get(region))
+                    .collect(Collectors.toList()));
         }
     }
 
