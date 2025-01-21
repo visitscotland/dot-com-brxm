@@ -651,26 +651,31 @@ public class LinkService {
      * @param sectors sectors selected
      * @param regions regions selected
      */
-    private void setBSHFields (EnhancedLink link, String contentType, String[] sectors, String skill, String[] topics, String[] regions){
-        link.setContentType(utils.getValueMap("bsh-content-types").get(contentType));
-        link.setSkillLevel(utils.getValueMap("bsh-skill-levels").get(skill));
+    private void setBSHFields (EnhancedLink link, String contentType, String[] sectors, String skill, String[] topics, String[] regions) {
+        final String CONTENT_TYPES_VALUE_LIST = "bsh-content-types";
+        final String SKILL_LEVELS_VALUE_LIST = "bsh-skill-levels";
+        final String SECTORS_VALUE_LIST = "bsh-sectors";
+        final String TOPICS_VALUE_LIST = "bsh-topics";
+        final String REGIONS_VALUE_LIST = "bsh-regions";
+
+        link.setContentType(utils.getValueMap(CONTENT_TYPES_VALUE_LIST).get(contentType));
+        link.setSkillLevel(utils.getValueMap(SKILL_LEVELS_VALUE_LIST).get(skill));
         if (sectors != null) {
             link.setSector(Arrays.stream(sectors)
-                    .map(sector -> utils.getValueMap("bsh-sectors").get(sector))
+                    .map(sector -> utils.getValueMap(SECTORS_VALUE_LIST).get(sector))
                     .collect(Collectors.toList()));
         }
         if (topics != null) {
             link.setTopic(List.of(topics));
             link.setTopic(Arrays.stream(topics)
-                    .map(topic -> utils.getValueMap("bsh-topics").get(topic))
+                    .map(topic -> utils.getValueMap(TOPICS_VALUE_LIST).get(topic))
                     .collect(Collectors.toList()));
         }
         if (regions != null) {
             link.setRegion(List.of(regions));
             link.setRegion(Arrays.stream(regions)
-                    .map(region -> utils.getValueMap("bsh-regions").get(region))
+                    .map(region -> utils.getValueMap(REGIONS_VALUE_LIST).get(region))
                     .collect(Collectors.toList()));
         }
     }
-
 }
