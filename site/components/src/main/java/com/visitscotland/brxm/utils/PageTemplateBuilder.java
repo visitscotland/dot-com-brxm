@@ -147,6 +147,7 @@ public class PageTemplateBuilder {
             page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
         } else if (item instanceof SkiCentreList){
             page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
+            addAllLabels(request, "ski-centre-common", "ski-centre-list");
         } else if (item instanceof DevModule){
             page.modules.add(devModuleFactory.getModule((DevModule) item));
         } else if (item instanceof CTABanner){
@@ -307,8 +308,10 @@ public class PageTemplateBuilder {
         labels(request).get(GLOBAL_BUNDLE_FILE).put(key, bundle.getSiteResourceBundle(GLOBAL_BUNDLE_FILE, key, request.getLocale()));
     }
 
-    private void addAllLabels(HstRequest request, String bundleName) {
-        labels(request).put(bundleName, bundle.getAllLabels(bundleName, request.getLocale()));
+    private void addAllLabels(HstRequest request, String... bundleKeys) {
+        for(final String key : bundleKeys) {
+            labels(request).put(key, bundle.getAllLabels(key, request.getLocale()));
+        }
     }
 
     /**
