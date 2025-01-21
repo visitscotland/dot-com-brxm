@@ -9,6 +9,7 @@ import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.mock.TouristInformationMockBuilder;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.services.ResourceBundleService;
 import org.hippoecm.hst.mock.core.component.MockHstRequest;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,10 +17,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -29,8 +27,6 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class PageTemplateBuilderTest {
-
-
     MockHstRequest request;
 
     @Mock
@@ -52,10 +48,16 @@ class PageTemplateBuilderTest {
     LongCopyFactory longCopyFactory;
 
     @Mock
-    DocumentUtilsService utils;
+    DocumentUtilsService documentUtilsService;
 
     @Mock
     PreviewModeFactory previewModeFactory;
+
+    @Mock
+    SkiFactory skiFactory;
+
+    @Mock
+    ResourceBundleService resourceBundleService;
 
     @Mock
     SiteProperties properties;
@@ -80,7 +82,7 @@ class PageTemplateBuilderTest {
      */
     @Test
     void pageWithoutElements() {
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
 
         builder.addModules(request);
 
@@ -97,7 +99,7 @@ class PageTemplateBuilderTest {
         Megalinks megalinks = new MegalinksMockBuilder().build();
         LinksModule<?> module = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
         doReturn(module).when(linksFactory).getMegalinkModule(megalinks, Locale.UK);
 
         builder.addModules(request);
@@ -116,7 +118,7 @@ class PageTemplateBuilderTest {
         LinksModule<?> module = new LinksModuleMockBuilder().build();
 
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
         doReturn(module).when(linksFactory).getMegalinkModule(megalinks, Locale.UK);
         when(previewModeFactory.createErrorModule(any())).thenReturn(new Module<>());
 
@@ -139,7 +141,7 @@ class PageTemplateBuilderTest {
                 new MegalinksMockBuilder().build(),
                 new MegalinksMockBuilder().build());
 
-        when(utils.getAllowedDocuments(page)).thenReturn(list);
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(list);
         LinksModule<?> module1 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
         LinksModule<?> module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
         LinksModule<?> module3 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
@@ -172,7 +174,7 @@ class PageTemplateBuilderTest {
                 new MegalinksMockBuilder().build(),
                 new MegalinksMockBuilder().build());
 
-        when(utils.getAllowedDocuments(page)).thenReturn(list);
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(list);
         LinksModule<?> module1 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
         LinksModule<?> module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
         LinksModule<?> module3 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
@@ -201,7 +203,7 @@ class PageTemplateBuilderTest {
     @Test
     void addMegalinksModule_firstItemColourIsStyle3_whenNoH2() {
         Megalinks mega = new MegalinksMockBuilder().build();
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
 
         // Build the first case where the first element has no title
         LinksModule<?> module1 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
@@ -229,7 +231,7 @@ class PageTemplateBuilderTest {
                 new MegalinksMockBuilder().build(),
                 new MegalinksMockBuilder().build());
 
-        when(utils.getAllowedDocuments(page)).thenReturn(list);
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(list);
 
         LinksModule<?> module1 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
         LinksModule<?> module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
@@ -260,7 +262,7 @@ class PageTemplateBuilderTest {
     void addTouristInformation_iKnowModule() {
         TourismInformation ti = new TouristInformationMockBuilder().build();
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
         when (properties.isIknowEnabled()).thenReturn(true);
         when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
 
@@ -281,7 +283,7 @@ class PageTemplateBuilderTest {
     void hideTouristInformation_iKnowModule() {
         TourismInformation ti = new TouristInformationMockBuilder().build();
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
         when (properties.isIknowEnabled()).thenReturn(false);
 
         when(properties.getSiteICentre()).thenReturn("/icentre-landing");
@@ -298,7 +300,7 @@ class PageTemplateBuilderTest {
     void getModule_iCentreLanding(){
         TourismInformation ti = new TouristInformationMockBuilder().build();
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
 
         lenient().when(iCentreFactory.getModule(any(), eq(request.getLocale()), eq(null))).thenReturn(new ICentreModule());
         when (properties.isIknowEnabled()).thenReturn(true);
@@ -326,7 +328,7 @@ class PageTemplateBuilderTest {
 
         TourismInformation ti = new TouristInformationMockBuilder().build();
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
 
         when(iCentreFactory.getModule(any(), eq(request.getLocale()), eq(null))).thenReturn(new ICentreModule());
         when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
@@ -343,7 +345,7 @@ class PageTemplateBuilderTest {
     @DisplayName("VS-2015 - Match the initial background colour with the megalinks")
     void setIntroTheme(){
         Megalinks mega = new MegalinksMockBuilder().build();
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
 
         doReturn(new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build()).when(linksFactory).getMegalinkModule(mega, Locale.UK);
 
@@ -357,7 +359,7 @@ class PageTemplateBuilderTest {
     @Test
     @DisplayName("VS-2015 - introTheme is populated with a neutral theme when the theme cannot be inferred")
     void setIntroTheme_forNonMegalinks(){
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
 
         builder.addModules(request);
 
@@ -374,7 +376,7 @@ class PageTemplateBuilderTest {
         when(page.getTheme()).thenReturn("Simple");
         request.setModel("document", page);
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
         when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
 
         builder.addModules(request);
@@ -393,7 +395,7 @@ class PageTemplateBuilderTest {
         //The module is only allowed got general pages.
         request.setModel("document", page);
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
 
         builder.addModules(request);
 
@@ -410,7 +412,7 @@ class PageTemplateBuilderTest {
         when(page.getTheme()).thenReturn("Standard");
         request.setModel("document", page);
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
 
         builder.addModules(request);
 
@@ -426,11 +428,38 @@ class PageTemplateBuilderTest {
         when(page.getTheme()).thenReturn("Simple");
         request.setModel("document", page);
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
+        when(documentUtilsService.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
         when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
 
         builder.addModules(request);
 
         assertEquals(1, ((List<?>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
+    }
+
+    @Test
+    void addModule_skiCentre_expectLabelsAdded() {
+        final SkiCentre skiCentre = mock(SkiCentre.class);
+        final SkiModule skiModule = mock(SkiModule.class);
+        final Map<String, String> labels = Map.of(
+            "ski-centre.lift", "Lift",
+            "ski-centre.lifts", "Lifts",
+            "ski-centre.more-details", "More Details"
+        );
+
+        final Map<String, Map<String, String>> expected = Map.of("ski", labels);
+
+        when(documentUtilsService.getAllowedDocuments(any(Page.class))).thenReturn(List.of(skiCentre));
+        when(skiFactory.createSkyModule(any(SkiCentre.class), any(Locale.class))).thenReturn(skiModule);
+        when(resourceBundleService.getAllLabels(anyString(), any(Locale.class))).thenReturn(labels);
+
+        builder.addModules(request);
+
+        final Map<String, Map<String, String>> actual = request.getModel("labels");
+
+        assertEquals(expected, actual);
+
+        verify(documentUtilsService, times(1)).getAllowedDocuments(any(Page.class));
+        verify(skiFactory, times(1)).createSkyModule(eq(skiCentre), any(Locale.class));
+        verify(resourceBundleService, times(1)).getAllLabels(eq("ski"), any(Locale.class));
     }
 }
