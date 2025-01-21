@@ -437,6 +437,7 @@ class PageTemplateBuilderTest {
     }
 
     @Test
+    @DisplayName("DS-795 - Labels should be added for Ski Centre Module")
     void addModule_skiCentre_expectLabelsAdded() {
         final SkiCentre skiCentre = mock(SkiCentre.class);
         final SkiModule skiModule = mock(SkiModule.class);
