@@ -1,0 +1,231 @@
+/content/documents/administration/labels/modules/ski-centre:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 71e2a0d4-e655-4ed7-be74-cdb30f08c5ab
+  hippo:name: Ski Centre
+  hippostd:foldertype: [new-untranslated-folder-resource-bundle, new-resource-bundle]
+  /ski-centre-common:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 2f9e86c8-8add-4344-8784-6fc174a91e71
+    hippo:name: Ski Centre Common
+    hippo:versionHistory: 85a89791-c5b0-49fe-8882-641813aa328d
+    /ski-centre-common[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 77ec82ba-6a72-43ce-bec8-39bd2dd53ca9
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-01-21T16:29:53.557Z
+      hippostdpubwf:lastModificationDate: 2025-01-21T16:30:21.900Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:id: ski-centre-common
+      resourcebundle:keys: [ski-centre.run.red, ski-centre.status.open, ski-centre.runs,
+        ski-centre.view-piste-map, ski-centre.summary.expected-to-open, ski-centre.run.difficult,
+        ski-data.ski-centre.no-js, ski-centre.last-updated, ski-centre.status, ski-centre.run-lift-status,
+        ski-centre.summary.limited-patrol, ski-data.loading, ski-centre.run.green,
+        ski-centre.run.very-difficult, ski-centre.summary.closed, ski-centre.lifts,
+        ski-centre.detailed-status, ski-centre.run.blue, ski-centre.more-details,
+        ski-centre.snow-conditions.current-weather, ski-centre.summary.open, ski-centre.run.intermediate,
+        ski-centre.lift-status, ski-centre.run.black]
+      resourcebundle:messages: [Red, Open, Runs, View piste map, Expected to Open,
+        Difficult, JavaScript needs to be enabled to see the latest conditions at
+          this ski centre, Last updated, Status, Run/Lift Status, Limited Patrol,
+        'Data is currently loading, please wait...', Green, Very Difficult, Closed,
+        Lifts, Detailed Status, Blue, More Details, Current weather, Open, Intermediate,
+        Lift Status, Black]
+    /ski-centre-common[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 77d404a5-99c9-4007-99d9-510b7aedae7b
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-01-21T16:29:53.557Z
+      hippostdpubwf:lastModificationDate: 2025-01-21T16:34:39.409Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:id: ski-centre-common
+      resourcebundle:keys: [ski-centre.run.red, ski-centre.status.open, ski-centre.runs,
+        ski-centre.view-piste-map, ski-centre.summary.expected-to-open, ski-centre.run.difficult,
+        ski-data.ski-centre.no-js, ski-centre.last-updated, ski-centre.status, ski-centre.run-lift-status,
+        ski-centre.summary.limited-patrol, ski-data.loading, ski-centre.run.green,
+        ski-centre.run.very-difficult, ski-centre.summary.closed, ski-centre.lifts,
+        ski-centre.detailed-status, ski-centre.run.blue, ski-centre.more-details,
+        ski-centre.snow-conditions.current-weather, ski-centre.summary.open, ski-centre.run.intermediate,
+        ski-centre.lift-status, ski-centre.run.black]
+      resourcebundle:messages: [Red, Open, Runs, View piste map, Expected to Open,
+        Difficult, JavaScript needs to be enabled to see the latest conditions at
+          this ski centre, Last updated, Status, Run/Lift Status, Limited Patrol,
+        'Data is currently loading, please wait...', Green, Very Difficult, Closed,
+        Lifts, Detailed Status, Blue, More Details, Current weather, Open, Intermediate,
+        Lift Status, Black]
+    /ski-centre-common[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 119367c3-f81c-4066-b65e-2be08b7b481b
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-01-21T16:29:53.557Z
+      hippostdpubwf:lastModificationDate: 2025-01-21T16:34:39.409Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-01-21T16:34:41.387Z
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '', '', '', '', '']
+      resourcebundle:id: ski-centre-common
+      resourcebundle:keys: [ski-centre.run.red, ski-centre.status.open, ski-centre.runs,
+        ski-centre.view-piste-map, ski-centre.summary.expected-to-open, ski-centre.run.difficult,
+        ski-data.ski-centre.no-js, ski-centre.last-updated, ski-centre.status, ski-centre.run-lift-status,
+        ski-centre.summary.limited-patrol, ski-data.loading, ski-centre.run.green,
+        ski-centre.run.very-difficult, ski-centre.summary.closed, ski-centre.lifts,
+        ski-centre.detailed-status, ski-centre.run.blue, ski-centre.more-details,
+        ski-centre.snow-conditions.current-weather, ski-centre.summary.open, ski-centre.run.intermediate,
+        ski-centre.lift-status, ski-centre.run.black]
+      resourcebundle:messages: [Red, Open, Runs, View piste map, Expected to Open,
+        Difficult, JavaScript needs to be enabled to see the latest conditions at
+          this ski centre, Last updated, Status, Run/Lift Status, Limited Patrol,
+        'Data is currently loading, please wait...', Green, Very Difficult, Closed,
+        Lifts, Detailed Status, Blue, More Details, Current weather, Open, Intermediate,
+        Lift Status, Black]
+  /ski-centre-list:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: bff15e48-5b07-4742-a8fa-ab44dfcf53fc
+    hippo:name: Ski Centre List
+    hippo:versionHistory: 31967f9c-1151-456a-b529-84c652e58458
+    /ski-centre-list[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 7a72615c-71fc-43a1-ab71-7e6c8ae42c37
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-01-21T16:36:15.593Z
+      hippostdpubwf:lastModificationDate: 2025-01-21T16:37:37.757Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '']
+      resourcebundle:id: ski-centre-list
+      resourcebundle:keys: [ski-centre.status.on-hold, ski-centre.run.orange, ski-centre.run.grey,
+        ski-centre.summary.open-soon, ski-centre.status.open-soon, ski-data.no-js]
+      resourcebundle:messages: [On Hold, Orange, Grey, Open soon, Open soon, JavaScript
+          needs to be enabled to see Run and Lift status]
+    /ski-centre-list[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 5ccb9c58-5487-4de7-a4a2-f678e77fb5d3
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-01-21T16:36:15.593Z
+      hippostdpubwf:lastModificationDate: 2025-01-21T16:38:53.234Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '']
+      resourcebundle:id: ski-centre-list
+      resourcebundle:keys: [ski-centre.status.on-hold, ski-centre.run.orange, ski-centre.run.grey,
+        ski-centre.summary.open-soon, ski-centre.status.open-soon, ski-data.no-js]
+      resourcebundle:messages: [On Hold, Orange, Grey, Open soon, Open soon, JavaScript
+          needs to be enabled to see Run and Lift status]
+    /ski-centre-list[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 8616a663-34a4-441b-8eac-9fc1cbfca0cd
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-01-21T16:36:15.593Z
+      hippostdpubwf:lastModificationDate: 2025-01-21T16:38:53.234Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-01-21T16:38:54.855Z
+      resourcebundle:descriptions: ['', '', '', '', '', '']
+      resourcebundle:id: ski-centre-list
+      resourcebundle:keys: [ski-centre.status.on-hold, ski-centre.run.orange, ski-centre.run.grey,
+        ski-centre.summary.open-soon, ski-centre.status.open-soon, ski-data.no-js]
+      resourcebundle:messages: [On Hold, Orange, Grey, Open soon, Open soon, JavaScript
+          needs to be enabled to see Run and Lift status]
+  /ski-centre:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 74a2c11e-8770-4874-8bc7-074544763511
+    hippo:name: Ski Centre
+    hippo:versionHistory: 87d9b489-144b-478d-b333-9fefbc808395
+    /ski-centre[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 0137231a-8ff6-4aba-9d0f-9ba582b3aa2a
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-01-21T16:39:17.353Z
+      hippostdpubwf:lastModificationDate: 2025-01-21T16:39:28.659Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '']
+      resourcebundle:id: ski-centre
+      resourcebundle:keys: [ski-centre.opening-times.label, ski-centre.run.back-country,
+        ski-centre.piste-map, ski-centre.run, ski-centre.snow-conditions.weather,
+        ski-centre.snow-conditions.weather-forecast, ski-centre.webcam, ski-centre.snow-conditions.road-status,
+        ski-centre.run.itineraries, ski-data.provider, ski-centre.centre-information,
+        ski-centre.snow-conditions.news-from-the-slopes, ski-centre.snow-conditions.full-report]
+      resourcebundle:messages: [Check opening times, Back Country, Piste Map, Run,
+        Weather, Weather forecast, Webcam, Road status, Itineraries, Data provided
+          by Ski Scotland and Cairngorm Mountain, Centre Information, News from the
+          slopes, Snow conditions full report]
+    /ski-centre[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 15625426-fe99-4340-8dae-ce128cd8ba32
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-01-21T16:39:17.353Z
+      hippostdpubwf:lastModificationDate: 2025-01-21T16:41:50.389Z
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '']
+      resourcebundle:id: ski-centre
+      resourcebundle:keys: [ski-centre.opening-times.label, ski-centre.run.back-country,
+        ski-centre.piste-map, ski-centre.run, ski-centre.snow-conditions.weather,
+        ski-centre.snow-conditions.weather-forecast, ski-centre.webcam, ski-centre.snow-conditions.road-status,
+        ski-centre.run.itineraries, ski-data.provider, ski-centre.centre-information,
+        ski-centre.snow-conditions.news-from-the-slopes, ski-centre.snow-conditions.full-report]
+      resourcebundle:messages: [Check opening times, Back Country, Piste Map, Run,
+        Weather, Weather forecast, Webcam, Road status, Itineraries, Data provided
+          by Ski Scotland and Cairngorm Mountain, Centre Information, News from the
+          slopes, Snow conditions full report]
+    /ski-centre[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 399a9f7f-ebea-4b43-84e9-909844533428
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-01-21T16:39:17.353Z
+      hippostdpubwf:lastModificationDate: 2025-01-21T16:41:50.389Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-01-21T16:41:51.694Z
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '']
+      resourcebundle:id: ski-centre
+      resourcebundle:keys: [ski-centre.opening-times.label, ski-centre.run.back-country,
+        ski-centre.piste-map, ski-centre.run, ski-centre.snow-conditions.weather,
+        ski-centre.snow-conditions.weather-forecast, ski-centre.webcam, ski-centre.snow-conditions.road-status,
+        ski-centre.run.itineraries, ski-data.provider, ski-centre.centre-information,
+        ski-centre.snow-conditions.news-from-the-slopes, ski-centre.snow-conditions.full-report]
+      resourcebundle:messages: [Check opening times, Back Country, Piste Map, Run,
+        Weather, Weather forecast, Webcam, Road status, Itineraries, Data provided
+          by Ski Scotland and Cairngorm Mountain, Centre Information, News from the
+          slopes, Snow conditions full report]
