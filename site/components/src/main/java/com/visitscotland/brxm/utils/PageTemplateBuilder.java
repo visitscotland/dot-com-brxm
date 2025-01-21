@@ -145,6 +145,7 @@ public class PageTemplateBuilder {
             page.modules.add(getForm(request, item));
         } else if (item instanceof SkiCentre){
             page.modules.add(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
+            addAllLabels(request, "ski");
         } else if (item instanceof SkiCentreList){
             page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
         } else if (item instanceof DevModule){
