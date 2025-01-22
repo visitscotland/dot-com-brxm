@@ -676,7 +676,7 @@ public class LinkService {
     private List<String> getTextFromValueList(String[] keys, String valueListName){
         if (keys != null){
             return Arrays.stream(keys)
-                    .map(sector -> utils.getValueMap(valueListName).get(sector))
+                    .map(key -> utils.getValueMap(valueListName).get(key))
                     .collect(Collectors.toList());
         }
         return null;
