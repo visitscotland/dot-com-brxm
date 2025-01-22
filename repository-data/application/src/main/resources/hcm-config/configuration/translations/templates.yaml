@@ -45,6 +45,12 @@ definitions:
       new-be-page: new page
       new-be-module: new module
       new-bsh-folder: new folder
+      new-bsh-industry-folder: new folder
+      new-bsh-training-folder: new folder
+      new-bsh-trade-folder: new folder
+      new-bsh-industry-event: new event
+      new-bsh-training-event: new event
+      new-bsh-trade-event: new event
       new-bsh-module: new module
       new-bsh-page: new page
       new-translated-folder-shared-bsh: new folder
