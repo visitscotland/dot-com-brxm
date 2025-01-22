@@ -660,22 +660,25 @@ public class LinkService {
 
         link.setContentType(utils.getValueMap(CONTENT_TYPES_VALUE_LIST).get(contentType));
         link.setSkillLevel(utils.getValueMap(SKILL_LEVELS_VALUE_LIST).get(skill));
-        if (sectors != null) {
-            link.setSector(Arrays.stream(sectors)
-                    .map(sector -> utils.getValueMap(SECTORS_VALUE_LIST).get(sector))
-                    .collect(Collectors.toList()));
+        link.setSector(getTextFromValueList(sectors, SECTORS_VALUE_LIST));
+        link.setTopic(getTextFromValueList(topics, TOPICS_VALUE_LIST));
+        link.setRegion(getTextFromValueList(regions, REGIONS_VALUE_LIST));
+    }
+
+    /**
+     * Converts an array of keys to a list of text values taken from ValueList (Drop Down options)
+     *
+     * @param keys the array of keys
+     * @param valueListName the name of the valuelist defined on {@code valueListManager.xml}
+     *
+     * @return the list of texts
+     */
+    private List<String> getTextFromValueList(String[] keys, String valueListName){
+        if (keys != null){
+            return Arrays.stream(keys)
+                    .map(sector -> utils.getValueMap(valueListName).get(sector))
+                    .collect(Collectors.toList());
         }
-        if (topics != null) {
-            link.setTopic(List.of(topics));
-            link.setTopic(Arrays.stream(topics)
-                    .map(topic -> utils.getValueMap(TOPICS_VALUE_LIST).get(topic))
-                    .collect(Collectors.toList()));
-        }
-        if (regions != null) {
-            link.setRegion(List.of(regions));
-            link.setRegion(Arrays.stream(regions)
-                    .map(region -> utils.getValueMap(REGIONS_VALUE_LIST).get(region))
-                    .collect(Collectors.toList()));
-        }
+        return null;
     }
 }
