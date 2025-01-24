@@ -83,3 +83,6 @@ definitions:
         might not be supported.
       visitscotland:shared-link-bsh-external: A Website Type must be selected for
         External Links
+      currency: Currency Code format, only 3 capital letters allowed
+      time: Format allowed is HH:MM
+      timezone: 3 or 4 capital letters allowed.

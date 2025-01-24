@@ -66,6 +66,9 @@ public class SignpostFactory {
         SignpostModule module = new SignpostModule();
         Linkable linkable = (Linkable) ctaBanner.getCtaLink().getLink();
         FlatLink cta = linkService.createSimpleLink(linkable, module, null);
+        if (!Contract.isEmpty(ctaBanner.getCtaLink().getLabel())) {
+            cta.setLabel(ctaBanner.getCtaLink().getLabel());
+        }
 
         if (Contract.isNull(cta.getLink())) {
             return null;
