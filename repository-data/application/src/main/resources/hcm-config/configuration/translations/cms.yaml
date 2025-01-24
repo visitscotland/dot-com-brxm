@@ -10,6 +10,9 @@ definitions:
       visitscotland:scotland-coordinates-validator: Las coordenadas deben estar dentro
         de Escocia
       visitscotland:url-validator: Introduzca una URL válida
+      visitscotland:event-location-validator: Se debe proporcionar un lugar de celebración
+        o marcar el evento como en línea. Ambas opciones no pueden dejarse vacías
+        o sin marcar.
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
       visitscotland:scotland-coordinates-validator: 'Coordinates should be between:
         Latitude from 54.6 to 60.9 and Longitude from -13.7 to -0.7.'
@@ -75,8 +78,8 @@ definitions:
         and featured items can not be mixed - pick 2 featured items or 1 featured
         event.
       non-empty-spaces: Only characters and number are allowed, no spaces.
-      visitscotland:article-heading-validator: Each paragraph should start with a heading 
-        for the current layout
+      visitscotland:article-heading-validator: Each paragraph should start with a
+        heading for the current layout
       visitscotland:article-image-validator: An image must be provided on each paragraph
         for the current layout
       visitscotland:external-file-validator: The link may be broken, or the file type
@@ -86,3 +89,20 @@ definitions:
       currency: Currency Code format, only 3 capital letters allowed
       time: Format allowed is HH:MM
       timezone: 3 or 4 capital letters allowed.
+      visitscotland:event-location-validator: A venue must be provided, or the event
+        must be marked as online. Both cannot be left empty or unchecked.
+    /hippo:configuration/hippo:translations/hippo:cms/validators/de:
+      visitscotland:event-location-validator: Es muss ein Veranstaltungsort angegeben
+        werden, oder die Veranstaltung muss als online gekennzeichnet sein. Beides
+        darf nicht leer oder nicht angekreuzt sein.
+    /hippo:configuration/hippo:translations/hippo:cms/validators/fr:
+      visitscotland:event-location-validator: Un lieu doit être indiqué ou l'événement
+        doit être marqué comme étant en ligne. Les deux ne peuvent pas être laissés
+        vides ou non cochés.
+    /hippo:configuration/hippo:translations/hippo:cms/validators/nl:
+      visitscotland:event-location-validator: Er moet een locatie worden opgegeven
+        of het evenement moet worden gemarkeerd als online. Beide kunnen niet leeg
+        of niet aangevinkt blijven.
+    /hippo:configuration/hippo:translations/hippo:cms/validators/zh:
+      visitscotland:event-location-validator: Należy podać miejsce wydarzenia lub
+        oznaczyć wydarzenie jako online. Oba te pola nie mogą być puste ani niezaznaczone.
