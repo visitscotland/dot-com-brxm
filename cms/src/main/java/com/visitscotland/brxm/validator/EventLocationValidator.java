@@ -4,10 +4,14 @@ import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Validator;
 import org.onehippo.cms.services.validation.api.Violation;
 
-import javax.jcr.Node;
 import javax.jcr.RepositoryException;
+import javax.jcr.Node;
+
 import java.util.Optional;
 
+/**
+ * jcr:Name = visitscotland:event-location-validator
+ */
 final class EventLocationValidator implements Validator<Node> {
     private static final String EVENT_VENUE_JCR_TYPE = "visitscotland:venue";
     private static final String EVENT_ONLINE_JCR_TYPE = "visitscotland:online";
@@ -20,8 +24,8 @@ final class EventLocationValidator implements Validator<Node> {
 
     private boolean isNodeValid(final Node node) {
         try {
-            return isEventOnline(node) || isVenueNotBlank(node);
-        } catch (RepositoryException e) {
+            return isEventOnline(node) || !isVenueBlank(node);
+        } catch (RepositoryException exception) {
             return false;
         }
     }
@@ -30,7 +34,11 @@ final class EventLocationValidator implements Validator<Node> {
         return node.getProperty(EVENT_ONLINE_JCR_TYPE).getBoolean();
     }
 
-    private boolean isVenueNotBlank(final Node node) throws RepositoryException {
-        return !node.getProperty(EVENT_VENUE_JCR_TYPE).getString().isBlank();
+    private boolean isVenueBlank(final Node node) throws RepositoryException {
+        final Optional<String> venue = Optional.ofNullable(node
+            .getProperty(EVENT_VENUE_JCR_TYPE)
+            .getString());
+
+        return venue.map(String::isBlank).orElse(false);
     }
 }
