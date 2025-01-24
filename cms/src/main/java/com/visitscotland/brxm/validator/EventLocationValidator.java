@@ -9,8 +9,8 @@ import javax.jcr.RepositoryException;
 import java.util.Optional;
 
 final class EventLocationValidator implements Validator<Node> {
-    private static final String VENUE_JCR_TYPE = "visitscotland:venue";
-    private static final String IS_EVENT_ONLINE_JCR_TYPE = "visitscotland:online";
+    private static final String EVENT_VENUE_JCR_TYPE = "visitscotland:venue";
+    private static final String EVENT_ONLINE_JCR_TYPE = "visitscotland:online";
 
     @Override
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
@@ -27,10 +27,10 @@ final class EventLocationValidator implements Validator<Node> {
     }
 
     private boolean isEventOnline(final Node node) throws RepositoryException {
-        return node.getProperty(IS_EVENT_ONLINE_JCR_TYPE).getBoolean();
+        return node.getProperty(EVENT_ONLINE_JCR_TYPE).getBoolean();
     }
 
     private boolean isVenueBlank(final Node node) throws RepositoryException {
-        return node.getProperty(VENUE_JCR_TYPE).getString().isBlank();
+        return node.getProperty(EVENT_VENUE_JCR_TYPE).getString().isBlank();
     }
 }
