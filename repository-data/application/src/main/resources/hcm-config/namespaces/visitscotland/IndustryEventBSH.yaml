@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5f6037f8-e5b2-4178-9bd7-1910959b0838
+          jcr:uuid: 53cccae3-9c66-466c-9287-ca88ae3cbff8
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:EventBSH', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -31,6 +31,14 @@ definitions:
             hipposysedit:path: visitscotland:region
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
+          /types:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:types
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -49,11 +57,12 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 61d915ab-f554-405f-adf2-efbae45934fb
+          jcr:uuid: a3cff8ee-a244-4764-bfb1-dd3f7c3039fd
           hippostdpubwf:lastModificationDate: 2025-01-14T14:17:50.638Z
           hippostdpubwf:creationDate: 2025-01-14T14:17:50.639Z
           visitscotland:sectors: []
           visitscotland:region: ''
+          visitscotland:types: []
           /visitscotland:summary:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -211,3 +220,17 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/business-support-hub/sector
+          /types:
+            jcr:primaryType: frontend:plugin
+            caption: types
+            field: types
+            multiselect.type: checkboxes
+            palette.alloworder: false
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/options/business-support-hub/event-types---industry-events
