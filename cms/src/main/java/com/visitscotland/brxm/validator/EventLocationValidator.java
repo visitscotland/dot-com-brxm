@@ -39,6 +39,6 @@ final class EventLocationValidator implements Validator<Node> {
             .getProperty(EVENT_VENUE_JCR_TYPE)
             .getString());
 
-        return venue.map(String::isBlank).orElse(false);
+        return venue.map(String::isBlank).orElse(true);
     }
 }
