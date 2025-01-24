@@ -20,7 +20,7 @@ final class EventLocationValidator implements Validator<Node> {
 
     private boolean isNodeValid(final Node node) {
         try {
-            return isEventOnline(node) || !isVenueBlank(node);
+            return isEventOnline(node) || isVenueNotBlank(node);
         } catch (RepositoryException e) {
             return false;
         }
@@ -30,7 +30,7 @@ final class EventLocationValidator implements Validator<Node> {
         return node.getProperty(EVENT_ONLINE_JCR_TYPE).getBoolean();
     }
 
-    private boolean isVenueBlank(final Node node) throws RepositoryException {
-        return node.getProperty(EVENT_VENUE_JCR_TYPE).getString().isBlank();
+    private boolean isVenueNotBlank(final Node node) throws RepositoryException {
+        return !node.getProperty(EVENT_VENUE_JCR_TYPE).getString().isBlank();
     }
 }
