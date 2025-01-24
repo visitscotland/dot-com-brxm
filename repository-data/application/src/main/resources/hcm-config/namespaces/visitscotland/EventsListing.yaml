@@ -24,7 +24,7 @@ definitions:
             hipposysedit:path: visitscotland:trainingTitle
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required, 'visitscotland:extrashort-string-validator']
           /trainingCopy:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -42,7 +42,7 @@ definitions:
             hipposysedit:path: visitscotland:industryTitle
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required, 'visitscotland:extrashort-string-validator']
           /industryCopy:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -60,7 +60,7 @@ definitions:
             hipposysedit:path: visitscotland:tradeTitle
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required, 'visitscotland:extrashort-string-validator']
           /tradeCopy:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
