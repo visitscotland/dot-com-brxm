@@ -58,6 +58,7 @@ public class PageTemplateBuilder {
     private final SignpostFactory signPostFactory;
     private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
+    private final EventsListingFactory eventsListingFactory;
     private final SiteProperties properties;
 
     private final ResourceBundleService bundle;
@@ -70,7 +71,8 @@ public class PageTemplateBuilder {
                                UserGeneratedContentFactory userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                                MapFactory mapFactory, SkiFactory skiFactory, SiteProperties properties,
-                               DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger, SignpostFactory signPostFactory) {
+                               DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger,
+                               SignpostFactory signPostFactory, EventsListingFactory eventsListingFactory) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentreFactory;
@@ -89,6 +91,7 @@ public class PageTemplateBuilder {
         this.bundle = bundle;
         this.contentLogger = contentLogger;
         this.signPostFactory = signPostFactory;
+        this.eventsListingFactory = eventsListingFactory;
     }
 
     private Page getDocument(HstRequest request) {
@@ -151,10 +154,13 @@ public class PageTemplateBuilder {
             page.modules.add(devModuleFactory.getModule((DevModule) item));
         } else if (item instanceof CTABanner){
             page.modules.add(signPostFactory.createModule((CTABanner) item));
+        } else if (item instanceof EventsListing){
+            page.modules.add(eventsListingFactory.createModule((EventsListing) item));
         } else {
             logger.warn("Unrecognized Module Type: {}", item.getClass());
         }
     }
+
     private FormModule getForm(HstRequest request, BaseDocument form){
         addAllLabels(request, "forms");
         Map<String, String> formLabels = labels(request).get("forms");
