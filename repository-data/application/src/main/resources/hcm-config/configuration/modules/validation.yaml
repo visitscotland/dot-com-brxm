@@ -133,3 +133,6 @@ definitions:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
       regexp.pattern: ^$|[A-Z][A-Z][A-Z]|[A-Z][A-Z][A-Z][A-Z]$
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:file-link-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.FileLinkValidator
