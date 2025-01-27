@@ -16,7 +16,10 @@ import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.YoutubeVideo;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.core.linking.HstLink;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -257,6 +260,8 @@ public class LinkService {
             url = productSearch().fromHippoBean(((ProductSearchLink) link).getSearch()).locale(locale).build();
         } else if (link instanceof Video) {
             url = ((Video) link).getUrl();
+        } else if (link instanceof FileLink) {
+            url = createLink((FileLink) link);
         } else if (link instanceof UrlLink) {
             url = ((UrlLink) link).getLink();
         } else {
@@ -266,6 +271,16 @@ public class LinkService {
         return processURL(locale, url);
     }
 
+    private String createLink(FileLink link) {
+        if (Contract.isEmpty(link.getLink())){
+            final boolean FULLY_QUALIFIED = false;
+            HstRequestContext requestContext = RequestContextProvider.get();
+            HstLink hstLink = requestContext.getHstLinkCreator().create(link.getAsset().getNode(), requestContext);
+            return hstLink.toUrlForm(requestContext, FULLY_QUALIFIED);
+        } else {
+            return  link.getLink();
+        }
+    }
     /**
      * Analyzes the URL and identifies what type of link it is.
      *
