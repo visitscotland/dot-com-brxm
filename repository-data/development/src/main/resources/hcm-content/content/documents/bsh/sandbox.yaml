@@ -227,13 +227,13 @@
         hippostd:foldertype: [new-translated-folder-shared-bsh, new-shared-bsh-document]
         hippotranslation:id: 2e3bede1-e33a-4889-92a1-21f92eaaedf3
         hippotranslation:locale: en
-        /visitscotland.com:
+        /scot.gov:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 8b9e387c-24d2-4e0c-ba4b-4dac823c8e57
-          hippo:name: VisitScotland.com
-          hippo:versionHistory: f72bc946-72ab-49aa-b7fd-9985c15d212d
-          /visitscotland.com[1]:
+          hippo:name: The Scottish Government
+          hippo:versionHistory: a954bfe7-0721-4c53-97b6-f272f42f19c7
+          /scot.gov[1]:
             jcr:primaryType: visitscotland:SharedLinkBSH
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 3e59e236-64c6-40c8-95ba-12b3f0c10e95
@@ -242,18 +242,17 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-09-25T17:01:40.525+01:00
-            hippostdpubwf:lastModificationDate: 2024-12-04T20:49:29.407Z
+            hippostdpubwf:lastModificationDate: 2025-01-27T13:40:06.685Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 21068f6f-5c67-40f9-b574-58fd79ed6f81
             hippotranslation:locale: en
             visitscotland:regions: []
             visitscotland:sectors: []
             visitscotland:skill: ''
-            visitscotland:source: Scotland Tourism Board
-            visitscotland:teaser: Get all the information you need for your trip to
-              Scotland! Book accommodation, discover new places to visit, find amazing
-              things to do and more!
-            visitscotland:title: VisitScotland Consumer Website
+            visitscotland:source: ''
+            visitscotland:teaser: Scotland’s Digital Future – A Strategy for Scotland.
+              Updates from the Digital Directorate.
+            visitscotland:title: The Scottish Government
             visitscotland:topic: []
             visitscotland:type: ''
             visitscotland:types: []
@@ -267,8 +266,8 @@
             /visitscotland:linkTypes:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: ''
-              visitscotland:link: https://www.visitscotland.com
-          /visitscotland.com[2]:
+              visitscotland:link: https://www.gov.scot/
+          /scot.gov[2]:
             jcr:primaryType: visitscotland:SharedLinkBSH
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
             jcr:uuid: f0ea80a6-ad7d-4221-8f49-3fd8a6debafd
@@ -277,18 +276,17 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-09-25T17:01:40.525+01:00
-            hippostdpubwf:lastModificationDate: 2024-12-04T20:49:27.886Z
+            hippostdpubwf:lastModificationDate: 2025-01-27T13:42:12.606Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 21068f6f-5c67-40f9-b574-58fd79ed6f81
             hippotranslation:locale: en
             visitscotland:regions: []
             visitscotland:sectors: []
             visitscotland:skill: ''
-            visitscotland:source: Scotland Tourism Board
-            visitscotland:teaser: Get all the information you need for your trip to
-              Scotland! Book accommodation, discover new places to visit, find amazing
-              things to do and more!
-            visitscotland:title: VisitScotland Consumer Website
+            visitscotland:source: ''
+            visitscotland:teaser: Scotland’s Digital Future – A Strategy for Scotland.
+              Updates from the Digital Directorate.
+            visitscotland:title: The Scottish Government
             visitscotland:topic: []
             visitscotland:type: ''
             visitscotland:types: []
@@ -302,8 +300,8 @@
             /visitscotland:linkTypes:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: ''
-              visitscotland:link: https://www.visitscotland.com
-          /visitscotland.com[3]:
+              visitscotland:link: https://www.gov.scot/
+          /scot.gov[3]:
             jcr:primaryType: visitscotland:SharedLinkBSH
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 65105c4d-8fb3-48ee-9ca7-996ae1c05c28
@@ -312,19 +310,22 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-09-25T17:01:40.525+01:00
-            hippostdpubwf:lastModificationDate: 2024-09-25T17:03:12.988+01:00
+            hippostdpubwf:lastModificationDate: 2025-01-27T13:42:12.606Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2024-09-25T17:03:16.030+01:00
+            hippostdpubwf:publicationDate: 2025-01-27T13:44:22.377Z
             hippotranslation:id: 21068f6f-5c67-40f9-b574-58fd79ed6f81
             hippotranslation:locale: en
+            visitscotland:regions: []
             visitscotland:sectors: []
             visitscotland:skill: ''
-            visitscotland:source: Scotland Tourism Board
-            visitscotland:teaser: Get all the information you need for your trip to
-              Scotland! Book accommodation, discover new places to visit, find amazing
-              things to do and more!
-            visitscotland:title: VisitScotland Consumer Website
+            visitscotland:source: ''
+            visitscotland:teaser: Scotland’s Digital Future – A Strategy for Scotland.
+              Updates from the Digital Directorate.
+            visitscotland:title: The Scottish Government
+            visitscotland:topic: []
+            visitscotland:type: ''
             visitscotland:types: []
+            visitscotland:websiteType: external
             /visitscotland:image:
               jcr:primaryType: hippogallerypicker:imagelink
               hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -334,7 +335,7 @@
             /visitscotland:linkTypes:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: ''
-              visitscotland:link: https://www.visitscotland.com
+              visitscotland:link: https://www.gov.scot/
       /download-links:
         jcr:primaryType: hippostd:folder
         jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
