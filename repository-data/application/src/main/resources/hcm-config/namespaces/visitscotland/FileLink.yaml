@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: bbd737f7-9d33-466d-83fe-161c8300ffaf
+          jcr:uuid: bf77fd37-f076-46c2-98c4-185e94b741b6
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -23,12 +23,20 @@ definitions:
             hipposysedit:path: visitscotland:link
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required, 'visitscotland:external-file-validator']
+            hipposysedit:validators: ['visitscotland:external-file-validator', optional]
+          /asset:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:asset
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:FileLink
-          visitscotland:link: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -48,5 +56,14 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             hipposysedit:validators: [required, 'visitscotland:external-document-validator']
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /asset:
+            jcr:primaryType: frontend:plugin
+            caption: CMS Asset
+            field: asset
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
