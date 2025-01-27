@@ -18,9 +18,7 @@ public class FileLinkValidator implements Validator<Node> {
 
         try {
             boolean url = document.hasProperty(FileLink.LINK) && !document.getProperty(FileLink.LINK).getString().isEmpty();
-            boolean asset = document.hasNode(FileLink.ASSET)
-                    && document.getNode(FileLink.ASSET).hasProperty("hippo:docbase")
-                    && !document.getNode(FileLink.ASSET).getProperty("hippo:docbase").getString().startsWith("cafebabe-");
+            boolean asset = hasValidLink(document, FileLink.ASSET);
 
             if (url && asset) {
                 return Optional.of(context.createViolation("both"));
@@ -32,6 +30,12 @@ public class FileLinkValidator implements Validator<Node> {
         } catch (RepositoryException e) {
             return Optional.of(context.createViolation());
         }
+    }
+
+    private boolean hasValidLink (Node document, String fieldName) throws RepositoryException {
+        return document.hasNode(fieldName)
+                && document.getNode(fieldName).hasProperty("hippo:docbase")
+                && !document.getNode(fieldName).getProperty("hippo:docbase").getString().startsWith("cafebabe-");
     }
 
 
