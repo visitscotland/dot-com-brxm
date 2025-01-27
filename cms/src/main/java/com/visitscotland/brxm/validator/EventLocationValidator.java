@@ -12,7 +12,9 @@ import java.util.Optional;
 /**
  * jcr:Name = visitscotland:event-location-validator
  */
-final class EventLocationValidator implements Validator<Node> {
+public class EventLocationValidator implements Validator<Node> {
+    public EventLocationValidator() { }
+
     @Override
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
         try {
