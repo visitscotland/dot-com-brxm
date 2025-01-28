@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.validator;
 
 import org.onehippo.cms.services.validation.api.ValidationContext;
-import org.onehippo.cms.services.validation.api.Validator;
 import org.onehippo.cms.services.validation.api.Violation;
 
 import javax.jcr.RepositoryException;
@@ -11,18 +10,16 @@ import java.util.Optional;
 
 import static com.visitscotland.brxm.jcr.NodeUtility.isJcrPropertyBlank;
 
-/**
- * jcr:Name = visitscotland:event-location-validator
- */
-public class EventLocationValidator implements Validator<Node> {
-    public EventLocationValidator() { }
+public class EventLocationRegionValidator extends EventLocationValidator {
+    public EventLocationRegionValidator() { }
 
     @Override
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
         try {
-            final boolean isVenueBlank = !isJcrPropertyBlank(node, "visitscotland:venue");
+            final boolean isVenueBlank = isJcrPropertyBlank(node, "visitscotland:venue");
+            final boolean isRegionBlank = isJcrPropertyBlank(node, "visitscotland:region");
 
-            if(isEventOnline(node) || !isVenueBlank) {
+            if(isEventOnline(node) || !isRegionBlank || !isVenueBlank) {
                 return Optional.empty();
             }
 
@@ -30,9 +27,5 @@ public class EventLocationValidator implements Validator<Node> {
         } catch (RepositoryException exception) {
             return Optional.of(validationContext.createViolation("exception"));
         }
-    }
-
-    protected boolean isEventOnline(final Node node) throws RepositoryException {
-        return node.getProperty("visitscotland:online").getBoolean();
     }
 }
