@@ -70,3 +70,7 @@
       jcr:primaryType: selection:listitem
       selection:key: borders
       selection:label: Scottish Borders
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: outwith
+      selection:label: Outwith Scotland
