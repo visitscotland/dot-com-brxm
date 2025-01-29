@@ -10,12 +10,6 @@ definitions:
       visitscotland:scotland-coordinates-validator: Las coordenadas deben estar dentro
         de Escocia
       visitscotland:url-validator: Introduzca una URL válida
-      visitscotland:event-location-validator: Se debe proporcionar un lugar de celebración
-        o marcar el evento como en línea. Ambas opciones no pueden dejarse vacías
-        o sin marcar.
-      visitscotland:event-location-validator#exception: Se ha producido un error desconocido
-        al intentar validar la ubicación y el lugar de celebración. Si el problema
-        persiste, póngase en contacto con un administrador.
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
       visitscotland:scotland-coordinates-validator: 'Coordinates should be between:
         Latitude from 54.6 to 60.9 and Longitude from -13.7 to -0.7.'
@@ -97,30 +91,8 @@ definitions:
       visitscotland:event-location-validator#exception: An unknown error occurred
         while attempting to validate the location and venue, if this issue persists
         please contact an administrator.
-    /hippo:configuration/hippo:translations/hippo:cms/validators/de:
-      visitscotland:event-location-validator: Es muss ein Veranstaltungsort angegeben
-        werden, oder die Veranstaltung muss als online gekennzeichnet sein. Beides
-        darf nicht leer oder nicht angekreuzt sein.
-      visitscotland:event-location-validator#exception: Beim Versuch, den Ort und
-        den Veranstaltungsort zu validieren, ist ein unbekannter Fehler aufgetreten.
-        Wenn dieses Problem weiterhin besteht, wenden Sie sich bitte an einen Administrator.
-    /hippo:configuration/hippo:translations/hippo:cms/validators/fr:
-      visitscotland:event-location-validator: Un lieu doit être indiqué ou l'événement
-        doit être marqué comme étant en ligne. Les deux ne peuvent pas être laissés
-        vides ou non cochés.
-      visitscotland:event-location-validator#exception: Une erreur inconnue s'est
-        produite lors de la validation de la localisation et du lieu. Si ce problème
-        persiste, veuillez contacter un administrateur.
-    /hippo:configuration/hippo:translations/hippo:cms/validators/nl:
-      visitscotland:event-location-validator: Er moet een locatie worden opgegeven
-        of het evenement moet worden gemarkeerd als online. Beide kunnen niet leeg
-        of niet aangevinkt blijven.
-      visitscotland:event-location-validator#exception: Er is een onbekende fout opgetreden
-        tijdens het valideren van de locatie en de locatie. Als dit probleem zich
-        blijft voordoen, neem dan contact op met een beheerder.
-    /hippo:configuration/hippo:translations/hippo:cms/validators/zh:
-      visitscotland:event-location-validator: Należy podać miejsce wydarzenia lub
-        oznaczyć wydarzenie jako online. Oba te pola nie mogą być puste ani niezaznaczone.
-      visitscotland:event-location-validator#exception: Wystąpił nieznany błąd podczas
-        próby zweryfikowania lokalizacji i miejsca, jeśli ten problem nadal występuje,
-        skontaktuj się z administratorem.
+      visitscotland:event-location-region-validator: A venue, region or event must
+        be present.
+      visitscotland:event-location-region-validator#exception: An unknown error occurred
+        while attempting to validate the location and venue, if this issue persists
+        please contact an administrator.
