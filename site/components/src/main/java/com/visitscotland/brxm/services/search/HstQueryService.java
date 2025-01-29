@@ -49,7 +49,7 @@ public class HstQueryService {
 
         } catch (QueryException e) {
             throw new HstComponentException (
-                    "Exception occured during creation or execution of HstQuery.", e);
+                    "Exception occurred during creation or execution of HstQuery.", e);
         } catch (LoginException e) {
             throw new RuntimeException(e);
         } catch (PathNotFoundException e) {
