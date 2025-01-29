@@ -24,37 +24,36 @@ class NodeUtilityTest {
     @Mock
     private Property property;
 
+    private static final String JCR_PROPERTY_NAME = "jcr:primaryType";
+
     @Test
     void isJcrPropertyBlank_ValidNodeAndPresentStringProperty_False() throws RepositoryException {
-        final String jcrPropertyName = "jcr:primaryType";
         final String jcrPropertyValue = "Property Value";
 
-        when(node.getProperty(jcrPropertyName)).thenReturn(property);
+        when(node.getProperty(JCR_PROPERTY_NAME)).thenReturn(property);
         when(property.getString()).thenReturn(jcrPropertyValue);
 
-        final boolean result = NodeUtility.isJcrPropertyBlank(node, jcrPropertyName);
+        final boolean result = NodeUtility.isJcrPropertyBlank(node, JCR_PROPERTY_NAME);
 
         assertFalse(result);
 
-        verify(node, times(1)).getProperty(eq(jcrPropertyName));
+        verify(node, times(1)).getProperty(eq(JCR_PROPERTY_NAME));
         verify(property, times(1)).getString();
     }
 
     @Test
     void isJcrPropertyBlank_NullProperty_True() throws RepositoryException {
-        final String jcrPropertyName = "jcr:primaryType";
-
-        when(node.getProperty(jcrPropertyName)).thenReturn(property);
+        when(node.getProperty(JCR_PROPERTY_NAME)).thenReturn(property);
         when(property.getString()).thenReturn(null);
 
-        final boolean result = NodeUtility.isJcrPropertyBlank(node, jcrPropertyName);
+        final boolean result = NodeUtility.isJcrPropertyBlank(node, JCR_PROPERTY_NAME);
 
         assertTrue(result);
     }
 
     @Test
     void isJcrPropertyBlank_NullNodeParameter_True() throws RepositoryException {
-        final boolean result = NodeUtility.isJcrPropertyBlank(null, "jcr:primaryType");
+        final boolean result = NodeUtility.isJcrPropertyBlank(null, JCR_PROPERTY_NAME);
         assertTrue(result);
     }
 
@@ -66,25 +65,23 @@ class NodeUtilityTest {
 
     @Test
     void isJcrPropertyBlank_GetPropertyThrowsRepositoryException_DelegateToCaller() throws RepositoryException {
-        final String jcrPropertyName = "jcr:primaryType";
         final RepositoryException exception = new RepositoryException();
 
-        when(node.getProperty(jcrPropertyName)).thenThrow(exception);
+        when(node.getProperty(JCR_PROPERTY_NAME)).thenThrow(exception);
 
-        assertThrows(RepositoryException.class, () -> NodeUtility.isJcrPropertyBlank(node, jcrPropertyName));
-        verify(node, times(1)).getProperty(eq(jcrPropertyName));
+        assertThrows(RepositoryException.class, () -> NodeUtility.isJcrPropertyBlank(node, JCR_PROPERTY_NAME));
+        verify(node, times(1)).getProperty(eq(JCR_PROPERTY_NAME));
     }
 
     @Test
     void isJcrPropertyBlank_GetStringThrowsRepositoryException_DelegateToCaller() throws RepositoryException {
-        final String jcrPropertyName = "jcr:primaryType";
         final RepositoryException exception = new RepositoryException();
 
-        when(node.getProperty(jcrPropertyName)).thenReturn(property);
+        when(node.getProperty(JCR_PROPERTY_NAME)).thenReturn(property);
         when(property.getString()).thenThrow(exception);
 
-        assertThrows(RepositoryException.class, () -> NodeUtility.isJcrPropertyBlank(node, jcrPropertyName));
-        verify(node, times(1)).getProperty(eq(jcrPropertyName));
+        assertThrows(RepositoryException.class, () -> NodeUtility.isJcrPropertyBlank(node, JCR_PROPERTY_NAME));
+        verify(node, times(1)).getProperty(eq(JCR_PROPERTY_NAME));
         verify(property, times(1)).getString();
     }
 }
