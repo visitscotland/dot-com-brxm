@@ -1,12 +1,13 @@
 package com.visitscotland.brxm.model.bsh;
 
+import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.model.FlatLink;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 public class EventCard {
 
     private String title;
-    private HippoHtml description;
+    private HippoHtml summary;
     private String dates;
     private String times;
     private String price;
@@ -16,6 +17,14 @@ public class EventCard {
     private String registrationDeadline;
     private FlatLink cta;
 
+    public EventCard() {
+    }
+
+    public EventCard(EventBSH document) {
+        this.title = document.getTitle();
+        this.summary = document.getSummary();
+    }
+
     public String getTitle() {
         return title;
     }
@@ -24,12 +33,12 @@ public class EventCard {
         this.title = title;
     }
 
-    public HippoHtml getDescription() {
-        return description;
+    public HippoHtml getSummary() {
+        return summary;
     }
 
-    public void setDescription(HippoHtml description) {
-        this.description = description;
+    public void setSummary(HippoHtml summary) {
+        this.summary = summary;
     }
 
     public String getDates() {
