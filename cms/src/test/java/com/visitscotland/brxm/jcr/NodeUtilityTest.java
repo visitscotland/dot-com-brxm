@@ -18,11 +18,8 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class NodeUtilityTest {
-    @Mock
-    private Node node;
-
-    @Mock
-    private Property property;
+    @Mock private Node node;
+    @Mock private Property property;
 
     private static final String JCR_PROPERTY_NAME = "jcr:primaryType";
 
