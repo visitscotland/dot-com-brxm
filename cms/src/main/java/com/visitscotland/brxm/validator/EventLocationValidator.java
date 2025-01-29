@@ -20,7 +20,7 @@ public class EventLocationValidator implements Validator<Node> {
     @Override
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
         try {
-            final boolean isVenueBlank = !isJcrPropertyBlank(node, "visitscotland:venue");
+            final boolean isVenueBlank = isJcrPropertyBlank(node, "visitscotland:venue");
 
             if(isEventOnline(node) || !isVenueBlank) {
                 return Optional.empty();

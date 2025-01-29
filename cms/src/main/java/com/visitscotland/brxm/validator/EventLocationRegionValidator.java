@@ -10,20 +10,22 @@ import java.util.Optional;
 
 import static com.visitscotland.brxm.jcr.NodeUtility.isJcrPropertyBlank;
 
+/**
+ * jcr:Name = visitscotland:event-location-region-validator
+ */
 public class EventLocationRegionValidator extends EventLocationValidator {
     public EventLocationRegionValidator() { }
 
     @Override
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
         try {
-            final boolean isVenueBlank = isJcrPropertyBlank(node, "visitscotland:venue");
             final boolean isRegionBlank = isJcrPropertyBlank(node, "visitscotland:region");
 
-            if(isEventOnline(node) || !isRegionBlank || !isVenueBlank) {
-                return Optional.empty();
+            if(isRegionBlank) {
+                return super.validate(validationContext, node);
             }
 
-            return Optional.of(validationContext.createViolation());
+            return Optional.empty();
         } catch (RepositoryException exception) {
             return Optional.of(validationContext.createViolation("exception"));
         }
