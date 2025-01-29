@@ -3,34 +3,27 @@ package com.visitscotland.brxm.rest;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.bsh.EventCard;
-import com.visitscotland.brxm.services.CommonUtilsService;
+import com.visitscotland.brxm.services.search.EventRepository;
 import com.visitscotland.brxm.utils.VsException;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.jaxrs.services.AbstractResource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Note: These endpoint don't use Spring but JAX-RS for mapping to the main application
  */
 @Path("/bsh/events-search/")
 public class EventsSearchService extends AbstractResource {
+    private final EventRepository eventRepository;
 
-    private static final Logger logger = LoggerFactory.getLogger(EventsSearchService.class);
-
-    private final CommonUtilsService utils;
-
-    public EventsSearchService(CommonUtilsService utils) {
-        this.utils = utils;
+    public EventsSearchService(final EventRepository eventService) {
+        this.eventRepository = eventService;
     }
 
     @GET
@@ -47,12 +40,7 @@ public class EventsSearchService extends AbstractResource {
     @Produces("application/json")
     public Response training(@Context HstRequest request) {
         try {
-            List<EventCard> list = new ArrayList<>();
-            list.add(createEvent1());
-            list.add(createEvent2());
-            list.add(createEvent3());
-//            List<Cards>
-            return Response.ok().entity(list).build();
+            return Response.ok().entity(eventRepository.findAllTrainingEvents()).build();
         } catch (VsException e){
             return Response.serverError().build();
         }
@@ -62,7 +50,7 @@ public class EventsSearchService extends AbstractResource {
         EventCard ec = new EventCard();
         FlatLink fl = new FlatLink("Find out more", "http://localhost:3000/site/sandbox", LinkType.EXTERNAL);
         ec.setTitle("Event 1");
-        ec.setDescription(new HippoHtml ());
+        ec.setSummary(new HippoHtml());
         ec.setDates("28 Feb - 03 Mar, 2025");
         ec.setTimes("12:00 PST");
         ec.setPrice("Free");
