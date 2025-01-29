@@ -94,5 +94,5 @@ definitions:
       visitscotland:event-location-region-validator: A venue, region or event must
         be present.
       visitscotland:event-location-region-validator#exception: An unknown error occurred
-        while attempting to validate the location and venue, if this issue persists
-        please contact an administrator.
+        while attempting to validate the location, region or venue. If this issue
+        persists please contact an administrator.
