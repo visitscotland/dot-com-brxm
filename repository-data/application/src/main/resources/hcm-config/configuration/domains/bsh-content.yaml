@@ -15,6 +15,7 @@ definitions:
         hipposys:groups:
           .meta:category: system
           .meta:add-new-system-values: true
+          operation: override
           type: string
           value: []
         hipposys:role: admin
@@ -25,13 +26,34 @@ definitions:
         hipposys:users:
           .meta:category: system
           .meta:add-new-system-values: true
+          operation: override
           type: string
           value: []
-      /be-editor:
+      /bsh-author:
         jcr:primaryType: hipposys:authrole
         hipposys:groups:
           .meta:category: system
           .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+        hipposys:role: author
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: vs.content.author.bsh
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+      /bsh-editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
           type: string
           value: []
         hipposys:role: editor
@@ -42,5 +64,6 @@ definitions:
         hipposys:users:
           .meta:category: system
           .meta:add-new-system-values: true
+          operation: override
           type: string
           value: []

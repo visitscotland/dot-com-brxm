@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:userroles/vs.assets.bsh:
+      jcr:primaryType: hipposys:userrole
+      hipposys:description: Business Support Hub Assets Access
+      hipposys:system: false
