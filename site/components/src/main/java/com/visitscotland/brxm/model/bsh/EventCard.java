@@ -2,9 +2,10 @@ package com.visitscotland.brxm.model.bsh;
 
 import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.model.FlatLink;
+import com.visitscotland.brxm.model.Module;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
-public class EventCard {
+public class EventCard extends Module<EventBSH> {
 
     private String title;
     private HippoHtml summary;
