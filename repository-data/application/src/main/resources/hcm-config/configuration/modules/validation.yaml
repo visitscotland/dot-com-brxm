@@ -136,3 +136,9 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:file-link-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.FileLinkValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:event-location-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.EventLocationValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:event-location-region-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.EventLocationRegionValidator

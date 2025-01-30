@@ -176,6 +176,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGlobalLabel(globalLabels, "home", locale);
         addGlobalLabel(globalLabels, "page.next", locale);
         addGlobalLabel(globalLabels, "page.previous", locale);
+        addGlobalLabel(globalLabels, "back-to-top", locale);
 
         return globalLabels;
     }
