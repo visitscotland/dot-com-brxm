@@ -75,8 +75,8 @@ definitions:
         and featured items can not be mixed - pick 2 featured items or 1 featured
         event.
       non-empty-spaces: Only characters and number are allowed, no spaces.
-      visitscotland:article-heading-validator: Each paragraph should start with a heading 
-        for the current layout
+      visitscotland:article-heading-validator: Each paragraph should start with a
+        heading for the current layout
       visitscotland:article-image-validator: An image must be provided on each paragraph
         for the current layout
       visitscotland:external-file-validator: The link may be broken, or the file type
@@ -86,3 +86,13 @@ definitions:
       currency: Currency Code format, only 3 capital letters allowed
       time: Format allowed is HH:MM
       timezone: 3 or 4 capital letters allowed.
+      visitscotland:event-location-validator: A venue must be provided, or the event
+        must be marked as online. Both cannot be left empty or unchecked.
+      visitscotland:event-location-validator#exception: An unknown error occurred
+        while attempting to validate the location and venue, if this issue persists
+        please contact an administrator.
+      visitscotland:event-location-region-validator: A venue, region or event must
+        be present.
+      visitscotland:event-location-region-validator#exception: An unknown error occurred
+        while attempting to validate the location, region or venue. If this issue
+        persists please contact an administrator.
