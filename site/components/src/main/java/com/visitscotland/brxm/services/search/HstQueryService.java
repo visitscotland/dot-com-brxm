@@ -47,15 +47,9 @@ public class HstQueryService {
             // execute the query
             return hstQuery.execute();
 
-        } catch (QueryException e) {
+        } catch (QueryException | RepositoryException e) {
             throw new HstComponentException (
                     "Exception occurred during creation or execution of HstQuery.", e);
-        } catch (LoginException e) {
-            throw new RuntimeException(e);
-        } catch (PathNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (RepositoryException e) {
-            throw new RuntimeException(e);
         }
     }
 
