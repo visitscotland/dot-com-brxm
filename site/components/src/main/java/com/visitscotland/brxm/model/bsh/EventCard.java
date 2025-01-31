@@ -8,7 +8,7 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 public class EventCard extends Module<EventBSH> {
 
     private String title;
-    private HippoHtml summary;
+    private String summary;
     private String dates;
     private String times;
     private String price;
@@ -23,7 +23,7 @@ public class EventCard extends Module<EventBSH> {
 
     public EventCard(EventBSH document) {
         this.title = document.getTitle();
-        this.summary = document.getSummary();
+        this.summary = document.getSummary().getContent();
     }
 
     public String getTitle() {
@@ -34,11 +34,11 @@ public class EventCard extends Module<EventBSH> {
         this.title = title;
     }
 
-    public HippoHtml getSummary() {
+    public String getSummary() {
         return summary;
     }
 
-    public void setSummary(HippoHtml summary) {
+    public void setSummary(String summary) {
         this.summary = summary;
     }
 
