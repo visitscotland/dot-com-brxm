@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:users/bsh-author:
+      jcr:primaryType: hipposys:user
+      hipposys:active: true
+      hipposys:firstname: Author
+      hipposys:lastname: Business Support Hub
+      hipposys:password:
+        .meta:category: system
+        value: bsh-author
+      hipposys:passwordlastmodified:
+        .meta:category: system
+      hipposys:previouspasswords:
+        .meta:category: system
+      hipposys:securityprovider: internal
