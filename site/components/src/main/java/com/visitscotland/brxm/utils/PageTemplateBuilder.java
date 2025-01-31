@@ -2,6 +2,7 @@ package com.visitscotland.brxm.utils;
 
 import com.visitscotland.brxm.components.content.GeneralContentComponent;
 import com.visitscotland.brxm.factory.*;
+import com.visitscotland.brxm.factory.event.EventsListingFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;

@@ -8,5 +8,12 @@ import java.util.List;
 
 public class EventsLingsModule extends Module<EventsListing> {
 
-    private final List<EventsListingTab> eventsListings = new ArrayList<>();
+    private List<EventsListingTab> eventsListings;
+
+    public void addTab(EventsListingTab eventsListingTab) {
+        if (eventsListingTab == null) {
+            eventsListings = new ArrayList<>();
+        }
+        eventsListings.add(eventsListingTab);
+    }
 }
