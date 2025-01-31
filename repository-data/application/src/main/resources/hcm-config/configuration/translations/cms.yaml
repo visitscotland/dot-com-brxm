@@ -57,6 +57,7 @@ definitions:
       visitscotland:link-validator#personalisation: You can’t link to that type of
         document. Choose a megalink module.
       visitscotland:link-validator#assets: Only internal assets are allowed
+      visitscotland:link-validator: Only internal assets are allowed
       visitscotland:map-module-validator: Either Title or Map Main Tab Title must
         be populated.
       visitscotland:map-module-validator#bespokeMap: You can't select Map Category
