@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 8f15e813-2799-4301-b3ed-648814215ec6
+          jcr:uuid: 9b25ac51-9d57-4377-9024-3bd08e09029b
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:SharedLink', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -102,7 +102,7 @@ definitions:
           visitscotland:source: ''
           visitscotland:title: ''
           visitscotland:teaser: ''
-          jcr:uuid: d042c0b9-a99f-4210-805b-de05da54919a
+          jcr:uuid: f141b648-546d-4ef2-8691-0fd151f020b1
           hippostdpubwf:lastModificationDate: 2024-09-24T14:11:39.340+01:00
           hippostdpubwf:creationDate: 2024-09-24T14:11:39.340+01:00
           visitscotland:sectors: []
@@ -180,7 +180,7 @@ definitions:
           /linkTypes:
             jcr:primaryType: frontend:plugin
             caption: Link
-            compoundList: visitscotland:ExternalLink,visitscotland:FileLink
+            compoundList: visitscotland:Asset,visitscotland:ExternalLink,visitscotland:FileLink
             contentPickerType: links
             field: linkTypes
             hint: ''
