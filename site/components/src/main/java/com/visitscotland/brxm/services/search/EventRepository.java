@@ -16,12 +16,12 @@ import java.util.ArrayList;
 public class EventRepository extends BaseHstComponent {
 
     private final HstQueryService hstQueryService;
+    private final EventCardFactory eventCardFactory;
 
-    public EventRepository(HstQueryService hstQueryService) {
+    public EventRepository(HstQueryService hstQueryService, EventCardFactory eventCardFactory) {
         this.hstQueryService = hstQueryService;
+        this.eventCardFactory = eventCardFactory;
     }
-
-    public EventCardFactory eventCardFactory;
 
     public PaginatedResult<EventCard> findAllTrainingEvents() {
         HstQueryResult query = hstQueryService.query(TrainingEventBSH.class);
