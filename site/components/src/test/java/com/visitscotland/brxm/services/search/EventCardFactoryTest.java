@@ -1,9 +1,7 @@
 package com.visitscotland.brxm.services.search;
 
+import com.visitscotland.brxm.event.PriceFormatter;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.model.bsh.EventCard;
-import com.visitscotland.brxm.hippobeans.EventBSH;
-import com.visitscotland.brxm.hippobeans.Price;
 
 import com.visitscotland.brxm.utils.ContentLogger;
 import org.junit.jupiter.api.*;
@@ -14,80 +12,19 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Locale;
-
-import static org.mockito.Mockito.*;
-
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @ExtendWith(MockitoExtension.class)
 public class EventCardFactoryTest {
     @Mock private ResourceBundleService resourceBundleService;
     @Mock private ContentLogger contentLogger;
-
-    //TODO These shouldn't be general Mocks
-    @Mock(answer = Answers.RETURNS_DEEP_STUBS)
-    private EventBSH document;
-    @Mock private Price price;
+    @Mock private PriceFormatter priceFormatter;
 
     @InjectMocks
     private EventCardFactory eventCardFactory;
 
-    //TODO this should go at the top on the class
-    private static final String ISO_4217_UK_CURRENCY_CODE = "GBP";
-
-    //TODO This is not required if you inject mocks
-//    @BeforeEach
-//    void setUp() {
-//
-//        lenient().when(document.getSummary().getContent()).thenReturn("<p> Sample summary </p>");
-//    }
-
-    @Test
-    void formatPrice_ValidPriceNoVat_ExpectedFormat() {
-        final String expected = "10.00 GBP";
-
-        when(document.getPrice()).thenReturn(price);
-        when(price.getPrice()).thenReturn(10.00D);
-        when(price.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
-
-        final EventCard result = eventCardFactory.createEventCard(document);
-
-        Assertions.assertEquals(expected, result.getPrice());
-
-        verify(document, times(1)).getPrice();
-        verify(price, times(1)).getPrice();
-        verify(price, times(1)).getCurrency();
-    }
-
-    @Test
-    void formatPrice_ValidPriceWithVat_ExpectedFormat() {
-        final String vatLabel = "+VAT";
-        final String expected = "10.00 GBP " + vatLabel;
-
-        when(document.getPrice()).thenReturn(price);
-        when(price.getPrice()).thenReturn(10.00D);
-        when(price.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
-        when(price.getVat()).thenReturn(true);
-        when(resourceBundleService.getResourceBundle("event-listings", "vat", Locale.UK))
-            .thenReturn(vatLabel);
-
-        final EventCard result = eventCardFactory.createEventCard(document);
-
-        Assertions.assertEquals(expected, result.getPrice());
-
-        verify(resourceBundleService, times(1))
-            .getResourceBundle(anyString(), anyString(), any(Locale.class));
-    }
-
-    @Test
-    void formatPrice_PriceNull_ExpectNull() {
-        when(document.getPrice()).thenReturn(null);
-        final EventCard result = eventCardFactory.createEventCard(document);
-
-        Assertions.assertNull(result.getPrice());
-
-        verify(document, times(1)).getPrice();
-        verify(price, never()).getCurrency();
+    @BeforeEach
+    void setUp() {
+        this.eventCardFactory = new EventCardFactory(resourceBundleService, priceFormatter, contentLogger);
     }
 
     @Test
@@ -148,5 +85,4 @@ public class EventCardFactoryTest {
     void formatDates_sameDates(){
 
     }
-
 }

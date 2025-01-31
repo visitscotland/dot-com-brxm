@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.services.search;
 
+import com.visitscotland.brxm.event.PriceFormatter;
 import com.visitscotland.brxm.hippobeans.EventBSH;
-import com.visitscotland.brxm.hippobeans.Price;
 import com.visitscotland.brxm.hippobeans.TravelTradeEventBSH;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
@@ -12,12 +12,9 @@ import com.visitscotland.utils.Contract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
-import java.util.Objects;
 
 @Component
 public class EventCardFactory {
@@ -28,11 +25,15 @@ public class EventCardFactory {
     private static final Locale LOCALE = Locale.UK;
 
     private final ResourceBundleService bundle;
+    private final PriceFormatter priceFormatter;
     private final ContentLogger contentLogger;
 
     @Autowired
-    public EventCardFactory (ResourceBundleService bundle, ContentLogger contentLogger) {
+    public EventCardFactory (ResourceBundleService bundle,
+                             PriceFormatter priceFormatter,
+                             ContentLogger contentLogger) {
         this.bundle = bundle;
+        this.priceFormatter = priceFormatter;
         this.contentLogger = contentLogger;
     }
 
@@ -43,7 +44,7 @@ public class EventCardFactory {
         card.setTimes(formatTimes(document));
         card.setLocation(formatLocation(document, card));
         card.setOrganizer(valueOrNull(card.getOrganizer()));
-        card.setPrice(formatPrice(document));
+        card.setPrice(priceFormatter.format(document.getPrice()));
         card.setCta(formatCTA(document));
 
         if (document instanceof TravelTradeEventBSH) {
@@ -139,26 +140,5 @@ public class EventCardFactory {
         }
 
         return location;
-    }
-
-    private String formatPrice(final EventBSH document) {
-        final Price price = document.getPrice();
-        if (Objects.isNull(price)) {
-            return null;
-        }
-        final String currency = price.getCurrency();
-        final BigDecimal amount = BigDecimal.valueOf(price.getPrice())
-            .setScale(2, RoundingMode.UNNECESSARY);
-
-        if (price.getVat()) {
-            return formatPriceWithVat(amount, currency);
-        }
-
-        return amount + " " + currency;
-    }
-
-    private String formatPriceWithVat(BigDecimal amount, String currency) {
-        final String vatLabel = bundle.getResourceBundle(BUNDLE_FILE, "price.vat", Locale.UK);
-        return amount + " " + currency + " " + vatLabel;
     }
 }
