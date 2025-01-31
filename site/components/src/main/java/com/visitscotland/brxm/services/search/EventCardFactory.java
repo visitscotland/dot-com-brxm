@@ -143,12 +143,14 @@ public class EventCardFactory {
 
     private String formatPrice(final EventBSH document) {
         final Price price = document.getPrice();
-        if(Objects.isNull(price)) return null;
+        if (Objects.isNull(price)) {
+            return null;
+        }
         final String currency = price.getCurrency();
         final BigDecimal amount = BigDecimal.valueOf(price.getPrice())
             .setScale(2, RoundingMode.UNNECESSARY);
 
-        if(price.getVat()) {
+        if (price.getVat()) {
             return formatPriceWithVat(amount, currency);
         }
 
@@ -156,7 +158,7 @@ public class EventCardFactory {
     }
 
     private String formatPriceWithVat(BigDecimal amount, String currency) {
-        final String vatLabel = bundle.getResourceBundle("event-listings", "vat", Locale.UK);
+        final String vatLabel = bundle.getResourceBundle(BUNDLE_FILE, "price.vat", Locale.UK);
         return amount + " " + currency + " " + vatLabel;
     }
 }
