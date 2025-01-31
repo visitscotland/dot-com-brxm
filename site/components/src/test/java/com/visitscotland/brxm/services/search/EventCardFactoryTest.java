@@ -11,13 +11,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.Mockito.when;
+import java.util.Locale;
+
+import static org.mockito.Mockito.*;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @ExtendWith(MockitoExtension.class)
 public class EventCardFactoryTest {
     @Mock private ResourceBundleService resourceBundleService;
-    @Mock private EventBSH eventBSH;
+    @Mock private EventBSH document;
     @Mock private Price price;
 
     private EventCardFactory eventCardFactory;
@@ -33,13 +35,48 @@ public class EventCardFactoryTest {
     void formatPrice_ValidPriceNoVat_ExpectedFormat() {
         final String expected = "10.00 GBP";
 
-        when(eventBSH.getPrice()).thenReturn(price);
+        when(document.getPrice()).thenReturn(price);
         when(price.getPrice()).thenReturn(10.00D);
         when(price.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
 
-        final EventCard result = eventCardFactory.createEventCard(eventBSH);
+        final EventCard result = eventCardFactory.createEventCard(document);
 
         Assertions.assertEquals(expected, result.getPrice());
+
+        verify(document, times(1)).getPrice();
+        verify(price, times(1)).getPrice();
+        verify(price, times(1)).getCurrency();
+    }
+
+    @Test
+    void formatPrice_ValidPriceWithVat_ExpectedFormat() {
+        final String vatLabel = "+VAT";
+        final String expected = "10.00 GBP " + vatLabel;
+
+        when(document.getPrice()).thenReturn(price);
+        when(price.getPrice()).thenReturn(10.00D);
+        when(price.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
+        when(price.getVat()).thenReturn(true);
+        when(resourceBundleService.getResourceBundle("event-listings", "vat", Locale.UK))
+            .thenReturn(vatLabel);
+
+        final EventCard result = eventCardFactory.createEventCard(document);
+
+        Assertions.assertEquals(expected, result.getPrice());
+
+        verify(resourceBundleService, times(1))
+            .getResourceBundle(anyString(), anyString(), any(Locale.class));
+    }
+
+    @Test
+    void formatPrice_PriceNull_ExpectNull() {
+        when(document.getPrice()).thenReturn(null);
+        final EventCard result = eventCardFactory.createEventCard(document);
+
+        Assertions.assertNull(result.getPrice());
+
+        verify(document, times(1)).getPrice();
+        verify(price, never()).getCurrency();
     }
 
     @Test
