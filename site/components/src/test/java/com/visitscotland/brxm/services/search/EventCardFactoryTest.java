@@ -5,9 +5,12 @@ import com.visitscotland.brxm.model.bsh.EventCard;
 import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.hippobeans.Price;
 
+import com.visitscotland.brxm.utils.ContentLogger;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import org.mockito.Answers;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -19,17 +22,25 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class EventCardFactoryTest {
     @Mock private ResourceBundleService resourceBundleService;
-    @Mock private EventBSH document;
+    @Mock private ContentLogger contentLogger;
+
+    //TODO These shouldn't be general Mocks
+    @Mock(answer = Answers.RETURNS_DEEP_STUBS)
+    private EventBSH document;
     @Mock private Price price;
 
+    @InjectMocks
     private EventCardFactory eventCardFactory;
 
+    //TODO this should go at the top on the class
     private static final String ISO_4217_UK_CURRENCY_CODE = "GBP";
 
-    @BeforeEach
-    void setUp() {
-        this.eventCardFactory = new EventCardFactory(resourceBundleService);
-    }
+    //TODO This is not required if you inject mocks
+//    @BeforeEach
+//    void setUp() {
+//
+//        lenient().when(document.getSummary().getContent()).thenReturn("<p> Sample summary </p>");
+//    }
 
     @Test
     void formatPrice_ValidPriceNoVat_ExpectedFormat() {
