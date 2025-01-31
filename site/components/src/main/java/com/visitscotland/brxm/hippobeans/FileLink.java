@@ -10,16 +10,8 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 @Node(jcrType = "visitscotland:FileLink")
 public class FileLink extends HippoCompound implements UrlLink {
 
-    public static final String LINK = "visitscotland:link";
-    public static final String ASSET = "visitscotland:asset";
-
     @HippoEssentialsGenerated(internalName = "visitscotland:link")
     public String getLink() {
         return getSingleProperty("visitscotland:link");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:asset")
-    public HippoBean getAsset() {
-        return getLinkedBean("visitscotland:asset", HippoBean.class);
     }
 }

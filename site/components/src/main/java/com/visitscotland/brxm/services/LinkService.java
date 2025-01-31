@@ -261,7 +261,9 @@ public class LinkService {
         } else if (link instanceof Video) {
             url = ((Video) link).getUrl();
         } else if (link instanceof FileLink) {
-            url = createLink((FileLink) link);
+            url = ((FileLink) link).getLink();
+        } else if (link instanceof Asset) {
+            url = createAsset((Asset) link);
         } else if (link instanceof UrlLink) {
             url = ((UrlLink) link).getLink();
         } else {
@@ -271,16 +273,13 @@ public class LinkService {
         return processURL(locale, url);
     }
 
-    private String createLink(FileLink link) {
-        if (Contract.isEmpty(link.getLink())){
-            final boolean FULLY_QUALIFIED = false;
-            HstRequestContext requestContext = RequestContextProvider.get();
-            HstLink hstLink = requestContext.getHstLinkCreator().create(link.getAsset().getNode(), requestContext);
-            return hstLink.toUrlForm(requestContext, FULLY_QUALIFIED);
-        } else {
-            return  link.getLink();
-        }
+    private String createAsset(Asset asset){
+        final boolean FULLY_QUALIFIED = false;
+        HstRequestContext requestContext = RequestContextProvider.get();
+        HstLink hstLink = requestContext.getHstLinkCreator().create(asset.getAsset().getNode(), requestContext);
+        return hstLink.toUrlForm(requestContext, FULLY_QUALIFIED);
     }
+
     /**
      * Analyzes the URL and identifies what type of link it is.
      *
