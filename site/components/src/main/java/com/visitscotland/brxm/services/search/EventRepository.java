@@ -22,6 +22,9 @@ public class EventRepository extends BaseHstComponent {
         this.hstQueryService = hstQueryService;
     }
 
+    @Autowired
+    public EventCardFactory eventCardFactory;
+
     public PaginatedResult<EventCard> findAllTrainingEvents() {
         HstQueryResult query = hstQueryService.query(TrainingEventBSH.class);
 
@@ -33,7 +36,7 @@ public class EventRepository extends BaseHstComponent {
 
         while (i.hasNext()){
             EventBSH event = (EventBSH) i.nextHippoBean();
-            page.getResults().add(new EventCard(event));
+            page.getResults().add(eventCardFactory.createEventCard(event));
         }
 
         return page;
