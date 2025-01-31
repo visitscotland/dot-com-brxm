@@ -11,9 +11,14 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 @Component
 public class EventCardFactory {
+
+    private static final SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd MMM");
+    private static final SimpleDateFormat fullDateFormat = new SimpleDateFormat("dd MMM, yyyy");
 
     private final ResourceBundleService bundle;
 
@@ -25,7 +30,7 @@ public class EventCardFactory {
     public EventCard createEventCard(EventBSH document) {
         EventCard card = new EventCard(document);
 
-        card.setDates(formatDates(document));
+        card.setDates(formatDates(document, card));
         card.setTimes(formatTimes(document));
         card.setLocation(formatLocation(document, card));
         card.setPrice(formatPrice(document));
@@ -33,11 +38,27 @@ public class EventCardFactory {
         return card;
     }
 
-    private String formatDates(EventBSH document){
-        if (document.getStartDate() != null){
-
+    private String formatDates(EventBSH document, EventCard card){
+        if (document.getStartDate() == null){
+            //TODO content logger
+            card.addErrorMessage("The start date of this event is not valid");
+            return null;
         }
-        return "";
+
+        if (document.getEndDate() == null || document.getStartDate().equals(document.getEndDate())) {
+            return fullDateFormat.format(document.getStartDate().getTime());
+        } else {
+            String toDate = fullDateFormat.format(document.getEndDate().getTime());
+            String fromDate;
+            if (document.getStartDate().get(Calendar.YEAR) != document.getEndDate().get(Calendar.YEAR)) {
+                fromDate = fullDateFormat.format(document.getStartDate().getTime());
+            } else if (document.getStartDate().get(Calendar.MONTH) != document.getEndDate().get(Calendar.MONTH)) {
+                fromDate = dayMonthFormat.format(document.getStartDate().getTime());
+            } else {
+                fromDate = String.format("%02d", document.getStartDate().get(Calendar.DAY_OF_MONTH));
+            }
+            return fromDate + " - " + toDate;
+        }
     }
 
     private String formatTimes(EventBSH document) {
@@ -88,6 +109,7 @@ public class EventCardFactory {
         final BigDecimal price = BigDecimal
                 .valueOf(document.getPrice().getPrice());
 
+        //TODO: Review the use of String.format
         return String.format(
             "%s %s",
             price.setScale(2, RoundingMode.UNNECESSARY),

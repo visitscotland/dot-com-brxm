@@ -71,4 +71,34 @@ public class EventCardFactoryTest {
 
     }
 
+    @Test
+    @DisplayName("Date - No start Date provided")
+    void formatDates_noStartDate(){
+
+    }
+
+    @Test
+    @DisplayName("Date - No end Date provided")
+    void formatDates_noEndDate(){
+
+    }
+
+    @Test
+    @DisplayName("Date - Same year")
+    void formatDates_sameYear(){
+
+    }
+
+    @Test
+    @DisplayName("Date - Same month")
+    void formatDates_sameMonth(){
+
+    }
+
+    @Test
+    @DisplayName("Date - Same start and end date")
+    void formatDates_sameDates(){
+
+    }
+
 }
