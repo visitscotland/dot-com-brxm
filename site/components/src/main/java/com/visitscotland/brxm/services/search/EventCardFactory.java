@@ -2,9 +2,11 @@ package com.visitscotland.brxm.services.search;
 
 import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.hippobeans.TravelTradeEventBSH;
-import com.visitscotland.brxm.hippobeans.capabilities.RegionalEvent;
+import com.visitscotland.brxm.model.FlatLink;
+import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.bsh.EventCard;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,18 +15,23 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 @Component
 public class EventCardFactory {
 
+    private static final String BUNDLE_FILE = "events-listings";
     private static final SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd MMM");
     private static final SimpleDateFormat fullDateFormat = new SimpleDateFormat("dd MMM, yyyy");
+    private static final Locale LOCALE = Locale.UK;
 
     private final ResourceBundleService bundle;
+    private final ContentLogger contentLogger;
 
     @Autowired
-    public EventCardFactory (ResourceBundleService bundle) {
+    public EventCardFactory (ResourceBundleService bundle, ContentLogger contentLogger) {
         this.bundle = bundle;
+        this.contentLogger = contentLogger;
     }
 
     public EventCard createEventCard(EventBSH document) {
@@ -33,14 +40,39 @@ public class EventCardFactory {
         card.setDates(formatDates(document, card));
         card.setTimes(formatTimes(document));
         card.setLocation(formatLocation(document, card));
+        card.setOrganizer(valueOrNull(card.getOrganizer()));
         card.setPrice(formatPrice(document));
+        card.setCta(formatCTA(document));
+
+        if (document instanceof TravelTradeEventBSH) {
+            setTravelTradeFields((TravelTradeEventBSH) document, card);
+        }
 
         return card;
     }
 
+    private String valueOrNull(String value) {
+        return Contract.isEmpty(value) ? null : value;
+    }
+
+    private FlatLink formatCTA(EventBSH document){
+        FlatLink link = new FlatLink();
+
+        link.setLabel(bundle.getCtaLabel(document.getCtaLink().getLabel(), LOCALE));
+        link.setLink(document.getCtaLink().getLink());
+        link.setType(LinkType.EXTERNAL);
+
+        return link;
+    }
+
+    private void setTravelTradeFields(TravelTradeEventBSH document, EventCard card) {
+        card.setContact(document.getContentType());
+        card.setRegistrationDeadline(fullDateFormat.format(document.getDeadline()));
+    }
+
     private String formatDates(EventBSH document, EventCard card){
         if (document.getStartDate() == null){
-            //TODO content logger
+            contentLogger.error("The start Date of {} is not valid", document.getPath());
             card.addErrorMessage("The start date of this event is not valid");
             return null;
         }
@@ -79,7 +111,7 @@ public class EventCardFactory {
         }
 
         // TODO: Create labels
-        return (times == null) ? "To be confirmed" :  times;
+        return (times == null) ? bundle.getResourceBundle(BUNDLE_FILE, "time.empty", LOCALE) :  times;
     }
 
     private String formatLocation(EventBSH document, EventCard card) {
@@ -87,18 +119,21 @@ public class EventCardFactory {
 
         if (!Contract.isEmpty(document.getVenue())){
             location = document.getVenue();
-        } else if (document.getOnline()){
-            // TODO: label
-            location = "Online";
+        }
 
-        } else if (document instanceof RegionalEvent) {
-            location = ((RegionalEvent) document).getRegion();
+        if (document.getOnline()){
+            String online = bundle.getResourceBundle(BUNDLE_FILE, "location.online", LOCALE);
+
+            if (location == null) {
+                location = online;
+            } else {
+                location += " " + bundle.getResourceBundle(BUNDLE_FILE, "location.separator", LOCALE) + " " + online;
+            }
         }
 
         if (location == null) {
             card.addErrorMessage("The location of this event is not valid");
-            //TODO Content logger;
-//            contentLogger.warn("The location for the event {} is not valid", document.getPath());
+            contentLogger.warn("The location for the event {} is not valid", document.getPath());
         }
 
         return location;
