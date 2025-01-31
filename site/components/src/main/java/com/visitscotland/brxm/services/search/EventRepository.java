@@ -17,12 +17,10 @@ public class EventRepository extends BaseHstComponent {
 
     private final HstQueryService hstQueryService;
 
-    @Autowired
     public EventRepository(HstQueryService hstQueryService) {
         this.hstQueryService = hstQueryService;
     }
 
-    @Autowired
     public EventCardFactory eventCardFactory;
 
     public PaginatedResult<EventCard> findAllTrainingEvents() {

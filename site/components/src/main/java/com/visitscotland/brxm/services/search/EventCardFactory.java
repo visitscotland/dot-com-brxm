@@ -28,7 +28,6 @@ public class EventCardFactory {
     private final PriceFormatter priceFormatter;
     private final ContentLogger contentLogger;
 
-    @Autowired
     public EventCardFactory (ResourceBundleService bundle,
                              PriceFormatter priceFormatter,
                              ContentLogger contentLogger) {
