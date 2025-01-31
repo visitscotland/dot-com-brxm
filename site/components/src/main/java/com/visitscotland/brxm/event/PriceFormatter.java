@@ -30,13 +30,13 @@ public class PriceFormatter {
         final BigDecimal amount = BigDecimal.valueOf(price.getPrice())
             .setScale(2, RoundingMode.UNNECESSARY);
 
-        if (price.getVat()) {
+        if (amount.compareTo(BigDecimal.ZERO) == 0){
+            return resourceBundleService.getResourceBundle(EVENTS_RESOURCE_BUNDLE_KEY, "price.free", Locale.UK);
+        } else if (price.getVat()) {
             return formatPriceWithVat(amount, currency);
+        } else {
+            return amount + " " + currency;
         }
-
-        return amount.compareTo(BigDecimal.ZERO) == 0
-            ? resourceBundleService.getResourceBundle(EVENTS_RESOURCE_BUNDLE_KEY, "price.free", Locale.UK)
-            : amount + " " + currency;
     }
 
     private String formatPriceWithVat(BigDecimal amount, String currency) {
