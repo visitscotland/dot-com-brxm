@@ -13,20 +13,21 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-01-27T10:47:54.679Z
+    hippostdpubwf:lastModificationDate: 2025-01-31T12:40:50.593Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: events-listings
     resourcebundle:keys: [results, free, from, to, filter, clear-all, sort-by, time,
-      price, location, contact, organiser, cta-link, check-website, online, deadline,
-      national, international, vat, training-topic, sort.date, sort.price.asc, sort.price.dec,
-      sort.registration, in-person, sector, region, event-type]
+      price, location, contact, organiser, cta-link, check-website, deadline, national,
+      international, vat, training-topic, sort.date, sort.price.asc, sort.price.dec,
+      sort.registration, in-person, sector, region, event-type, location.separator,
+      location.online, time.empty]
     resourcebundle:messages: [Results, Free, From, To, Filter, Clear all, Sort by,
       Time, Price, Location, Contact, Organiser, Find out more, See organiser’s website,
-      Online, Registration deadline, National, International, +VAT, Training topic,
-      Date, Price ascending, Price descending, Register by date, In-person, Sector,
-      Region, Event type]
+      Registration deadline, National, International, +VAT, Training topic, Date,
+      Price ascending, Price descending, Register by date, In-person, Sector, Region,
+      Event type, and, Online, See organiser’s website]
   /events-listings[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -36,20 +37,21 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-01-27T10:48:20.004Z
+    hippostdpubwf:lastModificationDate: 2025-01-31T12:49:17.553Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: events-listings
     resourcebundle:keys: [results, free, from, to, filter, clear-all, sort-by, time,
-      price, location, contact, organiser, cta-link, check-website, online, deadline,
-      national, international, vat, training-topic, sort.date, sort.price.asc, sort.price.dec,
-      sort.registration, in-person, sector, region, event-type]
+      price, location, contact, organiser, cta-link, check-website, deadline, national,
+      international, vat, training-topic, sort.date, sort.price.asc, sort.price.dec,
+      sort.registration, in-person, sector, region, event-type, location.separator,
+      location.online, time.empty]
     resourcebundle:messages: [Results, Free, From, To, Filter, Clear all, Sort by,
       Time, Price, Location, Contact, Organiser, Find out more, See organiser’s website,
-      Online, Registration deadline, National, International, +VAT, Training topic,
-      Date, Price ascending, Price descending, Register by date, In-person, Sector,
-      Region, Event type]
+      Registration deadline, National, International, +VAT, Training topic, Date,
+      Price ascending, Price descending, Register by date, In-person, Sector, Region,
+      Event type, and, Online, See organiser’s website]
   /events-listings[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
