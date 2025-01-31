@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.services.search;
 
 import com.visitscotland.brxm.hippobeans.EventBSH;
+import com.visitscotland.brxm.hippobeans.Price;
 import com.visitscotland.brxm.hippobeans.TravelTradeEventBSH;
 import com.visitscotland.brxm.hippobeans.capabilities.RegionalEvent;
 import com.visitscotland.brxm.model.bsh.EventCard;
@@ -13,6 +14,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
+import java.util.Objects;
 
 @Component
 public class EventCardFactory {
@@ -104,16 +107,22 @@ public class EventCardFactory {
         return location;
     }
 
-    // TDD - Phase 1 - REFACTOR tomorrow proceed
     private String formatPrice(final EventBSH document) {
-        final BigDecimal price = BigDecimal
-                .valueOf(document.getPrice().getPrice());
+        final Price price = document.getPrice();
+        if(Objects.isNull(price)) return null;
+        final String currency = price.getCurrency();
+        final BigDecimal amount = BigDecimal.valueOf(price.getPrice())
+            .setScale(2, RoundingMode.UNNECESSARY);
 
-        //TODO: Review the use of String.format
-        return String.format(
-            "%s %s",
-            price.setScale(2, RoundingMode.UNNECESSARY),
-            document.getPrice().getCurrency()
-        );
+        if(price.getVat()) {
+            return formatPriceWithVat(amount, currency);
+        }
+
+        return amount + " " + currency;
+    }
+
+    private String formatPriceWithVat(BigDecimal amount, String currency) {
+        final String vatLabel = bundle.getResourceBundle("event-listings", "vat", Locale.UK);
+        return amount + " " + currency + " " + vatLabel;
     }
 }
