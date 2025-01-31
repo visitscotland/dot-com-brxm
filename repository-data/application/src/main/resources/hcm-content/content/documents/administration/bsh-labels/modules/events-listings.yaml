@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 0941970c-7b24-40a0-9e25-9d4a61a483ca
   hippo:name: Events Listings
-  hippo:versionHistory: 3ec6b0d3-9a89-465d-9929-599c0cfab63a
+  hippo:versionHistory: 3f27fc42-2c5b-465a-b448-7f24f555cac2
   /events-listings[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,21 +13,21 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-01-31T12:58:26.415Z
+    hippostdpubwf:lastModificationDate: 2025-01-31T14:29:37.772Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: events-listings
-    resourcebundle:keys: [results, free, from, to, filter, clear-all, sort-by, time,
-      price, location, contact, organiser, cta-link, check-website, deadline, national,
-      international, training-topic, sort.date, sort.price.asc, sort.price.dec, sort.registration,
-      in-person, sector, region, event-type, location.separator, location.online,
-      time.empty, price.vat]
-    resourcebundle:messages: [Results, Free, From, To, Filter, Clear all, Sort by,
-      Time, Price, Location, Contact, Organiser, Find out more, See organiser’s website,
-      Registration deadline, National, International, Training topic, Date, Price
-        ascending, Price descending, Register by date, In-person, Sector, Region,
-      Event type, and, Online, See organiser’s website, +VAT]
+    resourcebundle:keys: [results, from, to, filter, clear-all, sort-by, time, price,
+      location, contact, organiser, cta-link, deadline, national, international, training-topic,
+      sort.date, sort.price.asc, sort.price.dec, sort.registration, in-person, sector,
+      region, event-type, location.separator, location.online, time.empty, price.vat,
+      price.free]
+    resourcebundle:messages: [Results, From, To, Filter, Clear all, Sort by, Time,
+      Price, Location, Contact, Organiser, Find out more, Registration deadline, National,
+      International, Training topic, Date, Price ascending, Price descending, Register
+        by date, In-person, Sector, Region, Event type, and, Online, To be confirmed,
+      +VAT, Free]
   /events-listings[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -37,21 +37,21 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-01-31T12:59:40.700Z
+    hippostdpubwf:lastModificationDate: 2025-01-31T14:32:19.735Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: events-listings
-    resourcebundle:keys: [results, free, from, to, filter, clear-all, sort-by, time,
-      price, location, contact, organiser, cta-link, check-website, deadline, national,
-      international, training-topic, sort.date, sort.price.asc, sort.price.dec, sort.registration,
-      in-person, sector, region, event-type, location.separator, location.online,
-      time.empty, price.vat]
-    resourcebundle:messages: [Results, Free, From, To, Filter, Clear all, Sort by,
-      Time, Price, Location, Contact, Organiser, Find out more, See organiser’s website,
-      Registration deadline, National, International, Training topic, Date, Price
-        ascending, Price descending, Register by date, In-person, Sector, Region,
-      Event type, and, Online, See organiser’s website, +VAT]
+    resourcebundle:keys: [results, from, to, filter, clear-all, sort-by, time, price,
+      location, contact, organiser, cta-link, deadline, national, international, training-topic,
+      sort.date, sort.price.asc, sort.price.dec, sort.registration, in-person, sector,
+      region, event-type, location.separator, location.online, time.empty, price.vat,
+      price.free]
+    resourcebundle:messages: [Results, From, To, Filter, Clear all, Sort by, Time,
+      Price, Location, Contact, Organiser, Find out more, Registration deadline, National,
+      International, Training topic, Date, Price ascending, Price descending, Register
+        by date, In-person, Sector, Region, Event type, and, Online, To be confirmed,
+      +VAT, Free]
   /events-listings[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -61,18 +61,19 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-01-27T10:48:20.004Z
+    hippostdpubwf:lastModificationDate: 2025-01-31T14:32:19.735Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-01-27T10:48:24.775Z
+    hippostdpubwf:publicationDate: 2025-01-31T14:32:25.019Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: events-listings
-    resourcebundle:keys: [results, free, from, to, filter, clear-all, sort-by, time,
-      price, location, contact, organiser, cta-link, check-website, online, deadline,
-      national, international, vat, training-topic, sort.date, sort.price.asc, sort.price.dec,
-      sort.registration, in-person, sector, region, event-type]
-    resourcebundle:messages: [Results, Free, From, To, Filter, Clear all, Sort by,
-      Time, Price, Location, Contact, Organiser, Find out more, See organiser’s website,
-      Online, Registration deadline, National, International, +VAT, Training topic,
-      Date, Price ascending, Price descending, Register by date, In-person, Sector,
-      Region, Event type]
+    resourcebundle:keys: [results, from, to, filter, clear-all, sort-by, time, price,
+      location, contact, organiser, cta-link, deadline, national, international, training-topic,
+      sort.date, sort.price.asc, sort.price.dec, sort.registration, in-person, sector,
+      region, event-type, location.separator, location.online, time.empty, price.vat,
+      price.free]
+    resourcebundle:messages: [Results, From, To, Filter, Clear all, Sort by, Time,
+      Price, Location, Contact, Organiser, Find out more, Registration deadline, National,
+      International, Training topic, Date, Price ascending, Price descending, Register
+        by date, In-person, Sector, Region, Event type, and, Online, To be confirmed,
+      +VAT, Free]
