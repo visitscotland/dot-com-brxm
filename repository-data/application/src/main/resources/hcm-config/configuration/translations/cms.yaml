@@ -87,7 +87,7 @@ definitions:
       time: Format allowed is HH:MM
       timezone: 3 or 4 capital letters allowed.
       visitscotland:event-price-validator: Invalid price, please enter a positive
-        value with exactly 2 decimal places (e.g., 17.99, 0.00 (Free)).
+        value (e.g., 17.99, 0.00 (Free)).
       visitscotland:event-price-validator#exception: An unknown error occurred while
         attempting to validate the price, if this issue persists please contact an
         administrator.
