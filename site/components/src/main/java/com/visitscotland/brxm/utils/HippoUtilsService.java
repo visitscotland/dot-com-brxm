@@ -44,18 +44,10 @@ import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.con
  * Set of utilities related with Hippo that from the whole environment to be running in order to work
  */
 @Component
+//TODO: Move to services
 public class HippoUtilsService {
 
     private static final Logger logger = LoggerFactory.getLogger(HippoUtilsService.class);
-
-    public static final String BUSINESS_EVENTS_SITE = "business-events";
-
-
-    private SiteProperties properties;
-
-    public HippoUtilsService(@Lazy SiteProperties properties){
-        this.properties = properties;
-    }
 
     /**
      * Convert and HstLink or a HippoBean into a URL String
