@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/bsh-gallery:
+    /hippo:configuration/hippo:domains/bsh-assets:
       jcr:primaryType: hipposys:domain
       /admin:
         jcr:primaryType: hipposys:authrole
@@ -29,7 +29,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/gallery/bsh
+          hipposys:value: /content/assets/bsh
       /readwrite:
         jcr:primaryType: hipposys:authrole
         hipposys:groups:
@@ -41,11 +41,11 @@ definitions:
         hipposys:userrole:
           .meta:category: system
           type: string
-          value: vs.gallery.bsh
+          value: vs.assets.bsh
       /bsh-editor:
         jcr:primaryType: hipposys:authrole
         hipposys:role: editor
         hipposys:userrole:
           .meta:category: system
           type: string
-          value: vs.gallery.bsh
+          value: vs.assets.bsh

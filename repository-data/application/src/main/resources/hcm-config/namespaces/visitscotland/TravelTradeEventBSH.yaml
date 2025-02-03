@@ -15,6 +15,7 @@ definitions:
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:EventBSH', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
+          hipposysedit:validators: ['visitscotland:event-location-validator']
           /international:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

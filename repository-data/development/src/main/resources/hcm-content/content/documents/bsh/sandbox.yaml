@@ -168,7 +168,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: ef7a58a0-4d5a-4abd-876a-1ac54408fba4
           hippo:name: 'Social media essentials: Instagram'
-          hippo:versionHistory: 8bdafcd8-2986-4b08-80df-37bdaba1d0e7
+          hippo:versionHistory: 27350162-2b64-4021-8884-9406b3afdd59
           /social-media-essentials-instagram[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -255,7 +255,7 @@
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: bfa771d7-709b-4692-b28f-2a884f96caea
-            hippo:availability: []
+            hippo:availability: [live]
             hippostd:retainable: false
             hippostd:state: published
             hippostdpubwf:createdBy: admin
@@ -298,7 +298,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 57e260b1-9e4d-4978-ac78-3f335a05c861
           hippo:name: Lewis and Harris travel trade workshops
-          hippo:versionHistory: 43115f06-d19a-48b4-b186-c67ea3dd5a59
+          hippo:versionHistory: b67f5268-e514-47cc-9b7c-83f784f94d0f
           /lewis-and-harris-travel-trade-workshops[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -308,11 +308,11 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:26:44.355Z
-            hippostdpubwf:lastModificationDate: 2025-01-31T14:34:22.979Z
+            hippostdpubwf:lastModificationDate: 2025-01-30T16:39:47.129Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 4a782d90-07dc-497a-9c88-644141fe98c1
             hippotranslation:locale: en
-            visitscotland:endDate: 2035-08-30T00:00:00+01:00
+            visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: false
             visitscotland:organiser: ''
@@ -337,7 +337,7 @@
             /visitscotland:price:
               jcr:primaryType: visitscotland:Price
               visitscotland:currency: GBP
-              visitscotland:price: 1234567.0
+              visitscotland:price: 100.0
               visitscotland:vat: true
           /lewis-and-harris-travel-trade-workshops[2]:
             jcr:primaryType: visitscotland:TrainingEventBSH
@@ -348,11 +348,11 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:26:44.355Z
-            hippostdpubwf:lastModificationDate: 2025-01-31T14:36:45.546Z
+            hippostdpubwf:lastModificationDate: 2025-01-30T16:39:52.829Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 4a782d90-07dc-497a-9c88-644141fe98c1
             hippotranslation:locale: en
-            visitscotland:endDate: 2035-08-30T00:00:00+01:00
+            visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: false
             visitscotland:organiser: ''
@@ -377,7 +377,7 @@
             /visitscotland:price:
               jcr:primaryType: visitscotland:Price
               visitscotland:currency: GBP
-              visitscotland:price: 1234567.0
+              visitscotland:price: 100.0
               visitscotland:vat: true
           /lewis-and-harris-travel-trade-workshops[3]:
             jcr:primaryType: visitscotland:TrainingEventBSH
@@ -388,12 +388,12 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:26:44.355Z
-            hippostdpubwf:lastModificationDate: 2025-01-31T14:36:45.546Z
+            hippostdpubwf:lastModificationDate: 2025-01-30T16:39:52.829Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-01-31T14:37:21.849Z
+            hippostdpubwf:publicationDate: 2025-01-30T16:39:56.074Z
             hippotranslation:id: 4a782d90-07dc-497a-9c88-644141fe98c1
             hippotranslation:locale: en
-            visitscotland:endDate: 2035-08-30T00:00:00+01:00
+            visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: false
             visitscotland:organiser: ''
@@ -418,7 +418,7 @@
             /visitscotland:price:
               jcr:primaryType: visitscotland:Price
               visitscotland:currency: GBP
-              visitscotland:price: 1234567.0
+              visitscotland:price: 100.0
               visitscotland:vat: true
         /introduction-to-canva:
           jcr:primaryType: hippo:handle
@@ -18221,199 +18221,6 @@
               jcr:primaryType: visitscotland:FormCompoundCRM
               visitscotland:jsonURL: https://static.visitscotland.com/forms/enquiries/business-support-enquiries.json
               visitscotland:url: https://api.visitscotland.com/test/submit/dp-forms/support/enquiry
-    /events-listing:
-      jcr:primaryType: hippostd:folder
-      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-      jcr:uuid: 971fc850-9c21-44f4-a857-f834fe93f856
-      hippo:name: Events Listing
-      hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
-      hippotranslation:id: ba299f51-7a7e-4e19-812c-5e21f7fccb61
-      hippotranslation:locale: en
-      /content:
-        jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: a3a82b6b-819c-4403-b3f8-53a518adddfa
-        hippo:name: Simple Page for Event Listing
-        hippo:versionHistory: 00fecee4-2efe-41e1-a56a-62e47346cff4
-        /content[1]:
-          jcr:primaryType: visitscotland:GeneralBSH
-          jcr:mixinTypes: ['mix:versionable']
-          jcr:uuid: 7f4289a3-75ff-407e-8725-b48d6ec4136f
-          hippo:availability: [preview]
-          hippostd:retainable: false
-          hippostd:state: unpublished
-          hippostd:transferable: false
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-08-30T16:09:27.057+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 9484f979-a1f5-4a9c-b3a5-74e59be5c1be
-          hippotranslation:locale: en
-          visitscotland:breadcrumb: ''
-          visitscotland:hideNewsletter: false
-          visitscotland:publishDate: 0001-01-01T12:00:00Z
-          visitscotland:readingTime: 0
-          visitscotland:regions: [all.of.scotland]
-          visitscotland:sectors: []
-          visitscotland:seoDescription: This is an example of a page
-          visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Simple Page
-          visitscotland:skill: ''
-          visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
-            nulla nunc, viverra eros.
-          visitscotland:theme: simple
-          visitscotland:title: Simple Page
-          /visitscotland:heroImage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend
-              aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis,
-              sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo
-              rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a
-              ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus
-              purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
-              nisi tempus auctor cras amet.</p>
-        /content[2]:
-          jcr:primaryType: visitscotland:GeneralBSH
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: ccf9a52f-62a8-41a3-8a2b-4979284ad4e6
-          hippo:availability: [live]
-          hippostd:retainable: false
-          hippostd:state: published
-          hippostd:transferable: false
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-08-30T16:09:27.057+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-02-03T11:22:48.143Z
-          hippotranslation:id: 9484f979-a1f5-4a9c-b3a5-74e59be5c1be
-          hippotranslation:locale: en
-          visitscotland:breadcrumb: ''
-          visitscotland:hideNewsletter: false
-          visitscotland:publishDate: 0001-01-01T12:00:00Z
-          visitscotland:readingTime: 0
-          visitscotland:regions: [all.of.scotland]
-          visitscotland:sectors: []
-          visitscotland:seoDescription: This is an example of a page
-          visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Simple Page
-          visitscotland:skill: ''
-          visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
-            nulla nunc, viverra eros.
-          visitscotland:theme: simple
-          visitscotland:title: Simple Page
-          /visitscotland:heroImage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend
-              aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis,
-              sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo
-              rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a
-              ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus
-              purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
-              nisi tempus auctor cras amet.</p>
-      /events-search:
-        jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: cd7afd33-fb48-41e4-ab9c-275744e249e5
-        hippo:name: Events Search
-        hippo:versionHistory: a72ac737-c81c-4b96-a4f1-06e8eec4520b
-        /events-search[1]:
-          jcr:primaryType: visitscotland:EventsListing
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: c19afb55-3bbb-40f5-9f02-c2cf3eb25bb7
-          hippo:availability: []
-          hippostd:retainable: false
-          hippostd:state: draft
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-02-03T11:19:43.762Z
-          hippostdpubwf:lastModificationDate: 2025-02-03T11:19:43.762Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: d9bfcd56-ca47-4438-a9e3-9f10f60f657d
-          hippotranslation:locale: en
-          visitscotland:industryTitle: Industry Events
-          visitscotland:tradeTitle: Travel Trade Events
-          visitscotland:trainingTitle: Training Events
-          /visitscotland:trainingCopy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Develop new skills to improve a grow your business</p>
-          /visitscotland:industryCopy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Gain valuable insight and connect with others in
-              your sector or region</p>
-          /visitscotland:tradeCopy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Engage with and sell your business to travel trade
-              partners and intermediaries</p>
-        /events-search[2]:
-          jcr:primaryType: visitscotland:EventsListing
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: d1354759-c0a6-4429-85ca-1a77c6099c4c
-          hippo:availability: [preview]
-          hippostd:retainable: false
-          hippostd:state: unpublished
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-02-03T11:19:43.762Z
-          hippostdpubwf:lastModificationDate: 2025-02-03T11:22:38.991Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: d9bfcd56-ca47-4438-a9e3-9f10f60f657d
-          hippotranslation:locale: en
-          visitscotland:industryTitle: Industry Events
-          visitscotland:tradeTitle: Travel Trade Events
-          visitscotland:trainingTitle: Training Events
-          /visitscotland:trainingCopy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Develop new skills to improve a grow your business</p>
-          /visitscotland:industryCopy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Gain valuable insight and connect with others in
-              your sector or region</p>
-          /visitscotland:tradeCopy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Engage with and sell your business to travel trade
-              partners and intermediaries</p>
-        /events-search[3]:
-          jcr:primaryType: visitscotland:EventsListing
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: c665d4c8-687b-4b76-b33c-725b80eda778
-          hippo:availability: [live]
-          hippostd:retainable: false
-          hippostd:state: published
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-02-03T11:19:43.762Z
-          hippostdpubwf:lastModificationDate: 2025-02-03T11:22:38.991Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-02-03T11:22:48.570Z
-          hippotranslation:id: d9bfcd56-ca47-4438-a9e3-9f10f60f657d
-          hippotranslation:locale: en
-          visitscotland:industryTitle: Industry Events
-          visitscotland:tradeTitle: Travel Trade Events
-          visitscotland:trainingTitle: Training Events
-          /visitscotland:trainingCopy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Develop new skills to improve a grow your business</p>
-          /visitscotland:industryCopy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Gain valuable insight and connect with others in
-              your sector or region</p>
-          /visitscotland:tradeCopy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Engage with and sell your business to travel trade
-              partners and intermediaries</p>
   /features:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
