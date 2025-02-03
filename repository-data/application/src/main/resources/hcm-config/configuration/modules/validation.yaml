@@ -139,6 +139,3 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:event-location-region-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.EventLocationRegionValidator
-    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:asset-link-validator:
-      jcr:primaryType: hipposys:moduleconfig
-      hipposys:className: com.visitscotland.brxm.validator.AssetLinkValidator
