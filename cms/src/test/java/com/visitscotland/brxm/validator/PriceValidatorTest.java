@@ -29,8 +29,8 @@ import static org.mockito.Mockito.eq;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
-class EventPriceValidatorTest {
-    private static final String PRICE_JCR_PROPERTY_NAME = "visitscotland:price";
+class PriceValidatorTest {
+    private static final String PRICE_JCR_PROPERTY_NAME = "visitscotland:amount";
     private static final String EXCEPTION_TRANSLATION_VARIATION = "exception";
     private static final double NEGATIVE_DOUBLE_VALUE = -17.99D;
     private static final double POSITIVE_DOUBLE_VALUE = 17.99D;
@@ -40,11 +40,11 @@ class EventPriceValidatorTest {
     @Mock private Property property;
     @Mock private ValidationContext validationContext;
 
-    private EventPriceValidator eventPriceValidator;
+    private PriceValidator priceValidator;
 
     @BeforeEach
     void setUp() {
-        this.eventPriceValidator = new EventPriceValidator();
+        this.priceValidator = new PriceValidator();
     }
 
     @ValueSource(doubles = { POSITIVE_DOUBLE_VALUE, ZERO_DOUBLE_VALUE })
@@ -54,7 +54,7 @@ class EventPriceValidatorTest {
         when(node.getProperty(PRICE_JCR_PROPERTY_NAME)).thenReturn(property);
         when(property.getDouble()).thenReturn(value);
 
-        final Optional<Violation> result = eventPriceValidator.validate(validationContext, node);
+        final Optional<Violation> result = priceValidator.validate(validationContext, node);
 
         Assertions.assertTrue(result.isEmpty());
 
@@ -70,7 +70,7 @@ class EventPriceValidatorTest {
         when(property.getDouble()).thenReturn(NEGATIVE_DOUBLE_VALUE);
         when(validationContext.createViolation()).thenReturn(mock(Violation.class));
 
-        final Optional<Violation> result = eventPriceValidator.validate(validationContext, node);
+        final Optional<Violation> result = priceValidator.validate(validationContext, node);
 
         Assertions.assertTrue(result.isPresent());
 
@@ -85,7 +85,7 @@ class EventPriceValidatorTest {
         when(node.getProperty(PRICE_JCR_PROPERTY_NAME)).thenThrow(repositoryException);
         when(validationContext.createViolation(EXCEPTION_TRANSLATION_VARIATION)).thenReturn(mock(Violation.class));
 
-        final Optional<Violation> result = eventPriceValidator.validate(validationContext, node);
+        final Optional<Violation> result = priceValidator.validate(validationContext, node);
 
         Assertions.assertTrue(result.isPresent());
 
@@ -97,7 +97,7 @@ class EventPriceValidatorTest {
         when(node.hasProperty(PRICE_JCR_PROPERTY_NAME)).thenReturn(false);
         when(validationContext.createViolation()).thenReturn(mock(Violation.class));
 
-        final Optional<Violation> result = eventPriceValidator.validate(validationContext, node);
+        final Optional<Violation> result = priceValidator.validate(validationContext, node);
 
         Assertions.assertTrue(result.isPresent());
 

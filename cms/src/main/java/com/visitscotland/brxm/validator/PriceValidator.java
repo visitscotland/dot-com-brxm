@@ -12,8 +12,10 @@ import java.util.Optional;
 /**
  * jcr:Name = visitscotland:event-price-validator
  */
-public class EventPriceValidator implements Validator<Node> {
-    public EventPriceValidator() { }
+public class PriceValidator implements Validator<Node> {
+    private static final String AMOUNT_JCR_PROPERTY = "visitscotland:amount";
+
+    public PriceValidator() { }
 
     @Override
     public Optional<Violation> validate(ValidationContext context, Node node) {
@@ -35,8 +37,8 @@ public class EventPriceValidator implements Validator<Node> {
      * @throws RepositoryException if there is an error accessing the JCR node
      */
     private boolean isPriceInvalid(final Node node) throws RepositoryException {
-        if(node.hasProperty("visitscotland:price")) {
-            final double price = node.getProperty("visitscotland:price").getDouble();
+        if(node.hasProperty(AMOUNT_JCR_PROPERTY)) {
+            final double price = node.getProperty(AMOUNT_JCR_PROPERTY).getDouble();
             return Double.isNaN(price) || price < 0;
         }
 
