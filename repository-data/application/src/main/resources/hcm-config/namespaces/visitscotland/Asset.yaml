@@ -1,34 +1,36 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/FileLink:
+    /hippo:namespaces/visitscotland/Asset:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 2c8eb425-3f37-425c-9db4-5d85e0d2aff3
+      jcr:uuid: abbebd4f-5c7a-48d9-a92a-a5f2c81fa1c3
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 186d2167-42d1-400b-b13f-aea399db59dd
+        jcr:uuid: 0fde1d4d-c4d1-4780-9f30-d962ac7e7d80
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 888a8657-7f0d-48fd-b03a-a12b301efc36
+          jcr:uuid: 12d5c9e6-7db9-4474-a283-cdb028961fb6
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          /link:
+          /asset:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:link
+            hipposysedit:path: visitscotland:asset
             hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: ['visitscotland:external-file-validator', required]
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:FileLink
-          visitscotland:link: ''
+          jcr:primaryType: visitscotland:Asset
+          /visitscotland:asset:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -40,13 +42,11 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /link:
+          /asset:
             jcr:primaryType: frontend:plugin
-            caption: URL
-            field: link
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            caption: CMS Asset
+            field: asset
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            hipposysedit:validators: [required, 'visitscotland:external-document-validator']
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
