@@ -3,14 +3,14 @@ package com.visitscotland.brxm.model.event;
 public class EventValueOption {
 
     private String label;
-    private String value;
+    private String key;
 
     public EventValueOption() {
     }
 
-    public EventValueOption(String label, String value) {
+    public EventValueOption(String key, String label) {
         this.label = label;
-        this.value = value;
+        this.key = key;
     }
 
     public String getLabel() {
@@ -21,11 +21,11 @@ public class EventValueOption {
         this.label = label;
     }
 
-    public String getValue() {
-        return value;
+    public String getKey() {
+        return key;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setKey(String key) {
+        this.key = key;
     }
 }
