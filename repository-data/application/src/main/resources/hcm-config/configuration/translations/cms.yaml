@@ -23,7 +23,7 @@ definitions:
       visitscotland:link-validator#stop: You can’t link to that type of document.
         Choose a Stop document.
       visitscotland:link-validator#channel: You can’t link to a document from a different
-        language.
+        channel.
       visitscotland:link-validator#emptyLink: Please select a link.
       visitscotland:link-validator#removedLink: The document linked has been deleted,
         please link to a valid document.
