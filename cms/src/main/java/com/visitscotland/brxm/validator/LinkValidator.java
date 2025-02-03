@@ -27,6 +27,7 @@ public class LinkValidator implements Validator<Node> {
     static final String BLOG = "visitscotland:Blog";
     static final String VIDEO = "visitscotland:VideoLink";
     static final String MAP = "visitscotland:MapCategory";
+    static final String ASSET = "visitscotland:Asset";
     static final String PERSONALISATION = "visitscotland:Personalization";
     static final String LINK_COORDINATES = "visitscotland:SpecialLinkCoordinates";
 
@@ -117,8 +118,11 @@ public class LinkValidator implements Validator<Node> {
             if (!childNode.isNodeType("visitscotland:Profile")){
                 return Optional.of(context.createViolation("author"));
             }
-        }
-        else {
+        } else if (document.getParent().isNodeType(ASSET)) {
+            if (!childNode.isNodeType("hippogallery:exampleAssetSet")) {
+                return Optional.of(context.createViolation("assets"));
+            }
+        } else {
             if (!childNode.isNodeType("visitscotland:Page") && !childNode.isNodeType("visitscotland:SharedLink")){
                 return Optional.of(context.createViolation());
             }
