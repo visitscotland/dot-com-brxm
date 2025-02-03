@@ -1,0 +1,28 @@
+/content/documents/administration/options/business-support-hub/event-types---industry-events:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 4c2da54f-95fe-441b-846b-9de7d593d4a9
+  hippo:name: Event types - Industry Events
+  /event-types---industry-events:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 6ba475dc-42b0-4626-ac79-895c7ffe2faa
+    hippo:availability: [live, preview]
+    hippotranslation:id: b6b2e3f2-6bdd-4658-b20a-e9d98df5d379
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: conferences
+      selection:label: Conferences
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: networking
+      selection:label: Networking
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: webinars
+      selection:label: Webinars
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: workshops
+      selection:label: Workshops
