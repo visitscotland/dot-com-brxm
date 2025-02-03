@@ -14,6 +14,8 @@
                 <entry key="bsh-skill-levels" value="/content/documents/administration/options/business-support-hub/skill-level"/>
                 <entry key="bsh-topics" value="/content/documents/administration/options/business-support-hub/topic"/>
                 <entry key="bsh-content-types" value="/content/documents/administration/options/business-support-hub/content-types"/>
+                <entry key="bsh-industry-event-types" value="/content/documents/administration/options/business-support-hub/event-types---industry-events"/>
+                <entry key="bsh-training-topics" value="/content/documents/administration/options/business-support-hub/topics---training-events"/>
             </map>
         </constructor-arg>
     </bean>
