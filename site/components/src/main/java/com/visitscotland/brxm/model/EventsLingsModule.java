@@ -10,8 +10,16 @@ public class EventsLingsModule extends Module<EventsListing> {
 
     private List<EventsListingTab> eventsListings;
 
+    public List<EventsListingTab> getEventsListings() {
+        return eventsListings;
+    }
+
+    public void setEventsListings(List<EventsListingTab> eventsListings) {
+        this.eventsListings = eventsListings;
+    }
+
     public void addTab(EventsListingTab eventsListingTab) {
-        if (eventsListingTab == null) {
+        if (eventsListings == null) {
             eventsListings = new ArrayList<>();
         }
         eventsListings.add(eventsListingTab);

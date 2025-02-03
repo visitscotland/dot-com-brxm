@@ -14,6 +14,17 @@ public class EventFilter {
     private Integer group;
     private List<EventValueOption> values;
 
+    public EventFilter() {
+
+    }
+
+    public EventFilter(String key, String label, Type type, Integer group) {
+        this.key = key;
+        this.label = label;
+        this.type = type;
+        this.group = group;
+    }
+
     public String getKey() {
         return key;
     }
