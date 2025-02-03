@@ -23,7 +23,7 @@ definitions:
             hipposysedit:path: visitscotland:asset
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
-            hipposysedit:validators: [required, 'visitscotland:asset-link-validator']
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
