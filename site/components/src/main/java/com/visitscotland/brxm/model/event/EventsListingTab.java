@@ -11,7 +11,7 @@ public class EventsListingTab {
     private String title;
     private HippoHtml copy;
     private String baseEndPoint;
-    private Map<String, String> sortBy;
+    private List<EventValueOption> sortBy;
     private List<EventFilter> filters;
 
     public String getTitle() {
@@ -38,11 +38,11 @@ public class EventsListingTab {
         this.baseEndPoint = baseEndPoint;
     }
 
-    public Map<String, String> getSortBy() {
+    public List<EventValueOption> getSortBy() {
         return sortBy;
     }
 
-    public void setSortBy(Map<String, String> sortBy) {
+    public void setSortBy(List<EventValueOption> sortBy) {
         this.sortBy = sortBy;
     }
 

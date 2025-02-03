@@ -5,7 +5,13 @@ public class EventValueOption {
     private String label;
     private String value;
 
+    public EventValueOption() {
+    }
 
+    public EventValueOption(String label, String value) {
+        this.label = label;
+        this.value = value;
+    }
 
     public String getLabel() {
         return label;
