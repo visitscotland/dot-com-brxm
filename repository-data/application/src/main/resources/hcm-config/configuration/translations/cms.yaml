@@ -87,11 +87,6 @@ definitions:
       currency: Currency Code format, only 3 capital letters allowed
       time: Format allowed is HH:MM
       timezone: 3 or 4 capital letters allowed.
-      visitscotland:event-price-validator: Invalid price, please enter a positive
-        value (e.g., 17.99, 0.00 (Free)).
-      visitscotland:event-price-validator#exception: An unknown error occurred while
-        attempting to validate the price, if this issue persists please contact an
-        administrator.
       visitscotland:event-location-validator: A venue must be provided, or the event
         must be marked as online. Both cannot be left empty or unchecked.
       visitscotland:event-location-validator#exception: An unknown error occurred
@@ -102,3 +97,7 @@ definitions:
       visitscotland:event-location-region-validator#exception: An unknown error occurred
         while attempting to validate the location, region or venue. If this issue
         persists please contact an administrator.
+      visitscotland:price-validator#exception: An unknown error occurred while attempting
+        to validate the price, if this issue persists please contact an administrator.
+      visitscotland:price-validator: Invalid price, please enter a positive value
+        (e.g., 17.99, 0.00 (Free)).
