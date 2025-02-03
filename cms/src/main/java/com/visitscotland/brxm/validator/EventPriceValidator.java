@@ -9,6 +9,9 @@ import javax.jcr.RepositoryException;
 
 import java.util.Optional;
 
+/**
+ * jcr:Name = visitscotland:event-price-validator
+ */
 public class EventPriceValidator implements Validator<Node> {
     public EventPriceValidator() { }
 
