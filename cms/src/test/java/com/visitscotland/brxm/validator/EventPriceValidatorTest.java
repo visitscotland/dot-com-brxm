@@ -1,21 +1,31 @@
 package com.visitscotland.brxm.validator;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mock;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.Mock;
+
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Violation;
 
-import javax.jcr.Node;
-import javax.jcr.Property;
 import javax.jcr.RepositoryException;
+import javax.jcr.Property;
+import javax.jcr.Node;
 
 import java.util.Optional;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.eq;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -80,5 +90,17 @@ class EventPriceValidatorTest {
         Assertions.assertTrue(result.isPresent());
 
         verify(validationContext, times(1)).createViolation(eq(EXCEPTION_TRANSLATION_VARIATION));
+    }
+
+    @Test
+    void validate_PriceNodeHasPricePropertyReturnsFalse_OptionalOfViolation() throws RepositoryException {
+        when(node.hasProperty(PRICE_JCR_PROPERTY_NAME)).thenReturn(false);
+        when(validationContext.createViolation()).thenReturn(mock(Violation.class));
+
+        final Optional<Violation> result = eventPriceValidator.validate(validationContext, node);
+
+        Assertions.assertTrue(result.isPresent());
+
+        verify(validationContext, times(1)).createViolation();
     }
 }

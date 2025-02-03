@@ -40,6 +40,6 @@ public class EventPriceValidator implements Validator<Node> {
             return Double.isNaN(price) || price < 0;
         }
 
-       return false;
+       return true;
     }
 }
