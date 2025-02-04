@@ -7,11 +7,6 @@ import org.hippoecm.hst.content.beans.standard.HippoCompound;
 @HippoEssentialsGenerated(internalName = "visitscotland:Price")
 @Node(jcrType = "visitscotland:Price")
 public class Price extends HippoCompound {
-    @HippoEssentialsGenerated(internalName = "visitscotland:price")
-    public Double getPrice() {
-        return getSingleProperty("visitscotland:price");
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:currency")
     public String getCurrency() {
         return getSingleProperty("visitscotland:currency");
@@ -20,5 +15,10 @@ public class Price extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "visitscotland:vat")
     public Boolean getVat() {
         return getSingleProperty("visitscotland:vat");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:amount")
+    public Double getAmount() {
+        return getSingleProperty("visitscotland:amount");
     }
 }
