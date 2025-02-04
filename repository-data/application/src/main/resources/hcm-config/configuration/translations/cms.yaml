@@ -97,3 +97,7 @@ definitions:
       visitscotland:event-location-region-validator#exception: An unknown error occurred
         while attempting to validate the location, region or venue. If this issue
         persists please contact an administrator.
+      visitscotland:price-validator#exception: An unknown error occurred while attempting
+        to validate the price, if this issue persists please contact an administrator.
+      visitscotland:price-validator: Invalid price, please enter a positive value
+        (e.g., 17.99, 0.00 (Free)).
