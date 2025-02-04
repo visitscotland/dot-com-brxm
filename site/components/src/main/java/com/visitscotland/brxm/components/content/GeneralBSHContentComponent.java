@@ -52,7 +52,7 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
                 request.setModel(OTYML_BUNDLE, otyml);
             }
         } catch (Exception e) {
-            //TODO remove try catch when troubleshooting is done
+            //TODO BSHUB-561 remove try catch when troubleshooting is done
             logger.error("Error while generating Related pages (OTYML) for GeneralBSH", e);
         }
     }
