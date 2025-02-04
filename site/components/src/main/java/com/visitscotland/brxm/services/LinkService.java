@@ -16,7 +16,10 @@ import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.YoutubeVideo;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.core.linking.HstLink;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,10 +29,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Component
 public class LinkService {
@@ -259,6 +260,10 @@ public class LinkService {
             url = productSearch().fromHippoBean(((ProductSearchLink) link).getSearch()).locale(locale).build();
         } else if (link instanceof Video) {
             url = ((Video) link).getUrl();
+        } else if (link instanceof FileLink) {
+            url = ((FileLink) link).getLink();
+        } else if (link instanceof Asset) {
+            url = createAsset((Asset) link);
         } else if (link instanceof UrlLink) {
             url = ((UrlLink) link).getLink();
         } else {
@@ -266,6 +271,13 @@ public class LinkService {
             logger.warn("This class {} is not recognized as a link type and cannot be converted", linkType);
         }
         return processURL(locale, url);
+    }
+
+    private String createAsset(Asset asset){
+        final boolean FULLY_QUALIFIED = false;
+        HstRequestContext requestContext = RequestContextProvider.get();
+        HstLink hstLink = requestContext.getHstLinkCreator().create(asset.getAsset().getNode(), requestContext);
+        return hstLink.toUrlForm(requestContext, FULLY_QUALIFIED);
     }
 
     /**
@@ -653,18 +665,34 @@ public class LinkService {
      * @param sectors sectors selected
      * @param regions regions selected
      */
-    private void setBSHFields (EnhancedLink link, String contentType, String[] sectors, String skill, String[] topics, String[] regions){
-        link.setContentType(contentType);
-        if (sectors != null) {
-            link.setSector(List.of(sectors));
-        }
-        link.setSkillLevel(skill);
-        if (topics != null) {
-            link.setTopic(List.of(topics));
-        }
-        if (regions != null) {
-            link.setRegion(List.of(regions));
-        }
+    private void setBSHFields (EnhancedLink link, String contentType, String[] sectors, String skill, String[] topics, String[] regions) {
+        final String CONTENT_TYPES_VALUE_LIST = "bsh-content-types";
+        final String SKILL_LEVELS_VALUE_LIST = "bsh-skill-levels";
+        final String SECTORS_VALUE_LIST = "bsh-sectors";
+        final String TOPICS_VALUE_LIST = "bsh-topics";
+        final String REGIONS_VALUE_LIST = "bsh-regions";
+
+        link.setContentType(utils.getValueMap(CONTENT_TYPES_VALUE_LIST).get(contentType));
+        link.setSkillLevel(utils.getValueMap(SKILL_LEVELS_VALUE_LIST).get(skill));
+        link.setSector(getTextFromValueList(sectors, SECTORS_VALUE_LIST));
+        link.setTopic(getTextFromValueList(topics, TOPICS_VALUE_LIST));
+        link.setRegion(getTextFromValueList(regions, REGIONS_VALUE_LIST));
     }
 
+    /**
+     * Converts an array of keys to a list of text values taken from ValueList (Drop Down options)
+     *
+     * @param keys the array of keys
+     * @param valueListName the name of the valuelist defined on {@code valueListManager.xml}
+     *
+     * @return the list of texts
+     */
+    private List<String> getTextFromValueList(String[] keys, String valueListName){
+        if (keys != null){
+            return Arrays.stream(keys)
+                    .map(key -> utils.getValueMap(valueListName).get(key))
+                    .collect(Collectors.toList());
+        }
+        return null;
+    }
 }

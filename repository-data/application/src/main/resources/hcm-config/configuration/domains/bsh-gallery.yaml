@@ -21,13 +21,6 @@ definitions:
           operation: override
           type: string
           value: []
-      /be-editor:
-        jcr:primaryType: hipposys:authrole
-        hipposys:role: editor
-        hipposys:userrole:
-          .meta:category: system
-          type: string
-          value: vs.gallery.bsh
       /gallery-domain:
         jcr:primaryType: hipposys:domainrule
         /content-and-descendants:
@@ -45,6 +38,13 @@ definitions:
           type: string
           value: [be-editor]
         hipposys:role: readwrite
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: vs.gallery.bsh
+      /bsh-editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: editor
         hipposys:userrole:
           .meta:category: system
           type: string

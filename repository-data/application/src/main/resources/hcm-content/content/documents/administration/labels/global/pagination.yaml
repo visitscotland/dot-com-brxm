@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: f3741217-1527-4428-bc1d-878ec857eb29
   hippo:name: Pagination
-  hippo:versionHistory: 552fc772-5bf3-48b1-9cfc-541388a6369c
+  hippo:versionHistory: d6b59177-fe84-498b-9c62-029b7a45e1b7
   /pagination[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,24 +14,28 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2022-07-08T10:18:10.304+02:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
-    hippostdpubwf:publicationDate: 2022-07-13T17:54:48.423+02:00
+    hippostdpubwf:lastModificationDate: 2025-01-30T15:24:42.599Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2025-01-30T15:34:53.281Z
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
         to the previous page., Label used for the link to the next page., To be used
-        for mobile pagination (eg. 3 of 5), '']
+        for mobile pagination (eg. 3 of 5), '', '', '']
     resourcebundle:id: essentials.pagination
-    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page]
-    resourcebundle:messages: [document(s), previous, next, of, Navigate to page]
-    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen]
-    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página]
+    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page,
+      page.page, results.result]
+    resourcebundle:messages: [document(s), previous, next, of, Navigate to page, Page,
+      Results]
+    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
+      '', '']
+    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página,
+      '', '']
     resourcebundle:messages_fr: [résultat(s), précédent, suivant, sur, Aller à la
-        page]
+        page, '', '']
     resourcebundle:messages_it: [risultato/i, precedente, prossimo, di, Andare alla
-        pagina]
+        pagina, '', '']
     resourcebundle:messages_nl: [pagina('s), vorige, volgende, van, Navigeer naar
-        de pagina]
+        de pagina, '', '']
   /pagination[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -41,23 +45,27 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2022-07-08T10:18:10.304+02:00
-    hippostdpubwf:lastModifiedBy: nikki.sherret
+    hippostdpubwf:lastModificationDate: 2025-01-30T15:24:42.599Z
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
         to the previous page., Label used for the link to the next page., To be used
-        for mobile pagination (eg. 3 of 5), '']
+        for mobile pagination (eg. 3 of 5), '', '', '']
     resourcebundle:id: essentials.pagination
-    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page]
-    resourcebundle:messages: [document(s), previous, next, of, Navigate to page]
-    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen]
-    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página]
+    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page,
+      page.page, results.result]
+    resourcebundle:messages: [document(s), previous, next, of, Navigate to page, Page,
+      Results]
+    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
+      '', '']
+    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página,
+      '', '']
     resourcebundle:messages_fr: [résultat(s), précédent, suivant, sur, Aller à la
-        page]
+        page, '', '']
     resourcebundle:messages_it: [risultato/i, precedente, prossimo, di, Andare alla
-        pagina]
+        pagina, '', '']
     resourcebundle:messages_nl: [pagina('s), vorige, volgende, van, Navigeer naar
-        de pagina]
+        de pagina, '', '']
   /pagination[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -65,23 +73,26 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
-    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2024-02-14T15:41:35.631Z
+    hippostdpubwf:lastModificationDate: 2025-01-30T15:10:39.221Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
         to the previous page., Label used for the link to the next page., To be used
-        for mobile pagination (eg. 3 of 5), '']
+        for mobile pagination (eg. 3 of 5), '', '', '']
     resourcebundle:id: essentials.pagination
-    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page]
-    resourcebundle:messages: [document(s), previous, next, of, Navigate to page]
-    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen]
-    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página]
+    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page,
+      page.page, results.result]
+    resourcebundle:messages: [document(s), previous, next, of, Navigate to page, Page,
+      Results]
+    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
+      '', '']
+    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página,
+      '', '']
     resourcebundle:messages_fr: [résultat(s), précédent, suivant, sur, Aller à la
-        page]
+        page, '', '']
     resourcebundle:messages_it: [risultato/i, precedente, prossimo, di, Andare alla
-        pagina]
+        pagina, '', '']
     resourcebundle:messages_nl: [pagina('s), vorige, volgende, van, Navigeer naar
-        de pagina]
+        de pagina, '', '']

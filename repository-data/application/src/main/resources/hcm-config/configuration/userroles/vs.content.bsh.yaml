@@ -5,4 +5,4 @@ definitions:
       hipposys:description: Business Support Hub Content Access Configuration. Defined
         on Business Support Hub hippo:domains
       hipposys:system: true
-      hipposys:userroles: [xm.content.viewer, xm.content.user]
+      hipposys:userroles: [vs.default-user.bsh]

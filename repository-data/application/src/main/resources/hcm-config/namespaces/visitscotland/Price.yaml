@@ -11,16 +11,17 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4b5beb7e-6228-421f-88d9-eaf4240619dd
+          jcr:uuid: 43837633-bff0-487c-8506-b4b64103e75f
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
+          hipposysedit:validators: ['visitscotland:price-validator']
           /price:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:price
+            hipposysedit:path: visitscotland:amount
             hipposysedit:primary: false
             hipposysedit:type: Double
             hipposysedit:validators: [required]
@@ -45,9 +46,9 @@ definitions:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:Price
-          visitscotland:price: 0.0
           visitscotland:currency: GBP
           visitscotland:vat: true
+          visitscotland:amount: 0.0
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -77,9 +78,9 @@ definitions:
             item: ${cluster.id}.right.item
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
             wicket.id: ${cluster.id}.right
-          /price:
+          /amount:
             jcr:primaryType: frontend:plugin
-            caption: Price
+            caption: Amount
             field: price
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
