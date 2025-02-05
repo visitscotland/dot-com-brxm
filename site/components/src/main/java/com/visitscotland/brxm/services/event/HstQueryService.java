@@ -1,10 +1,5 @@
-package com.visitscotland.brxm.services.search;
+package com.visitscotland.brxm.services.event;
 
-import com.visitscotland.brxm.hippobeans.BaseDocument;
-import com.visitscotland.brxm.hippobeans.EventBSH;
-import org.apache.commons.lang.math.NumberUtils;
-import org.apache.commons.lang3.ArrayUtils;
-import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -13,13 +8,9 @@ import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
-import org.hippoecm.hst.core.request.HstRequestContext;
-import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.springframework.stereotype.Component;
 
 import javax.jcr.*;
-import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 @Component
 public class HstQueryService {
