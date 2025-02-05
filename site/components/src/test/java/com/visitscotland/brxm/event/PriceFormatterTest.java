@@ -40,14 +40,14 @@ class PriceFormatterTest {
         final String expected = "1470.32 GBP";
         final Price price = mock(Price.class);
 
-        when(price.getPrice()).thenReturn(1470.32D);
+        when(price.getAmount()).thenReturn(1470.32D);
         when(price.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
 
         final String result = priceFormatter.format(price);
 
         Assertions.assertEquals(expected, result);
 
-        verify(price, times(1)).getPrice();
+        verify(price, times(1)).getAmount();
         verify(price, times(1)).getCurrency();
     }
 
@@ -57,7 +57,7 @@ class PriceFormatterTest {
         final String expected = "10.00 GBP " + vatLabel;
         final Price price = mock(Price.class);
 
-        when(price.getPrice()).thenReturn(10.00D);
+        when(price.getAmount()).thenReturn(10.00D);
         when(price.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
         when(price.getVat()).thenReturn(true);
         when(resourceBundleService.getResourceBundle(EVENTS_RESOURCE_BUNDLE_KEY, EVENT_VAT_LABEL_KEY, Locale.UK))
@@ -78,7 +78,7 @@ class PriceFormatterTest {
 
         Assertions.assertNull(result);
 
-        verify(price, never()).getPrice();
+        verify(price, never()).getAmount();
         verify(price, never()).getVat();
         verify(price, never()).getCurrency();
     }
@@ -88,7 +88,7 @@ class PriceFormatterTest {
         final String expected = "free";
         final Price price = mock(Price.class);
 
-        when(price.getPrice()).thenReturn(0.00D);
+        when(price.getAmount()).thenReturn(0.00D);
         when(price.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
         when(price.getVat()).thenReturn(false);
         when(resourceBundleService.getResourceBundle(EVENTS_RESOURCE_BUNDLE_KEY, EVENT_FREE_LABEL_KEY, Locale.UK))
