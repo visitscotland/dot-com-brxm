@@ -1,8 +1,12 @@
 package com.visitscotland.brxm.hippobeans;
 
+import com.visitscotland.brxm.services.ResourceBundleService;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -41,7 +45,16 @@ public class GeneralBSH extends Page {
 
     @HippoEssentialsGenerated(internalName = "visitscotland:links", allowModifications = false)
     public List<HippoBean> getLinks() {
-        return getLinkedBeans("visitscotland:links", HippoBean.class);
+        //TODO: BSHUB-561 Temporal changes to troubleshoot the issue
+        Logger logger = LoggerFactory.getLogger("BSHUB-561");
+
+        try {
+            return getLinkedBeans("visitscotland:links", HippoBean.class);
+        } catch (Exception e) {
+            logger.error("Error while getting linked beans", e);
+            throw new RuntimeException(e);
+        }
+
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:type")
