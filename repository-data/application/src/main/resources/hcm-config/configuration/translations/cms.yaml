@@ -23,7 +23,7 @@ definitions:
       visitscotland:link-validator#stop: You can’t link to that type of document.
         Choose a Stop document.
       visitscotland:link-validator#channel: You can’t link to a document from a different
-        language.
+        channel.
       visitscotland:link-validator#emptyLink: Please select a link.
       visitscotland:link-validator#removedLink: The document linked has been deleted,
         please link to a valid document.
@@ -56,6 +56,7 @@ definitions:
         document. Choose a General, Listicle or Itinerary page.
       visitscotland:link-validator#personalisation: You can’t link to that type of
         document. Choose a megalink module.
+      visitscotland:link-validator#assets: Only internal assets are allowed
       visitscotland:map-module-validator: Either Title or Map Main Tab Title must
         be populated.
       visitscotland:map-module-validator#bespokeMap: You can't select Map Category
@@ -91,8 +92,7 @@ definitions:
       visitscotland:event-location-validator#exception: An unknown error occurred
         while attempting to validate the location and venue, if this issue persists
         please contact an administrator.
-      visitscotland:event-location-region-validator: A venue, region or event must
-        be present.
-      visitscotland:event-location-region-validator#exception: An unknown error occurred
-        while attempting to validate the location, region or venue. If this issue
-        persists please contact an administrator.
+      visitscotland:price-validator#exception: An unknown error occurred while attempting
+        to validate the price, if this issue persists please contact an administrator.
+      visitscotland:price-validator: Invalid price, please enter a positive value
+        (e.g., 17.99, 0.00 (Free)).
