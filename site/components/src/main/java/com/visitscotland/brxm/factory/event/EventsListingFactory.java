@@ -11,15 +11,31 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Component
 public class EventsListingFactory {
 
+    // Value Lists
     private final static String SECTORS_VALUE_LIST = "bsh-sectors";
     private final static String TRAINING_TOPICS_VALUE_LIST = "bsh-training-topics";
     private final static String INDUSTRY_EVENTS_TYPES_VALUE_LIST = "bsh-industry-event-types";
     private final static String REGIONS_VALUE_LIST = "bsh-regions";
+
+    // Resource Bundle keys
+    private final static String BUNDLE = "events-listings";
+    private final static String START_DATE_LABEL = "from";
+    private final static String END_DATE_LABEL = "to";
+    private final static String FREE_LABEL = "price.free";
+    private final static String ONLINE_LABEL = "online";
+    private final static String IN_PERSON_LABEL = "inPerson";
+    private final static String NATIONAL_LABEL = "national";
+    private final static String INTERNATIONAL_LABEL = "international";
+    private final static String SECTOR_LABEL = "sector";
+    private final static String TOPIC_LABEL = "topic";
+    private final static String REGION_LABEL = "region";
+    private final static String EVENT_TYPE_LABEL = "eventType";
 
     //TODO: Move constants to the Controller
     private final static String BASE_ENDPOINT_TRAINING = "/api/bsh-events-listing/training";
@@ -34,6 +50,19 @@ public class EventsListingFactory {
     private final static String IN_PERSON = "inPerson";
     private final static String NATIONAL = "national";
     private final static String INTERNATIONAL = "international";
+
+    private final static String SECTOR = "sector";
+    private final static String TOPIC = "topic";
+    private final static String REGION = "region";
+    private final static String EVENT_TYPE = "eventType";
+
+    private final static String DATE = "date";
+    private final static String REGISTRATION = "registration";
+    private final static String PRICE = "price";
+    private final static String PRICE_DESC = "priceDesc";
+
+
+
 
     private final static int DATE_GROUP = 0;
     private final static int BOOLEAN_GROUP = 1;
@@ -63,7 +92,7 @@ public class EventsListingFactory {
         tab.setTitle(document.getTrainingTitle());
         tab.setCopy(document.getTrainingCopy());
         tab.setBaseEndPoint(BASE_ENDPOINT_TRAINING);
-        tab.setSortBy(buildSortBy(List.of("date", "price", "priceDesc")));
+        tab.setSortBy(buildSortBy(List.of(DATE, PRICE, PRICE_DESC)));
         tab.setFilters(buildTrainingFilters());
 
         return tab;
@@ -72,15 +101,10 @@ public class EventsListingFactory {
     private List<EventFilter> buildTrainingFilters() {
         List<EventFilter> filters = new ArrayList<>();
 
-        filters.add(buildDateField(START_DATE));
-        filters.add(buildDateField(END_DATE));
-
-        filters.add(buildBooleanField(FREE));
-        filters.add(buildBooleanField(ONLINE));
-        filters.add(buildBooleanField(IN_PERSON));
-
-        filters.add(buildMultiselectField("topic", TRAINING_TOPICS_VALUE_LIST, 2));
-        filters.add(buildMultiselectField("sector", SECTORS_VALUE_LIST, 3));
+        addDateFields(filters);
+        addBooleanFields(filters, true, true,true, false);
+        filters.add(buildMultiselectField(TOPIC, TOPIC_LABEL, TRAINING_TOPICS_VALUE_LIST, 2));
+        filters.add(buildMultiselectField(SECTOR, SECTOR_LABEL, SECTORS_VALUE_LIST, 3));
 
         return filters;
     }
@@ -91,7 +115,7 @@ public class EventsListingFactory {
         tab.setTitle(document.getIndustryTitle());
         tab.setCopy(document.getIndustryCopy());
         tab.setBaseEndPoint(BASE_ENDPOINT_INDUSTRY);
-        tab.setSortBy(buildSortBy(List.of("date", "price", "priceDesc")));
+        tab.setSortBy(buildSortBy(List.of(DATE, PRICE, PRICE_DESC)));
         tab.setFilters(buildIndustryFilters());
 
         return tab;
@@ -100,15 +124,11 @@ public class EventsListingFactory {
     private List<EventFilter> buildIndustryFilters() {
         List<EventFilter> filters = new ArrayList<>();
 
-        filters.add(buildDateField(START_DATE));
-        filters.add(buildDateField(END_DATE));
-
-        filters.add(buildBooleanField(FREE));
-        filters.add(buildBooleanField(ONLINE));
-
-        filters.add(buildMultiselectField("event-type", INDUSTRY_EVENTS_TYPES_VALUE_LIST, 2));
-        filters.add(buildMultiselectField("sector", SECTORS_VALUE_LIST, 3));
-        filters.add(buildMultiselectField("region", REGIONS_VALUE_LIST, 4));
+        addDateFields(filters);
+        addBooleanFields(filters, true, true,false, false);
+        filters.add(buildMultiselectField(EVENT_TYPE, EVENT_TYPE_LABEL, INDUSTRY_EVENTS_TYPES_VALUE_LIST, 2));
+        filters.add(buildMultiselectField(SECTOR, SECTOR_LABEL, SECTORS_VALUE_LIST, 3));
+        filters.add(buildMultiselectField(REGION, REGION_LABEL, REGIONS_VALUE_LIST, 4));
 
         return filters;
     }
@@ -119,7 +139,7 @@ public class EventsListingFactory {
         tab.setTitle(document.getTradeTitle());
         tab.setCopy(document.getTradeCopy());
         tab.setBaseEndPoint(BASE_ENDPOINT_TRADE);
-        tab.setSortBy(buildSortBy(List.of("date", "registration")));
+        tab.setSortBy(buildSortBy(List.of(DATE, REGISTRATION)));
         tab.setFilters(buildTradeFilters());
 
         return tab;
@@ -128,43 +148,61 @@ public class EventsListingFactory {
     private List<EventFilter> buildTradeFilters() {
         List<EventFilter> filters = new ArrayList<>();
 
-        filters.add(buildDateField(START_DATE));
-        filters.add(buildDateField(END_DATE));
-
-        filters.add(buildBooleanField(FREE));
-        filters.add(buildBooleanField(ONLINE));
-        filters.add(buildBooleanField(NATIONAL));
-        filters.add(buildBooleanField(INTERNATIONAL));
-
-        filters.add(buildMultiselectField("sector", SECTORS_VALUE_LIST, 2));
+        addDateFields(filters);
+        addBooleanFields(filters, true, true,false, true);
 
         return filters;
     }
 
+    private void addDateFields(List<EventFilter> filters) {
+        filters.add(buildDateField(START_DATE, START_DATE_LABEL));
+        filters.add(buildDateField(END_DATE, END_DATE_LABEL));
+    }
+
+
+    //TODO: Create a builder for this?
+    private void addBooleanFields(List<EventFilter> filters, boolean free, boolean online, boolean inPerson,
+        boolean national) {
+
+        if (free) {
+            filters.add(buildBooleanField(FREE, FREE_LABEL));
+        }
+        if (online) {
+            filters.add(buildBooleanField(ONLINE, ONLINE_LABEL));
+        }
+        if (inPerson) {
+            filters.add(buildBooleanField(IN_PERSON, IN_PERSON_LABEL));
+        }
+        if (national) {
+            filters.add(buildBooleanField(NATIONAL, NATIONAL_LABEL));
+            filters.add(buildBooleanField(INTERNATIONAL, INTERNATIONAL_LABEL));
+        }
+    }
+
     private List<EventValueOption> buildSortBy(List<String> options) {
-        return options.stream().map(option -> new EventValueOption(option, "label-"+option))
+        return options.stream().map(option -> new EventValueOption(option, getLabel("sortBy." + option)))
                 .collect(Collectors.toList());
     }
 
     /**
      * Create an EventFilter for a date field
      */
-    private EventFilter buildDateField(String key) {
-        return new EventFilter(key,"date-label-"+key, EventFilter.Type.DATE, DATE_GROUP);
+    private EventFilter buildDateField(String key, String labelKey) {
+        return new EventFilter(key, getLabel(labelKey), EventFilter.Type.DATE, DATE_GROUP);
     }
 
     /**
      * Create an EventFilter for a checkbox field
      */
-    private EventFilter buildBooleanField(String key) {
-        return new EventFilter(key, "boolean-label-"+key, EventFilter.Type.BOOLEAN, BOOLEAN_GROUP);
+    private EventFilter buildBooleanField(String key, String labelKey) {
+        return new EventFilter(key, getLabel(labelKey), EventFilter.Type.BOOLEAN, BOOLEAN_GROUP);
     }
 
     /**
      * Create an EventFilter from a Value List
      */
-    private EventFilter buildMultiselectField(String key, String valueList, int group) {
-        EventFilter filter = new EventFilter(key, "multi-label-"+key, EventFilter.Type.MULTI_SELECT, group);
+    private EventFilter buildMultiselectField(String key, String labelKey, String valueList, int group) {
+        EventFilter filter = new EventFilter(key, getLabel(labelKey), EventFilter.Type.MULTI_SELECT, group);
 
         List<EventValueOption> values = hippoUtilsService.getValueMap(valueList).entrySet().stream()
                 .map(e -> new EventValueOption(e.getKey(), e.getValue()))
@@ -174,4 +212,8 @@ public class EventsListingFactory {
         return filter;
     }
 
+    private String getLabel(String key) {
+        // Should we use RequestContextProvider.get().getPreferredLocale() ?
+        return bundle.getSiteResourceBundle(BUNDLE, key, Locale.UK);
+    }
 }
