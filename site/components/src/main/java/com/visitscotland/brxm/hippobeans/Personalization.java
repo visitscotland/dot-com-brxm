@@ -8,13 +8,15 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 @HippoEssentialsGenerated(internalName = "visitscotland:Personalization")
 @Node(jcrType = "visitscotland:Personalization")
 public class Personalization extends HippoCompound {
-    @HippoEssentialsGenerated(internalName = "visitscotland:id")
-    public String getId() {
-        return getSingleProperty("visitscotland:id");
-    }
+    public static final String PERSONALIZATION_JCR_TYPE = "visitscotland:Personalization";
 
     @HippoEssentialsGenerated(internalName = "visitscotland:module")
     public HippoBean getModule() {
         return getLinkedBean("visitscotland:module", HippoBean.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:country")
+    public String getCountry() {
+        return getSingleProperty("visitscotland:country");
     }
 }
