@@ -26,7 +26,7 @@ public class BaseDocument extends HippoDocument {
         try {
             return String.valueOf(node.getProperty("jcr:primaryType"));
         } catch (Exception e) {//TODO: Revert to RepositoryException once BSHUB-561 is completed
-            logger.error("Error while getting primaryType: " + e.getMessage()+, e);
+            logger.error("Error while getting primaryType: " + e.getMessage(), e);
             return null;
         }
     }
