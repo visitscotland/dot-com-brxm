@@ -27,7 +27,7 @@ public class PriceFormatter {
         }
 
         final String currency = price.getCurrency();
-        final BigDecimal amount = BigDecimal.valueOf(price.getPrice())
+        final BigDecimal amount = BigDecimal.valueOf(price.getAmount())
             .setScale(2, RoundingMode.UNNECESSARY);
 
         if (amount.compareTo(BigDecimal.ZERO) == 0){
