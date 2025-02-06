@@ -25,12 +25,8 @@ public class BaseDocument extends HippoDocument {
 
         try {
             return String.valueOf(node.getProperty("jcr:primaryType"));
-        } catch (RepositoryException e) {
-            try {
-                logger.error(String.format("jcr:primaryType has not been defined by the node %s ({%s})", getName(), getClass()));
-            } catch (Exception e2) {
-                logger.error("Error while getting primaryType", e2);
-            }
+        } catch (Exception e) {//TODO: Revert to RepositoryException once BSHUB-561 is completed
+            logger.error("Error while getting primaryType: " + e.getMessage()+, e2);
             return null;
         }
     }
