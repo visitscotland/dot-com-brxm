@@ -89,8 +89,6 @@ class PriceFormatterTest {
         final Price price = mock(Price.class);
 
         when(price.getAmount()).thenReturn(0.00D);
-        when(price.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
-        when(price.getVat()).thenReturn(false);
         when(resourceBundleService.getResourceBundle(EVENTS_RESOURCE_BUNDLE_KEY, EVENT_FREE_LABEL_KEY, Locale.UK))
             .thenReturn(expected);
 
