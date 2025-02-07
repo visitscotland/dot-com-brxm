@@ -5,9 +5,7 @@ import com.visitscotland.brxm.utils.VsException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.jaxrs.services.AbstractResource;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
@@ -29,14 +27,36 @@ public class EventsSearchService extends AbstractResource {
     }
 
     @GET
-//    "/industry"
-//    "/travel-trade"
-//    "/training"
     @Path("training")
     @Produces("application/json")
-    public Response training(@Context HstRequest request) {
+    public Response trainingEvents(
+            @Context HstRequest request) {
         try {
             return Response.ok().entity(eventRepository.findAllTrainingEvents()).build();
+        } catch (VsException e){
+            return Response.serverError().build();
+        }
+    }
+
+    @GET
+    @Path("industry")
+    @Produces("application/json")
+    public Response industryEvents(@Context HstRequest request) {
+        try {
+            //TODO: BSHUB-583
+            return null;
+        } catch (VsException e){
+            return Response.serverError().build();
+        }
+    }
+
+    @GET
+    @Path("travel-trade")
+    @Produces("application/json")
+    public Response travelTradeEvents(@Context HstRequest request) {
+        try {
+            //TODO: BSHUB-584
+            return null;
         } catch (VsException e){
             return Response.serverError().build();
         }
