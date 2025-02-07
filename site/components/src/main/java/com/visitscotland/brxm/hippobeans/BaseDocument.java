@@ -20,10 +20,13 @@ public class BaseDocument extends HippoDocument {
     private final DocumentUtilsService documentUtils = VsComponentManager.get(DocumentUtilsService.class);
 
     public String getPrimaryType() {
+        //TODO: BSHUB-561 Temporal changes to troubleshoot the issue
+        Logger logger = LoggerFactory.getLogger("BSHUB-561");
+
         try {
             return String.valueOf(node.getProperty("jcr:primaryType"));
-        } catch (RepositoryException e) {
-            logger.error(String.format("jcr:primaryType has not been defined by the node %s ({%s})", getName(), getClass()));
+        } catch (Exception e) {//TODO: Revert to RepositoryException once BSHUB-561 is completed
+            logger.error("Error while getting primaryType: " + e.getMessage(), e);
             return null;
         }
     }
