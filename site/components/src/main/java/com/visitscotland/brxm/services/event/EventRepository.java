@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.services.search;
+package com.visitscotland.brxm.services.event;
 
 import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.hippobeans.TrainingEventBSH;
@@ -7,7 +7,6 @@ import com.visitscotland.brxm.model.bsh.PaginatedResult;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

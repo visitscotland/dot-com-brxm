@@ -69,7 +69,6 @@ public class SitemapRestService extends AbstractResource {
         }
     }
 
-
     private List<SitemapEntry> getPages(String channel, Class<? extends Page>... types){
         List<SitemapEntry> entries = new ArrayList<>();
         try {

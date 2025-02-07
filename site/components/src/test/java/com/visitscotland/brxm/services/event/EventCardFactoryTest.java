@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.services.search;
+package com.visitscotland.brxm.services.event;
 
 import com.visitscotland.brxm.event.PriceFormatter;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -7,7 +7,6 @@ import com.visitscotland.brxm.utils.ContentLogger;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import org.mockito.Answers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
