@@ -25,44 +25,41 @@ public class EventsListingFactory {
 
     // Resource Bundle keys
     private final static String BUNDLE = "events-listings";
-    private final static String START_DATE_LABEL = "from";
-    private final static String END_DATE_LABEL = "to";
+    private final static String START_DATE_LABEL = "date.start-date";
+    private final static String END_DATE_LABEL = "date.end-date";
     private final static String FREE_LABEL = "price.free";
-    private final static String ONLINE_LABEL = "online";
-    private final static String IN_PERSON_LABEL = "inPerson";
-    private final static String NATIONAL_LABEL = "national";
-    private final static String INTERNATIONAL_LABEL = "international";
+    private final static String ONLINE_LABEL = "location.online";
+    private final static String IN_PERSON_LABEL = "location.in-person";
+    private final static String NATIONAL_LABEL = "location.national";
+    private final static String INTERNATIONAL_LABEL = "location.international";
     private final static String SECTOR_LABEL = "sector";
-    private final static String TOPIC_LABEL = "topic";
+    private final static String TOPIC_LABEL = "training-topic";
     private final static String REGION_LABEL = "region";
-    private final static String EVENT_TYPE_LABEL = "eventType";
+    private final static String EVENT_TYPE_LABEL = "event-type";
 
     //TODO: Move constants to the Controller
     private final static String BASE_ENDPOINT_TRAINING = "/api/bsh-events-listing/training";
     private final static String BASE_ENDPOINT_INDUSTRY = "/api/bsh-events-listing/industry";
     private final static String BASE_ENDPOINT_TRADE = "/api/bsh-events-listing/travel";
 
-    private final static String START_DATE = "startDate";
-    private final static String END_DATE = "endDate";
+    private final static String START_DATE = "start-date";
+    private final static String END_DATE = "end-date";
 
     private final static String FREE = "free";
     private final static String ONLINE = "online";
-    private final static String IN_PERSON = "inPerson";
+    private final static String IN_PERSON = "in-person";
     private final static String NATIONAL = "national";
     private final static String INTERNATIONAL = "international";
 
     private final static String SECTOR = "sector";
     private final static String TOPIC = "topic";
     private final static String REGION = "region";
-    private final static String EVENT_TYPE = "eventType";
+    private final static String EVENT_TYPE = "event-type";
 
     private final static String DATE = "date";
     private final static String REGISTRATION = "registration";
     private final static String PRICE = "price";
-    private final static String PRICE_DESC = "priceDesc";
-
-
-
+    private final static String PRICE_DESC = "price-desc";
 
     private final static int DATE_GROUP = 0;
     private final static int BOOLEAN_GROUP = 1;
@@ -180,7 +177,7 @@ public class EventsListingFactory {
     }
 
     private List<EventValueOption> buildSortBy(List<String> options) {
-        return options.stream().map(option -> new EventValueOption(option, getLabel("sortBy." + option)))
+        return options.stream().map(option -> new EventValueOption(option, getLabel("sort." + option)))
                 .collect(Collectors.toList());
     }
 
@@ -202,7 +199,7 @@ public class EventsListingFactory {
      * Create an EventFilter from a Value List
      */
     private EventFilter buildMultiselectField(String key, String labelKey, String valueList, int group) {
-        EventFilter filter = new EventFilter(key, getLabel(labelKey), EventFilter.Type.MULTI_SELECT, group);
+        EventFilter filter = new EventFilter(key, getLabel(labelKey), EventFilter.Type.MULTISELECT, group);
 
         List<EventValueOption> values = hippoUtilsService.getValueMap(valueList).entrySet().stream()
                 .map(e -> new EventValueOption(e.getKey(), e.getValue()))

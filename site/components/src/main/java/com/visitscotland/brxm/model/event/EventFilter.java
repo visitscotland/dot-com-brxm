@@ -5,7 +5,7 @@ import java.util.List;
 public class EventFilter {
 
     public enum Type {
-        BOOLEAN, DATE, MULTI_SELECT, DROPDOWN
+        BOOLEAN, DATE, MULTISELECT, DROPDOWN
     }
 
     private String key;
