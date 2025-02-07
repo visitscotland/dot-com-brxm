@@ -15,6 +15,7 @@ import javax.jcr.*;
 @Component
 public class HstQueryService {
 
+    ///TODO: Remove comments
 //    public void query(Class<? extends  HippoBean> documentType) {
 ////        final Session session = UserSession.get().getJcrSession();
 //
@@ -22,13 +23,16 @@ public class HstQueryService {
 //        query(request, BaseDocument.class);
 //    }
 
+    //TODO: Create CMS configuration property
+    private static final String EVENTS_LOCATION = "/content/documents/bsh/sandbox/events";
+
     public HstQueryService() {
     }
 
     public <T extends HippoBean> HstQueryResult  query(Class<T> documentType) {
 
         try {
-            final Node node = RequestContextProvider.get().getSession().getNode("/content/documents/bsh/sandbox/events");
+            final Node node = RequestContextProvider.get().getSession().getNode(EVENTS_LOCATION);
 
             @SuppressWarnings("unchecked")
             HstQuery hstQuery = HstQueryBuilder.create(node)

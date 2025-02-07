@@ -37,6 +37,7 @@ public class EventsListingFactory {
     private final static String REGION_LABEL = "region";
     private final static String EVENT_TYPE_LABEL = "event-type";
 
+    //TODO: static import
     //TODO: Move constants to the Controller
     private final static String BASE_ENDPOINT_TRAINING = "/api/bsh-events-listing/training";
     private final static String BASE_ENDPOINT_INDUSTRY = "/api/bsh-events-listing/industry";
