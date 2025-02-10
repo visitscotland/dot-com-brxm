@@ -22,7 +22,7 @@ public class EventRepository extends BaseHstComponent {
         this.eventCardFactory = eventCardFactory;
     }
 
-    public PaginatedResult<EventCard> findAllTrainingEvents() {
+    public PaginatedResult<EventCard> findTrainingEvents() {
         HstQueryResult query = hstQueryService.query(TrainingEventBSH.class);
 
         PaginatedResult<EventCard> page = new PaginatedResult<>();

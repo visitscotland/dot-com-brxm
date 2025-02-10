@@ -60,18 +60,20 @@ public class QueryBuilder {
     /**
      * Add pagination limits and pagination offset if needed
      */
-    public void addPagination(){
+    public QueryBuilder addPagination(){
         builder.limit(PAGE_SIZE);
         if (getQueryParameters().containsKey(PAGE)) {
             int pageIndex = Integer.parseInt(getQueryParameters().get(PAGE)[0]) ;
             builder.offset((pageIndex - 1 )* PAGE_SIZE);
         }
+
+        return this;
     }
 
     /**
      * Add sorting if needed
      */
-    public void sort(){
+    public QueryBuilder sort(){
         if (getQueryParameters().containsKey(SORT_BY)) {
             String sortBy = getQueryParameters().get(SORT_BY)[0];
 
@@ -92,6 +94,8 @@ public class QueryBuilder {
                     logger.warn("The sort by parameter {} is not valid", sortBy);;
             }
         }
+
+        return this;
     }
 
     //-------------------------- [ FILTERS ] ------------------------
@@ -99,16 +103,18 @@ public class QueryBuilder {
     /**
      * Add price filter if the query parameter is provided
      */
-    public void price() {
+    public QueryBuilder addPriceFilters() {
         if (getQueryParameters().containsKey(FREE)) {
             constraints.put(FREE, constraint(AMOUNT).equalTo(0));
         }
+
+        return this;
     }
 
     /**
      * Add filters related to the location: online, in-person, national, international
      */
-    public void location() {
+    public QueryBuilder addLocationFilters() {
         if (getQueryParameters().containsKey(EventSearchParameters.ONLINE)) {
             constraints.put(EventSearchParameters.ONLINE, constraint(ONLINE).equalTo(true));
         }
@@ -121,40 +127,45 @@ public class QueryBuilder {
         if (getQueryParameters().containsKey(EventSearchParameters.INTERNATIONAL)) {
             constraints.put(EventSearchParameters.INTERNATIONAL, constraint(INTERNATIONAL).equalTo(true));
         }
+        return this;
     }
 
     /**
      * Add filters related to the sector if needed
      */
-    public void sector() {
+    public QueryBuilder addSectorsFilters() {
         addConstraintFromList(EventSearchParameters.SECTOR, SECTORS);
+        return this;
     }
 
     /**
      * Add filters related to the topic if needed
      */
-    public void topic() {
+    public QueryBuilder addTopicsFilters() {
         addConstraintFromList(EventSearchParameters.TOPIC, TOPICS);
+        return this;
     }
 
     /**
      * Add filters related to the region if needed
      */
-    public void region() {
+    public QueryBuilder regions() {
         addConstraintFromList(EventSearchParameters.REGION, REGION);
+        return this;
     }
 
     /**
      * Add filters related to the event type if needed
      */
-    public void eventType() {
+    public QueryBuilder eventTypes() {
         addConstraintFromList(EventSearchParameters.EVENT_TYPE, TYPES);
+        return this;
     }
 
     /**
      * Add a constraint to the query builder based on the parameter and field
      */
-    public void addConstraintFromList(String param, String field) {
+    private void addConstraintFromList(String param, String field) {
         if (getQueryParameters().containsKey(param)) {
             List<Constraint> orConstraints = new ArrayList<>();
             for (String sector : getQueryParameters().get(param)) {
@@ -167,7 +178,7 @@ public class QueryBuilder {
     /**
      * Add date filters if the query parameters are provided
      */
-    public void dates(){
+    public QueryBuilder addDatesFilters(){
         if (getQueryParameters().containsKey(EventSearchParameters.START_DATE) || getQueryParameters().containsKey(EventSearchParameters.END_DATE)) {
             Calendar startDate = getStartDate();
             Calendar endDate = getEndDate();
@@ -179,6 +190,7 @@ public class QueryBuilder {
                     constraint(START_DATE)
                             .greaterOrEqualThan(endDate, DateTools.Resolution.DAY));
         }
+        return this;
     }
 
     /**

@@ -32,7 +32,7 @@ public class EventsSearchService extends AbstractResource {
     public Response trainingEvents(
             @Context HstRequest request) {
         try {
-            return Response.ok().entity(eventRepository.findAllTrainingEvents()).build();
+            return Response.ok().entity(eventRepository.findTrainingEvents()).build();
         } catch (VsException e){
             return Response.serverError().build();
         }
