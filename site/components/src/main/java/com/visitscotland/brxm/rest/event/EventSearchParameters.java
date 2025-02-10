@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.services.event;
+package com.visitscotland.brxm.rest.event;
 
 public interface EventSearchParameters {
 

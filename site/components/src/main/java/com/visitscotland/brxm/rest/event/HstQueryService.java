@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.services.event;
+package com.visitscotland.brxm.rest.event;
 
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
