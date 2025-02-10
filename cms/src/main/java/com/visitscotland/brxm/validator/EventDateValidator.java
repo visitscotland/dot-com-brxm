@@ -16,6 +16,9 @@ import javax.jcr.Node;
 import java.util.Calendar;
 import java.util.Optional;
 
+/**
+ * jcrType = visitscotland:event-date-validator
+ */
 public class EventDateValidator implements Validator<Node> {
     private static final Logger logger = LogManager.getLogger(EventDateValidator.class);
     private static final String START_DATE_PROPERTY = "visitscotland:startDate";

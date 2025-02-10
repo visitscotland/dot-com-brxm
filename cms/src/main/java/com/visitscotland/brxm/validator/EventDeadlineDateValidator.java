@@ -16,6 +16,9 @@ import javax.jcr.Node;
 import java.util.Calendar;
 import java.util.Optional;
 
+/**
+ * jcrType = visitscotland:event-deadline-validator
+ */
 public class EventDeadlineDateValidator implements Validator<Node> {
     private static final Logger logger = LogManager.getLogger(EventDateValidator.class);
     private static final String REGISTRATION_DEADLINE_PROPERTY = "visitscotland:deadline";
