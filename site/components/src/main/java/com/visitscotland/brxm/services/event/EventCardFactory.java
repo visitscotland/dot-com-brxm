@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.services.search;
+package com.visitscotland.brxm.services.event;
 
 import com.visitscotland.brxm.event.PriceFormatter;
 import com.visitscotland.brxm.hippobeans.EventBSH;
@@ -9,7 +9,6 @@ import com.visitscotland.brxm.model.bsh.EventCard;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;

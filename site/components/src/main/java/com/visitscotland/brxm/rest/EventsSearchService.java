@@ -1,6 +1,6 @@
 package com.visitscotland.brxm.rest;
 
-import com.visitscotland.brxm.services.search.EventRepository;
+import com.visitscotland.brxm.services.event.EventRepository;
 import com.visitscotland.brxm.utils.VsException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.jaxrs.services.AbstractResource;
