@@ -7,23 +7,24 @@ public interface EventSearchParameters {
     String BASE_ENDPOINT_INDUSTRY = "/api/bsh-events-listing/industry";
     String BASE_ENDPOINT_TRADE = "/api/bsh-events-listing/travel";
 
-    String PAGE = "page";
-    String SORT_BY = "sort";
+    String PAGE_PARAM = "page";
 
-    String START_DATE = "start-date";
-    String END_DATE = "end-date";
+    String START_DATE_PARAM = "start-date";
+    String END_DATE_PARAM = "end-date";
 
-    String FREE = "free";
-    String ONLINE = "online";
-    String IN_PERSON = "in-person";
-    String NATIONAL = "national";
-    String INTERNATIONAL = "international";
+    String FREE_PARAM = "free";
+    String ONLINE_PARAM = "online";
+    String IN_PERSON_PARAM = "in-person";
+    String NATIONAL_PARAM = "national";
+    String INTERNATIONAL_PARAM = "international";
 
-    String SECTOR = "sector";
-    String TOPIC = "topic";
-    String REGION = "region";
-    String EVENT_TYPE = "event-type";
+    String SECTOR_PARAM = "sector";
+    String TOPIC_PARAM = "topic";
+    String REGION_PARAM = "region";
+    String EVENT_TYPE_PARAM = "event-type";
 
+    //Sorting
+    String SORT_BY_PARAM = "sort";
     String DATE = "date";
     String REGISTRATION = "registration";
     String PRICE = "price";

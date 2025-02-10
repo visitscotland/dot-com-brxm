@@ -31,7 +31,7 @@ public class QueryBuilder {
     public static final String VENUE = "visitscotland:venue";
     public static final String START_DATE = "visitscotland:startDate";
     public static final String END_DATE = "visitscotland:endDate";
-    public static final String AMOUNT = "visitscotland:amount";
+    public static final String AMOUNT = "visitscotland:price/visitscotland:amount";
     //TODO: Move to IndustyEventBSH?
     public static final String SECTORS = "visitscotland:sectors";
     public static final String REGION = "visitscotland:region";
@@ -62,8 +62,8 @@ public class QueryBuilder {
      */
     public QueryBuilder addPagination(){
         builder.limit(PAGE_SIZE);
-        if (getQueryParameters().containsKey(PAGE)) {
-            int pageIndex = Integer.parseInt(getQueryParameters().get(PAGE)[0]) ;
+        if (getQueryParameters().containsKey(PAGE_PARAM)) {
+            int pageIndex = Integer.parseInt(getQueryParameters().get(PAGE_PARAM)[0]) ;
             builder.offset((pageIndex - 1 )* PAGE_SIZE);
         }
 
@@ -74,8 +74,8 @@ public class QueryBuilder {
      * Add sorting if needed
      */
     public QueryBuilder sort(){
-        if (getQueryParameters().containsKey(SORT_BY)) {
-            String sortBy = getQueryParameters().get(SORT_BY)[0];
+        if (getQueryParameters().containsKey(SORT_BY_PARAM)) {
+            String sortBy = getQueryParameters().get(SORT_BY_PARAM)[0];
 
             switch (sortBy){
                 case DATE:
@@ -104,8 +104,8 @@ public class QueryBuilder {
      * Add price filter if the query parameter is provided
      */
     public QueryBuilder addPriceFilters() {
-        if (getQueryParameters().containsKey(FREE)) {
-            constraints.put(FREE, constraint(AMOUNT).equalTo(0));
+        if (getQueryParameters().containsKey(FREE_PARAM)) {
+            constraints.put(FREE_PARAM, constraint(AMOUNT).equalTo(0));
         }
 
         return this;
@@ -115,17 +115,17 @@ public class QueryBuilder {
      * Add filters related to the location: online, in-person, national, international
      */
     public QueryBuilder addLocationFilters() {
-        if (getQueryParameters().containsKey(EventSearchParameters.ONLINE)) {
-            constraints.put(EventSearchParameters.ONLINE, constraint(ONLINE).equalTo(true));
+        if (getQueryParameters().containsKey(EventSearchParameters.ONLINE_PARAM)) {
+            constraints.put(EventSearchParameters.ONLINE_PARAM, constraint(ONLINE).equalTo(true));
         }
-        if (getQueryParameters().containsKey(IN_PERSON)) {
-            constraints.put(IN_PERSON, constraint(VENUE).notLike(""));
+        if (getQueryParameters().containsKey(IN_PERSON_PARAM)) {
+            constraints.put(IN_PERSON_PARAM, constraint(VENUE).notLike(""));
         }
-        if (getQueryParameters().containsKey(NATIONAL)) {
-            constraints.put(NATIONAL, constraint(INTERNATIONAL).equalTo(false));
+        if (getQueryParameters().containsKey(NATIONAL_PARAM)) {
+            constraints.put(NATIONAL_PARAM, constraint(INTERNATIONAL).equalTo(false));
         }
-        if (getQueryParameters().containsKey(EventSearchParameters.INTERNATIONAL)) {
-            constraints.put(EventSearchParameters.INTERNATIONAL, constraint(INTERNATIONAL).equalTo(true));
+        if (getQueryParameters().containsKey(EventSearchParameters.INTERNATIONAL_PARAM)) {
+            constraints.put(EventSearchParameters.INTERNATIONAL_PARAM, constraint(INTERNATIONAL).equalTo(true));
         }
         return this;
     }
@@ -134,7 +134,7 @@ public class QueryBuilder {
      * Add filters related to the sector if needed
      */
     public QueryBuilder addSectorsFilters() {
-        addConstraintFromList(EventSearchParameters.SECTOR, SECTORS);
+        addConstraintFromList(EventSearchParameters.SECTOR_PARAM, SECTORS);
         return this;
     }
 
@@ -142,7 +142,7 @@ public class QueryBuilder {
      * Add filters related to the topic if needed
      */
     public QueryBuilder addTopicsFilters() {
-        addConstraintFromList(EventSearchParameters.TOPIC, TOPICS);
+        addConstraintFromList(EventSearchParameters.TOPIC_PARAM, TOPICS);
         return this;
     }
 
@@ -150,7 +150,7 @@ public class QueryBuilder {
      * Add filters related to the region if needed
      */
     public QueryBuilder regions() {
-        addConstraintFromList(EventSearchParameters.REGION, REGION);
+        addConstraintFromList(EventSearchParameters.REGION_PARAM, REGION);
         return this;
     }
 
@@ -158,7 +158,7 @@ public class QueryBuilder {
      * Add filters related to the event type if needed
      */
     public QueryBuilder eventTypes() {
-        addConstraintFromList(EventSearchParameters.EVENT_TYPE, TYPES);
+        addConstraintFromList(EventSearchParameters.EVENT_TYPE_PARAM, TYPES);
         return this;
     }
 
@@ -179,16 +179,15 @@ public class QueryBuilder {
      * Add date filters if the query parameters are provided
      */
     public QueryBuilder addDatesFilters(){
-        if (getQueryParameters().containsKey(EventSearchParameters.START_DATE) || getQueryParameters().containsKey(EventSearchParameters.END_DATE)) {
+        if (getQueryParameters().containsKey(EventSearchParameters.START_DATE_PARAM) || getQueryParameters().containsKey(EventSearchParameters.END_DATE_PARAM)) {
             Calendar startDate = getStartDate();
             Calendar endDate = getEndDate();
-            constraints.put(EventSearchParameters.START_DATE, or(
-                    constraint(END_DATE).greaterOrEqualThan(endDate, DateTools.Resolution.DAY),
+            constraints.put(EventSearchParameters.START_DATE_PARAM, or(
+                    constraint(END_DATE).greaterOrEqualThan(startDate, DateTools.Resolution.DAY),
+                    constraint(START_DATE).greaterOrEqualThan(startDate, DateTools.Resolution.DAY)));
+            constraints.put(EventSearchParameters.END_DATE_PARAM,
                     constraint(START_DATE)
-                            .greaterOrEqualThan(startDate, DateTools.Resolution.DAY)));
-            constraints.put(EventSearchParameters.END_DATE,
-                    constraint(START_DATE)
-                            .greaterOrEqualThan(endDate, DateTools.Resolution.DAY));
+                            .lessOrEqualThan(endDate, DateTools.Resolution.DAY));
         }
         return this;
     }
@@ -197,14 +196,14 @@ public class QueryBuilder {
      * Calculate the start date from the query parameter
      */
     private Calendar getStartDate(){
-        return getDateFromParameter(EventSearchParameters.START_DATE).orElse(Calendar.getInstance());
+        return getDateFromParameter(EventSearchParameters.START_DATE_PARAM).orElse(Calendar.getInstance());
     }
 
     /**
      * Calculate the end date from the query parameter
      */
     private Calendar getEndDate(){
-        return getDateFromParameter(EventSearchParameters.END_DATE).orElseGet(() -> {
+        return getDateFromParameter(EventSearchParameters.END_DATE_PARAM).orElseGet(() -> {
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.YEAR, 2999);
             return calendar;

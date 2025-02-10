@@ -212,6 +212,6 @@ public class EventsListingFactory {
 
     private String getLabel(String key) {
         // Should we use RequestContextProvider.get().getPreferredLocale() ?
-        return bundle.getSiteResourceBundle(BUNDLE, key, Locale.UK);
+        return bundle.getResourceBundle(BUNDLE, key, Locale.UK);
     }
 }

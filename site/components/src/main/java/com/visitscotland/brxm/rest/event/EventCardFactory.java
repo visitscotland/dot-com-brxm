@@ -18,7 +18,7 @@ import java.util.Locale;
 @Component
 public class EventCardFactory {
 
-    private static final String BUNDLE_FILE = "events-listings";
+    private static final String BUNDLE = "events-listings";
     private static final SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd MMM");
     private static final SimpleDateFormat fullDateFormat = new SimpleDateFormat("dd MMM, yyyy");
     private static final Locale LOCALE = Locale.UK;
@@ -111,8 +111,7 @@ public class EventCardFactory {
             times += " " + ((TravelTradeEventBSH) document).getTimezone();
         }
 
-        // TODO: Create labels
-        return (times == null) ? bundle.getResourceBundle(BUNDLE_FILE, "time.empty", LOCALE) :  times;
+        return (times == null) ? bundle.getResourceBundle(BUNDLE, "time.empty", LOCALE) :  times;
     }
 
     private String formatLocation(EventBSH document, EventCard card) {
@@ -123,12 +122,12 @@ public class EventCardFactory {
         }
 
         if (document.getOnline()){
-            String online = bundle.getResourceBundle(BUNDLE_FILE, "location.online", LOCALE);
+            String online = bundle.getResourceBundle(BUNDLE, "location.online", LOCALE);
 
             if (location == null) {
                 location = online;
             } else {
-                location += " " + bundle.getResourceBundle(BUNDLE_FILE, "location.separator", LOCALE) + " " + online;
+                location += " " + bundle.getResourceBundle(BUNDLE, "location.separator", LOCALE) + " " + online;
             }
         }
 
