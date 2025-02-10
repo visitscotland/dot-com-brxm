@@ -144,3 +144,6 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:event-date-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.EventDateValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:event-deadline-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.EventDeadlineDateValidator
