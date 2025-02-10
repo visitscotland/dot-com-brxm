@@ -1,10 +1,14 @@
 package com.visitscotland.brxm.services.event;
 
+import com.visitscotland.brxm.factory.BannerFactory;
 import org.hippoecm.hst.container.RequestContextProvider;
+import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.builder.Constraint;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.repository.util.DateTools;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
@@ -18,19 +22,35 @@ import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
 public class QueryBuilder {
 
-    private static final String EVENTS_LOCATION = "/content/documents/bsh/sandbox/events";
+    private static final Logger logger = LoggerFactory.getLogger(BannerFactory.class);
 
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+    //TODO: Move to EventBSH?
+    public static final String ONLINE = "visitscotland:online";
+    public static final String VENUE = "visitscotland:venue";
+    public static final String START_DATE = "visitscotland:startDate";
+    public static final String END_DATE = "visitscotland:endDate";
+    public static final String AMOUNT = "visitscotland:amount";
+    //TODO: Move to IndustyEventBSH?
+    public static final String SECTORS = "visitscotland:sectors";
+    public static final String REGION = "visitscotland:region";
+    public static final String TYPES = "visitscotland:types";
+    //TODO: Move to TrainingEventBSH?
+    public static final String TOPICS = "visitscotland:topics";
+    //TODO: Move to TravelTradeEventBSH?
+    public static final String DEADLINE = "visitscotland:deadline";
+    public static final String INTERNATIONAL = "visitscotland:international";
 
     private final HstQueryBuilder builder;
-    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     //TODO: Create from configuration
     public static int PAGE_SIZE = 10;
-
+    //TODO: Create property for this or should we get the channel mount point for this?
+    public static final String EVENTS_LOCATION = "/content/documents/bsh/sandbox/events";
 
     //This map will prevent parameter for being included twice
     private final Map<String, Constraint> constraints;
-
 
     public QueryBuilder(Class<? extends HippoBean>... documentTypes) throws RepositoryException {
         this.builder = HstQueryBuilder.create(getBaseNode()).ofTypes(documentTypes);
@@ -57,19 +77,19 @@ public class QueryBuilder {
 
             switch (sortBy){
                 case DATE:
-                    builder.orderByAscending("visitscotland:startDate");
+                    builder.orderByAscending(START_DATE);
                     break;
                 case PRICE:
-                    builder.orderByAscending("visitscotland:amount");
+                    builder.orderByAscending(AMOUNT);
                     break;
                 case PRICE_DESC:
-                    builder.orderByDescending("visitscotland:amount");
+                    builder.orderByDescending(AMOUNT);
                     break;
                 case REGISTRATION:
-                    builder.orderByAscending("visitscotland:registrationDate");
+                    builder.orderByAscending(DEADLINE);
                     break;
                 default:
-                    //TODO logger
+                    logger.warn("The sort by parameter {} is not valid", sortBy);;
             }
         }
     }
@@ -81,7 +101,7 @@ public class QueryBuilder {
      */
     public void price() {
         if (getQueryParameters().containsKey(FREE)) {
-            constraints.put(FREE, constraint("visitscotland:amount").equalTo(0));
+            constraints.put(FREE, constraint(AMOUNT).equalTo(0));
         }
     }
 
@@ -89,17 +109,17 @@ public class QueryBuilder {
      * Add filters related to the location: online, in-person, national, international
      */
     public void location() {
-        if (getQueryParameters().containsKey(ONLINE)) {
-            constraints.put(ONLINE, constraint("visitscotland:online").equalTo(true));
+        if (getQueryParameters().containsKey(EventSearchParameters.ONLINE)) {
+            constraints.put(EventSearchParameters.ONLINE, constraint(ONLINE).equalTo(true));
         }
         if (getQueryParameters().containsKey(IN_PERSON)) {
-            constraints.put(IN_PERSON, constraint("visitscotland:venue").notLike(""));
+            constraints.put(IN_PERSON, constraint(VENUE).notLike(""));
         }
         if (getQueryParameters().containsKey(NATIONAL)) {
-            constraints.put(NATIONAL, constraint("visitscotland:international").equalTo(false));
+            constraints.put(NATIONAL, constraint(INTERNATIONAL).equalTo(false));
         }
-        if (getQueryParameters().containsKey(INTERNATIONAL)) {
-            constraints.put(INTERNATIONAL, constraint("visitscotland:international").equalTo(true));
+        if (getQueryParameters().containsKey(EventSearchParameters.INTERNATIONAL)) {
+            constraints.put(EventSearchParameters.INTERNATIONAL, constraint(INTERNATIONAL).equalTo(true));
         }
     }
 
@@ -107,28 +127,28 @@ public class QueryBuilder {
      * Add filters related to the sector if needed
      */
     public void sector() {
-        addConstraintFromList(SECTOR, "visitscotland:sector");
+        addConstraintFromList(EventSearchParameters.SECTOR, SECTORS);
     }
 
     /**
      * Add filters related to the topic if needed
      */
     public void topic() {
-        addConstraintFromList(TOPIC, "visitscotland:topic");
+        addConstraintFromList(EventSearchParameters.TOPIC, TOPICS);
     }
 
     /**
      * Add filters related to the region if needed
      */
     public void region() {
-        addConstraintFromList(REGION, "visitscotland:region");
+        addConstraintFromList(EventSearchParameters.REGION, REGION);
     }
 
     /**
      * Add filters related to the event type if needed
      */
     public void eventType() {
-        addConstraintFromList(EVENT_TYPE, "visitscotland:evenType");
+        addConstraintFromList(EventSearchParameters.EVENT_TYPE, TYPES);
     }
 
     /**
@@ -148,15 +168,15 @@ public class QueryBuilder {
      * Add date filters if the query parameters are provided
      */
     public void dates(){
-        if (getQueryParameters().containsKey(START_DATE) || getQueryParameters().containsKey(END_DATE)) {
+        if (getQueryParameters().containsKey(EventSearchParameters.START_DATE) || getQueryParameters().containsKey(EventSearchParameters.END_DATE)) {
             Calendar startDate = getStartDate();
             Calendar endDate = getEndDate();
-            constraints.put(START_DATE, or(
-                    constraint("visitscotland:endDate").greaterOrEqualThan(endDate, DateTools.Resolution.DAY),
-                    constraint("visitscotland:startDate")
+            constraints.put(EventSearchParameters.START_DATE, or(
+                    constraint(END_DATE).greaterOrEqualThan(endDate, DateTools.Resolution.DAY),
+                    constraint(START_DATE)
                             .greaterOrEqualThan(startDate, DateTools.Resolution.DAY)));
-            constraints.put(END_DATE,
-                    constraint("visitscotland:startDate")
+            constraints.put(EventSearchParameters.END_DATE,
+                    constraint(START_DATE)
                             .greaterOrEqualThan(endDate, DateTools.Resolution.DAY));
         }
     }
@@ -165,14 +185,14 @@ public class QueryBuilder {
      * Calculate the start date from the query parameter
      */
     private Calendar getStartDate(){
-        return getDateFromParameter(START_DATE).orElse(Calendar.getInstance());
+        return getDateFromParameter(EventSearchParameters.START_DATE).orElse(Calendar.getInstance());
     }
 
     /**
      * Calculate the end date from the query parameter
      */
     private Calendar getEndDate(){
-        return getDateFromParameter(END_DATE).orElseGet(() -> {
+        return getDateFromParameter(EventSearchParameters.END_DATE).orElseGet(() -> {
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.YEAR, 2999);
             return calendar;
@@ -190,7 +210,7 @@ public class QueryBuilder {
                 calendar.setTime(date);
                 return Optional.of(calendar);
             } catch (ParseException | IndexOutOfBoundsException e){
-                //TODO logger
+                logger.warn("Could not parse date from parameter: " + parameter);
             }
         }
         return Optional.empty();
@@ -199,14 +219,22 @@ public class QueryBuilder {
     /**
      * get the base node for the query
      */
-    private Node getBaseNode() throws RepositoryException {
+    Node getBaseNode() throws RepositoryException {
         return RequestContextProvider.get().getSession().getNode(EVENTS_LOCATION);
     }
 
     /**
      * Get the query parameters from the request
      */
-    private Map<String, String[]> getQueryParameters() {
+    Map<String, String[]> getQueryParameters() {
         return RequestContextProvider.get().getServletRequest().getParameterMap();
+    }
+
+    public HstQuery build(){
+        return builder.where(and(constraints.values().toArray(Constraint[]::new))).build();
+    }
+
+    Map<String, Constraint> getConstraints() {
+        return constraints;
     }
 }
