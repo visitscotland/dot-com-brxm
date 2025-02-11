@@ -17,10 +17,10 @@ public class EventRepository extends BaseHstComponent {
     //TODO: Create from configuration
     static final int PAGE_SIZE = 10;
 
-    private final HstQueryService hstQueryService;
+    private final EventHstQueryService hstQueryService;
     private final EventCardFactory eventCardFactory;
 
-    public EventRepository(HstQueryService hstQueryService, EventCardFactory eventCardFactory) {
+    public EventRepository(EventHstQueryService hstQueryService, EventCardFactory eventCardFactory) {
         this.hstQueryService = hstQueryService;
         this.eventCardFactory = eventCardFactory;
     }

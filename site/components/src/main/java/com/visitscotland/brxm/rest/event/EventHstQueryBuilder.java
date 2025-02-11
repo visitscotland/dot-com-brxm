@@ -176,19 +176,22 @@ public class EventHstQueryBuilder {
     }
 
     /**
-     * Add date filters if the query parameters are provided
+     * Add date filters if the query parameters are provided, otherwise it only allow events in the future
      */
     public EventHstQueryBuilder addDatesFilters() {
-        if (getQueryParameters().containsKey(EventSearchParameters.START_DATE_PARAM) || getQueryParameters().containsKey(EventSearchParameters.END_DATE_PARAM)) {
-            Calendar startDate = getStartDate();
+
+        Calendar startDate = getStartDate();
+        constraints.put(EventSearchParameters.START_DATE_PARAM, or(
+                constraint(END_DATE).greaterOrEqualThan(startDate, DateTools.Resolution.DAY),
+                constraint(START_DATE).greaterOrEqualThan(startDate, DateTools.Resolution.DAY)));
+
+        if (getQueryParameters().containsKey(EventSearchParameters.END_DATE_PARAM)) {
             Calendar endDate = getEndDate();
-            constraints.put(EventSearchParameters.START_DATE_PARAM, or(
-                    constraint(END_DATE).greaterOrEqualThan(startDate, DateTools.Resolution.DAY),
-                    constraint(START_DATE).greaterOrEqualThan(startDate, DateTools.Resolution.DAY)));
             constraints.put(EventSearchParameters.END_DATE_PARAM,
                     constraint(START_DATE)
                             .lessOrEqualThan(endDate, DateTools.Resolution.DAY));
         }
+
         return this;
     }
 

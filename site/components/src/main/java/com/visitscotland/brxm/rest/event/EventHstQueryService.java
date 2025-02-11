@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 import javax.jcr.*;
 
 @Component
-public class HstQueryService {
+public class EventHstQueryService {
 
-    public <T extends HippoBean> HstQueryResult query(Class<T> documentType) {
+    public <T extends HippoBean> HstQueryResult trainingEventsQuery(Class<T> documentType) {
 
         try {
             HstQuery hstQuery = new EventHstQueryBuilder(documentType)
