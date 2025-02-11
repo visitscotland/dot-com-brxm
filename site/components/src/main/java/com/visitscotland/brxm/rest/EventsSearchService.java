@@ -4,8 +4,12 @@ import com.visitscotland.brxm.rest.event.EventRepository;
 import com.visitscotland.brxm.utils.VsException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.jaxrs.services.AbstractResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
@@ -14,6 +18,9 @@ import javax.ws.rs.core.Response;
  */
 @Path("/bsh/events-search/")
 public class EventsSearchService extends AbstractResource {
+
+    private static final Logger logger = LoggerFactory.getLogger(EventsSearchService.class);
+
     private final EventRepository eventRepository;
 
     public EventsSearchService(final EventRepository eventService) {
@@ -29,11 +36,11 @@ public class EventsSearchService extends AbstractResource {
     @GET
     @Path("training")
     @Produces("application/json")
-    public Response trainingEvents(
-            @Context HstRequest request) {
+    public Response trainingEvents(@Context HstRequest request) {
         try {
             return Response.ok().entity(eventRepository.findTrainingEvents()).build();
-        } catch (VsException e){
+        } catch (VsException e) {
+            logger.error("Error while fetching training events", e);
             return Response.serverError().build();
         }
     }
@@ -45,7 +52,8 @@ public class EventsSearchService extends AbstractResource {
         try {
             //TODO: BSHUB-583
             return null;
-        } catch (VsException e){
+        } catch (VsException e) {
+            logger.error("Error while fetching industry events", e);
             return Response.serverError().build();
         }
     }
@@ -57,7 +65,8 @@ public class EventsSearchService extends AbstractResource {
         try {
             //TODO: BSHUB-584
             return null;
-        } catch (VsException e){
+        } catch (VsException e) {
+            logger.error("Error while fetching travel trade events", e);
             return Response.serverError().build();
         }
     }

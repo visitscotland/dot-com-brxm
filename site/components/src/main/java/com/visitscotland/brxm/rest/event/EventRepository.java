@@ -14,6 +14,9 @@ import java.util.ArrayList;
 @Component
 public class EventRepository extends BaseHstComponent {
 
+    //TODO: Create from configuration
+    static final int PAGE_SIZE = 10;
+
     private final HstQueryService hstQueryService;
     private final EventCardFactory eventCardFactory;
 
@@ -28,7 +31,7 @@ public class EventRepository extends BaseHstComponent {
         PaginatedResult<EventCard> page = new PaginatedResult<>();
         page.setTotal(query.getTotalSize());
         //TODO: The value of Page size should come from properties
-        page.setPageSize(QueryBuilder.PAGE_SIZE);
+        page.setPageSize(PAGE_SIZE);
         page.setResults(new ArrayList<>());
 
         HippoBeanIterator i = query.getHippoBeans();

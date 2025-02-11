@@ -2,10 +2,6 @@ package com.visitscotland.brxm.rest.event;
 
 public interface EventSearchParameters {
 
-    //TODO: These constants are redundant to EventsListingFactory
-    String BASE_ENDPOINT_TRAINING = "/api/bsh-events-listing/training";
-    String BASE_ENDPOINT_INDUSTRY = "/api/bsh-events-listing/industry";
-    String BASE_ENDPOINT_TRADE = "/api/bsh-events-listing/travel";
 
     String PAGE_PARAM = "page";
 

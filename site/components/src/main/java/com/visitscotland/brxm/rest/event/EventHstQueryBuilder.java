@@ -20,11 +20,11 @@ import java.util.ArrayList;
 import static com.visitscotland.brxm.rest.event.EventSearchParameters.*;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
-public class QueryBuilder {
+public class EventHstQueryBuilder {
 
     private static final Logger logger = LoggerFactory.getLogger(BannerFactory.class);
 
-    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
     //TODO: Move to EventBSH?
     public static final String ONLINE = "visitscotland:online";
@@ -45,14 +45,14 @@ public class QueryBuilder {
     private final HstQueryBuilder builder;
 
     //TODO: Create from configuration
-    public static int PAGE_SIZE = 10;
+    private static final int PAGE_SIZE = 10;
     //TODO: Create property for this or should we get the channel mount point for this?
-    public static final String EVENTS_LOCATION = "/content/documents/bsh/sandbox/events";
+    private static final String EVENTS_LOCATION = "/content/documents/bsh/sandbox/events";
 
     //This map will prevent parameter for being included twice
     private final Map<String, Constraint> constraints;
 
-    public QueryBuilder(Class<? extends HippoBean>... documentTypes) throws RepositoryException {
+    public EventHstQueryBuilder(Class<? extends HippoBean>... documentTypes) throws RepositoryException {
         this.builder = HstQueryBuilder.create(getBaseNode()).ofTypes(documentTypes);
         constraints = new HashMap<>();
     }
@@ -60,7 +60,7 @@ public class QueryBuilder {
     /**
      * Add pagination limits and pagination offset if needed
      */
-    public QueryBuilder addPagination(){
+    public EventHstQueryBuilder addPagination(){
         builder.limit(PAGE_SIZE);
         if (getQueryParameters().containsKey(PAGE_PARAM)) {
             int pageIndex = Integer.parseInt(getQueryParameters().get(PAGE_PARAM)[0]) ;
@@ -73,7 +73,7 @@ public class QueryBuilder {
     /**
      * Add sorting if needed
      */
-    public QueryBuilder sort(){
+    public EventHstQueryBuilder sort(){
         if (getQueryParameters().containsKey(SORT_BY_PARAM)) {
             String sortBy = getQueryParameters().get(SORT_BY_PARAM)[0];
 
@@ -91,7 +91,7 @@ public class QueryBuilder {
                     builder.orderByAscending(DEADLINE);
                     break;
                 default:
-                    logger.warn("The sort by parameter {} is not valid", sortBy);;
+                    logger.warn("The sort by parameter {} is not valid", sortBy);
             }
         }
 
@@ -103,7 +103,7 @@ public class QueryBuilder {
     /**
      * Add price filter if the query parameter is provided
      */
-    public QueryBuilder addPriceFilters() {
+    public EventHstQueryBuilder addPriceFilters() {
         if (getQueryParameters().containsKey(FREE_PARAM)) {
             constraints.put(FREE_PARAM, constraint(AMOUNT).equalTo(0));
         }
@@ -114,7 +114,7 @@ public class QueryBuilder {
     /**
      * Add filters related to the location: online, in-person, national, international
      */
-    public QueryBuilder addLocationFilters() {
+    public EventHstQueryBuilder addLocationFilters() {
         if (getQueryParameters().containsKey(EventSearchParameters.ONLINE_PARAM)) {
             constraints.put(EventSearchParameters.ONLINE_PARAM, constraint(ONLINE).equalTo(true));
         }
@@ -133,7 +133,7 @@ public class QueryBuilder {
     /**
      * Add filters related to the sector if needed
      */
-    public QueryBuilder addSectorsFilters() {
+    public EventHstQueryBuilder addSectorsFilters() {
         addConstraintFromList(EventSearchParameters.SECTOR_PARAM, SECTORS);
         return this;
     }
@@ -141,7 +141,7 @@ public class QueryBuilder {
     /**
      * Add filters related to the topic if needed
      */
-    public QueryBuilder addTopicsFilters() {
+    public EventHstQueryBuilder addTopicsFilters() {
         addConstraintFromList(EventSearchParameters.TOPIC_PARAM, TOPICS);
         return this;
     }
@@ -149,7 +149,7 @@ public class QueryBuilder {
     /**
      * Add filters related to the region if needed
      */
-    public QueryBuilder regions() {
+    public EventHstQueryBuilder regions() {
         addConstraintFromList(EventSearchParameters.REGION_PARAM, REGION);
         return this;
     }
@@ -157,7 +157,7 @@ public class QueryBuilder {
     /**
      * Add filters related to the event type if needed
      */
-    public QueryBuilder eventTypes() {
+    public EventHstQueryBuilder eventTypes() {
         addConstraintFromList(EventSearchParameters.EVENT_TYPE_PARAM, TYPES);
         return this;
     }
@@ -178,7 +178,7 @@ public class QueryBuilder {
     /**
      * Add date filters if the query parameters are provided
      */
-    public QueryBuilder addDatesFilters(){
+    public EventHstQueryBuilder addDatesFilters(){
         if (getQueryParameters().containsKey(EventSearchParameters.START_DATE_PARAM) || getQueryParameters().containsKey(EventSearchParameters.END_DATE_PARAM)) {
             Calendar startDate = getStartDate();
             Calendar endDate = getEndDate();
@@ -216,7 +216,7 @@ public class QueryBuilder {
     private Optional<Calendar> getDateFromParameter(String parameter){
         if (getQueryParameters().containsKey(parameter)) {
             try {
-                Date date = sdf.parse(getQueryParameters().get(parameter)[0]);
+                Date date = SIMPLE_DATE_FORMAT.parse(getQueryParameters().get(parameter)[0]);
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(date);
                 return Optional.of(calendar);
