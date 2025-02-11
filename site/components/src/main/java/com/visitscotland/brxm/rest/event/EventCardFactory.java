@@ -27,9 +27,9 @@ public class EventCardFactory {
     private final PriceFormatter priceFormatter;
     private final ContentLogger contentLogger;
 
-    public EventCardFactory (ResourceBundleService bundle,
-                             PriceFormatter priceFormatter,
-                             ContentLogger contentLogger) {
+    public EventCardFactory(ResourceBundleService bundle,
+                            PriceFormatter priceFormatter,
+                            ContentLogger contentLogger) {
         this.bundle = bundle;
         this.priceFormatter = priceFormatter;
         this.contentLogger = contentLogger;
@@ -56,7 +56,7 @@ public class EventCardFactory {
         return Contract.isEmpty(value) ? null : value;
     }
 
-    private FlatLink formatCTA(EventBSH document){
+    private FlatLink formatCTA(EventBSH document) {
         FlatLink link = new FlatLink();
 
         link.setLabel(bundle.getCtaLabel(document.getCtaLink().getLabel(), LOCALE));
@@ -71,8 +71,8 @@ public class EventCardFactory {
         card.setRegistrationDeadline(fullDateFormat.format(document.getDeadline()));
     }
 
-    private String formatDates(EventBSH document, EventCard card){
-        if (document.getStartDate() == null){
+    private String formatDates(EventBSH document, EventCard card) {
+        if (document.getStartDate() == null) {
             contentLogger.error("The start Date of {} is not valid", document.getPath());
             card.addErrorMessage("The start date of this event is not valid");
             return null;
@@ -96,32 +96,32 @@ public class EventCardFactory {
 
     private String formatTimes(EventBSH document) {
         String times = null;
-        if (!Contract.isEmpty(document.getStartTime())){
+        if (!Contract.isEmpty(document.getStartTime())) {
             times = document.getStartTime();
         }
         if (!Contract.isEmpty(document.getEndTime())) {
-            if (times == null){
+            if (times == null) {
                 times = document.getEndTime();
             } else {
                 times += " - " + document.getEndTime();
             }
         }
 
-        if (document instanceof TravelTradeEventBSH && times != null){
+        if (document instanceof TravelTradeEventBSH && times != null) {
             times += " " + ((TravelTradeEventBSH) document).getTimezone();
         }
 
-        return (times == null) ? bundle.getResourceBundle(BUNDLE, "time.empty", LOCALE) :  times;
+        return (times == null) ? bundle.getResourceBundle(BUNDLE, "time.empty", LOCALE) : times;
     }
 
     private String formatLocation(EventBSH document, EventCard card) {
         String location = null;
 
-        if (!Contract.isEmpty(document.getVenue())){
+        if (!Contract.isEmpty(document.getVenue())) {
             location = document.getVenue();
         }
 
-        if (document.getOnline()){
+        if (document.getOnline()) {
             String online = bundle.getResourceBundle(BUNDLE, "location.online", LOCALE);
 
             if (location == null) {

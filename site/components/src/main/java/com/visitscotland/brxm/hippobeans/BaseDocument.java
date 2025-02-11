@@ -17,16 +17,12 @@ import java.util.stream.Collectors;
 public class BaseDocument extends HippoDocument {
 
     private static final Logger logger = LoggerFactory.getLogger(BaseDocument.class.getName());
-    private final DocumentUtilsService documentUtils = VsComponentManager.get(DocumentUtilsService.class);
 
     public String getPrimaryType() {
-        //TODO: BSHUB-561 Temporal changes to troubleshoot the issue
-        Logger logger = LoggerFactory.getLogger("BSHUB-561");
-
         try {
             return String.valueOf(node.getProperty("jcr:primaryType"));
-        } catch (Exception e) {//TODO: Revert to RepositoryException once BSHUB-561 is completed
-            logger.error("Error while getting primaryType: " + e.getMessage(), e);
+        } catch (RepositoryException e) {
+            logger.error("Error while getting primaryType: {}", e.getMessage(), e);
             return null;
         }
     }
@@ -45,11 +41,12 @@ public class BaseDocument extends HippoDocument {
     /**
      * There is an existing issue in BloomReach affecting only images where they are not correctly mapped. This method
      * works as a workaround to that issue
-     *
-     * @return
      */
+    @SuppressWarnings("unchecked")
     protected <T extends HippoBean> List<T> getMedia(String childNodeName) {
         return (List<T>) getChildBeansByName(childNodeName, HippoBean.class).stream().map(hippoBean -> {
+                // TODO: Replace block with the following line
+                // (hippoBean instanceof HippoMirror ? ((HippoMirror) hippoBean).getReferencedBean() : hippoBean)
                     if (hippoBean instanceof HippoMirror) {
                         return ((HippoMirror) hippoBean).getReferencedBean();
                     }
