@@ -38,3 +38,10 @@ definitions:
           .meta:category: system
           type: string
           value: vs.content.bsh
+      /bsh-author:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: readonly
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: vs.default-user.bsh
