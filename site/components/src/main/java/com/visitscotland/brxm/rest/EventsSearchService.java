@@ -50,8 +50,7 @@ public class EventsSearchService extends AbstractResource {
     @Produces("application/json")
     public Response industryEvents(@Context HstRequest request) {
         try {
-            //TODO: BSHUB-583
-            return null;
+            return Response.ok().entity(eventRepository.findIndustryEvents()).build();
         } catch (VsException e) {
             logger.error("Error while fetching industry events", e);
             return Response.serverError().build();
@@ -63,8 +62,7 @@ public class EventsSearchService extends AbstractResource {
     @Produces("application/json")
     public Response travelTradeEvents(@Context HstRequest request) {
         try {
-            //TODO: BSHUB-584
-            return null;
+            return Response.ok().entity(eventRepository.findTravelTradeEvents()).build();
         } catch (VsException e) {
             logger.error("Error while fetching travel trade events", e);
             return Response.serverError().build();

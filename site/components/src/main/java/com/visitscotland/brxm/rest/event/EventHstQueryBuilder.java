@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.rest.event;
 
-import com.visitscotland.brxm.factory.BannerFactory;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.builder.Constraint;
@@ -22,7 +21,7 @@ import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
 public class EventHstQueryBuilder {
 
-    private static final Logger logger = LoggerFactory.getLogger(BannerFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(EventHstQueryBuilder.class);
 
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -47,13 +46,14 @@ public class EventHstQueryBuilder {
     //TODO: Create from configuration
     private static final int PAGE_SIZE = 10;
     //TODO: Create property for this or should we get the channel mount point for this?
-    private static final String EVENTS_LOCATION = "/content/documents/bsh/sandbox/events";
+    private static final String EVENTS_LOCATION = "/content/documents/bsh/";
 
     //This map will prevent parameter for being included twice
     private final Map<String, Constraint> constraints;
 
-    public EventHstQueryBuilder(Class<? extends HippoBean>... documentTypes) throws RepositoryException {
-        this.builder = HstQueryBuilder.create(getBaseNode()).ofTypes(documentTypes);
+    @SuppressWarnings("unchecked")
+    public EventHstQueryBuilder(Class<? extends HippoBean> documentType) throws RepositoryException {
+        this.builder = HstQueryBuilder.create(getBaseNode()).ofTypes(documentType);
         constraints = new HashMap<>();
     }
 
@@ -112,7 +112,7 @@ public class EventHstQueryBuilder {
     }
 
     /**
-     * Add filters related to the location: online, in-person, national, international
+     * Add filters related to the location: online, in-person
      */
     public EventHstQueryBuilder addLocationFilters() {
         if (getQueryParameters().containsKey(EventSearchParameters.ONLINE_PARAM)) {
@@ -121,6 +121,13 @@ public class EventHstQueryBuilder {
         if (getQueryParameters().containsKey(IN_PERSON_PARAM)) {
             constraints.put(IN_PERSON_PARAM, constraint(VENUE).notLike(""));
         }
+        return this;
+    }
+
+    /**
+     * Add filters related to the location: national, international
+     */
+    public EventHstQueryBuilder addInternationalFilters() {
         if (getQueryParameters().containsKey(NATIONAL_PARAM)) {
             constraints.put(NATIONAL_PARAM, constraint(INTERNATIONAL).equalTo(false));
         }
@@ -129,6 +136,7 @@ public class EventHstQueryBuilder {
         }
         return this;
     }
+
 
     /**
      * Add filters related to the sector if needed
@@ -149,7 +157,7 @@ public class EventHstQueryBuilder {
     /**
      * Add filters related to the region if needed
      */
-    public EventHstQueryBuilder regions() {
+    public EventHstQueryBuilder addRegionsFilters() {
         addConstraintFromList(EventSearchParameters.REGION_PARAM, REGION);
         return this;
     }
@@ -157,7 +165,7 @@ public class EventHstQueryBuilder {
     /**
      * Add filters related to the event type if needed
      */
-    public EventHstQueryBuilder eventTypes() {
+    public EventHstQueryBuilder addEventTypesFilters() {
         addConstraintFromList(EventSearchParameters.EVENT_TYPE_PARAM, TYPES);
         return this;
     }
@@ -188,8 +196,7 @@ public class EventHstQueryBuilder {
         if (getQueryParameters().containsKey(EventSearchParameters.END_DATE_PARAM)) {
             Calendar endDate = getEndDate();
             constraints.put(EventSearchParameters.END_DATE_PARAM,
-                    constraint(START_DATE)
-                            .lessOrEqualThan(endDate, DateTools.Resolution.DAY));
+                    constraint(START_DATE).lessOrEqualThan(endDate, DateTools.Resolution.DAY));
         }
 
         return this;
@@ -224,7 +231,7 @@ public class EventHstQueryBuilder {
                 calendar.setTime(date);
                 return Optional.of(calendar);
             } catch (ParseException | IndexOutOfBoundsException e) {
-                logger.warn("Could not parse date from parameter: " + parameter);
+                logger.warn("Could not parse date from parameter: {}", parameter);
             }
         }
         return Optional.empty();

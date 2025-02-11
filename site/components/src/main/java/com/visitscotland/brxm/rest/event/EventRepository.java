@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.rest.event;
 
 import com.visitscotland.brxm.hippobeans.EventBSH;
-import com.visitscotland.brxm.hippobeans.TrainingEventBSH;
 import com.visitscotland.brxm.model.bsh.EventCard;
 import com.visitscotland.brxm.model.bsh.PaginatedResult;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
@@ -26,8 +25,21 @@ public class EventRepository extends BaseHstComponent {
     }
 
     public PaginatedResult<EventCard> findTrainingEvents() {
-        HstQueryResult query = hstQueryService.trainingEventsQuery(TrainingEventBSH.class);
+        HstQueryResult query = hstQueryService.queryTrainingEvents();
+        return convertToPaginatedResults(query);
+    }
 
+    public PaginatedResult<EventCard> findIndustryEvents() {
+        HstQueryResult query = hstQueryService.queryIndustryEvents();
+        return convertToPaginatedResults(query);
+    }
+
+    public PaginatedResult<EventCard> findTravelTradeEvents() {
+        HstQueryResult query = hstQueryService.queryTravelTradeEvents();
+        return convertToPaginatedResults(query);
+    }
+
+    private PaginatedResult<EventCard> convertToPaginatedResults(HstQueryResult query) {
         PaginatedResult<EventCard> page = new PaginatedResult<>();
         page.setTotal(query.getTotalSize());
         page.setPageSize(PAGE_SIZE);
