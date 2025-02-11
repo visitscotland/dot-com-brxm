@@ -60,11 +60,11 @@ public class EventHstQueryBuilder {
     /**
      * Add pagination limits and pagination offset if needed
      */
-    public EventHstQueryBuilder addPagination(){
+    public EventHstQueryBuilder addPagination() {
         builder.limit(PAGE_SIZE);
         if (getQueryParameters().containsKey(PAGE_PARAM)) {
-            int pageIndex = Integer.parseInt(getQueryParameters().get(PAGE_PARAM)[0]) ;
-            builder.offset((pageIndex - 1 )* PAGE_SIZE);
+            int pageIndex = Integer.parseInt(getQueryParameters().get(PAGE_PARAM)[0]);
+            builder.offset((pageIndex - 1) * PAGE_SIZE);
         }
 
         return this;
@@ -73,11 +73,11 @@ public class EventHstQueryBuilder {
     /**
      * Add sorting if needed
      */
-    public EventHstQueryBuilder sort(){
+    public EventHstQueryBuilder sort() {
         if (getQueryParameters().containsKey(SORT_BY_PARAM)) {
             String sortBy = getQueryParameters().get(SORT_BY_PARAM)[0];
 
-            switch (sortBy){
+            switch (sortBy) {
                 case DATE:
                     builder.orderByAscending(START_DATE);
                     break;
@@ -178,7 +178,7 @@ public class EventHstQueryBuilder {
     /**
      * Add date filters if the query parameters are provided
      */
-    public EventHstQueryBuilder addDatesFilters(){
+    public EventHstQueryBuilder addDatesFilters() {
         if (getQueryParameters().containsKey(EventSearchParameters.START_DATE_PARAM) || getQueryParameters().containsKey(EventSearchParameters.END_DATE_PARAM)) {
             Calendar startDate = getStartDate();
             Calendar endDate = getEndDate();
@@ -195,14 +195,14 @@ public class EventHstQueryBuilder {
     /**
      * Calculate the start date from the query parameter
      */
-    private Calendar getStartDate(){
+    private Calendar getStartDate() {
         return getDateFromParameter(EventSearchParameters.START_DATE_PARAM).orElse(Calendar.getInstance());
     }
 
     /**
      * Calculate the end date from the query parameter
      */
-    private Calendar getEndDate(){
+    private Calendar getEndDate() {
         return getDateFromParameter(EventSearchParameters.END_DATE_PARAM).orElseGet(() -> {
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.YEAR, 2999);
@@ -213,14 +213,14 @@ public class EventHstQueryBuilder {
     /**
      * Parse a date from a query parameter to a Calendar
      */
-    private Optional<Calendar> getDateFromParameter(String parameter){
+    private Optional<Calendar> getDateFromParameter(String parameter) {
         if (getQueryParameters().containsKey(parameter)) {
             try {
                 Date date = SIMPLE_DATE_FORMAT.parse(getQueryParameters().get(parameter)[0]);
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(date);
                 return Optional.of(calendar);
-            } catch (ParseException | IndexOutOfBoundsException e){
+            } catch (ParseException | IndexOutOfBoundsException e) {
                 logger.warn("Could not parse date from parameter: " + parameter);
             }
         }
@@ -241,7 +241,7 @@ public class EventHstQueryBuilder {
         return RequestContextProvider.get().getServletRequest().getParameterMap();
     }
 
-    public HstQuery build(){
+    public HstQuery build() {
         return builder.where(and(constraints.values().toArray(Constraint[]::new))).build();
     }
 

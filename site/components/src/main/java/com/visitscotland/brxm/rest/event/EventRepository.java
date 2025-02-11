@@ -30,14 +30,13 @@ public class EventRepository extends BaseHstComponent {
 
         PaginatedResult<EventCard> page = new PaginatedResult<>();
         page.setTotal(query.getTotalSize());
-        //TODO: The value of Page size should come from properties
         page.setPageSize(PAGE_SIZE);
         page.setResults(new ArrayList<>());
 
-        HippoBeanIterator i = query.getHippoBeans();
+        HippoBeanIterator iterator = query.getHippoBeans();
 
-        while (i.hasNext()){
-            EventBSH event = (EventBSH) i.nextHippoBean();
+        while (iterator.hasNext()){
+            EventBSH event = (EventBSH) iterator.nextHippoBean();
             page.getResults().add(eventCardFactory.createEventCard(event));
         }
 

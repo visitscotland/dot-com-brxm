@@ -19,6 +19,11 @@ import static com.visitscotland.brxm.rest.event.EventSearchParameters.*;
 @Component
 public class EventsListingFactory {
 
+    //Endpoints
+    private final static String BASE_ENDPOINT_TRAINING = "/api/bsh-events-listing/training";
+    private final static String BASE_ENDPOINT_INDUSTRY = "/api/bsh-events-listing/industry";
+    private final static String BASE_ENDPOINT_TRADE = "/api/bsh-events-listing/travel";
+
     // Value Lists
     private final static String SECTORS_VALUE_LIST = "bsh-sectors";
     private final static String TRAINING_TOPICS_VALUE_LIST = "bsh-training-topics";
@@ -39,12 +44,7 @@ public class EventsListingFactory {
     private final static String REGION_LABEL = "region";
     private final static String EVENT_TYPE_LABEL = "event-type";
 
-    //TODO: static import
-    //TODO: Move constants to the Controller
-    private final static String BASE_ENDPOINT_TRAINING = "/api/bsh-events-listing/training";
-    private final static String BASE_ENDPOINT_INDUSTRY = "/api/bsh-events-listing/industry";
-    private final static String BASE_ENDPOINT_TRADE = "/api/bsh-events-listing/travel";
-
+    // Grouping indices
     private final static int DATE_GROUP = 0;
     private final static int BOOLEAN_GROUP = 1;
 
@@ -190,7 +190,7 @@ public class EventsListingFactory {
     }
 
     private String getLabel(String key) {
-        // Should we use RequestContextProvider.get().getPreferredLocale() ?
+        //TODO: Should we use RequestContextProvider.get().getPreferredLocale() ?
         return bundle.getResourceBundle(BUNDLE, key, Locale.UK);
     }
 }
