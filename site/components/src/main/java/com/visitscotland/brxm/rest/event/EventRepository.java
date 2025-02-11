@@ -26,7 +26,7 @@ public class EventRepository extends BaseHstComponent {
     }
 
     public PaginatedResult<EventCard> findTrainingEvents() {
-        HstQueryResult query = hstQueryService.query(TrainingEventBSH.class);
+        HstQueryResult query = hstQueryService.trainingEventsQuery(TrainingEventBSH.class);
 
         PaginatedResult<EventCard> page = new PaginatedResult<>();
         page.setTotal(query.getTotalSize());
