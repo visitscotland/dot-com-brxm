@@ -12,8 +12,7 @@ import com.visitscotland.utils.Contract;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
+import java.util.*;
 
 @Component
 public class EventCardFactory {
@@ -67,8 +66,15 @@ public class EventCardFactory {
     }
 
     private void setTravelTradeFields(TravelTradeEventBSH document, EventCard card) {
+        final Calendar deadlineCalendar = document.getDeadline();
+
+        if(Objects.isNull(deadlineCalendar)) {
+            card.setRegistrationDeadline(null);
+        } else {
+            card.setRegistrationDeadline(fullDateFormat.format(deadlineCalendar.getTime()));
+        }
+
         card.setContact(document.getContentType());
-        card.setRegistrationDeadline(fullDateFormat.format(document.getDeadline()));
     }
 
     private String formatDates(EventBSH document, EventCard card) {
