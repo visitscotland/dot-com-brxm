@@ -1,4 +1,4 @@
-# Code of Conduct - Design System
+# Code of Conduct
 
 ## Our Pledge
 
