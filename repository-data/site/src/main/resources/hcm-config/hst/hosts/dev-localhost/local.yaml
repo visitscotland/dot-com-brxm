@@ -17,6 +17,7 @@ definitions:
           hst:responseheaders: ['Access-Control-Allow-Origin: *']
           visitscotland:cmsProperties: cms.local.config
           visitscotland:siteProperties: businessevents.local.config
+          hst:nochannelinfo: true
           /api:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:mount
@@ -37,6 +38,7 @@ definitions:
           hst:responseheaders: ['Access-Control-Allow-Origin: *']
           visitscotland:cmsProperties: cms.local.config
           visitscotland:siteProperties: bsh.local.config
+          hst:nochannelinfo: true
           /api:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:mount
@@ -57,6 +59,7 @@ definitions:
           hst:responseheaders: ['Access-Control-Allow-Origin: *']
           visitscotland:cmsProperties: cms.local.config
           visitscotland:siteProperties: businessevents.local.config
+          hst:nochannelinfo: true
           /api:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:mount
@@ -70,6 +73,7 @@ definitions:
             hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-de
             hst:pagemodelapi: resourceapi
             hst:responseheaders: ['Access-Control-Allow-Origin: *']
+            hst:nochannelinfo: true
           /es-es:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:mount
@@ -77,6 +81,7 @@ definitions:
             hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-es
             hst:pagemodelapi: resourceapi
             hst:responseheaders: ['Access-Control-Allow-Origin: *']
+            hst:nochannelinfo: true
           /it-it:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:mount
@@ -84,6 +89,7 @@ definitions:
             hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-it
             hst:pagemodelapi: resourceapi
             hst:responseheaders: ['Access-Control-Allow-Origin: *']
+            hst:nochannelinfo: true
           /fr-fr:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:mount
@@ -91,6 +97,7 @@ definitions:
             hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-fr
             hst:pagemodelapi: resourceapi
             hst:responseheaders: ['Access-Control-Allow-Origin: *']
+            hst:nochannelinfo: true
           /nl-nl:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:mount
@@ -98,3 +105,4 @@ definitions:
             hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-nl
             hst:pagemodelapi: resourceapi
             hst:responseheaders: ['Access-Control-Allow-Origin: *']
+            hst:nochannelinfo: true
