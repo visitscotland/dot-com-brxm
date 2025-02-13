@@ -96,3 +96,12 @@ definitions:
         to validate the price, if this issue persists please contact an administrator.
       visitscotland:price-validator: Invalid price, please enter a positive value
         (e.g., 17.99, 0.00 (Free)).
+      visitscotland:event-date-validator#exception: An unknown error occurred while
+        attempting to validate the event dates, if this issue persists please contact
+        an administrator.
+      visitscotland:event-date-validator: The end date must be after the start date.
+      visitscotland:event-deadline-validator: Please ensure that the deadline for
+        registration is before the event start date.
+      visitscotland:event-deadline-validator#exception: An unknown error occurred
+        while attempting to validate the event deadline, if this issue persists please
+        contact an administrator.
