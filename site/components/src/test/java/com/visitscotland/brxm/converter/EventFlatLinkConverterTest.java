@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.formatter;
+package com.visitscotland.brxm.converter;
 
 import com.visitscotland.brxm.hippobeans.ExternalLink;
 import com.visitscotland.brxm.model.FlatLink;
@@ -28,17 +28,17 @@ import static org.mockito.Mockito.eq;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
-class EventFlatLinkFormatterTest {
+class EventFlatLinkConverterTest {
     private static final String EXTERNAL_LINK_LABEL = "External Link Label";
     private static final String CTA_LABEL = "Call To Action Label";
     private static final String CTA_LINK = "https://example.com";
 
     @Mock private ResourceBundleService resourceBundleService;
 
-    @InjectMocks private EventFlatLinkFormatter eventFlatLinkFormatter;
+    @InjectMocks private EventFlatLinkTypeConverter eventFlatLinkFormatter;
 
     @Test
-    void format_EventBSHValidCtaLink_CorrectlyFormatted() {
+    void convert_EventBSHValidExternalLink_CorrectlyConvertedIntoFlatLink() {
         final var eventBSH = mock(EventBSH.class);
         final var externalLink = mock(ExternalLink.class);
         final var expected = FlatLink.of(
@@ -52,7 +52,7 @@ class EventFlatLinkFormatterTest {
         when(resourceBundleService.getCtaLabel(EXTERNAL_LINK_LABEL, Locale.UK)).thenReturn(CTA_LABEL);
         when(externalLink.getLink()).thenReturn(CTA_LINK);
 
-        final var result = eventFlatLinkFormatter.format(eventBSH);
+        final var result = eventFlatLinkFormatter.convert(eventBSH);
 
         assertAll(() -> {
             Assertions.assertEquals(expected.getLink(), result.getLink());

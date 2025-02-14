@@ -1,6 +1,6 @@
 package com.visitscotland.brxm.rest.event;
 
-import com.visitscotland.brxm.formatter.EventFlatLinkFormatter;
+import com.visitscotland.brxm.converter.EventFlatLinkTypeConverter;
 import com.visitscotland.brxm.hippobeans.TravelTradeEventBSH;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.event.PriceFormatter;
@@ -29,16 +29,16 @@ public class EventCardFactory {
     private final ResourceBundleService bundle;
     private final PriceFormatter priceFormatter;
     private final ContentLogger contentLogger;
-    private final EventFlatLinkFormatter eventFlatlinkFormatter;
+    private final EventFlatLinkTypeConverter eventFlatLinkTypeConverter;
 
     public EventCardFactory(ResourceBundleService bundle,
                             PriceFormatter priceFormatter,
                             ContentLogger contentLogger,
-                            EventFlatLinkFormatter eventFlatlinkFormatter) {
+                            EventFlatLinkTypeConverter eventFlatLinkTypeConverter) {
         this.bundle = bundle;
         this.priceFormatter = priceFormatter;
         this.contentLogger = contentLogger;
-        this.eventFlatlinkFormatter = eventFlatlinkFormatter;
+        this.eventFlatLinkTypeConverter = eventFlatLinkTypeConverter;
     }
 
     public EventCard createEventCard(EventBSH document) {
@@ -49,7 +49,7 @@ public class EventCardFactory {
         card.setLocation(formatLocation(document, card));
         card.setOrganizer(valueOrNull(card.getOrganizer()));
         card.setPrice(priceFormatter.format(document.getPrice()));
-        card.setCta(eventFlatlinkFormatter.format(document));
+        card.setCta(eventFlatLinkTypeConverter.convert(document));
 
         if (document instanceof TravelTradeEventBSH) {
             setTravelTradeFields((TravelTradeEventBSH) document, card);
