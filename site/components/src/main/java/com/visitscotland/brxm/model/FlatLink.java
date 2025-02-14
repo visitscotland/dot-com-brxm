@@ -6,14 +6,18 @@ public class FlatLink {
     private String link;
     private LinkType type;
 
-    public FlatLink() {
-
-    }
+    public FlatLink() { }
 
     public FlatLink(String label, String link, LinkType type) {
         this.label = label;
         this.link = link;
         this.type = type;
+    }
+
+    public static FlatLink of(final String label,
+                              final String link,
+                              final LinkType linkType) {
+        return new FlatLink(label, link, linkType);
     }
 
     public String getLabel() {
