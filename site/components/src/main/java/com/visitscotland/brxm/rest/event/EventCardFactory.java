@@ -1,18 +1,22 @@
 package com.visitscotland.brxm.rest.event;
 
+import com.visitscotland.brxm.formatter.EventFlatLinkFormatter;
+import com.visitscotland.brxm.hippobeans.TravelTradeEventBSH;
+import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.event.PriceFormatter;
 import com.visitscotland.brxm.hippobeans.EventBSH;
-import com.visitscotland.brxm.hippobeans.TravelTradeEventBSH;
-import com.visitscotland.brxm.model.FlatLink;
-import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.bsh.EventCard;
-import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
+
 import com.visitscotland.utils.Contract;
+
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
+
+import java.util.Calendar;
+import java.util.Objects;
+import java.util.Locale;
 
 @Component
 public class EventCardFactory {
@@ -25,13 +29,16 @@ public class EventCardFactory {
     private final ResourceBundleService bundle;
     private final PriceFormatter priceFormatter;
     private final ContentLogger contentLogger;
+    private final EventFlatLinkFormatter eventFlatlinkFormatter;
 
     public EventCardFactory(ResourceBundleService bundle,
                             PriceFormatter priceFormatter,
-                            ContentLogger contentLogger) {
+                            ContentLogger contentLogger,
+                            EventFlatLinkFormatter eventFlatlinkFormatter) {
         this.bundle = bundle;
         this.priceFormatter = priceFormatter;
         this.contentLogger = contentLogger;
+        this.eventFlatlinkFormatter = eventFlatlinkFormatter;
     }
 
     public EventCard createEventCard(EventBSH document) {
@@ -42,7 +49,7 @@ public class EventCardFactory {
         card.setLocation(formatLocation(document, card));
         card.setOrganizer(valueOrNull(card.getOrganizer()));
         card.setPrice(priceFormatter.format(document.getPrice()));
-        card.setCta(formatCTA(document));
+        card.setCta(eventFlatlinkFormatter.format(document));
 
         if (document instanceof TravelTradeEventBSH) {
             setTravelTradeFields((TravelTradeEventBSH) document, card);
@@ -53,16 +60,6 @@ public class EventCardFactory {
 
     private String valueOrNull(String value) {
         return Contract.isEmpty(value) ? null : value;
-    }
-
-    private FlatLink formatCTA(EventBSH document) {
-        FlatLink link = new FlatLink();
-
-        link.setLabel(bundle.getCtaLabel(document.getCtaLink().getLabel(), LOCALE));
-        link.setLink(document.getCtaLink().getLink());
-        link.setType(LinkType.EXTERNAL);
-
-        return link;
     }
 
     private void setTravelTradeFields(TravelTradeEventBSH document, EventCard card) {
@@ -78,23 +75,26 @@ public class EventCardFactory {
     }
 
     private String formatDates(EventBSH document, EventCard card) {
-        if (document.getStartDate() == null) {
+        final Calendar startDate = document.getStartDate();
+        final Calendar endDate = document.getEndDate();
+
+        if (Objects.isNull(startDate)) {
             contentLogger.error("The start Date of {} is not valid", document.getPath());
             card.addErrorMessage("The start date of this event is not valid");
             return null;
         }
 
-        if (document.getEndDate() == null || document.getStartDate().equals(document.getEndDate())) {
-            return fullDateFormat.format(document.getStartDate().getTime());
+        if (Objects.isNull(endDate) || startDate.equals(endDate)) {
+            return fullDateFormat.format(startDate.getTime());
         } else {
-            String toDate = fullDateFormat.format(document.getEndDate().getTime());
+            String toDate = fullDateFormat.format(endDate.getTime());
             String fromDate;
-            if (document.getStartDate().get(Calendar.YEAR) != document.getEndDate().get(Calendar.YEAR)) {
-                fromDate = fullDateFormat.format(document.getStartDate().getTime());
-            } else if (document.getStartDate().get(Calendar.MONTH) != document.getEndDate().get(Calendar.MONTH)) {
-                fromDate = dayMonthFormat.format(document.getStartDate().getTime());
+            if (startDate.get(Calendar.YEAR) != endDate.get(Calendar.YEAR)) {
+                fromDate = fullDateFormat.format(startDate.getTime());
+            } else if (startDate.get(Calendar.MONTH) != endDate.get(Calendar.MONTH)) {
+                fromDate = dayMonthFormat.format(startDate.getTime());
             } else {
-                fromDate = String.format("%02d", document.getStartDate().get(Calendar.DAY_OF_MONTH));
+                fromDate = String.format("%02d", startDate.get(Calendar.DAY_OF_MONTH));
             }
             return fromDate + " - " + toDate;
         }
