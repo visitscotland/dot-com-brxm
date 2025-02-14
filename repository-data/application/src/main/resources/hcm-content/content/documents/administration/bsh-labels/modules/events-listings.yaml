@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 0941970c-7b24-40a0-9e25-9d4a61a483ca
   hippo:name: Events Listings
-  hippo:versionHistory: 213b5c7a-ed67-478e-92c7-5bbeffe7be8d
+  hippo:versionHistory: d7cb1955-2e7e-43da-a7bf-b91adb403a83
   /events-listings[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,11 +13,11 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-02-07T11:01:43.853Z
+    hippostdpubwf:lastModificationDate: 2025-02-10T17:54:03.907Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:id: bsh.events-listings
+    resourcebundle:id: events-listings
     resourcebundle:keys: [results, filter, clear-all, sort-by, time, price, location,
       contact, organiser, cta-link, deadline, training-topic, sort.date, sort.registration,
       sector, region, event-type, location.separator, location.online, time.empty,
@@ -37,11 +37,11 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-02-07T11:06:03.912Z
+    hippostdpubwf:lastModificationDate: 2025-02-10T17:54:15.270Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:id: bsh.events-listings
+    resourcebundle:id: events-listings
     resourcebundle:keys: [results, filter, clear-all, sort-by, time, price, location,
       contact, organiser, cta-link, deadline, training-topic, sort.date, sort.registration,
       sector, region, event-type, location.separator, location.online, time.empty,
@@ -61,12 +61,12 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-02-07T11:06:03.912Z
+    hippostdpubwf:lastModificationDate: 2025-02-10T17:54:15.270Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-02-07T11:06:33.623Z
+    hippostdpubwf:publicationDate: 2025-02-10T17:54:28.178Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:id: bsh.events-listings
+    resourcebundle:id: events-listings
     resourcebundle:keys: [results, filter, clear-all, sort-by, time, price, location,
       contact, organiser, cta-link, deadline, training-topic, sort.date, sort.registration,
       sector, region, event-type, location.separator, location.online, time.empty,
