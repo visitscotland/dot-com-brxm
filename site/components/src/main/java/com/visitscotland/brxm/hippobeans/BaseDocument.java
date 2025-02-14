@@ -1,7 +1,5 @@
 package com.visitscotland.brxm.hippobeans;
 
-import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.services.DocumentUtilsService;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
@@ -9,7 +7,6 @@ import org.hippoecm.hst.content.beans.standard.HippoMirror;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.RepositoryException;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +15,17 @@ import java.util.stream.Collectors;
 public class BaseDocument extends HippoDocument {
 
     private static final Logger logger = LoggerFactory.getLogger(BaseDocument.class);
+
+    public <T extends HippoBean> List<T> getLinkedBeans(String relPath, Class<T> beanMappingClass) {
+        try {
+            return super.getLinkedBeans(relPath, beanMappingClass);
+        } catch (IllegalStateException e) {
+            logger.error("IllegalStateException while getting linked beans", e);
+        } catch (Exception e) {
+            logger.error("Error while getting linked beans", e);
+        }
+        return Collections.emptyList();
+    }
 
     protected <T extends HippoBean> T getOnlyChild(List<T> children) {
         if (children.isEmpty()) {
