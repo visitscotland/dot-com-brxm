@@ -26,11 +26,6 @@ public class BaseDocument extends HippoDocument {
         }
     }
 
-    @Override
-    public String getDisplayName() {
-        return super.getDisplayName();
-    }
-
     /**
      * There is an existing issue in BloomReach affecting only images where they are not correctly mapped. This method
      * works as a workaround to that issue
