@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.services.event;
+package com.visitscotland.brxm.rest.event;
 
 import com.visitscotland.brxm.event.PriceFormatter;
 import com.visitscotland.brxm.hippobeans.EventBSH;
@@ -12,13 +12,12 @@ import com.visitscotland.utils.Contract;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
+import java.util.*;
 
 @Component
 public class EventCardFactory {
 
-    private static final String BUNDLE_FILE = "events-listings";
+    private static final String BUNDLE = "events-listings";
     private static final SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd MMM");
     private static final SimpleDateFormat fullDateFormat = new SimpleDateFormat("dd MMM, yyyy");
     private static final Locale LOCALE = Locale.UK;
@@ -27,9 +26,9 @@ public class EventCardFactory {
     private final PriceFormatter priceFormatter;
     private final ContentLogger contentLogger;
 
-    public EventCardFactory (ResourceBundleService bundle,
-                             PriceFormatter priceFormatter,
-                             ContentLogger contentLogger) {
+    public EventCardFactory(ResourceBundleService bundle,
+                            PriceFormatter priceFormatter,
+                            ContentLogger contentLogger) {
         this.bundle = bundle;
         this.priceFormatter = priceFormatter;
         this.contentLogger = contentLogger;
@@ -56,7 +55,7 @@ public class EventCardFactory {
         return Contract.isEmpty(value) ? null : value;
     }
 
-    private FlatLink formatCTA(EventBSH document){
+    private FlatLink formatCTA(EventBSH document) {
         FlatLink link = new FlatLink();
 
         link.setLabel(bundle.getCtaLabel(document.getCtaLink().getLabel(), LOCALE));
@@ -67,12 +66,19 @@ public class EventCardFactory {
     }
 
     private void setTravelTradeFields(TravelTradeEventBSH document, EventCard card) {
+        final Calendar deadlineCalendar = document.getDeadline();
+
+        if(Objects.isNull(deadlineCalendar)) {
+            card.setRegistrationDeadline(null);
+        } else {
+            card.setRegistrationDeadline(fullDateFormat.format(deadlineCalendar.getTime()));
+        }
+
         card.setContact(document.getContentType());
-        card.setRegistrationDeadline(fullDateFormat.format(document.getDeadline()));
     }
 
-    private String formatDates(EventBSH document, EventCard card){
-        if (document.getStartDate() == null){
+    private String formatDates(EventBSH document, EventCard card) {
+        if (document.getStartDate() == null) {
             contentLogger.error("The start Date of {} is not valid", document.getPath());
             card.addErrorMessage("The start date of this event is not valid");
             return null;
@@ -96,39 +102,38 @@ public class EventCardFactory {
 
     private String formatTimes(EventBSH document) {
         String times = null;
-        if (!Contract.isEmpty(document.getStartTime())){
+        if (!Contract.isEmpty(document.getStartTime())) {
             times = document.getStartTime();
         }
         if (!Contract.isEmpty(document.getEndTime())) {
-            if (times == null){
+            if (times == null) {
                 times = document.getEndTime();
             } else {
                 times += " - " + document.getEndTime();
             }
         }
 
-        if (document instanceof TravelTradeEventBSH && times != null){
+        if (document instanceof TravelTradeEventBSH && times != null) {
             times += " " + ((TravelTradeEventBSH) document).getTimezone();
         }
 
-        // TODO: Create labels
-        return (times == null) ? bundle.getResourceBundle(BUNDLE_FILE, "time.empty", LOCALE) :  times;
+        return (times == null) ? bundle.getResourceBundle(BUNDLE, "time.empty", LOCALE) : times;
     }
 
     private String formatLocation(EventBSH document, EventCard card) {
         String location = null;
 
-        if (!Contract.isEmpty(document.getVenue())){
+        if (!Contract.isEmpty(document.getVenue())) {
             location = document.getVenue();
         }
 
-        if (document.getOnline()){
-            String online = bundle.getResourceBundle(BUNDLE_FILE, "location.online", LOCALE);
+        if (document.getOnline()) {
+            String online = bundle.getResourceBundle(BUNDLE, "location.online", LOCALE);
 
             if (location == null) {
                 location = online;
             } else {
-                location += " " + bundle.getResourceBundle(BUNDLE_FILE, "location.separator", LOCALE) + " " + online;
+                location += " " + bundle.getResourceBundle(BUNDLE, "location.separator", LOCALE) + " " + online;
             }
         }
 

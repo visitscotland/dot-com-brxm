@@ -34,11 +34,12 @@ public class BaseDocument extends HippoDocument {
     /**
      * There is an existing issue in BloomReach affecting only images where they are not correctly mapped. This method
      * works as a workaround to that issue
-     *
-     * @return
      */
+    @SuppressWarnings("unchecked")
     protected <T extends HippoBean> List<T> getMedia(String childNodeName) {
         return (List<T>) getChildBeansByName(childNodeName, HippoBean.class).stream().map(hippoBean -> {
+                // TODO: Replace block with the following line
+                // (hippoBean instanceof HippoMirror ? ((HippoMirror) hippoBean).getReferencedBean() : hippoBean)
                     if (hippoBean instanceof HippoMirror) {
                         return ((HippoMirror) hippoBean).getReferencedBean();
                     }

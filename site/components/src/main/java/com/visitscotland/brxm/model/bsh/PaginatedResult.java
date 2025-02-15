@@ -6,6 +6,7 @@ import java.util.List;
 public class PaginatedResult<T> implements Serializable {
 
     private int total;
+    private int pageSize;
     private List<T> results;
 
     public int getTotal() {
@@ -14,6 +15,14 @@ public class PaginatedResult<T> implements Serializable {
 
     public void setTotal(int total) {
         this.total = total;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
     }
 
     public List<T> getResults() {

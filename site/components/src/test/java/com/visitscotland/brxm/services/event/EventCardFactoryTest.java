@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.services.event;
 
 import com.visitscotland.brxm.event.PriceFormatter;
+import com.visitscotland.brxm.rest.event.EventCardFactory;
 import com.visitscotland.brxm.services.ResourceBundleService;
 
 import com.visitscotland.brxm.utils.ContentLogger;
