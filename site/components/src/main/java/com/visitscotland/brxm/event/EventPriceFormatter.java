@@ -12,27 +12,28 @@ import java.util.Objects;
 import java.util.Locale;
 
 @Component
-public class PriceFormatter {
+public class EventPriceFormatter implements Formatter<Price, String> {
     private static final String EVENTS_RESOURCE_BUNDLE_KEY = "events-listings";
 
     private final ResourceBundleService resourceBundleService;
 
-    public PriceFormatter(ResourceBundleService resourceBundleService) {
+    public EventPriceFormatter(ResourceBundleService resourceBundleService) {
         this.resourceBundleService = resourceBundleService;
     }
 
-    public <P extends Price> String format(final P price) {
-        if (Objects.isNull(price)) {
+    @Override
+    public String format(Price hippoBean) {
+        if (Objects.isNull(hippoBean)) {
             return null;
         }
 
-        final String currency = price.getCurrency();
-        final BigDecimal amount = BigDecimal.valueOf(price.getAmount())
+        final String currency = hippoBean.getCurrency();
+        final BigDecimal amount = BigDecimal.valueOf(hippoBean.getAmount())
             .setScale(2, RoundingMode.UNNECESSARY);
 
         if (amount.compareTo(BigDecimal.ZERO) == 0){
             return resourceBundleService.getResourceBundle(EVENTS_RESOURCE_BUNDLE_KEY, "price.free", Locale.UK);
-        } else if (price.getVat()) {
+        } else if (hippoBean.getVat()) {
             return formatPriceWithVat(amount, currency);
         } else {
             return amount + " " + currency;

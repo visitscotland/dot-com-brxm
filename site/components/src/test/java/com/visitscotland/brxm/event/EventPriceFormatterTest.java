@@ -23,7 +23,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.eq;
 
 @ExtendWith(MockitoExtension.class)
-class PriceFormatterTest {
+class EventPriceFormatterTest {
     private static final String EVENTS_RESOURCE_BUNDLE_KEY = "events-listings";
     private static final String EVENT_FREE_LABEL_KEY = "price.free";
     private static final String EVENT_VAT_LABEL_KEY = "price.vat";
@@ -33,7 +33,7 @@ class PriceFormatterTest {
     private ResourceBundleService resourceBundleService;
 
     @InjectMocks
-    private PriceFormatter priceFormatter;
+    private EventPriceFormatter eventPriceFormatter;
 
     @Test
     void formatPrice_ValidPriceNoVat_ExpectedFormat() {
@@ -43,7 +43,7 @@ class PriceFormatterTest {
         when(price.getAmount()).thenReturn(1470.32D);
         when(price.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
 
-        final String result = priceFormatter.format(price);
+        final String result = eventPriceFormatter.format(price);
 
         Assertions.assertEquals(expected, result);
 
@@ -63,7 +63,7 @@ class PriceFormatterTest {
         when(resourceBundleService.getResourceBundle(EVENTS_RESOURCE_BUNDLE_KEY, EVENT_VAT_LABEL_KEY, Locale.UK))
             .thenReturn(vatLabel);
 
-        final String result = priceFormatter.format(price);
+        final String result = eventPriceFormatter.format(price);
 
         Assertions.assertEquals(expected, result);
 
@@ -73,7 +73,7 @@ class PriceFormatterTest {
 
     @Test
     void formatPrice_PriceNull_ExpectNull() {
-        final String result = priceFormatter.format(null);
+        final String result = eventPriceFormatter.format(null);
         final Price price = mock(Price.class);
 
         Assertions.assertNull(result);
@@ -92,7 +92,7 @@ class PriceFormatterTest {
         when(resourceBundleService.getResourceBundle(EVENTS_RESOURCE_BUNDLE_KEY, EVENT_FREE_LABEL_KEY, Locale.UK))
             .thenReturn(expected);
 
-        final String result = priceFormatter.format(price);
+        final String result = eventPriceFormatter.format(price);
 
         Assertions.assertEquals(expected, result);
 
