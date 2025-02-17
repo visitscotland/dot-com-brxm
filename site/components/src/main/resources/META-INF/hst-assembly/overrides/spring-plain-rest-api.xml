@@ -21,7 +21,7 @@
         </bean>
         <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
           <constructor-arg>
-            <bean class="com.visitscotland.brxm.rest.EventsSearchService"/>
+            <bean class="com.visitscotland.brxm.event.EventsSearchService"/>
           </constructor-arg>
         </bean>
       </list>

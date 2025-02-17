@@ -1,6 +1,5 @@
-package com.visitscotland.brxm.rest.event;
+package com.visitscotland.brxm.event;
 
-import com.visitscotland.brxm.event.PriceFormatter;
 import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.hippobeans.TravelTradeEventBSH;
 import com.visitscotland.brxm.model.FlatLink;
