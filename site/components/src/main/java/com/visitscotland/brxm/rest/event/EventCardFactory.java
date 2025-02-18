@@ -74,7 +74,7 @@ public class EventCardFactory {
             card.setRegistrationDeadline(fullDateFormat.format(deadlineCalendar.getTime()));
         }
 
-        card.setContact(document.getContentType());
+        card.setContact(document.getEmail());
     }
 
     private String formatDates(EventBSH document, EventCard card) {
