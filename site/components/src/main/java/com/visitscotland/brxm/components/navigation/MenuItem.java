@@ -20,8 +20,10 @@ public class MenuItem implements HstSiteMenuItem {
     @PageModelIgnore
     private MenuItem parent;
 
-    private String title;
+    @PageModelIgnore
     private Page page;
+
+    private String title;
     private NavigationWidget widget;
     private String cta;
     private String externalLink;
