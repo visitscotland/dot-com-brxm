@@ -2,7 +2,6 @@ package com.visitscotland.brxm.hippobeans;
 
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
-import com.visitscotland.brxm.hippobeans.Price;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:TrainingEventBSH")
 @Node(jcrType = "visitscotland:TrainingEventBSH")

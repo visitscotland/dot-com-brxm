@@ -136,11 +136,14 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:event-location-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.EventLocationValidator
-    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:event-location-region-validator:
-      jcr:primaryType: hipposys:moduleconfig
-      hipposys:className: com.visitscotland.brxm.validator.EventLocationRegionValidator
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/email:
       regexp.pattern: ^$|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:price-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.PriceValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:event-date-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.EventDateValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:event-deadline-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.EventDeadlineDateValidator
