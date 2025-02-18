@@ -26,11 +26,11 @@ import java.util.Optional;
  */
 @Component
 public class DocumentUtilsService {
-
     private static final Logger logger = LoggerFactory.getLogger(DocumentUtilsService.class.getName());
 
-
-    public static final String DOCUMENT_TYPE = "jcr:primaryType";
+    static final String DOCUMENT_TYPE = "jcr:primaryType";
+    static final String HIPPO_HANDLE = "hippo:handle";
+    static final String HIPPO_FOLDER = "hippostd:folder";
 
     private final HippoUtilsService utils;
     private final ResourceBundleService bundle;
@@ -85,9 +85,10 @@ public class DocumentUtilsService {
             boolean allowed = false;
             try {
                 if (jcrNode.getNodes().getSize() > 0) {
-                    String primaryType = jcrNode.getNodes().nextNode().getProperty(DOCUMENT_TYPE).getString();
+                    Node variant = jcrNode.getNodes().nextNode();
+                    String primaryType = variant.getProperty(DOCUMENT_TYPE).getString();
                     if (allowedTypes.length == 0) {
-                        allowed = true;
+                        allowed = !(primaryType.equals(HIPPO_HANDLE)) && !(primaryType.equals(HIPPO_FOLDER)) && !variant.isNodeType(Page.PRIMARY_TYPE);
                     } else {
                         for (String type : allowedTypes) {
                             if (type.equals(primaryType)) {

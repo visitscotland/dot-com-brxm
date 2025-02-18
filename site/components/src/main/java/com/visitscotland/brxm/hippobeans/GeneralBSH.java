@@ -1,10 +1,14 @@
 package com.visitscotland.brxm.hippobeans;
 
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import com.visitscotland.brxm.services.ResourceBundleService;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:GeneralBSH")
 @Node(jcrType = "visitscotland:GeneralBSH")

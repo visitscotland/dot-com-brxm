@@ -232,3 +232,8 @@ definitions:
       /en:
         jcr:primaryType: hipposys:resourcebundle
         jcr:name: Megalinks (BSH)
+    /hippo:configuration/hippo:translations/hippo:types/visitscotland:EventsListing:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Events Listing

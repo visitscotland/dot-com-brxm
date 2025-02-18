@@ -14,4 +14,5 @@ definitions:
         .meta:category: system
         .meta:add-new-system-values: true
         type: string
-        value: [vs.default-user.bsh, vs.gallery.bsh, xm.channel.webmaster, vs.labels.bsh]
+        value: [vs.content.bsh, vs.gallery.bsh, xm.channel.webmaster, vs.labels.bsh,
+          vs.assets.bsh]

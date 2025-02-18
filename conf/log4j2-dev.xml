@@ -67,10 +67,6 @@
     <Logger name="org.hippoecm.frontend" level="warn"/>
     <Logger name="org.apache.wicket" level="warn"/>
 
-    <!-- DiagnosticsRequestCycleListener only logs when diagnostics are enabled in the repository at
-         /hippo:configuration/hippo:modules/diagnostics. Hence can be here on level 'info' -->
-    <Logger name="org.hippoecm.frontend.diagnosis.DiagnosticsRequestCycleListener" level="info"/>
-
     <!-- audit logging -->
     <Logger additivity="false" name="org.hippoecm.repository.api.Workflow" level="info">
       <AppenderRef ref="audit"/>
@@ -87,9 +83,12 @@
       <AppenderRef ref="content" />
     </Logger>
 
+    <!-- DiagnosticsRequestCycleListener only logs when diagnostics are enabled in the repository at
+        /hippo:configuration/hippo:modules/diagnostics. Hence can be here on level 'info' -->
+    <Logger name="org.hippoecm.frontend.diagnosis.DiagnosticsRequestCycleListener" level="warn"/>
     <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
          can be here on level 'info' -->
-    <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="info"/>
+    <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="warn"/>
 
     <Logger name="freemarker" level="warn"/>
 

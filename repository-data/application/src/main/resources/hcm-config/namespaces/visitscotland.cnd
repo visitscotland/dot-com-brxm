@@ -30,6 +30,9 @@
 [visitscotland:ArticleStyledSection] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:Asset] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:Banner] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
@@ -69,6 +72,12 @@
 [visitscotland:Entry] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:EventBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
+[visitscotland:EventsListing] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
 [visitscotland:ExternalDocument] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -90,13 +99,13 @@
 [visitscotland:FormCompoundBreg] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:FormCompoundCRM] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:FormCompoundFepl] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:FormCompoundMarketo] > hippo:compound, hippostd:relaxed
-  orderable
-
-[visitscotland:FormCompoundCRM] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:General] > hippostd:relaxed, hippotranslation:translated, visitscotland:Page, visitscotland:translatable
@@ -117,6 +126,9 @@
 [visitscotland:Image] > hippogallery:imageset, hippogallery:relaxed
 
 [visitscotland:ImageData] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:IndustryEventBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:EventBSH
   orderable
 
 [visitscotland:InstagramImage] > hippo:compound, hippostd:relaxed
@@ -164,6 +176,9 @@
 [visitscotland:Personalization] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:Price] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:ProductSearchLink] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -206,6 +221,9 @@
 [visitscotland:TourismInformation] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
+[visitscotland:TrainingEventBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:EventBSH
+  orderable
+
 [visitscotland:TravelInformation] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
@@ -213,6 +231,9 @@
   orderable
 
 [visitscotland:TravelInformationTransportRow] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:TravelTradeEventBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:EventBSH
   orderable
 
 [visitscotland:Video] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable

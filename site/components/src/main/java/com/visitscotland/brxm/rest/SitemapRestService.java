@@ -62,13 +62,12 @@ public class SitemapRestService extends AbstractResource {
     public Response fragment(@Context HstRequest request,
                              @DefaultValue("hst:root") @QueryParam("channel") String locale) {
         try {
-            return Response.ok().entity(getPages(locale, Destination.class, Listicle.class, General.class, Itinerary.class))
-                    .build();
+            return Response.ok().entity(getPages(locale, Destination.class, Listicle.class, General.class, Itinerary.class,
+                    GeneralBSH.class)).build();
         } catch (VsException e){
             return Response.serverError().build();
         }
     }
-
 
     private List<SitemapEntry> getPages(String channel, Class<? extends Page>... types){
         List<SitemapEntry> entries = new ArrayList<>();
