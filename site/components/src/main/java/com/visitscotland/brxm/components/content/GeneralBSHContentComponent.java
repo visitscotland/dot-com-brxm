@@ -45,15 +45,10 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
 
     @Override
     protected void addOTYML(HstRequest request) {
-        try {
-            GeneralBSH page = getDocument(request);
-            if (!Contract.isEmpty(page.getLinks())) {
-                HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page, request.getLocale());
-                request.setModel(OTYML_BUNDLE, otyml);
-            }
-        } catch (Exception e) {
-            //TODO BSHUB-561 remove try catch when troubleshooting is done
-            logger.error("Error while generating Related pages (OTYML) for GeneralBSH", e);
+        GeneralBSH page = getDocument(request);
+        if (!Contract.isEmpty(page.getLinks())) {
+            HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page, request.getLocale());
+            request.setModel(OTYML_BUNDLE, otyml);
         }
     }
 

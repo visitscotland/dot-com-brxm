@@ -14,8 +14,15 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
+import static com.visitscotland.brxm.rest.event.EventSearchParameters.*;
+
 @Component
 public class EventsListingFactory {
+
+    //Endpoints
+    private final static String BASE_ENDPOINT_TRAINING = "/api/bsh-events-listing/training";
+    private final static String BASE_ENDPOINT_INDUSTRY = "/api/bsh-events-listing/industry";
+    private final static String BASE_ENDPOINT_TRADE = "/api/bsh-events-listing/travel";
 
     // Value Lists
     private final static String SECTORS_VALUE_LIST = "bsh-sectors";
@@ -37,30 +44,7 @@ public class EventsListingFactory {
     private final static String REGION_LABEL = "region";
     private final static String EVENT_TYPE_LABEL = "event-type";
 
-    //TODO: Move constants to the Controller
-    private final static String BASE_ENDPOINT_TRAINING = "/api/bsh-events-listing/training";
-    private final static String BASE_ENDPOINT_INDUSTRY = "/api/bsh-events-listing/industry";
-    private final static String BASE_ENDPOINT_TRADE = "/api/bsh-events-listing/travel";
-
-    private final static String START_DATE = "start-date";
-    private final static String END_DATE = "end-date";
-
-    private final static String FREE = "free";
-    private final static String ONLINE = "online";
-    private final static String IN_PERSON = "in-person";
-    private final static String NATIONAL = "national";
-    private final static String INTERNATIONAL = "international";
-
-    private final static String SECTOR = "sector";
-    private final static String TOPIC = "topic";
-    private final static String REGION = "region";
-    private final static String EVENT_TYPE = "event-type";
-
-    private final static String DATE = "date";
-    private final static String REGISTRATION = "registration";
-    private final static String PRICE = "price";
-    private final static String PRICE_DESC = "price-desc";
-
+    // Grouping indices
     private final static int DATE_GROUP = 0;
     private final static int BOOLEAN_GROUP = 1;
 
@@ -99,9 +83,9 @@ public class EventsListingFactory {
         List<EventFilter> filters = new ArrayList<>();
 
         addDateFields(filters);
-        addBooleanFields(filters, true, true,true, false);
-        filters.add(buildMultiselectField(TOPIC, TOPIC_LABEL, TRAINING_TOPICS_VALUE_LIST, 2));
-        filters.add(buildMultiselectField(SECTOR, SECTOR_LABEL, SECTORS_VALUE_LIST, 3));
+        addBooleanFields(filters, true, false);
+        filters.add(buildMultiselectField(TOPIC_PARAM, TOPIC_LABEL, TRAINING_TOPICS_VALUE_LIST, 2));
+        filters.add(buildMultiselectField(SECTOR_PARAM, SECTOR_LABEL, SECTORS_VALUE_LIST, 3));
 
         return filters;
     }
@@ -122,10 +106,10 @@ public class EventsListingFactory {
         List<EventFilter> filters = new ArrayList<>();
 
         addDateFields(filters);
-        addBooleanFields(filters, true, true,false, false);
-        filters.add(buildMultiselectField(EVENT_TYPE, EVENT_TYPE_LABEL, INDUSTRY_EVENTS_TYPES_VALUE_LIST, 2));
-        filters.add(buildMultiselectField(SECTOR, SECTOR_LABEL, SECTORS_VALUE_LIST, 3));
-        filters.add(buildMultiselectField(REGION, REGION_LABEL, REGIONS_VALUE_LIST, 4));
+        addBooleanFields(filters, false, false);
+        filters.add(buildMultiselectField(EVENT_TYPE_PARAM, EVENT_TYPE_LABEL, INDUSTRY_EVENTS_TYPES_VALUE_LIST, 2));
+        filters.add(buildMultiselectField(SECTOR_PARAM, SECTOR_LABEL, SECTORS_VALUE_LIST, 3));
+        filters.add(buildMultiselectField(REGION_PARAM, REGION_LABEL, REGIONS_VALUE_LIST, 4));
 
         return filters;
     }
@@ -146,33 +130,29 @@ public class EventsListingFactory {
         List<EventFilter> filters = new ArrayList<>();
 
         addDateFields(filters);
-        addBooleanFields(filters, true, true,false, true);
+        addBooleanFields(filters, false, true);
 
         return filters;
     }
 
     private void addDateFields(List<EventFilter> filters) {
-        filters.add(buildDateField(START_DATE, START_DATE_LABEL));
-        filters.add(buildDateField(END_DATE, END_DATE_LABEL));
+        filters.add(buildDateField(START_DATE_PARAM, START_DATE_LABEL));
+        filters.add(buildDateField(END_DATE_PARAM, END_DATE_LABEL));
     }
 
 
     //TODO: Create a builder for this?
-    private void addBooleanFields(List<EventFilter> filters, boolean free, boolean online, boolean inPerson,
-        boolean national) {
+    private void addBooleanFields(List<EventFilter> filters, boolean inPerson, boolean national) {
 
-        if (free) {
-            filters.add(buildBooleanField(FREE, FREE_LABEL));
-        }
-        if (online) {
-            filters.add(buildBooleanField(ONLINE, ONLINE_LABEL));
-        }
+        filters.add(buildBooleanField(FREE_PARAM, FREE_LABEL));
+        filters.add(buildBooleanField(ONLINE_PARAM, ONLINE_LABEL));
+
         if (inPerson) {
-            filters.add(buildBooleanField(IN_PERSON, IN_PERSON_LABEL));
+            filters.add(buildBooleanField(IN_PERSON_PARAM, IN_PERSON_LABEL));
         }
         if (national) {
-            filters.add(buildBooleanField(NATIONAL, NATIONAL_LABEL));
-            filters.add(buildBooleanField(INTERNATIONAL, INTERNATIONAL_LABEL));
+            filters.add(buildBooleanField(NATIONAL_PARAM, NATIONAL_LABEL));
+            filters.add(buildBooleanField(INTERNATIONAL_PARAM, INTERNATIONAL_LABEL));
         }
     }
 
@@ -210,7 +190,7 @@ public class EventsListingFactory {
     }
 
     private String getLabel(String key) {
-        // Should we use RequestContextProvider.get().getPreferredLocale() ?
-        return bundle.getSiteResourceBundle(BUNDLE, key, Locale.UK);
+        //TODO: Should we use RequestContextProvider.get().getPreferredLocale() ?
+        return bundle.getResourceBundle(BUNDLE, key, Locale.UK);
     }
 }
