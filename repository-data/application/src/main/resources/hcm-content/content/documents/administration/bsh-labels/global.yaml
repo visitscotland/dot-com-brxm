@@ -9,7 +9,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 901d7cd3-9e5a-4920-91cc-946e95f058ba
     hippo:name: Global
-    hippo:versionHistory: 5df598fa-a9b5-403d-956b-61055053d65f
+    hippo:versionHistory: 6fdf3943-1342-4fac-808f-7acd5ece5010
     /global[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -19,12 +19,12 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-11-20T11:15:49.237Z
-      hippostdpubwf:lastModificationDate: 2024-11-21T08:31:53.252Z
+      hippostdpubwf:lastModificationDate: 2025-02-12T12:16:12.244Z
       hippostdpubwf:lastModifiedBy: admin
-      resourcebundle:descriptions: ['', '']
+      resourcebundle:descriptions: ['', '', '', '']
       resourcebundle:id: bsh.essentials.global
-      resourcebundle:keys: [read-time.generic, back-to-top]
-      resourcebundle:messages: ['%s minute read', Back to top]
+      resourcebundle:keys: [read-time.generic, back-to-top, page.next, page.previous]
+      resourcebundle:messages: ['%s minute read', Back to top, Next, Previous]
     /global[2]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -34,12 +34,12 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-11-20T11:15:49.237Z
-      hippostdpubwf:lastModificationDate: 2024-11-21T08:32:00.967Z
+      hippostdpubwf:lastModificationDate: 2025-02-12T12:16:47.847Z
       hippostdpubwf:lastModifiedBy: admin
-      resourcebundle:descriptions: ['', '']
+      resourcebundle:descriptions: ['', '', '', '']
       resourcebundle:id: bsh.essentials.global
-      resourcebundle:keys: [read-time.generic, back-to-top]
-      resourcebundle:messages: ['%s minute read', Back to top]
+      resourcebundle:keys: [read-time.generic, back-to-top, page.next, page.previous]
+      resourcebundle:messages: ['%s minute read', Back to top, Next, Previous]
     /global[3]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -49,10 +49,10 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-11-20T11:15:49.237Z
-      hippostdpubwf:lastModificationDate: 2024-11-21T08:32:00.967Z
+      hippostdpubwf:lastModificationDate: 2025-02-12T12:16:47.847Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2024-11-21T08:32:03.575Z
-      resourcebundle:descriptions: ['', '']
+      hippostdpubwf:publicationDate: 2025-02-12T12:16:56.289Z
+      resourcebundle:descriptions: ['', '', '', '']
       resourcebundle:id: bsh.essentials.global
-      resourcebundle:keys: [read-time.generic, back-to-top]
-      resourcebundle:messages: ['%s minute read', Back to top]
+      resourcebundle:keys: [read-time.generic, back-to-top, page.next, page.previous]
+      resourcebundle:messages: ['%s minute read', Back to top, Next, Previous]

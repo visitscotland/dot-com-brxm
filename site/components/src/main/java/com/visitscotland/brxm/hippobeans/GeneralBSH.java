@@ -45,17 +45,8 @@ public class GeneralBSH extends Page {
 
     @HippoEssentialsGenerated(internalName = "visitscotland:links", allowModifications = false)
     public List<HippoBean> getLinks() {
-        //TODO: BSHUB-561 Temporal changes to troubleshoot the issue
-        Logger logger = LoggerFactory.getLogger("BSHUB-561");
-
-        try {
-            return getLinkedBeans("visitscotland:links", HippoBean.class);
-        } catch (Exception e) {
-            logger.error("Error while getting linked beans", e);
-            return Collections.emptyList();
-        }
+        return getLinkedBeans("visitscotland:links", HippoBean.class);
     }
-
 
     @HippoEssentialsGenerated(internalName = "visitscotland:type")
     public String getType() {

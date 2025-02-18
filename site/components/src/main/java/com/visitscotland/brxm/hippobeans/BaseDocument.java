@@ -1,7 +1,5 @@
 package com.visitscotland.brxm.hippobeans;
 
-import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.services.DocumentUtilsService;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
@@ -9,25 +7,15 @@ import org.hippoecm.hst.content.beans.standard.HippoMirror;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.RepositoryException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Node(jcrType = "visitscotland:basedocument")
 public class BaseDocument extends HippoDocument {
 
-    private static final Logger logger = LoggerFactory.getLogger(BaseDocument.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(BaseDocument.class);
 
-    public String getPrimaryType() {
-        try {
-            return String.valueOf(node.getProperty("jcr:primaryType"));
-        } catch (RepositoryException e) {
-            logger.error("Error while getting primaryType: {}", e.getMessage(), e);
-            return null;
-        }
-    }
-
-    protected static <T extends HippoBean> T getOnlyChild(List<T> children) {
+    protected <T extends HippoBean> T getOnlyChild(List<T> children) {
         if (children.isEmpty()) {
             return null;
         } else if (children.size() == 1) {

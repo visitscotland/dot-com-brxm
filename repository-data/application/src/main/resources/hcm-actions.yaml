@@ -101,4 +101,7 @@ action-lists:
     /content/documents/administration/labels/global/pagination: reload
 - 2.5.5:
     /content/documents/administration/options/business-support-hub/sector: reload
+- 2.8.0:
+    /content/documents/administration/options/business-support-hub/global/global: reload
+    /content/documents/administration/bsh-labels/navigation/banner-dont-translate: delete
 
