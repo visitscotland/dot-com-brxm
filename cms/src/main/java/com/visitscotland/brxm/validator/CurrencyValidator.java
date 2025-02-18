@@ -10,7 +10,7 @@ import java.util.Objects;
 public class CurrencyValidator implements Validator<String> {
     @Override
     public Optional<Violation> validate(ValidationContext context, String string) {
-        if(Objects.isNull(string)) {
+        if(Objects.isNull(string) || string.isBlank()) {
             return Optional.of(context.createViolation());
         }
 
