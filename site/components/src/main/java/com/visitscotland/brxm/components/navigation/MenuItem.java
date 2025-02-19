@@ -19,7 +19,6 @@ public class MenuItem implements HstSiteMenuItem {
 
     @PageModelIgnore
     private MenuItem parent;
-
     @PageModelIgnore
     private Page page;
 
