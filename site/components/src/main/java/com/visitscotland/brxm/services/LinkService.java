@@ -426,8 +426,11 @@ public class LinkService {
      * @param locale locale value
      * @return FlatLink simple format
      */
-    public FlatLink createSimpleLink(@NotNull Linkable linkable, Module<?> module, Locale locale) {
+    public FlatLink createSimpleLink(Linkable linkable, Module<?> module, Locale locale) {
         FlatLink link = new FlatLink();
+        if (linkable == null) {
+            return link;
+        }
         link.setLabel(linkable.getTitle());
 
         if (linkable instanceof Page) {
@@ -457,10 +460,15 @@ public class LinkService {
 
         if (sharedLink.getLinkType() instanceof DMSLink) {
             product = dmsData.productCard(((DMSLink) sharedLink.getLinkType()).getProduct(), locale);
-            if (product == null){
+
+            if (product == null) {
                 String message =  String.format("The DMS ID for '%s' is not valid. Please review the document '%s' at %s", sharedLink.getTitle(),sharedLink.getDisplayName(), sharedLink.getPath());
                 contentLogger.warn(message);
-                module.addErrorMessage(message);
+                if (module == null) {
+                    contentLogger.warn("The module has not been defined, and the DMS error cannot be reported back");
+                } else {
+                    module.addErrorMessage(message);
+                }
             }
         }
         return product;
