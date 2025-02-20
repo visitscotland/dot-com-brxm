@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.validator;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,7 +19,6 @@ import javax.jcr.Property;
 import javax.jcr.Node;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 import static org.mockito.ArgumentMatchers.any;
