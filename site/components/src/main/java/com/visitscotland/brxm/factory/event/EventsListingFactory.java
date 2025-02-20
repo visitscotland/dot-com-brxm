@@ -31,7 +31,7 @@ public class EventsListingFactory {
     private final static String REGIONS_VALUE_LIST = "bsh-regions";
 
     // Resource Bundle keys
-    private final static String BUNDLE = "events-search";
+    private final static String BUNDLE = "events-listings";
     private final static String START_DATE_LABEL = "date.start-date";
     private final static String END_DATE_LABEL = "date.end-date";
     private final static String FREE_LABEL = "price.free";

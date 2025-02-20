@@ -163,7 +163,7 @@ public class PageTemplateBuilder {
     }
 
     private EventsLingsModule  getEventListingModule(HstRequest request,EventsListing document) {
-        addAllLabels(request,"events-listing");
+        addAllLabels(request,"events-listings-module");
         addAllLabels(request, "essentials.pagination");
 
         return eventsListingFactory.createModule(document);

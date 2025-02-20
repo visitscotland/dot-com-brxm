@@ -24,7 +24,7 @@ import static org.mockito.Mockito.eq;
 
 @ExtendWith(MockitoExtension.class)
 class PriceFormatterTest {
-    private static final String EVENTS_RESOURCE_BUNDLE_KEY = "events-search";
+    private static final String EVENTS_RESOURCE_BUNDLE_KEY = "events-listings";
     private static final String EVENT_FREE_LABEL_KEY = "price.free";
     private static final String EVENT_VAT_LABEL_KEY = "price.vat";
     private static final String ISO_4217_UK_CURRENCY_CODE = "GBP";

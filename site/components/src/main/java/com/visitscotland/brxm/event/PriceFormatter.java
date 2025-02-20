@@ -13,7 +13,7 @@ import java.util.Locale;
 
 @Component
 public class PriceFormatter {
-    private static final String EVENTS_RESOURCE_BUNDLE_KEY = "events-search";
+    private static final String EVENTS_RESOURCE_BUNDLE_KEY = "events-listings";
 
     private final ResourceBundleService resourceBundleService;
 
