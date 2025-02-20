@@ -1,0 +1,53 @@
+/content/documents/administration/bsh-labels/modules/events-listings-module:
+  .meta:order-before: events-listings
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 0941970c-7b24-40a0-9e25-9d4a61a483ca
+  hippo:name: Events Listings - Module
+  hippo:versionHistory: 2ab4696e-56de-4e42-a899-1cd8908eefc2
+  /events-listings-module[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: e6beb112-b417-4596-a083-e1660748aa14
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
+    hippostdpubwf:lastModificationDate: 2025-02-20T11:10:41.328Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '']
+    resourcebundle:id: events-listings-module
+    resourcebundle:keys: [filter, clear-all, sort-by]
+    resourcebundle:messages: [Filter, Clear all, Sort by]
+  /events-listings-module[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 4edcc832-d499-46d6-ba4b-54ec46aaacb1
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
+    hippostdpubwf:lastModificationDate: 2025-02-20T11:10:50.534Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '']
+    resourcebundle:id: events-listings-module
+    resourcebundle:keys: [filter, clear-all, sort-by]
+    resourcebundle:messages: [Filter, Clear all, Sort by]
+  /events-listings-module[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: f20ba8c8-3c0b-45ed-9b3e-8bb1f0fc23aa
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
+    hippostdpubwf:lastModificationDate: 2025-02-20T11:10:50.534Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2025-02-20T11:11:05.434Z
+    resourcebundle:descriptions: ['', '', '']
+    resourcebundle:id: events-listings-module
+    resourcebundle:keys: [filter, clear-all, sort-by]
+    resourcebundle:messages: [Filter, Clear all, Sort by]

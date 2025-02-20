@@ -20,9 +20,9 @@ import static com.visitscotland.brxm.rest.event.EventSearchParameters.*;
 public class EventsListingFactory {
 
     //Endpoints
-    private final static String BASE_ENDPOINT_TRAINING = "/api/bsh-events-listing/training";
-    private final static String BASE_ENDPOINT_INDUSTRY = "/api/bsh-events-listing/industry";
-    private final static String BASE_ENDPOINT_TRADE = "/api/bsh-events-listing/travel";
+    private final static String BASE_ENDPOINT_TRAINING = "/api/events-search/training";
+    private final static String BASE_ENDPOINT_INDUSTRY = "/api/events-search/industry";
+    private final static String BASE_ENDPOINT_TRADE = "/api/events-search/travel";
 
     // Value Lists
     private final static String SECTORS_VALUE_LIST = "bsh-sectors";
