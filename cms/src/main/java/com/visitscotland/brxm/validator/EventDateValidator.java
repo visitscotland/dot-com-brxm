@@ -46,7 +46,7 @@ public class EventDateValidator implements Validator<Node> {
         return isCalendarDefaultDate(endDate) || endDate.after(startDate);
     }
 
-    private static boolean isCalendarDefaultDate(Calendar calendar) {
+    private static boolean isCalendarDefaultDate(final Calendar calendar) {
         final Calendar defaultDate = new Calendar.Builder()
             .setCalendarType("gregory")
             .setDate(1, 1, 1)
