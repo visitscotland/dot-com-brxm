@@ -28,7 +28,7 @@ public class EventDateValidator implements Validator<Node> {
     @Override
     public Optional<Violation> validate(ValidationContext context, Node node) {
         try {
-            if(isEndDateAfterStartDate(node)) {
+            if(isEventDatesValid(node)) {
                 return Optional.empty();
             }
 
@@ -39,11 +39,14 @@ public class EventDateValidator implements Validator<Node> {
         }
     }
 
-    private boolean isEndDateAfterStartDate(final Node node) throws RepositoryException {
+    private boolean isEventDatesValid(final Node node) throws RepositoryException {
         final Calendar startDate = getStartDate(node);
         final Calendar endDate = getEndDate(node);
 
+        return isCalendarDefaultDate(endDate) || endDate.after(startDate);
+    }
 
+    private static boolean isCalendarDefaultDate(Calendar calendar) {
         final Calendar defaultDate = new Calendar.Builder()
             .setCalendarType("gregory")
             .setDate(1, 1, 1)
@@ -51,11 +54,7 @@ public class EventDateValidator implements Validator<Node> {
             .setTimeZone(TimeZone.getTimeZone("UTC"))
             .build();
 
-        if(endDate.equals(defaultDate)) {
-            return true;
-        }
-
-        return endDate.after(startDate);
+        return calendar.equals(defaultDate);
     }
 
     private Calendar getStartDate(final Node node) throws RepositoryException, UnknownPropertyException {
