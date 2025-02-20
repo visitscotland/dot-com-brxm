@@ -17,7 +17,7 @@ import java.util.*;
 @Component
 public class EventCardFactory {
 
-    private static final String BUNDLE = "events-listings";
+    private static final String BUNDLE = "events-search";
     private static final SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd MMM");
     private static final SimpleDateFormat fullDateFormat = new SimpleDateFormat("dd MMM, yyyy");
     private static final Locale LOCALE = Locale.UK;
