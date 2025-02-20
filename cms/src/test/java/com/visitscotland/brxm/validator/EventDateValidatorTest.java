@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.validator;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,6 +20,8 @@ import javax.jcr.Property;
 import javax.jcr.Node;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
@@ -64,6 +67,24 @@ class EventDateValidatorTest {
         verify(node, times(1)).getProperty(eq(START_DATE_PROPERTY));
         verify(node, times(1)).getProperty(eq(END_DATE_PROPERTY));
         verify(endDate, times(1)).after(any(Calendar.class));
+    }
+
+    @Test
+    void validate_EventNodeWithDefaultEndDateAndValidStartDate_EmptyOptional() throws RepositoryException {
+        final Calendar startDate = Calendar.getInstance();
+        final Calendar endDate = new Calendar.Builder()
+            .setCalendarType("gregory")
+            .setDate(1, 1, 1)
+            .setTimeOfDay(12, 0, 0)
+            .setTimeZone(TimeZone.getTimeZone("UTC"))
+            .build();
+
+        stubNodeProperty(START_DATE_PROPERTY, startDate);
+        stubNodeProperty(END_DATE_PROPERTY, endDate);
+
+        final var result = eventDateValidator.validate(validationContext, node);
+
+        Assertions.assertTrue(result.isEmpty());
     }
 
     @Test

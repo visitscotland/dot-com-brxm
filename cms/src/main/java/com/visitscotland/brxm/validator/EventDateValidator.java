@@ -15,6 +15,7 @@ import javax.jcr.Node;
 
 import java.util.Calendar;
 import java.util.Optional;
+import java.util.TimeZone;
 
 /**
  * jcrType = visitscotland:event-date-validator
@@ -41,6 +42,18 @@ public class EventDateValidator implements Validator<Node> {
     private boolean isEndDateAfterStartDate(final Node node) throws RepositoryException {
         final Calendar startDate = getStartDate(node);
         final Calendar endDate = getEndDate(node);
+
+
+        final Calendar defaultDate = new Calendar.Builder()
+            .setCalendarType("gregory")
+            .setDate(1, 1, 1)
+            .setTimeOfDay(12, 0, 0)
+            .setTimeZone(TimeZone.getTimeZone("UTC"))
+            .build();
+
+        if(endDate.equals(defaultDate)) {
+            return true;
+        }
 
         return endDate.after(startDate);
     }
