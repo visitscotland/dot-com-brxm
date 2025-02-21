@@ -26,6 +26,7 @@ public class ArticleImageValidator implements Validator<Node> {
 
     private static final Logger logger = LoggerFactory.getLogger(LinkValidator.class);
 
+    static final String DEFAULT_HIPPO_LINK = "hippo:docbase";
     static final String THEMES = "themes";
 
     private Set<String> themes;
@@ -50,8 +51,9 @@ public class ArticleImageValidator implements Validator<Node> {
                 for (NodeIterator it = node.getNodes(Article.PARAGRAPH); it.hasNext(); ) {
                     Node section = it.nextNode();
                     if (!section.hasNode(ArticleSection.MEDIA)
-                            || !section.getNode(ArticleSection.MEDIA).hasProperty("hippo:docbase")
-                            || section.getNode(ArticleSection.MEDIA).getProperty("hippo:docbase").getString().equals(ImageValidator.EMPTY_IMAGE)) {
+                            || !section.getNode(ArticleSection.MEDIA).hasProperty(DEFAULT_HIPPO_LINK)
+                            || section.getNode(ArticleSection.MEDIA).getProperty(DEFAULT_HIPPO_LINK).getString()
+                                    .equals(ImageValidator.EMPTY_IMAGE)) {
                         return Optional.of(context.createViolation());
                     }
                 }
