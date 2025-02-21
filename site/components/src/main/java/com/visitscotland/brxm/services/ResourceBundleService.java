@@ -58,7 +58,7 @@ public class ResourceBundleService {
         //Note: Other sites don't currently support other languages
         if (!properties.getSiteId().isEmpty()) {
             String siteBundleName = properties.getSiteId() + "." + bundleName;
-            // TODO: This method throws an exception when the site bundle is not found. This bug should be fixed
+            // TODO DS-1040: This method throws an exception when the site bundle is not found. This bug should be fixed
             if (getResourceBundleRegistry().getBundle(siteBundleName) != null) {
                 String value = getResourceBundle(siteBundleName, key, locale, true);
                 if (value != null) {
