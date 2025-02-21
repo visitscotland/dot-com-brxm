@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: c1ca6026-0585-466d-a72b-c4202da2bf95
   hippo:name: Local/Feature - Business Support Hub
-  hippo:versionHistory: d89af501-7f90-41b4-8c36-65bde5663c77
+  hippo:versionHistory: 44d7db1b-7793-4773-ad9e-ae4e10b89840
   /local---business-support-hub[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -13,7 +13,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2025-02-20T11:31:12.755Z
+    hippostdpubwf:lastModificationDate: 2025-02-21T09:41:26.956Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.local.config
@@ -21,7 +21,7 @@
       site-id, links.download.extensions, global-search.path, events-listings.page-size,
       form.breg.legal-basis.enable]
     resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
-      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '10', 'false']
+      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '8', 'false']
   /local---business-support-hub[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -31,7 +31,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2025-02-20T11:29:54.612Z
+    hippostdpubwf:lastModificationDate: 2025-02-21T09:40:53.043Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.local.config
@@ -39,7 +39,7 @@
       site-id, links.download.extensions, global-search.path, events-listings.page-size,
       form.breg.legal-basis.enable]
     resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
-      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '10', 'false']
+      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '8', 'false']
   /local---business-support-hub[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -49,13 +49,13 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2025-02-20T11:31:12.755Z
+    hippostdpubwf:lastModificationDate: 2025-02-21T09:41:26.956Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-02-20T11:31:18.010Z
+    hippostdpubwf:publicationDate: 2025-02-21T09:41:29.794Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.local.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
       site-id, links.download.extensions, global-search.path, events-listings.page-size,
       form.breg.legal-basis.enable]
     resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
-      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '10', 'false']
+      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '8', 'false']
