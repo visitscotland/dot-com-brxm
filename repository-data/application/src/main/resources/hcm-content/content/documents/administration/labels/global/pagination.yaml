@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: f3741217-1527-4428-bc1d-878ec857eb29
   hippo:name: Pagination
-  hippo:versionHistory: 5bf61e61-28b4-4189-9cc0-cfc0cb943e33
+  hippo:versionHistory: 7c353b83-2072-463f-b93e-eb33a62203e5
   /pagination[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,9 +14,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2025-02-20T09:49:12.911Z
+    hippostdpubwf:lastModificationDate: 2025-02-21T15:42:59.563Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-02-20T09:49:15.007Z
+    hippostdpubwf:publicationDate: 2025-02-21T15:43:35.831Z
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
         to the previous page., Label used for the link to the next page., To be used
@@ -24,7 +24,7 @@
     resourcebundle:id: essentials.pagination
     resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page,
       page.page, results.result, no-results-message]
-    resourcebundle:messages: [document(s), previous, next, of, Navigate to page, Page,
+    resourcebundle:messages: [document(s), Previous, Next, of, Navigate to page, Page,
       Results, 'Sorry, there aren''t any results matching your search. Try changing
         your selection and searching again.']
     resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
@@ -51,7 +51,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2025-02-20T09:49:12.911Z
+    hippostdpubwf:lastModificationDate: 2025-02-21T15:42:59.563Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
@@ -60,7 +60,7 @@
     resourcebundle:id: essentials.pagination
     resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page,
       page.page, results.result, no-results-message]
-    resourcebundle:messages: [document(s), previous, next, of, Navigate to page, Page,
+    resourcebundle:messages: [document(s), Previous, Next, of, Navigate to page, Page,
       Results, 'Sorry, there aren''t any results matching your search. Try changing
         your selection and searching again.']
     resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
@@ -87,7 +87,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2025-02-20T09:46:14.085Z
+    hippostdpubwf:lastModificationDate: 2025-02-21T15:32:52.146Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
@@ -96,7 +96,7 @@
     resourcebundle:id: essentials.pagination
     resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page,
       page.page, results.result, no-results-message]
-    resourcebundle:messages: [document(s), previous, next, of, Navigate to page, Page,
+    resourcebundle:messages: [document(s), Previous, Next, of, Navigate to page, Page,
       Results, 'Sorry, there aren''t any results matching your search. Try changing
         your selection and searching again.']
     resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
