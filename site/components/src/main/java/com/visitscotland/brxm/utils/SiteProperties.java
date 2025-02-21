@@ -166,7 +166,7 @@ public class SiteProperties extends Properties {
         return readString(DOWNLOAD_EXTENSIONS);
     }
 
-    public Integer getEventsListingsPageSize() {
+    public int getEventsListingsPageSize() {
         int size = readInteger(EVENTS_LISTINGS_PAGE_SIZE);
         return size > 0 ? size : 10;
     }
