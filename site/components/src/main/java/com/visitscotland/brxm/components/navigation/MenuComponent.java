@@ -4,6 +4,7 @@ package com.visitscotland.brxm.components.navigation;
 import com.visitscotland.brxm.components.navigation.info.MenuComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.NavigationFactory;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.container.RequestContextProvider;

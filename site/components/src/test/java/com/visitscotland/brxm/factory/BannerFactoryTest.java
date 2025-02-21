@@ -7,7 +7,7 @@ import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;

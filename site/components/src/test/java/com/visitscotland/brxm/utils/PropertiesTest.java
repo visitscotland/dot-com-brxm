@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.utils;
 
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +15,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;

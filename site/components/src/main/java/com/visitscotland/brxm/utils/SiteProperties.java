@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.utils;
 
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.utils.Contract;
 import org.springframework.stereotype.Component;

@@ -1,16 +1,14 @@
 package com.visitscotland.brxm.mock;
 
 import com.visitscotland.brxm.hippobeans.Page;
-import com.visitscotland.brxm.hippobeans.TourismInformation;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenuItem;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;

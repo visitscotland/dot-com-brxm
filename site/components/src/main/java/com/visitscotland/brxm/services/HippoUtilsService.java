@@ -1,8 +1,8 @@
-package com.visitscotland.brxm.utils;
+package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Page;
-import com.visitscotland.utils.Contract;
+import com.visitscotland.brxm.utils.NonTestable;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
@@ -29,7 +29,6 @@ import org.onehippo.taxonomy.api.Taxonomy;
 import org.onehippo.taxonomy.api.TaxonomyManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import javax.jcr.Node;
@@ -44,7 +43,6 @@ import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.con
  * Set of utilities related with Hippo that from the whole environment to be running in order to work
  */
 @Component
-//TODO: Move to services
 public class HippoUtilsService {
 
     private static final Logger logger = LoggerFactory.getLogger(HippoUtilsService.class);

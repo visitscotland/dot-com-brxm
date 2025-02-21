@@ -8,7 +8,7 @@ import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.mock.NavigationMockBuilder;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenu;

@@ -1,27 +1,14 @@
 package com.visitscotland.brxm.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.stubbing.Answer;
-import org.onehippo.taxonomy.api.Category;
-import org.onehippo.taxonomy.api.CategoryInfo;
-import org.onehippo.taxonomy.api.Taxonomy;
-import org.onehippo.taxonomy.api.TaxonomyException;
-import org.onehippo.taxonomy.impl.TaxonomyImpl;
-
-import javax.jcr.RepositoryException;
-
-import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;

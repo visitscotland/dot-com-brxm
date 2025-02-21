@@ -11,7 +11,6 @@ import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -196,7 +195,7 @@ public class MapService {
 
                 ObjectNode properties = getPropertyNode(stop.getTitle(), description,
                         image, category, flatLink, stop.getCanonicalUUID());
-                
+
 
                 if (stop.getKeys() != null && stop.getKeys().length > 1) {
                     List<String> listKeys = new ArrayList<>(Arrays.asList(stop.getKeys()));
