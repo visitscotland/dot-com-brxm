@@ -23,7 +23,7 @@ public class EventsListingFactory {
     //Endpoints
     private final static String BASE_ENDPOINT_TRAINING = "/api/bsh/events-search/training";
     private final static String BASE_ENDPOINT_INDUSTRY = "/api/bsh/events-search/industry";
-    private final static String BASE_ENDPOINT_TRADE = "/api/bsh/events-search/travel";
+    private final static String BASE_ENDPOINT_TRADE = "/api/bsh/events-search/travel-trade";
 
     // Value Lists
     private final static String SECTORS_VALUE_LIST = "bsh-sectors";
