@@ -3,6 +3,7 @@ package com.visitscotland.brxm.rest.event;
 import com.visitscotland.brxm.hippobeans.IndustryEventBSH;
 import com.visitscotland.brxm.hippobeans.TrainingEventBSH;
 import com.visitscotland.brxm.hippobeans.TravelTradeEventBSH;
+import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -14,11 +15,17 @@ import javax.jcr.*;
 @Component
 public class EventHstQueryService {
 
+    private final SiteProperties siteProperties;
+
+    EventHstQueryService(SiteProperties siteProperties) {
+        this.siteProperties = siteProperties;
+    }
+
     public HstQueryResult queryTrainingEvents() {
 
         try {
             final HstQuery hstQuery = new EventHstQueryBuilder(TrainingEventBSH.class)
-                    .addPagination().sort()
+                    .addPagination(getPageSize()).sort()
                     .addDatesFilters()
                     .addPriceFilters().addLocationFilters()
                     .addSectorsFilters().addTopicsFilters()
@@ -36,7 +43,7 @@ public class EventHstQueryService {
 
         try {
             final HstQuery hstQuery = new EventHstQueryBuilder(IndustryEventBSH.class)
-                    .addPagination().sort()
+                    .addPagination(getPageSize()).sort()
                     .addDatesFilters()
                     .addPriceFilters().addLocationFilters()
                     .addSectorsFilters().addEventTypesFilters().addRegionsFilters()
@@ -54,7 +61,7 @@ public class EventHstQueryService {
 
         try {
             final HstQuery hstQuery = new EventHstQueryBuilder(TravelTradeEventBSH.class)
-                    .addPagination().sort()
+                    .addPagination(getPageSize()).sort()
                     .addDatesFilters()
                     .addPriceFilters().addLocationFilters()
                     .addInternationalFilters()
@@ -66,5 +73,9 @@ public class EventHstQueryService {
             throw new HstComponentException(
                     "Exception occurred during creation or execution of HstQuery.", e);
         }
+    }
+
+    private int getPageSize() {
+        return siteProperties.getEventsListingsPageSize();
     }
 }

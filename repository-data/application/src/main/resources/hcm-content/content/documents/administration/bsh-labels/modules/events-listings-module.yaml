@@ -18,10 +18,10 @@
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: events-listings-module
-    resourcebundle:keys: [filter, clear-all, sort-by, time, price, Location, organizer,
-      registration, Contact]
-    resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, location, Organizer,
-      Registration deadline, contact]
+    resourcebundle:keys: [filter, clear-all, sort-by, time, price, location, organizer,
+      registration, contact, apply]
+    resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, Location, Organizer,
+      Registration deadline, Contact, Apply]
   /events-listings-module[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -35,10 +35,10 @@
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: events-listings-module
-    resourcebundle:keys: [filter, clear-all, sort-by, time, price, Location, organizer,
-      registration, Contact]
-    resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, location, Organizer,
-      Registration deadline, contact]
+    resourcebundle:keys: [filter, clear-all, sort-by, time, price, location, organizer,
+      registration, contact, apply]
+    resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, Location, Organizer,
+      Registration deadline, Contact, Apply]
   /events-listings-module[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -53,7 +53,7 @@
     hippostdpubwf:publicationDate: 2025-02-21T15:39:51.188Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: events-listings-module
-    resourcebundle:keys: [filter, clear-all, sort-by, time, price, Location, organizer,
-      registration, Contact]
-    resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, location, Organizer,
-      Registration deadline, contact]
+    resourcebundle:keys: [filter, clear-all, sort-by, time, price, location, organizer,
+      registration, contact, apply]
+    resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, Location, Organizer,
+      Registration deadline, Contact, Apply]
