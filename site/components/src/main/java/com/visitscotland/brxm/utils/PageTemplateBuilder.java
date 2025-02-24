@@ -156,10 +156,17 @@ public class PageTemplateBuilder {
         } else if (item instanceof CTABanner){
             page.modules.add(signPostFactory.createModule((CTABanner) item));
         } else if (item instanceof EventsListing){
-            page.modules.add(eventsListingFactory.createModule((EventsListing) item));
+            page.modules.add(getEventListingModule(request, (EventsListing) item));
         } else {
             logger.warn("Unrecognized Module Type: {}", item.getClass());
         }
+    }
+
+    private EventsLingsModule  getEventListingModule(HstRequest request,EventsListing document) {
+        addAllLabels(request,"events-listings-module");
+        addAllLabels(request, "essentials.pagination");
+
+        return eventsListingFactory.createModule(document);
     }
 
     private FormModule getForm(HstRequest request, BaseDocument form){

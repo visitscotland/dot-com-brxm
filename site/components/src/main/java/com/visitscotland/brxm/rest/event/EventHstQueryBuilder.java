@@ -43,8 +43,6 @@ public class EventHstQueryBuilder {
 
     private final HstQueryBuilder builder;
 
-    //TODO: Create from configuration
-    private static final int PAGE_SIZE = 10;
     //TODO: Create property for this or should we get the channel mount point for this?
     private static final String EVENTS_LOCATION = "/content/documents/bsh/";
 
@@ -60,11 +58,11 @@ public class EventHstQueryBuilder {
     /**
      * Add pagination limits and pagination offset if needed
      */
-    public EventHstQueryBuilder addPagination() {
-        builder.limit(PAGE_SIZE);
+    public EventHstQueryBuilder addPagination(int pageSize) {
+        builder.limit(pageSize);
         if (getQueryParameters().containsKey(PAGE_PARAM)) {
             int pageIndex = Integer.parseInt(getQueryParameters().get(PAGE_PARAM)[0]);
-            builder.offset((pageIndex - 1) * PAGE_SIZE);
+            builder.offset((pageIndex - 1) * pageSize);
         }
 
         return this;
