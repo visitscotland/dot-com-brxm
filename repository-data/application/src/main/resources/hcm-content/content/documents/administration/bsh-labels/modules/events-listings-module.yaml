@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 0941970c-7b24-40a0-9e25-9d4a61a483ca
   hippo:name: Events Listings - Module
-  hippo:versionHistory: c032c02d-32ad-4fa8-a1ab-f43697f0daa7
+  hippo:versionHistory: e018366f-b6f9-4f14-9ad5-add254ea08a4
   /events-listings-module[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,12 +14,14 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-02-20T15:55:32.560Z
+    hippostdpubwf:lastModificationDate: 2025-02-21T15:36:17.373Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: events-listings-module
-    resourcebundle:keys: [filter, clear-all, sort-by, apply]
-    resourcebundle:messages: [Filter, Clear all, Sort by, Apply]
+    resourcebundle:keys: [filter, clear-all, sort-by, time, price, location, organizer,
+      registration, contact, apply]
+    resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, Location, Organizer,
+      Registration deadline, Contact, Apply]
   /events-listings-module[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -29,12 +31,14 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-02-20T15:56:08.340Z
+    hippostdpubwf:lastModificationDate: 2025-02-21T15:39:46.113Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: events-listings-module
-    resourcebundle:keys: [filter, clear-all, sort-by, apply]
-    resourcebundle:messages: [Filter, Clear all, Sort by, Apply]
+    resourcebundle:keys: [filter, clear-all, sort-by, time, price, location, organizer,
+      registration, contact, apply]
+    resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, Location, Organizer,
+      Registration deadline, Contact, Apply]
   /events-listings-module[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -44,10 +48,12 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-02-20T15:56:08.340Z
+    hippostdpubwf:lastModificationDate: 2025-02-21T15:39:46.113Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-02-20T15:56:40.758Z
-    resourcebundle:descriptions: ['', '', '', '']
+    hippostdpubwf:publicationDate: 2025-02-21T15:39:51.188Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: events-listings-module
-    resourcebundle:keys: [filter, clear-all, sort-by, apply]
-    resourcebundle:messages: [Filter, Clear all, Sort by, Apply]
+    resourcebundle:keys: [filter, clear-all, sort-by, time, price, location, organizer,
+      registration, contact, apply]
+    resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, Location, Organizer,
+      Registration deadline, Contact, Apply]
