@@ -209,6 +209,9 @@
 [visitscotland:SpecialLinkCoordinates] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:SplitBlock] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
 [visitscotland:Stackla] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
