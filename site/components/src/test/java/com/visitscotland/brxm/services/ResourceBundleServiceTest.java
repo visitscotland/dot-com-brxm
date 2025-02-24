@@ -3,6 +3,7 @@ package com.visitscotland.brxm.services;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.resourcebundle.ResourceBundleRegistry;
+import org.junit.Ignore;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -203,6 +204,41 @@ class ResourceBundleServiceTest {
 
         assertEquals("Watch it!",service.getVideoCtaLabel("Watch it!", Locale.GERMAN));
         assertEquals("Play Video",service.getVideoCtaLabel("", Locale.GERMAN));
+    }
+
+    @Test
+    @DisplayName(("Alternative sites can have alternative labels"))
+    @Ignore
+    void getSiteResourceBundle(){
+        //TODO
+    }
+
+    @Test
+    @DisplayName(("Alternative sites can have alternative labels in other locales"))
+    @Ignore
+    void getSiteResourceBundle_locale(){
+        //TODO
+    }
+
+    @Test
+    @DisplayName(("If keys in alternative sites don't exist, they return "))
+    @Ignore
+    void getSiteResourceBundle_missingKey(){
+        //TODO
+    }
+
+    @Test
+    @DisplayName(("Return a collection of labels from the default file"))
+    @Ignore
+    void getAllSiteLabels(){
+        //TODO
+    }
+
+    @Test
+    @DisplayName(("Return a collection of labels. Some of the labels don't exist in the site and the default value is returned instead"))
+    @Ignore
+    void getAllSiteLabels_missingKeys(){
+        //TODO
     }
 
 }
