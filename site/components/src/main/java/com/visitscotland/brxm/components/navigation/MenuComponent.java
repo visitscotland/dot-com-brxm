@@ -87,17 +87,10 @@ public class MenuComponent extends EssentialsMenuComponent {
         // The values "0-" & "1-" are not in use. They just create different IDs for the cache depending on editmode
         String id = (editMode?"1-":"0-") + getAnyParameter(request, PREVIEW_QUERY_PARAMETER);
 
-        RootMenuItem rootMenuItem = factory.buildMenu(request, getResourceBundleID(request), id, cacheable && !isSupportSite());
+        RootMenuItem rootMenuItem = factory.buildMenu(request, getResourceBundleID(request), id, cacheable);
         rootMenuItem.setCmsCached(cacheable && editMode);
 
         return rootMenuItem;
-    }
-
-    /**
-     * BSHUB-561
-     */
-    private boolean isSupportSite() {
-        return !Contract.isEmpty(siteProperties.getSiteId()) && siteProperties.getSiteId().equals("bsh");
     }
 
     private String getResourceBundleID(HstRequest request){
