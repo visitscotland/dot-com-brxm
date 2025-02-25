@@ -155,8 +155,10 @@ public class PageTemplateBuilder {
             page.modules.add(devModuleFactory.getModule((DevModule) item));
         } else if (item instanceof CTABanner){
             page.modules.add(signPostFactory.createModule((CTABanner) item));
-        } else if (item instanceof EventsListing){
+        } else if (item instanceof EventsListing) {
             page.modules.add(getEventListingModule(request, (EventsListing) item));
+        } else if (item instanceof SplitBlock) {
+            page.modules.add(SplitBlockModule.of(item));
         } else {
             logger.warn("Unrecognized Module Type: {}", item.getClass());
         }
