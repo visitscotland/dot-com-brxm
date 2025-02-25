@@ -13,7 +13,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2025-02-25T09:42:13.199Z
+    hippostdpubwf:lastModificationDate: 2025-02-25T12:33:33.936Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
@@ -25,21 +25,6 @@
     resourcebundle:messages: [document(s), Previous, Next, of, Navigate to page, Page,
       Results, 'Sorry, there aren''t any results matching your search. Try changing
         your selection and searching again.']
-    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
-      '', '', 'Entschuldigung, es gibt keine Ergebnisse, die Ihrer Suche entsprechen.
-        Versuchen Sie, Ihre Auswahl zu ändern und erneut zu suchen.']
-    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página,
-      '', '', 'Lo siento, no hay resultados que coincidan con tu búsqueda. Intenta
-        cambiar tu selección y buscar de nuevo.']
-    resourcebundle:messages_fr: [résultat(s), précédent, suivant, sur, Aller à la
-        page, '', '', 'Désolé, aucun résultat ne correspond à votre recherche. Essayez
-        de modifier votre sélection et de rechercher à nouveau.']
-    resourcebundle:messages_it: [risultato/i, precedente, prossimo, di, Andare alla
-        pagina, '', '', 'Spiacente, non ci sono risultati corrispondenti alla tua
-        ricerca. Prova a modificare la selezione e a cercare di nuovo.']
-    resourcebundle:messages_nl: [pagina('s), vorige, volgende, van, Navigeer naar
-        de pagina, '', '', 'Sorry, er zijn geen resultaten die overeenkomen met je
-        zoekopdracht. Probeer je selectie te wijzigen en zoek opnieuw']
   /pagination[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -49,7 +34,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2025-02-25T09:42:01.570Z
+    hippostdpubwf:lastModificationDate: 2025-02-25T12:32:49.181Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
@@ -61,21 +46,6 @@
     resourcebundle:messages: [document(s), Previous, Next, of, Navigate to page, Page,
       Results, 'Sorry, there aren''t any results matching your search. Try changing
         your selection and searching again.']
-    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
-      '', '', 'Entschuldigung, es gibt keine Ergebnisse, die Ihrer Suche entsprechen.
-        Versuchen Sie, Ihre Auswahl zu ändern und erneut zu suchen.']
-    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página,
-      '', '', 'Lo siento, no hay resultados que coincidan con tu búsqueda. Intenta
-        cambiar tu selección y buscar de nuevo.']
-    resourcebundle:messages_fr: [résultat(s), précédent, suivant, sur, Aller à la
-        page, '', '', 'Désolé, aucun résultat ne correspond à votre recherche. Essayez
-        de modifier votre sélection et de rechercher à nouveau.']
-    resourcebundle:messages_it: [risultato/i, precedente, prossimo, di, Andare alla
-        pagina, '', '', 'Spiacente, non ci sono risultati corrispondenti alla tua
-        ricerca. Prova a modificare la selezione e a cercare di nuovo.']
-    resourcebundle:messages_nl: [pagina('s), vorige, volgende, van, Navigeer naar
-        de pagina, '', '', 'Sorry, er zijn geen resultaten die overeenkomen met je
-        zoekopdracht. Probeer je selectie te wijzigen en zoek opnieuw']
   /pagination[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -85,9 +55,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
-    hippostdpubwf:lastModificationDate: 2025-02-25T09:42:13.199Z
+    hippostdpubwf:lastModificationDate: 2025-02-25T12:33:33.936Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-02-25T10:07:52.899Z
+    hippostdpubwf:publicationDate: 2025-02-25T12:33:36.263Z
     resourcebundle:descriptions: ['Used in the indication, how many results were found.
         The label is appended to the number of results.', Label used for the link
         to the previous page., Label used for the link to the next page., To be used
@@ -98,18 +68,3 @@
     resourcebundle:messages: [document(s), Previous, Next, of, Navigate to page, Page,
       Results, 'Sorry, there aren''t any results matching your search. Try changing
         your selection and searching again.']
-    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
-      '', '', 'Entschuldigung, es gibt keine Ergebnisse, die Ihrer Suche entsprechen.
-        Versuchen Sie, Ihre Auswahl zu ändern und erneut zu suchen.']
-    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página,
-      '', '', 'Lo siento, no hay resultados que coincidan con tu búsqueda. Intenta
-        cambiar tu selección y buscar de nuevo.']
-    resourcebundle:messages_fr: [résultat(s), précédent, suivant, sur, Aller à la
-        page, '', '', 'Désolé, aucun résultat ne correspond à votre recherche. Essayez
-        de modifier votre sélection et de rechercher à nouveau.']
-    resourcebundle:messages_it: [risultato/i, precedente, prossimo, di, Andare alla
-        pagina, '', '', 'Spiacente, non ci sono risultati corrispondenti alla tua
-        ricerca. Prova a modificare la selezione e a cercare di nuovo.']
-    resourcebundle:messages_nl: [pagina('s), vorige, volgende, van, Navigeer naar
-        de pagina, '', '', 'Sorry, er zijn geen resultaten die overeenkomen met je
-        zoekopdracht. Probeer je selectie te wijzigen en zoek opnieuw']
