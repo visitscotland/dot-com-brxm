@@ -27,7 +27,6 @@ public class SiteProperties extends Properties {
 
 
     //Environment
-
     static final String INTERNAL_SITES = "links.internal-sites";
     static final String CONVERT_TO_RELATIVE = "links.convert-to-relative";
     static final String DOWNLOAD_EXTENSIONS = "links.download.extensions";
@@ -43,6 +42,7 @@ public class SiteProperties extends Properties {
 
     //Modules References
     static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
+    static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
 
     //GTM Properties
     public static final String GTM_CONTAINER_ID = "gtm.container-id";
@@ -165,6 +165,11 @@ public class SiteProperties extends Properties {
 
     public String getDownloadExtensions() {
         return readString(DOWNLOAD_EXTENSIONS);
+    }
+
+    public int getEventsListingsPageSize() {
+        int size = readInteger(EVENTS_LISTINGS_PAGE_SIZE);
+        return size > 0 ? size : 10;
     }
 
 }

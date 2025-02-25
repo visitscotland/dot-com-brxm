@@ -7,6 +7,7 @@ import com.visitscotland.brxm.model.event.EventValueOption;
 import com.visitscotland.brxm.model.event.EventsListingTab;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.services.HippoUtilsService;
+import com.visitscotland.brxm.utils.HippoUtilsService;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -20,9 +21,9 @@ import static com.visitscotland.brxm.rest.event.EventSearchParameters.*;
 public class EventsListingFactory {
 
     //Endpoints
-    private final static String BASE_ENDPOINT_TRAINING = "/api/bsh-events-listing/training";
-    private final static String BASE_ENDPOINT_INDUSTRY = "/api/bsh-events-listing/industry";
-    private final static String BASE_ENDPOINT_TRADE = "/api/bsh-events-listing/travel";
+    private final static String BASE_ENDPOINT_TRAINING = "/api/bsh/events-search/training";
+    private final static String BASE_ENDPOINT_INDUSTRY = "/api/bsh/events-search/industry";
+    private final static String BASE_ENDPOINT_TRADE = "/api/bsh/events-search/travel-trade";
 
     // Value Lists
     private final static String SECTORS_VALUE_LIST = "bsh-sectors";
@@ -50,10 +51,14 @@ public class EventsListingFactory {
 
     private final HippoUtilsService hippoUtilsService;
     private final ResourceBundleService bundle;
+    private final CMSProperties cmsProperties;
 
-    public EventsListingFactory(HippoUtilsService hippoUtilsService, ResourceBundleService bundle) {
+
+    public EventsListingFactory(HippoUtilsService hippoUtilsService, ResourceBundleService bundle,
+            CMSProperties cmsProperties) {
         this.hippoUtilsService = hippoUtilsService;
         this.bundle = bundle;
+        this.cmsProperties = cmsProperties;
     }
 
     public EventsLingsModule createModule(EventsListing document) {
@@ -72,7 +77,7 @@ public class EventsListingFactory {
 
         tab.setTitle(document.getTrainingTitle());
         tab.setCopy(document.getTrainingCopy());
-        tab.setBaseEndPoint(BASE_ENDPOINT_TRAINING);
+        tab.setBaseEndPoint(cmsProperties.getCmsBasePath() + BASE_ENDPOINT_TRAINING);
         tab.setSortBy(buildSortBy(List.of(DATE, PRICE, PRICE_DESC)));
         tab.setFilters(buildTrainingFilters());
 
@@ -95,7 +100,7 @@ public class EventsListingFactory {
 
         tab.setTitle(document.getIndustryTitle());
         tab.setCopy(document.getIndustryCopy());
-        tab.setBaseEndPoint(BASE_ENDPOINT_INDUSTRY);
+        tab.setBaseEndPoint(cmsProperties.getCmsBasePath() + BASE_ENDPOINT_INDUSTRY);
         tab.setSortBy(buildSortBy(List.of(DATE, PRICE, PRICE_DESC)));
         tab.setFilters(buildIndustryFilters());
 
@@ -119,7 +124,7 @@ public class EventsListingFactory {
 
         tab.setTitle(document.getTradeTitle());
         tab.setCopy(document.getTradeCopy());
-        tab.setBaseEndPoint(BASE_ENDPOINT_TRADE);
+        tab.setBaseEndPoint(cmsProperties.getCmsBasePath() + BASE_ENDPOINT_TRADE);
         tab.setSortBy(buildSortBy(List.of(DATE, REGISTRATION)));
         tab.setFilters(buildTradeFilters());
 

@@ -3,6 +3,7 @@ package com.visitscotland.brxm.rest.event;
 import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.model.bsh.EventCard;
 import com.visitscotland.brxm.model.bsh.PaginatedResult;
+import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
@@ -13,15 +14,16 @@ import java.util.ArrayList;
 @Component
 public class EventRepository extends BaseHstComponent {
 
-    //TODO: Create from configuration
-    static final int PAGE_SIZE = 10;
-
     private final EventHstQueryService hstQueryService;
     private final EventCardFactory eventCardFactory;
+    private final SiteProperties siteProperties;
 
-    public EventRepository(EventHstQueryService hstQueryService, EventCardFactory eventCardFactory) {
+
+    public EventRepository(EventHstQueryService hstQueryService, EventCardFactory eventCardFactory,
+                           SiteProperties siteProperties) {
         this.hstQueryService = hstQueryService;
         this.eventCardFactory = eventCardFactory;
+        this.siteProperties = siteProperties;
     }
 
     public PaginatedResult<EventCard> findTrainingEvents() {
@@ -42,7 +44,7 @@ public class EventRepository extends BaseHstComponent {
     private PaginatedResult<EventCard> convertToPaginatedResults(HstQueryResult query) {
         PaginatedResult<EventCard> page = new PaginatedResult<>();
         page.setTotal(query.getTotalSize());
-        page.setPageSize(PAGE_SIZE);
+        page.setPageSize(siteProperties.getEventsListingsPageSize());
         page.setResults(new ArrayList<>());
 
         HippoBeanIterator iterator = query.getHippoBeans();
