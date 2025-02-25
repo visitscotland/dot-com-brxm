@@ -10,7 +10,9 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -216,7 +218,7 @@ class ResourceBundleServiceTest {
     @DisplayName("Alternative sites can have alternative labels in other locales")
     @Disabled
     void getSiteResourceBundle_locale(){
-        Assertions.fail("Not implemented");
+        //TODO
     }
 
     @Test
