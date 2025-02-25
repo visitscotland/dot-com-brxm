@@ -1,0 +1,115 @@
+/content/documents/administration/bsh-labels/global/pagination:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: b35b871c-0454-4acd-92f1-a0d2a76c7f51
+  hippo:name: Pagination
+  hippo:versionHistory: 6d2ae910-0beb-4821-8cae-8e83da00d0ee
+  /pagination[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 346a7a12-f221-4602-95d5-644d2463b807
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
+    hippostdpubwf:lastModificationDate: 2025-02-25T09:42:13.199Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['Used in the indication, how many results were found.
+        The label is appended to the number of results.', Label used for the link
+        to the previous page., Label used for the link to the next page., To be used
+        for mobile pagination (eg. 3 of 5), '', '', '', '']
+    resourcebundle:id: bsh.essentials.pagination
+    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page,
+      page.page, results.result, no-results-message]
+    resourcebundle:messages: [document(s), Previous, Next, of, Navigate to page, Page,
+      Results, 'Sorry, there aren''t any results matching your search. Try changing
+        your selection and searching again.']
+    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
+      '', '', 'Entschuldigung, es gibt keine Ergebnisse, die Ihrer Suche entsprechen.
+        Versuchen Sie, Ihre Auswahl zu ändern und erneut zu suchen.']
+    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página,
+      '', '', 'Lo siento, no hay resultados que coincidan con tu búsqueda. Intenta
+        cambiar tu selección y buscar de nuevo.']
+    resourcebundle:messages_fr: [résultat(s), précédent, suivant, sur, Aller à la
+        page, '', '', 'Désolé, aucun résultat ne correspond à votre recherche. Essayez
+        de modifier votre sélection et de rechercher à nouveau.']
+    resourcebundle:messages_it: [risultato/i, precedente, prossimo, di, Andare alla
+        pagina, '', '', 'Spiacente, non ci sono risultati corrispondenti alla tua
+        ricerca. Prova a modificare la selezione e a cercare di nuovo.']
+    resourcebundle:messages_nl: [pagina('s), vorige, volgende, van, Navigeer naar
+        de pagina, '', '', 'Sorry, er zijn geen resultaten die overeenkomen met je
+        zoekopdracht. Probeer je selectie te wijzigen en zoek opnieuw']
+  /pagination[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 5e8e5db1-a2cb-4413-9d61-f212255ad44f
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
+    hippostdpubwf:lastModificationDate: 2025-02-25T09:42:01.570Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['Used in the indication, how many results were found.
+        The label is appended to the number of results.', Label used for the link
+        to the previous page., Label used for the link to the next page., To be used
+        for mobile pagination (eg. 3 of 5), '', '', '', '']
+    resourcebundle:id: bsh.essentials.pagination
+    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page,
+      page.page, results.result, no-results-message]
+    resourcebundle:messages: [document(s), Previous, Next, of, Navigate to page, Page,
+      Results, 'Sorry, there aren''t any results matching your search. Try changing
+        your selection and searching again.']
+    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
+      '', '', 'Entschuldigung, es gibt keine Ergebnisse, die Ihrer Suche entsprechen.
+        Versuchen Sie, Ihre Auswahl zu ändern und erneut zu suchen.']
+    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página,
+      '', '', 'Lo siento, no hay resultados que coincidan con tu búsqueda. Intenta
+        cambiar tu selección y buscar de nuevo.']
+    resourcebundle:messages_fr: [résultat(s), précédent, suivant, sur, Aller à la
+        page, '', '', 'Désolé, aucun résultat ne correspond à votre recherche. Essayez
+        de modifier votre sélection et de rechercher à nouveau.']
+    resourcebundle:messages_it: [risultato/i, precedente, prossimo, di, Andare alla
+        pagina, '', '', 'Spiacente, non ci sono risultati corrispondenti alla tua
+        ricerca. Prova a modificare la selezione e a cercare di nuovo.']
+    resourcebundle:messages_nl: [pagina('s), vorige, volgende, van, Navigeer naar
+        de pagina, '', '', 'Sorry, er zijn geen resultaten die overeenkomen met je
+        zoekopdracht. Probeer je selectie te wijzigen en zoek opnieuw']
+  /pagination[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: c3fe26da-8d20-47df-acb6-3c557ce1e55e
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2014-08-21T14:30:14.382+02:00
+    hippostdpubwf:lastModificationDate: 2025-02-25T09:42:13.199Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2025-02-25T10:07:52.899Z
+    resourcebundle:descriptions: ['Used in the indication, how many results were found.
+        The label is appended to the number of results.', Label used for the link
+        to the previous page., Label used for the link to the next page., To be used
+        for mobile pagination (eg. 3 of 5), '', '', '', '']
+    resourcebundle:id: bsh.essentials.pagination
+    resourcebundle:keys: [results.indication, page.previous, page.next, page.of, page.navigate-to-page,
+      page.page, results.result, no-results-message]
+    resourcebundle:messages: [document(s), Previous, Next, of, Navigate to page, Page,
+      Results, 'Sorry, there aren''t any results matching your search. Try changing
+        your selection and searching again.']
+    resourcebundle:messages_de: [Ergebnis(se), zurück, weiter, von, Zu Seite gehen,
+      '', '', 'Entschuldigung, es gibt keine Ergebnisse, die Ihrer Suche entsprechen.
+        Versuchen Sie, Ihre Auswahl zu ändern und erneut zu suchen.']
+    resourcebundle:messages_es: [documento(s), anterior, siguiente, de, Ir a la página,
+      '', '', 'Lo siento, no hay resultados que coincidan con tu búsqueda. Intenta
+        cambiar tu selección y buscar de nuevo.']
+    resourcebundle:messages_fr: [résultat(s), précédent, suivant, sur, Aller à la
+        page, '', '', 'Désolé, aucun résultat ne correspond à votre recherche. Essayez
+        de modifier votre sélection et de rechercher à nouveau.']
+    resourcebundle:messages_it: [risultato/i, precedente, prossimo, di, Andare alla
+        pagina, '', '', 'Spiacente, non ci sono risultati corrispondenti alla tua
+        ricerca. Prova a modificare la selezione e a cercare di nuovo.']
+    resourcebundle:messages_nl: [pagina('s), vorige, volgende, van, Navigeer naar
+        de pagina, '', '', 'Sorry, er zijn geen resultaten die overeenkomen met je
+        zoekopdracht. Probeer je selectie te wijzigen en zoek opnieuw']
