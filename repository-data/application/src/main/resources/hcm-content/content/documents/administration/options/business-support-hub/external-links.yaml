@@ -20,5 +20,5 @@
       selection:label: External Website
     /selection:listitem[3]:
       jcr:primaryType: selection:listitem
-      selection:key: illustrated-links
+      selection:key: internal-link
       selection:label: Illustrated Links
