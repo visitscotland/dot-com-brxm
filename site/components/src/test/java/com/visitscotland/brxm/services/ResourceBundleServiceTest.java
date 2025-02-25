@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
-@Disabled
 @ExtendWith(MockitoExtension.class)
 class ResourceBundleServiceTest {
 
@@ -121,7 +120,7 @@ class ResourceBundleServiceTest {
 
         String value = service.getResourceBundle(BUNDLE, "key", Locale.UK);
 
-        verify(service).logContentIssue(anyString(), any());
+        verify(service).logContentIssue(anyString(), any(Object[].class));
         assertEquals("value", value);
     }
 
@@ -137,7 +136,7 @@ class ResourceBundleServiceTest {
 
         String value = service.getResourceBundle(BUNDLE, "key", Locale.UK);
 
-        verify(service, times(2)).logContentIssue(anyString(), any());
+        verify(service, times(2)).logContentIssue(anyString(), any(Object[].class));
         assertEquals("", value);
     }
 
@@ -162,7 +161,7 @@ class ResourceBundleServiceTest {
 
         String value = service.getResourceBundle(BUNDLE, "key", Locale.UK);
 
-        verify(service).logContentIssue(anyString(), any());
+        verify(service).logContentIssue(anyString(), any(Object[].class));
         assertNull(value);
     }
 
@@ -207,36 +206,36 @@ class ResourceBundleServiceTest {
     }
 
     @Test
-    @DisplayName(("Alternative sites can have alternative labels"))
-    @Ignore
+    @DisplayName("Alternative sites can have alternative labels")
+    @Disabled
     void getSiteResourceBundle(){
         //TODO
     }
 
     @Test
-    @DisplayName(("Alternative sites can have alternative labels in other locales"))
-    @Ignore
+    @DisplayName("Alternative sites can have alternative labels in other locales")
+    @Disabled
     void getSiteResourceBundle_locale(){
-        //TODO
+        Assertions.fail("Not implemented");
     }
 
     @Test
-    @DisplayName(("If keys in alternative sites don't exist, they return "))
-    @Ignore
+    @DisplayName("If keys in alternative sites don't exist, they return ")
+    @Disabled
     void getSiteResourceBundle_missingKey(){
         //TODO
     }
 
     @Test
-    @DisplayName(("Return a collection of labels from the default file"))
-    @Ignore
+    @DisplayName("Return a collection of labels from the default file")
+    @Disabled
     void getAllSiteLabels(){
         //TODO
     }
 
     @Test
-    @DisplayName(("Return a collection of labels. Some of the labels don't exist in the site and the default value is returned instead"))
-    @Ignore
+    @DisplayName("Return a collection of labels. Some of the labels don't exist in the site and the default value is returned instead")
+    @Disabled
     void getAllSiteLabels_missingKeys(){
         //TODO
     }
