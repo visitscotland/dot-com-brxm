@@ -54,7 +54,7 @@ public class ResourceBundleService {
     }
 
     public String getSiteResourceBundle(String bundleName, String key, Locale locale){
-        if (!properties.getSiteId().isEmpty() && hasSiteResourceBundle(bundleName, locale)) {
+        if (!properties.getSiteId().isBlank() && hasSiteResourceBundle(bundleName, locale)) {
 	    final String bundleId = getSiteResourceBundleId(bundleName);
             String value = getResourceBundle(bundleId, key, locale, true);
             if (value == null) {
