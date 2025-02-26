@@ -5,7 +5,7 @@ import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.translation.MockNodeBuilder;
 import com.visitscotland.brxm.translation.plugin.JcrDocument;
-import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.repository.api.RepositoryMap;

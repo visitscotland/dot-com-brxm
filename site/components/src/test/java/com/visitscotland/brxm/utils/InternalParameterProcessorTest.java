@@ -2,9 +2,7 @@ package com.visitscotland.brxm.utils;
 
 import com.visitscotland.brxm.model.LocalizedURL;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.HippoUtilsService;
-import com.visitscotland.brxm.utils.InternalParameterProcessor;
-import com.visitscotland.brxm.utils.Language;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
