@@ -56,9 +56,6 @@ public class CommonUtilsService {
 
     /**
      * Remove the access token from Instagram urls, to avoid it being logged in error messages
-     *
-     * TODO Verify if the token can be sent in the headers instead of part of the URL
-     *
      */
     private String protectUrl(String url){
         if (url.contains("accessToken")){
