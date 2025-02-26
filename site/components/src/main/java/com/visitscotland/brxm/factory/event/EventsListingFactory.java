@@ -145,8 +145,6 @@ public class EventsListingFactory {
         filters.add(buildDateField(END_DATE_PARAM, END_DATE_LABEL));
     }
 
-
-    //TODO: Create a builder for this?
     private void addBooleanFields(List<EventFilter> filters, boolean inPerson, boolean national) {
 
         filters.add(buildBooleanField(FREE_PARAM, FREE_LABEL));

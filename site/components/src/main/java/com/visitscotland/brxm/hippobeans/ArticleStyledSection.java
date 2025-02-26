@@ -4,9 +4,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
-/**
- * TODO: Beanwriter: Failed to create getter for node type: hippo:compound
- */
+
 @HippoEssentialsGenerated(internalName = "visitscotland:ArticleStyledSection")
 @Node(jcrType = "visitscotland:ArticleStyledSection")
 public class ArticleStyledSection extends ArticleSection {

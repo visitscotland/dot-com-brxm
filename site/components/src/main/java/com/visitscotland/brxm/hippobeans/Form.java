@@ -1,14 +1,11 @@
 package com.visitscotland.brxm.hippobeans;
 
-import com.visitscotland.brxm.model.form.FeplConfiguration;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
-/**
- * TODO: Beanwriter: Failed to create getter for node type: hippo:compound
- */
+
 @HippoEssentialsGenerated(internalName = "visitscotland:Form")
 @Node(jcrType = "visitscotland:Form")
 public class Form extends BaseDocument {
