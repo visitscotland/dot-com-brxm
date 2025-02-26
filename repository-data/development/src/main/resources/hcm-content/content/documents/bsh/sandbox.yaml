@@ -22935,7 +22935,6 @@
               jcr:mixinTypes: ['mix:referenceable']
               jcr:uuid: 14f4bfd0-5277-411e-a0f3-84216b0a2ac9
               hippo:availability: []
-              hippostd:holder: admin
               hippostd:retainable: false
               hippostd:state: draft
               hippostd:transferable: false
