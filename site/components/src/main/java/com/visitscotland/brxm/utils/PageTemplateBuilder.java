@@ -164,7 +164,7 @@ public class PageTemplateBuilder {
 
     private EventsLingsModule  getEventListingModule(HstRequest request,EventsListing document) {
         addAllLabels(request,"events-listings-module");
-        addAllLabels(request, "essentials.pagination");
+        addAllSiteLabels(request, "essentials.pagination");
 
         return eventsListingFactory.createModule(document);
     }
@@ -323,6 +323,10 @@ public class PageTemplateBuilder {
 
     private void addAllLabels(HstRequest request, String bundleName) {
         labels(request).put(bundleName, bundle.getAllLabels(bundleName, request.getLocale()));
+    }
+
+    private void addAllSiteLabels(HstRequest request, String bundleName) {
+        labels(request).put(bundleName, bundle.getAllSiteLabels(bundleName, request.getLocale()));
     }
 
     /**

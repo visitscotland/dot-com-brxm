@@ -8,6 +8,8 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 @HippoEssentialsGenerated(internalName = "visitscotland:ArticleStyledSection")
 @Node(jcrType = "visitscotland:ArticleStyledSection")
 public class ArticleStyledSection extends ArticleSection {
+    public static final String HEADING = "visitscotland:heading";
+
     @HippoEssentialsGenerated(internalName = "visitscotland:heading")
     public String getHeading() {
         return getSingleProperty("visitscotland:heading");

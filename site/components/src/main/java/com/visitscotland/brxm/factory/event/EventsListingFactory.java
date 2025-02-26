@@ -6,7 +6,7 @@ import com.visitscotland.brxm.model.event.EventFilter;
 import com.visitscotland.brxm.model.event.EventValueOption;
 import com.visitscotland.brxm.model.event.EventsListingTab;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.CMSProperties;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.HippoUtilsService;
 import org.springframework.stereotype.Component;
 
