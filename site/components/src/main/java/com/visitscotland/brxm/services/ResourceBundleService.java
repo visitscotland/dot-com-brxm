@@ -55,7 +55,8 @@ public class ResourceBundleService {
 
     public String getSiteResourceBundle(String bundleName, String key, Locale locale){
         if (!properties.getSiteId().isEmpty() && hasSiteResourceBundle(bundleName, locale)) {
-            String value = getResourceBundle(getSiteResourceBundleId(bundleName), key, locale, true);
+	    final String bundleId = getSiteResourceBundleId(bundleName);
+            String value = getResourceBundle(bundleId, key, locale, true);
             if (value == null) {
                 logger.warn("The key {} does not exist in the site resource bundle {} for locale {}", key,
                         getSiteResourceBundleId(bundleName), locale);
