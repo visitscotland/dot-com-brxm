@@ -33,6 +33,9 @@
 [visitscotland:Asset] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:AssetLink] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
 [visitscotland:Banner] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
