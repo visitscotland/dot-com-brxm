@@ -6736,7 +6736,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: a1a9d1ba-5b3e-49f8-a627-6b70aa2578f9
         hippo:name: Form example
-        hippo:versionHistory: 8d95a7ec-b51e-456b-9adb-7f155f5aa9a9
+        hippo:versionHistory: 98812502-6cb1-4c70-a086-d5154d9700fd
         /form-example[1]:
           jcr:primaryType: visitscotland:MarketoForm
           jcr:mixinTypes: ['mix:referenceable']
@@ -6744,14 +6744,13 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-04-04T14:21:19.756+01:00
-          hippostdpubwf:lastModificationDate: 2022-08-23T13:03:49.234+01:00
+          hippostdpubwf:lastModificationDate: 2025-02-26T11:30:50.435Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 6a41b29a-7c44-4c4c-92df-2e852b484272
           hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach.json
           visitscotland:nonJavaScriptMessage: ''
           visitscotland:title: An example form
           visitscotland:translation: ''
@@ -6767,11 +6766,11 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-04-04T14:21:19.756+01:00
-          hippostdpubwf:lastModificationDate: 2022-04-14T10:46:21.156+01:00
+          hippostdpubwf:lastModificationDate: 2025-02-26T11:31:25.577Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 6a41b29a-7c44-4c4c-92df-2e852b484272
           hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach.json
           visitscotland:nonJavaScriptMessage: ''
           visitscotland:title: An example form
           visitscotland:translation: ''
@@ -6787,12 +6786,12 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-04-04T14:21:19.756+01:00
-          hippostdpubwf:lastModificationDate: 2022-04-14T10:46:21.156+01:00
+          hippostdpubwf:lastModificationDate: 2025-02-26T11:31:25.577Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-04-14T10:46:29.564+01:00
+          hippostdpubwf:publicationDate: 2025-02-26T11:31:49.082Z
           hippotranslation:id: 6a41b29a-7c44-4c4c-92df-2e852b484272
           hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach.json
           visitscotland:nonJavaScriptMessage: ''
           visitscotland:title: An example form
           visitscotland:translation: ''

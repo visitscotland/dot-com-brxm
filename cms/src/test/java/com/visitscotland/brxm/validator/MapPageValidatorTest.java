@@ -3,7 +3,7 @@ package com.visitscotland.brxm.validator;
 import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.MapModule;
-import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

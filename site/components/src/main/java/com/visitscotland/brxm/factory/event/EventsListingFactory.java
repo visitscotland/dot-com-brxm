@@ -6,8 +6,8 @@ import com.visitscotland.brxm.model.event.EventFilter;
 import com.visitscotland.brxm.model.event.EventValueOption;
 import com.visitscotland.brxm.model.event.EventsListingTab;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.CMSProperties;
-import com.visitscotland.brxm.utils.HippoUtilsService;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -145,8 +145,6 @@ public class EventsListingFactory {
         filters.add(buildDateField(END_DATE_PARAM, END_DATE_LABEL));
     }
 
-
-    //TODO: Create a builder for this?
     private void addBooleanFields(List<EventFilter> filters, boolean inPerson, boolean national) {
 
         filters.add(buildBooleanField(FREE_PARAM, FREE_LABEL));
