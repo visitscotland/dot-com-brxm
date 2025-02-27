@@ -41,6 +41,7 @@ public class SiteProperties extends Properties {
     private static final String PATH_ICENTRE = "site.path.icentre-landing";
 
     //Modules References
+    private static final String PATH_BANNER = "site.path.banner";
     static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
     static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
 
@@ -110,6 +111,9 @@ public class SiteProperties extends Properties {
     }
     public String getSiteICentre() {
         return readString(PATH_ICENTRE);
+    }
+    public String getSiteBanner() {
+        return readString(PATH_BANNER);
     }
     public String getGtmContainerId (){
         return readString(GTM_CONTAINER_ID);
