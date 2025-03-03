@@ -23835,19 +23835,19 @@
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: aed7ac69-1fd6-49ea-a670-85131f85658d
-      hippo:versionHistory: 78bd150f-b75a-4abf-adfb-c291c9e0311c
+      hippo:versionHistory: d90c669e-5715-48e2-9520-5ffc9fa3547b
       /form[1]:
         jcr:primaryType: visitscotland:Form
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: c51513c1-9c49-4863-939b-c026d5c6a4ce
         hippo:availability: []
-        hippostd:holder: bsh-editor
         hippostd:retainable: false
         hippostd:state: draft
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
-        hippostdpubwf:lastModificationDate: 2025-03-03T15:23:50.706Z
-        hippostdpubwf:lastModifiedBy: bsh-editor
+        hippostdpubwf:lastModificationDate: 2025-03-03T23:55:41.036Z
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
         hippotranslation:locale: en
         visitscotland:nonJavaScriptMessage: JavaScript is required for this page to
@@ -23856,15 +23856,11 @@
         visitscotland:translation: ''
         /visitscotland:form:
           jcr:primaryType: visitscotland:FormCompoundBreg
-          visitscotland:activityCode: Not applicable
+          visitscotland:activityCode: ''
           visitscotland:activityDescription: Business Support Hub Climate Plan download
           visitscotland:activitySource: BSH Web Form
           visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
           visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
-          /visitscotland:consents:
-            jcr:primaryType: visitscotland:Entry
-            visitscotland:key: Non-active consent code to follow
-            visitscotland:value: 'Null'
       /form[2]:
         jcr:primaryType: visitscotland:Form
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -23872,9 +23868,10 @@
         hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
-        hippostdpubwf:lastModificationDate: 2025-03-03T09:49:11.052Z
+        hippostdpubwf:lastModificationDate: 2025-03-03T23:55:50.362Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
         hippotranslation:locale: en
@@ -23884,15 +23881,11 @@
         visitscotland:translation: ''
         /visitscotland:form:
           jcr:primaryType: visitscotland:FormCompoundBreg
-          visitscotland:activityCode: Not applicable
+          visitscotland:activityCode: ''
           visitscotland:activityDescription: Business Support Hub Climate Plan download
           visitscotland:activitySource: BSH Web Form
           visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
           visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
-          /visitscotland:consents:
-            jcr:primaryType: visitscotland:Entry
-            visitscotland:key: Non-active consent code to follow
-            visitscotland:value: 'Null'
       /form[3]:
         jcr:primaryType: visitscotland:Form
         jcr:mixinTypes: ['mix:referenceable']
@@ -23900,11 +23893,12 @@
         hippo:availability: [live]
         hippostd:retainable: false
         hippostd:state: published
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
-        hippostdpubwf:lastModificationDate: 2025-03-03T09:49:11.052Z
+        hippostdpubwf:lastModificationDate: 2025-03-03T23:55:50.362Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-03-03T09:49:16.531Z
+        hippostdpubwf:publicationDate: 2025-03-03T23:55:51.993Z
         hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
         hippotranslation:locale: en
         visitscotland:nonJavaScriptMessage: JavaScript is required for this page to
@@ -23913,12 +23907,8 @@
         visitscotland:translation: ''
         /visitscotland:form:
           jcr:primaryType: visitscotland:FormCompoundBreg
-          visitscotland:activityCode: Not applicable
+          visitscotland:activityCode: ''
           visitscotland:activityDescription: Business Support Hub Climate Plan download
           visitscotland:activitySource: BSH Web Form
           visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
           visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
-          /visitscotland:consents:
-            jcr:primaryType: visitscotland:Entry
-            visitscotland:key: Non-active consent code to follow
-            visitscotland:value: 'Null'
