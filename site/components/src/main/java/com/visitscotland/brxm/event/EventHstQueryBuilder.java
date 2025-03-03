@@ -38,7 +38,7 @@ public class EventHstQueryBuilder {
     public static final String DEADLINE = "visitscotland:deadline";
     public static final String INTERNATIONAL = "visitscotland:international";
 
-    private final HstQueryBuilder builder;
+    private final HstQueryBuilder hstQuerybuilder;
 
     //TODO: Create property for this or should we get the channel mount point for this?
     private static final String EVENTS_LOCATION = "/content/documents/bsh/";
@@ -48,7 +48,7 @@ public class EventHstQueryBuilder {
 
     @SuppressWarnings("unchecked")
     public EventHstQueryBuilder(Class<? extends HippoBean> documentType) throws RepositoryException {
-        this.builder = HstQueryBuilder.create(getBaseNode()).ofTypes(documentType);
+        this.hstQuerybuilder = HstQueryBuilder.create(getBaseNode()).ofTypes(documentType);
         constraints = new HashMap<>();
     }
 
@@ -56,10 +56,10 @@ public class EventHstQueryBuilder {
      * Add pagination limits and pagination offset if needed
      */
     public EventHstQueryBuilder addPagination(int pageSize) {
-        builder.limit(pageSize);
+        hstQuerybuilder.limit(pageSize);
         if (getQueryParameters().containsKey(PAGE_PARAM)) {
             int pageIndex = Integer.parseInt(getQueryParameters().get(PAGE_PARAM)[0]);
-            builder.offset((pageIndex - 1) * pageSize);
+            hstQuerybuilder.offset((pageIndex - 1) * pageSize);
         }
 
         return this;
@@ -74,16 +74,16 @@ public class EventHstQueryBuilder {
 
             switch (sortBy) {
                 case DATE:
-                    builder.orderByAscending(START_DATE);
+                    hstQuerybuilder.orderByAscending(START_DATE);
                     break;
                 case PRICE:
-                    builder.orderByAscending(AMOUNT);
+                    hstQuerybuilder.orderByAscending(AMOUNT);
                     break;
                 case PRICE_DESC:
-                    builder.orderByDescending(AMOUNT);
+                    hstQuerybuilder.orderByDescending(AMOUNT);
                     break;
                 case REGISTRATION:
-                    builder.orderByAscending(DEADLINE);
+                    hstQuerybuilder.orderByAscending(DEADLINE);
                     break;
                 default:
                     logger.warn("The sort by parameter {} is not valid", sortBy);
@@ -247,10 +247,6 @@ public class EventHstQueryBuilder {
     }
 
     public HstQuery build() {
-        return builder.where(and(constraints.values().toArray(Constraint[]::new))).build();
-    }
-
-    Map<String, Constraint> getConstraints() {
-        return constraints;
+        return hstQuerybuilder.where(and(constraints.values().toArray(Constraint[]::new))).build();
     }
 }
