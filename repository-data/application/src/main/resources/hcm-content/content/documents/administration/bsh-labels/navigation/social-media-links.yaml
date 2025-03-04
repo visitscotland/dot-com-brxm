@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: fd7153e0-2786-4d21-b8c9-4b6810793c85
   hippo:name: Social media links
-  hippo:versionHistory: cf3415fc-37c1-441f-a5bc-605f6b3706f3
+  hippo:versionHistory: 8add3d57-3f4a-47d9-abc4-471c6acff1e9
   /social-media-links[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,17 +13,18 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-04-30T13:40:44.798+01:00
-    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:38.463+01:00
+    hippostdpubwf:lastModificationDate: 2025-02-27T09:00:07.519Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '']
+    resourcebundle:descriptions: ['', '', '']
     resourcebundle:id: bsh.navigation.social-media
-    resourcebundle:keys: [twitter, linkedin]
-    resourcebundle:messages: ['https://twitter.com/VisitScotBE', 'https://www.linkedin.com/showcase/visitscotland-business-events/']
-    resourcebundle:messages_de: ['', '']
-    resourcebundle:messages_es: ['', '']
-    resourcebundle:messages_fr: ['', '']
-    resourcebundle:messages_it: ['', '']
-    resourcebundle:messages_nl: ['', '']
+    resourcebundle:keys: [twitter, linkedin, youtube]
+    resourcebundle:messages: ['https://twitter.com/VisitScotNews', 'https://www.linkedin.com/company/visitscotland',
+      'https://www.youtube.com/user/VisitScotlandNews']
+    resourcebundle:messages_de: ['', '', '']
+    resourcebundle:messages_es: ['', '', '']
+    resourcebundle:messages_fr: ['', '', '']
+    resourcebundle:messages_it: ['', '', '']
+    resourcebundle:messages_nl: ['', '', '']
   /social-media-links[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -33,17 +34,18 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-04-30T13:40:44.798+01:00
-    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:41.773+01:00
+    hippostdpubwf:lastModificationDate: 2025-02-27T09:00:50.176Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '']
+    resourcebundle:descriptions: ['', '', '']
     resourcebundle:id: bsh.navigation.social-media
-    resourcebundle:keys: [twitter, linkedin]
-    resourcebundle:messages: ['https://twitter.com/VisitScotBE', 'https://www.linkedin.com/showcase/visitscotland-business-events/']
-    resourcebundle:messages_de: ['', '']
-    resourcebundle:messages_es: ['', '']
-    resourcebundle:messages_fr: ['', '']
-    resourcebundle:messages_it: ['', '']
-    resourcebundle:messages_nl: ['', '']
+    resourcebundle:keys: [twitter, linkedin, youtube]
+    resourcebundle:messages: ['https://twitter.com/VisitScotNews', 'https://www.linkedin.com/company/visitscotland',
+      'https://www.youtube.com/user/VisitScotlandNews']
+    resourcebundle:messages_de: ['', '', '']
+    resourcebundle:messages_es: ['', '', '']
+    resourcebundle:messages_fr: ['', '', '']
+    resourcebundle:messages_it: ['', '', '']
+    resourcebundle:messages_nl: ['', '', '']
   /social-media-links[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -53,15 +55,16 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-04-30T13:40:44.798+01:00
-    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:41.773+01:00
+    hippostdpubwf:lastModificationDate: 2025-02-27T09:00:50.176Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-07-30T19:22:45.259+01:00
-    resourcebundle:descriptions: ['', '']
+    hippostdpubwf:publicationDate: 2025-02-27T09:00:53.493Z
+    resourcebundle:descriptions: ['', '', '']
     resourcebundle:id: bsh.navigation.social-media
-    resourcebundle:keys: [twitter, linkedin]
-    resourcebundle:messages: ['https://twitter.com/VisitScotBE', 'https://www.linkedin.com/showcase/visitscotland-business-events/']
-    resourcebundle:messages_de: ['', '']
-    resourcebundle:messages_es: ['', '']
-    resourcebundle:messages_fr: ['', '']
-    resourcebundle:messages_it: ['', '']
-    resourcebundle:messages_nl: ['', '']
+    resourcebundle:keys: [twitter, linkedin, youtube]
+    resourcebundle:messages: ['https://twitter.com/VisitScotNews', 'https://www.linkedin.com/company/visitscotland',
+      'https://www.youtube.com/user/VisitScotlandNews']
+    resourcebundle:messages_de: ['', '', '']
+    resourcebundle:messages_es: ['', '', '']
+    resourcebundle:messages_fr: ['', '', '']
+    resourcebundle:messages_it: ['', '', '']
+    resourcebundle:messages_nl: ['', '', '']

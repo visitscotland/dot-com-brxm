@@ -11,6 +11,7 @@ import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.CommonUtilsService;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;

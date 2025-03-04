@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 6e99a474-9299-4a7e-bb0a-ec551d5e24cc
   hippo:name: Footer Links
-  hippo:versionHistory: e5cc5fff-61ee-4684-b6c8-b73f28abb2d0
+  hippo:versionHistory: b3a2a79e-e7f0-4dcc-a313-1c8fd1af168a
   /footer-links[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,14 +13,16 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-01-19T10:28:31.156Z
-    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:11.817+01:00
+    hippostdpubwf:lastModificationDate: 2025-02-27T09:03:32.626Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.navigation.footer
     resourcebundle:keys: [footer.other-sites, footer.about-us, footer.dot-com, footer.corporate,
-      footer.scotland-is-now, footer.policy, footer.accessibility, footer.cookies]
-    resourcebundle:messages: [Our other sites, About us, VisitScotland for Leisure,
-      VisitScotland for Business, Scotland.org, Policy, Accesibility, Cookie Policy]
+      footer.scotland-is-now, footer.policy, footer.accessibility, footer.cookies,
+      footer.business, footer.toolkit, footer.travel]
+    resourcebundle:messages: [Our other sites, About us, VisitScotland.com, Corporate,
+      Scotland is Now, Policies, Accesibility, Cookie Policy, Business Events, Media
+        Toolkit, Travel Trade]
   /footer-links[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -30,14 +32,16 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-01-19T10:28:31.156Z
-    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:17.219+01:00
+    hippostdpubwf:lastModificationDate: 2025-02-27T09:04:02.527Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.navigation.footer
     resourcebundle:keys: [footer.other-sites, footer.about-us, footer.dot-com, footer.corporate,
-      footer.scotland-is-now, footer.policy, footer.accessibility, footer.cookies]
-    resourcebundle:messages: [Our other sites, About us, VisitScotland for Leisure,
-      VisitScotland for Business, Scotland.org, Policy, Accesibility, Cookie Policy]
+      footer.scotland-is-now, footer.policy, footer.accessibility, footer.cookies,
+      footer.business, footer.toolkit, footer.travel]
+    resourcebundle:messages: [Our other sites, About us, VisitScotland.com, Corporate,
+      Scotland is Now, Policies, Accesibility, Cookie Policy, Business Events, Media
+        Toolkit, Travel Trade]
   /footer-links[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -47,12 +51,14 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-01-19T10:28:31.156Z
-    hippostdpubwf:lastModificationDate: 2024-07-30T19:22:17.219+01:00
+    hippostdpubwf:lastModificationDate: 2025-02-27T09:04:02.527Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-07-30T19:22:19.267+01:00
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2025-02-27T09:04:04.760Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.navigation.footer
     resourcebundle:keys: [footer.other-sites, footer.about-us, footer.dot-com, footer.corporate,
-      footer.scotland-is-now, footer.policy, footer.accessibility, footer.cookies]
-    resourcebundle:messages: [Our other sites, About us, VisitScotland for Leisure,
-      VisitScotland for Business, Scotland.org, Policy, Accesibility, Cookie Policy]
+      footer.scotland-is-now, footer.policy, footer.accessibility, footer.cookies,
+      footer.business, footer.toolkit, footer.travel]
+    resourcebundle:messages: [Our other sites, About us, VisitScotland.com, Corporate,
+      Scotland is Now, Policies, Accesibility, Cookie Policy, Business Events, Media
+        Toolkit, Travel Trade]

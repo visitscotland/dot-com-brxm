@@ -25,19 +25,16 @@ public class EventHstQueryBuilder {
 
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
-    //TODO: Move to EventBSH?
+    //TODO: Move to models?
     public static final String ONLINE = "visitscotland:online";
     public static final String VENUE = "visitscotland:venue";
     public static final String START_DATE = "visitscotland:startDate";
     public static final String END_DATE = "visitscotland:endDate";
     public static final String AMOUNT = "visitscotland:price/visitscotland:amount";
-    //TODO: Move to IndustyEventBSH?
     public static final String SECTORS = "visitscotland:sectors";
     public static final String REGION = "visitscotland:region";
     public static final String TYPES = "visitscotland:types";
-    //TODO: Move to TrainingEventBSH?
     public static final String TOPICS = "visitscotland:topics";
-    //TODO: Move to TravelTradeEventBSH?
     public static final String DEADLINE = "visitscotland:deadline";
     public static final String INTERNATIONAL = "visitscotland:international";
 

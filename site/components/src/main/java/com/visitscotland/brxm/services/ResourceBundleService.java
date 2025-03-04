@@ -54,16 +54,14 @@ public class ResourceBundleService {
     }
 
     public String getSiteResourceBundle(String bundleName, String key, Locale locale){
-
-        //Note: Other sites don't currently support other languages
-        if (!properties.getSiteId().isEmpty()) {
-            String siteBundleName = properties.getSiteId() + "." + bundleName;
-            // TODO: This method throws an exception when the site bundle is not found. This bug should be fixed
-            if (getResourceBundleRegistry().getBundle(siteBundleName) != null) {
-                String value = getResourceBundle(siteBundleName, key, locale, true);
-                if (value != null) {
-                    return value;
-                }
+        if (!properties.getSiteId().isBlank() && hasSiteResourceBundle(bundleName, locale)) {
+	    final String bundleId = getSiteResourceBundleId(bundleName);
+            String value = getResourceBundle(bundleId, key, locale, true);
+            if (value == null) {
+                logger.warn("The key {} does not exist in the site resource bundle {} for locale {}", key,
+                        getSiteResourceBundleId(bundleName), locale);
+            } else {
+                return value;
             }
         }
 
@@ -72,7 +70,6 @@ public class ResourceBundleService {
 
     /**
      * Gets a string for the given key from this resource bundle or one of its parents.
-     *
      * This method is usually used from FREEMARKER
      *
      * @param bundleName id of the Resource Bundle defined in Hippo
@@ -85,7 +82,6 @@ public class ResourceBundleService {
 
     /**
      * Gets a string for the given key from this resource bundle (or one of its parents when is not {@code optional}).
-     *
      * This method is usually used from FREEMARKER
      *
      * @param bundleName id of the Resource Bundle defined in Hippo
@@ -108,7 +104,7 @@ public class ResourceBundleService {
      * @return a {@code Locale} object version of the {@code String} or {@code null} when empty String or null
      */
     Locale toLocale(String locale){
-        if (locale == null || locale.length() == 0){
+        if (locale == null || locale.isEmpty()){
             return null;
         } else {
             return Locale.forLanguageTag(locale);
@@ -151,10 +147,6 @@ public class ResourceBundleService {
         return value;
     }
 
-//    private boolean ResourceBundleRegistry getRegistry(){
-//        return VsComponentManager.get(ResourceBundleRegistry.class);
-//    }
-
     /**
      * Return a resource bundle for a specific locale
      *
@@ -169,6 +161,37 @@ public class ResourceBundleService {
         } else {
             return getResourceBundleRegistry().getBundle(bundleName, locale);
         }
+    }
+
+    /**
+     * Return a resource bundle for a specific locale
+     *
+     * @param bundleName id of the Resource Bundle defined in Hippo
+     * @param locale locale
+     *
+     * @return resource bundle for a specific locale
+     */
+    private boolean hasSiteResourceBundle(String bundleName, Locale locale){
+        if (!Contract.isEmpty(properties.getSiteId())) {
+          try {
+               if (getResourceBundle(getSiteResourceBundleId(bundleName), locale) != null){
+                   return true;
+               }
+          } catch (MissingResourceException e) {
+              // The resource bundle does not exist, the default file will be used instead
+              logger.debug("The resource bundle {}.{} does not exist", properties.getSiteId(), bundleName);
+          }
+        }
+        return false;
+    }
+
+    /**
+     * Return the id for a Resource Bundle Belonging to an specific site
+     *
+     * @param bundleName id of the Resource Bundle defined in Hippo
+     */
+    private String getSiteResourceBundleId(String bundleName) {
+        return properties.getSiteId() + "." + bundleName;
     }
 
     public void setResourceBundleRegistry(ResourceBundleRegistry registry){
@@ -253,5 +276,26 @@ public class ResourceBundleService {
             labels.put(key, getResourceBundle(bundleName, key, locale));
         }
         return labels;
+    }
+
+    /**
+     *  Return all labels for a Resource bundle file
+     *
+     * @param bundleName Resource Bundle CMS ID
+     * @param locale Locale of the request
+     *
+     * @return All labels for a Resource bundle file
+     */
+    public Map<String, String> getAllSiteLabels(String bundleName, Locale locale){
+        Map<String, String> labels = new HashMap<>();
+        if (!properties.getSiteId().isEmpty()) {
+
+            for (String key : getResourceBundle(bundleName, locale).keySet()) {
+                labels.put(key, getSiteResourceBundle(bundleName, key, locale));
+            }
+            return labels;
+        } else {
+            return getAllLabels(bundleName, locale);
+        }
     }
 }

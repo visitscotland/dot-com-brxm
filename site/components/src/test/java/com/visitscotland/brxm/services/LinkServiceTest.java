@@ -627,7 +627,6 @@ class LinkServiceTest {
         assertEquals("title", link.getLabel());
     }
 
-    //TODO
     @Test
     @DisplayName(("VS-2949 - Create video link to be used by Freemarker"))
     void createVideo(){
