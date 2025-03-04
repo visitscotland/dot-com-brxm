@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.rest.event;
+package com.visitscotland.brxm.event;
 
 import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.model.bsh.EventCard;
