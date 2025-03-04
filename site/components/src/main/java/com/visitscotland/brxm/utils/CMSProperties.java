@@ -108,10 +108,6 @@ public class CMSProperties extends Properties {
         return isRelativeURLs() ? "" : readString(CMS_BASE_PATH);
     }
 
-    public String getBasePath() {
-        return readString(CMS_BASE_PATH);
-    }
-
     public String getApiDataBackendHost() {
         return readString(API_DATA_BACKEND_HOST);
     }

@@ -77,7 +77,7 @@ public class EventsListingFactory {
 
         tab.setTitle(document.getTrainingTitle());
         tab.setCopy(document.getTrainingCopy());
-        tab.setBaseEndPoint(cmsProperties.getBasePath() + BASE_ENDPOINT_TRAINING);
+        tab.setBaseEndPoint(cmsProperties.getCmsBasePath() + BASE_ENDPOINT_TRAINING);
         tab.setSortBy(buildSortBy(List.of(DATE, PRICE, PRICE_DESC)));
         tab.setFilters(buildTrainingFilters());
 
@@ -100,7 +100,7 @@ public class EventsListingFactory {
 
         tab.setTitle(document.getIndustryTitle());
         tab.setCopy(document.getIndustryCopy());
-        tab.setBaseEndPoint(cmsProperties.getBasePath() + BASE_ENDPOINT_INDUSTRY);
+        tab.setBaseEndPoint(cmsProperties.getCmsBasePath() + BASE_ENDPOINT_INDUSTRY);
         tab.setSortBy(buildSortBy(List.of(DATE, PRICE, PRICE_DESC)));
         tab.setFilters(buildIndustryFilters());
 
@@ -124,7 +124,7 @@ public class EventsListingFactory {
 
         tab.setTitle(document.getTradeTitle());
         tab.setCopy(document.getTradeCopy());
-        tab.setBaseEndPoint(cmsProperties.getBasePath() + BASE_ENDPOINT_TRADE);
+        tab.setBaseEndPoint(cmsProperties.getCmsBasePath() + BASE_ENDPOINT_TRADE);
         tab.setSortBy(buildSortBy(List.of(DATE, REGISTRATION)));
         tab.setFilters(buildTradeFilters());
 
