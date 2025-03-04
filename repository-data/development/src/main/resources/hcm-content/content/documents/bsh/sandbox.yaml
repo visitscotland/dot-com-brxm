@@ -23689,3 +23689,226 @@
     hippostd:foldertype: [new-translated-folder, new-document]
     hippotranslation:id: a6cff355-cfae-49a3-abe8-aa2f45ad230d
     hippotranslation:locale: en
+  /climate-action-plan-form:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: e401498d-84fd-4763-96b4-5e9663a443ac
+    hippo:name: Climate action plan form
+    hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+    hippotranslation:id: 662d2f46-6878-42bf-a1df-0b09f14f1955
+    hippotranslation:locale: en
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 00c6d4f5-c0c9-4d58-b1e6-7e37ec46dfa5
+      hippo:name: form page
+      hippo:versionHistory: 5497c390-6312-46bc-b44f-ac38aee2331e
+      /content[1]:
+        jcr:primaryType: visitscotland:GeneralBSH
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 1f66d139-0e24-4634-9b1b-b16dfe5fc28d
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:29:25.356Z
+        hippostdpubwf:lastModificationDate: 2025-02-27T15:47:45.548Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: e45ab34e-0063-475e-b52d-319fa177ecc8
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:publishDate: 0001-01-01T12:00:00Z
+        visitscotland:readingTime: 0
+        visitscotland:regions: []
+        visitscotland:sectors: []
+        visitscotland:seoDescription: Submit your business details for and receive
+          a free workbook for identifying and managing emissions.
+        visitscotland:seoNoIndex: true
+        visitscotland:seoTitle: Taking Climate Action | support.visitscotland.org
+        visitscotland:skill: ''
+        visitscotland:teaser: Submit your business details for and receive a free
+          workbook for identifying and managing emissions.
+        visitscotland:theme: simple
+        visitscotland:title: Climate action plan workbook
+        visitscotland:topic: []
+        visitscotland:type: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Your climate action workbook gives you the tools to easily measure your business emissions and select actions to reduce them over time.</p>
+
+            <p>You can track up to four years of data and pick the actions that work best for your business. These range from actions that won’t cost you anything to quick-wins and longer term investments.</p>
+      /content[2]:
+        jcr:primaryType: visitscotland:GeneralBSH
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 8609e494-861e-4679-a1f9-37f14862d60b
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:29:25.356Z
+        hippostdpubwf:lastModificationDate: 2025-02-26T13:47:09.395Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: e45ab34e-0063-475e-b52d-319fa177ecc8
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:publishDate: 0001-01-01T12:00:00Z
+        visitscotland:readingTime: 0
+        visitscotland:regions: []
+        visitscotland:sectors: []
+        visitscotland:seoDescription: Submit your business details for and receive
+          a free workbook for identifying and managing emissions.
+        visitscotland:seoNoIndex: true
+        visitscotland:seoTitle: Taking Climate Action | support.visitscotland.org
+        visitscotland:skill: ''
+        visitscotland:teaser: Submit your business details for and receive a free
+          workbook for identifying and managing emissions.
+        visitscotland:theme: simple
+        visitscotland:title: Climate action plan workbook
+        visitscotland:topic: []
+        visitscotland:type: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Your climate action workbook gives you the tools to easily measure your business emissions and select actions to reduce them over time.</p>
+
+            <p>You can track up to four years of data and pick the actions that work best for your business. These range from actions that won’t cost you anything to quick-wins and longer term investments.</p>
+      /content[3]:
+        jcr:primaryType: visitscotland:GeneralBSH
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: f8ab690d-2e9c-4883-85f1-3f86d34cab54
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:29:25.356Z
+        hippostdpubwf:lastModificationDate: 2025-02-26T13:47:09.395Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2025-02-26T13:47:12.024Z
+        hippotranslation:id: e45ab34e-0063-475e-b52d-319fa177ecc8
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:publishDate: 0001-01-01T12:00:00Z
+        visitscotland:readingTime: 0
+        visitscotland:regions: []
+        visitscotland:sectors: []
+        visitscotland:seoDescription: Submit your business details for and receive
+          a free workbook for identifying and managing emissions.
+        visitscotland:seoNoIndex: true
+        visitscotland:seoTitle: Taking Climate Action | support.visitscotland.org
+        visitscotland:skill: ''
+        visitscotland:teaser: Submit your business details for and receive a free
+          workbook for identifying and managing emissions.
+        visitscotland:theme: simple
+        visitscotland:title: Climate action plan workbook
+        visitscotland:topic: []
+        visitscotland:type: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Your climate action workbook gives you the tools to easily measure your business emissions and select actions to reduce them over time.</p>
+
+            <p>You can track up to four years of data and pick the actions that work best for your business. These range from actions that won’t cost you anything to quick-wins and longer term investments.</p>
+    /form:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: aed7ac69-1fd6-49ea-a670-85131f85658d
+      hippo:versionHistory: d90c669e-5715-48e2-9520-5ffc9fa3547b
+      /form[1]:
+        jcr:primaryType: visitscotland:Form
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c51513c1-9c49-4863-939b-c026d5c6a4ce
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
+        hippostdpubwf:lastModificationDate: 2025-03-03T23:55:41.036Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
+        hippotranslation:locale: en
+        visitscotland:nonJavaScriptMessage: JavaScript is required for this page to
+          work.
+        visitscotland:title: ''
+        visitscotland:translation: ''
+        /visitscotland:form:
+          jcr:primaryType: visitscotland:FormCompoundBreg
+          visitscotland:activityCode: ''
+          visitscotland:activityDescription: Business Support Hub Climate Plan download
+          visitscotland:activitySource: BSH Web Form
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
+          visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
+      /form[2]:
+        jcr:primaryType: visitscotland:Form
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: c56677a3-dd0f-4d0b-a8a2-1eb535192d5d
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
+        hippostdpubwf:lastModificationDate: 2025-03-03T23:55:50.362Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
+        hippotranslation:locale: en
+        visitscotland:nonJavaScriptMessage: JavaScript is required for this page to
+          work.
+        visitscotland:title: ''
+        visitscotland:translation: ''
+        /visitscotland:form:
+          jcr:primaryType: visitscotland:FormCompoundBreg
+          visitscotland:activityCode: ''
+          visitscotland:activityDescription: Business Support Hub Climate Plan download
+          visitscotland:activitySource: BSH Web Form
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
+          visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
+      /form[3]:
+        jcr:primaryType: visitscotland:Form
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 98921286-6e61-4784-9f10-7256796ad3c2
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
+        hippostdpubwf:lastModificationDate: 2025-03-03T23:55:50.362Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2025-03-03T23:55:51.993Z
+        hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
+        hippotranslation:locale: en
+        visitscotland:nonJavaScriptMessage: JavaScript is required for this page to
+          work.
+        visitscotland:title: ''
+        visitscotland:translation: ''
+        /visitscotland:form:
+          jcr:primaryType: visitscotland:FormCompoundBreg
+          visitscotland:activityCode: ''
+          visitscotland:activityDescription: Business Support Hub Climate Plan download
+          visitscotland:activitySource: BSH Web Form
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
+          visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
