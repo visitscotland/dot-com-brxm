@@ -8,10 +8,21 @@ exit_on_failure() {
 
 # Shelve current workspace
 branch=$(git branch --show-current)
-echo "You were working on branch $branch"
-echo 'Stashing your work...'
-if ! git stash; then
-    exit_on_failure "Stashing your work"
+# Initialize stash tracking variable (0 = no stash, 1 = stash created)
+hasStashedChanges=0
+
+# Check for local changes
+# git status --porcelain provides a machine-readable output of Git status
+# If there are any changes, the output will not be empty (yes → Run git stash, no → Skip stashing)
+if [[ -n $(git status --porcelain) ]]; then
+    echo "You were working on branch $branch"
+    echo "Local changes detected. Stashing your work..."
+    if ! git stash; then
+        exit_on_failure "Local changes detected. Stashing your work..."
+    fi
+    hasStashedChanges=1
+else
+    echo "No local changes to stash."
 fi
 
 echo 'Proceeding with the main start-release script...'
@@ -44,9 +55,14 @@ if ! git checkout "$branch"; then
     exit_on_failure "Checkout back to branch"
 fi
 
-echo 'Applying your stashed work...'
-if ! git stash apply; then
-    exit_on_failure "Applying stashed work"
+# Apply stashed changes, if any
+if [ "$hasStashedChanges" -eq 1 ]; then
+    echo "Applying your stashed work..."
+    if ! git stash apply; then
+        exit_on_failure "Applying your stashed work"
+    fi
+else
+    echo "No local changes to apply from the stash"
 fi
 
 echo 'You can follow the progress of the artefacts at https://jenkinssb.visitscotland.com/job/release-brc.visitscotland.com/'
