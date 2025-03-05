@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.rest.event;
+package com.visitscotland.brxm.event;
 
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.ArrayList;
 
-import static com.visitscotland.brxm.rest.event.EventSearchParameters.*;
+import static com.visitscotland.brxm.event.EventSearchParameters.*;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
 public class EventHstQueryBuilder {

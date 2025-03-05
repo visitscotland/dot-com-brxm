@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-import static com.visitscotland.brxm.rest.event.EventSearchParameters.*;
+import static com.visitscotland.brxm.event.EventSearchParameters.*;
 
 @Component
 public class EventsListingFactory {
