@@ -108,5 +108,7 @@ action-lists:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/bsh-labels/modules/events-listings: reload
 - 2.8.2:
-      /content/documents/administration/options/business-support-hub/external-links: reload
+    /content/documents/administration/options/business-support-hub/external-links: reload
+- 2.8.3:
+    /content/documents/administration/bsh-labels/global/global: reload
 
