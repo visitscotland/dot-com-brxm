@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Component
-public class EventCardFactory {
+class EventCardFactory {
 
     private static final String BUNDLE = "events-listings";
     private static final SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd MMM");
@@ -25,7 +25,7 @@ public class EventCardFactory {
     private final PriceFormatter priceFormatter;
     private final ContentLogger contentLogger;
 
-    public EventCardFactory(ResourceBundleService bundle,
+    protected EventCardFactory(ResourceBundleService bundle,
                             PriceFormatter priceFormatter,
                             ContentLogger contentLogger) {
         this.bundle = bundle;
@@ -33,7 +33,7 @@ public class EventCardFactory {
         this.contentLogger = contentLogger;
     }
 
-    public EventCard createEventCard(EventBSH document) {
+    EventCard createEventCard(EventBSH document) {
         EventCard card = new EventCard(document);
 
         card.setDates(formatDates(document, card));
@@ -50,11 +50,11 @@ public class EventCardFactory {
         return card;
     }
 
-    private String valueOrNull(String value) {
+    String valueOrNull(String value) {
         return Contract.isEmpty(value) ? null : value;
     }
 
-    private FlatLink formatCTA(EventBSH document) {
+    FlatLink formatCTA(EventBSH document) {
         FlatLink link = new FlatLink();
 
         link.setLabel(bundle.getCtaLabel(document.getCtaLink().getLabel(), LOCALE));
