@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 3562aaf3-59b5-4fec-9638-8995de333453
+          jcr:uuid: fb4ed643-9fe4-44e4-9049-8aa99e02c3b4
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Megalinks', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -71,7 +71,7 @@ definitions:
           visitscotland:teaserVisible: true
           visitscotland:anchor: ''
           visitscotland:nested: false
-          jcr:uuid: 35cf9236-b571-4c92-a1ec-1e1fe330a99d
+          jcr:uuid: e75a6a02-bd8c-42e5-9fc8-5d517291d942
           hippostdpubwf:lastModificationDate: 2024-10-04T12:48:11.520+01:00
           hippostdpubwf:creationDate: 2024-10-04T12:48:11.521+01:00
           visitscotland:layout: Default
@@ -132,7 +132,7 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Default,List
+              selectable.options: Default,List,Download
           /nested:
             jcr:primaryType: frontend:plugin
             caption: Nest under the previous module
