@@ -12,16 +12,16 @@ import java.util.Objects;
 import java.util.Locale;
 
 @Component
-public class PriceFormatter {
+class PriceFormatter {
     private static final String EVENTS_RESOURCE_BUNDLE_KEY = "events-listings";
 
     private final ResourceBundleService resourceBundleService;
 
-    public PriceFormatter(ResourceBundleService resourceBundleService) {
+    protected PriceFormatter(ResourceBundleService resourceBundleService) {
         this.resourceBundleService = resourceBundleService;
     }
 
-    public <P extends Price> String format(final P price) {
+    <P extends Price> String format(final P price) {
         if (Objects.isNull(price)) {
             return null;
         }
