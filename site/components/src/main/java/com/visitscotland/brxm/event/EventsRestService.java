@@ -16,7 +16,7 @@ import javax.ws.rs.core.Response;
  * Note: These endpoint don't use Spring but JAX-RS for mapping to the main application
  */
 @Path("/bsh/events-search/")
-class EventsRestService extends AbstractResource {
+public class EventsRestService extends AbstractResource {
 
     private static final Logger logger = LoggerFactory.getLogger(EventsRestService.class);
 

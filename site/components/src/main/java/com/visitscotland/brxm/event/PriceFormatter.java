@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.Locale;
 
 @Component
-class PriceFormatter {
+public class PriceFormatter {
     private static final String EVENTS_RESOURCE_BUNDLE_KEY = "events-listings";
 
     private final ResourceBundleService resourceBundleService;
