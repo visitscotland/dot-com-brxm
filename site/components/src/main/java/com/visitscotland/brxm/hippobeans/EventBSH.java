@@ -64,4 +64,14 @@ public class EventBSH extends BaseDocument {
     public Price getPrice() {
         return getBean("visitscotland:price", Price.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:currency")
+    public String getCurrency() {
+        return getSingleProperty("visitscotland:currency");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:vat")
+    public Boolean getVat() {
+        return getSingleProperty("visitscotland:vat");
+    }
 }
