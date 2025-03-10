@@ -11,12 +11,12 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 255c22ac-2384-40ae-b9bc-8aa3d4d7738d
+          jcr:uuid: f2826fff-20fd-4657-a5b7-95adc52f8874
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          hipposysedit:validators: ['visitscotland:event-location-validator']
+          hipposysedit:validators: ['visitscotland:event-location-validator', 'visitscotland:price-validator']
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -104,6 +104,23 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [time]
+          /currency:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:currency
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, currency]
+          /vat:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:vat
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
           /price:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -111,7 +128,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: visitscotland:price
             hipposysedit:primary: false
-            hipposysedit:type: visitscotland:Price
+            hipposysedit:type: Double
             hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
@@ -132,9 +149,12 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:endTime: ''
           visitscotland:startTime: ''
-          jcr:uuid: 315d06c1-cd0a-4468-80bf-f26aa7fd6053
+          jcr:uuid: eb846906-1df6-4097-b378-f3d6c224cd03
           hippostdpubwf:lastModificationDate: 2025-01-14T14:09:59.739Z
           hippostdpubwf:creationDate: 2025-01-14T14:09:59.739Z
+          visitscotland:currency: GBP
+          visitscotland:vatIncluded: false
+          visitscotland:vat: false
           /visitscotland:summary:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -262,8 +282,28 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Price
             field: price
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /currency:
+            jcr:primaryType: frontend:plugin
+            caption: Currency Code
+            field: currency
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            hint: Enter a valid ISO-4217 currency code, e.g. GBP, AUD, USD.
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              size: '3'
+              maxlength: '3'
+          /vat:
+            jcr:primaryType: frontend:plugin
+            caption: Is VAT included?
+            field: vat
             hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css: []
+            wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
