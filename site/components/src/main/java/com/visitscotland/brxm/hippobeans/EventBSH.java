@@ -57,4 +57,19 @@ public class EventBSH extends BaseDocument {
     public ExternalLink getCtaLink() {
         return getBean("visitscotland:ctaLink", ExternalLink.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:price")
+    public Double getPrice() {
+        return getSingleProperty("visitscotland:price");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:currency")
+    public String getCurrency() {
+        return getSingleProperty("visitscotland:currency");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:vat")
+    public Boolean getVat() {
+        return getSingleProperty("visitscotland:vat");
+    }
 }

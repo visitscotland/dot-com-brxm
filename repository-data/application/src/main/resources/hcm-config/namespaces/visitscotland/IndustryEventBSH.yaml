@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 38d1e8d7-90fe-48a9-a0f3-188a4dbc532a
+          jcr:uuid: e558e8b9-a2b2-4bef-b5e0-80222f5b1113
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:EventBSH', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -58,12 +58,14 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 1519c3c1-50a5-4008-b99c-bd49ff803336
+          jcr:uuid: f49f4a60-96f6-4697-ad0d-c982aa40eb19
           hippostdpubwf:lastModificationDate: 2025-01-14T14:17:50.638Z
           hippostdpubwf:creationDate: 2025-01-14T14:17:50.639Z
           visitscotland:sectors: []
           visitscotland:region: ''
           visitscotland:types: []
+          visitscotland:vat: false
+          visitscotland:currency: ''
           /visitscotland:summary:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -226,3 +228,31 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/business-support-hub/event-types---industry-events
+          /price:
+            jcr:primaryType: frontend:plugin
+            caption: Event Price
+            field: price
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /currency:
+            jcr:primaryType: frontend:plugin
+            caption: Currency
+            field: currency
+            hint: Enter a valid ISO-4217 currency code, e.g. GBP, USD, AUD.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '3'
+              size: '3'
+          /vat:
+            jcr:primaryType: frontend:plugin
+            caption: VAT Included?
+            field: vat
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

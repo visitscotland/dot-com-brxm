@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 2bf2c245-d3bc-4767-b601-cbe4a5ad025c
+          jcr:uuid: 709282f7-4738-440f-931b-2737c539b74a
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -104,6 +104,32 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [time]
+          /price:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:price
+            hipposysedit:primary: false
+            hipposysedit:type: Double
+            hipposysedit:validators: [optional]
+          /currency:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:currency
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /vat:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:vat
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -123,9 +149,11 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:endTime: ''
           visitscotland:startTime: ''
-          jcr:uuid: 7051130a-e30b-4df8-862f-98ad344e46bf
+          jcr:uuid: df37a8bd-2d7e-4d40-9d62-388ce4e42192
           hippostdpubwf:lastModificationDate: 2025-01-14T14:09:59.739Z
           hippostdpubwf:creationDate: 2025-01-14T14:09:59.739Z
+          visitscotland:vat: false
+          visitscotland:currency: GBP
           /visitscotland:summary:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -247,5 +275,33 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
             hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /price:
+            jcr:primaryType: frontend:plugin
+            caption: Event Price
+            field: price
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /currency:
+            jcr:primaryType: frontend:plugin
+            caption: Currency
+            field: currency
+            hint: Enter a valid ISO-4217 currency code, e.g. GBP, USD, AUD.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '3'
+              size: '3'
+          /vat:
+            jcr:primaryType: frontend:plugin
+            caption: VAT Included?
+            field: vat
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
