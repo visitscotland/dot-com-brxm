@@ -4,8 +4,6 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
-import com.visitscotland.brxm.hippobeans.ExternalLink;
-import com.visitscotland.brxm.hippobeans.Price;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:EventBSH")
 @Node(jcrType = "visitscotland:EventBSH")
@@ -58,10 +56,5 @@ public class EventBSH extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:ctaLink")
     public ExternalLink getCtaLink() {
         return getBean("visitscotland:ctaLink", ExternalLink.class);
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:price")
-    public Price getPrice() {
-        return getBean("visitscotland:price", Price.class);
     }
 }

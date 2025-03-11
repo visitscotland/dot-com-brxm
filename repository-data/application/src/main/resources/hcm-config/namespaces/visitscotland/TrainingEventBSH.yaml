@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f31d98d6-14b4-4573-86a3-0f61370d2ac4
+          jcr:uuid: c2cb4176-4441-4af2-83a1-cab650d3bfcc
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:EventBSH', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -58,7 +58,7 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 7b00476b-03c3-4fd8-95d5-e6d28e477bbf
+          jcr:uuid: a66bba07-3841-4797-99a1-f8fc1fcdf52e
           hippostdpubwf:lastModificationDate: 2025-01-14T14:46:07.421Z
           hippostdpubwf:creationDate: 2025-01-14T14:46:07.421Z
           visitscotland:sectors: []
@@ -212,15 +212,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/business-support-hub/sector
-          /price:
-            jcr:primaryType: frontend:plugin
-            caption: Price
-            field: price
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /topics:
             jcr:primaryType: frontend:plugin
             caption: topics
