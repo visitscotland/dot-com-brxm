@@ -47,7 +47,7 @@ class PriceFormatterTest {
 
         Assertions.assertEquals(expected, result);
 
-        verify(eventBSH, times(1)).getPrice();
+        verify(eventBSH, times(2)).getPrice();
         verify(eventBSH, times(1)).getCurrency();
     }
 
