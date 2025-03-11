@@ -16,7 +16,7 @@ definitions:
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          hipposysedit:validators: ['visitscotland:event-location-validator']
+          hipposysedit:validators: ['visitscotland:event-location-validator', 'visitscotland:price-validator']
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -121,7 +121,7 @@ definitions:
             hipposysedit:path: visitscotland:currency
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required, currency]
           /vat:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
