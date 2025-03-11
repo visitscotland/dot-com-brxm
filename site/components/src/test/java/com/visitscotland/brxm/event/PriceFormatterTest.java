@@ -72,7 +72,7 @@ class PriceFormatterTest {
     }
 
     @Test
-    void formatPrice_EventBshPriceNull_ExpectNull() {
+    void formatPrice_EventBshNull_ExpectNull() {
         final String result = priceFormatter.format(null);
         final EventBSH eventBSH = mock(EventBSH.class);
 
@@ -98,5 +98,20 @@ class PriceFormatterTest {
 
         verify(resourceBundleService, times(1))
             .getResourceBundle(eq(EVENTS_RESOURCE_BUNDLE_KEY), eq(EVENT_FREE_LABEL_KEY), any(Locale.class));
+    }
+
+    @Test
+    void formatPrice_PriceNull_ExpectNull() {
+        final EventBSH eventBSH = mock(EventBSH.class);
+
+        when(eventBSH.getPrice()).thenReturn(null);
+
+        final String result = priceFormatter.format(eventBSH);
+
+        Assertions.assertNull(result);
+
+        verify(eventBSH, times(1)).getPrice();
+        verify(eventBSH, never()).getVat();
+        verify(eventBSH, never()).getCurrency();
     }
 }

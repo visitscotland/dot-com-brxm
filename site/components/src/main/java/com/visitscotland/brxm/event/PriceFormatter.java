@@ -2,7 +2,6 @@ package com.visitscotland.brxm.event;
 
 import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.hippobeans.Price;
 
 import org.springframework.stereotype.Component;
 
@@ -23,7 +22,7 @@ public class PriceFormatter {
     }
 
     <E extends EventBSH> String format(final E eventBsh) {
-        if (Objects.isNull(eventBsh)) {
+        if (Objects.isNull(eventBsh) | Objects.isNull(eventBsh.getPrice())) {
             return null;
         }
 
