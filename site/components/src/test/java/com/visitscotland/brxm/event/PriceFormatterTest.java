@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.event;
 
+import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.hippobeans.Price;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.Assertions;
@@ -36,34 +36,34 @@ class PriceFormatterTest {
     private PriceFormatter priceFormatter;
 
     @Test
-    void formatPrice_ValidPriceNoVat_ExpectedFormat() {
+    void formatPrice_EventBshPriceNoVat_ExpectedFormat() {
         final String expected = "1470.32 GBP";
-        final Price price = mock(Price.class);
+        final EventBSH eventBSH = mock(EventBSH.class);
 
-        when(price.getAmount()).thenReturn(1470.32D);
-        when(price.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
+        when(eventBSH.getPrice()).thenReturn(1470.32D);
+        when(eventBSH.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
 
-        final String result = priceFormatter.format(price);
+        final String result = priceFormatter.format(eventBSH);
 
         Assertions.assertEquals(expected, result);
 
-        verify(price, times(1)).getAmount();
-        verify(price, times(1)).getCurrency();
+        verify(eventBSH, times(1)).getPrice();
+        verify(eventBSH, times(1)).getCurrency();
     }
 
     @Test
-    void formatPrice_ValidPriceWithVat_ExpectedFormat() {
+    void formatPrice_EventBshPriceWithVat_ExpectedFormat() {
         final String vatLabel = "+VAT";
         final String expected = "10.00 GBP " + vatLabel;
-        final Price price = mock(Price.class);
+        final EventBSH eventBSH = mock(EventBSH.class);
 
-        when(price.getAmount()).thenReturn(10.00D);
-        when(price.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
-        when(price.getVat()).thenReturn(true);
+        when(eventBSH.getPrice()).thenReturn(10.00D);
+        when(eventBSH.getCurrency()).thenReturn(ISO_4217_UK_CURRENCY_CODE);
+        when(eventBSH.getVat()).thenReturn(true);
         when(resourceBundleService.getResourceBundle(EVENTS_RESOURCE_BUNDLE_KEY, EVENT_VAT_LABEL_KEY, Locale.UK))
             .thenReturn(vatLabel);
 
-        final String result = priceFormatter.format(price);
+        final String result = priceFormatter.format(eventBSH);
 
         Assertions.assertEquals(expected, result);
 
@@ -72,23 +72,23 @@ class PriceFormatterTest {
     }
 
     @Test
-    void formatPrice_PriceNull_ExpectNull() {
+    void formatPrice_EventBshPriceNull_ExpectNull() {
         final String result = priceFormatter.format(null);
-        final Price price = mock(Price.class);
+        final EventBSH eventBSH = mock(EventBSH.class);
 
         Assertions.assertNull(result);
 
-        verify(price, never()).getAmount();
-        verify(price, never()).getVat();
-        verify(price, never()).getCurrency();
+        verify(eventBSH, never()).getPrice();
+        verify(eventBSH, never()).getVat();
+        verify(eventBSH, never()).getCurrency();
     }
 
     @Test
-    void formatPrice_PriceZero_ExpectFree() {
+    void formatPrice_EventBshPriceZero_ExpectFree() {
         final String expected = "free";
-        final Price price = mock(Price.class);
+        final EventBSH price = mock(EventBSH.class);
 
-        when(price.getAmount()).thenReturn(0.00D);
+        when(price.getPrice()).thenReturn(0.00D);
         when(resourceBundleService.getResourceBundle(EVENTS_RESOURCE_BUNDLE_KEY, EVENT_FREE_LABEL_KEY, Locale.UK))
             .thenReturn(expected);
 

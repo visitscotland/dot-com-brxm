@@ -30,7 +30,7 @@ class EventHstQueryBuilder {
     private static final String VENUE = "visitscotland:venue";
     private static final String START_DATE = "visitscotland:startDate";
     private static final String END_DATE = "visitscotland:endDate";
-    private static final String AMOUNT = "visitscotland:price/visitscotland:amount";
+    private static final String AMOUNT = "visitscotland:price";
     private static final String SECTORS = "visitscotland:sectors";
     private static final String REGION = "visitscotland:region";
     private static final String TYPES = "visitscotland:types";
