@@ -22,7 +22,7 @@ public class PriceFormatter {
     }
 
     <E extends EventBSH> String format(final E eventBsh) {
-        if (Objects.isNull(eventBsh) | Objects.isNull(eventBsh.getPrice())) {
+        if (Objects.isNull(eventBsh) || Objects.isNull(eventBsh.getPrice())) {
             return null;
         }
 

@@ -74,13 +74,8 @@ class PriceFormatterTest {
     @Test
     void formatPrice_EventBshNull_ExpectNull() {
         final String result = priceFormatter.format(null);
-        final EventBSH eventBSH = mock(EventBSH.class);
 
         Assertions.assertNull(result);
-
-        verify(eventBSH, never()).getPrice();
-        verify(eventBSH, never()).getVat();
-        verify(eventBSH, never()).getCurrency();
     }
 
     @Test
