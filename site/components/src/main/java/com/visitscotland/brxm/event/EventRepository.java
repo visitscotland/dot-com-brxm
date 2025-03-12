@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.rest.event;
+package com.visitscotland.brxm.event;
 
 import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.model.bsh.EventCard;
@@ -19,24 +19,24 @@ public class EventRepository extends BaseHstComponent {
     private final SiteProperties siteProperties;
 
 
-    public EventRepository(EventHstQueryService hstQueryService, EventCardFactory eventCardFactory,
+    protected EventRepository(EventHstQueryService hstQueryService, EventCardFactory eventCardFactory,
                            SiteProperties siteProperties) {
         this.hstQueryService = hstQueryService;
         this.eventCardFactory = eventCardFactory;
         this.siteProperties = siteProperties;
     }
 
-    public PaginatedResult<EventCard> findTrainingEvents() {
+    PaginatedResult<EventCard> findTrainingEvents() {
         HstQueryResult query = hstQueryService.queryTrainingEvents();
         return convertToPaginatedResults(query);
     }
 
-    public PaginatedResult<EventCard> findIndustryEvents() {
+    PaginatedResult<EventCard> findIndustryEvents() {
         HstQueryResult query = hstQueryService.queryIndustryEvents();
         return convertToPaginatedResults(query);
     }
 
-    public PaginatedResult<EventCard> findTravelTradeEvents() {
+    PaginatedResult<EventCard> findTravelTradeEvents() {
         HstQueryResult query = hstQueryService.queryTravelTradeEvents();
         return convertToPaginatedResults(query);
     }

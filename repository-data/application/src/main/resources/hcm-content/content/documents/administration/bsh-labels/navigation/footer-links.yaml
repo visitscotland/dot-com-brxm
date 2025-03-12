@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 6e99a474-9299-4a7e-bb0a-ec551d5e24cc
   hippo:name: Footer Links
-  hippo:versionHistory: b3a2a79e-e7f0-4dcc-a313-1c8fd1af168a
+  hippo:versionHistory: 95fed78e-a812-45e4-9412-d567d039bb4d
   /footer-links[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,7 +13,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-01-19T10:28:31.156Z
-    hippostdpubwf:lastModificationDate: 2025-02-27T09:03:32.626Z
+    hippostdpubwf:lastModificationDate: 2025-03-06T11:33:58.792Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.navigation.footer
@@ -21,7 +21,7 @@
       footer.scotland-is-now, footer.policy, footer.accessibility, footer.cookies,
       footer.business, footer.toolkit, footer.travel]
     resourcebundle:messages: [Our other sites, About us, VisitScotland.com, Corporate,
-      Scotland is Now, Policies, Accesibility, Cookie Policy, Business Events, Media
+      Scotland is Now, Policies, Accessibility, Cookie Policy, Business Events, Media
         Toolkit, Travel Trade]
   /footer-links[2]:
     jcr:primaryType: resourcebundle:resourcebundle
@@ -32,7 +32,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-01-19T10:28:31.156Z
-    hippostdpubwf:lastModificationDate: 2025-02-27T09:04:02.527Z
+    hippostdpubwf:lastModificationDate: 2025-03-06T11:34:14.953Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.navigation.footer
@@ -40,7 +40,7 @@
       footer.scotland-is-now, footer.policy, footer.accessibility, footer.cookies,
       footer.business, footer.toolkit, footer.travel]
     resourcebundle:messages: [Our other sites, About us, VisitScotland.com, Corporate,
-      Scotland is Now, Policies, Accesibility, Cookie Policy, Business Events, Media
+      Scotland is Now, Policies, Accessibility, Cookie Policy, Business Events, Media
         Toolkit, Travel Trade]
   /footer-links[3]:
     jcr:primaryType: resourcebundle:resourcebundle
@@ -51,14 +51,14 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-01-19T10:28:31.156Z
-    hippostdpubwf:lastModificationDate: 2025-02-27T09:04:02.527Z
+    hippostdpubwf:lastModificationDate: 2025-03-06T11:34:14.953Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-02-27T09:04:04.760Z
+    hippostdpubwf:publicationDate: 2025-03-06T11:34:18.614Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.navigation.footer
     resourcebundle:keys: [footer.other-sites, footer.about-us, footer.dot-com, footer.corporate,
       footer.scotland-is-now, footer.policy, footer.accessibility, footer.cookies,
       footer.business, footer.toolkit, footer.travel]
     resourcebundle:messages: [Our other sites, About us, VisitScotland.com, Corporate,
-      Scotland is Now, Policies, Accesibility, Cookie Policy, Business Events, Media
+      Scotland is Now, Policies, Accessibility, Cookie Policy, Business Events, Media
         Toolkit, Travel Trade]

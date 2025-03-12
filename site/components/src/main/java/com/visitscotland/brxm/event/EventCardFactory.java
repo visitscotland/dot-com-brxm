@@ -1,6 +1,5 @@
-package com.visitscotland.brxm.rest.event;
+package com.visitscotland.brxm.event;
 
-import com.visitscotland.brxm.event.PriceFormatter;
 import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.hippobeans.TravelTradeEventBSH;
 import com.visitscotland.brxm.model.FlatLink;
@@ -26,7 +25,7 @@ public class EventCardFactory {
     private final PriceFormatter priceFormatter;
     private final ContentLogger contentLogger;
 
-    public EventCardFactory(ResourceBundleService bundle,
+    protected EventCardFactory(ResourceBundleService bundle,
                             PriceFormatter priceFormatter,
                             ContentLogger contentLogger) {
         this.bundle = bundle;
@@ -34,7 +33,7 @@ public class EventCardFactory {
         this.contentLogger = contentLogger;
     }
 
-    public EventCard createEventCard(EventBSH document) {
+    EventCard createEventCard(EventBSH document) {
         EventCard card = new EventCard(document);
 
         card.setDates(formatDates(document, card));
@@ -51,11 +50,11 @@ public class EventCardFactory {
         return card;
     }
 
-    private String valueOrNull(String value) {
+    String valueOrNull(String value) {
         return Contract.isEmpty(value) ? null : value;
     }
 
-    private FlatLink formatCTA(EventBSH document) {
+    FlatLink formatCTA(EventBSH document) {
         FlatLink link = new FlatLink();
 
         link.setLabel(bundle.getCtaLabel(document.getCtaLink().getLabel(), LOCALE));

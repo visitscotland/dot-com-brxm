@@ -17,11 +17,11 @@ public class PriceFormatter {
 
     private final ResourceBundleService resourceBundleService;
 
-    public PriceFormatter(ResourceBundleService resourceBundleService) {
+    protected PriceFormatter(ResourceBundleService resourceBundleService) {
         this.resourceBundleService = resourceBundleService;
     }
 
-    public <P extends Price> String format(final P price) {
+    <P extends Price> String format(final P price) {
         if (Objects.isNull(price)) {
             return null;
         }
