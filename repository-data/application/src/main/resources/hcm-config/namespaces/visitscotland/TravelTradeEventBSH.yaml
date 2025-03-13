@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: e83269f0-8d97-4ef8-91d1-2a2a60567dca
+          jcr:uuid: b964aff0-8886-4036-bb6b-234dcc5eaf34
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:EventBSH', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -72,12 +72,12 @@ definitions:
           visitscotland:international: false
           visitscotland:email: ''
           visitscotland:deadline: 0001-01-01T12:00:00Z
-          jcr:uuid: b82dfc9f-f82e-4769-9026-c3230f1269e2
+          jcr:uuid: dfc2f1da-c381-46e0-a5ee-bf4f825305fa
           hippostdpubwf:lastModificationDate: 2025-01-14T14:40:47.007Z
           hippostdpubwf:creationDate: 2025-01-14T14:40:47.007Z
           visitscotland:timezone: GMT
           visitscotland:vat: false
-          visitscotland:currency: ''
+          visitscotland:currency: GBP
           /visitscotland:summary:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
