@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Component
-class EventCardFactory {
+public class EventCardFactory {
 
     private static final String BUNDLE = "events-listings";
     private static final SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd MMM");

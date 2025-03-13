@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 
 @Component
-class EventRepository extends BaseHstComponent {
+public class EventRepository extends BaseHstComponent {
 
     private final EventHstQueryService hstQueryService;
     private final EventCardFactory eventCardFactory;

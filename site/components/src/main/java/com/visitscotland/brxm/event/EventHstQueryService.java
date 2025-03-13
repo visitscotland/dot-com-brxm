@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import javax.jcr.*;
 
 @Component
-class EventHstQueryService {
+public class EventHstQueryService {
 
     private final SiteProperties siteProperties;
 
