@@ -40,7 +40,7 @@ public class EventCardFactory {
         card.setTimes(formatTimes(document));
         card.setLocation(formatLocation(document, card));
         card.setOrganizer(valueOrNull(card.getOrganizer()));
-        card.setPrice(priceFormatter.format(document.getPrice()));
+        card.setPrice(priceFormatter.format(document));
         card.setCta(formatCTA(document));
 
         if (document instanceof TravelTradeEventBSH) {

@@ -4,8 +4,6 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
-import com.visitscotland.brxm.hippobeans.ExternalLink;
-import com.visitscotland.brxm.hippobeans.Price;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:EventBSH")
 @Node(jcrType = "visitscotland:EventBSH")
@@ -61,7 +59,17 @@ public class EventBSH extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:price")
-    public Price getPrice() {
-        return getBean("visitscotland:price", Price.class);
+    public Double getPrice() {
+        return getSingleProperty("visitscotland:price");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:currency")
+    public String getCurrency() {
+        return getSingleProperty("visitscotland:currency");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:vat")
+    public Boolean getVat() {
+        return getSingleProperty("visitscotland:vat");
     }
 }

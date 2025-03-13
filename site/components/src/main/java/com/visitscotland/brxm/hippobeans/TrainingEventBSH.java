@@ -16,11 +16,6 @@ public class TrainingEventBSH extends EventBSH {
         return getMultipleProperty("visitscotland:topics");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:price")
-    public Price getPrice() {
-        return getBean("visitscotland:price", Price.class);
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:region")
     public String getRegion() {
         return getSingleProperty("visitscotland:region");
