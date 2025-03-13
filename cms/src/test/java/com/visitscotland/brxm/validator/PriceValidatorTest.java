@@ -30,7 +30,7 @@ import static org.mockito.Mockito.eq;
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class PriceValidatorTest {
-    private static final String PRICE_JCR_PROPERTY_NAME = "visitscotland:amount";
+    private static final String PRICE_JCR_PROPERTY_NAME = "visitscotland:price";
     private static final String EXCEPTION_TRANSLATION_VARIATION = "exception";
     private static final double NEGATIVE_DOUBLE_VALUE = -17.99D;
     private static final double POSITIVE_DOUBLE_VALUE = 17.99D;
