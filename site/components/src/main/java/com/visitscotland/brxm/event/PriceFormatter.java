@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.event;
 
+import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.hippobeans.Price;
 
 import org.springframework.stereotype.Component;
 
@@ -21,18 +21,18 @@ public class PriceFormatter {
         this.resourceBundleService = resourceBundleService;
     }
 
-    <P extends Price> String format(final P price) {
-        if (Objects.isNull(price)) {
+    <E extends EventBSH> String format(final E eventBsh) {
+        if (Objects.isNull(eventBsh) || Objects.isNull(eventBsh.getPrice())) {
             return null;
         }
 
-        final String currency = price.getCurrency();
-        final BigDecimal amount = BigDecimal.valueOf(price.getAmount())
+        final String currency = eventBsh.getCurrency();
+        final BigDecimal amount = BigDecimal.valueOf(eventBsh.getPrice())
             .setScale(2, RoundingMode.UNNECESSARY);
 
         if (amount.compareTo(BigDecimal.ZERO) == 0){
             return resourceBundleService.getResourceBundle(EVENTS_RESOURCE_BUNDLE_KEY, "price.free", Locale.UK);
-        } else if (price.getVat()) {
+        } else if (eventBsh.getVat()) {
             return formatPriceWithVat(amount, currency);
         } else {
             return amount + " " + currency;

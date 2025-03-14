@@ -111,4 +111,5 @@ action-lists:
     /content/documents/administration/options/business-support-hub/external-links: reload
 - 2.8.3:
     /content/documents/administration/bsh-labels/global/global: reload
+    /content/documents/administration/labels/navigation/banner-dont-translate: delete
 

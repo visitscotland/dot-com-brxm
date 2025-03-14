@@ -11,11 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f31d98d6-14b4-4573-86a3-0f61370d2ac4
+          jcr:uuid: eea2c4a4-88ea-42a0-9949-5cad8df8748a
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:EventBSH', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          hipposysedit:validators: ['visitscotland:event-location-validator']
+          hipposysedit:validators: ['visitscotland:event-location-validator', 'visitscotland:price-validator']
           /sectors:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -58,12 +58,14 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 7b00476b-03c3-4fd8-95d5-e6d28e477bbf
+          jcr:uuid: 9fccdb76-c8de-4c8f-8532-85df8a636686
           hippostdpubwf:lastModificationDate: 2025-01-14T14:46:07.421Z
           hippostdpubwf:creationDate: 2025-01-14T14:46:07.421Z
           visitscotland:sectors: []
           visitscotland:topics: []
           visitscotland:region: ''
+          visitscotland:vat: false
+          visitscotland:currency: GBP
           /visitscotland:summary:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -212,15 +214,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/business-support-hub/sector
-          /price:
-            jcr:primaryType: frontend:plugin
-            caption: Price
-            field: price
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /topics:
             jcr:primaryType: frontend:plugin
             caption: topics
@@ -235,3 +228,31 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/business-support-hub/topics---training-events
+          /price:
+            jcr:primaryType: frontend:plugin
+            caption: Event Price
+            field: price
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /currency:
+            jcr:primaryType: frontend:plugin
+            caption: Currency
+            field: currency
+            hint: Enter a valid ISO-4217 currency code, e.g. GBP, USD, AUD.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '3'
+              size: '3'
+          /vat:
+            jcr:primaryType: frontend:plugin
+            caption: VAT Included?
+            field: vat
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
