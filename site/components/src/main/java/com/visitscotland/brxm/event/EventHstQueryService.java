@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.rest.event;
+package com.visitscotland.brxm.event;
 
 import com.visitscotland.brxm.hippobeans.IndustryEventBSH;
 import com.visitscotland.brxm.hippobeans.TrainingEventBSH;
@@ -17,11 +17,11 @@ public class EventHstQueryService {
 
     private final SiteProperties siteProperties;
 
-    EventHstQueryService(SiteProperties siteProperties) {
+    protected EventHstQueryService(SiteProperties siteProperties) {
         this.siteProperties = siteProperties;
     }
 
-    public HstQueryResult queryTrainingEvents() {
+    HstQueryResult queryTrainingEvents() {
 
         try {
             final HstQuery hstQuery = new EventHstQueryBuilder(TrainingEventBSH.class)
@@ -39,7 +39,7 @@ public class EventHstQueryService {
         }
     }
 
-    public HstQueryResult queryIndustryEvents() {
+    HstQueryResult queryIndustryEvents() {
 
         try {
             final HstQuery hstQuery = new EventHstQueryBuilder(IndustryEventBSH.class)
@@ -57,7 +57,7 @@ public class EventHstQueryService {
         }
     }
 
-    public HstQueryResult queryTravelTradeEvents() {
+    HstQueryResult queryTravelTradeEvents() {
 
         try {
             final HstQuery hstQuery = new EventHstQueryBuilder(TravelTradeEventBSH.class)
