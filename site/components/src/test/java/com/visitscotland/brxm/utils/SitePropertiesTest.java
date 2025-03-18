@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.utils;
 
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

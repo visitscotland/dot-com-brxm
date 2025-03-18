@@ -6,7 +6,8 @@ import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.services.HippoUtilsService;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -30,16 +31,18 @@ public class BannerFactory {
     private final ResourceBundleService bundle;
     private static final Logger logger = LoggerFactory.getLogger(BannerFactory.class);
     private final Logger contentLogger;
+    private final SiteProperties siteProperties;
 
-    public BannerFactory(LinkService linkService, HippoUtilsService hippoUtilsService, ResourceBundleService bundle, ContentLogger contentLogger) {
+    public BannerFactory(LinkService linkService, HippoUtilsService hippoUtilsService, ResourceBundleService bundle, ContentLogger contentLogger, SiteProperties siteProperties) {
         this.linkService = linkService;
         this.hippoUtilsService = hippoUtilsService;
         this.bundle = bundle;
         this.contentLogger = contentLogger;
+        this.siteProperties = siteProperties;
     }
 
     public BannerModule getBannerModule(HstRequest request) {
-        String relativeBannerPath = bundle.getResourceBundle("banner", "path", Locale.UK);
+        String relativeBannerPath = siteProperties.getSiteBanner();
         if (Contract.isEmpty(relativeBannerPath)) {
             return null;
         }

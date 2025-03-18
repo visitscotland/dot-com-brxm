@@ -13,7 +13,7 @@ import java.util.Optional;
  * jcr:Name = visitscotland:event-price-validator
  */
 public class PriceValidator implements Validator<Node> {
-    private static final String AMOUNT_JCR_PROPERTY = "visitscotland:amount";
+    private static final String AMOUNT_JCR_PROPERTY = "visitscotland:price";
 
     public PriceValidator() { }
 

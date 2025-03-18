@@ -168,7 +168,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: ef7a58a0-4d5a-4abd-876a-1ac54408fba4
           hippo:name: 'Social media essentials: Instagram'
-          hippo:versionHistory: 53194cda-a6d6-4e51-be5a-23f8a93be35e
+          hippo:versionHistory: 004637f2-3a33-46d1-abc6-f20daff8a6af
           /social-media-essentials-instagram[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -178,10 +178,11 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:24:31.686Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:13:25.150Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:17:02.857Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: a786a007-933c-4851-85d0-b8d99ffa68d1
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2030-01-24T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
@@ -192,6 +193,7 @@
             visitscotland:startTime: ''
             visitscotland:title: 'Social media essentials: Instagram'
             visitscotland:topics: [social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -220,10 +222,11 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:24:31.686Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:13:45.808Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:17:09.205Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: a786a007-933c-4851-85d0-b8d99ffa68d1
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2030-01-24T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
@@ -234,6 +237,7 @@
             visitscotland:startTime: ''
             visitscotland:title: 'Social media essentials: Instagram'
             visitscotland:topics: [social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -262,11 +266,12 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:24:31.686Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:13:45.808Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:17:09.205Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T14:19:44.744Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:17:11.547Z
             hippotranslation:id: a786a007-933c-4851-85d0-b8d99ffa68d1
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2030-01-24T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
@@ -277,6 +282,7 @@
             visitscotland:startTime: ''
             visitscotland:title: 'Social media essentials: Instagram'
             visitscotland:topics: [social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -301,7 +307,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 57e260b1-9e4d-4978-ac78-3f335a05c861
           hippo:name: Lewis and Harris travel trade workshops
-          hippo:versionHistory: 8c63221d-4f4d-4a49-b6f0-4b070121f8dc
+          hippo:versionHistory: 51861ebf-2666-4b56-9509-b1d66ef160b5
           /lewis-and-harris-travel-trade-workshops[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -311,20 +317,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:26:44.355Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:14:01.379Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:17:14.650Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 4a782d90-07dc-497a-9c88-644141fe98c1
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: false
             visitscotland:organiser: ''
+            visitscotland:price: 150.0
             visitscotland:region: ''
             visitscotland:sectors: [tour]
             visitscotland:startDate: 2033-05-21T00:00:00+01:00
             visitscotland:startTime: ''
             visitscotland:title: Lewis and Harris travel trade workshops
             visitscotland:topics: [learning-development]
+            visitscotland:vat: false
             visitscotland:venue: Caladh Hotel, James Street, Stornoway, HS1 2QN
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -352,20 +361,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:26:44.355Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:14:10.118Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:17:31.269Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 4a782d90-07dc-497a-9c88-644141fe98c1
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: false
             visitscotland:organiser: ''
+            visitscotland:price: 150.0
             visitscotland:region: ''
             visitscotland:sectors: [tour]
             visitscotland:startDate: 2033-05-21T00:00:00+01:00
             visitscotland:startTime: ''
             visitscotland:title: Lewis and Harris travel trade workshops
             visitscotland:topics: [learning-development]
+            visitscotland:vat: false
             visitscotland:venue: Caladh Hotel, James Street, Stornoway, HS1 2QN
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -393,21 +405,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:26:44.355Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:14:10.118Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:17:31.269Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T14:19:37.625Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:17:33.555Z
             hippotranslation:id: 4a782d90-07dc-497a-9c88-644141fe98c1
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: false
             visitscotland:organiser: ''
+            visitscotland:price: 150.0
             visitscotland:region: ''
             visitscotland:sectors: [tour]
             visitscotland:startDate: 2033-05-21T00:00:00+01:00
             visitscotland:startTime: ''
             visitscotland:title: Lewis and Harris travel trade workshops
             visitscotland:topics: [learning-development]
+            visitscotland:vat: false
             visitscotland:venue: Caladh Hotel, James Street, Stornoway, HS1 2QN
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -431,7 +446,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: c1a1e11a-ea6f-41d5-929e-5753269d622c
           hippo:name: Introduction to Canva
-          hippo:versionHistory: bfe949e0-d7a2-449c-85e4-5ae95ca07a82
+          hippo:versionHistory: 4211e587-9032-43ac-b444-b2aad93418de
           /introduction-to-canva[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -441,20 +456,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:31:22.721Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:14:21.630Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:17:35.163Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 5a04d89d-7333-4a62-a157-a87c827981c1
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:endDate: 2033-01-30T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 2000.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2033-05-14T00:00:00+01:00
             visitscotland:startTime: ''
             visitscotland:title: Introduction to Canva
             visitscotland:topics: [marketing-sales]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -480,20 +498,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:31:22.721Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:14:32.969Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:17:46.507Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 5a04d89d-7333-4a62-a157-a87c827981c1
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:endDate: 2033-01-30T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 2000.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2033-05-14T00:00:00+01:00
             visitscotland:startTime: ''
             visitscotland:title: Introduction to Canva
             visitscotland:topics: [marketing-sales]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -519,21 +540,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:31:22.721Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:14:32.969Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:17:46.507Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T14:19:42.934Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:17:48.017Z
             hippotranslation:id: 5a04d89d-7333-4a62-a157-a87c827981c1
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:endDate: 2033-01-30T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 2000.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2033-05-14T00:00:00+01:00
             visitscotland:startTime: ''
             visitscotland:title: Introduction to Canva
             visitscotland:topics: [marketing-sales]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -555,7 +579,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 0a349c47-5ea3-448b-bf97-2e784382528e
           hippo:name: Uist and Barra travel trade workshops
-          hippo:versionHistory: 37bc5c6c-bce3-43ac-8451-b78437c4b26d
+          hippo:versionHistory: 9d4b55c1-aa3b-4b7e-a34a-1c5ae3ee26bc
           /uist-and-barra-travel-trade-workshops[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -565,20 +589,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:17:25.205Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:14:50.369Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:17:54.520Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 48150126-e219-4563-8fea-273be8845a25
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '14:30'
             visitscotland:online: false
             visitscotland:organiser: VisitScotland
+            visitscotland:price: 0.0
             visitscotland:region: hebrides
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2035-03-21T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Uist and Barra travel trade workshops
             visitscotland:topics: [growing-business, it-security, responsible-tourism]
+            visitscotland:vat: false
             visitscotland:venue: Cnoc Soilleir, Daliburgh, HS8 5SS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -606,20 +633,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:17:25.205Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:15:22.830Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:04.501Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 48150126-e219-4563-8fea-273be8845a25
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '14:30'
             visitscotland:online: false
             visitscotland:organiser: VisitScotland
+            visitscotland:price: 0.0
             visitscotland:region: hebrides
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2035-03-21T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Uist and Barra travel trade workshops
             visitscotland:topics: [growing-business, it-security, responsible-tourism]
+            visitscotland:vat: false
             visitscotland:venue: Cnoc Soilleir, Daliburgh, HS8 5SS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -647,21 +677,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:17:25.205Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:15:22.830Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:04.501Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T14:19:41.241Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:18:06.133Z
             hippotranslation:id: 48150126-e219-4563-8fea-273be8845a25
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '14:30'
             visitscotland:online: false
             visitscotland:organiser: VisitScotland
+            visitscotland:price: 0.0
             visitscotland:region: hebrides
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2035-03-21T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Uist and Barra travel trade workshops
             visitscotland:topics: [growing-business, it-security, responsible-tourism]
+            visitscotland:vat: false
             visitscotland:venue: Cnoc Soilleir, Daliburgh, HS8 5SS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -685,7 +718,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: af0f377f-5908-4338-a8e6-3ef56b239b6c
           hippo:name: Wordpress website development for beginners
-          hippo:versionHistory: e29e25c3-141a-41fa-8cf6-d6191c4ff7a5
+          hippo:versionHistory: 3765c12c-b3e4-48bb-a582-aee6da3d3ad1
           /wordpress-website-development-for-beginners[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -695,14 +728,16 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:30:37.480Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:15:36.776Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:13.208Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: e25b5adb-363f-4bf9-a746-fb050f83235b
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 1.0
             visitscotland:region: outwith
             visitscotland:sectors: [active-outdoor, food-drink]
             visitscotland:startDate: 2040-01-30T00:00:00Z
@@ -710,6 +745,7 @@
             visitscotland:title: Wordpress website development for beginners
             visitscotland:topics: [it-security, learning-development, marketing-sales,
               responsible-tourism, starting-business]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -743,14 +779,16 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:30:37.480Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:15:43.672Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:27.163Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: e25b5adb-363f-4bf9-a746-fb050f83235b
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 1.0
             visitscotland:region: outwith
             visitscotland:sectors: [active-outdoor, food-drink]
             visitscotland:startDate: 2040-01-30T00:00:00Z
@@ -758,6 +796,7 @@
             visitscotland:title: Wordpress website development for beginners
             visitscotland:topics: [it-security, learning-development, marketing-sales,
               responsible-tourism, starting-business]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -791,15 +830,17 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:30:37.480Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:15:43.672Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:27.163Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T14:19:46.119Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:18:28.819Z
             hippotranslation:id: e25b5adb-363f-4bf9-a746-fb050f83235b
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 1.0
             visitscotland:region: outwith
             visitscotland:sectors: [active-outdoor, food-drink]
             visitscotland:startDate: 2040-01-30T00:00:00Z
@@ -807,6 +848,7 @@
             visitscotland:title: Wordpress website development for beginners
             visitscotland:topics: [it-security, learning-development, marketing-sales,
               responsible-tourism, starting-business]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -836,7 +878,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: fba6727d-7b0d-4e2b-bffd-3d5c8e90cfb5
           hippo:name: Event in the past
-          hippo:versionHistory: 76b6afde-965b-4d97-a995-9e8a2bdd0960
+          hippo:versionHistory: b41952b5-4bef-4111-b131-09cf5a3ba7eb
           /event-in-the-past[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -846,20 +888,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:34:05.816Z
-            hippostdpubwf:lastModificationDate: 2025-01-30T16:34:05.816Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:30.600Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 970f66b6-88af-4053-82b9-f010fddece4b
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 2.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2025-01-01T00:00:00Z
             visitscotland:startTime: ''
             visitscotland:title: Event in the past
             visitscotland:topics: []
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -877,20 +922,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:34:05.816Z
-            hippostdpubwf:lastModificationDate: 2025-01-30T16:34:48.523Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:37.901Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 970f66b6-88af-4053-82b9-f010fddece4b
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 2.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2025-01-01T00:00:00Z
             visitscotland:startTime: ''
             visitscotland:title: Event in the past
             visitscotland:topics: []
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -908,21 +956,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:34:05.816Z
-            hippostdpubwf:lastModificationDate: 2025-01-30T16:34:48.523Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:37.901Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-01-30T16:34:59.098Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:18:39.412Z
             hippotranslation:id: 970f66b6-88af-4053-82b9-f010fddece4b
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 2.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2025-01-01T00:00:00Z
             visitscotland:startTime: ''
             visitscotland:title: Event in the past
             visitscotland:topics: []
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -937,7 +988,7 @@
           jcr:uuid: d941afee-059a-41a6-a6b9-d7668b788c85
           hippo:name: 'How to improve your Google search rankings - part 2: off-page
             optimisation & technical considerations'
-          hippo:versionHistory: 721d8289-c6fa-4842-9b85-339228b781c8
+          hippo:versionHistory: 1d023827-de3c-4512-9bd0-62b9dbfaa03c
           /how-to-improve-your-google-search-rankings---part-2-off-page-optimisation--technical-considerations[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -947,20 +998,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:35:31.589Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:15:58.757Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:41.272Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: d4427693-35f2-4014-a144-e9195e70b6cb
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '19:00'
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 3.0
             visitscotland:region: glasgow
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2031-01-30T00:00:00Z
             visitscotland:startTime: '17:00'
             visitscotland:title: How to improve your Google search rankings page optimisation
             visitscotland:topics: [it-security, networking, responsible-tourism, social-media]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -988,20 +1042,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:35:31.589Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:16:30.626Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:48.659Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: d4427693-35f2-4014-a144-e9195e70b6cb
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '19:00'
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 3.0
             visitscotland:region: glasgow
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2031-01-30T00:00:00Z
             visitscotland:startTime: '17:00'
             visitscotland:title: How to improve your Google search rankings page optimisation
             visitscotland:topics: [it-security, networking, responsible-tourism, social-media]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1029,21 +1086,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:35:31.589Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:16:30.626Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:48.659Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T14:19:34.208Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:18:50.236Z
             hippotranslation:id: d4427693-35f2-4014-a144-e9195e70b6cb
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '19:00'
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 3.0
             visitscotland:region: glasgow
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2031-01-30T00:00:00Z
             visitscotland:startTime: '17:00'
             visitscotland:title: How to improve your Google search rankings page optimisation
             visitscotland:topics: [it-security, networking, responsible-tourism, social-media]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1067,7 +1127,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 0fe5e281-c49b-41cd-850b-607c32cf0896
           hippo:name: 'Social media essentials: Facebook'
-          hippo:versionHistory: 0f0d52b9-f003-4fb3-8879-f6ac58c64523
+          hippo:versionHistory: 9e966162-fc54-4d15-a26b-9832f886f94e
           /social-media-essentials-facebook[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -1077,20 +1137,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:37:24.311Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:16:41.842Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:53.092Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 1cf7a9b2-5ead-48f4-8909-fa837c1a7f07
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2029-01-31T00:00:00Z
             visitscotland:endTime: '18:00'
             visitscotland:online: false
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 4.0
             visitscotland:region: edinburgh
             visitscotland:sectors: [tour]
             visitscotland:startDate: 2029-01-30T00:00:00Z
             visitscotland:startTime: 09:00
             visitscotland:title: 'Social media essentials: Facebook'
             visitscotland:topics: [social-media, starting-business]
+            visitscotland:vat: true
             visitscotland:venue: Edinburgh
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1117,20 +1180,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:37:24.311Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:16:53.110Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:00.986Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 1cf7a9b2-5ead-48f4-8909-fa837c1a7f07
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2029-01-31T00:00:00Z
             visitscotland:endTime: '18:00'
             visitscotland:online: false
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 4.0
             visitscotland:region: edinburgh
             visitscotland:sectors: [tour]
             visitscotland:startDate: 2029-01-30T00:00:00Z
             visitscotland:startTime: 09:00
             visitscotland:title: 'Social media essentials: Facebook'
             visitscotland:topics: [social-media, starting-business]
+            visitscotland:vat: true
             visitscotland:venue: Edinburgh
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1157,21 +1223,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:37:24.311Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:16:53.110Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:00.986Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T14:19:48.094Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:19:03.244Z
             hippotranslation:id: 1cf7a9b2-5ead-48f4-8909-fa837c1a7f07
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2029-01-31T00:00:00Z
             visitscotland:endTime: '18:00'
             visitscotland:online: false
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 4.0
             visitscotland:region: edinburgh
             visitscotland:sectors: [tour]
             visitscotland:startDate: 2029-01-30T00:00:00Z
             visitscotland:startTime: 09:00
             visitscotland:title: 'Social media essentials: Facebook'
             visitscotland:topics: [social-media, starting-business]
+            visitscotland:vat: true
             visitscotland:venue: Edinburgh
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1194,7 +1263,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: de1cf70e-3e7a-4bc7-84b3-6bfeb1997076
           hippo:name: How to generate and increase sales
-          hippo:versionHistory: db9e6f68-6734-4b64-a943-b4357ab39d2d
+          hippo:versionHistory: 2b1140b3-6b11-4c18-aa8e-7982108b253d
           /how-to-generate-and-increase-sales[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -1204,14 +1273,16 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:40:27.645Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:17:23.924Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:07.380Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: cdab99e1-9568-40d0-a8b5-94f91bf0e190
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: bgateway
+            visitscotland:price: 5.0
             visitscotland:region: outwith
             visitscotland:sectors: [accommodation, active-outdoor, event, food-drink,
               tour, attraction]
@@ -1220,6 +1291,7 @@
             visitscotland:title: How to generate and increase sales
             visitscotland:topics: [bookkeeping-finance, growing-business, learning-development,
               marketing-sales, social-media]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1246,14 +1318,16 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:40:27.645Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:17:36.206Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:18.840Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: cdab99e1-9568-40d0-a8b5-94f91bf0e190
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: bgateway
+            visitscotland:price: 5.0
             visitscotland:region: outwith
             visitscotland:sectors: [accommodation, active-outdoor, event, food-drink,
               tour, attraction]
@@ -1262,6 +1336,7 @@
             visitscotland:title: How to generate and increase sales
             visitscotland:topics: [bookkeeping-finance, growing-business, learning-development,
               marketing-sales, social-media]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1288,15 +1363,17 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:40:27.645Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:17:36.206Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:18.840Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T14:19:35.969Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:19:20.386Z
             hippotranslation:id: cdab99e1-9568-40d0-a8b5-94f91bf0e190
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: bgateway
+            visitscotland:price: 5.0
             visitscotland:region: outwith
             visitscotland:sectors: [accommodation, active-outdoor, event, food-drink,
               tour, attraction]
@@ -1305,6 +1382,7 @@
             visitscotland:title: How to generate and increase sales
             visitscotland:topics: [bookkeeping-finance, growing-business, learning-development,
               marketing-sales, social-media]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1327,7 +1405,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: f1b84a8a-fdb6-4309-be4d-5931db7cb6dc
           hippo:name: 'Social media essentials: TikTok and Instagram Reels for business'
-          hippo:versionHistory: 4b6d8238-106e-46a0-9533-54f5c4a86931
+          hippo:versionHistory: ec917b6c-df31-478a-8029-04bdbf9cd9aa
           /social-media-essentials-tiktok-and-instagram-reels-for-business[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -1337,14 +1415,16 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:43:07.189Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:18:52.998Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:22.891Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 75d751dd-aaa6-444e-91a7-98211455e916
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 6.0
             visitscotland:region: glasgow
             visitscotland:sectors: []
             visitscotland:startDate: 2029-09-19T00:00:00+01:00
@@ -1352,6 +1432,7 @@
             visitscotland:title: 'Social media essentials: TikTok and Instagram Reels
               for business'
             visitscotland:topics: [bookkeeping-finance, it-security, social-media]
+            visitscotland:vat: true
             visitscotland:venue: 39-45 Renfield St, Glasgow G2 1JS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1378,14 +1459,16 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:43:07.189Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:18:44.022Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:32.141Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 75d751dd-aaa6-444e-91a7-98211455e916
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 6.0
             visitscotland:region: glasgow
             visitscotland:sectors: []
             visitscotland:startDate: 2029-09-19T00:00:00+01:00
@@ -1393,6 +1476,7 @@
             visitscotland:title: 'Social media essentials: TikTok and Instagram Reels
               for business'
             visitscotland:topics: [bookkeeping-finance, it-security, social-media]
+            visitscotland:vat: true
             visitscotland:venue: 39-45 Renfield St, Glasgow G2 1JS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1419,15 +1503,17 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:43:07.189Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T14:18:44.022Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:32.141Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T14:19:39.729Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:19:33.602Z
             hippotranslation:id: 75d751dd-aaa6-444e-91a7-98211455e916
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 6.0
             visitscotland:region: glasgow
             visitscotland:sectors: []
             visitscotland:startDate: 2029-09-19T00:00:00+01:00
@@ -1435,6 +1521,7 @@
             visitscotland:title: 'Social media essentials: TikTok and Instagram Reels
               for business'
             visitscotland:topics: [bookkeeping-finance, it-security, social-media]
+            visitscotland:vat: true
             visitscotland:venue: 39-45 Renfield St, Glasgow G2 1JS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1464,7 +1551,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: dc4a50ca-b79d-481f-a213-9238f48b4f03
           hippo:name: 'Social media essentials: Instagram'
-          hippo:versionHistory: 97d79cd3-0e1c-41c7-98d0-aeed73925fad
+          hippo:versionHistory: 45cd3f08-65f3-4e86-bda0-923badf38411
           /social-media-essentials-instagram[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -1474,10 +1561,11 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:24:31.686Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:37:45.231Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:47.434Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f2825da8-dba7-4200-80eb-e7436ac215a0
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2027-01-24T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
@@ -1488,6 +1576,7 @@
             visitscotland:startTime: ''
             visitscotland:title: 'Social media essentials: Instagram (2026)'
             visitscotland:topics: [social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1516,10 +1605,11 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:24:31.686Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:37:53.750Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:51.372Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f2825da8-dba7-4200-80eb-e7436ac215a0
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2027-01-24T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
@@ -1530,6 +1620,7 @@
             visitscotland:startTime: ''
             visitscotland:title: 'Social media essentials: Instagram (2026)'
             visitscotland:topics: [social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1558,11 +1649,12 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:24:31.686Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:37:53.750Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:51.372Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T15:38:27.443Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:19:53.083Z
             hippotranslation:id: f2825da8-dba7-4200-80eb-e7436ac215a0
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2027-01-24T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
@@ -1573,6 +1665,7 @@
             visitscotland:startTime: ''
             visitscotland:title: 'Social media essentials: Instagram (2026)'
             visitscotland:topics: [social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1597,7 +1690,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: a094cfab-2a46-4d46-8c38-85681ecc069c
           hippo:name: Lewis and Harris travel trade workshops
-          hippo:versionHistory: 124f1824-1db8-41b7-b99a-8b2a8fe6b28d
+          hippo:versionHistory: 2ea461a7-1d6c-4328-90ca-a98fb50f501d
           /lewis-and-harris-travel-trade-workshops[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -1607,10 +1700,11 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:26:44.355Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:46.644Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:22.578Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: bb4494e5-9690-45e0-b87e-b7db2f39e091
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: false
@@ -1621,6 +1715,7 @@
             visitscotland:startTime: ''
             visitscotland:title: Lewis and Harris travel trade workshops (2026)
             visitscotland:topics: [learning-development]
+            visitscotland:vat: true
             visitscotland:venue: Caladh Hotel, James Street, Stornoway, HS1 2QN
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1648,10 +1743,11 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:26:44.355Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:52.040Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:25.565Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: bb4494e5-9690-45e0-b87e-b7db2f39e091
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: false
@@ -1662,6 +1758,7 @@
             visitscotland:startTime: ''
             visitscotland:title: Lewis and Harris travel trade workshops (2026)
             visitscotland:topics: [learning-development]
+            visitscotland:vat: true
             visitscotland:venue: Caladh Hotel, James Street, Stornoway, HS1 2QN
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1689,11 +1786,12 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:26:44.355Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:52.040Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:25.565Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T15:38:25.076Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:20:26.970Z
             hippotranslation:id: bb4494e5-9690-45e0-b87e-b7db2f39e091
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: false
@@ -1704,6 +1802,7 @@
             visitscotland:startTime: ''
             visitscotland:title: Lewis and Harris travel trade workshops (2026)
             visitscotland:topics: [learning-development]
+            visitscotland:vat: true
             visitscotland:venue: Caladh Hotel, James Street, Stornoway, HS1 2QN
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1727,7 +1826,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: c54781f1-5b53-4347-a2b2-384f19f85f92
           hippo:name: Introduction to Canva
-          hippo:versionHistory: 483a5e89-6e71-4c70-95bf-0bd738c370f9
+          hippo:versionHistory: 49800117-d365-4e71-8628-ac7b77449dc6
           /introduction-to-canva[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -1737,20 +1836,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:31:22.721Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:34.711Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:02.788Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: ef1344fe-6389-409b-808c-e47283b802a3
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 2026-01-30T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 1500.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2026-05-14T00:00:00+01:00
             visitscotland:startTime: ''
             visitscotland:title: Introduction to Canva (2026)
             visitscotland:topics: [marketing-sales]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1776,20 +1878,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:31:22.721Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:40.752Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:18.034Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: ef1344fe-6389-409b-808c-e47283b802a3
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 2026-01-30T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 1500.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2026-05-14T00:00:00+01:00
             visitscotland:startTime: ''
             visitscotland:title: Introduction to Canva (2026)
             visitscotland:topics: [marketing-sales]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1815,21 +1920,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:31:22.721Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:40.752Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:18.034Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T15:38:19.070Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:20:19.516Z
             hippotranslation:id: ef1344fe-6389-409b-808c-e47283b802a3
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 2026-01-30T00:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 1500.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2026-05-14T00:00:00+01:00
             visitscotland:startTime: ''
             visitscotland:title: Introduction to Canva (2026)
             visitscotland:topics: [marketing-sales]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1851,7 +1959,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 0d437c6e-e2ee-4ea4-88af-03396509e7a7
           hippo:name: Uist and Barra travel trade workshops
-          hippo:versionHistory: 96fc5af0-0a7d-416b-a548-1ef1bc1eb420
+          hippo:versionHistory: 487c0b36-5981-4129-bf68-c45ea8938624
           /uist-and-barra-travel-trade-workshops[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -1861,20 +1969,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:17:25.205Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:13.377Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:32.821Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: c06afa57-fb4c-4e5b-a614-4610a2f5ec90
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '14:30'
             visitscotland:online: false
             visitscotland:organiser: VisitScotland
+            visitscotland:price: 2000.0
             visitscotland:region: hebrides
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2026-03-21T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Uist and Barra travel trade workshops (2026)
             visitscotland:topics: [growing-business, it-security, responsible-tourism]
+            visitscotland:vat: true
             visitscotland:venue: Cnoc Soilleir, Daliburgh, HS8 5SS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1902,20 +2013,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:17:25.205Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:24.014Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:43.649Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: c06afa57-fb4c-4e5b-a614-4610a2f5ec90
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '14:30'
             visitscotland:online: false
             visitscotland:organiser: VisitScotland
+            visitscotland:price: 2000.0
             visitscotland:region: hebrides
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2026-03-21T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Uist and Barra travel trade workshops (2026)
             visitscotland:topics: [growing-business, it-security, responsible-tourism]
+            visitscotland:vat: true
             visitscotland:venue: Cnoc Soilleir, Daliburgh, HS8 5SS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1943,21 +2057,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:17:25.205Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:24.014Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:43.649Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T15:38:16.088Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:20:45.561Z
             hippotranslation:id: c06afa57-fb4c-4e5b-a614-4610a2f5ec90
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '14:30'
             visitscotland:online: false
             visitscotland:organiser: VisitScotland
+            visitscotland:price: 2000.0
             visitscotland:region: hebrides
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2026-03-21T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Uist and Barra travel trade workshops (2026)
             visitscotland:topics: [growing-business, it-security, responsible-tourism]
+            visitscotland:vat: true
             visitscotland:venue: Cnoc Soilleir, Daliburgh, HS8 5SS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -1981,7 +2098,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: ef4e1ca8-066b-4162-8f56-2bad22bcabf6
           hippo:name: Wordpress website development for beginners
-          hippo:versionHistory: f8a943b1-c633-4e5b-bed2-6aa9bcd157ae
+          hippo:versionHistory: 3a8032d8-4d5e-443c-acec-6d095d85aaf6
           /wordpress-website-development-for-beginners[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -1991,14 +2108,16 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:30:37.480Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:00.015Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:47.736Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 6406916c-385f-4e00-a16d-5be15dfe350c
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 3000.0
             visitscotland:region: outwith
             visitscotland:sectors: [active-outdoor, food-drink]
             visitscotland:startDate: 2026-01-30T00:00:00Z
@@ -2006,6 +2125,7 @@
             visitscotland:title: Wordpress website development for beginners (2026)
             visitscotland:topics: [it-security, learning-development, marketing-sales,
               responsible-tourism, starting-business]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2039,14 +2159,16 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:30:37.480Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:06.756Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:54.761Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 6406916c-385f-4e00-a16d-5be15dfe350c
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 3000.0
             visitscotland:region: outwith
             visitscotland:sectors: [active-outdoor, food-drink]
             visitscotland:startDate: 2026-01-30T00:00:00Z
@@ -2054,6 +2176,7 @@
             visitscotland:title: Wordpress website development for beginners (2026)
             visitscotland:topics: [it-security, learning-development, marketing-sales,
               responsible-tourism, starting-business]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2087,15 +2210,17 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:30:37.480Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:36:06.756Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:54.761Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T15:38:29.156Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:20:56.257Z
             hippotranslation:id: 6406916c-385f-4e00-a16d-5be15dfe350c
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 3000.0
             visitscotland:region: outwith
             visitscotland:sectors: [active-outdoor, food-drink]
             visitscotland:startDate: 2026-01-30T00:00:00Z
@@ -2103,6 +2228,7 @@
             visitscotland:title: Wordpress website development for beginners (2026)
             visitscotland:topics: [it-security, learning-development, marketing-sales,
               responsible-tourism, starting-business]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2236,7 +2362,7 @@
           jcr:uuid: f14f52a3-5543-4217-a7d4-a14bcb9efa5c
           hippo:name: 'How to improve your Google search rankings - part 2: off-page
             optimisation & technical considerations'
-          hippo:versionHistory: 645e266b-66f8-4af3-b2bf-93339a32baaa
+          hippo:versionHistory: 444e1cdc-3c68-48a8-a081-4793b781bbcd
           /how-to-improve-your-google-search-rankings---part-2-off-page-optimisation--technical-considerations[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -2246,14 +2372,16 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:35:31.589Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:34:05.995Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:59.330Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 97f5581e-8c15-4e02-88e0-7653d85e72fc
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '19:00'
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 4000.0
             visitscotland:region: glasgow
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2026-01-30T00:00:00Z
@@ -2261,6 +2389,7 @@
             visitscotland:title: How to improve your Google search rankings page optimisation
               (2026)
             visitscotland:topics: [it-security, networking, responsible-tourism, social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2288,14 +2417,16 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:35:31.589Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:34:11.762Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:21:09.710Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 97f5581e-8c15-4e02-88e0-7653d85e72fc
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '19:00'
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 4000.0
             visitscotland:region: glasgow
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2026-01-30T00:00:00Z
@@ -2303,6 +2434,7 @@
             visitscotland:title: How to improve your Google search rankings page optimisation
               (2026)
             visitscotland:topics: [it-security, networking, responsible-tourism, social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2330,15 +2462,17 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:35:31.589Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:34:11.762Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:21:09.710Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T15:38:17.571Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:21:11.302Z
             hippotranslation:id: 97f5581e-8c15-4e02-88e0-7653d85e72fc
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '19:00'
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 4000.0
             visitscotland:region: glasgow
             visitscotland:sectors: [active-outdoor]
             visitscotland:startDate: 2026-01-30T00:00:00Z
@@ -2346,6 +2480,7 @@
             visitscotland:title: How to improve your Google search rankings page optimisation
               (2026)
             visitscotland:topics: [it-security, networking, responsible-tourism, social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2369,7 +2504,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 79ba395e-503e-43b9-aa58-50949a6ec514
           hippo:name: 'Social media essentials: Facebook'
-          hippo:versionHistory: b989650a-590f-468b-888a-f4ee97ec2b7e
+          hippo:versionHistory: 8023694b-d2c5-414e-85b9-1cabd257a60a
           /social-media-essentials-facebook[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -2379,20 +2514,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:37:24.311Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:32:42.797Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:21:13.311Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: c8f81aa8-2454-4057-8906-51c7c1ec9eac
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 2026-01-31T00:00:00Z
             visitscotland:endTime: '18:00'
             visitscotland:online: false
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 5000.0
             visitscotland:region: edinburgh
             visitscotland:sectors: [tour]
             visitscotland:startDate: 2026-01-30T00:00:00Z
             visitscotland:startTime: 09:00
             visitscotland:title: 'Social media essentials: Facebook (2026)'
             visitscotland:topics: [social-media, starting-business]
+            visitscotland:vat: true
             visitscotland:venue: Edinburgh
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2419,20 +2557,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:37:24.311Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:33:59.686Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:21:22.532Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: c8f81aa8-2454-4057-8906-51c7c1ec9eac
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 2026-01-31T00:00:00Z
             visitscotland:endTime: '18:00'
             visitscotland:online: false
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 5000.0
             visitscotland:region: edinburgh
             visitscotland:sectors: [tour]
             visitscotland:startDate: 2026-01-30T00:00:00Z
             visitscotland:startTime: 09:00
             visitscotland:title: 'Social media essentials: Facebook (2026)'
             visitscotland:topics: [social-media, starting-business]
+            visitscotland:vat: true
             visitscotland:venue: Edinburgh
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2459,21 +2600,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:37:24.311Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:33:59.686Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:21:22.532Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T15:38:30.789Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:21:25.068Z
             hippotranslation:id: c8f81aa8-2454-4057-8906-51c7c1ec9eac
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 2026-01-31T00:00:00Z
             visitscotland:endTime: '18:00'
             visitscotland:online: false
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 5000.0
             visitscotland:region: edinburgh
             visitscotland:sectors: [tour]
             visitscotland:startDate: 2026-01-30T00:00:00Z
             visitscotland:startTime: 09:00
             visitscotland:title: 'Social media essentials: Facebook (2026)'
             visitscotland:topics: [social-media, starting-business]
+            visitscotland:vat: true
             visitscotland:venue: Edinburgh
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2496,7 +2640,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 8b45c562-03ef-48aa-9c19-d64442a6db26
           hippo:name: How to generate and increase sales
-          hippo:versionHistory: 569a6fc6-1125-4da2-8ab1-88ad1a1cf1a3
+          hippo:versionHistory: 173beb8d-128b-45ae-bb19-65323427ef66
           /how-to-generate-and-increase-sales[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -2506,14 +2650,16 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:40:27.645Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:31:52.315Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:21:31.383Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 1d43fe0d-3e92-4c71-aa7c-1d2c82275dd0
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: bgateway
+            visitscotland:price: 6000.0
             visitscotland:region: outwith
             visitscotland:sectors: [accommodation, active-outdoor, event, food-drink,
               tour, attraction]
@@ -2522,6 +2668,7 @@
             visitscotland:title: How to generate and increase sales (2026)
             visitscotland:topics: [bookkeeping-finance, growing-business, learning-development,
               marketing-sales, social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2548,14 +2695,16 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:40:27.645Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:32:24.416Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:21:40.751Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 1d43fe0d-3e92-4c71-aa7c-1d2c82275dd0
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: bgateway
+            visitscotland:price: 6000.0
             visitscotland:region: outwith
             visitscotland:sectors: [accommodation, active-outdoor, event, food-drink,
               tour, attraction]
@@ -2564,6 +2713,7 @@
             visitscotland:title: How to generate and increase sales (2026)
             visitscotland:topics: [bookkeeping-finance, growing-business, learning-development,
               marketing-sales, social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2590,15 +2740,17 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:40:27.645Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:32:24.416Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:21:40.751Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T15:38:22.562Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:21:42.214Z
             hippotranslation:id: 1d43fe0d-3e92-4c71-aa7c-1d2c82275dd0
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: bgateway
+            visitscotland:price: 6000.0
             visitscotland:region: outwith
             visitscotland:sectors: [accommodation, active-outdoor, event, food-drink,
               tour, attraction]
@@ -2607,6 +2759,7 @@
             visitscotland:title: How to generate and increase sales (2026)
             visitscotland:topics: [bookkeeping-finance, growing-business, learning-development,
               marketing-sales, social-media]
+            visitscotland:vat: false
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2629,7 +2782,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 8214ccaf-3fb0-4a6a-83e4-cf44440861da
           hippo:name: 'Social media essentials: TikTok and Instagram Reels for business'
-          hippo:versionHistory: 3022aee5-a489-45cc-96f6-7fa006aa5796
+          hippo:versionHistory: d9f81dd2-b8cd-428b-8df5-7776ee26be1b
           /social-media-essentials-tiktok-and-instagram-reels-for-business[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -2639,14 +2792,16 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:43:07.189Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:31:32.694Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:21:45.110Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: e02bd9d7-4465-4d27-ad5a-5ebf7951db17
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 7000.0
             visitscotland:region: glasgow
             visitscotland:sectors: []
             visitscotland:startDate: 2026-09-19T00:00:00+01:00
@@ -2654,6 +2809,7 @@
             visitscotland:title: 'Social media essentials: TikTok and Instagram Reels
               for business (2026)'
             visitscotland:topics: [bookkeeping-finance, it-security, social-media]
+            visitscotland:vat: true
             visitscotland:venue: 39-45 Renfield St, Glasgow G2 1JS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2680,14 +2836,16 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:43:07.189Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:31:44.910Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:21:59.093Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: e02bd9d7-4465-4d27-ad5a-5ebf7951db17
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 7000.0
             visitscotland:region: glasgow
             visitscotland:sectors: []
             visitscotland:startDate: 2026-09-19T00:00:00+01:00
@@ -2695,6 +2853,7 @@
             visitscotland:title: 'Social media essentials: TikTok and Instagram Reels
               for business (2026)'
             visitscotland:topics: [bookkeeping-finance, it-security, social-media]
+            visitscotland:vat: true
             visitscotland:venue: 39-45 Renfield St, Glasgow G2 1JS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2721,15 +2880,17 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:43:07.189Z
-            hippostdpubwf:lastModificationDate: 2025-02-10T15:31:44.910Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:21:59.093Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-10T15:38:32.788Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:22:00.495Z
             hippotranslation:id: e02bd9d7-4465-4d27-ad5a-5ebf7951db17
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
             visitscotland:online: true
             visitscotland:organiser: ''
+            visitscotland:price: 7000.0
             visitscotland:region: glasgow
             visitscotland:sectors: []
             visitscotland:startDate: 2026-09-19T00:00:00+01:00
@@ -2737,6 +2898,7 @@
             visitscotland:title: 'Social media essentials: TikTok and Instagram Reels
               for business (2026)'
             visitscotland:topics: [bookkeeping-finance, it-security, social-media]
+            visitscotland:vat: true
             visitscotland:venue: 39-45 Renfield St, Glasgow G2 1JS
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2775,7 +2937,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: c6735254-a4b2-49da-9699-0da8e9096167
           hippo:name: Understanding AI and automation
-          hippo:versionHistory: bfa254af-6926-4571-9eaf-09419d635273
+          hippo:versionHistory: 0643920b-11e3-4232-8b3d-77b4e01239cb
           /understanding-ai-and-automation[1]:
             jcr:primaryType: visitscotland:IndustryEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -2785,20 +2947,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:22:20.119Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T12:38:17.177Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:15:41.400Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 3b354953-c48c-4d05-bd8a-45b9442f464a
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2040-10-11T23:00:00Z
             visitscotland:endTime: '13:00'
             visitscotland:online: false
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 0.0
             visitscotland:region: dundee
             visitscotland:sectors: [attraction]
             visitscotland:startDate: 2035-03-01T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Understanding AI and automation
             visitscotland:types: [workshops]
+            visitscotland:vat: false
             visitscotland:venue: WASPS Creative Exchange, Stormont Street, Perth,
               PH1 5NW
             /visitscotland:summary:
@@ -2825,20 +2990,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:22:20.119Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T12:38:51.617Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:15:53.070Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 3b354953-c48c-4d05-bd8a-45b9442f464a
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2040-10-11T23:00:00Z
             visitscotland:endTime: '13:00'
             visitscotland:online: false
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 0.0
             visitscotland:region: dundee
             visitscotland:sectors: [attraction]
             visitscotland:startDate: 2035-03-01T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Understanding AI and automation
             visitscotland:types: [workshops]
+            visitscotland:vat: false
             visitscotland:venue: WASPS Creative Exchange, Stormont Street, Perth,
               PH1 5NW
             /visitscotland:summary:
@@ -2865,21 +3033,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:22:20.119Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T12:38:51.617Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:15:53.070Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-13T12:38:54.465Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:15:55.240Z
             hippotranslation:id: 3b354953-c48c-4d05-bd8a-45b9442f464a
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2040-10-11T23:00:00Z
             visitscotland:endTime: '13:00'
             visitscotland:online: false
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 0.0
             visitscotland:region: dundee
             visitscotland:sectors: [attraction]
             visitscotland:startDate: 2035-03-01T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Understanding AI and automation
             visitscotland:types: [workshops]
+            visitscotland:vat: false
             visitscotland:venue: WASPS Creative Exchange, Stormont Street, Perth,
               PH1 5NW
             /visitscotland:summary:
@@ -2902,7 +3073,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: ca76f430-d1c3-4e1a-b567-32499709cbed
           hippo:name: Introduction to business websites
-          hippo:versionHistory: 055d30fd-6522-402b-b07f-70cf17fc76ab
+          hippo:versionHistory: bf337060-d581-4151-a04f-ad14f3424939
           /introduction-to-business-websites[1]:
             jcr:primaryType: visitscotland:IndustryEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -2912,20 +3083,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:27:54.908Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T12:39:00.520Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:16:12.775Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: a3be7d85-c63f-4ebf-b4b8-bf563cb7b3d9
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2035-01-27T00:00:00Z
             visitscotland:endTime: '15:00'
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 10.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2025-02-13T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Introduction to business websites
             visitscotland:types: [webinars]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2946,20 +3120,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:27:54.908Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T12:39:09.965Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:16:18.410Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: a3be7d85-c63f-4ebf-b4b8-bf563cb7b3d9
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2035-01-27T00:00:00Z
             visitscotland:endTime: '15:00'
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 10.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2025-02-13T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Introduction to business websites
             visitscotland:types: [webinars]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -2980,21 +3157,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:27:54.908Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T12:39:09.965Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:16:18.410Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-13T12:39:12.678Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:16:20.897Z
             hippotranslation:id: a3be7d85-c63f-4ebf-b4b8-bf563cb7b3d9
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2035-01-27T00:00:00Z
             visitscotland:endTime: '15:00'
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 10.0
             visitscotland:region: ''
             visitscotland:sectors: []
             visitscotland:startDate: 2025-02-13T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:title: Introduction to business websites
             visitscotland:types: [webinars]
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3011,7 +3191,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 25b832eb-3629-4d54-a386-348b449d2805
           hippo:name: Creating an effective email marketing strategy
-          hippo:versionHistory: 3f2b1db7-7522-44b1-8549-87834f98909a
+          hippo:versionHistory: 59510e75-93fe-4f5b-a4b7-86ce32b2f61b
           /creating-an-effective-email-marketing-strategy[1]:
             jcr:primaryType: visitscotland:IndustryEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -3021,20 +3201,23 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:29:20.518Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T12:39:19.369Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:16:25.889Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 927b1e1c-97db-4e90-af8b-9e384793f70a
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2025-02-26T00:00:00Z
             visitscotland:endTime: '14:00'
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 1575.0
             visitscotland:region: fife
             visitscotland:sectors: []
             visitscotland:startDate: 2025-02-13T00:00:00Z
             visitscotland:startTime: '11:00'
             visitscotland:title: Creating an effective email marketing strategy
             visitscotland:types: []
+            visitscotland:vat: false
             visitscotland:venue: 23 Main Square
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3060,20 +3243,23 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:29:20.518Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T12:39:30.096Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:16:53.019Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 927b1e1c-97db-4e90-af8b-9e384793f70a
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2025-02-26T00:00:00Z
             visitscotland:endTime: '14:00'
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 1575.0
             visitscotland:region: fife
             visitscotland:sectors: []
             visitscotland:startDate: 2025-02-13T00:00:00Z
             visitscotland:startTime: '11:00'
             visitscotland:title: Creating an effective email marketing strategy
             visitscotland:types: []
+            visitscotland:vat: false
             visitscotland:venue: 23 Main Square
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3099,21 +3285,24 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:29:20.518Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T12:39:30.096Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:16:53.019Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-13T12:39:32.502Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:16:55.236Z
             hippotranslation:id: 927b1e1c-97db-4e90-af8b-9e384793f70a
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:endDate: 2025-02-26T00:00:00Z
             visitscotland:endTime: '14:00'
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
+            visitscotland:price: 1575.0
             visitscotland:region: fife
             visitscotland:sectors: []
             visitscotland:startDate: 2025-02-13T00:00:00Z
             visitscotland:startTime: '11:00'
             visitscotland:title: Creating an effective email marketing strategy
             visitscotland:types: []
+            visitscotland:vat: false
             visitscotland:venue: 23 Main Square
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3151,7 +3340,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: c153377a-069e-4509-9d8e-e1a63993e1b7
           hippo:name: VisitBritain France Workshop
-          hippo:versionHistory: ee9848ea-3aa9-4284-8a93-bc280cd9de69
+          hippo:versionHistory: 44c887cb-af92-4ffd-b75e-5b0593a9987e
           /visitbritain-france-workshop[1]:
             jcr:primaryType: visitscotland:TravelTradeEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -3161,10 +3350,11 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T11:39:55.079Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T15:42:00.383Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:08.071Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 9deb0a94-b7a3-4d43-bd3c-d41aebff49f2
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:deadline: 0001-01-01T12:00:00Z
             visitscotland:email: visitbritain@vs.com
             visitscotland:endDate: 2025-02-28T00:00:00Z
@@ -3176,6 +3366,7 @@
             visitscotland:startTime: ''
             visitscotland:timezone: GMT
             visitscotland:title: VisitBritain France Workshop
+            visitscotland:vat: false
             visitscotland:venue: Paris
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3196,10 +3387,11 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T11:39:55.079Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T15:42:17.442Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:19.827Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 9deb0a94-b7a3-4d43-bd3c-d41aebff49f2
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:deadline: 0001-01-01T12:00:00Z
             visitscotland:email: visitbritain@vs.com
             visitscotland:endDate: 2025-02-28T00:00:00Z
@@ -3211,6 +3403,7 @@
             visitscotland:startTime: ''
             visitscotland:timezone: GMT
             visitscotland:title: VisitBritain France Workshop
+            visitscotland:vat: false
             visitscotland:venue: Paris
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3231,11 +3424,12 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T11:39:55.079Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T15:42:17.442Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:19.827Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-13T15:42:20.230Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:22:22.069Z
             hippotranslation:id: 9deb0a94-b7a3-4d43-bd3c-d41aebff49f2
             hippotranslation:locale: en
+            visitscotland:currency: GBP
             visitscotland:deadline: 0001-01-01T12:00:00Z
             visitscotland:email: visitbritain@vs.com
             visitscotland:endDate: 2025-02-28T00:00:00Z
@@ -3247,6 +3441,7 @@
             visitscotland:startTime: ''
             visitscotland:timezone: GMT
             visitscotland:title: VisitBritain France Workshop
+            visitscotland:vat: false
             visitscotland:venue: Paris
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3263,7 +3458,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: f1d6c415-bef6-4998-afcf-432c76153e72
           hippo:name: European Travel Marketplace North America 2025
-          hippo:versionHistory: e35f9ea2-f5f9-4f7f-a21f-4e24e58a9fc3
+          hippo:versionHistory: a8362797-76d5-4614-a6a0-d195694fff78
           /european-travel-marketplace-north-america-2025[1]:
             jcr:primaryType: visitscotland:TravelTradeEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -3273,10 +3468,11 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T11:54:59.292Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T15:43:03.466Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:24.703Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 4c299f18-64b0-4b53-9099-0b35222f7334
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:deadline: 0001-01-01T12:00:00Z
             visitscotland:email: ''
             visitscotland:endDate: 2025-11-20T00:00:00Z
@@ -3284,10 +3480,12 @@
             visitscotland:international: true
             visitscotland:online: true
             visitscotland:organiser: ETOA
+            visitscotland:price: 20.0
             visitscotland:startDate: 2025-11-11T00:00:00Z
             visitscotland:startTime: '12:00'
             visitscotland:timezone: GMT
             visitscotland:title: European Travel Marketplace North America 2045
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3314,10 +3512,11 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T11:54:59.292Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T15:43:52.426Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:36.997Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 4c299f18-64b0-4b53-9099-0b35222f7334
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:deadline: 0001-01-01T12:00:00Z
             visitscotland:email: ''
             visitscotland:endDate: 2025-11-20T00:00:00Z
@@ -3325,10 +3524,12 @@
             visitscotland:international: true
             visitscotland:online: true
             visitscotland:organiser: ETOA
+            visitscotland:price: 20.0
             visitscotland:startDate: 2025-11-11T00:00:00Z
             visitscotland:startTime: '12:00'
             visitscotland:timezone: GMT
             visitscotland:title: European Travel Marketplace North America 2045
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3355,11 +3556,12 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T11:54:59.292Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T15:43:52.426Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:36.997Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-13T15:43:55.692Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:22:38.412Z
             hippotranslation:id: 4c299f18-64b0-4b53-9099-0b35222f7334
             hippotranslation:locale: en
+            visitscotland:currency: USD
             visitscotland:deadline: 0001-01-01T12:00:00Z
             visitscotland:email: ''
             visitscotland:endDate: 2025-11-20T00:00:00Z
@@ -3367,10 +3569,12 @@
             visitscotland:international: true
             visitscotland:online: true
             visitscotland:organiser: ETOA
+            visitscotland:price: 20.0
             visitscotland:startDate: 2025-11-11T00:00:00Z
             visitscotland:startTime: '12:00'
             visitscotland:timezone: GMT
             visitscotland:title: European Travel Marketplace North America 2045
+            visitscotland:vat: true
             visitscotland:venue: ''
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3393,7 +3597,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 87167054-aa02-4627-9d5f-cca58c518c0f
           hippo:name: VisitScotland Connect
-          hippo:versionHistory: bd128d33-bf3a-4d2c-b225-c7d2d2667893
+          hippo:versionHistory: 1b02248d-3532-422c-8486-8aeeac5558cf
           /visitscotland-connect[1]:
             jcr:primaryType: visitscotland:TravelTradeEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -3403,10 +3607,11 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T12:17:38.140Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T15:43:58.275Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:39.917Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 69c746ec-4d70-409b-9421-4bdf2aa19eac
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:deadline: 2034-01-16T00:00:00Z
             visitscotland:email: connect@visitscotland.com
             visitscotland:endDate: 2034-05-16T23:00:00Z
@@ -3414,10 +3619,12 @@
             visitscotland:international: false
             visitscotland:online: false
             visitscotland:organiser: VisitScotland
+            visitscotland:price: 30.0
             visitscotland:startDate: 2034-01-17T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:timezone: GMT
             visitscotland:title: VisitScotland Connect
+            visitscotland:vat: false
             visitscotland:venue: Aberdeen
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3440,10 +3647,11 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T12:17:38.140Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T15:45:00.457Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:49.661Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 69c746ec-4d70-409b-9421-4bdf2aa19eac
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:deadline: 2034-01-16T00:00:00Z
             visitscotland:email: connect@visitscotland.com
             visitscotland:endDate: 2034-05-16T23:00:00Z
@@ -3451,10 +3659,12 @@
             visitscotland:international: false
             visitscotland:online: false
             visitscotland:organiser: VisitScotland
+            visitscotland:price: 30.0
             visitscotland:startDate: 2034-01-17T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:timezone: GMT
             visitscotland:title: VisitScotland Connect
+            visitscotland:vat: false
             visitscotland:venue: Aberdeen
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -3477,11 +3687,12 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T12:17:38.140Z
-            hippostdpubwf:lastModificationDate: 2025-02-13T15:45:00.457Z
+            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:49.661Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-02-13T15:45:02.351Z
+            hippostdpubwf:publicationDate: 2025-03-11T15:22:52.308Z
             hippotranslation:id: 69c746ec-4d70-409b-9421-4bdf2aa19eac
             hippotranslation:locale: en
+            visitscotland:currency: AUD
             visitscotland:deadline: 2034-01-16T00:00:00Z
             visitscotland:email: connect@visitscotland.com
             visitscotland:endDate: 2034-05-16T23:00:00Z
@@ -3489,10 +3700,12 @@
             visitscotland:international: false
             visitscotland:online: false
             visitscotland:organiser: VisitScotland
+            visitscotland:price: 30.0
             visitscotland:startDate: 2034-01-17T00:00:00Z
             visitscotland:startTime: '10:00'
             visitscotland:timezone: GMT
             visitscotland:title: VisitScotland Connect
+            visitscotland:vat: false
             visitscotland:venue: Aberdeen
             /visitscotland:summary:
               jcr:primaryType: hippostd:html
@@ -22935,7 +23148,6 @@
               jcr:mixinTypes: ['mix:referenceable']
               jcr:uuid: 14f4bfd0-5277-411e-a0f3-84216b0a2ac9
               hippo:availability: []
-              hippostd:holder: admin
               hippostd:retainable: false
               hippostd:state: draft
               hippostd:transferable: false
@@ -23690,3 +23902,226 @@
     hippostd:foldertype: [new-translated-folder, new-document]
     hippotranslation:id: a6cff355-cfae-49a3-abe8-aa2f45ad230d
     hippotranslation:locale: en
+  /climate-action-plan-form:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: e401498d-84fd-4763-96b4-5e9663a443ac
+    hippo:name: Climate action plan form
+    hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+    hippotranslation:id: 662d2f46-6878-42bf-a1df-0b09f14f1955
+    hippotranslation:locale: en
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 00c6d4f5-c0c9-4d58-b1e6-7e37ec46dfa5
+      hippo:name: form page
+      hippo:versionHistory: 5497c390-6312-46bc-b44f-ac38aee2331e
+      /content[1]:
+        jcr:primaryType: visitscotland:GeneralBSH
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 1f66d139-0e24-4634-9b1b-b16dfe5fc28d
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:29:25.356Z
+        hippostdpubwf:lastModificationDate: 2025-02-27T15:47:45.548Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: e45ab34e-0063-475e-b52d-319fa177ecc8
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:publishDate: 0001-01-01T12:00:00Z
+        visitscotland:readingTime: 0
+        visitscotland:regions: []
+        visitscotland:sectors: []
+        visitscotland:seoDescription: Submit your business details for and receive
+          a free workbook for identifying and managing emissions.
+        visitscotland:seoNoIndex: true
+        visitscotland:seoTitle: Taking Climate Action | support.visitscotland.org
+        visitscotland:skill: ''
+        visitscotland:teaser: Submit your business details for and receive a free
+          workbook for identifying and managing emissions.
+        visitscotland:theme: simple
+        visitscotland:title: Climate action plan workbook
+        visitscotland:topic: []
+        visitscotland:type: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Your climate action workbook gives you the tools to easily measure your business emissions and select actions to reduce them over time.</p>
+
+            <p>You can track up to four years of data and pick the actions that work best for your business. These range from actions that won’t cost you anything to quick-wins and longer term investments.</p>
+      /content[2]:
+        jcr:primaryType: visitscotland:GeneralBSH
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 8609e494-861e-4679-a1f9-37f14862d60b
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:29:25.356Z
+        hippostdpubwf:lastModificationDate: 2025-02-26T13:47:09.395Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: e45ab34e-0063-475e-b52d-319fa177ecc8
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:publishDate: 0001-01-01T12:00:00Z
+        visitscotland:readingTime: 0
+        visitscotland:regions: []
+        visitscotland:sectors: []
+        visitscotland:seoDescription: Submit your business details for and receive
+          a free workbook for identifying and managing emissions.
+        visitscotland:seoNoIndex: true
+        visitscotland:seoTitle: Taking Climate Action | support.visitscotland.org
+        visitscotland:skill: ''
+        visitscotland:teaser: Submit your business details for and receive a free
+          workbook for identifying and managing emissions.
+        visitscotland:theme: simple
+        visitscotland:title: Climate action plan workbook
+        visitscotland:topic: []
+        visitscotland:type: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Your climate action workbook gives you the tools to easily measure your business emissions and select actions to reduce them over time.</p>
+
+            <p>You can track up to four years of data and pick the actions that work best for your business. These range from actions that won’t cost you anything to quick-wins and longer term investments.</p>
+      /content[3]:
+        jcr:primaryType: visitscotland:GeneralBSH
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: f8ab690d-2e9c-4883-85f1-3f86d34cab54
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:29:25.356Z
+        hippostdpubwf:lastModificationDate: 2025-02-26T13:47:09.395Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2025-02-26T13:47:12.024Z
+        hippotranslation:id: e45ab34e-0063-475e-b52d-319fa177ecc8
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:publishDate: 0001-01-01T12:00:00Z
+        visitscotland:readingTime: 0
+        visitscotland:regions: []
+        visitscotland:sectors: []
+        visitscotland:seoDescription: Submit your business details for and receive
+          a free workbook for identifying and managing emissions.
+        visitscotland:seoNoIndex: true
+        visitscotland:seoTitle: Taking Climate Action | support.visitscotland.org
+        visitscotland:skill: ''
+        visitscotland:teaser: Submit your business details for and receive a free
+          workbook for identifying and managing emissions.
+        visitscotland:theme: simple
+        visitscotland:title: Climate action plan workbook
+        visitscotland:topic: []
+        visitscotland:type: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Your climate action workbook gives you the tools to easily measure your business emissions and select actions to reduce them over time.</p>
+
+            <p>You can track up to four years of data and pick the actions that work best for your business. These range from actions that won’t cost you anything to quick-wins and longer term investments.</p>
+    /form:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: aed7ac69-1fd6-49ea-a670-85131f85658d
+      hippo:versionHistory: d90c669e-5715-48e2-9520-5ffc9fa3547b
+      /form[1]:
+        jcr:primaryType: visitscotland:Form
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c51513c1-9c49-4863-939b-c026d5c6a4ce
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
+        hippostdpubwf:lastModificationDate: 2025-03-03T23:55:41.036Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
+        hippotranslation:locale: en
+        visitscotland:nonJavaScriptMessage: JavaScript is required for this page to
+          work.
+        visitscotland:title: ''
+        visitscotland:translation: ''
+        /visitscotland:form:
+          jcr:primaryType: visitscotland:FormCompoundBreg
+          visitscotland:activityCode: ''
+          visitscotland:activityDescription: Business Support Hub Climate Plan download
+          visitscotland:activitySource: BSH Web Form
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
+          visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
+      /form[2]:
+        jcr:primaryType: visitscotland:Form
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: c56677a3-dd0f-4d0b-a8a2-1eb535192d5d
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
+        hippostdpubwf:lastModificationDate: 2025-03-03T23:55:50.362Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
+        hippotranslation:locale: en
+        visitscotland:nonJavaScriptMessage: JavaScript is required for this page to
+          work.
+        visitscotland:title: ''
+        visitscotland:translation: ''
+        /visitscotland:form:
+          jcr:primaryType: visitscotland:FormCompoundBreg
+          visitscotland:activityCode: ''
+          visitscotland:activityDescription: Business Support Hub Climate Plan download
+          visitscotland:activitySource: BSH Web Form
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
+          visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
+      /form[3]:
+        jcr:primaryType: visitscotland:Form
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 98921286-6e61-4784-9f10-7256796ad3c2
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
+        hippostdpubwf:lastModificationDate: 2025-03-03T23:55:50.362Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2025-03-03T23:55:51.993Z
+        hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
+        hippotranslation:locale: en
+        visitscotland:nonJavaScriptMessage: JavaScript is required for this page to
+          work.
+        visitscotland:title: ''
+        visitscotland:translation: ''
+        /visitscotland:form:
+          jcr:primaryType: visitscotland:FormCompoundBreg
+          visitscotland:activityCode: ''
+          visitscotland:activityDescription: Business Support Hub Climate Plan download
+          visitscotland:activitySource: BSH Web Form
+          visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
+          visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder

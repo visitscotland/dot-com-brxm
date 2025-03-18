@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.validator;
 
 import com.visitscotland.brxm.hippobeans.Article;
+import com.visitscotland.brxm.hippobeans.ArticleStyledSection;
 import com.visitscotland.utils.Contract;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.ValidationContextException;
@@ -58,7 +59,7 @@ public class ContentListHeadingValidator implements Validator<Node> {
         if (themes.contains(node.getProperty(Article.THEME).getValue().getString())){
             for (NodeIterator it = node.getNodes(Article.PARAGRAPH); it.hasNext(); ) {
                 Node section = it.nextNode();
-                if (Contract.isEmpty(section.getProperty("visitscotland:heading").getString())){
+                if (Contract.isEmpty(section.getProperty(ArticleStyledSection.HEADING).getString())){
                     return false;
                 }
             }

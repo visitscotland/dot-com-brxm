@@ -2,6 +2,7 @@ package com.visitscotland.brxm.mock;
 
 import com.visitscotland.brxm.hippobeans.*;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.junit.jupiter.api.Assertions;
 import org.mockito.Answers;
 
 import java.util.ArrayList;
@@ -50,8 +51,7 @@ public class ItineraryDayMockBuilder {
 
     public ItineraryDayMockBuilder title(String title) {
         if (currentStop == null){
-            //TODO MockException
-            throw new RuntimeException("The stop hasn't been defined");
+            Assertions.fail("The stop hasn't been defined");
         }
         when(currentStop.getTitle()).thenReturn(title);
 
@@ -60,8 +60,7 @@ public class ItineraryDayMockBuilder {
 
     public ItineraryDayMockBuilder subtitle(String subtitle) {
         if (currentStop == null){
-            //TODO MockException
-            throw new RuntimeException("The stop hasn't been defined");
+            Assertions.fail("The stop hasn't been defined");
         }
         when(currentStop.getSubtitle()).thenReturn(subtitle);
 
@@ -70,8 +69,7 @@ public class ItineraryDayMockBuilder {
 
     public ItineraryDayMockBuilder tip(String title, boolean copy) {
         if (currentStop == null){
-            //TODO MockException
-            throw new RuntimeException("The stop hasn't been defined");
+            Assertions.fail("The stop hasn't been defined");
         }
         StopTip tip = mock(StopTip.class);
         if (title != null){
@@ -88,8 +86,7 @@ public class ItineraryDayMockBuilder {
 
     public ItineraryDayMockBuilder addDescription(){
         if (currentStop == null){
-            //TODO MockException
-            throw new RuntimeException("The stop hasn't been defined");
+            Assertions.fail("The stop hasn't been defined");
         }
         when(currentStop.getDescription()).thenReturn(mock(HippoHtml.class));
 
@@ -129,8 +126,7 @@ public class ItineraryDayMockBuilder {
 
     public ItineraryDayMockBuilder coordinates(Double lat, Double lon){
         if (link == null){
-            //TODO MockException
-            throw new RuntimeException("The Externalink hasn't been defined");
+            Assertions.fail("The Externalink hasn't been defined");
         }
         Coordinates coordinates = mock(Coordinates.class);
         when(coordinates.getLatitude()).thenReturn(lat);
@@ -142,8 +138,7 @@ public class ItineraryDayMockBuilder {
 
     public ItineraryDayMockBuilder timeToExplore(String tte){
         if (link == null){
-            //TODO MockException
-            throw new RuntimeException("The Externalink hasn't been defined");
+            Assertions.fail("The Externalink hasn't been defined");
         }
         when(link.getTimeToExplore()).thenReturn(tte);
         return this;
@@ -155,8 +150,7 @@ public class ItineraryDayMockBuilder {
         } else if (dmsLink != null){
             when(dmsLink.getLabel()).thenReturn(label);
         } else {
-            //TODO MockException
-            throw new RuntimeException("The Stop hasn't been properly defined");
+            Assertions.fail("The Stop hasn't been properly defined");
         }
         return this;
     }

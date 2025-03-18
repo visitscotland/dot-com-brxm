@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.rest.event;
+package com.visitscotland.brxm.event;
 
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.query.HstQuery;
@@ -16,30 +16,27 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.ArrayList;
 
-import static com.visitscotland.brxm.rest.event.EventSearchParameters.*;
+import static com.visitscotland.brxm.event.EventSearchParameters.*;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 
-public class EventHstQueryBuilder {
+class EventHstQueryBuilder {
 
     private static final Logger logger = LoggerFactory.getLogger(EventHstQueryBuilder.class);
 
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
-    //TODO: Move to EventBSH?
-    public static final String ONLINE = "visitscotland:online";
-    public static final String VENUE = "visitscotland:venue";
-    public static final String START_DATE = "visitscotland:startDate";
-    public static final String END_DATE = "visitscotland:endDate";
-    public static final String AMOUNT = "visitscotland:price/visitscotland:amount";
-    //TODO: Move to IndustyEventBSH?
-    public static final String SECTORS = "visitscotland:sectors";
-    public static final String REGION = "visitscotland:region";
-    public static final String TYPES = "visitscotland:types";
-    //TODO: Move to TrainingEventBSH?
-    public static final String TOPICS = "visitscotland:topics";
-    //TODO: Move to TravelTradeEventBSH?
-    public static final String DEADLINE = "visitscotland:deadline";
-    public static final String INTERNATIONAL = "visitscotland:international";
+    //TODO: Move to models?
+    private static final String ONLINE = "visitscotland:online";
+    private static final String VENUE = "visitscotland:venue";
+    private static final String START_DATE = "visitscotland:startDate";
+    private static final String END_DATE = "visitscotland:endDate";
+    private static final String AMOUNT = "visitscotland:price";
+    private static final String SECTORS = "visitscotland:sectors";
+    private static final String REGION = "visitscotland:region";
+    private static final String TYPES = "visitscotland:types";
+    private static final String TOPICS = "visitscotland:topics";
+    private static final String DEADLINE = "visitscotland:deadline";
+    private static final String INTERNATIONAL = "visitscotland:international";
 
     private final HstQueryBuilder builder;
 
@@ -58,7 +55,7 @@ public class EventHstQueryBuilder {
     /**
      * Add pagination limits and pagination offset if needed
      */
-    public EventHstQueryBuilder addPagination(int pageSize) {
+    EventHstQueryBuilder addPagination(int pageSize) {
         builder.limit(pageSize);
         if (getQueryParameters().containsKey(PAGE_PARAM)) {
             int pageIndex = Integer.parseInt(getQueryParameters().get(PAGE_PARAM)[0]);
@@ -71,7 +68,7 @@ public class EventHstQueryBuilder {
     /**
      * Add sorting if needed
      */
-    public EventHstQueryBuilder sort() {
+    EventHstQueryBuilder sort() {
         if (getQueryParameters().containsKey(SORT_BY_PARAM)) {
             String sortBy = getQueryParameters().get(SORT_BY_PARAM)[0];
 
@@ -101,7 +98,7 @@ public class EventHstQueryBuilder {
     /**
      * Add price filter if the query parameter is provided
      */
-    public EventHstQueryBuilder addPriceFilters() {
+    EventHstQueryBuilder addPriceFilters() {
         if (getQueryParameters().containsKey(FREE_PARAM)) {
             constraints.put(FREE_PARAM, constraint(AMOUNT).equalTo(0));
         }
@@ -112,7 +109,7 @@ public class EventHstQueryBuilder {
     /**
      * Add filters related to the location: online, in-person
      */
-    public EventHstQueryBuilder addLocationFilters() {
+    EventHstQueryBuilder addLocationFilters() {
         if (getQueryParameters().containsKey(EventSearchParameters.ONLINE_PARAM)) {
             constraints.put(EventSearchParameters.ONLINE_PARAM, constraint(ONLINE).equalTo(true));
         }
@@ -125,7 +122,7 @@ public class EventHstQueryBuilder {
     /**
      * Add filters related to the location: national, international
      */
-    public EventHstQueryBuilder addInternationalFilters() {
+    EventHstQueryBuilder addInternationalFilters() {
         if (getQueryParameters().containsKey(NATIONAL_PARAM)) {
             constraints.put(NATIONAL_PARAM, constraint(INTERNATIONAL).equalTo(false));
         }
@@ -139,7 +136,7 @@ public class EventHstQueryBuilder {
     /**
      * Add filters related to the sector if needed
      */
-    public EventHstQueryBuilder addSectorsFilters() {
+    EventHstQueryBuilder addSectorsFilters() {
         addConstraintFromList(EventSearchParameters.SECTOR_PARAM, SECTORS);
         return this;
     }
@@ -147,7 +144,7 @@ public class EventHstQueryBuilder {
     /**
      * Add filters related to the topic if needed
      */
-    public EventHstQueryBuilder addTopicsFilters() {
+    EventHstQueryBuilder addTopicsFilters() {
         addConstraintFromList(EventSearchParameters.TOPIC_PARAM, TOPICS);
         return this;
     }
@@ -155,7 +152,7 @@ public class EventHstQueryBuilder {
     /**
      * Add filters related to the region if needed
      */
-    public EventHstQueryBuilder addRegionsFilters() {
+    EventHstQueryBuilder addRegionsFilters() {
         addConstraintFromList(EventSearchParameters.REGION_PARAM, REGION);
         return this;
     }
@@ -163,7 +160,7 @@ public class EventHstQueryBuilder {
     /**
      * Add filters related to the event type if needed
      */
-    public EventHstQueryBuilder addEventTypesFilters() {
+    EventHstQueryBuilder addEventTypesFilters() {
         addConstraintFromList(EventSearchParameters.EVENT_TYPE_PARAM, TYPES);
         return this;
     }
@@ -184,7 +181,7 @@ public class EventHstQueryBuilder {
     /**
      * Add date filters if the query parameters are provided, otherwise it only allow events in the future
      */
-    public EventHstQueryBuilder addDatesFilters() {
+    EventHstQueryBuilder addDatesFilters() {
 
         Calendar startDate = getStartDate();
         constraints.put(EventSearchParameters.START_DATE_PARAM, or(
@@ -245,15 +242,11 @@ public class EventHstQueryBuilder {
     /**
      * Get the query parameters from the request
      */
-    Map<String, String[]> getQueryParameters() {
+    private Map<String, String[]> getQueryParameters() {
         return RequestContextProvider.get().getServletRequest().getParameterMap();
     }
 
-    public HstQuery build() {
+    HstQuery build() {
         return builder.where(and(constraints.values().toArray(Constraint[]::new))).build();
-    }
-
-    Map<String, Constraint> getConstraints() {
-        return constraints;
     }
 }

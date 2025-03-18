@@ -9,9 +9,6 @@ import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/** 
- * TODO: Beanwriter: Failed to create getter for node type: hippo:compound
- */
 @HippoEssentialsGenerated(internalName = "visitscotland:MapCategory")
 @Node(jcrType = "visitscotland:MapCategory")
 public class MapCategory extends HippoCompound {
@@ -40,7 +37,7 @@ public class MapCategory extends HippoCompound {
 
     //TODO Refactor
     protected <T> T getOnlyChild(List<T> children) {
-        if (children.size() == 0) {
+        if (children.isEmpty()) {
             return null;
         } else if (children.size() == 1) {
             return children.get(0);

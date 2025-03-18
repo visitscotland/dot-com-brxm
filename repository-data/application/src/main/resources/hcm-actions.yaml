@@ -107,5 +107,9 @@ action-lists:
 - 2.8.1:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/bsh-labels/modules/events-listings: reload
-    /content/path/content/documents/administration/labels/global/pagination: reload
+- 2.8.2:
+    /content/documents/administration/options/business-support-hub/external-links: reload
+- 2.8.3:
+    /content/documents/administration/bsh-labels/global/global: reload
+    /content/documents/administration/labels/navigation/banner-dont-translate: delete
 
