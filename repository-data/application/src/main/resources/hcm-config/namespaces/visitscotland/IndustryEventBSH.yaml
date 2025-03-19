@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 0b4ce55f-0ca4-40d4-b135-78a5423cc78e
+          jcr:uuid: 48ec2fc4-67d7-408f-ba6b-ca08b4d4b840
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:EventBSH', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -58,7 +58,7 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 43eb0b2e-b504-4dfc-a29b-2d4750afaad6
+          jcr:uuid: 24f4d8f0-e2e4-4018-8cf2-8323a8a71868
           hippostdpubwf:lastModificationDate: 2025-01-14T14:17:50.638Z
           hippostdpubwf:creationDate: 2025-01-14T14:17:50.639Z
           visitscotland:sectors: []
@@ -249,9 +249,9 @@ definitions:
               size: '3'
           /vat:
             jcr:primaryType: frontend:plugin
-            caption: Price excludes VAT?
+            caption: +VAT
             field: vat
-            hint: By checking this, +VAT will be appended onto the price displayed.
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
