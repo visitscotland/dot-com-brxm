@@ -12,18 +12,30 @@ import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.TimeZone;
 
 @Component
 public class EventCardFactory {
 
     private static final String BUNDLE = "events-listings";
-    private static final SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd MMM");
-    private static final SimpleDateFormat fullDateFormat = new SimpleDateFormat("dd MMM, yyyy");
+    private static final SimpleDateFormat dayMonthFormat = createDateFormat("dd MMM");
+    private static final SimpleDateFormat fullDateFormat = createDateFormat("dd MMM, yyyy");
     private static final Locale LOCALE = Locale.UK;
 
     private final ResourceBundleService bundle;
     private final PriceFormatter priceFormatter;
     private final ContentLogger contentLogger;
+
+    /**
+     * This method creates a SimpleDateFormat with the given format and sets the timezone to UTC to prevent the system
+     * time zone to affect the date formatting. <a href="https://visitscotland.atlassian.net/browse/DS-1132">
+     * See JIRA issue</a>
+     */
+    private static SimpleDateFormat createDateFormat(String format){
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return dateFormat;
+    }
 
     protected EventCardFactory(ResourceBundleService bundle,
                             PriceFormatter priceFormatter,
