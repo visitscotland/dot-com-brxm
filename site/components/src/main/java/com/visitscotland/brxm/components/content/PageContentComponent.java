@@ -173,6 +173,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGlobalLabel(globalLabels, "default.alt-text", locale);
         addGlobalLabel(globalLabels, "image.title", locale);
         addGlobalLabel(globalLabels, "image.no.credit", locale);
+        addGlobalLabel(globalLabels, "image.toggle.text", locale);
         addGlobalLabel(globalLabels, "home", locale);
         addGlobalLabel(globalLabels, "page.next", locale);
         addGlobalLabel(globalLabels, "page.previous", locale);
