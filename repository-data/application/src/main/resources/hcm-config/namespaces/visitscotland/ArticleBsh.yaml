@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: d7d8fb60-634f-4c66-b800-d310f264bee3
+          jcr:uuid: b5b2b72f-00a6-4849-9cf9-98ccc37c1b8e
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -65,21 +65,12 @@ definitions:
             hipposysedit:path: visitscotland:nested
             hipposysedit:primary: false
             hipposysedit:type: Boolean
-          /cmsLink:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:cmsLink
-            hipposysedit:primary: false
-            hipposysedit:type: visitscotland:CMSLink
-            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:ArticleBSH
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: d33225a7-71b7-40e5-bb9c-13b7fdef2e50
+          jcr:uuid: 8babb71b-175c-4cfd-bcf1-7f86e9c203be
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
           hippostdpubwf:creationDate: 2024-10-17T10:32:44.925+01:00
@@ -168,15 +159,6 @@ definitions:
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.css: []
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /cmsLink:
-            jcr:primaryType: frontend:plugin
-            caption: Download
-            field: cmsLink
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
