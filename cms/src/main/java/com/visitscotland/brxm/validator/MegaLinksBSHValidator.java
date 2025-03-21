@@ -23,9 +23,7 @@ public class MegaLinksBSHValidator implements Validator<Node> {
     @Override
     public Optional<Violation> validate(ValidationContext context, Node node) {
         try {
-            targetField = node.getProperty(TARGET_FIELD).getString();
-            maxLength = node.getProperty(MAX_LENGTH).getLong();
-            if(isPriceInvalid(node)) {
+            if(!validDownload(node)) {
                 return Optional.of(context.createViolation());
             }
         } catch (RepositoryException exception) {
@@ -41,7 +39,7 @@ public class MegaLinksBSHValidator implements Validator<Node> {
      * @return true if the price is invalid, false otherwise
      * @throws RepositoryException if there is an error accessing the JCR node
      */
-    private boolean isPriceInvalid(final Node node) throws RepositoryException {
+    private boolean validDownload(final Node node) throws RepositoryException {
         if(node.getProperty("visitscotland:layout").getValue().getString().equals("Download")) {
             return countNumberOfItems(node) < 2;
         }
@@ -51,9 +49,9 @@ public class MegaLinksBSHValidator implements Validator<Node> {
 
     private Integer countNumberOfItems(Node node) {
         try {
-            if (node.hasNode(targetField)) {
+            if (node.hasNode("visitscotland:megalinkItems")) {
                 int count = 0;
-                NodeIterator childNodes = node.getNodes(targetField);
+                NodeIterator childNodes = node.getNodes("visitscotland:megalinkItems");
                 while (childNodes.hasNext()) {
                     count++;
                     childNodes.nextNode();

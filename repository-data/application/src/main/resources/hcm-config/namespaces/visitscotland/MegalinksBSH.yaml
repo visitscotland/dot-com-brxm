@@ -16,7 +16,7 @@ definitions:
           hipposysedit:supertype: ['visitscotland:Megalinks', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          hipposysedit:validators: ['visitscotland:megalinks-bsh-validator']
+          hipposysedit:validators: ['visitscotland:megalinks-download-link-validator']
           /anchor:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
