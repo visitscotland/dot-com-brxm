@@ -11,9 +11,4 @@ public class ArticleBSH extends Article {
     public Boolean getNested() {
         return getSingleProperty("visitscotland:nested");
     }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:cmsLink")
-    public CMSLink getCmsLink() {
-        return getBean("visitscotland:cmsLink", CMSLink.class);
-    }
 }
