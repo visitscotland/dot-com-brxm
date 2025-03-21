@@ -574,6 +574,24 @@ class LinkServiceTest {
         assertEquals("/fr-fr/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/unit-test/",null, null).getLink());
     }
 
+    @Test
+    @DisplayName("BSHUB-622 - When the URL has anchor links, the anchor should be part of the link")
+    void createExternalLink_relativeUrlsAnchorlinks(){
+        when(siteProperties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
+        when(siteProperties.getConvertToRelative()).thenReturn("www.visitscotland.com");
+
+        assertEquals("/unit-test#anchorlink", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/unit-test#anchorlink",null, null).getLink());
+    }
+
+    @Test
+    @DisplayName("BSHUB-622 - When the URL has query parameters, the query parameters should be part of the link")
+    void createExternalLink_relativeUrlsParameters(){
+        when(siteProperties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
+        when(siteProperties.getConvertToRelative()).thenReturn("www.visitscotland.com");
+
+        assertEquals("/unit-test?type=accom", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/unit-test?type=accom",null, null).getLink());
+    }
+
     @ParameterizedTest
     @DisplayName("VS-2756 - Some URLs must not be altered")
     @ValueSource(strings = {"en-gb", "es-es", "en-us", "en", "us"})
