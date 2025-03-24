@@ -106,3 +106,6 @@ definitions:
         while attempting to validate the event deadline, if this issue persists please
         contact an administrator.
       visitscotland:megalinks-download-link-validator: Only 1 link allowed for the Download layout.
+      visitscotland:megalinks-download-link-validator#exception:  An unknown error occurred
+        while attempting to validate the download link, if this issue persists please
+        contact an administrator.

@@ -13,13 +13,6 @@ import java.util.Optional;
 
 public class MegaLinksBSHValidator implements Validator<Node> {
     private static final Logger logger = LoggerFactory.getLogger(MultiValueNumberSelectedValidator.class);
-
-    private static final String MAX_LENGTH = "maxLength";
-    private static final String TARGET_FIELD = "targetField";
-
-    private Long maxLength;
-    private String targetField;
-
     @Override
     public Optional<Violation> validate(ValidationContext context, Node node) {
         try {
@@ -58,7 +51,7 @@ public class MegaLinksBSHValidator implements Validator<Node> {
                 }
                 return count;
             }
-            logger.error("Can not run MultiValueNumberSelectedValidator as node {} has no property or child {}", node.getPath(), targetField);
+            logger.error("Can not run MultiValueNumberSelectedValidator as node {} has no property or child", node.getPath());
         } catch (RepositoryException ex) {
             logger.error("Repository error when running multi value validator", ex);
         }
