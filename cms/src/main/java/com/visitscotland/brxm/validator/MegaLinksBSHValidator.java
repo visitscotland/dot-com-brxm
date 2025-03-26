@@ -27,8 +27,7 @@ public class MegaLinksBSHValidator implements Validator<Node> {
     }
 
     /**
-     * Checks if a price is valid
-     * @param node The JCR node to check
+     * Checks if there is only 1 link attached for the Download layout
      * @return true if the price is invalid, false otherwise
      * @throws RepositoryException if there is an error accessing the JCR node
      */
