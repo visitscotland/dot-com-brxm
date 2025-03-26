@@ -181,7 +181,7 @@ public class LinkService {
                 for (String host : siteProperties.getInternalSites()) {
                     if (urlObject.getHost().equals(host)) {
                         String site = host.equals(siteProperties.getConvertToRelative()) ? "" : url.substring(0, url.lastIndexOf(urlObject.getFile()));
-                        return localize(locale, site, urlObject.getFile());
+                        return localize(locale, site, url.substring(url.lastIndexOf(urlObject.getFile())));
                     }
                 }
             } catch (IllegalArgumentException | MalformedURLException e) {
