@@ -53,14 +53,11 @@ public class ResourceBundleService {
         return getResourceBundle(bundleName, key, locale, false);
     }
 
-    public String getSiteResourceBundle(String bundleName, String key, Locale locale){
+    public String getSiteResourceBundle(String bundleName, String key, Locale locale) {
         if (!properties.getSiteId().isBlank() && hasSiteResourceBundle(bundleName, locale)) {
-	    final String bundleId = getSiteResourceBundleId(bundleName);
+            final String bundleId = getSiteResourceBundleId(bundleName);
             String value = getResourceBundle(bundleId, key, locale, true);
-            if (value == null) {
-                logger.warn("The key {} does not exist in the site resource bundle {} for locale {}", key,
-                        getSiteResourceBundleId(bundleName), locale);
-            } else {
+            if (value != null) {
                 return value;
             }
         }
