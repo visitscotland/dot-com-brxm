@@ -1,5 +1,7 @@
 package com.visitscotland.brxm.validator;
 
+import com.visitscotland.brxm.hippobeans.ExternalLink;
+import com.visitscotland.brxm.hippobeans.SharedLink;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Validator;
 import org.onehippo.cms.services.validation.api.Violation;
@@ -16,6 +18,9 @@ public class MegaLinksBSHValidator implements Validator<Node> {
     @Override
     public Optional<Violation> validate(ValidationContext context, Node node) {
         try {
+            if(node.hasNode("visitscotland:singleImageLinks")) {
+                return Optional.of(context.createViolation("singleImage"));
+            }
             if(!validDownload(node)) {
                 return Optional.of(context.createViolation());
             }
@@ -33,27 +38,14 @@ public class MegaLinksBSHValidator implements Validator<Node> {
      */
     private boolean validDownload(final Node node) throws RepositoryException {
         if(node.getProperty("visitscotland:layout").getValue().getString().equals("Download")) {
-            return countNumberOfItems(node) < 2;
+            if(node.hasNode("visitscotland:megalinkItems")) {
+                if (node.getNodes("visitscotland:megalinkItems").getSize() > 1) {
+                    return false;
+                }
+            }
         }
 
         return true;
     }
 
-    private Integer countNumberOfItems(Node node) {
-        try {
-            if (node.hasNode("visitscotland:megalinkItems")) {
-                int count = 0;
-                NodeIterator childNodes = node.getNodes("visitscotland:megalinkItems");
-                while (childNodes.hasNext()) {
-                    count++;
-                    childNodes.nextNode();
-                }
-                return count;
-            }
-            logger.error("Can not run MultiValueNumberSelectedValidator as node {} has no property or child", node.getPath());
-        } catch (RepositoryException ex) {
-            logger.error("Repository error when running multi value validator", ex);
-        }
-        return 0;
-    }
 }
