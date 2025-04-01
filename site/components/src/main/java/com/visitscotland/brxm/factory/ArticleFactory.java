@@ -116,15 +116,18 @@ public class ArticleFactory {
             }
 
             if (paragraph.getCmsLink() != null){
-                if (paragraph.getCmsLink().getLink() instanceof SharedLinkBSH) {
+                if (paragraph.getCmsLink().getLink() != null && paragraph.getCmsLink().getLink() instanceof SharedLinkBSH) {
                     SharedLinkBSH sharedLink = (SharedLinkBSH) paragraph.getCmsLink().getLink();
                     if (sharedLink.getLinkType() instanceof ExternalDocument || sharedLink.getLinkType() instanceof FileLink
                             || sharedLink.getLinkType() instanceof Asset) {
-                        DownloadLink downloadLink = new DownloadLink (linkService.createSimpleLink(sharedLink, module, locale));
+                        DownloadLink downloadLink = new DownloadLink(linkService.createSimpleLink(sharedLink, module, locale));
                         downloadLink.setTeaser(sharedLink.getTeaser());
                         downloadLink.setSize(commonUtils.getExternalDocumentSize(downloadLink.getLink(), locale, false));
-                        downloadLink.setExtension(FilenameUtils.getExtension(downloadLink.getLink()));
-
+                        String link = downloadLink.getLink();
+                        if (link != null) {
+                            downloadLink.setExtension(FilenameUtils.getExtension(link));
+                        }
+    
                         section.setLink(downloadLink);
                     } else {
                         module.addErrorMessage("The section for the Article only allows File Links or Assets");
@@ -132,6 +135,7 @@ public class ArticleFactory {
                 } else {
                     module.addErrorMessage("The section for the Article only allows Shared Links");
                 }
+            }
             }
 
             if (paragraph.getQuote() != null) {
