@@ -147,6 +147,3 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:event-deadline-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.EventDeadlineDateValidator
-    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:megalinks-download-link-validator:
-      jcr:primaryType: hipposys:moduleconfig
-      hipposys:className: com.visitscotland.brxm.validator.MegaLinksBSHValidator
