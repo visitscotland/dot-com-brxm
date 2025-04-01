@@ -50,7 +50,6 @@ if ! git pull origin develop; then
     exit_on_failure "Pulling develop"
 fi
 
-
 echo "Checking out the release branch $releaseBranch"
 if ! git checkout "$releaseBranch"; then
     exit_on_failure "Checkout to release branch"

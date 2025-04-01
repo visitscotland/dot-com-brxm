@@ -31,7 +31,7 @@ if errorlevel 1 (
 )
 
 :: Update main and develop branches
-echo echo "Updating main and develop branches"
+echo "Updating main and develop branches"
 git checkout main
 if errorlevel 1 (
   call :exit_on_failure "Checkout to main"
