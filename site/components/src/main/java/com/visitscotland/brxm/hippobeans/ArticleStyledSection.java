@@ -23,8 +23,8 @@ public class ArticleStyledSection extends ArticleSection {
         return getHippoHtml("visitscotland:copy");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:CMSLink")
-    public CMSLink getCMSLink() {
-        return getBean("visitscotland:CMSLink", CMSLink.class);
+    @HippoEssentialsGenerated(internalName = "visitscotland:cmsLink")
+    public CMSLink getCmsLink() {
+        return getBean("visitscotland:cmsLink", CMSLink.class);
     }
 }
