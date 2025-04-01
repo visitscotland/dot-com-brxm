@@ -33,6 +33,24 @@ if [ -z "$releaseBranch" ]; then
     exit_on_failure "No release/* branch found. Git branch --list for release branches"
 fi
 
+echo "Updating main and develop branches"
+if ! git checkout main; then
+    exit_on_failure "Checkout to main"
+fi
+
+if ! git pull origin main; then
+    exit_on_failure "Pulling main"
+fi
+
+if ! git checkout develop; then
+    exit_on_failure "Checkout to develop"
+fi
+
+if ! git pull origin develop; then
+    exit_on_failure "Pulling develop"
+fi
+
+
 echo "Checking out the release branch $releaseBranch"
 if ! git checkout "$releaseBranch"; then
     exit_on_failure "Checkout to release branch"

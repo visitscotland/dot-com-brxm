@@ -30,6 +30,32 @@ if errorlevel 1 (
   goto :EOF
 )
 
+:: Update main and develop branches
+echo echo "Updating main and develop branches"
+git checkout main
+if errorlevel 1 (
+  call :exit_on_failure "Checkout to main"
+  goto :EOF
+)
+
+git pull origin main
+if errorlevel 1 (
+  call :exit_on_failure "Pulling main"
+  goto :EOF
+)
+
+git checkout develop
+if errorlevel 1 (
+  call :exit_on_failure "Checkout to develop"
+  goto :EOF
+)
+
+git pull origin develop
+if errorlevel 1 (
+  call :exit_on_failure "Pulling develop"
+  goto :EOF
+)
+
 :: Checkout to the release branch
 echo Checking out the release branch %releaseBranch%
 git checkout "%releaseBranch%"
