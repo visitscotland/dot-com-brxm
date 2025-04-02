@@ -1,7 +1,0 @@
-/content/assets/business-support-hub:
-  jcr:primaryType: hippogallery:stdAssetGallery
-  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-  jcr:uuid: fd9c1f1b-4c12-4026-b25d-76fc108dbe21
-  hippo:name: Business Support Hub
-  hippostd:foldertype: [new-file-folder]
-  hippostd:gallerytype: ['hippogallery:exampleAssetSet']
