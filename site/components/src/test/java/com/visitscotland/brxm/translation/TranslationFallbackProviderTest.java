@@ -42,7 +42,7 @@ class TranslationFallbackProviderTest {
     }
 
     @Test
-    void getContentBeanForRequest_ContentBeanPresent_OptionalOfHippoBean() {
+    void When_ContentBeanPresent_Expect_OptionalOfHippoBean() {
         final var hippoBean = mock(HippoBean.class);
 
         when(hstRequest.getRequestContext()).thenReturn(hstRequestContext);
@@ -56,7 +56,7 @@ class TranslationFallbackProviderTest {
     }
 
     @Test
-    void getContentBeanForRequest_ContentBeanNotPresentAndFallbackPresent_OptionalOfHippoBean() throws ObjectBeanManagerException {
+    void When_ContentBeanNotPresentAndFallbackPresent_Expect_OptionalOfHippoBean() throws ObjectBeanManagerException {
         final var hippoBean = mock(HippoBean.class);
 
         when(hstRequest.getRequestContext()).thenReturn(hstRequestContext);
@@ -77,7 +77,7 @@ class TranslationFallbackProviderTest {
     }
 
     @Test
-    void getContentBeanForRequest_ContentBeanNotPresentAndNoVirtualHostRequestAttribute_EmptyOptional() {
+    void When_ContentBeanNotPresentAndNoVirtualHostRequestAttribute_Expect_EmptyOptional() {
         when(hstRequest.getRequestContext()).thenReturn(hstRequestContext);
         when(hstRequestContext.getContentBean()).thenReturn(null);
         when(hstRequest.getAttribute(VIRTUALHOSTS_REQUEST_ATTR)).thenReturn(null);
@@ -89,7 +89,7 @@ class TranslationFallbackProviderTest {
     }
 
     @Test
-    void getContentBeanForRequest_ContentBeanNotPresentAndNoMatchedMount_EmptyOptional() {
+    void When_ContentBeanNotPresentAndEnglishRequestPathDoesNotMatchMount_Expect_EmptyOptional() {
         when(hstRequest.getRequestContext()).thenReturn(hstRequestContext);
         when(hstRequestContext.getContentBean()).thenReturn(null);
         when(hstRequest.getAttribute(VIRTUALHOSTS_REQUEST_ATTR)).thenReturn(resolvedVirtualHost);
@@ -102,7 +102,7 @@ class TranslationFallbackProviderTest {
     }
 
     @Test
-    void getContentBeanForRequest_ContentBeanNotPresentAndRequestContextHasNoResolvedSiteMapItem_OptionalEmpty() {
+    void When_ContentBeanNotPresentAndRequestContextHasNoResolvedSiteMapItem_Expect_EmptyOptional() {
         when(hstRequest.getRequestContext()).thenReturn(hstRequestContext);
         when(hstRequestContext.getContentBean()).thenReturn(null);
         when(hstRequest.getAttribute(VIRTUALHOSTS_REQUEST_ATTR)).thenReturn(resolvedVirtualHost);
