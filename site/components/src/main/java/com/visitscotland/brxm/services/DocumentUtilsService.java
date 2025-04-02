@@ -3,6 +3,7 @@ package com.visitscotland.brxm.services;
 import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.LocalizedURL;
+import com.visitscotland.brxm.translation.TranslationFallbackProvider;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
@@ -33,14 +34,20 @@ public class DocumentUtilsService {
     static final String HIPPO_FOLDER = "hippostd:folder";
 
     private final HippoUtilsService utils;
+    private final TranslationFallbackProvider translationFallbackProvider;
     private final ResourceBundleService bundle;
     private final CMSProperties cmsProperties;
     private final SiteProperties siteProperties;
     private final Logger contentLog;
 
-    public DocumentUtilsService(HippoUtilsService utils, ResourceBundleService bundle, CMSProperties cmsProperties,
-                                SiteProperties siteProperties, ContentLogger contentLogger) {
+    public DocumentUtilsService(HippoUtilsService utils,
+                                TranslationFallbackProvider translationFallbackProvider,
+                                ResourceBundleService bundle,
+                                CMSProperties cmsProperties,
+                                SiteProperties siteProperties,
+                                ContentLogger contentLogger) {
         this.utils = utils;
+        this.translationFallbackProvider = translationFallbackProvider;
         this.bundle = bundle;
         this.cmsProperties = cmsProperties;
         this.siteProperties = siteProperties;
@@ -128,8 +135,7 @@ public class DocumentUtilsService {
 
     public List<LocalizedURL> getLocalizedURLs(HstRequest request) {
         List<LocalizedURL> translatedURL = new ArrayList<>(Language.values().length);
-
-        Optional<HippoBean> contentBean = utils.getContentBeanWithTranslationFallback(request);
+        Optional<HippoBean> contentBean = translationFallbackProvider.getContentBeanForRequest(request);
 
         if (contentBean.isPresent()) {
             HippoBean document = contentBean.get();

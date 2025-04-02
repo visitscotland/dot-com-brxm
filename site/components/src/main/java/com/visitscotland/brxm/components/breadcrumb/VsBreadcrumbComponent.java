@@ -5,7 +5,7 @@ import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.services.DocumentUtilsService;
-import com.visitscotland.brxm.services.HippoUtilsService;
+import com.visitscotland.brxm.translation.TranslationFallbackProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -30,7 +30,7 @@ public class VsBreadcrumbComponent extends CommonComponent {
     final String ORDERED_TRANSLATIONS = "orderedTranslations";
 
     private VsBreadCrumbProvider breadcrumbProvider;
-    private HippoUtilsService hippoUtilsService;
+    private TranslationFallbackProvider translationFallbackProvider;
     private DocumentUtilsService documentUtils;
 
     public void doBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
@@ -47,7 +47,8 @@ public class VsBreadcrumbComponent extends CommonComponent {
     }
 
     private void setDocument(HstRequest request, HstResponse response) {
-        Optional<HippoBean> document = hippoUtilsService.getContentBeanWithTranslationFallback(request);
+        final Optional<HippoBean> document = translationFallbackProvider.getContentBeanForRequest(request);
+
         if (document.isPresent() && document.get() instanceof Page) {
             request.setModel(DOCUMENT, document.get());
             // Translations ordered by SEO order
@@ -62,8 +63,7 @@ public class VsBreadcrumbComponent extends CommonComponent {
     public void init(ServletContext servletContext, ComponentConfiguration componentConfig) throws HstComponentException {
         super.init(servletContext, componentConfig);
         this.breadcrumbProvider = new VsBreadCrumbProvider(this);
-        this.hippoUtilsService = VsComponentManager.get(HippoUtilsService.class);
+        this.translationFallbackProvider = VsComponentManager.get(TranslationFallbackProvider.class);
         this.documentUtils = VsComponentManager.get(DocumentUtilsService.class);
     }
-
 }
