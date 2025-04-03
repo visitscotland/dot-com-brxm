@@ -132,12 +132,14 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final String SKIP_TO = "skip-to";
         final String SEARCH_BUNDLE = "search";
         final String CMS_MESSAGES = "cms-messages";
+        final String DOWNLOAD = "download";
 
         labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, getGlobalLabels(request.getLocale()));
         labels(request).put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
         labels(request).put(SEARCH_BUNDLE, bundle.getAllLabels(SEARCH_BUNDLE, request.getLocale()));
         labels(request).put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
         labels(request).put(SKIP_TO, bundle.getAllLabels(SKIP_TO, request.getLocale()));
+        labels(request).put(DOWNLOAD, bundle.getAllLabels(DOWNLOAD, request.getLocale()));
 
         if (isEditMode(request)) {
             labels(request).put(CMS_MESSAGES, bundle.getAllLabels(CMS_MESSAGES, request.getLocale()));
