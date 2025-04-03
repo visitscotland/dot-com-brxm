@@ -1,0 +1,52 @@
+/content/documents/administration/configuration/seo-configuration---support:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 39f5a285-558b-4b7d-90e6-9776687185cd
+  hippo:name: SEO Configuration - Support
+  hippo:versionHistory: 567db798-1b3b-4bb3-b4e3-f1135cda3f33
+  /seo-configuration---support[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 0459bf04-2cf2-4bdb-9dfb-5eb7eef07103
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-04-03T22:52:20.289+01:00
+    hippostdpubwf:lastModificationDate: 2025-04-03T22:54:34.435+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: bsh.seo
+    resourcebundle:keys: [title-suffix]
+    resourcebundle:messages: ['| VisitScotland Business Support']
+  /seo-configuration---support[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 030538a5-fa8c-4b2b-880d-673e1b843190
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-04-03T22:52:20.289+01:00
+    hippostdpubwf:lastModificationDate: 2025-04-03T22:54:30.520+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: bsh.seo
+    resourcebundle:keys: [title-suffix]
+    resourcebundle:messages: ['| VisitScotland Business Support']
+  /seo-configuration---support[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: e3db63fd-8118-47e5-9b39-2f6c4684bb24
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-04-03T22:52:20.289+01:00
+    hippostdpubwf:lastModificationDate: 2025-04-03T22:54:34.435+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2025-04-03T22:54:37.540+01:00
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: bsh.seo
+    resourcebundle:keys: [title-suffix]
+    resourcebundle:messages: ['| VisitScotland Business Support']
