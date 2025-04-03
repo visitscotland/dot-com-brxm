@@ -12,6 +12,9 @@ import org.apache.commons.io.FilenameUtils;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.springframework.stereotype.Component;
 
+import javax.jcr.Property;
+import javax.jcr.RepositoryException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -35,7 +38,8 @@ public class ArticleFactory {
     public ArticleFactory(ImageFactory imageFactory,
                           QuoteFactory quoteEmbedder,
                           LinkService linkService,
-                          AnchorFormatter anchorFormatter, CommonUtilsService commonUtils) {
+                          AnchorFormatter anchorFormatter,
+                          CommonUtilsService commonUtils) {
         this.imageFactory = imageFactory;
         this.quoteEmbedder = quoteEmbedder;
         this.linkService = linkService;
@@ -43,7 +47,7 @@ public class ArticleFactory {
         this.commonUtils = commonUtils;
     }
 
-    public ArticleModule getModule(HstRequest request, Article doc){
+    public ArticleModule getModule(HstRequest request, Article doc) {
         ArticleModule module = new ArticleModule();
 
         module.setTitle(doc.getTitle());
@@ -95,7 +99,7 @@ public class ArticleFactory {
         }
     }
 
-    private void setSections(ArticleModule module, Article doc, Locale locale) {
+    private void setSections(ArticleModule module, Article doc, Locale locale){
         List<ArticleModuleSection> sections = new ArrayList<>();
 
         for (ArticleSection paragraph: doc.getParagraph()) {
@@ -116,26 +120,7 @@ public class ArticleFactory {
             }
 
             if (paragraph.getCmsLink() != null){
-                if (paragraph.getCmsLink().getLink() != null && paragraph.getCmsLink().getLink() instanceof SharedLinkBSH) {
-                    SharedLinkBSH sharedLink = (SharedLinkBSH) paragraph.getCmsLink().getLink();
-                    if (sharedLink.getLinkType() instanceof ExternalDocument || sharedLink.getLinkType() instanceof FileLink
-                            || sharedLink.getLinkType() instanceof Asset) {
-                        DownloadLink downloadLink = new DownloadLink(linkService.createSimpleLink(sharedLink, module, locale));
-                        downloadLink.setTeaser(sharedLink.getTeaser());
-                        downloadLink.setSize(commonUtils.getExternalDocumentSize(downloadLink.getLink(), locale, false));
-                        String link = downloadLink.getLink();
-                        if (link != null) {
-                            downloadLink.setExtension(FilenameUtils.getExtension(link));
-                        }
-    
-                        section.setLink(downloadLink);
-                    } else {
-                        module.addErrorMessage("The section for the Article only allows File Links or Assets");
-                    }
-                } else {
-                    module.addErrorMessage("The section for the Article only allows Shared Links");
-                }
-            }
+                section.setLink(setDownload(paragraph, module, locale));
             }
 
             if (paragraph.getQuote() != null) {
@@ -202,6 +187,39 @@ public class ArticleFactory {
             }
         }
     }
+    
+    private DownloadLink setDownload(ArticleSection paragraph, ArticleModule module, Locale locale) {
+        DownloadLink downloadLink = null;
+        if (paragraph.getCmsLink().getLink() != null && paragraph.getCmsLink().getLink() instanceof SharedLinkBSH) {
+            SharedLinkBSH sharedLink = (SharedLinkBSH) paragraph.getCmsLink().getLink();
+            if (sharedLink.getLinkType() instanceof ExternalDocument || sharedLink.getLinkType() instanceof FileLink
+                    || sharedLink.getLinkType() instanceof Asset) {
+                downloadLink = new DownloadLink(linkService.createSimpleLink(sharedLink, module, locale));
+                downloadLink.setTeaser(sharedLink.getTeaser());
+                downloadLink.setSize(commonUtils.getExternalDocumentSize(downloadLink.getLink(), locale, false));
+                Property p;
+                try {
+                    p = sharedLink.getNode().getProperty("hippostdpubwf:lastModificationDate");
+                    SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyy", locale);
+                    downloadLink.setPublishedDate(sdf.format(p.getDate().getTime()));
+                } catch (RepositoryException e) {
+                    throw new RuntimeException(e);
+                }
+
+                String link = downloadLink.getLink();
+                if (link != null) {
+                    downloadLink.setExtension(FilenameUtils.getExtension(link));
+                }
+
+            } else {
+                module.addErrorMessage("The section for the Article only allows File Links or Assets");
+            }
+        } else {
+            module.addErrorMessage("The section for the Article only allows Shared Links");
+        }
+        return downloadLink;
+    }
+        
 
     private boolean in (String field, String... values) {
         for (String value: values) {
@@ -215,4 +233,5 @@ public class ArticleFactory {
     boolean isEditMode(HstRequest request) {
         return Boolean.TRUE.equals(request.getAttribute("editMode"));
     }
+
 }

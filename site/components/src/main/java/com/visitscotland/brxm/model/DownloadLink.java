@@ -1,11 +1,9 @@
 package com.visitscotland.brxm.model;
 
-import java.util.Date;
-
 public class DownloadLink extends FlatLink {
 
     private String teaser;
-    private Date publishedDate;
+    private String publishedDate;
     private String size;
     private String extension;
 
@@ -13,11 +11,11 @@ public class DownloadLink extends FlatLink {
         super (flatLink.getLabel(), flatLink.getLink(), flatLink.getType());
     }
 
-    public Date getPublishedDate() {
+    public String getPublishedDate() {
         return publishedDate;
     }
 
-    public void setPublishedDate(Date publishedDate) {
+    public void setPublishedDate(String publishedDate) {
         this.publishedDate = publishedDate;
     }
 
