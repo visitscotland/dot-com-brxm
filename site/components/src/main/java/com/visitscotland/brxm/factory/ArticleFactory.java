@@ -199,7 +199,7 @@ public class ArticleFactory {
                 downloadLink.setSize(commonUtils.getExternalDocumentSize(downloadLink.getLink(), locale, false));
                 Property p;
                 try {
-                    p = sharedLink.getNode().getProperty("hippostdpubwf:lastModificationDate");
+                    p = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
                     SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyy", locale);
                     downloadLink.setPublishedDate(sdf.format(p.getDate().getTime()));
                 } catch (RepositoryException e) {
