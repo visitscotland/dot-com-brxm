@@ -615,10 +615,11 @@ public class LinkService {
     public String getDownloadText(String link, Locale locale, Module<?> module) {
         String size = commonUtils.getExternalDocumentSize(link, locale);
         if (size == null) {
+            String errorMessage = String.format("The external document %s is not available.", link);
             if (module != null) {
-                module.addErrorMessage("The Link to the External document might be broken");
+                module.addErrorMessage(errorMessage);
             }
-            contentLogger.warn("The external document {} might be broken.", link);
+            contentLogger.warn(errorMessage);
             return "";
         } else {
             return " | " + size;
