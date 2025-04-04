@@ -29,7 +29,11 @@ public @interface NonTestable {
          * The purpose of the method is to wrap other service so the code is not tightly couple to other services
          * (i.e HippoCms, DMS, Instagram)
          */
-        BRIDGE;
+        BRIDGE,
+        /**
+         * The purpose of the method is to wrap a static method to increase testability.
+         */
+        STATIC;
     }
 
     Cause value() default Cause.UNKNOWN;
