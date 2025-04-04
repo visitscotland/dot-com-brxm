@@ -559,7 +559,7 @@ public class LinkService {
                 link.setCta(bundle.getCtaLabel(((DMSLink)sharedLink.getLinkType()).getLabel(), locale));
             }
         }
-        if (sharedLink.getImage() == null && !(sharedLink.getLinkType() instanceof DMSLink)){
+        if (sharedLink.getImage() == null && !(sharedLink.getLinkType() instanceof DMSLink) && !(sharedLink instanceof SharedLinkBSH)){
             module.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the shared document '%s' at: %s",  sharedLink.getTitle(), sharedLink.getDisplayName(), sharedLink.getPath()));
         }
         return link;
