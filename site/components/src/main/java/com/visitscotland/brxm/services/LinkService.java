@@ -580,7 +580,6 @@ public class LinkService {
         EnhancedLink link = createVideo(video, module, locale);
 
         if (addCategory) {
-            //According to VS-2086 (old JIRA) no category is needed for videos
             link.setCategory("Video");
             module.addErrorMessage("This module should not contain a Video Link");
             contentLogger.warn("This module '{}' should not contain a Video Link", getSource(module));
@@ -591,7 +590,6 @@ public class LinkService {
 
     private String getSource(Module<?> module){
         if (module == null || module.getHippoBean() == null){
-            //Note: if this value gets printed in the logs, we must refine the calculation of the source
             return "unknown";
         } else {
             return module.getHippoBean().getPath();
