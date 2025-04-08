@@ -12,13 +12,13 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 
 @Component
 public class CommonUtilsService {
@@ -95,29 +95,29 @@ public class CommonUtilsService {
      *
      */
     @Cacheable (value="externalDocument")
-    public String getExternalDocumentSize(String link, Locale locale) {
+    public Optional<String> getExternalDocumentSize(String link, Locale locale) {
         DecimalFormatSymbols dfs = new DecimalFormatSymbols(locale);
         DecimalFormat decimalFormat = new DecimalFormat("#.#", dfs);
         try {
             HttpURLConnection con = openConnection(link);
             if (con.getResponseCode() >= 400){
-                return null;
+                return Optional.empty();
             }
             double bytes = con.getContentLength();
             String displayType = "";
             String contentType = con.getContentType();
             if (!contentType.startsWith("application") && !contentType.startsWith("image")) {
-                return null;
+                return Optional.empty();
             } else if (contentType.contains("pdf")) {
                 displayType = "PDF" ;
             } else if (link.contains(".")) {
                 displayType = link.substring(link.lastIndexOf(".")+1).toUpperCase();
             }
-            return displayType + " " + decimalFormat.format(bytes / 1024 / 1024) + "MB";
+            return Optional.of(displayType + decimalFormat.format(bytes / 1024 / 1024) + "MB");
         } catch (IOException e) {
             logger.error("The URL {} is not valid", link, e);
         }
-        return null;
+        return Optional.empty();
     }
 
     public String getContentType(String link) throws IOException {

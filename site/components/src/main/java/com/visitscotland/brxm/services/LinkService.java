@@ -20,7 +20,6 @@ import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,11 +46,14 @@ public class LinkService {
     private final DocumentUtilsService documentUtilsService;
     private final YoutubeApiService youtubeApiService;
     private final Logger contentLogger;
+    private final AssetLinkFactory assetLinkFactory;
 
     @Autowired
-    public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties, SiteProperties siteProperties,
-                       ImageFactory imageFactory, CommonUtilsService commonUtils, DocumentUtilsService documentUtilsService,
-                       YoutubeApiService youtubeApiService, ContentLogger contentLogger) {
+    public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils,
+                       CMSProperties cmsProperties, SiteProperties siteProperties, ImageFactory imageFactory,
+                       CommonUtilsService commonUtils, DocumentUtilsService documentUtilsService,
+                       YoutubeApiService youtubeApiService, ContentLogger contentLogger,
+                       AssetLinkFactory assetLinkFactory) {
 
         this.dmsData = dmsData;
         this.bundle = bundle;
@@ -63,6 +65,7 @@ public class LinkService {
         this.documentUtilsService = documentUtilsService;
         this.youtubeApiService = youtubeApiService;
         this.contentLogger = contentLogger;
+        this.assetLinkFactory = assetLinkFactory;
     }
 
     /**
@@ -520,11 +523,17 @@ public class LinkService {
      * @param addCategory whether the category field is populated.
      */
     private EnhancedLink enhancedLinkFromSharedLink(SharedLink sharedLink, Module<?> module, Locale locale, boolean addCategory) {
-        EnhancedLink link = new EnhancedLink();
+        EnhancedLink link;
         JsonNode product = getNodeFromSharedLink(sharedLink, module, locale);
 
-        link.setTeaser(sharedLink.getTeaser());
-        link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
+        if (sharedLink.getLinkType() instanceof Asset){
+            link = assetLinkFactory.create((Asset) sharedLink.getLinkType(), sharedLink, locale);
+        } else {
+            link = new EnhancedLink();
+            link.setTeaser(sharedLink.getTeaser());
+            link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
+        }
+
 
         if (link.getLink() == null){
             return null;
@@ -613,16 +622,20 @@ public class LinkService {
 
 
     public String getDownloadText(String link, Locale locale, Module<?> module) {
-        String size = commonUtils.getExternalDocumentSize(link, locale);
-        if (size == null) {
-            String errorMessage = String.format("The external document %s is not available.", link);
+        return getDownloadText(link, module, commonUtils.getExternalDocumentSize(link, locale));
+    }
+
+    public String getDownloadText(String link, Module<?> module, Optional<String> sizeType) {
+
+        if (sizeType.isEmpty()) {
+            String errorMessage = String.format("The size and type of the document %s is not available.", link);
             if (module != null) {
                 module.addErrorMessage(errorMessage);
             }
             contentLogger.warn(errorMessage);
             return "";
         } else {
-            return " | " + size;
+            return " | " + sizeType.get();
         }
     }
 

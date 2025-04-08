@@ -26,7 +26,7 @@ public class AssetLinkFactory {
         this.fileSizeCalculator = fileSizeCalculator;
     }
 
-    private AssetLink create(Asset asset, SharedLink sharedLink, Locale locale) {
+    public AssetLink create(Asset asset, SharedLink sharedLink, Locale locale) {
         AssetLink link = new AssetLink();
 
         link.setLabel(sharedLink.getTeaser());

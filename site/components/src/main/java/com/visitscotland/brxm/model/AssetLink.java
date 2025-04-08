@@ -1,6 +1,8 @@
 package com.visitscotland.brxm.model;
 
-public class AssetLink extends FlatLink {
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+
+public class AssetLink extends EnhancedLink {
 
     private String mimeType;
     private long size;
