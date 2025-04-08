@@ -118,13 +118,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     /**
-     * Adds labels that are necessary for type of pages. Please notice that there are two strategies for including properties
-     * <br>
-     * When all labels are required you should use {@code bundle.getAllLabels(...)}. However, in the case that only
-     * some of them are needed we can create a new {@code Map} object and include them one by one. (i.e. global labels)
-     * </ul>
+     * Populates the request's label model with resource bundle labels required for rendering the page.
      *
-     * @param request HstRequest
+     * <p>This method adds labels for various bundles—including global, social share, search, video, SEO, and skip-to—
+     * to the request's model. When the request is in edit mode, additional CMS messages are included for enhanced content
+     * editing support. The SEO labels are retrieved using a site-specific strategy.</p>
+     *
+     * @param request the current request whose label model is updated
      */
     private void addLabels(HstRequest request) {
         final String SOCIAL_SHARE_BUNDLE = "social.share";
