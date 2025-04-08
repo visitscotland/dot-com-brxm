@@ -569,12 +569,18 @@ public class LinkService {
     }
 
     /**
-     * Creates a Video Link from a Video document.
+     * Creates an enhanced video link using the provided Video document.
+     * <p>
+     * The link is created via the createVideo method using the specified locale.
+     * If the addCategory flag is true, the link's category is set to "Video", an error message is added to the module,
+     * and a warning is logged indicating that the module should not contain a Video Link.
+     * </p>
      *
-     * @param video       Video document
-     * @param module      Module to feed with any possible issue found while creating the page.
-     * @param locale      Language for the label
-     * @param addCategory Indicates whether the category field is populated
+     * @param video the Video document used to generate the link
+     * @param module the module where issues encountered during link creation are reported
+     * @param locale the locale used to localise the link's label
+     * @param addCategory if true, sets the link's category to "Video" and triggers error logging
+     * @return the generated EnhancedLink instance representing the video link
      */
     private EnhancedLink enhancedLinkFromVideo(Video video, Module<?> module, Locale locale, boolean addCategory) {
         EnhancedLink link = createVideo(video, module, locale);
@@ -588,6 +594,14 @@ public class LinkService {
         return link;
     }
 
+    /**
+     * Retrieves the path of the HippoBean associated with the specified module.
+     *
+     * <p>If the module or its HippoBean is null, returns "unknown".</p>
+     *
+     * @param module the module from which to extract the HippoBean path
+     * @return the HippoBean path, or "unknown" if the module or its HippoBean is null
+     */
     private String getSource(Module<?> module){
         if (module == null || module.getHippoBean() == null){
             return "unknown";
@@ -671,13 +685,17 @@ public class LinkService {
 
 
     /**
-     * Populates the specific fields for the Business support hub website
+     * Populates the EnhancedLink with Business Support Hub details.
+     * <p>
+     * Uses pre-defined value lists to map the provided content type and skill level to their corresponding labels,
+     * and converts the supplied topics and regions keys into textual representations.
+     * </p>
      *
-     * @param link  the link/card that is being built
-     * @param contentType    the field content type
-     * @param sectors   sectors selected
-     * @param skill skill level field
-     * @param regions regions selected
+     * @param link the EnhancedLink to be updated
+     * @param contentType the key used to obtain the content type label from the 'bsh-content-types' value list
+     * @param skill the key used to obtain the skill level label from the 'bsh-skill-levels' value list
+     * @param topics an array of keys representing topics for conversion using the 'bsh-topics' value list
+     * @param regions an array of keys representing regions for conversion using the 'bsh-regions' value list
      */
     private void setBSHFields (EnhancedLink link, String contentType, String[] sectors, String skill, String[] topics, String[] regions) {
         final String CONTENT_TYPES_VALUE_LIST = "bsh-content-types";
