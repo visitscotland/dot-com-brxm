@@ -435,7 +435,7 @@ class LinkServiceTest {
         final String category= "see-do";
         SharedLink externalDocument = new SharedLinkMockBuilder().externalDocument("title",url,category).build();
 
-        when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn("PDF 15.5MB");
+        when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn(Optional.of("PDF 15.5MB"));
         EnhancedLink enhancedLink = service.createEnhancedLink(externalDocument,null, Locale.UK, true).get();
 
         assertEquals("title | PDF 15.5MB", enhancedLink.getLabel());
@@ -476,7 +476,7 @@ class LinkServiceTest {
         final String url= "https://www.visitscotland.com/ebrochures/en/what-to-see-and-do/perthshireanddundee.pdf";
         SharedLink externalDocument = new SharedLinkMockBuilder().externalDocument("title",url,  null).build();
 
-        when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn("PDF 15.5MB");
+        when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn(Optional.of("PDF 15.5MB"));
         EnhancedLink enhancedLink = service.createEnhancedLink(externalDocument, null, Locale.UK, false).get();
 
         assertEquals("title | PDF 15.5MB", enhancedLink.getLabel());
@@ -535,7 +535,7 @@ class LinkServiceTest {
     @DisplayName("getDownloadText returns the label with the size")
     void getDownloadText() {
 
-        when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn("PDF 15.5MB");
+        when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn(Optional.of("PDF 15.5MB"));
         when(utils.getRequestLocale()).thenReturn(Locale.CANADA);
 
         assertEquals(" | PDF 15.5MB", service.getDownloadText("http://www.visitscotlan.com/pdf"));
