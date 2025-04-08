@@ -583,7 +583,7 @@ public class LinkService {
             //According to VS-2086 (old JIRA) no category is needed for videos
             link.setCategory("Video");
             module.addErrorMessage("This module should not contain a Video Link");
-            contentLogger.warn("This modules '{}' should not contain a Video Link", getSource(module));
+            contentLogger.warn("This module '{}' should not contain a Video Link", getSource(module));
         }
 
         return link;
