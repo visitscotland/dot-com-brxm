@@ -17,10 +17,10 @@ public class AssetLinkFactory {
     private static final Logger log = LoggerFactory.getLogger(AssetLinkFactory.class);
 
     private final VsRequestContextProvider requestContextProvider;
-    private final FileSizeCalculator fileSizeCalculator;
+    private final FileMetaDataCalculator fileSizeCalculator;
 
     public AssetLinkFactory (VsRequestContextProvider requestContextProvider,
-                             FileSizeCalculator fileSizeCalculator){
+                             FileMetaDataCalculator fileSizeCalculator){
         this.requestContextProvider = requestContextProvider;
         this.fileSizeCalculator = fileSizeCalculator;
     }
