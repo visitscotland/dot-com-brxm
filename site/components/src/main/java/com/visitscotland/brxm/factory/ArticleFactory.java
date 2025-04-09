@@ -80,12 +80,6 @@ public class ArticleFactory {
         }
     }
 
-    private String getAnchor(Article doc){
-        String anchor = Contract.isEmpty(doc.getAnchor())? doc.getTitle() : doc.getAnchor();
-
-        return anchor.replaceAll("[^a-zA-Z0-9]", "-").toLowerCase();
-    }
-
     private void setImage(ArticleModule module, Article doc, Locale locale){
         if (doc.getMediaItem() != null) {
             if (doc.getMediaItem() instanceof VideoLink){
@@ -187,7 +181,7 @@ public class ArticleFactory {
             }
         }
     }
-    
+
     private DownloadLink setDownload(ArticleSection paragraph, ArticleModule module, Locale locale) {
         DownloadLink downloadLink = null;
         if (paragraph.getCmsLink().getLink() != null && paragraph.getCmsLink().getLink() instanceof SharedLinkBSH) {
@@ -196,12 +190,13 @@ public class ArticleFactory {
                     || sharedLink.getLinkType() instanceof Asset) {
                 downloadLink = new DownloadLink(linkService.createSimpleLink(sharedLink, module, locale));
                 downloadLink.setTeaser(sharedLink.getTeaser());
-                downloadLink.setSize(commonUtils.getExternalDocumentSize(downloadLink.getLink(), locale, false));
-                Property p;
+                downloadLink.setSize(commonUtils
+                        .getExternalDocumentSize(downloadLink.getLink(), locale, false).orElse(null));
+                Property property;
                 try {
-                    p = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
+                    property = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
                     SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyy", locale);
-                    downloadLink.setPublishedDate(sdf.format(p.getDate().getTime()));
+                    downloadLink.setPublishedDate(sdf.format(property.getDate().getTime()));
                 } catch (RepositoryException e) {
                     throw new RuntimeException(e);
                 }
@@ -219,7 +214,7 @@ public class ArticleFactory {
         }
         return downloadLink;
     }
-        
+
 
     private boolean in (String field, String... values) {
         for (String value: values) {

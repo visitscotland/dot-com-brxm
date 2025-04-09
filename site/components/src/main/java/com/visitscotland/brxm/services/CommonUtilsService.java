@@ -68,7 +68,7 @@ public class CommonUtilsService {
     public String buildQueryString(Map<String, String> parameters, String encoding) {
         StringBuilder sb = new StringBuilder();
         try {
-            if (parameters.size() > 0) {
+            if (!parameters.isEmpty()) {
                 for (Map.Entry<String, String> entry : parameters.entrySet()) {
                     if (entry.getKey() == null) {
                         continue;
@@ -91,8 +91,9 @@ public class CommonUtilsService {
     }
 
     @Deprecated(since = "2.8.5")
-    public String getExternalDocumentSize(String link, Locale locale) {
-        return getExternalDocumentSize(link, locale, true).orElse(null);
+    @Cacheable (value="externalDocument")
+    public Optional<String> getExternalDocumentSize(String link, Locale locale) {
+        return getExternalDocumentSize(link, locale, true);
     }
 
     /**

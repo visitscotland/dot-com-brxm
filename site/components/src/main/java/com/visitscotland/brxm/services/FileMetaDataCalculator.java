@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.model.AssetLink;
+import com.visitscotland.brxm.model.bsh.FileMetaData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
@@ -18,36 +19,11 @@ public class FileMetaDataCalculator {
 
     private static final Logger logger = LoggerFactory.getLogger(FileMetaDataCalculator.class);
 
-    private class FileMetaData {
-        private String link;
-        private long contentLength;
-        private String mimeType;
-
-        public FileMetaData(String link, long contentLength, String mimeType) {
-            this.link = link;
-            this.contentLength = contentLength;
-            this.mimeType = mimeType;
-        }
-
-        public String getLink() {
-            return link;
-        }
-
-        public long getContentLength() {
-            return contentLength;
-        }
-
-        public String getMimeType() {
-            return mimeType;
-        }
-    }
-
     private final HttpConnectionProvider connectionProvider;
 
     public FileMetaDataCalculator(HttpConnectionProvider connectionProvider) {
         this.connectionProvider = connectionProvider;
     }
-
 
     private FileMetaData getFileMetaData(String link) {
         HttpURLConnection connection = null;
@@ -67,13 +43,12 @@ public class FileMetaDataCalculator {
         return null;
     }
 
-
     @Cacheable(value="externalDocument")
     public Optional<String> getDisplayText(String link, Locale locale, boolean includeType) {
         FileMetaData metaData = getFileMetaData(link);
         if (metaData != null) {
             Optional<String> displayType = includeType? getType(metaData.getMimeType(), link) : Optional.empty();
-            return composeText(displayType, metaData.contentLength, locale);
+            return composeText(displayType, metaData.getContentLength(), locale);
         }
 
         return Optional.empty();
