@@ -7,7 +7,6 @@ public class AssetLink extends EnhancedLink {
     private String mimeType;
     private long size;
 
-
     public String getMimeType() {
         return mimeType;
     }

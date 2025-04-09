@@ -27,14 +27,14 @@ public class HttpConnectionProvider {
     }
 
     public HttpURLConnection openConnection(String url) throws IOException {
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        HttpURLConnection connection = getHttpConnection(url);
         // This Timeout (5s) prevents the CMS from freezing if the connection is unstable
         connection.setConnectTimeout(connectionTimeoutMs);
         connection.setReadTimeout(readTimeoutMs);
         return connection;
     }
 
-    private HttpURLConnection getHttpConnection(String url) {
+    private HttpURLConnection getHttpConnection(String url) throws IOException {
         return (HttpURLConnection) new URL(url).openConnection();
     }
 
