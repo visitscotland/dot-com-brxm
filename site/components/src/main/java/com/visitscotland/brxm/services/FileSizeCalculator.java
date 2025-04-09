@@ -16,7 +16,7 @@ import java.util.Optional;
 @Component
 public class FileSizeCalculator {
 
-    private static final Logger logger = LoggerFactory.getLogger(LinkService.class);
+    private static final Logger logger = LoggerFactory.getLogger(FileSizeCalculator.class);
 
     private final HttpConnectionProvider connectionProvider;
 
