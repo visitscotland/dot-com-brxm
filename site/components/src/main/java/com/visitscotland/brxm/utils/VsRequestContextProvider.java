@@ -9,14 +9,17 @@ import javax.jcr.Node;
 
 @Component
 @NonTestable(NonTestable.Cause.BRIDGE)
-public class VSRequestContextProvider {
+public class VsRequestContextProvider {
 
     public HstRequestContext getRequestContext() {
         return RequestContextProvider.get();
     }
 
     public HstLink getHstLink(Node node){
-        return getRequestContext().getHstLinkCreator().create(node, getRequestContext());
+        if (node != null) {
+            return getRequestContext().getHstLinkCreator().create(node, getRequestContext());
+        }
+        return null;
     }
 
     public String getUrl(Node node){

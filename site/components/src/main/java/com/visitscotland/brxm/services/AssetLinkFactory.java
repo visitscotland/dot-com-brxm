@@ -3,25 +3,24 @@ package com.visitscotland.brxm.services;
 import com.visitscotland.brxm.hippobeans.Asset;
 import com.visitscotland.brxm.hippobeans.SharedLink;
 import com.visitscotland.brxm.model.AssetLink;
-import com.visitscotland.brxm.utils.VSRequestContextProvider;
+import com.visitscotland.brxm.utils.VsRequestContextProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.jcr.RepositoryException;
 import java.util.Locale;
-import java.util.Optional;
 
 @Component
 public class AssetLinkFactory {
 
     private static final Logger log = LoggerFactory.getLogger(AssetLinkFactory.class);
 
-    private final VSRequestContextProvider requestContextProvider;
+    private final VsRequestContextProvider requestContextProvider;
     private final FileSizeCalculator fileSizeCalculator;
 
-    public AssetLinkFactory (VSRequestContextProvider requestContextProvider,
-            FileSizeCalculator fileSizeCalculator){
+    public AssetLinkFactory (VsRequestContextProvider requestContextProvider,
+                             FileSizeCalculator fileSizeCalculator){
         this.requestContextProvider = requestContextProvider;
         this.fileSizeCalculator = fileSizeCalculator;
     }
