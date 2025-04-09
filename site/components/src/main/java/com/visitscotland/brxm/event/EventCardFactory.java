@@ -39,7 +39,7 @@ public class EventCardFactory {
         card.setDates(formatDates(document, card));
         card.setTimes(formatTimes(document));
         card.setLocation(formatLocation(document, card));
-        card.setOrganizer(valueOrNull(card.getOrganizer()));
+        card.setOrganiser(valueOrNull(document.getOrganiser()));
         card.setPrice(priceFormatter.format(document));
         card.setCta(formatCTA(document));
 
