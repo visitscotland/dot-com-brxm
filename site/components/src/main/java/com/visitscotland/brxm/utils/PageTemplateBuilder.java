@@ -133,6 +133,8 @@ public class PageTemplateBuilder {
             processTouristInformation(request,page, (TourismInformation) item, location);
         } else if (item instanceof Article){
             page.modules.add(articleFactory.getModule(request, (Article) item));
+            //TODO allow labels to be used from Factories
+            addAllLabels(request, "download");
         } else if (item instanceof LongCopy){
             processLongCopy(request, page, (LongCopy) item);
         } else if (item instanceof MapModule) {
