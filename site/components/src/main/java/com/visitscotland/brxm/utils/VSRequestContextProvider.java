@@ -19,7 +19,7 @@ public class VSRequestContextProvider {
         return getRequestContext().getHstLinkCreator().create(node, getRequestContext());
     }
 
-    public String getUrl (Node node){
+    public String getUrl(Node node){
         final boolean FULLY_QUALIFIED = false;
         return getHstLink(node).toUrlForm(getRequestContext(), FULLY_QUALIFIED);
     }
