@@ -31,9 +31,9 @@ public @interface NonTestable {
          */
         BRIDGE,
         /**
-         * The purpose of the method is to wrap a static method to increase testability.
+         * The purpose of the method is to wrap a static method or a class instance to increase testability.
          */
-        STATIC;
+        WRAP;
     }
 
     Cause value() default Cause.UNKNOWN;
