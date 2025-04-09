@@ -13,7 +13,7 @@ public class EventCard extends Module<EventBSH> {
     private String times;
     private String price;
     private String location;
-    private String organizer;
+    private String organiser;
     private String contact ;
     private String registrationDeadline;
     private FlatLink cta;
@@ -74,12 +74,12 @@ public class EventCard extends Module<EventBSH> {
         this.location = location;
     }
 
-    public String getOrganizer() {
-        return organizer;
+    public String getOrganiser() {
+        return organiser;
     }
 
-    public void setOrganizer(String organizer) {
-        this.organizer = organizer;
+    public void setOrganiser(String organiser) {
+        this.organiser = organiser;
     }
 
     public String getContact() {

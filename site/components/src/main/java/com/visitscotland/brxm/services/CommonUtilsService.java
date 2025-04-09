@@ -90,12 +90,22 @@ public class CommonUtilsService {
         return sb.toString();
     }
 
+    @Deprecated(since = "2.8.5")
+    public String getExternalDocumentSize(String link, Locale locale) {
+        return getExternalDocumentSize(link, locale, true).orElse(null);
+    }
+
     /**
      * Calculates the Size of the External document if the document
      *
+     *  @param link the link to the document to calculate the size
+     *  @param locale locale
+     *  @param concatFormat boolean to determinate if the method returns only the size or the concatenated label for the front end
+     *
      */
+    @Deprecated(since = "2.8.5")
     @Cacheable (value="externalDocument")
-    public Optional<String> getExternalDocumentSize(String link, Locale locale) {
+    public Optional<String> getExternalDocumentSize(String link, Locale locale, boolean concatFormat) {
         DecimalFormatSymbols dfs = new DecimalFormatSymbols(locale);
         DecimalFormat decimalFormat = new DecimalFormat("#.#", dfs);
         try {
@@ -108,10 +118,10 @@ public class CommonUtilsService {
             String contentType = con.getContentType();
             if (!contentType.startsWith("application") && !contentType.startsWith("image")) {
                 return Optional.empty();
-            } else if (contentType.contains("pdf")) {
-                displayType = "PDF" ;
-            } else if (link.contains(".")) {
-                displayType = link.substring(link.lastIndexOf(".")+1).toUpperCase();
+            } else if (concatFormat && contentType.contains("pdf")) {
+                displayType = "PDF " ;
+            } else if (concatFormat && link.contains(".")) {
+                displayType = link.substring(link.lastIndexOf(".")+1).toUpperCase() + " ";
             }
             return Optional.of(displayType + decimalFormat.format(bytes / 1024 / 1024) + "MB");
         } catch (IOException e) {
