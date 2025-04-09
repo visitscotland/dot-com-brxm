@@ -31,8 +31,8 @@ public class AssetLinkFactory {
 
         link.setLabel(sharedLink.getTeaser());
         link.setLink(getURL(asset));
-        link.setSize(getSize(asset).orElse(0L));
-        link.setMimeType(getMimeType(asset).orElse(null));
+        link.setSize(getSize(asset));
+        link.setMimeType(getMimeType(asset));
 
         link.setLabel(getLabel(sharedLink.getTeaser(), link, locale));
 
@@ -43,22 +43,22 @@ public class AssetLinkFactory {
         return text + " " + fileSizeCalculator.getAssetSize(link,locale);
     }
 
-    private Optional<String> getMimeType(Asset asset) {
+    private String getMimeType(Asset asset) {
         try {
-            return Optional.of(asset.getAsset().getNode().getNode("hippogallery:asset").getProperty("jcr:mimeType").getString());
+            return asset.getAsset().getNode().getNode("hippogallery:asset").getProperty("jcr:mimeType").getString();
         } catch (RepositoryException | NullPointerException e) {
-            log.warn("The mimetype for the asset {} is not avaliable: Error: {}", asset.getPath(), e.getMessage());
+            log.warn("The mimetype for the asset {} is not available: Error: {}", asset.getPath(), e.getMessage());
         }
-        return Optional.empty();
+        return null;
     }
 
-    private Optional<Long> getSize(Asset asset){
+    private Long getSize(Asset asset){
         try {
-            return Optional.of(asset.getAsset().getNode().getNode("hippogallery:asset").getProperty("jcr:data").getLength());
+            return asset.getAsset().getNode().getNode("hippogallery:asset").getProperty("jcr:data").getLength();
         } catch (RepositoryException | NullPointerException e) {
             log.warn("The size of the asset {} could not be calculated. Error: {}", asset.getPath(), e.getMessage());
         }
-        return Optional.empty();
+        return 0L;
     }
 
     private String getURL(Asset asset){
