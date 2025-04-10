@@ -3,6 +3,7 @@ package com.visitscotland.brxm.services;
 import com.visitscotland.brxm.hippobeans.Asset;
 import com.visitscotland.brxm.hippobeans.SharedLink;
 import com.visitscotland.brxm.model.AssetLink;
+import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.utils.VsRequestContextProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,8 +30,8 @@ public class AssetLinkFactory {
         Asset asset = getAsset(sharedLink);
         AssetLink link = new AssetLink();
 
-        link.setLabel(sharedLink.getTeaser());
         link.setLink(getURL(asset));
+        link.setType(LinkType.DOWNLOAD);
         link.setSize(getSize(asset));
         link.setMimeType(getMimeType(asset));
 
@@ -48,7 +49,7 @@ public class AssetLinkFactory {
     }
 
     private String getLabel(String text, AssetLink link, Locale locale) {
-        return text + " " + fileSizeCalculator.getAssetSize(link,locale);
+        return fileSizeCalculator.getDisplayText(link, locale).map(sizeType -> text + " | " + sizeType).orElse(text);
     }
 
     private String getMimeType(Asset asset) {
