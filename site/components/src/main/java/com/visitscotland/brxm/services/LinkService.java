@@ -42,18 +42,18 @@ public class LinkService {
     private final CMSProperties cmsProperties;
     private final SiteProperties siteProperties;
     private final ImageFactory imageFactory;
-    private final CommonUtilsService commonUtils;
     private final DocumentUtilsService documentUtilsService;
     private final YoutubeApiService youtubeApiService;
     private final Logger contentLogger;
     private final AssetLinkFactory assetLinkFactory;
+    private final FileMetaDataCalculator fileMetaDataCalculator;
 
     @Autowired
     public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils,
                        CMSProperties cmsProperties, SiteProperties siteProperties, ImageFactory imageFactory,
-                       CommonUtilsService commonUtils, DocumentUtilsService documentUtilsService,
+                       DocumentUtilsService documentUtilsService,
                        YoutubeApiService youtubeApiService, ContentLogger contentLogger,
-                       AssetLinkFactory assetLinkFactory) {
+                       AssetLinkFactory assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator) {
 
         this.dmsData = dmsData;
         this.bundle = bundle;
@@ -61,11 +61,11 @@ public class LinkService {
         this.cmsProperties = cmsProperties;
         this.siteProperties = siteProperties;
         this.imageFactory = imageFactory;
-        this.commonUtils = commonUtils;
         this.documentUtilsService = documentUtilsService;
         this.youtubeApiService = youtubeApiService;
         this.contentLogger = contentLogger;
         this.assetLinkFactory = assetLinkFactory;
+        this.fileMetaDataCalculator = fileMetaDataCalculator;
     }
 
     /**
@@ -236,7 +236,7 @@ public class LinkService {
      * @param link   SharedLink Object;
      * @return Plain link
      */
-    public String getPlainLink(Module module, Locale locale, SharedLink link) {
+    public String getPlainLink(Module<?> module, Locale locale, SharedLink link) {
         return getPlainLink(locale, link.getLinkType(), getNodeFromSharedLink(link, module,locale));
     }
 
@@ -527,7 +527,7 @@ public class LinkService {
         JsonNode product = getNodeFromSharedLink(sharedLink, module, locale);
 
         if (sharedLink.getLinkType() instanceof Asset){
-            link = assetLinkFactory.create((Asset) sharedLink.getLinkType(), sharedLink, locale);
+            link = assetLinkFactory.create(sharedLink, locale);
         } else {
             link = new EnhancedLink();
             link.setTeaser(sharedLink.getTeaser());
@@ -630,7 +630,7 @@ public class LinkService {
 
 
     public String getDownloadText(String link, Locale locale, Module<?> module) {
-        return getDownloadText(link, module, commonUtils.getExternalDocumentSize(link, locale));
+        return getDownloadText(link, module, fileMetaDataCalculator.getDisplayText(link, locale));
     }
 
     public String getDownloadText(String link, Module<?> module, Optional<String> sizeType) {
