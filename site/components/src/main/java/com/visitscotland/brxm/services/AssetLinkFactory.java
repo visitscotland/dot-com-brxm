@@ -25,7 +25,8 @@ public class AssetLinkFactory {
         this.fileSizeCalculator = fileSizeCalculator;
     }
 
-    public AssetLink create(Asset asset, SharedLink sharedLink, Locale locale) {
+    public AssetLink create(SharedLink sharedLink, Locale locale) {
+        Asset asset = getAsset(sharedLink);
         AssetLink link = new AssetLink();
 
         link.setLabel(sharedLink.getTeaser());
@@ -36,6 +37,14 @@ public class AssetLinkFactory {
         link.setLabel(getLabel(sharedLink.getTeaser(), link, locale));
 
         return link;
+    }
+
+    private Asset getAsset(SharedLink sharedLink){
+        if (sharedLink != null && sharedLink.getLinkType() instanceof Asset){
+            return (Asset)sharedLink.getLinkType();
+        } else {
+            throw new UnsupportedOperationException("Link type not supported");
+        }
     }
 
     private String getLabel(String text, AssetLink link, Locale locale) {
