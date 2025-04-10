@@ -35,7 +35,8 @@ public class AssetLinkFactory {
         link.setSize(getSize(asset));
         link.setMimeType(getMimeType(asset));
 
-        link.setLabel(getLabel(sharedLink.getTeaser(), link, locale));
+        link.setLabel(getLabel(sharedLink.getTitle(), link, locale));
+        link.setTeaser(sharedLink.getTeaser());
 
         return link;
     }

@@ -9,11 +9,9 @@ import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.hippobeans.capabilities.UrlLink;
-import com.visitscotland.brxm.model.FlatLink;
-import com.visitscotland.brxm.model.LinkType;
+import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
-import com.visitscotland.brxm.model.YoutubeVideo;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -534,7 +532,6 @@ public class LinkService {
             link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
         }
 
-
         if (link.getLink() == null){
             return null;
         }
@@ -561,7 +558,7 @@ public class LinkService {
             if (addCategory && sharedLink.getLinkType() instanceof ExternalDocument) {
                 link.setCategory(((ExternalDocument) sharedLink.getLinkType()).getCategory());
             }
-        } else {
+        } else if (!(sharedLink.getLinkType() instanceof Asset)){
             link.setLabel(sharedLink.getTitle());
             link.setType(getType(link.getLink()));
             if (sharedLink.getLinkType() instanceof DMSLink){

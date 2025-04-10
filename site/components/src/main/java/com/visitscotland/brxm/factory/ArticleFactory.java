@@ -6,7 +6,6 @@ import com.visitscotland.brxm.model.ArticleModuleSection;
 import com.visitscotland.brxm.model.AssetLink;
 import com.visitscotland.brxm.model.DownloadLink;
 import com.visitscotland.brxm.services.AssetLinkFactory;
-import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.services.FileMetaDataCalculator;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
@@ -213,6 +212,7 @@ public class ArticleFactory {
         downloadLink.setExtension(fileMetaDataCalculator.getFileType(
                 assetLink.getMimeType(), downloadLink.getLink()).orElse(null));
 
+        downloadLink.setLabel(sharedLink.getTitle());
         downloadLink.setTeaser(sharedLink.getTeaser());
         downloadLink.setPublishedDate(getPublishDate(sharedLink, locale));
 
@@ -225,8 +225,7 @@ public class ArticleFactory {
             return null;
         }
         downloadLink.setSize(fileMetaDataCalculator.getDownloadSize(downloadLink.getLink(), locale).orElse(null));
-        String link = downloadLink.getLink();
-        downloadLink.setExtension(FilenameUtils.getExtension(link));
+        downloadLink.setExtension(FilenameUtils.getExtension(downloadLink.getLink()));
 
         downloadLink.setTeaser(sharedLink.getTeaser());
         downloadLink.setPublishedDate(getPublishDate(sharedLink, locale));
