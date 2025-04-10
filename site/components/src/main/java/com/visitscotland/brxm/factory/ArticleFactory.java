@@ -195,7 +195,7 @@ public class ArticleFactory {
                 Property property;
                 try {
                     property = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
-                    SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyy", locale);
+                    SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyyy", locale);
                     downloadLink.setPublishedDate(sdf.format(property.getDate().getTime()));
                 } catch (RepositoryException e) {
                     throw new RuntimeException(e);
