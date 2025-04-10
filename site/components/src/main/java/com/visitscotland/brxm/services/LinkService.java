@@ -20,7 +20,6 @@ import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -580,13 +579,21 @@ public class LinkService {
     private EnhancedLink enhancedLinkFromVideo(Video video, Module<?> module, Locale locale, boolean addCategory) {
         EnhancedLink link = createVideo(video, module, locale);
 
-        //TODO: Confirm requirements for Videos in HorizontalLinks VS-2086 indicates that no category is needed but we need to wait for the final designs before taking action.
         if (addCategory) {
             link.setCategory("Video");
             module.addErrorMessage("This module should not contain a Video Link");
+            contentLogger.warn("This module '{}' should not contain a Video Link", getSource(module));
         }
 
         return link;
+    }
+
+    private String getSource(Module<?> module){
+        if (module == null || module.getHippoBean() == null){
+            return "unknown";
+        } else {
+            return module.getHippoBean().getPath();
+        }
     }
 
     /**
@@ -670,7 +677,6 @@ public class LinkService {
      * @param contentType    the field content type
      * @param sectors   sectors selected
      * @param skill skill level field
-     * @param sectors sectors selected
      * @param regions regions selected
      */
     private void setBSHFields (EnhancedLink link, String contentType, String[] sectors, String skill, String[] topics, String[] regions) {

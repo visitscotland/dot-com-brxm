@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
@@ -90,12 +89,20 @@ public class CommonUtilsService {
         return sb.toString();
     }
 
+    public String getExternalDocumentSize(String link, Locale locale) {
+        return getExternalDocumentSize(link, locale, true);
+    }
+
     /**
      * Calculates the Size of the External document if the document
      *
+     *  @param link the link to the document to calculate the size
+     *  @param locale locale
+     *  @param concatFormat boolean to determinate if the method returns only the size or the concatenated label for the front end
+     *
      */
     @Cacheable (value="externalDocument")
-    public String getExternalDocumentSize(String link, Locale locale) {
+    public String getExternalDocumentSize(String link, Locale locale, boolean concatFormat) {
         DecimalFormatSymbols dfs = new DecimalFormatSymbols(locale);
         DecimalFormat decimalFormat = new DecimalFormat("#.#", dfs);
         try {
@@ -108,12 +115,12 @@ public class CommonUtilsService {
             String contentType = con.getContentType();
             if (!contentType.startsWith("application") && !contentType.startsWith("image")) {
                 return null;
-            } else if (contentType.contains("pdf")) {
-                displayType = "PDF" ;
-            } else if (link.contains(".")) {
-                displayType = link.substring(link.lastIndexOf(".")+1).toUpperCase();
+            } else if (concatFormat && contentType.contains("pdf")) {
+                displayType = "PDF " ;
+            } else if (concatFormat && link.contains(".")) {
+                displayType = link.substring(link.lastIndexOf(".")+1).toUpperCase() + " ";
             }
-            return displayType + " " + decimalFormat.format(bytes / 1024 / 1024) + "MB";
+            return displayType + decimalFormat.format(bytes / 1024 / 1024) + "MB";
         } catch (IOException e) {
             logger.error("The URL {} is not valid", link, e);
         }

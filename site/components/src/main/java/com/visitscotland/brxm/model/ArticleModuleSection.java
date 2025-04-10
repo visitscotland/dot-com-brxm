@@ -10,6 +10,7 @@ public class ArticleModuleSection {
     private FlatImage image;
     private FlatQuote quote;
     private EnhancedLink video;
+    private DownloadLink link;
 
     public HippoHtml getCopy() {
         return copy;
@@ -49,5 +50,13 @@ public class ArticleModuleSection {
 
     public void setHeading(String heading) {
         this.heading = heading;
+    }
+
+    public DownloadLink getLink() {
+        return link;
+    }
+
+    public void setLink(DownloadLink link) {
+        this.link = link;
     }
 }

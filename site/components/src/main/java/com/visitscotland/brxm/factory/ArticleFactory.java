@@ -3,12 +3,18 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
+import com.visitscotland.brxm.model.DownloadLink;
+import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.utils.Contract;
+import org.apache.commons.io.FilenameUtils;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.springframework.stereotype.Component;
 
+import javax.jcr.Property;
+import javax.jcr.RepositoryException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -27,18 +33,21 @@ public class ArticleFactory {
     private final LinkService linkService;
     private final QuoteFactory quoteEmbedder;
     private final AnchorFormatter anchorFormatter;
+    private final CommonUtilsService commonUtils;
 
     public ArticleFactory(ImageFactory imageFactory,
                           QuoteFactory quoteEmbedder,
                           LinkService linkService,
-                          AnchorFormatter anchorFormatter) {
+                          AnchorFormatter anchorFormatter,
+                          CommonUtilsService commonUtils) {
         this.imageFactory = imageFactory;
         this.quoteEmbedder = quoteEmbedder;
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
+        this.commonUtils = commonUtils;
     }
 
-    public ArticleModule getModule(HstRequest request, Article doc){
+    public ArticleModule getModule(HstRequest request, Article doc) {
         ArticleModule module = new ArticleModule();
 
         module.setTitle(doc.getTitle());
@@ -90,7 +99,7 @@ public class ArticleFactory {
         }
     }
 
-    private void setSections(ArticleModule module, Article doc, Locale locale) {
+    private void setSections(ArticleModule module, Article doc, Locale locale){
         List<ArticleModuleSection> sections = new ArrayList<>();
 
         for (ArticleSection paragraph: doc.getParagraph()) {
@@ -106,7 +115,12 @@ public class ArticleFactory {
             }
 
             if (paragraph instanceof ArticleStyledSection) {
-                section.setHeading(((ArticleStyledSection) paragraph).getHeading());
+                ArticleStyledSection styledParagraph = (ArticleStyledSection) paragraph;
+                section.setHeading(styledParagraph.getHeading());
+            }
+
+            if (paragraph.getCmsLink() != null){
+                section.setLink(setDownload(paragraph, module, locale));
             }
 
             if (paragraph.getQuote() != null) {
@@ -119,8 +133,6 @@ public class ArticleFactory {
     }
 
     private void validate(ArticleModule module){
-
-
         if (!module.getLayout().equals(STANDARD) && module.getImage() != null) {
             module.addErrorMessage("The current Article layout doesn't allow a main Image");
         }
@@ -175,6 +187,39 @@ public class ArticleFactory {
             }
         }
     }
+    
+    private DownloadLink setDownload(ArticleSection paragraph, ArticleModule module, Locale locale) {
+        DownloadLink downloadLink = null;
+        if (paragraph.getCmsLink().getLink() != null && paragraph.getCmsLink().getLink() instanceof SharedLinkBSH) {
+            SharedLinkBSH sharedLink = (SharedLinkBSH) paragraph.getCmsLink().getLink();
+            if (sharedLink.getLinkType() instanceof ExternalDocument || sharedLink.getLinkType() instanceof FileLink
+                    || sharedLink.getLinkType() instanceof Asset) {
+                downloadLink = new DownloadLink(linkService.createSimpleLink(sharedLink, module, locale));
+                downloadLink.setTeaser(sharedLink.getTeaser());
+                downloadLink.setSize(commonUtils.getExternalDocumentSize(downloadLink.getLink(), locale, false));
+                Property p;
+                try {
+                    p = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
+                    SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyy", locale);
+                    downloadLink.setPublishedDate(sdf.format(p.getDate().getTime()));
+                } catch (RepositoryException e) {
+                    throw new RuntimeException(e);
+                }
+
+                String link = downloadLink.getLink();
+                if (link != null) {
+                    downloadLink.setExtension(FilenameUtils.getExtension(link));
+                }
+
+            } else {
+                module.addErrorMessage("The section for the Article only allows File Links or Assets");
+            }
+        } else {
+            module.addErrorMessage("The section for the Article only allows Shared Links");
+        }
+        return downloadLink;
+    }
+        
 
     private boolean in (String field, String... values) {
         for (String value: values) {
@@ -188,4 +233,5 @@ public class ArticleFactory {
     boolean isEditMode(HstRequest request) {
         return Boolean.TRUE.equals(request.getAttribute("editMode"));
     }
+
 }
