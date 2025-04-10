@@ -9,6 +9,7 @@ public class DownloadLink extends FlatLink {
 
     public DownloadLink(FlatLink flatLink) {
         super (flatLink.getLabel(), flatLink.getLink(), flatLink.getType());
+        setType(LinkType.DOWNLOAD);
     }
 
     public String getPublishedDate() {
