@@ -24,6 +24,11 @@
             <bean class="com.visitscotland.brxm.event.EventsRestService"/>
           </constructor-arg>
         </bean>
+        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+          <constructor-arg>
+            <bean class="com.visitscotland.brxm.rest.ResourceBundleEndpoint"/>
+          </constructor-arg>
+        </bean>
       </list>
     </property>
   </bean>
