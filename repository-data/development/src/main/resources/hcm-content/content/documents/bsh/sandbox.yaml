@@ -5052,7 +5052,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 82ad5cd1-c27c-4dd2-9557-08f7fa8322d2
           hippo:name: PDF Document
-          hippo:versionHistory: c9e11cad-4aca-45cd-a1ee-009bbc3cdede
+          hippo:versionHistory: 8882a63f-f980-4980-af66-f719427bed01
           /pdf-document-copy[1]:
             jcr:primaryType: visitscotland:SharedLinkBSH
             jcr:mixinTypes: ['mix:versionable']
@@ -5063,7 +5063,7 @@
             hippostd:transferable: false
             hippostdpubwf:createdBy: bsh-editor
             hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
-            hippostdpubwf:lastModificationDate: 2025-03-28T16:14:44.615Z
+            hippostdpubwf:lastModificationDate: 2025-04-10T23:26:09.552+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 18f4a9bf-63f4-435a-af1b-0cc454bcf2b0
             hippotranslation:locale: en
@@ -5071,7 +5071,7 @@
             visitscotland:sectors: []
             visitscotland:skill: ''
             visitscotland:source: ''
-            visitscotland:teaser: Ben More Walkhighlands
+            visitscotland:teaser: Ben More is more than a ben. It is BEN MORE!
             visitscotland:title: Ben More Walkhighlands
             visitscotland:topic: []
             visitscotland:type: ''
@@ -5098,7 +5098,7 @@
             hippostd:transferable: false
             hippostdpubwf:createdBy: bsh-editor
             hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
-            hippostdpubwf:lastModificationDate: 2025-03-28T16:14:07.273Z
+            hippostdpubwf:lastModificationDate: 2025-04-10T23:25:11.699+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 18f4a9bf-63f4-435a-af1b-0cc454bcf2b0
             hippotranslation:locale: en
@@ -5106,7 +5106,7 @@
             visitscotland:sectors: []
             visitscotland:skill: ''
             visitscotland:source: ''
-            visitscotland:teaser: Ben More Walkhighlands
+            visitscotland:teaser: Ben More is more than a ben. It is BEN MORE!
             visitscotland:title: Ben More Walkhighlands
             visitscotland:topic: []
             visitscotland:type: ''
@@ -5133,16 +5133,16 @@
             hippostd:transferable: false
             hippostdpubwf:createdBy: bsh-editor
             hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
-            hippostdpubwf:lastModificationDate: 2025-03-28T16:14:44.615Z
+            hippostdpubwf:lastModificationDate: 2025-04-10T23:26:09.552+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-03-28T16:17:45.250Z
+            hippostdpubwf:publicationDate: 2025-04-10T23:26:13.859+01:00
             hippotranslation:id: 18f4a9bf-63f4-435a-af1b-0cc454bcf2b0
             hippotranslation:locale: en
             visitscotland:regions: []
             visitscotland:sectors: []
             visitscotland:skill: ''
             visitscotland:source: ''
-            visitscotland:teaser: Ben More Walkhighlands
+            visitscotland:teaser: Ben More is more than a ben. It is BEN MORE!
             visitscotland:title: Ben More Walkhighlands
             visitscotland:topic: []
             visitscotland:type: ''
@@ -5206,9 +5206,10 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: bsh-editor
             hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
-            hippostdpubwf:lastModificationDate: 2025-03-28T16:05:24.817Z
+            hippostdpubwf:lastModificationDate: 2025-04-10T23:26:23.915+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: d3bc644a-117e-4c18-8751-1fcbd66d863e
             hippotranslation:locale: en
@@ -5273,7 +5274,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 0e6b75cc-0ac7-4feb-95db-6bbc317ef31b
           hippo:name: Excel File
-          hippo:versionHistory: ddbc77d2-be60-44c9-bddb-779693c04dda
+          hippo:versionHistory: 8e3b7b8b-4b25-4ac4-b0dd-0357038e797b
           /excel-file-copy[1]:
             jcr:primaryType: visitscotland:SharedLinkBSH
             jcr:mixinTypes: ['mix:versionable']
@@ -5283,7 +5284,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: bsh-editor
             hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
-            hippostdpubwf:lastModificationDate: 2025-03-28T16:15:48.715Z
+            hippostdpubwf:lastModificationDate: 2025-04-10T23:28:25.630+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 5d29dc85-7b06-41fb-98a1-f648a652af93
             hippotranslation:locale: en
@@ -5291,7 +5292,8 @@
             visitscotland:sectors: []
             visitscotland:skill: ''
             visitscotland:source: ''
-            visitscotland:teaser: Dummy Document
+            visitscotland:teaser: This is a dummy spreadsheet I found somewhere. It
+              has been added to this instance as development data.
             visitscotland:title: Dummy Excel Document
             visitscotland:topic: []
             visitscotland:type: ''
@@ -5317,7 +5319,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: bsh-editor
             hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
-            hippostdpubwf:lastModificationDate: 2025-03-28T16:15:33.079Z
+            hippostdpubwf:lastModificationDate: 2025-04-10T23:26:41.590+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 5d29dc85-7b06-41fb-98a1-f648a652af93
             hippotranslation:locale: en
@@ -5325,7 +5327,8 @@
             visitscotland:sectors: []
             visitscotland:skill: ''
             visitscotland:source: ''
-            visitscotland:teaser: Dummy Document
+            visitscotland:teaser: This is a dummy spreadsheet I found somewhere. It
+              has been added to this instance as development data.
             visitscotland:title: Dummy Excel Document
             visitscotland:topic: []
             visitscotland:type: ''
@@ -5351,16 +5354,17 @@
             hippostd:state: published
             hippostdpubwf:createdBy: bsh-editor
             hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
-            hippostdpubwf:lastModificationDate: 2025-03-28T16:15:48.715Z
+            hippostdpubwf:lastModificationDate: 2025-04-10T23:28:25.630+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-03-28T16:17:46.621Z
+            hippostdpubwf:publicationDate: 2025-04-10T23:28:30.331+01:00
             hippotranslation:id: 5d29dc85-7b06-41fb-98a1-f648a652af93
             hippotranslation:locale: en
             visitscotland:regions: []
             visitscotland:sectors: []
             visitscotland:skill: ''
             visitscotland:source: ''
-            visitscotland:teaser: Dummy Document
+            visitscotland:teaser: This is a dummy spreadsheet I found somewhere. It
+              has been added to this instance as development data.
             visitscotland:title: Dummy Excel Document
             visitscotland:topic: []
             visitscotland:type: ''
@@ -5382,7 +5386,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 3fbb307e-9013-4584-b50a-5d90d52ec537
           hippo:name: DOCX File
-          hippo:versionHistory: 233b15a2-4ca3-4c68-b52e-6bd7411f46fb
+          hippo:versionHistory: 4f5cd5b9-be02-4cc8-a63c-d7ce769dda9f
           /docx-file[1]:
             jcr:primaryType: visitscotland:SharedLinkBSH
             jcr:mixinTypes: ['mix:versionable']
@@ -5392,7 +5396,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: bsh-editor
             hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
-            hippostdpubwf:lastModificationDate: 2025-03-28T16:17:25.560Z
+            hippostdpubwf:lastModificationDate: 2025-04-10T23:29:26.957+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 746f714b-2369-44ce-83aa-fe2043e5a533
             hippotranslation:locale: en
@@ -5400,7 +5404,8 @@
             visitscotland:sectors: []
             visitscotland:skill: ''
             visitscotland:source: ''
-            visitscotland:teaser: Dummy Document
+            visitscotland:teaser: This is a empty word document! Don't look at it!
+              It is just empty. Vacio.
             visitscotland:title: Dummy Word Document
             visitscotland:topic: []
             visitscotland:type: ''
@@ -5426,7 +5431,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: bsh-editor
             hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
-            hippostdpubwf:lastModificationDate: 2025-03-28T16:17:10.873Z
+            hippostdpubwf:lastModificationDate: 2025-04-10T23:28:33.919+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 746f714b-2369-44ce-83aa-fe2043e5a533
             hippotranslation:locale: en
@@ -5434,7 +5439,8 @@
             visitscotland:sectors: []
             visitscotland:skill: ''
             visitscotland:source: ''
-            visitscotland:teaser: Dummy Document
+            visitscotland:teaser: This is a empty word document! Don't look at it!
+              It is just empty. Vacio.
             visitscotland:title: Dummy Word Document
             visitscotland:topic: []
             visitscotland:type: ''
@@ -5460,16 +5466,17 @@
             hippostd:state: published
             hippostdpubwf:createdBy: bsh-editor
             hippostdpubwf:creationDate: 2024-10-08T15:51:30.565+01:00
-            hippostdpubwf:lastModificationDate: 2025-03-28T16:17:25.560Z
+            hippostdpubwf:lastModificationDate: 2025-04-10T23:29:26.957+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-03-28T16:17:48.111Z
+            hippostdpubwf:publicationDate: 2025-04-10T23:29:30.644+01:00
             hippotranslation:id: 746f714b-2369-44ce-83aa-fe2043e5a533
             hippotranslation:locale: en
             visitscotland:regions: []
             visitscotland:sectors: []
             visitscotland:skill: ''
             visitscotland:source: ''
-            visitscotland:teaser: Dummy Document
+            visitscotland:teaser: This is a empty word document! Don't look at it!
+              It is just empty. Vacio.
             visitscotland:title: Dummy Word Document
             visitscotland:topic: []
             visitscotland:type: ''
