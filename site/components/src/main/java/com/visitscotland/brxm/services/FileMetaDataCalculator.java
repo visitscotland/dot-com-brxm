@@ -29,7 +29,7 @@ public class FileMetaDataCalculator {
         HttpURLConnection connection = null;
         try {
             connection = connectionProvider.openConnection(link);
-            if (connection.getResponseCode() >= 400){
+            if (connection.getResponseCode() >= 400) {
                 return null;
             }
             return new FileMetaData(link, connection.getContentLength(), connection.getContentType());
@@ -43,48 +43,59 @@ public class FileMetaDataCalculator {
         return null;
     }
 
-    @Cacheable(value="externalDocument")
-    public Optional<String> getDisplayText(String link, Locale locale, boolean includeType) {
+    @Cacheable(value = "externalDocument")
+    public Optional<String> getDisplayText(String link, Locale locale) {
         FileMetaData metaData = getFileMetaData(link);
         if (metaData != null) {
-            Optional<String> displayType = includeType? getType(metaData.getMimeType(), link) : Optional.empty();
+            Optional<String> displayType = getFileType(metaData.getMimeType(), link);
             return composeText(displayType, metaData.getContentLength(), locale);
         }
 
         return Optional.empty();
     }
 
-    public Optional<String> getAssetSize(AssetLink asset, Locale locale) {
-        return getAssetSize(asset, locale, true);
-    }
-
-    public Optional<String> getAssetSize(AssetLink asset, Locale locale, boolean includeType) {
-        Optional<String> mimeType = includeType && asset.getMimeType() != null ?
-                Optional.of(asset.getMimeType()) : Optional.empty();
-        return composeText(mimeType, (double) asset.getSize(), locale);
-    }
-
-    private Optional<String> getType(String mimeType, String link){
-        if (!mimeType.startsWith("application") && !mimeType.startsWith("image")) {
-            return Optional.empty();
-        } else if (mimeType.contains("pdf")) {
-            return Optional.of("PDF");
-        } else if (link.contains(".")) {
-            return Optional.of(link.substring(link.lastIndexOf(".")+1).toUpperCase());
+    @Cacheable(value = "externalDocument")
+    public Optional<String> getDownloadSize(String link, Locale locale) {
+        FileMetaData metaData = getFileMetaData(link);
+        if (metaData != null) {
+            return composeText(Optional.empty(), metaData.getContentLength(), locale);
         }
+
         return Optional.empty();
     }
 
-    private Optional<String> composeText(Optional<String> fileType, double bytes, Locale locale){
+    public Optional<String> getAssetSize(double bytes, Locale locale) {
         final double BYTES_PER_MB = 1024.0 * 1024.0;
         final DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(locale);
         final DecimalFormat decimalFormat = new DecimalFormat("#.#", decimalFormatSymbols);
 
         if (bytes > 0) {
-            String size = decimalFormat.format(bytes / BYTES_PER_MB) + "MB";
-            return fileType.map(type -> type + " " + size).or(() -> Optional.of(size));
+            return Optional.of(decimalFormat.format(bytes / BYTES_PER_MB) + "MB");
         }
 
         return Optional.empty();
+    }
+
+    public Optional<String> getDisplayText(AssetLink asset, Locale locale) {
+        Optional<String> mimeType = asset.getMimeType() != null ?
+                getFileType(asset.getMimeType(), asset.getLink()) : Optional.empty();
+        return composeText(mimeType, (double) asset.getSize(), locale);
+    }
+
+    public Optional<String> getFileType(String mimeType, String link) {
+        if (!mimeType.startsWith("application") && !mimeType.startsWith("image")) {
+            return Optional.empty();
+        } else if (mimeType.contains("pdf")) {
+            return Optional.of("PDF");
+        } else if (link.contains(".")) {
+            return Optional.of(link.substring(link.lastIndexOf(".") + 1).toUpperCase());
+        }
+        return Optional.empty();
+    }
+
+    private Optional<String> composeText(Optional<String> fileType, double bytes, Locale locale) {
+        final Optional<String> size = getAssetSize(bytes,locale);
+
+        return size.flatMap(sizeText -> fileType.map(type -> type + " " + sizeText).or(() -> Optional.of(sizeText)));
     }
 }
