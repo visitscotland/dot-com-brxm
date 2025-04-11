@@ -68,7 +68,7 @@ public class CommonUtilsService {
     public String buildQueryString(Map<String, String> parameters, String encoding) {
         StringBuilder sb = new StringBuilder();
         try {
-            if (!parameters.isEmpty()) {
+            if (parameters != null && !parameters.isEmpty()) {
                 for (Map.Entry<String, String> entry : parameters.entrySet()) {
                     if (entry.getKey() == null) {
                         continue;
