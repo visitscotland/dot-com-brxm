@@ -30,7 +30,21 @@ public class HttpConnectionProvider {
         this.readTimeoutMs = readTimeoutMs;
     }
 
+    /**
+     * Opens an HTTP connection to the specified URL with configured timeouts.
+     *
+     * @param url the URL to connect to
+     * @return the configured HTTP connection
+     * @throws IOException if an error occurs while opening the connection
+     * @throws IllegalArgumentException if the URL is null or empty
+     * @throws NullPointerException if this happens
+     * @throws IllegalStateException <why this might happen>
+     * @apiNote The caller is responsible for closing the returned connection
+     */
     public HttpURLConnection openConnection(String url) throws IOException {
+        if (url == null || url.isEmpty()) {
+            throw new IllegalArgumentException("URL cannot be null or empty");
+        }
         HttpURLConnection connection = getHttpConnection(url);
         // This timeout prevents the CMS from freezing if the connection is unstable
         connection.setConnectTimeout(connectionTimeoutMs);
