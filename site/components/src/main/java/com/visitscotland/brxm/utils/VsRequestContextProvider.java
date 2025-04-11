@@ -24,6 +24,10 @@ public class VsRequestContextProvider {
 
     public String getUrl(Node node){
         final boolean FULLY_QUALIFIED = false;
-        return getHstLink(node).toUrlForm(getRequestContext(), FULLY_QUALIFIED);
+        HstLink link = getHstLink(node);
+        if (link == null) {
+            return null;
+        }
+        return link.toUrlForm(getRequestContext(), FULLY_QUALIFIED);
     }
 }

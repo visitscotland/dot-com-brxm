@@ -630,6 +630,14 @@ public class LinkService {
         return getDownloadText(link, module, fileMetaDataCalculator.getDisplayText(link, locale));
     }
 
+    /**
+     * Formats a download text with size information for a given link.
+     *
+     * @param link URL to the downloadable resource
+     * @param module Module that will log all issues for the modules
+     * @param sizeType Optional containing the size and type of the document
+     * @return Formatted text with size information or empty string if size is not available
+     */
     public String getDownloadText(String link, Module<?> module, Optional<String> sizeType) {
 
         if (sizeType.isEmpty()) {

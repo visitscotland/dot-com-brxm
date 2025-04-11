@@ -28,7 +28,7 @@ public class HttpConnectionProvider {
 
     public HttpURLConnection openConnection(String url) throws IOException {
         HttpURLConnection connection = getHttpConnection(url);
-        // This Timeout (5s) prevents the CMS from freezing if the connection is unstable
+        // This timeout prevents the CMS from freezing if the connection is unstable
         connection.setConnectTimeout(connectionTimeoutMs);
         connection.setReadTimeout(readTimeoutMs);
         return connection;
