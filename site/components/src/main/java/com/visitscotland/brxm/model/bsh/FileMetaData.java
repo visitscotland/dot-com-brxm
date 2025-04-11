@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.model.bsh;
 
+// TODO: Convert to a record after upgrading to Java 17
 public class FileMetaData {
     private final String link;
     private final long contentLength;
