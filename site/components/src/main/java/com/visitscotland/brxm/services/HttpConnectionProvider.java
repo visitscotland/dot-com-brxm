@@ -9,6 +9,10 @@ import java.net.URL;
 
 @Component
 @NonTestable(NonTestable.Cause.WRAP)
+/**
+ * Provides configured HTTP connections with customisable timeout settings.
+ * Used to create connections for accessing external resources.
+ */
 public class HttpConnectionProvider {
 
     private static final int DEFAULT_CONNECTION_TIMEOUT_MS = 5000;
