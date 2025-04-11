@@ -42,13 +42,13 @@ public class ArticleFactory {
 
 
     public ArticleFactory(ImageFactory imageFactory,
-                          QuoteFactory quoteEmbedded,
+                          QuoteFactory quoteEmbedder,
                           LinkService linkService,
                           AnchorFormatter anchorFormatter,
                           FileMetaDataCalculator fileMetaDataCalculator,
                           AssetLinkFactory assetLinkFactory) {
         this.imageFactory = imageFactory;
-        this.quoteEmbedder = quoteEmbedded;
+        this.quoteEmbedder = quoteEmbedder;
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
         this.fileMetaDataCalculator = fileMetaDataCalculator;
