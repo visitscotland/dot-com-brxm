@@ -83,13 +83,13 @@ class CommonUtilsServiceTest {
         when(huc.getContentType()).thenReturn(MediaType.APPLICATION_PDF_VALUE);
 
         when(huc.getContentLength()).thenReturn(1024*1024*3);
-        Assertions.assertEquals("PDF 3MB", utils.getExternalDocumentSize("pdf", Locale.UK));
+        Assertions.assertEquals("PDF 3MB", utils.getExternalDocumentSize("pdf", Locale.UK).get());
 
         when(huc.getContentLength()).thenReturn(1024*512);
-        Assertions.assertEquals("PDF 0.5MB", utils.getExternalDocumentSize("pdf", Locale.UK));
+        Assertions.assertEquals("PDF 0.5MB", utils.getExternalDocumentSize("pdf", Locale.UK).get());
 
         when(huc.getContentLength()).thenReturn(1024*512*201);
-        Assertions.assertEquals("PDF 100.5MB", utils.getExternalDocumentSize("pdf", Locale.UK));
+        Assertions.assertEquals("PDF 100.5MB", utils.getExternalDocumentSize("pdf", Locale.UK).get());
     }
 
     @Test
@@ -99,25 +99,25 @@ class CommonUtilsServiceTest {
 
         //800Kb File
         when(huc.getContentLength()).thenReturn(1024*800);
-        Assertions.assertEquals("PDF 0.8MB", utils.getExternalDocumentSize("/file.pdf", Locale.UK));
+        Assertions.assertEquals("PDF 0.8MB", utils.getExternalDocumentSize("/file.pdf", Locale.UK).get());
 
         //Almost 10 mb
         when(huc.getContentLength()).thenReturn(1024*1024*10 - 30);
-        Assertions.assertEquals("PDF 10MB", utils.getExternalDocumentSize("/file.pdf", Locale.UK));
+        Assertions.assertEquals("PDF 10MB", utils.getExternalDocumentSize("/file.pdf", Locale.UK).get());
 
         //Slightly less than 10 mb
         when(huc.getContentLength()).thenReturn(1024*1024*10 + 30);
-        Assertions.assertEquals("PDF 10MB", utils.getExternalDocumentSize("/file.pdf", Locale.UK));
+        Assertions.assertEquals("PDF 10MB", utils.getExternalDocumentSize("/file.pdf", Locale.UK).get());
     }
 
     @Test
     @DisplayName("getExternalDocumentSize - Not allowed types")
     void getExternalDocumentSize_nonAllowedTypes(){
         when(huc.getContentType()).thenReturn("text/html");
-        Assertions.assertNull(utils.getExternalDocumentSize("/file.doc", Locale.UK));
+        Assertions.assertTrue(utils.getExternalDocumentSize("/file.doc", Locale.UK).isEmpty());
 
         when(huc.getContentType()).thenReturn("audio/mp3");
-        Assertions.assertNull(utils.getExternalDocumentSize("/file.epub", Locale.UK));
+        Assertions.assertTrue(utils.getExternalDocumentSize("/file.epub", Locale.UK).isEmpty());
     }
 
     @Test
@@ -130,7 +130,7 @@ class CommonUtilsServiceTest {
             }
         };
 
-        Assertions.assertNull(utils.getExternalDocumentSize("&invalid-url", Locale.UK));
+        Assertions.assertTrue(utils.getExternalDocumentSize("&invalid-url", Locale.UK).isEmpty());
     }
 
 }
