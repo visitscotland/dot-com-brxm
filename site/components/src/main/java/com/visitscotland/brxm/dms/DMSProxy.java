@@ -91,8 +91,10 @@ public class DMSProxy {
      */
     private String request(String path, int retries) {
         try {
+            // TODO: Use a pool of connections and combined to HttpConnectionProvider
             HttpURLConnection dmsConnection = openConnection(properties.getDmsDataHost() + path);
             dmsConnection.setConnectTimeout(properties.getDmsTimeout());
+            dmsConnection.setReadTimeout(properties.getDmsTimeout());
             dmsConnection.setRequestProperty(HEADER, properties.getDmsToken());
             dmsConnection.setRequestMethod("GET");
 

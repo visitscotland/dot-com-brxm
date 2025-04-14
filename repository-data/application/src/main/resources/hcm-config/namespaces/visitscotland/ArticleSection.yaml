@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c3fcd03a-51b0-4a5b-9978-a614d3e1308f
+          jcr:uuid: c136c3d7-ef7a-48cc-92d0-460e70b68a9f
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -40,6 +40,15 @@ definitions:
             hipposysedit:path: visitscotland:media
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator]
+          /cmsLink:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:cmsLink
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:CMSLink
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -91,6 +100,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Quote
             field: Quote
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            wicket.css: []
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /cmsLink:
+            jcr:primaryType: frontend:plugin
+            caption: BSH Download
+            field: cmsLink
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             hint: ''

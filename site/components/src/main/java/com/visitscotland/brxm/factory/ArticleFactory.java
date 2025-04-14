@@ -3,12 +3,21 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
+import com.visitscotland.brxm.model.AssetLink;
+import com.visitscotland.brxm.model.DownloadLink;
+import com.visitscotland.brxm.services.AssetLinkFactory;
+import com.visitscotland.brxm.services.FileMetaDataCalculator;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
-import com.visitscotland.utils.Contract;
+import org.apache.commons.io.FilenameUtils;
 import org.hippoecm.hst.core.component.HstRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import javax.jcr.Property;
+import javax.jcr.RepositoryException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -22,23 +31,31 @@ public class ArticleFactory {
     private static final String HORIZONTAL_LIST = "horizontal-list";
     private static final String IMAGE_LIST = "image-list";
     private static final String NUMBERED_LIST = "numbered-list";
+    private static final Logger log = LoggerFactory.getLogger(ArticleFactory.class);
 
     private final ImageFactory imageFactory;
     private final LinkService linkService;
     private final QuoteFactory quoteEmbedder;
     private final AnchorFormatter anchorFormatter;
+    private final FileMetaDataCalculator fileMetaDataCalculator;
+    private final AssetLinkFactory assetLinkFactory;
+
 
     public ArticleFactory(ImageFactory imageFactory,
                           QuoteFactory quoteEmbedder,
                           LinkService linkService,
-                          AnchorFormatter anchorFormatter) {
+                          AnchorFormatter anchorFormatter,
+                          FileMetaDataCalculator fileMetaDataCalculator,
+                          AssetLinkFactory assetLinkFactory) {
         this.imageFactory = imageFactory;
         this.quoteEmbedder = quoteEmbedder;
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
+        this.fileMetaDataCalculator = fileMetaDataCalculator;
+        this.assetLinkFactory = assetLinkFactory;
     }
 
-    public ArticleModule getModule(HstRequest request, Article doc){
+    public ArticleModule getModule(HstRequest request, Article doc) {
         ArticleModule module = new ArticleModule();
 
         module.setTitle(doc.getTitle());
@@ -71,12 +88,6 @@ public class ArticleFactory {
         }
     }
 
-    private String getAnchor(Article doc){
-        String anchor = Contract.isEmpty(doc.getAnchor())? doc.getTitle() : doc.getAnchor();
-
-        return anchor.replaceAll("[^a-zA-Z0-9]", "-").toLowerCase();
-    }
-
     private void setImage(ArticleModule module, Article doc, Locale locale){
         if (doc.getMediaItem() != null) {
             if (doc.getMediaItem() instanceof VideoLink){
@@ -90,7 +101,7 @@ public class ArticleFactory {
         }
     }
 
-    private void setSections(ArticleModule module, Article doc, Locale locale) {
+    private void setSections(ArticleModule module, Article doc, Locale locale){
         List<ArticleModuleSection> sections = new ArrayList<>();
 
         for (ArticleSection paragraph: doc.getParagraph()) {
@@ -106,7 +117,12 @@ public class ArticleFactory {
             }
 
             if (paragraph instanceof ArticleStyledSection) {
-                section.setHeading(((ArticleStyledSection) paragraph).getHeading());
+                ArticleStyledSection styledParagraph = (ArticleStyledSection) paragraph;
+                section.setHeading(styledParagraph.getHeading());
+            }
+
+            if (paragraph.getCmsLink() != null){
+                section.setLink(setDownload(paragraph, module, locale));
             }
 
             if (paragraph.getQuote() != null) {
@@ -119,8 +135,6 @@ public class ArticleFactory {
     }
 
     private void validate(ArticleModule module){
-
-
         if (!module.getLayout().equals(STANDARD) && module.getImage() != null) {
             module.addErrorMessage("The current Article layout doesn't allow a main Image");
         }
@@ -176,6 +190,68 @@ public class ArticleFactory {
         }
     }
 
+    private String getPublishDate(SharedLink sharedLink, Locale locale) {
+        try {
+            Property property = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM yyyy", locale);
+            return dateFormat.format(property.getDate().getTime());
+        } catch (RepositoryException e) {
+            log.warn("An error has occurred while calculating the publish Date link. Path: {}. Error Message {}",
+                    sharedLink.getPath(), e.getMessage());
+        }
+        return null;
+    }
+
+    private DownloadLink createDownloadFromAsset(SharedLinkBSH sharedLink, Locale locale) {
+        AssetLink assetLink = assetLinkFactory.create(sharedLink, locale);
+        if (assetLink.getLink() == null) {
+            return null;
+        }
+        DownloadLink downloadLink = new DownloadLink(assetLink);
+        downloadLink.setSize(fileMetaDataCalculator.getAssetSize(assetLink.getSize(), locale).orElse(null));
+        downloadLink.setExtension(fileMetaDataCalculator.getFileType(
+                assetLink.getMimeType(), downloadLink.getLink()).orElse(null));
+
+        downloadLink.setLabel(sharedLink.getTitle());
+        downloadLink.setTeaser(sharedLink.getTeaser());
+        downloadLink.setPublishedDate(getPublishDate(sharedLink, locale));
+
+        return downloadLink;
+    }
+
+    private DownloadLink createDownloadFromExternalDocument(SharedLinkBSH sharedLink, ArticleModule module, Locale locale) {
+        DownloadLink downloadLink = new DownloadLink(linkService.createSimpleLink(sharedLink, module, locale));
+        if (downloadLink.getLink() == null){
+            return null;
+        }
+        downloadLink.setSize(fileMetaDataCalculator.getDownloadSize(downloadLink.getLink(), locale).orElse(null));
+        downloadLink.setExtension(FilenameUtils.getExtension(downloadLink.getLink()));
+
+        downloadLink.setTeaser(sharedLink.getTeaser());
+        downloadLink.setPublishedDate(getPublishDate(sharedLink, locale));
+
+        return downloadLink;
+    }
+
+    private DownloadLink setDownload(ArticleSection paragraph, ArticleModule module, Locale locale) {
+        if (paragraph.getCmsLink().getLink() instanceof SharedLinkBSH) {
+            SharedLinkBSH sharedLink = (SharedLinkBSH) paragraph.getCmsLink().getLink();
+
+            if (sharedLink.getLinkType() instanceof ExternalDocument
+                    || sharedLink.getLinkType() instanceof FileLink){
+                return createDownloadFromExternalDocument(sharedLink, module, locale);
+            } else if (sharedLink.getLinkType() instanceof Asset){
+                return createDownloadFromAsset(sharedLink, locale);
+            } else {
+                log.warn("Unsupported link type: {}", sharedLink.getLinkType());
+                module.addErrorMessage("The section for the Article only allows File Links or Assets");
+            }
+        } else {
+            module.addErrorMessage("The section for the Article only allows Shared Links");
+        }
+        return null;
+    }
+
     private boolean in (String field, String... values) {
         for (String value: values) {
             if (field.equals(value)) {
@@ -188,4 +264,5 @@ public class ArticleFactory {
     boolean isEditMode(HstRequest request) {
         return Boolean.TRUE.equals(request.getAttribute("editMode"));
     }
+
 }
