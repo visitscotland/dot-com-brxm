@@ -7,7 +7,7 @@ exit_on_failure() {
 }
 
 # Shelve current workspace
-branch=$(git branch --show-current)
+branch=$(git rev-parse --abbrev-ref HEAD)
 # Initialize stash tracking variable (0 = no stash, 1 = stash created)
 hasStashedChanges=0
 

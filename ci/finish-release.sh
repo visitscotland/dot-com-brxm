@@ -7,7 +7,7 @@ exit_on_failure() {
 }
 
 # Shelve current workspace
-branch=$(git branch --show-current)
+branch=$(git rev-parse --abbrev-ref HEAD)
 # Initialize stash tracking variable (0 = no stash, 1 = stash created)
 hasStashedChanges=0
 
@@ -55,7 +55,7 @@ if git show-ref --verify --quiet "refs/heads/$branch"; then
     git checkout "$branch" || exit_on_failure "Failed to switch back to branch: $branch"
 else
     echo "The original branch '$branch' has been deleted as part of the process"
-    branch=$(git branch --show-current)
+    branch=$(git rev-parse --abbrev-ref HEAD)
     echo "Your current branch is: '$branch'"
 fi
 
