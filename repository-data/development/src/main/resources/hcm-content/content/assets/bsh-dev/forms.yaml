@@ -1,0 +1,22 @@
+/content/assets/bsh-dev/forms:
+  jcr:primaryType: hippogallery:stdAssetGallery
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 7ddc4a66-40a3-45c0-a90d-5287f98f4ce2
+  hippo:name: Forms
+  hippostd:foldertype: [new-file-folder]
+  hippostd:gallerytype: ['hippogallery:exampleAssetSet']
+  /climate-action-plan-workbook-request.json:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 7f059a60-c337-40ef-947a-502c288e4f2c
+    /climate-action-plan-workbook-request.json:
+      jcr:primaryType: hippogallery:exampleAssetSet
+      hippo:availability: [live, preview]
+      /hippogallery:asset:
+        jcr:primaryType: hippo:resource
+        hippo:filename: climate-action-plan-workbook-request.json
+        jcr:data:
+          type: binary
+          resource: /content/assets/bsh-dev/forms/climate-action-plan-workbook-request.json/climate-action-plan-workbook-request.json/asset/climate-action-plan-workbook-request.json
+        jcr:lastModified: 2025-04-14T12:47:00.327+01:00
+        jcr:mimeType: application/json
