@@ -7,7 +7,7 @@ exit_on_failure() {
 }
 
 # Shelve current workspace
-branch=$(git branch --show-current)
+branch=$(git rev-parse --abbrev-ref HEAD)
 # Initialize stash tracking variable (0 = no stash, 1 = stash created)
 hasStashedChanges=0
 
@@ -42,12 +42,21 @@ if ! git pull origin develop; then
     exit_on_failure "Pulling develop"
 fi
 
-if ! mvn gitflow:release-start --batch-mode; then
+# --batch-mode removed so that the user can be prompted for the release version
+if ! mvn gitflow:release-start; then
     exit_on_failure "Maven release start"
 fi
 
 if ! mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false; then
     exit_on_failure "Maven versions use-releases and scm checkin"
+fi
+
+# Store the release branch value so that it can be displayed to the user
+releaseBranch=$(git rev-parse --abbrev-ref HEAD)
+if [ -z "$releaseBranch" ]; then
+    exit_on_failure "git rev-parse --abbrev-ref HEAD"
+else
+    echo "Release branch created via the mvn gitflow plugin: $releaseBranch"
 fi
 
 echo "Taking you back to your work on branch $branch"
