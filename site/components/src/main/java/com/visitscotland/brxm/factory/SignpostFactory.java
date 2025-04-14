@@ -69,7 +69,7 @@ public class SignpostFactory {
         return createSignPostModule(properties.getSiteId() +"." + BUNDLE_ID, "newsletter", locale);
     }
 
-    public Module<?> createModule (CTABanner ctaBanner){
+    public Module<?> createModule(CTABanner ctaBanner) {
         SignpostModule module = new SignpostModule();
         Linkable linkable = (Linkable) ctaBanner.getCtaLink().getLink();
         FlatLink cta = linkService.createSimpleLink(linkable, module, null);
