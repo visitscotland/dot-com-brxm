@@ -51,6 +51,14 @@ if ! mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependenc
     exit_on_failure "Maven versions use-releases and scm checkin"
 fi
 
+# Store the release branch value so that it can be displayed to the user
+releaseBranch=$(git rev-parse --abbrev-ref HEAD)
+if [ -z "$releaseBranch" ]; then
+    exit_on_failure "git rev-parse --abbrev-ref HEAD"
+else
+    echo "Release branch created via the mvn gitflow plugin: $releaseBranch"
+fi
+
 echo "Taking you back to your work on branch $branch"
 if ! git checkout "$branch"; then
     exit_on_failure "Checkout back to branch"
