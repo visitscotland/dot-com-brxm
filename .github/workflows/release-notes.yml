@@ -5,6 +5,18 @@ on:
     tags:
       - '*'
 
+# Issue:
+#  - Without permissions:
+#     a. Could accidentally allow secret access, PR writes, etc.
+#     b. Inherits org/repo defaults (possibly write-all)
+#  - With permissions:
+#	  a. Explicit, scoped, secure
+#	  b. Locked down to release creation only
+# Solution:
+#  Principle of Least Privilege, explicitly restrict the token's permissions to only what's necessary
+permissions:
+  contents: write  # 👈 Minimum required to create a release
+
 jobs:
   create-release:
     runs-on: ubuntu-latest
