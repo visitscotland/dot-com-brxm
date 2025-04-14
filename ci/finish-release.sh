@@ -25,22 +25,37 @@ else
     echo "No local changes to stash."
 fi
 
-# Get the first release branch matching the pattern
-# awk prints the last field of the line, stripping out any leading * and whitespace, leaving only the branch name
-releaseBranch=$(git branch --list 'release/*' | head -1 | awk '{print $NF}')
-
-if [ -z "$releaseBranch" ]; then
-    exit_on_failure "No release/* branch found. Git branch --list for release branches"
+# Refreshing workspace, to account for the scenario in which a developer starts the release, but another one finishes it
+echo "Fetching latest updates from origin..."
+if ! git fetch --all --prune; then
+    exit_on_failure "fetch --all --prune"
 fi
 
-echo "Checking out the release branch $releaseBranch"
-if ! git checkout "$releaseBranch"; then
-    exit_on_failure "Checkout to release branch"
+if ! git checkout main; then
+    exit_on_failure "Checkout to main"
 fi
 
-echo "Pulling the latest changes (if any)"
-if ! git pull origin "$releaseBranch"; then
-    exit_on_failure "Pulling latest changes"
+if ! git pull origin main; then
+    exit_on_failure "Pulling main"
+fi
+
+if ! git checkout develop; then
+    exit_on_failure "Checkout to develop"
+fi
+
+if ! git pull origin develop; then
+    exit_on_failure "Pulling develop"
+fi
+
+# Retrieve the most recent remote release branch
+releaseBranch=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/remotes/origin/release/ | head -1 | sed 's|^origin/||')
+
+# Create local tracking branch if it doesn't exist
+if [ -n "$releaseBranch" ]; then
+    echo "Checking out release branch: $releaseBranch"
+    git checkout -B "$releaseBranch" "origin/$releaseBranch" || exit_on_failure "Checkout to release branch"
+else
+    exit_on_failure "No remote release/* branch found. git branch -r | grep 'origin/release/' ..."
 fi
 
 echo 'Proceeding with the main finish-release script...'
