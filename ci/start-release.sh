@@ -42,7 +42,8 @@ if ! git pull origin develop; then
     exit_on_failure "Pulling develop"
 fi
 
-if ! mvn gitflow:release-start --batch-mode; then
+# --batch-mode removed so that the user can be prompted for the release version
+if ! mvn gitflow:release-start; then
     exit_on_failure "Maven release start"
 fi
 
