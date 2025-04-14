@@ -5,14 +5,18 @@ import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.SignpostModule;
+import com.visitscotland.brxm.model.ErrorModule;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
+import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -22,6 +26,7 @@ public class SignpostFactory {
 
     private static final String BUNDLE_ID = "newsletter-signpost";
 
+    private final Logger contentLogger;
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private final HippoUtilsService hippoUtilsService;
@@ -32,12 +37,14 @@ public class SignpostFactory {
                            SiteProperties properties,
                            HippoUtilsService hippoUtilsService,
                            LinkService linkService,
-                           AnchorFormatter anchorFormatter) {
+                           AnchorFormatter anchorFormatter,
+                           ContentLogger contentLogger) {
         this.bundle = bundle;
         this.properties = properties;
         this.hippoUtilsService = hippoUtilsService;
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
+        this.contentLogger = contentLogger;
     }
 
     public SignpostModule createNewsletterSignpostModule(Locale locale) {
@@ -62,16 +69,20 @@ public class SignpostFactory {
         return createSignPostModule(properties.getSiteId() +"." + BUNDLE_ID, "newsletter", locale);
     }
 
-    public SignpostModule createModule (CTABanner ctaBanner){
+    public Module<?> createModule (CTABanner ctaBanner){
         SignpostModule module = new SignpostModule();
         Linkable linkable = (Linkable) ctaBanner.getCtaLink().getLink();
         FlatLink cta = linkService.createSimpleLink(linkable, module, null);
-        if (!Contract.isEmpty(ctaBanner.getCtaLink().getLabel())) {
-            cta.setLabel(ctaBanner.getCtaLink().getLabel());
-        }
 
         if (Contract.isNull(cta.getLink())) {
-            return null;
+            contentLogger.warn(String.format(
+                    "The link for the CTA banner %s is not available. The module has been hidden", ctaBanner.getPath()));
+            return new ErrorModule(ctaBanner,
+                    "The link for the CTA banner is not available. The module has been hidden");
+        }
+
+        if (!Contract.isEmpty(ctaBanner.getCtaLink().getLabel())) {
+            cta.setLabel(ctaBanner.getCtaLink().getLabel());
         }
 
         FlatImage image = new FlatImage();
