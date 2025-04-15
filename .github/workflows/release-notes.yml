@@ -1,0 +1,31 @@
+name: Create Release Notes
+
+on:
+  push:
+    tags:
+      - '*'
+
+# Issue:
+#  - Without permissions:
+#     a. Could accidentally allow secret access, PR writes, etc.
+#     b. Inherits org/repo defaults (possibly write-all)
+#  - With permissions:
+#	  a. Explicit, scoped, secure
+#	  b. Locked down to release creation only
+# Solution:
+#  Principle of Least Privilege, explicitly restrict the token's permissions to only what's necessary
+permissions:
+  contents: write  # 👈 Minimum required to create a release
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate GitHub release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create ${{ github.ref_name }} --generate-notes

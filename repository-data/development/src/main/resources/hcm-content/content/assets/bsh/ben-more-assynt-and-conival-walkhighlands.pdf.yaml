@@ -1,0 +1,19 @@
+/content/assets/bsh/ben-more-assynt-and-conival-walkhighlands.pdf:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 79b62631-1c50-4763-a603-0d11a6ca0185
+  hippo:name: Ben More Assynt and Conival (Walkhighlands).pdf
+  /ben-more-assynt-and-conival-walkhighlands.pdf:
+    jcr:primaryType: hippogallery:exampleAssetSet
+    hippo:availability: [live, preview]
+    /hippogallery:asset:
+      jcr:primaryType: hippo:resource
+      hippo:filename: Ben More Assynt and Conival (Walkhighlands).pdf
+      hippo:text:
+        type: binary
+        resource: /content/assets/bsh/ben-more-assynt-and-conival-walkhighlands.pdf/ben-more-assynt-and-conival-walkhighlands.pdf/asset/Ben-More-Assynt-and-Conival-(Walkhighlands).pdf
+      jcr:data:
+        type: binary
+        resource: /content/assets/bsh/ben-more-assynt-and-conival-walkhighlands.pdf/ben-more-assynt-and-conival-walkhighlands.pdf/asset/Ben-More-Assynt-and-Conival-(Walkhighlands)-1.pdf
+      jcr:lastModified: 2025-03-28T16:01:17.556Z
+      jcr:mimeType: application/pdf
