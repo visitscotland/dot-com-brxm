@@ -8,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Map;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.Set;
 
@@ -30,7 +31,7 @@ class ResourceBundleValueExtractorTest {
     }
 
     @Test
-    void When_extractValueFromResourceBundle_With_ValidResourceBundleAndUnknownKey_OptionalOfEmpty() {
+    void When_ExtractValueFromResourceBundle_With_ValidResourceBundleAndUnknownKey_OptionalOfEmpty() {
         when(resourceBundle.containsKey(UNKNOWN_KEY)).thenReturn(false);
 
         var actual = resourceBundleValueExtractor.extractValueFromResourceBundle(resourceBundle, UNKNOWN_KEY);
@@ -40,7 +41,7 @@ class ResourceBundleValueExtractorTest {
     }
 
     @Test
-    void When_extractValueFromResourceBundle_With_ValidResourceBundleAndKnownKey_OptionalOfResult() {
+    void When_ExtractValueFromResourceBundle_With_ValidResourceBundleAndKnownKey_OptionalOfResult() {
         final var bundleValue = "Hello world!";
 
         when(resourceBundle.containsKey(KNOWN_KEY)).thenReturn(true);
@@ -54,17 +55,39 @@ class ResourceBundleValueExtractorTest {
     }
 
     @Test
-    void When_extractValuesFromResourceBundle_With_ResourceBundleWithNoEntries_EmptyList() {
+    void When_ExtractValueFromResourceBundle_With_ResourceBundleValueDoesNotExist_ThrowsMissingResourceException() {
+        when(resourceBundle.containsKey(UNKNOWN_KEY)).thenReturn(true);
+        when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(MissingResourceException.class);
+
+        Assertions.assertThrows(MissingResourceException.class,
+            () -> resourceBundleValueExtractor.extractValueFromResourceBundle(resourceBundle, UNKNOWN_KEY));
+
+        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
+    }
+
+    @Test
+    void When_ExtractValueFromResourceBundle_With_ResourceBundleContainsValueOtherThanString_ThrowsClassCastException() {
+        when(resourceBundle.containsKey(UNKNOWN_KEY)).thenReturn(true);
+        when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(ClassCastException.class);
+
+        Assertions.assertThrows(ClassCastException.class,
+            () -> resourceBundleValueExtractor.extractValueFromResourceBundle(resourceBundle, UNKNOWN_KEY));
+
+        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
+    }
+
+    @Test
+    void When_ExtractValuesFromResourceBundleAsList_With_ResourceBundleAsListWithNoEntries_EmptyList() {
         when(resourceBundle.keySet()).thenReturn(Set.of());
 
-        var actual = resourceBundleValueExtractor.extractValuesFromResourceBundle(resourceBundle);
+        var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle);
 
         Assertions.assertTrue(actual.isEmpty());
         verify(resourceBundle).keySet();
     }
 
     @Test
-    void When_extractValuesFromResourceBundle_With_ResourceBundleWithEntries_Expect_ListOfValues() {
+    void When_ExtractValuesFromResourceBundleAsList_With_ResourceBundleWithEntries_Expect_ListOfValuesAsList() {
         final var context = Map.of(
             "item.one", "I am this first value",
             "item.two", "I am the second value",
@@ -74,7 +97,7 @@ class ResourceBundleValueExtractorTest {
         when(resourceBundle.keySet()).thenReturn(context.keySet());
         context.forEach((key, value) -> when(resourceBundle.getString(key)).thenReturn(value));
 
-        var actual = resourceBundleValueExtractor.extractValuesFromResourceBundle(resourceBundle);
+        var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle);
 
         Assertions.assertFalse(actual.isEmpty());
 
@@ -85,15 +108,76 @@ class ResourceBundleValueExtractorTest {
     }
 
     @Test
-    void When_extractValuesFromResourceBundle_With_ResourceBundleWithBlankEntries_Expect_ListNotToIncludeBlanks() {
+    void When_ExtractValuesFromResourceBundleAsList_With_ResourceBundleAsListWithBlankEntries_Expect_ListNotToIncludeBlanks() {
         final var value = "  ";
 
         when(resourceBundle.keySet()).thenReturn(Set.of(KNOWN_KEY));
         when(resourceBundle.getString(KNOWN_KEY)).thenReturn(value);
 
-        var actual = resourceBundleValueExtractor.extractValuesFromResourceBundle(resourceBundle);
+        var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle);
 
         Assertions.assertTrue(actual.isEmpty());
         verify(resourceBundle).getString(eq(KNOWN_KEY));
+    }
+
+    @Test
+    void When_ExtractValuesFromResourceBundleAsList_With_ResourceBundleValueDoesNotExist_Expect_ThrowsMissingResourceException() {
+        when(resourceBundle.keySet()).thenReturn(Set.of(UNKNOWN_KEY));
+        when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(MissingResourceException.class);
+
+        Assertions.assertThrows(MissingResourceException.class,
+            () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle));
+
+        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
+    }
+
+    @Test
+    void When_ExtractValuesFromResourceBundleAsList_With_ResourceBundleContainsValueOtherThanString_Expect_ThrowsClassCastException() {
+        when(resourceBundle.keySet()).thenReturn(Set.of(UNKNOWN_KEY));
+        when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(ClassCastException.class);
+
+        Assertions.assertThrows(ClassCastException.class,
+            () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle));
+
+        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
+    }
+
+    @Test
+    void When_ExtractValuesFromResourceBundleAsMap_With_ValidResourceBundle_Expect_MapOfBundleEntries() {
+        final Map<String, String> context = Map.of(
+            "item.one", "I am this first value",
+            "item.two", "I am the second value"
+        );
+
+        when(resourceBundle.keySet()).thenReturn(context.keySet());
+        context.forEach((key, value) -> when(resourceBundle.getString(key)).thenReturn(value));
+
+        final var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(resourceBundle);
+
+        Assertions.assertEquals(context, actual);
+        verify(resourceBundle).keySet();
+        actual.keySet().forEach(key -> verify(resourceBundle).getString(eq(key)));
+    }
+
+    @Test
+    void When_ExtractValuesFromResourceBundleAsMap_With_ResourceBundleValueDoesNotExist_Expect_ThrowsMissingResourceException() {
+        when(resourceBundle.keySet()).thenReturn(Set.of(UNKNOWN_KEY));
+        when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(MissingResourceException.class);
+
+        Assertions.assertThrows(MissingResourceException.class,
+            () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(resourceBundle));
+
+        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
+    }
+
+    @Test
+    void When_ExtractValuesFromResourceBundleAsMap_With_ResourceBundleContainsValueOtherThanString_Expect_ThrowsClassCastException() {
+        when(resourceBundle.keySet()).thenReturn(Set.of(UNKNOWN_KEY));
+        when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(ClassCastException.class);
+
+        Assertions.assertThrows(ClassCastException.class,
+            () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(resourceBundle));
+
+        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
     }
 }
