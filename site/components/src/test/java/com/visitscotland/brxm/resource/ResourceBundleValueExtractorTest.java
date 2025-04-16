@@ -1,15 +1,16 @@
 package com.visitscotland.brxm.resource;
 
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Map;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.Mock;
+
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
+import java.util.Map;
 import java.util.Set;
 
 import static org.mockito.ArgumentMatchers.eq;
@@ -99,12 +100,12 @@ class ResourceBundleValueExtractorTest {
 
         var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle);
 
-        Assertions.assertFalse(actual.isEmpty());
-
         context.forEach((key, value) -> {
             Assertions.assertTrue(actual.contains(value));
             verify(resourceBundle).getString(key);
         });
+
+        verify(resourceBundle).keySet();
     }
 
     @Test
