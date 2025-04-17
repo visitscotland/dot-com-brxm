@@ -5,6 +5,6 @@ public class ResourceQueryFailedException extends ResourceException {
         "Attempt to query the requested resource bundle, %s, has failed";
 
     public ResourceQueryFailedException(final String bundleName, final Throwable cause) {
-        super(String.format(bundleName), cause);
+        super(String.format(EXCEPTION_MESSAGE, bundleName), cause);
     }
 }
