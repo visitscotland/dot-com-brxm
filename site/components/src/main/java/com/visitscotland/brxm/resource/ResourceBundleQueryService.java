@@ -40,11 +40,11 @@ class ResourceBundleQueryService {
      * @param bundleName the base name of the resource bundle; may not be null
      * @param itemKey the key whose associated value is to be retrieved; may not be null
      * @param isSiteBundle a flag indicating whether the bundle is site-specific, which affects
-     *                     how the bundle name is resolved
+     * how the bundle name is resolved
      * @return an {@code Optional} containing the value associated with {@code itemKey} if found;
-     *         otherwise, an empty {@code Optional}
+     * otherwise, an empty {@code Optional}
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
-     *                                     cannot be cast to strings, wrapping the original exception
+     * cannot be cast to strings, wrapping the original exception
      */
     Optional<String> getValueFor(final String bundleName, final String itemKey, final boolean isSiteBundle) {
         if (Contract.anyNull(bundleName, itemKey)) {
@@ -73,11 +73,11 @@ class ResourceBundleQueryService {
      * @param locale the locale for which the resource bundle should be loaded; may not be null
      * @param itemKey the key whose associated value is to be retrieved; may not be null
      * @param isSiteBundle a flag indicating whether the bundle is site-specific, which affects
-     *                     how the bundle name is resolved
+     * how the bundle name is resolved
      * @return an {@code Optional} containing the value associated with {@code itemKey} if found;
-     *         otherwise, an empty {@code Optional}
+     * otherwise, an empty {@code Optional}
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
-     *                                     cannot be cast to strings, wrapping the original exception
+     * cannot be cast to strings, wrapping the original exception
      */
     Optional<String> getValueFor(final String bundleName,
                                  final Locale locale,
@@ -106,10 +106,10 @@ class ResourceBundleQueryService {
      *
      * @param bundleName the base name of the resource bundle to retrieve; must not be null
      * @param isSiteBundle a flag indicating whether the bundle is site-specific, which affects
-     *                     how the bundle name is resolved
+     * how the bundle name is resolved
      * @return a map containing all keys and their corresponding string values from the resolved resource bundle
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
-     *                                     cannot be cast to strings, wrapping the original exception
+     * cannot be cast to strings, wrapping the original exception
      */
     Map<String, String> getAllValuesFor(final @Nonnull String bundleName, final boolean isSiteBundle) {
         final String resolvedBundleName = resolveBundleName(bundleName, isSiteBundle);
@@ -132,10 +132,10 @@ class ResourceBundleQueryService {
      * @param bundleName the base name of the resource bundle to retrieve; must not be null
      * @param locale the locale for which the resource bundle should be loaded
      * @param isSiteBundle a flag indicating whether the bundle is site-specific, which affects
-     *                     how the bundle name is resolved
+     * how the bundle name is resolved
      * @return a map containing all keys and their corresponding string values from the resolved resource bundle for the specified locale
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
-     *                                     cannot be cast to strings, wrapping the original exception
+     * cannot be cast to strings, wrapping the original exception
      */
     Map<String, String> getAllValuesFor(final @Nonnull String bundleName, final Locale locale, final boolean isSiteBundle) {
         final String resolvedBundleName = resolveBundleName(bundleName, isSiteBundle);
