@@ -4,9 +4,14 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Nonnull;
 
-import java.util.*;
-import java.util.stream.Collectors;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.ResourceBundle;
+import java.util.Optional;
+import java.util.HashMap;
+import java.util.Objects;
+import java.util.List;
+import java.util.Map;
 
 @Component
 class ResourceBundleValueExtractor {
@@ -52,11 +57,14 @@ class ResourceBundleValueExtractor {
     }
 
     /**
-     * Creates a map containing all key-value pairs from the provided {@link ResourceBundle}.
-     * Each key in the map corresponds to a key in the resource bundle, and the value is the associated string.
+     * Extracts all key-value pairs from the given {@link ResourceBundle} and returns them as an unmodifiable {@link Map}.
+     * <p>
+     * The method iterates over all keys in the provided resource bundle and maps each key to its corresponding string value.
+     * </p>
      *
-     * @param resourceBundle the {@link ResourceBundle} from which to extract labels; must not be null
-     * @return a {@link Map} containing all keys and their corresponding string values from the resource bundle
+     * @param resourceBundle the resource bundle from which to extract key-value pairs; must not be {@code null}
+     * @return an unmodifiable map containing all key-value pairs from the resource bundle
+     * @throws NullPointerException if {@code resourceBundle} is {@code null}
      */
     Map<String, String> extractValuesFromResourceBundleAsMap(final @Nonnull ResourceBundle resourceBundle) {
         Objects.requireNonNull(resourceBundle, "resourceBundle cannot be null");
@@ -66,6 +74,6 @@ class ResourceBundleValueExtractor {
             bundleMap.put(key, resourceBundle.getString(key));
         }
 
-        return bundleMap;
+        return Map.copyOf(bundleMap);
     }
 }

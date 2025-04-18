@@ -201,4 +201,20 @@ class ResourceBundleValueExtractorTest {
 
         Assertions.assertEquals(message, exception.getMessage());
     }
+
+    @Test
+    void When_ExtractValuesFromResourceBundleAsMap_With_ValidResourceBundle_Expect_MapCannotBeModified() {
+        final Map<String, String> context = Map.of(
+            "item.one", "I am this first value",
+            "item.two", "I am the second value"
+        );
+
+        when(resourceBundle.keySet()).thenReturn(context.keySet());
+        context.forEach((key, value) -> when(resourceBundle.getString(key)).thenReturn(value));
+
+        final var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(resourceBundle);
+
+        Assertions.assertThrows(UnsupportedOperationException.class,
+            () -> actual.remove("item.one"));
+    }
 }
