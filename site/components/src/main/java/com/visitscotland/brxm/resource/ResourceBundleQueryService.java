@@ -80,8 +80,8 @@ class ResourceBundleQueryService {
      * cannot be cast to strings, wrapping the original exception
      */
     Optional<String> getValueFor(final String bundleName,
-                                 final Locale locale,
                                  final String itemKey,
+                                 final Locale locale,
                                  final boolean isSiteBundle) {
         if (Contract.anyNull(bundleName, itemKey, locale)) {
             return Optional.empty();
