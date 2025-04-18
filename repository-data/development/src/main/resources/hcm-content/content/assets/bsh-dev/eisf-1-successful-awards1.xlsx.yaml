@@ -1,4 +1,4 @@
-/content/assets/bsh/eisf-1-successful-awards1.xlsx:
+/content/assets/bsh-dev/eisf-1-successful-awards1.xlsx:
   .meta:order-before: dummy-docx1.docx
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -12,6 +12,6 @@
       hippo:filename: eisf-1-successful-awards[1].xlsx
       jcr:data:
         type: binary
-        resource: /content/assets/bsh/eisf-1-successful-awards1.xlsx/eisf-1-successful-awards1.xlsx/asset/eisf-1-successful-awards[1].xlsx
+        resource: /content/assets/bsh-dev/eisf-1-successful-awards1.xlsx/eisf-1-successful-awards1.xlsx/asset/eisf-1-successful-awards[1].xlsx
       jcr:lastModified: 2025-03-28T16:03:03.748Z
       jcr:mimeType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet

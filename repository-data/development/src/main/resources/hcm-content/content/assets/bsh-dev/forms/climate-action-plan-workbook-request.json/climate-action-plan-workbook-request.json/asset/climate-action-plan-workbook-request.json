@@ -1,0 +1,68 @@
+{
+  "formSandboxId": "00",
+  "formLiveId": "00",
+  "content": {
+    "heading": "Climate action plan workbook request",
+    "successHeading": "Thanks for submitting your business details!",
+    "successContent": "<p>You will shortly receive an email with a link to download your workbook.</p><p>If you do not receive it, please check your spam and junk folders, or contact business.support@visitscotland.com</p>",
+    "noJs": "<p><strong>JavaScript needs to be enabled to access this form. Alternatively email business.support@visitscotland.com</strong></p>",
+    "submit": "Submit"
+  },
+  "fields": [
+    {
+      "name": "first_name",
+      "element": "input",
+      "type": "text",
+      "label": "First Name",
+      "validation": {
+        "required": true,
+        "maxLength": "100"
+      },
+      "validationMessages": {
+        "required": "This field is required"
+      }
+    },
+    {
+      "name": "last_name",
+      "element": "input",
+      "type": "text",
+      "label": "Last Name",
+      "validation": {
+        "required": true,
+        "maxLength": "100"
+      },
+      "validationMessages": {
+        "required": "This field is required"
+      }
+    },
+    {
+      "name": "company",
+      "element": "input",
+      "type": "text",
+      "label": "Company Name",
+      "validation": {
+        "required": true,
+        "maxLength": "100"
+      },
+      "validationMessages": {
+        "required": "This field is required"
+      }
+    },
+    {
+      "name": "email",
+      "element": "input",
+      "type": "email",
+      "label": "Email",
+      "validation": {
+        "required": true,
+        "email": true,
+        "maxLength": "100"
+      },
+      "validationMessages": {
+        "maxLength": "Your email must be a maximum of 100 characters",
+        "required": "This field is required",
+        "email": "Enter an email address in the correct format e.g. name@example.com"
+      }
+    }
+  ]
+}
