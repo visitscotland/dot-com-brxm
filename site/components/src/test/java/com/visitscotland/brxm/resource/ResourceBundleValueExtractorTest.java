@@ -144,6 +144,16 @@ class ResourceBundleValueExtractorTest {
     }
 
     @Test
+    @SuppressWarnings("DataFlowIssue")
+    void When_ExtractValuesFromResourceBundleAsList_With_NullResourceBundle_Expect_ThrowsNullPointerException() {
+        final var message = "resourceBundle cannot be null";
+        final var exception = Assertions.assertThrows(NullPointerException.class,
+            () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(null));
+
+        Assertions.assertEquals(message, exception.getMessage());
+    }
+
+    @Test
     void When_ExtractValuesFromResourceBundleAsMap_With_ValidResourceBundle_Expect_MapOfBundleEntries() {
         final Map<String, String> context = Map.of(
             "item.one", "I am this first value",
@@ -185,7 +195,10 @@ class ResourceBundleValueExtractorTest {
     @Test
     @SuppressWarnings("DataFlowIssue")
     void When_ExtractValuesFromResourceBundleAsMap_With_NullResourceBundle_Expect_ThrowsNullPointerException() {
-        Assertions.assertThrows(NullPointerException.class,
+        final var message = "resourceBundle cannot be null";
+        final var exception = Assertions.assertThrows(NullPointerException.class,
             () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(null));
+
+        Assertions.assertEquals(message, exception.getMessage());
     }
 }

@@ -41,7 +41,7 @@ class ResourceBundleValueExtractor {
      * @return an unmodifiable {@link List} containing all values from the resource bundle
      */
     List<String> extractValuesFromResourceBundleAsList(final @Nonnull ResourceBundle resourceBundle) {
-        Objects.requireNonNull(resourceBundle);
+        Objects.requireNonNull(resourceBundle, "resourceBundle cannot be null");
 
         return resourceBundle
             .keySet()
@@ -59,6 +59,7 @@ class ResourceBundleValueExtractor {
      * @return a {@link Map} containing all keys and their corresponding string values from the resource bundle
      */
     Map<String, String> extractValuesFromResourceBundleAsMap(final @Nonnull ResourceBundle resourceBundle) {
+        Objects.requireNonNull(resourceBundle, "resourceBundle cannot be null");
         final Map<String, String> bundleMap = new HashMap<>();
 
         for (final String key : resourceBundle.keySet()) {
