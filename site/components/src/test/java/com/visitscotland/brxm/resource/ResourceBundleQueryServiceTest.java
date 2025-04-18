@@ -121,7 +121,7 @@ class ResourceBundleQueryServiceTest {
     void getValueFor_ThrowsResourceQueryFailedException_WhenGetBundleThrowsClassCastException() {
         when(registry.getBundle(BUNDLE_NAME, UNITED_KINGDOM)).thenThrow(ClassCastException.class);
 
-        Assertions.assertThrows(ResourceQueryFailedException.class, () ->
+        Assertions.assertThrowsExactly(ResourceQueryFailedException.class, () ->
             resourceBundleQueryService.getValueFor(BUNDLE_NAME, ITEM_KEY, UNITED_KINGDOM, false));
         verify(registry).getBundle(eq(BUNDLE_NAME), eq(UNITED_KINGDOM));
     }
@@ -219,14 +219,14 @@ class ResourceBundleQueryServiceTest {
     @Test
     @SuppressWarnings("DataFlowIssue")
     void getAllValuesFor_ThrowsNullPointerException_IfBundleNameIsNull() {
-        Assertions.assertThrows(NullPointerException.class,
+        Assertions.assertThrowsExactly(NullPointerException.class,
             () -> resourceBundleQueryService.getAllValuesFor(null, IS_SITE_BUNDLE));
     }
 
     @Test
     @SuppressWarnings("DataFlowIssue")
     void getAllValuesFor_ThrowsNullPointerException_IfLocaleIsNull() {
-        Assertions.assertThrows(NullPointerException.class,
+        Assertions.assertThrowsExactly(NullPointerException.class,
             () -> resourceBundleQueryService.getAllValuesFor(BUNDLE_NAME, null, IS_SITE_BUNDLE));
     }
 

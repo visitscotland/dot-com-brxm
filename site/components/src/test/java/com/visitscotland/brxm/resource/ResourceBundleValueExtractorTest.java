@@ -60,7 +60,7 @@ class ResourceBundleValueExtractorTest {
         when(resourceBundle.containsKey(UNKNOWN_KEY)).thenReturn(true);
         when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(MissingResourceException.class);
 
-        Assertions.assertThrows(MissingResourceException.class,
+        Assertions.assertThrowsExactly(MissingResourceException.class,
             () -> resourceBundleValueExtractor.extractValueFromResourceBundle(resourceBundle, UNKNOWN_KEY));
 
         verify(resourceBundle).getString(eq(UNKNOWN_KEY));
@@ -71,7 +71,7 @@ class ResourceBundleValueExtractorTest {
         when(resourceBundle.containsKey(UNKNOWN_KEY)).thenReturn(true);
         when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(ClassCastException.class);
 
-        Assertions.assertThrows(ClassCastException.class,
+        Assertions.assertThrowsExactly(ClassCastException.class,
             () -> resourceBundleValueExtractor.extractValueFromResourceBundle(resourceBundle, UNKNOWN_KEY));
 
         verify(resourceBundle).getString(eq(UNKNOWN_KEY));
@@ -126,7 +126,7 @@ class ResourceBundleValueExtractorTest {
         when(resourceBundle.keySet()).thenReturn(Set.of(UNKNOWN_KEY));
         when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(MissingResourceException.class);
 
-        Assertions.assertThrows(MissingResourceException.class,
+        Assertions.assertThrowsExactly(MissingResourceException.class,
             () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle));
 
         verify(resourceBundle).getString(eq(UNKNOWN_KEY));
@@ -137,7 +137,7 @@ class ResourceBundleValueExtractorTest {
         when(resourceBundle.keySet()).thenReturn(Set.of(UNKNOWN_KEY));
         when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(ClassCastException.class);
 
-        Assertions.assertThrows(ClassCastException.class,
+        Assertions.assertThrowsExactly(ClassCastException.class,
             () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle));
 
         verify(resourceBundle).getString(eq(UNKNOWN_KEY));
@@ -175,7 +175,7 @@ class ResourceBundleValueExtractorTest {
         when(resourceBundle.keySet()).thenReturn(Set.of(UNKNOWN_KEY));
         when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(MissingResourceException.class);
 
-        Assertions.assertThrows(MissingResourceException.class,
+        Assertions.assertThrowsExactly(MissingResourceException.class,
             () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(resourceBundle));
 
         verify(resourceBundle).getString(eq(UNKNOWN_KEY));
@@ -186,7 +186,7 @@ class ResourceBundleValueExtractorTest {
         when(resourceBundle.keySet()).thenReturn(Set.of(UNKNOWN_KEY));
         when(resourceBundle.getString(UNKNOWN_KEY)).thenThrow(ClassCastException.class);
 
-        Assertions.assertThrows(ClassCastException.class,
+        Assertions.assertThrowsExactly(ClassCastException.class,
             () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(resourceBundle));
 
         verify(resourceBundle).getString(eq(UNKNOWN_KEY));
@@ -196,7 +196,7 @@ class ResourceBundleValueExtractorTest {
     @SuppressWarnings("DataFlowIssue")
     void When_ExtractValuesFromResourceBundleAsMap_With_NullResourceBundle_Expect_ThrowsNullPointerException() {
         final var message = "resourceBundle cannot be null";
-        final var exception = Assertions.assertThrows(NullPointerException.class,
+        final var exception = Assertions.assertThrowsExactly(NullPointerException.class,
             () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(null));
 
         Assertions.assertEquals(message, exception.getMessage());
