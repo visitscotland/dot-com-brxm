@@ -15,9 +15,7 @@ import org.springframework.stereotype.Component;
 import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 @Component
 public class ArticleFactory {
@@ -192,19 +190,11 @@ public class ArticleFactory {
         DownloadLink downloadLink = null;
         if (paragraph.getCmsLink().getLink() != null && paragraph.getCmsLink().getLink() instanceof SharedLinkBSH) {
             SharedLinkBSH sharedLink = (SharedLinkBSH) paragraph.getCmsLink().getLink();
-            if (sharedLink.getLinkType() instanceof ExternalDocument || sharedLink.getLinkType() instanceof FileLink
-                    || sharedLink.getLinkType() instanceof Asset) {
+            if (sharedLink.getLinkType() instanceof FileLink || sharedLink.getLinkType() instanceof Asset) {
                 downloadLink = new DownloadLink(linkService.createSimpleLink(sharedLink, module, locale));
                 downloadLink.setTeaser(sharedLink.getTeaser());
                 downloadLink.setSize(commonUtils.getExternalDocumentSize(downloadLink.getLink(), locale, false));
-                Property p;
-                try {
-                    p = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
-                    SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyy", locale);
-                    downloadLink.setPublishedDate(sdf.format(p.getDate().getTime()));
-                } catch (RepositoryException e) {
-                    throw new RuntimeException(e);
-                }
+                downloadLink.setPublishedDate(addPublishDate(sharedLink, locale));
 
                 String link = downloadLink.getLink();
                 if (link != null) {
@@ -219,7 +209,28 @@ public class ArticleFactory {
         }
         return downloadLink;
     }
-        
+
+    private String addPublishDate (SharedLinkBSH sharedLink, Locale locale) {
+        Calendar publishDate = null;
+
+        if (sharedLink.getLinkType() instanceof FileLink){
+            publishDate = ((FileLink) sharedLink.getLinkType()).getPublishDate();
+        } else if (sharedLink.getLinkType() instanceof Asset){
+            publishDate = ((Asset) sharedLink.getLinkType()).getPublishDate();
+        }
+        if (publishDate == null) {
+            try {
+                Property p;
+                p = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
+                publishDate = p.getDate();
+            } catch (RepositoryException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyy", locale);
+
+        return sdf.format(publishDate.getTime());
+    }
 
     private boolean in (String field, String... values) {
         for (String value: values) {

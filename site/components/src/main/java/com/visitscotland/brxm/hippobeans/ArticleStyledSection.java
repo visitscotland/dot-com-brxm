@@ -4,6 +4,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import com.visitscotland.brxm.hippobeans.CMSLink;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 /** 
  * TODO: Beanwriter: Failed to create getter for node type: hippo:compound
@@ -26,5 +27,10 @@ public class ArticleStyledSection extends ArticleSection {
     @HippoEssentialsGenerated(internalName = "visitscotland:cmsLink")
     public CMSLink getCmsLink() {
         return getBean("visitscotland:cmsLink", CMSLink.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:mirror")
+    public HippoBean getMirror() {
+        return getLinkedBean("visitscotland:mirror", HippoBean.class);
     }
 }
