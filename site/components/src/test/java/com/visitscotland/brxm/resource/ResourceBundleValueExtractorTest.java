@@ -181,4 +181,11 @@ class ResourceBundleValueExtractorTest {
 
         verify(resourceBundle).getString(eq(UNKNOWN_KEY));
     }
+
+    @Test
+    @SuppressWarnings("DataFlowIssue")
+    void When_ExtractValuesFromResourceBundleAsMap_With_NullResourceBundle_Expect_ThrowsNullPointerException() {
+        Assertions.assertThrows(NullPointerException.class,
+            () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(null));
+    }
 }

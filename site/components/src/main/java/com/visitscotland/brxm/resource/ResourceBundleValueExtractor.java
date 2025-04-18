@@ -4,11 +4,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Nonnull;
 
-import java.util.Map;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.function.Predicate;
 
@@ -45,6 +41,8 @@ class ResourceBundleValueExtractor {
      * @return an unmodifiable {@link List} containing all values from the resource bundle
      */
     List<String> extractValuesFromResourceBundleAsList(final @Nonnull ResourceBundle resourceBundle) {
+        Objects.requireNonNull(resourceBundle);
+
         return resourceBundle
             .keySet()
             .stream()
