@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 @Component
+@Deprecated
 public class ResourceBundleService {
 
     private static final Logger logger = LoggerFactory.getLogger(ResourceBundleService.class.getName());
