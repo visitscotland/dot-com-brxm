@@ -6,11 +6,14 @@ import org.springframework.stereotype.Component;
 
 import org.hippoecm.hst.resourcebundle.ResourceBundleRegistry;
 
-import com.visitscotland.utils.Contract;
-
 import javax.annotation.Nonnull;
 
-import java.util.*;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+import java.util.Optional;
+import java.util.Objects;
+import java.util.Locale;
+import java.util.Map;
 
 @Component
 class ResourceBundleQueryService {
@@ -42,10 +45,11 @@ class ResourceBundleQueryService {
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
      * cannot be cast to strings, wrapping the original exception
      */
-    Optional<String> getValueFor(final String bundleName, final String itemKey, final boolean isSiteBundle) {
-        if (Contract.anyNull(bundleName, itemKey)) {
-            return Optional.empty();
-        }
+    Optional<String> getValueFor(final @Nonnull String bundleName,
+                                 final @Nonnull String itemKey,
+                                 final boolean isSiteBundle) {
+        Objects.requireNonNull(bundleName, "bundleName cannot be null");
+        Objects.requireNonNull(itemKey, "itemKey cannot be null");
 
         final String resolvedBundleName = resolveBundleName(bundleName, isSiteBundle);
 
@@ -75,13 +79,13 @@ class ResourceBundleQueryService {
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
      * cannot be cast to strings, wrapping the original exception
      */
-    Optional<String> getValueFor(final String bundleName,
-                                 final String itemKey,
-                                 final Locale locale,
+    Optional<String> getValueFor(final @Nonnull String bundleName,
+                                 final @Nonnull String itemKey,
+                                 final @Nonnull Locale locale,
                                  final boolean isSiteBundle) {
-        if (Contract.anyNull(bundleName, itemKey, locale)) {
-            return Optional.empty();
-        }
+        Objects.requireNonNull(bundleName, "bundleName cannot be null");
+        Objects.requireNonNull(itemKey, "itemKey cannot be null");
+        Objects.requireNonNull(locale, "locale cannot be null");
 
         final String resolvedBundleName = resolveBundleName(bundleName, isSiteBundle);
 
@@ -108,9 +112,7 @@ class ResourceBundleQueryService {
      * @throws ResourceQueryFailedException if the resource bundle cannot be found, loaded, or cast properly
      */
     Map<String, String> getAllValuesFor(final @Nonnull String bundleName, final boolean isSiteBundle) {
-        if(Contract.anyNull(bundleName)) {
-            throw new NullPointerException();
-        }
+        Objects.requireNonNull(bundleName, "bundleName cannot be null");
 
         final String resolvedBundleName = resolveBundleName(bundleName, isSiteBundle);
 
@@ -137,10 +139,11 @@ class ResourceBundleQueryService {
      * @throws NullPointerException if {@code bundleName} or {@code locale} is {@code null}
      * @throws ResourceQueryFailedException if the resource bundle cannot be found, loaded, or cast properly
      */
-    Map<String, String> getAllValuesFor(final @Nonnull String bundleName, final @Nonnull Locale locale, final boolean isSiteBundle) {
-        if(Contract.anyNull(bundleName, locale)) {
-            throw new NullPointerException();
-        }
+    Map<String, String> getAllValuesFor(final @Nonnull String bundleName,
+                                        final @Nonnull Locale locale,
+                                        final boolean isSiteBundle) {
+        Objects.requireNonNull(bundleName, "bundleName cannot be null");
+        Objects.requireNonNull(locale, "locale cannot be null");
 
         final String resolvedBundleName = resolveBundleName(bundleName, isSiteBundle);
 

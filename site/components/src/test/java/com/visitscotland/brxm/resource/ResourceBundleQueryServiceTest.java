@@ -20,6 +20,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.stream.Stream;
 import java.util.Optional;
+import java.util.Objects;
 import java.util.Locale;
 import java.util.Map;
 
@@ -102,19 +103,37 @@ class ResourceBundleQueryServiceTest {
 
     @ParameterizedTest
     @MethodSource("nullParameterCombinationsForGetValueForWithLocale")
-    void getValueFor_NullParameterCombinationsWithLocales_OptionalOfEmpty(final String bundleName,
-                                                                          final String itemKey,
-                                                                          final Locale locale) {
-        var result = resourceBundleQueryService.getValueFor(bundleName, itemKey, locale, false);
-        Assertions.assertTrue(result.isEmpty());
+    void getValueFor_NullParameterCombinationsWithLocales_ThrowsNullPointerException(final String bundleName,
+                                                                                     final String itemKey,
+                                                                                     final Locale locale) {
+        final var actual = Assertions.assertThrowsExactly(NullPointerException.class,
+            () -> resourceBundleQueryService.getValueFor(bundleName, itemKey, locale, false));
+
+        final var exceptionMessage = actual.getMessage();
+
+        if(Objects.isNull(bundleName)) {
+            Assertions.assertEquals("bundleName cannot be null", exceptionMessage);
+        } else if(Objects.isNull(itemKey)) {
+            Assertions.assertEquals("itemKey cannot be null", exceptionMessage);
+        } else {
+            Assertions.assertEquals("locale cannot be null", exceptionMessage);
+        }
     }
 
     @ParameterizedTest
     @MethodSource("nullParameterCombinationsForGetValueForWithoutLocales")
-    void getValueFor_NullParameterCombinationsWithoutLocales_Expect_OptionalOfEmpty(final String bundleName,
-                                                                                    final String itemKey) {
-        var result = resourceBundleQueryService.getValueFor(bundleName, itemKey, false);
-        Assertions.assertTrue(result.isEmpty());
+    void getValueFor_NullParameterCombinationsWithoutLocales_ThrowsNullPointerException(final String bundleName,
+                                                                                        final String itemKey) {
+        final var actual = Assertions.assertThrowsExactly(NullPointerException.class,
+            () -> resourceBundleQueryService.getValueFor(bundleName, itemKey, false));
+
+        final var exceptionMessage = actual.getMessage();
+
+        if(Objects.isNull(bundleName)) {
+            Assertions.assertEquals("bundleName cannot be null", exceptionMessage);
+        } else {
+            Assertions.assertEquals("itemKey cannot be null", exceptionMessage);
+        }
     }
 
     @Test
