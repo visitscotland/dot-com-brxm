@@ -105,7 +105,7 @@ class ResourceBundleQueryServiceTest {
     void getValueFor_NullParameterCombinationsWithLocales_OptionalOfEmpty(final String bundleName,
                                                                           final String itemKey,
                                                                           final Locale locale) {
-        var result = resourceBundleQueryService.getValueFor(bundleName, itemKey, false);
+        var result = resourceBundleQueryService.getValueFor(bundleName, itemKey, locale, false);
         Assertions.assertTrue(result.isEmpty());
     }
 
@@ -216,6 +216,20 @@ class ResourceBundleQueryServiceTest {
         verify(valueExtractor).extractValuesFromResourceBundleAsMap(eq(resourceBundle));
     }
 
+    @Test
+    @SuppressWarnings("DataFlowIssue")
+    void getAllValuesFor_ThrowsNullPointerException_IfBundleNameIsNull() {
+        Assertions.assertThrows(NullPointerException.class,
+            () -> resourceBundleQueryService.getAllValuesFor(null, IS_SITE_BUNDLE));
+    }
+
+    @Test
+    @SuppressWarnings("DataFlowIssue")
+    void getAllValuesFor_ThrowsNullPointerException_IfLocaleIsNull() {
+        Assertions.assertThrows(NullPointerException.class,
+            () -> resourceBundleQueryService.getAllValuesFor(BUNDLE_NAME, null, IS_SITE_BUNDLE));
+    }
+
     private Map<String, String> getMapTestData() {
         return Map.of(
             "item.one", "This is the first item",
@@ -226,18 +240,18 @@ class ResourceBundleQueryServiceTest {
         );
     }
 
+    private static Stream<Arguments> nullParameterCombinationsForGetValueForWithoutLocales() {
+        return Stream.of(
+            Arguments.of(null, ITEM_KEY),
+            Arguments.of(BUNDLE_NAME, null)
+        );
+    }
+
     private static Stream<Arguments> nullParameterCombinationsForGetValueForWithLocale() {
         return Stream.of(
             Arguments.of(null, ITEM_KEY, UNITED_KINGDOM),
             Arguments.of(BUNDLE_NAME, null, UNITED_KINGDOM),
             Arguments.of(BUNDLE_NAME, ITEM_KEY, null)
-        );
-    }
-
-    private static Stream<Arguments> nullParameterCombinationsForGetValueForWithoutLocales() {
-        return Stream.of(
-            Arguments.of(null, ITEM_KEY),
-            Arguments.of(BUNDLE_NAME, null)
         );
     }
 }
