@@ -1,4 +1,4 @@
-/content/assets/bsh/dummy-docx1.docx:
+/content/assets/bsh-dev/dummy-docx1.docx:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: 532849db-79c5-454e-9227-e2b271b8ec3f
@@ -11,6 +11,6 @@
       hippo:filename: dummy-docx[1].docx
       jcr:data:
         type: binary
-        resource: /content/assets/bsh/dummy-docx1.docx/dummy-docx1.docx/asset/dummy-docx[1].docx
+        resource: /content/assets/bsh-dev/dummy-docx1.docx/dummy-docx1.docx/asset/dummy-docx[1].docx
       jcr:lastModified: 2025-03-28T16:03:21.001Z
       jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
