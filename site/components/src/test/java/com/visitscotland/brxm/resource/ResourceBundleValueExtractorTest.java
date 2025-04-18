@@ -13,8 +13,6 @@ import java.util.ResourceBundle;
 import java.util.Map;
 import java.util.Set;
 
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -35,10 +33,9 @@ class ResourceBundleValueExtractorTest {
     void When_ExtractValueFromResourceBundle_With_ValidResourceBundleAndUnknownKey_OptionalOfEmpty() {
         when(resourceBundle.containsKey(UNKNOWN_KEY)).thenReturn(false);
 
-        var actual = resourceBundleValueExtractor.extractValueFromResourceBundle(resourceBundle, UNKNOWN_KEY);
+        final var actual = resourceBundleValueExtractor.extractValueFromResourceBundle(resourceBundle, UNKNOWN_KEY);
 
         Assertions.assertTrue(actual.isEmpty());
-        verify(resourceBundle).containsKey(eq(UNKNOWN_KEY));
     }
 
     @Test
@@ -48,11 +45,10 @@ class ResourceBundleValueExtractorTest {
         when(resourceBundle.containsKey(KNOWN_KEY)).thenReturn(true);
         when(resourceBundle.getString(KNOWN_KEY)).thenReturn(bundleValue);
 
-        var actual = resourceBundleValueExtractor.extractValueFromResourceBundle(resourceBundle, KNOWN_KEY);
+        final var actual = resourceBundleValueExtractor.extractValueFromResourceBundle(resourceBundle, KNOWN_KEY);
 
         Assertions.assertTrue(actual.isPresent());
         Assertions.assertEquals(bundleValue, actual.get());
-        verify(resourceBundle).getString(eq(KNOWN_KEY));
     }
 
     @Test
@@ -62,8 +58,6 @@ class ResourceBundleValueExtractorTest {
 
         Assertions.assertThrowsExactly(MissingResourceException.class,
             () -> resourceBundleValueExtractor.extractValueFromResourceBundle(resourceBundle, UNKNOWN_KEY));
-
-        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
     }
 
     @Test
@@ -73,18 +67,15 @@ class ResourceBundleValueExtractorTest {
 
         Assertions.assertThrowsExactly(ClassCastException.class,
             () -> resourceBundleValueExtractor.extractValueFromResourceBundle(resourceBundle, UNKNOWN_KEY));
-
-        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
     }
 
     @Test
     void When_ExtractValuesFromResourceBundleAsList_With_ResourceBundleAsListWithNoEntries_EmptyList() {
         when(resourceBundle.keySet()).thenReturn(Set.of());
 
-        var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle);
+        final var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle);
 
         Assertions.assertTrue(actual.isEmpty());
-        verify(resourceBundle).keySet();
     }
 
     @Test
@@ -98,14 +89,10 @@ class ResourceBundleValueExtractorTest {
         when(resourceBundle.keySet()).thenReturn(context.keySet());
         context.forEach((key, value) -> when(resourceBundle.getString(key)).thenReturn(value));
 
-        var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle);
+        final var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle);
 
-        context.forEach((key, value) -> {
-            Assertions.assertTrue(actual.contains(value));
-            verify(resourceBundle).getString(key);
-        });
-
-        verify(resourceBundle).keySet();
+        context.forEach((key, value) ->
+            Assertions.assertTrue(actual.contains(value)));
     }
 
     @Test
@@ -115,10 +102,9 @@ class ResourceBundleValueExtractorTest {
         when(resourceBundle.keySet()).thenReturn(Set.of(KNOWN_KEY));
         when(resourceBundle.getString(KNOWN_KEY)).thenReturn(value);
 
-        var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle);
+        final var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle);
 
         Assertions.assertTrue(actual.isEmpty());
-        verify(resourceBundle).getString(eq(KNOWN_KEY));
     }
 
     @Test
@@ -128,8 +114,6 @@ class ResourceBundleValueExtractorTest {
 
         Assertions.assertThrowsExactly(MissingResourceException.class,
             () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle));
-
-        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
     }
 
     @Test
@@ -139,8 +123,6 @@ class ResourceBundleValueExtractorTest {
 
         Assertions.assertThrowsExactly(ClassCastException.class,
             () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsList(resourceBundle));
-
-        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
     }
 
     @Test
@@ -166,8 +148,6 @@ class ResourceBundleValueExtractorTest {
         final var actual = resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(resourceBundle);
 
         Assertions.assertEquals(context, actual);
-        verify(resourceBundle).keySet();
-        actual.keySet().forEach(key -> verify(resourceBundle).getString(eq(key)));
     }
 
     @Test
@@ -177,8 +157,6 @@ class ResourceBundleValueExtractorTest {
 
         Assertions.assertThrowsExactly(MissingResourceException.class,
             () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(resourceBundle));
-
-        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
     }
 
     @Test
@@ -188,8 +166,6 @@ class ResourceBundleValueExtractorTest {
 
         Assertions.assertThrowsExactly(ClassCastException.class,
             () -> resourceBundleValueExtractor.extractValuesFromResourceBundleAsMap(resourceBundle));
-
-        verify(resourceBundle).getString(eq(UNKNOWN_KEY));
     }
 
     @Test

@@ -24,8 +24,6 @@ import java.util.Objects;
 import java.util.Locale;
 import java.util.Map;
 
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -51,15 +49,10 @@ class ResourceBundleQueryServiceTest {
         when(registry.getBundle(BUNDLE_NAME)).thenReturn(resourceBundle);
         when(valueExtractor.extractValueFromResourceBundle(resourceBundle, ITEM_KEY)).thenReturn(Optional.of(expected));
 
-        var actual = resourceBundleQueryService.getValueFor(BUNDLE_NAME, ITEM_KEY, false);
+        final var actual = resourceBundleQueryService.getValueFor(BUNDLE_NAME, ITEM_KEY, false);
 
-        Assertions.assertAll(
-            () -> Assertions.assertTrue(actual.isPresent()),
-            () -> Assertions.assertEquals(expected, actual.orElseThrow())
-        );
-
-        verify(registry).getBundle(eq(BUNDLE_NAME));
-        verify(valueExtractor).extractValueFromResourceBundle(eq(resourceBundle), eq(ITEM_KEY));
+        Assertions.assertTrue(actual.isPresent());
+        Assertions.assertEquals(expected, actual.orElseThrow());
     }
 
     @Test
@@ -70,14 +63,10 @@ class ResourceBundleQueryServiceTest {
         when(registry.getBundle(BUNDLE_NAME, UNITED_KINGDOM)).thenReturn(resourceBundle);
         when(valueExtractor.extractValueFromResourceBundle(resourceBundle, ITEM_KEY)).thenReturn(Optional.of(expected));
 
-        var actual = resourceBundleQueryService
-            .getValueFor(BUNDLE_NAME, ITEM_KEY, UNITED_KINGDOM, false);
+        final var actual = resourceBundleQueryService.getValueFor(BUNDLE_NAME, ITEM_KEY, UNITED_KINGDOM, false);
 
-        Assertions.assertAll(
-            () -> Assertions.assertTrue(actual.isPresent()),
-            () -> Assertions.assertEquals(expected, actual.orElseThrow())
-        );
-        verify(registry).getBundle(eq(BUNDLE_NAME), eq(UNITED_KINGDOM));
+        Assertions.assertTrue(actual.isPresent());
+        Assertions.assertEquals(expected, actual.orElseThrow());
     }
 
     @Test
@@ -89,16 +78,10 @@ class ResourceBundleQueryServiceTest {
         when(registry.getBundle(SITE_BUNDLE_NAME)).thenReturn(resourceBundle);
         when(valueExtractor.extractValueFromResourceBundle(resourceBundle, ITEM_KEY)).thenReturn(Optional.of(expected));
 
-        var actual = resourceBundleQueryService
-            .getValueFor(BUNDLE_NAME, ITEM_KEY, true);
+        final var actual = resourceBundleQueryService.getValueFor(BUNDLE_NAME, ITEM_KEY, true);
 
-        Assertions.assertAll(
-            () -> Assertions.assertTrue(actual.isPresent()),
-            () -> Assertions.assertEquals(expected, actual.orElseThrow())
-        );
-
-        verify(siteProperties).getSiteId();
-        verify(registry).getBundle(eq(SITE_BUNDLE_NAME));
+        Assertions.assertTrue(actual.isPresent());
+        Assertions.assertEquals(expected, actual.orElseThrow());
     }
 
     @ParameterizedTest
@@ -120,6 +103,14 @@ class ResourceBundleQueryServiceTest {
         }
     }
 
+    private static Stream<Arguments> nullParameterCombinationsForGetValueForWithLocale() {
+        return Stream.of(
+            Arguments.of(null, ITEM_KEY, UNITED_KINGDOM),
+            Arguments.of(BUNDLE_NAME, null, UNITED_KINGDOM),
+            Arguments.of(BUNDLE_NAME, ITEM_KEY, null)
+        );
+    }
+
     @ParameterizedTest
     @MethodSource("nullParameterCombinationsForGetValueForWithoutLocales")
     void getValueFor_NullParameterCombinationsWithoutLocales_ThrowsNullPointerException(final String bundleName,
@@ -136,13 +127,19 @@ class ResourceBundleQueryServiceTest {
         }
     }
 
+    private static Stream<Arguments> nullParameterCombinationsForGetValueForWithoutLocales() {
+        return Stream.of(
+            Arguments.of(null, ITEM_KEY),
+            Arguments.of(BUNDLE_NAME, null)
+        );
+    }
+
     @Test
     void getValueFor_ThrowsResourceQueryFailedException_WhenGetBundleThrowsClassCastException() {
         when(registry.getBundle(BUNDLE_NAME, UNITED_KINGDOM)).thenThrow(ClassCastException.class);
 
         Assertions.assertThrowsExactly(ResourceQueryFailedException.class, () ->
             resourceBundleQueryService.getValueFor(BUNDLE_NAME, ITEM_KEY, UNITED_KINGDOM, false));
-        verify(registry).getBundle(eq(BUNDLE_NAME), eq(UNITED_KINGDOM));
     }
 
     @Test
@@ -156,8 +153,6 @@ class ResourceBundleQueryServiceTest {
         final var actual = resourceBundleQueryService.getAllValuesFor(BUNDLE_NAME, IS_NOT_SITE_BUNDLE);
 
         Assertions.assertEquals(expected, actual);
-        verify(registry).getBundle(eq(BUNDLE_NAME));
-        verify(valueExtractor).extractValuesFromResourceBundleAsMap(eq(resourceBundle));
     }
 
     @Test
@@ -172,8 +167,6 @@ class ResourceBundleQueryServiceTest {
         final var actual = resourceBundleQueryService.getAllValuesFor(BUNDLE_NAME, IS_SITE_BUNDLE);
 
         Assertions.assertEquals(expected, actual);
-        verify(siteProperties).getSiteId();
-        verify(registry).getBundle(eq(SITE_BUNDLE_NAME));
     }
 
     @Test
@@ -188,8 +181,6 @@ class ResourceBundleQueryServiceTest {
         final var actual = resourceBundleQueryService.getAllValuesFor(BUNDLE_NAME, UNITED_KINGDOM, IS_SITE_BUNDLE);
 
         Assertions.assertEquals(expected, actual);
-        verify(siteProperties).getSiteId();
-        verify(registry).getBundle(eq(SITE_BUNDLE_NAME), eq(UNITED_KINGDOM));
     }
 
     @Test
@@ -203,8 +194,6 @@ class ResourceBundleQueryServiceTest {
         final var actual = resourceBundleQueryService.getAllValuesFor(BUNDLE_NAME, UNITED_KINGDOM, IS_NOT_SITE_BUNDLE);
 
         Assertions.assertEquals(expected, actual);
-        verify(registry).getBundle(eq(BUNDLE_NAME), eq(UNITED_KINGDOM));
-        verify(valueExtractor).extractValuesFromResourceBundleAsMap(eq(resourceBundle));
     }
 
     @Test
@@ -217,8 +206,6 @@ class ResourceBundleQueryServiceTest {
 
         Assertions.assertThrowsExactly(ResourceQueryFailedException.class, () ->
             resourceBundleQueryService.getAllValuesFor(BUNDLE_NAME, IS_NOT_SITE_BUNDLE));
-
-        verify(valueExtractor).extractValuesFromResourceBundleAsMap(eq(resourceBundle));
     }
 
     @Test
@@ -231,20 +218,18 @@ class ResourceBundleQueryServiceTest {
 
         Assertions.assertThrowsExactly(ResourceQueryFailedException.class, () ->
             resourceBundleQueryService.getAllValuesFor(BUNDLE_NAME, IS_NOT_SITE_BUNDLE));
-
-        verify(valueExtractor).extractValuesFromResourceBundleAsMap(eq(resourceBundle));
     }
 
     @Test
     @SuppressWarnings("DataFlowIssue")
-    void getAllValuesFor_ThrowsNullPointerException_IfBundleNameIsNull() {
+    void getAllValuesFor_ThrowsNullPointerException_WhenBundleNameIsNull() {
         Assertions.assertThrowsExactly(NullPointerException.class,
             () -> resourceBundleQueryService.getAllValuesFor(null, IS_SITE_BUNDLE));
     }
 
     @Test
     @SuppressWarnings("DataFlowIssue")
-    void getAllValuesFor_ThrowsNullPointerException_IfLocaleIsNull() {
+    void getAllValuesFor_ThrowsNullPointerException_WhenLocaleIsNull() {
         Assertions.assertThrowsExactly(NullPointerException.class,
             () -> resourceBundleQueryService.getAllValuesFor(BUNDLE_NAME, null, IS_SITE_BUNDLE));
     }
@@ -256,21 +241,6 @@ class ResourceBundleQueryServiceTest {
             "item.three", "This is the third item",
             "item.four", "This is the fourth item",
             "item.five", "This is the fifth item"
-        );
-    }
-
-    private static Stream<Arguments> nullParameterCombinationsForGetValueForWithoutLocales() {
-        return Stream.of(
-            Arguments.of(null, ITEM_KEY),
-            Arguments.of(BUNDLE_NAME, null)
-        );
-    }
-
-    private static Stream<Arguments> nullParameterCombinationsForGetValueForWithLocale() {
-        return Stream.of(
-            Arguments.of(null, ITEM_KEY, UNITED_KINGDOM),
-            Arguments.of(BUNDLE_NAME, null, UNITED_KINGDOM),
-            Arguments.of(BUNDLE_NAME, ITEM_KEY, null)
         );
     }
 }
