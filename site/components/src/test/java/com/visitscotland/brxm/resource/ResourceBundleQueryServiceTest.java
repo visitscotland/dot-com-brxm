@@ -218,19 +218,19 @@ class ResourceBundleQueryServiceTest {
     }
 
     @Test
-    void getAllValuesFor_ThrowsResourceQueryFailedException_WhenExtractValuesFromResourceBundleAsMapThrowsMissingResourceException() {
+    void getAllValuesFor_ThrowsMissingResourceException_WrapsInResourceQueryFailedExceptionAndReThrows() {
         final var resourceBundle = Mockito.mock(ResourceBundle.class);
 
-        when(registry.getBundle(BUNDLE_NAME)).thenReturn(resourceBundle);
+        when(registry.getBundle(BUNDLE_NAME, UNITED_KINGDOM)).thenReturn(resourceBundle);
         when(valueExtractor.extractValuesFromResourceBundleAsMap(resourceBundle))
             .thenThrow(MissingResourceException.class);
 
         Assertions.assertThrowsExactly(ResourceQueryFailedException.class, () ->
-            resourceBundleQueryService.getAllValuesFor(BUNDLE_NAME, IS_NOT_SITE_BUNDLE));
+            resourceBundleQueryService.getAllValuesFor(BUNDLE_NAME, UNITED_KINGDOM, IS_NOT_SITE_BUNDLE));
     }
 
     @Test
-    void getAllValuesFor_ThrowsResourceQueryFailedException_WhenExtractValuesFromResourceBundleAsMapThrowsClassCastException() {
+    void getAllValuesFor_ThrowsClassCastException_WrapsInResourceQueryFailedExceptionAndReThrows() {
         final var resourceBundle = Mockito.mock(ResourceBundle.class);
 
         when(registry.getBundle(BUNDLE_NAME)).thenReturn(resourceBundle);
