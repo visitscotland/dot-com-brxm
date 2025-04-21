@@ -16,17 +16,23 @@ import java.util.Map;
 @Component
 class ResourceBundleValueExtractor {
     /**
-     * Extracts a value from the given {@link ResourceBundle} for the specified key.
+     * Extracts the value associated with a specific key from the given resource bundle.
      *
-     * <p>If the key is not present in the resource bundle, this method returns {@link Optional#empty()}.
-     * Otherwise, it returns an {@link Optional} containing the corresponding value.</p>
+     * <p>This method requires that neither {@code resourceBundle} nor {@code key} is null;
+     * otherwise, it throws a {@link NullPointerException}. If the key is not found in the resource bundle,
+     * it returns an empty {@code Optional}. Otherwise, it returns an {@code Optional} containing the associated value.
      *
-     * @param resourceBundle the {@link ResourceBundle} to extract the value from; must not be {@code null}
-     * @param key the key to look up in the resource bundle; must not be {@code null}
-     * @return an {@link Optional} containing the value associated with the key, or {@link Optional#empty()} if the key is not found
+     * @param resourceBundle the resource bundle from which to extract the value; must not be null
+     * @param key the key whose associated value is to be retrieved; must not be null
+     * @return an {@code Optional} containing the value associated with {@code key} if present;
+     *         otherwise, an empty {@code Optional}
+     * @throws NullPointerException if {@code resourceBundle} or {@code key} is null
      */
     Optional<String> extractValueFromResourceBundle(final @Nonnull ResourceBundle resourceBundle,
                                                     final @Nonnull String key) {
+        Objects.requireNonNull(resourceBundle, "resourceBundle cannot be null");
+        Objects.requireNonNull(key, "key cannot be null");
+
         if (!resourceBundle.containsKey(key)) {
             return Optional.empty();
         }
@@ -36,14 +42,15 @@ class ResourceBundleValueExtractor {
     }
 
     /**
-     * Extracts all values from the given {@link ResourceBundle} as an unmodifiable list.
+     * Extracts all non-blank values from the given resource bundle as an unmodifiable list.
      *
-     * <p>This method retrieves all keys from the resource bundle, maps each key to its corresponding
-     * value, and collects these values into an unmodifiable {@link List}.</p>
+     * <p>This method requires that {@code resourceBundle} is not null; otherwise, it throws a {@link NullPointerException}.
+     * It streams over all keys in the resource bundle, retrieves their associated string values,
+     * filters out any blank values (empty or whitespace only), and collects the remaining values into an unmodifiable list.
      *
-     * @param resourceBundle the {@link ResourceBundle} to extract values from; must not be {@code null} -
-     *                       it will result in a {@link NullPointerException}.
-     * @return an unmodifiable {@link List} containing all values from the resource bundle
+     * @param resourceBundle the resource bundle from which to extract values; must not be null
+     * @return an unmodifiable {@code List<String>} containing all non-blank values from the resource bundle
+     * @throws NullPointerException if {@code resourceBundle} is null
      */
     List<String> extractValuesFromResourceBundleAsList(final @Nonnull ResourceBundle resourceBundle) {
         Objects.requireNonNull(resourceBundle, "resourceBundle cannot be null");
@@ -57,21 +64,27 @@ class ResourceBundleValueExtractor {
     }
 
     /**
-     * Extracts all key-value pairs from the given {@link ResourceBundle} and returns them as an unmodifiable {@link Map}.
-     * <p>
-     * The method iterates over all keys in the provided resource bundle and maps each key to its corresponding string value.
-     * </p>
+     * Extracts all key-value pairs from the given resource bundle as an unmodifiable map.
      *
-     * @param resourceBundle the resource bundle from which to extract key-value pairs; must not be {@code null}
-     * @return an unmodifiable map containing all key-value pairs from the resource bundle
-     * @throws NullPointerException if {@code resourceBundle} is {@code null}
+     * <p>This method requires that {@code resourceBundle} is not null; otherwise, it throws a {@link NullPointerException}.
+     * It iterates over all keys in the resource bundle, retrieves their associated string values,
+     * and includes only those entries where the value is not blank (i.e., not empty or whitespace).
+     *
+     * @param resourceBundle the resource bundle from which to extract key-value pairs; must not be null
+     * @return an unmodifiable {@code Map<String, String>} containing all key-value pairs from the resource bundle
+     *         with non-blank values
+     * @throws NullPointerException if {@code resourceBundle} is null
      */
     Map<String, String> extractValuesFromResourceBundleAsMap(final @Nonnull ResourceBundle resourceBundle) {
         Objects.requireNonNull(resourceBundle, "resourceBundle cannot be null");
         final Map<String, String> bundleMap = new HashMap<>();
 
         for (final String key : resourceBundle.keySet()) {
-            bundleMap.put(key, resourceBundle.getString(key));
+            final String value = resourceBundle.getString(key);
+
+            if(!value.isBlank()) {
+                bundleMap.put(key, value);
+            }
         }
 
         return Map.copyOf(bundleMap);
