@@ -42,7 +42,7 @@ class ResourceBundleQueryServiceTest {
     @InjectMocks private ResourceBundleQueryService resourceBundleQueryService;
 
     @Test
-    void getValueFor_ValidBundleNameItemKeyAndNotSiteBundle_OptionalOfValue() {
+    void getValueFor_bundleNameAndItemKey_OptionalOfValue() {
         final var resourceBundle = Mockito.mock(ResourceBundle.class);
         final var expected = "See more...";
 
@@ -56,7 +56,7 @@ class ResourceBundleQueryServiceTest {
     }
 
     @Test
-    void getValueFor_ValidBundleNameItemKeyLocaleAndNotSiteBundle_OptionalOfValue() {
+    void getValueFor_bundleNameItemKeyAndLocale_OptionalOfValue() {
         final var resourceBundle = Mockito.mock(ResourceBundle.class);
         final var expected = "Share";
 
@@ -70,7 +70,7 @@ class ResourceBundleQueryServiceTest {
     }
 
     @Test
-    void getValueFor_ValidBundleNameItemKeyAndIsSiteBundle_OptionalOfValue() {
+    void getValueFor_BundleNameItemKeyAndFlagTrue_OptionalOfValue() {
         final var resourceBundle = Mockito.mock(ResourceBundle.class);
         final var expected = "Close Menu";
 
@@ -140,6 +140,27 @@ class ResourceBundleQueryServiceTest {
 
         Assertions.assertThrowsExactly(ResourceQueryFailedException.class, () ->
             resourceBundleQueryService.getValueFor(BUNDLE_NAME, ITEM_KEY, UNITED_KINGDOM, false));
+    }
+
+    @Test
+    @SuppressWarnings("DataFlowIssue")
+    void getValueFor_NullBundleName_ThrowsNullPointerException() {
+        Assertions.assertThrowsExactly(NullPointerException.class,
+            () -> resourceBundleQueryService.getValueFor(null, ITEM_KEY,false));
+    }
+
+    @Test
+    @SuppressWarnings("DataFlowIssue")
+    void getValueFor_NullItemKey_ThrowsNullPointerException() {
+        Assertions.assertThrowsExactly(NullPointerException.class,
+            () -> resourceBundleQueryService.getValueFor(BUNDLE_NAME, null,false));
+    }
+
+    @Test
+    @SuppressWarnings("DataFlowIssue")
+    void getValueFor_NullLocale_ThrowsNullPointerException() {
+        Assertions.assertThrowsExactly(NullPointerException.class,
+            () -> resourceBundleQueryService.getValueFor(BUNDLE_NAME, ITEM_KEY, null,false));
     }
 
     @Test
