@@ -32,18 +32,20 @@ class ResourceBundleQueryService {
     /**
      * Retrieves the value associated with a specific key from a resource bundle.
      *
-     * <p>If either {@code bundleName} or {@code itemKey} is null, this method returns an empty {@code Optional}.
-     * Otherwise, it resolves the bundle name based on whether the bundle is site-specific, attempts to load the resource bundle,
+     * <p>This method requires that neither {@code bundleName} nor {@code itemKey} is null;
+     * otherwise, it throws a {@link NullPointerException}. It resolves the bundle name based on
+     * whether the bundle is site-specific, loads the resource bundle without specifying a locale,
      * and extracts the value for the given key.
      *
-     * @param bundleName the base name of the resource bundle; may not be null
-     * @param itemKey the key whose associated value is to be retrieved; may not be null
+     * @param bundleName the base name of the resource bundle; must not be null
+     * @param itemKey the key whose associated value is to be retrieved; must not be null
      * @param isSiteBundle a flag indicating whether the bundle is site-specific, which affects
-     * how the bundle name is resolved
+     *                     how the bundle name is resolved
      * @return an {@code Optional} containing the value associated with {@code itemKey} if found;
-     * otherwise, an empty {@code Optional}
+     *         otherwise, an empty {@code Optional}
+     * @throws NullPointerException if {@code bundleName} or {@code itemKey} is null
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
-     * cannot be cast to strings, wrapping the original exception
+     *         cannot be cast to strings, wrapping the original exception
      */
     Optional<String> getValueFor(final @Nonnull String bundleName,
                                  final @Nonnull String itemKey,
@@ -64,20 +66,21 @@ class ResourceBundleQueryService {
     /**
      * Retrieves the value associated with a specific key from a resource bundle for a given locale.
      *
-     * <p>If any of the parameters {@code bundleName}, {@code itemKey}, or {@code locale} are null,
-     * this method returns an empty {@code Optional}. Otherwise, it resolves the bundle name based on
-     * whether the bundle is site-specific, attempts to load the resource bundle for the specified locale,
-     * and extracts the value for the given key.
+     * <p>This method requires that {@code bundleName}, {@code itemKey}, and {@code locale} are not null;
+     * otherwise, it throws a {@link NullPointerException}. It resolves the bundle name based on whether
+     * the bundle is site-specific, loads the resource bundle for the specified locale, and extracts the
+     * value for the given key.
      *
-     * @param bundleName the base name of the resource bundle; may not be null
-     * @param locale the locale for which the resource bundle should be loaded; may not be null
-     * @param itemKey the key whose associated value is to be retrieved; may not be null
+     * @param bundleName the base name of the resource bundle; must not be null
+     * @param itemKey the key whose associated value is to be retrieved; must not be null
+     * @param locale the locale for which the resource bundle should be loaded; must not be null
      * @param isSiteBundle a flag indicating whether the bundle is site-specific, which affects
-     * how the bundle name is resolved
+     *                     how the bundle name is resolved
      * @return an {@code Optional} containing the value associated with {@code itemKey} if found;
-     * otherwise, an empty {@code Optional}
+     *         otherwise, an empty {@code Optional}
+     * @throws NullPointerException if {@code bundleName}, {@code itemKey}, or {@code locale} is null
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
-     * cannot be cast to strings, wrapping the original exception
+     *         cannot be cast to strings, wrapping the original exception
      */
     Optional<String> getValueFor(final @Nonnull String bundleName,
                                  final @Nonnull String itemKey,
@@ -98,18 +101,19 @@ class ResourceBundleQueryService {
     }
 
     /**
-     * Retrieves all key-value pairs from the specified resource bundle as a {@code Map}.
-     * <p>
-     * The method resolves the actual bundle name based on the provided {@code bundleName} and
-     * whether it is a site bundle or not. It then attempts to load the resource bundle without specifying a locale
-     * and extracts all values as a map.
-     * </p>
+     * Retrieves all key-value pairs from a resource bundle as a map.
      *
-     * @param bundleName the base name of the resource bundle to retrieve; must not be {@code null}
-     * @param isSiteBundle flag indicating whether the bundle is a site bundle, affecting bundle name resolution
-     * @return a map containing all key-value pairs from the resolved resource bundle
-     * @throws NullPointerException if {@code bundleName} is {@code null}
-     * @throws ResourceQueryFailedException if the resource bundle cannot be found, loaded, or cast properly
+     * <p>This method requires that {@code bundleName} is not null; otherwise, it throws a {@link NullPointerException}.
+     * It resolves the bundle name based on whether the bundle is site-specific, loads the resource bundle,
+     * and extracts all entries as a {@code Map<String, String>}.
+     *
+     * @param bundleName the base name of the resource bundle; must not be null
+     * @param isSiteBundle a flag indicating whether the bundle is site-specific, which affects
+     *                     how the bundle name is resolved
+     * @return a {@code Map<String, String>} containing all key-value pairs from the resource bundle
+     * @throws NullPointerException if {@code bundleName} is null
+     * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
+     *         cannot be cast to strings, wrapping the original exception
      */
     Map<String, String> getAllValuesFor(final @Nonnull String bundleName, final boolean isSiteBundle) {
         Objects.requireNonNull(bundleName, "bundleName cannot be null");
@@ -125,19 +129,20 @@ class ResourceBundleQueryService {
     }
 
     /**
-     * Retrieves all key-value pairs from the specified resource bundle as a {@code Map}.
-     * <p>
-     * The method resolves the actual bundle name based on the provided {@code bundleName} and
-     * whether it is a site bundle or not. It then attempts to load the resource bundle for the
-     * given {@code locale} and extracts all values as a map.
-     * </p>
+     * Retrieves all key-value pairs from a resource bundle for a specified locale as a map.
      *
-     * @param bundleName the base name of the resource bundle to retrieve; must not be {@code null}
-     * @param locale the locale for which a resource bundle is desired; must not be {@code null}
-     * @param isSiteBundle flag indicating whether the bundle is a site bundle, affecting bundle name resolution
-     * @return a map containing all key-value pairs from the resolved resource bundle
-     * @throws NullPointerException if {@code bundleName} or {@code locale} is {@code null}
-     * @throws ResourceQueryFailedException if the resource bundle cannot be found, loaded, or cast properly
+     * <p>This method requires that {@code bundleName} and {@code locale} are not null; otherwise, it throws a {@link NullPointerException}.
+     * It resolves the bundle name based on whether the bundle is site-specific, loads the resource bundle for the given locale,
+     * and extracts all entries as a {@code Map<String, String>}.
+     *
+     * @param bundleName the base name of the resource bundle; must not be null
+     * @param locale the locale for which the resource bundle should be loaded; must not be null
+     * @param isSiteBundle a flag indicating whether the bundle is site-specific, which affects
+     *                     how the bundle name is resolved
+     * @return a {@code Map<String, String>} containing all key-value pairs from the resource bundle
+     * @throws NullPointerException if {@code bundleName} or {@code locale} is null
+     * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
+     *         cannot be cast to strings, wrapping the original exception
      */
     Map<String, String> getAllValuesFor(final @Nonnull String bundleName,
                                         final @Nonnull Locale locale,
