@@ -19,11 +19,20 @@
         <#assign image = item.image.externalImage />
     </#if>
 
+    <vs-link
+            href="${item.links}"
+            type="${item.links.type}"
+            class="d-inline-block mb-100"
+    >
+        + ADD TO MY TRIP
+    </vs-link>
+
     <vs-listicle-item
             index="${item.index}"
             title="${item.title?html}"
             sub-title="${item.subtitle!''}"
     >
+
         <template v-slot:hippo-details>
             <div class="has-edit-button">
                 <@hst.manageContent hippobean=item.hippoBean/>

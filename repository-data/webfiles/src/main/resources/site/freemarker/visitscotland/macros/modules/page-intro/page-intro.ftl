@@ -128,9 +128,21 @@
                 </template>
             </#if>
 
-            <template v-slot:vs-share-button>
-                <@socialShare nojs=false />
-            </template>
+            <#if itinerary?has_content>
+                <template v-slot:vs-share-button>
+                    <@socialShare nojs=false />
+                </template>
+            <#else>
+                <template v-slot:vs-share-button>
+                    <vs-link
+                            href="${stop.ctaLink.link}"
+                            type="${stop.ctaLink.type}"
+                            class="d-inline-block mb-100"
+                    >
+                        + ADD PAGE TO MY TRIP
+                    </vs-link>
+                </template>
+            </#if>
 
             <#if !searchResultsPage??>
                 <template v-slot:vs-intro-content>

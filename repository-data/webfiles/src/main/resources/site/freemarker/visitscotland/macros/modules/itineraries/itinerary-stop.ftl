@@ -29,11 +29,19 @@
         </#if>
     </#if>
 
+
     <vs-itinerary-stop
         stop-number="${stop.index}"
         stop-label="${stop.title}"
         stop-title="${stop.subTitle!''}"
     >
+        <vs-link
+                href="${stop.ctaLink.link}"
+                type="${stop.ctaLink.type}"
+                class="d-inline-block mb-100"
+        >
+            + ADD STOP TO MY TRIP
+        </vs-link>
         <@previewWarning editMode stop stop.errorMessages />
         <@hst.manageContent hippobean=stop.hippoBean />
 

@@ -21,6 +21,7 @@
 
     <@pageIntro content=document heroDetails=heroImage lightBackground=true/>
 
+
 	<#list pageItems as item>
         <@moduleBuilder module=item pageIndex="${item?index + 1}" />
 	</#list>
