@@ -1,4 +1,4 @@
-/content/assets/bsh/conditions-of-contract-for-consultancy-services1.pdf:
+/content/assets/bsh-dev/conditions-of-contract-for-consultancy-services1.pdf:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: 14823b6e-536f-4321-9060-6bba44c5a5ce
@@ -11,9 +11,9 @@
       hippo:filename: conditions-of-contract-for-consultancy-services[1].pdf
       hippo:text:
         type: binary
-        resource: /content/assets/bsh/conditions-of-contract-for-consultancy-services1.pdf/conditions-of-contract-for-consultancy-services1.pdf/asset/conditions-of-contract-for-consultancy-services[1].pdf
+        resource: /content/assets/bsh-dev/conditions-of-contract-for-consultancy-services1.pdf/conditions-of-contract-for-consultancy-services1.pdf/asset/conditions-of-contract-for-consultancy-services[1].pdf
       jcr:data:
         type: binary
-        resource: /content/assets/bsh/conditions-of-contract-for-consultancy-services1.pdf/conditions-of-contract-for-consultancy-services1.pdf/asset/conditions-of-contract-for-consultancy-services[1]-1.pdf
+        resource: /content/assets/bsh-dev/conditions-of-contract-for-consultancy-services1.pdf/conditions-of-contract-for-consultancy-services1.pdf/asset/conditions-of-contract-for-consultancy-services[1]-1.pdf
       jcr:lastModified: 2025-03-28T16:02:22.949Z
       jcr:mimeType: application/pdf
