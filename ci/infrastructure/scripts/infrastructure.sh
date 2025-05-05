@@ -517,7 +517,7 @@ getBranchListFromWorkspace() {
     BRANCH=$(echo "$BRANCH" | sed -e "s/%2F/\//g; s#.*/#$VS_PARENT_JOB_NAME_FULL\_#g; s#/#_#g")
     if [ "${VS_DEBUG^^}" == "TRUE" ]; then echo "$(eval $VS_LOG_DATESTAMP) DEBUG [$VS_SCRIPTNAME]  - found branch $BRANCH"; fi
     BRANCH_LIST="$BRANCH_LIST $BRANCH"
-  done < <(grep "$VS_PARENT_JOB_NAME_FULL" "$JENKINS_HOME/workspace/workspaces.txt")
+  done < <$(cat $JENKINS_HOME/workspace/workspaces.txt | grep "$VS_PARENT_JOB_NAME" | sed -e "s/%2F/\//g" | sed "s/.*\//$VS_PARENT_JOB_NAME\_/g")
   # to-do: gp add for loop to check for vs-container-name map files in _PR only (avoid doubles)
   #           for PR in [logic above | grep _PR] check PR's workspace/ci for vs-container-name file
   #           cat the file for a branch name and add those branches to BRANCH_LIST (some)
