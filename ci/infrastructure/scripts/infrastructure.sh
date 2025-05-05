@@ -513,11 +513,10 @@ getPullRequestListViaCurl() {
 getBranchListFromWorkspace() {
   echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] checking for branches and PRs for $VS_PARENT_JOB_NAME_FULL listed in workspaces.txt"
   # to-do: gp - update echo above to reflect changes to branch and PR scan method
-  while IFS= read -r BRANCH; do
-    BRANCH=$(echo "$BRANCH" | sed -e "s/%2F/\//g; s#.*/#$VS_PARENT_JOB_NAME_FULL\_#g; s#/#_#g")
+  for BRANCH in $(cat $JENKINS_HOME/workspace/workspaces.txt | grep "$VS_PARENT_JOB_NAME" | sed -e "s/%2F/\//g" | sed "s/.*\//$VS_PARENT_JOB_NAME\_/g"); do
     if [ "${VS_DEBUG^^}" == "TRUE" ]; then echo "$(eval $VS_LOG_DATESTAMP) DEBUG [$VS_SCRIPTNAME]  - found branch $BRANCH"; fi
     BRANCH_LIST="$BRANCH_LIST $BRANCH"
-  done < <$(cat $JENKINS_HOME/workspace/workspaces.txt | grep "$VS_PARENT_JOB_NAME" | sed -e "s/%2F/\//g" | sed "s/.*\//$VS_PARENT_JOB_NAME\_/g")
+  done
   # to-do: gp add for loop to check for vs-container-name map files in _PR only (avoid doubles)
   #           for PR in [logic above | grep _PR] check PR's workspace/ci for vs-container-name file
   #           cat the file for a branch name and add those branches to BRANCH_LIST (some)
