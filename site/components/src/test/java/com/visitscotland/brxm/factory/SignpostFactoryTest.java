@@ -93,7 +93,6 @@ class SignpostFactoryTest {
 
         when(ctaBanner.getCtaLink().getLink()).thenReturn(linkable);
         when(linkService.createSimpleLink(eq(linkable), any(), isNull())).thenReturn(flatLink);
-        //when(anchorFormatter.getAnchorOrFallback(any(), any())).thenReturn("custom-anchor");
 
         when(ctaBanner.getCtaLink().getLabel()).thenReturn("Read More");
 
@@ -101,7 +100,7 @@ class SignpostFactoryTest {
         Assertions.assertInstanceOf(SignpostModule.class, result);
 
         Assertions.assertEquals("Read More", ((SignpostModule) result).getCta().getLabel());
-   }
+    }
 
     @Test
     @DisplayName("Should set image using CTA banner image")
