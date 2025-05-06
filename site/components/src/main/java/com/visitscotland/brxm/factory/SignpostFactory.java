@@ -20,6 +20,7 @@ import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.Optional;
 
 @Component
 public class SignpostFactory {
@@ -47,26 +48,45 @@ public class SignpostFactory {
         this.contentLogger = contentLogger;
     }
 
-    public SignpostModule createNewsletterSignpostModule(Locale locale) {
+    public Optional<SignpostModule> createNewsletterSignpostModule(Locale locale) {
         String newsletterUrl = hippoUtilsService.createUrlFromNode(properties.getSiteNewsletter(), true);
         if (!Contract.isNull(newsletterUrl)) {
-            SignpostModule signpostModule = createSignPostModule(BUNDLE_ID, "newsletter", locale);
-            if (signpostModule != null) {
-                signpostModule.getCta().setLink(newsletterUrl);
+            Optional<SignpostModule> signpostModule = createSignPostModule(BUNDLE_ID, "newsletter", locale);
+            if (signpostModule.isPresent()) {
+                signpostModule.get().getCta().setLink(newsletterUrl);
                 return signpostModule;
             }
         }
 
-        return null;
+        return Optional.empty();
     }
 
 
-    public SignpostModule createSnowAlertsModule(Locale locale) {
+    public Optional<SignpostModule> createSnowAlertsModule(Locale locale) {
         return createSignPostModule(BUNDLE_ID, "snow-alerts", locale);
     }
 
-    public SignpostModule createDeliveryAPIModule(Locale locale) {
+    public Optional<SignpostModule> createDeliveryAPIModule(Locale locale) {
         return createSignPostModule(properties.getSiteId() +"." + BUNDLE_ID, "newsletter", locale);
+    }
+
+    private Optional<SignpostModule> createSignPostModule(String bundleName, String prefix, Locale locale) {
+        SignpostModule signpostModule = new SignpostModule();
+        FlatLink cta = new FlatLink(bundle.getResourceBundle(bundleName, prefix + ".cta.text", locale),
+                bundle.getResourceBundle(bundleName, prefix + ".cta.link", locale), LinkType.INTERNAL);
+
+        if (Contract.isNull(cta.getLink())) {
+            return Optional.empty();
+        }
+
+        FlatImage image = new FlatImage();
+        image.setExternalImage(bundle.getResourceBundle(bundleName, prefix + ".image", locale));
+        signpostModule.setCta(cta);
+        signpostModule.setImage(image);
+        signpostModule.setTitle(bundle.getResourceBundle(bundleName, prefix + ".title", locale));
+        signpostModule.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(bundleName, prefix + ".copy", locale)));
+
+        return Optional.of(signpostModule);
     }
 
     public Module<?> createModule(CTABanner ctaBanner) {
@@ -97,24 +117,5 @@ public class SignpostFactory {
         module.setAnchor(anchorFormatter.getAnchorOrFallback(ctaBanner.getAnchor(), ctaBanner::getTitle));
 
         return module;
-    }
-
-    private SignpostModule createSignPostModule(String bundleName, String prefix, Locale locale) {
-        SignpostModule signpostModule = new SignpostModule();
-        FlatLink cta = new FlatLink(bundle.getResourceBundle(bundleName, prefix + ".cta.text", locale),
-                bundle.getResourceBundle(bundleName, prefix + ".cta.link", locale), LinkType.INTERNAL);
-
-        if (Contract.isNull(cta.getLink())) {
-            return null;
-        }
-
-        FlatImage image = new FlatImage();
-        image.setExternalImage(bundle.getResourceBundle(bundleName, prefix + ".image", locale));
-        signpostModule.setCta(cta);
-        signpostModule.setImage(image);
-        signpostModule.setTitle(bundle.getResourceBundle(bundleName, prefix + ".title", locale));
-        signpostModule.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(bundleName, prefix + ".copy", locale)));
-
-        return signpostModule;
     }
 }
