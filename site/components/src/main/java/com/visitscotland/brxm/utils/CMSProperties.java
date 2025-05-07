@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
 @Component
 public class CMSProperties extends Properties {
@@ -190,10 +191,10 @@ public class CMSProperties extends Properties {
     }
 
     public Charset getDmsEncoding() {
-        String value = getProperty(DMS_DATA_ENCODING);
+        Optional<String> value = getProperty(DMS_DATA_ENCODING);
         try {
-            if (!Contract.isEmpty(value)) {
-                return Charset.forName(value);
+            if (value.isPresent()) {
+                return Charset.forName(value.get());
             }
         } catch (Exception e) {
             logger.warn("{} is not a valid value for the property {}", value, DMS_DATA_ENCODING);
