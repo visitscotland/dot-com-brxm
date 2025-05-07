@@ -8,10 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Locale;
+import java.util.Optional;
 
 public abstract class Properties {
 
     private static final Logger logger = LoggerFactory.getLogger(Properties.class.getName());
+    private static final Locale DEFAULT_LOCALE = Locale.UK;
 
     private final ResourceBundleService bundle;
     private final HippoUtilsService utils;
@@ -26,51 +28,58 @@ public abstract class Properties {
     abstract String getOverrideProperty();
 
     public String readString(String key){
-        String value = getProperty(key);
-        if (value != null){
-            return value;
-        } else {
-            return "";
-        }
+        return readString(key, DEFAULT_LOCALE);
     }
 
     public String readString(String key, Locale locale){
-        String value = getProperty(key, locale);
-        if (value != null){
-            return value;
-        } else {
-            return getProperty(key);
-        }
+        return getProperty(key, locale).orElseGet(() ->
+                getProperty(key).orElseGet(() -> {
+                    logIssueWithProperty(key);
+                    return "";
+                })
+        );
     }
 
-    public int readInteger(String key){
-        String value = getProperty(key);
+    public Optional<String> readOptionalString(String key){
+        return getProperty(key);
+    }
 
-        try {
-            if (value != null){
-                return Integer.parseInt(value);
+
+    public int readInteger(String key){
+        Optional<String> value = getProperty(key);
+
+        if (value.isPresent()) {
+            try {
+                return Integer.parseInt(value.get());
+            } catch (NumberFormatException nfe) {
+                logger.error("The property value of the property {} cannot be casted to Integer. '{}' is not allowed.", key, value);
             }
-        } catch (NumberFormatException nfe){
-            logger.error("The property value of the property {} cannot be casted to Integer. '{}' is not allowed.", key,value);
+        } else {
+            logIssueWithProperty(key);
         }
         return 0;
     }
 
     public double readDouble(String key){
-        String value = getProperty(key);
+        Optional<String> value = getProperty(key);
 
-        try {
-            if (value != null){
-                return Double.parseDouble(value);
+        if (value.isPresent()){
+            try {
+                return Double.parseDouble(value.get());
+            } catch (NumberFormatException nfe){
+                logger.error("The property value of the property {} cannot be casted to Double. '{}' is not allowed.", key,value);
             }
-        } catch (NumberFormatException nfe){
-            logger.error("The property value of the property {} cannot be casted to Double. '{}' is not allowed.", key,value);
+        } else {
+            logIssueWithProperty(key);
         }
         return 0;
     }
 
     public boolean readBoolean(String key){
-        return Boolean.parseBoolean(getProperty(key));
+        return Boolean.parseBoolean(getProperty(key).orElseGet(() -> {
+            logIssueWithProperty(key);
+            return "false";
+        }));
     }
 
     /**
@@ -98,16 +107,49 @@ public abstract class Properties {
         return getDefaultConfig();
     }
 
-    public String getProperty(String key){
+    private void logIssueWithProperty (String key) {
+        logger.info("The property {} hasn't been set in the resourceBundle", key);
+    }
+
+    //TODO Reduce visibility to protected after DS-XXX
+    public Optional<String> getProperty(String key){
         return getProperty(key, Locale.UK);
     }
 
-    public String getProperty(String key, String locale){
+    //TODO Reduce visibility to protected after DS-XXX
+    public  Optional<String> getProperty(String key, String locale){
         return getProperty(key, Locale.forLanguageTag(locale));
     }
 
-    public String getProperty(String key, Locale locale){
+    //TODO Reduce visibility to protected after DS-XXX
+    public Optional<String> getProperty(String key, Locale locale){
         String bundleId = getEnvironmentProperties();
+        String value = readValueFromResourceBundle(key, locale, bundleId);
+
+        if (Contract.isEmpty(value)) {
+            return Optional.empty();
+        } else if (value.startsWith("$")){
+            value = getEnvironmentVariable(value.substring(1));
+        } else if (value.startsWith("%")){
+            value = getSystemProperty(value.substring(1));
+        }
+
+        return Optional.of(value);
+    }
+
+
+    /**
+     * Reads a value from a Hippo resource bundle using the specified key, locale, and bundle ID.
+     * Attempts to fall back to the default locale if the key is not found for the provided locale.
+     * If the site-specific properties are undefined, it defaults to general properties.
+     *
+     * @param key       the property key to retrieve
+     * @param locale    the locale to use for lookup
+     * @param bundleId  the identifier of the resource bundle
+     * @return the resolved property value, or null if not found
+     */
+    private String readValueFromResourceBundle(String key, Locale locale, String bundleId){
+
         boolean defaultConfig = bundleId.equals(getDefaultConfig());
         boolean englishLocale = Locale.UK.equals(locale);
 
@@ -126,17 +168,7 @@ public abstract class Properties {
             }
         }
 
-        if (Contract.isEmpty(value)) {
-            logger.info("The property {} hasn't been set in the resourceBundle {}", key, bundleId);
-        } else if (value.startsWith("$")){
-            return getEnvironmentVariable(value.substring(1));
-        } else if (value.startsWith("%")){
-            return getSystemProperty(value.substring(1));
-        } else {
-            return value;
-        }
-
-        return null;
+        return value;
     }
 
     String getEnvironmentVariable(String name){
