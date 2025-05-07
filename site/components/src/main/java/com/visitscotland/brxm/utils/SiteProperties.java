@@ -157,7 +157,7 @@ public class SiteProperties extends Properties {
     }
 
     public String getSiteId() {
-        return readString(SITE_ID);
+        return readOptionalString(SITE_ID).orElse(null);
     }
 
     public String getFormBregLegalBasis() {

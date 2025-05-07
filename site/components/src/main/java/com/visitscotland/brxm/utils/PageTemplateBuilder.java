@@ -176,8 +176,8 @@ public class PageTemplateBuilder {
         Map<String, String> formLabels = labels(request).get("forms");
 
         //The following files are required independent of the Form Framework
-        formLabels.put("cfg.form.json.countries", properties.getProperty("form.json.countries"));
-        formLabels.put("cfg.form.json.messages", properties.getProperty("form.json.messages"));
+        formLabels.put("cfg.form.json.countries", properties.getProperty("form.json.countries").orElse(""));
+        formLabels.put("cfg.form.json.messages", properties.getProperty("form.json.messages").orElse(""));
 
         if (form instanceof MarketoForm) {
             return formFactory.getModule((MarketoForm) form);
