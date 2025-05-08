@@ -52,7 +52,7 @@ public abstract class Properties {
             try {
                 return Integer.parseInt(value.get());
             } catch (NumberFormatException nfe) {
-                logger.error("The property value of the property {} cannot be casted to Integer. '{}' is not allowed.", key, value);
+                logger.error("The property value of the property {} cannot be cast to Integer. '{}' is not allowed.", key, value);
             }
         } else {
             logIssueWithProperty(key);
@@ -67,7 +67,7 @@ public abstract class Properties {
             try {
                 return Double.parseDouble(value.get());
             } catch (NumberFormatException nfe){
-                logger.error("The property value of the property {} cannot be casted to Double. '{}' is not allowed.", key,value);
+                logger.error("The property value of the property {} cannot be cast to Double. '{}' is not allowed.", key,value);
             }
         } else {
             logIssueWithProperty(key);
