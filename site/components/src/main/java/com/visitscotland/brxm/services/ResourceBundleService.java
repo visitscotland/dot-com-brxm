@@ -176,7 +176,6 @@ public class ResourceBundleService {
                }
           } catch (MissingResourceException e) {
               // The resource bundle does not exist, the default file will be used instead
-              logger.debug("The resource bundle {}.{} does not exist", properties.getSiteId(), bundleName);
           }
         }
         return false;

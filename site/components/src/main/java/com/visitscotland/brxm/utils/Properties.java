@@ -17,10 +17,12 @@ public abstract class Properties {
 
     private final ResourceBundleService bundle;
     private final HippoUtilsService utils;
+    private final EnvironmentManager environmentManager;
 
-    protected Properties(ResourceBundleService bundle, HippoUtilsService utils){
+    protected Properties(ResourceBundleService bundle, HippoUtilsService utils, EnvironmentManager environmentManager){
         this.bundle = bundle;
         this.utils = utils;
+        this.environmentManager = environmentManager;
     }
 
     abstract String getDefaultConfig();
@@ -131,9 +133,9 @@ public abstract class Properties {
         if (value == null) {
             return Optional.empty();
         } else if (value.startsWith("$")){
-            value = getEnvironmentVariable(value.substring(1));
+            value = environmentManager.getEnvironmentVariable(value.substring(1));
         } else if (value.startsWith("%")){
-            value = getSystemProperty(value.substring(1));
+            value = environmentManager.getSystemProperty(value.substring(1));
         }
 
         return Contract.isEmpty(value) ? Optional.empty() : Optional.of(value);
@@ -171,17 +173,5 @@ public abstract class Properties {
         }
 
         return value;
-    }
-
-    String getEnvironmentVariable(String name){
-        try {
-            return System.getenv(name);
-        } catch (RuntimeException e){
-            return null;
-        }
-    }
-
-    String getSystemProperty(String name){
-        return System.getProperty(name, "");
     }
 }
