@@ -40,8 +40,6 @@ class PropertiesTest {
     @InjectMocks
     CMSProperties properties;
 
-    String value;
-
     @Test
     @DisplayName("Reads an String value from a property")
     void readString(){
@@ -219,7 +217,7 @@ class PropertiesTest {
     void propertyValues_defaultConfig(){
         when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_API_KEY, Locale.UK, false)).thenReturn("PROP-VALUE");
 
-        assertEquals("PROP-VALUE", properties.getDmsToken());
+        assertEquals("PROP-VALUE", properties.getDmsToken().orElseThrow());
     }
 
     private final static String ENV_PROPERTIES = "environment-properties";
@@ -239,7 +237,7 @@ class PropertiesTest {
         //This is not expected to be called but if were, It shouldn't affect the outcome of the method
         lenient().when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_API_KEY, Locale.UK, false)).thenReturn("DEFAULT-VALUE");
 
-        assertEquals("OVERRIDE-VALUE", properties.getDmsToken());
+        assertEquals("OVERRIDE-VALUE", properties.getDmsToken().orElseThrow());
     }
 
     @Test
@@ -251,7 +249,7 @@ class PropertiesTest {
         //This is not expected to be called but if were, It shouldn't affect the outcome of the method
         when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_API_KEY, Locale.UK, false)).thenReturn("DEFAULT-VALUE");
 
-        assertEquals("DEFAULT-VALUE", properties.getDmsToken());
+        assertEquals("DEFAULT-VALUE", properties.getDmsToken().orElseThrow());
     }
 
     @Test
