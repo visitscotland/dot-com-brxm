@@ -36,11 +36,22 @@ public class BaseDocument extends HippoDocument {
         .collect(Collectors.toList());
     }
 
-    private HippoBean getBeans(final HippoBean hippoBean) {
-        if (hippoBean instanceof HippoMirror) {
-            return ((HippoMirror) hippoBean).getReferencedBean();
-        }
-        return hippoBean;
+// In BaseDocument.java, rename the helper and update its usage
+
+// Before
+- private HippoBean getBeans(final HippoBean hippoBean) {
++ private HippoBean getResolvedBean(final HippoBean hippoBean) {
+    if (hippoBean instanceof HippoMirror) {
+        return ((HippoMirror) hippoBean).getReferencedBean();
+    }
+    return hippoBean;
+}
+
+// And later where it’s used:
+- return (List<T>) getChildBeansByName(childNodeName, HippoBean.class).stream().map(this::getBeans)
++ return (List<T>) getChildBeansByName(childNodeName, HippoBean.class)
++     .stream()
++     .map(this::getResolvedBean)
     }
 
 }
