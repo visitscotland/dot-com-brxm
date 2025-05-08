@@ -69,7 +69,6 @@ class PropertiesTest {
     @DisplayName("Empty values return an empty String for String properties")
     void readString_env(String value){
         when(bundle.getResourceBundle(BUNDLE_ID, "string", Locale.UK, false)).thenReturn(value);
-        value = "";
         assertEquals("", properties.readString("string"));
     }
 
@@ -265,10 +264,10 @@ class PropertiesTest {
     @DisplayName("VS-3908 - The properties can have specific values for different locales")
     void locales(){
         when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.UK, false)).thenReturn("/site/site-search-results");
-        assertEquals("/site/site-search-results", properties.getProperty(PROPERTY_KEY));
+        assertEquals("/site/site-search-results", properties.getProperty(PROPERTY_KEY).orElseThrow());
 
         when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.FRANCE, true)).thenReturn("/site/fr/site-search-results");
-        assertEquals("/site/fr/site-search-results", properties.getProperty(PROPERTY_KEY, Locale.FRANCE));
+        assertEquals("/site/fr/site-search-results", properties.getProperty(PROPERTY_KEY, Locale.FRANCE).orElseThrow());
     }
 
     @Test
@@ -276,7 +275,7 @@ class PropertiesTest {
     void locales_defaultEnglish(){
         when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.FRANCE, true)).thenReturn("");
         when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.UK, false)).thenReturn("/site/site-search-results");
-        assertEquals("/site/site-search-results", properties.getProperty(PROPERTY_KEY, Locale.FRANCE));
+        assertEquals("/site/site-search-results", properties.getProperty(PROPERTY_KEY, Locale.FRANCE).orElseThrow());
     }
 
     @Test
@@ -286,7 +285,7 @@ class PropertiesTest {
         when(bundle.getResourceBundle(ENV_PROPERTIES, PROPERTY_KEY, Locale.FRANCE, true)).thenReturn("");
         when(bundle.getResourceBundle(ENV_PROPERTIES, PROPERTY_KEY, Locale.UK, true)).thenReturn("");
         when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.FRANCE, true)).thenReturn("555");
-        assertEquals("555", properties.getProperty(PROPERTY_KEY, Locale.FRANCE));
+        assertEquals("555", properties.getProperty(PROPERTY_KEY, Locale.FRANCE).orElseThrow());
     }
 
     @Test
@@ -297,7 +296,7 @@ class PropertiesTest {
         when(bundle.getResourceBundle(ENV_PROPERTIES, PROPERTY_KEY, Locale.UK, true)).thenReturn("");
         when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.JAPAN, true)).thenReturn("");
         when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.UK, false)).thenReturn("131");
-        assertEquals("131", properties.getProperty(PROPERTY_KEY, Locale.JAPAN));
+        assertEquals("131", properties.getProperty(PROPERTY_KEY, Locale.JAPAN).orElseThrow());
     }
 
 }

@@ -128,7 +128,7 @@ public abstract class Properties {
         String bundleId = getEnvironmentProperties();
         String value = readValueFromResourceBundle(key, locale, bundleId);
 
-        if (Contract.isEmpty(value)) {
+        if (value == null) {
             return Optional.empty();
         } else if (value.startsWith("$")){
             value = getEnvironmentVariable(value.substring(1));
@@ -136,7 +136,7 @@ public abstract class Properties {
             value = getSystemProperty(value.substring(1));
         }
 
-        return Optional.of(value);
+        return Contract.isEmpty(value) ? Optional.empty() : Optional.of(value);
     }
 
 
