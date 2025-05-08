@@ -32,26 +32,15 @@ public class BaseDocument extends HippoDocument {
      */
     @SuppressWarnings("unchecked")
     protected <T extends HippoBean> List<T> getMedia(String childNodeName) {
-        return (List<T>) getChildBeansByName(childNodeName, HippoBean.class).stream().map(this::getBeans)
+        return (List<T>) getChildBeansByName(childNodeName, HippoBean.class).stream().map(this::getResolvedBean)
         .collect(Collectors.toList());
     }
 
-// In BaseDocument.java, rename the helper and update its usage
-
-// Before
-- private HippoBean getBeans(final HippoBean hippoBean) {
-+ private HippoBean getResolvedBean(final HippoBean hippoBean) {
-    if (hippoBean instanceof HippoMirror) {
-        return ((HippoMirror) hippoBean).getReferencedBean();
+    // In BaseDocument.java, rename the helper and update its usage
+    private HippoBean getResolvedBean(final HippoBean hippoBean) {
+        if (hippoBean instanceof HippoMirror) {
+            return ((HippoMirror) hippoBean).getReferencedBean();
+        }
+        return hippoBean;
     }
-    return hippoBean;
-}
-
-// And later where it’s used:
-- return (List<T>) getChildBeansByName(childNodeName, HippoBean.class).stream().map(this::getBeans)
-+ return (List<T>) getChildBeansByName(childNodeName, HippoBean.class)
-+     .stream()
-+     .map(this::getResolvedBean)
-    }
-
 }
