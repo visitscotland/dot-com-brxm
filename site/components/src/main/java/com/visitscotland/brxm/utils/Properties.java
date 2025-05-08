@@ -111,17 +111,19 @@ public abstract class Properties {
         logger.info("The property {} hasn't been set in the resourceBundle", key);
     }
 
-    //TODO Reduce visibility to protected after DS-XXX
+    //TODO Reduce visibility to protected after VS-343
     public Optional<String> getProperty(String key){
         return getProperty(key, Locale.UK);
     }
 
-    //TODO Reduce visibility to protected after DS-XXX
+    //TODO Reduce visibility to protected after VS-343
+    //TODO Remove method only used in FreeMarker
+    @Deprecated(since="2.10.0")
     public  Optional<String> getProperty(String key, String locale){
         return getProperty(key, Locale.forLanguageTag(locale));
     }
 
-    //TODO Reduce visibility to protected after DS-XXX
+    //TODO Reduce visibility to protected after VS-343
     public Optional<String> getProperty(String key, Locale locale){
         String bundleId = getEnvironmentProperties();
         String value = readValueFromResourceBundle(key, locale, bundleId);
