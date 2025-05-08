@@ -3,19 +3,20 @@ package com.visitscotland.brxm.utils;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.hippoecm.hst.configuration.hosting.Mount;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -33,20 +34,13 @@ class PropertiesTest {
     @Mock
     HippoUtilsService utils;
 
+    @Mock
+    EnvironmentManager environmentManager;
+
+    @InjectMocks
     CMSProperties properties;
 
     String value;
-
-    @BeforeEach
-    void init(){
-        properties = new CMSProperties(bundle, utils){
-
-            @Override
-            String getEnvironmentVariable(String name) {
-                return value;
-            }
-        };
-    }
 
     @Test
     @DisplayName("Reads an String value from a property")
@@ -58,9 +52,10 @@ class PropertiesTest {
     @Test
     @DisplayName("Reads an string value from an environment variable")
     void readString_env(){
+        final String value = "http://dms.visitscotland.com";
         when(bundle.getResourceBundle(BUNDLE_ID, "string", Locale.UK, false)).thenReturn("$TEST_VS");
-        value = "http://dms.visitscotland.com";
-        assertEquals("http://dms.visitscotland.com", properties.readString("string"));
+        when(environmentManager.getEnvironmentVariable("TEST_VS")).thenReturn(Optional.of(value));
+        assertEquals(value, properties.readString("string"));
     }
 
     @ParameterizedTest
@@ -82,8 +77,8 @@ class PropertiesTest {
     @Test
     @DisplayName("Can parse Integers from environment variables")
     void readInteger_env(){
-        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_TRIES, Locale.UK, false)).thenReturn("$TEST_VS");
-        value = "3718";
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_TRIES, Locale.UK, false)).thenReturn("%TEST_VS");
+        when(environmentManager.getSystemProperty("TEST_VS")).thenReturn(Optional.of("3718"));
         assertEquals(3718, properties.getDmsTries());
     }
 
@@ -93,7 +88,6 @@ class PropertiesTest {
     @DisplayName("Empty and wrong values return 0 for Numeric properties")
     void readInteger_empty(String value){
         when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_DATA_TRIES, Locale.UK, false)).thenReturn(value);
-        value = "";
         assertEquals(0, properties.getDmsTries());
     }
 
@@ -107,8 +101,8 @@ class PropertiesTest {
     @Test
     @DisplayName("Can parse Integers from environment variables")
     void readDouble_env(){
-        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_MAP_DEFAULT_DISTANCE, Locale.UK, false)).thenReturn("$TEST_VS");
-        value = "3.14";
+        when(bundle.getResourceBundle(BUNDLE_ID, CMSProperties.DMS_MAP_DEFAULT_DISTANCE, Locale.UK, false)).thenReturn("%TEST_VS");
+        when(environmentManager.getSystemProperty("TEST_VS")).thenReturn(Optional.of("3.14"));
         assertEquals(3.14, properties.getDmsMapDefaultDistance());
     }
 
@@ -297,6 +291,19 @@ class PropertiesTest {
         when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.JAPAN, true)).thenReturn("");
         when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.UK, false)).thenReturn("131");
         assertEquals("131", properties.getProperty(PROPERTY_KEY, Locale.JAPAN).orElseThrow());
+    }
+
+    @Test
+    @DisplayName("Optional fields can return the value")
+    void when_optionalPropertyIsSet_then_returnValue(){
+        when(bundle.getResourceBundle(BUNDLE_ID, PROPERTY_KEY, Locale.UK, false)).thenReturn("131");
+        assertTrue(properties.readOptionalString(PROPERTY_KEY).isPresent());
+    }
+
+    @Test
+    @DisplayName("Optional fields will return an Optional.empty when the value is not available")
+    void when_optionalPropertyIsSet_then_empty(){
+        assertTrue(properties.readOptionalString(PROPERTY_KEY).isEmpty());
     }
 
 }

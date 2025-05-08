@@ -133,12 +133,12 @@ public abstract class Properties {
         if (value == null) {
             return Optional.empty();
         } else if (value.startsWith("$")){
-            value = environmentManager.getEnvironmentVariable(value.substring(1));
+            return environmentManager.getEnvironmentVariable(value.substring(1));
         } else if (value.startsWith("%")){
-            value = environmentManager.getSystemProperty(value.substring(1));
+            return environmentManager.getSystemProperty(value.substring(1));
+        } else {
+            return Optional.of(value);
         }
-
-        return Contract.isEmpty(value) ? Optional.empty() : Optional.of(value);
     }
 
 
