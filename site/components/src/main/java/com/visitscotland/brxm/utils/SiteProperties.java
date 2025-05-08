@@ -60,8 +60,8 @@ public class SiteProperties extends Properties {
     static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
 
     private final CMSProperties cmsProperties;
-    public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties){
-        super(bundle, utils);
+    public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties,EnvironmentManager envrionmentManager) {
+        super(bundle, utils, envrionmentManager);
         this.cmsProperties = cmsProperties;
     }
 

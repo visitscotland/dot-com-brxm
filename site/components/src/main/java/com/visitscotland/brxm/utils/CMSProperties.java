@@ -58,8 +58,8 @@ public class CMSProperties extends Properties {
 
     static final String CMS_BASE_PATH = "links.cms-base-path.url";
 
-    public CMSProperties(ResourceBundleService bundle, HippoUtilsService utils) {
-        super(bundle, utils);
+    public CMSProperties(ResourceBundleService bundle, HippoUtilsService utils, EnvironmentManager envrionmentManager) {
+        super(bundle, utils, envrionmentManager);
     }
 
     @Override
