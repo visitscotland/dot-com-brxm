@@ -121,8 +121,8 @@ public class CMSProperties extends Properties {
         return readString(DMS_DATA_PUBLIC_HOST);
     }
 
-    public String getDmsToken() {
-        return readString(DMS_DATA_API_KEY);
+    public Optional<String> getDmsToken() {
+        return getProperty(DMS_DATA_API_KEY);
     }
 
     public Integer getDmsTimeout() {
@@ -170,7 +170,7 @@ public class CMSProperties extends Properties {
      * Max number of elements cached. If the property is not defined in the CMS, there is no maximum
      */
     public Integer getContentCacheMaxElements() {
-        Integer size = readInteger(CONTENT_CACHE_MAX_ELEMENTS);
+        int size = readInteger(CONTENT_CACHE_MAX_ELEMENTS);
         return size > 0 ? size : Integer.MAX_VALUE;
     }
 
