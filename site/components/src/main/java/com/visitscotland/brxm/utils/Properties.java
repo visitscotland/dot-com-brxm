@@ -136,6 +136,8 @@ public abstract class Properties {
             return environmentManager.getEnvironmentVariable(value.substring(1));
         } else if (value.startsWith("%")){
             return environmentManager.getSystemProperty(value.substring(1));
+        } else if (Contract.isEmpty(value)) {
+            return Optional.empty();
         } else {
             return Optional.of(value);
         }
