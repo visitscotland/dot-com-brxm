@@ -136,6 +136,7 @@
     </Logger>
 
     <!-- project logging -->
+    <Logger name="com.visitscotland.brxm.utils.EnvironmentManager" level="info"/>
     <Logger name="com.visitscotland.brxm" level="debug"/>
 
     <Root level="warn">
