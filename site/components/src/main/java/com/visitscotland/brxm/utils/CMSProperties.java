@@ -58,8 +58,8 @@ public class CMSProperties extends Properties {
 
     static final String CMS_BASE_PATH = "links.cms-base-path.url";
 
-    public CMSProperties(ResourceBundleService bundle, HippoUtilsService utils, EnvironmentManager envrionmentManager) {
-        super(bundle, utils, envrionmentManager);
+    public CMSProperties(ResourceBundleService bundle, HippoUtilsService utils, EnvironmentManager environmentManager) {
+        super(bundle, utils, environmentManager);
     }
 
     @Override
@@ -196,8 +196,8 @@ public class CMSProperties extends Properties {
             if (value.isPresent()) {
                 return Charset.forName(value.get());
             }
-        } catch (RuntimeException e) {
-            logger.warn("{} is not a valid value for the property {}", value, DMS_DATA_ENCODING);
+        } catch (IllegalArgumentException | UnsupportedOperationException e) {
+            logger.warn("{} is not a valid value for the property {}", value.orElse(""), DMS_DATA_ENCODING);
         }
         return StandardCharsets.UTF_8;
     }

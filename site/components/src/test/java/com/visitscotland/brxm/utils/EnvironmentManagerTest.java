@@ -30,6 +30,6 @@ class EnvironmentManagerTest {
     @DisplayName("When environment variables do not exist return Empty")
     void when_environmentVariableDoesNotExist_then_returnEmpty() {
         Optional<String> result = manager.getEnvironmentVariable("VAR_123456");
-        assertTrue(result.isEmpty());
+        assertEquals(Optional.empty(), result);
     }
 }
