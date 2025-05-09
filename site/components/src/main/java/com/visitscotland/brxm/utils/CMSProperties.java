@@ -171,6 +171,10 @@ public class CMSProperties extends Properties {
      */
     public Integer getContentCacheMaxElements() {
         int size = readInteger(CONTENT_CACHE_MAX_ELEMENTS);
+        if (size <= 0) {
+           logger.warn("Invalid or missing value for {}, defaulting to no limit", CONTENT_CACHE_MAX_ELEMENTS);
+           return Integer.MAX_VALUE;
+        }
         return size > 0 ? size : Integer.MAX_VALUE;
     }
 
@@ -196,7 +200,8 @@ public class CMSProperties extends Properties {
             if (value.isPresent()) {
                 return Charset.forName(value.get());
             }
-        } catch (IllegalArgumentException | UnsupportedOperationException e) {
+
+        } catch (IllegalArgumentException e) {
             logger.warn("{} is not a valid value for the property {}", value.orElse(""), DMS_DATA_ENCODING);
         }
         return StandardCharsets.UTF_8;

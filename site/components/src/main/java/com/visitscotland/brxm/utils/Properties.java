@@ -132,9 +132,12 @@ public abstract class Properties {
 
         if (value == null) {
             return Optional.empty();
-        } else if (value.startsWith("$")){
+        } else if (value.equals("$") || value.equals("%")) {
+            logger.warn("Property {} contains an incomplete environment/system reference", key);
+            return Optional.empty();
+        } else if (value.startsWith("$") && value.length() > 1){
             return environmentManager.getEnvironmentVariable(value.substring(1));
-        } else if (value.startsWith("%")){
+        } else if (value.startsWith("%") && value.length() > 1){
             return environmentManager.getSystemProperty(value.substring(1));
         } else if (Contract.isEmpty(value)) {
             return Optional.empty();
