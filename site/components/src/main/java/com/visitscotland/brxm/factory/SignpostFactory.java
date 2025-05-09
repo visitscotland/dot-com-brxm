@@ -68,8 +68,10 @@ public class SignpostFactory {
 
     private Optional<SignpostModule> createSignPostModule(String prefix, Locale locale) {
         SignpostModule signpostModule = new SignpostModule();
-        FlatLink cta = new FlatLink(bundle.getSiteResourceBundle(BUNDLE_ID, prefix + ".cta.text", locale),
-                bundle.getSiteResourceBundle(BUNDLE_ID, prefix + ".cta.link", locale), LinkType.INTERNAL);
+        FlatLink cta = new FlatLink(
+                bundle.getSiteResourceBundle(BUNDLE_ID, prefix + ".cta.text", locale),
+                bundle.getSiteResourceBundle(BUNDLE_ID, prefix + ".cta.link", locale),
+                LinkType.INTERNAL);
 
         if (Contract.isNull(cta.getLink())) {
             return Optional.empty();
