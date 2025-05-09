@@ -156,8 +156,8 @@ public abstract class Properties {
 
         // The optional feature would be handled by this class rather than the resource bundle
         final boolean optional = true;
-        boolean defaultConfig = bundleId.equals(getDefaultConfig());
-        boolean englishLocale = Locale.UK.equals(locale);
+        final boolean defaultConfig = bundleId.equals(getDefaultConfig());
+        final boolean englishLocale = Locale.UK.equals(locale);
 
         String value = bundle.getResourceBundle(bundleId, key, locale, optional);
 
