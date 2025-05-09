@@ -5,7 +5,7 @@
 -->
 <#macro gtm noscript=false >
     <#if (!editMode) >
-        <#assign id= property("gtm.container-id")>
+        <#assign id= property("gtm.container-id").orElse("")>
         <#assign queryString = (property("gtm.is-production").orElseThrow()?boolean)?then("", (property("gtm.preview-query-string"))) >
 
         <!-- Google Tag Manager -->
