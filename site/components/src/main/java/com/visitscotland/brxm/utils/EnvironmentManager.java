@@ -6,28 +6,30 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-@NonTestable(value = NonTestable.Cause.WRAP)
 public class EnvironmentManager {
 
-
+    @NonTestable(value = NonTestable.Cause.WRAP)
     Optional<String> getEnvironmentVariable(String name) {
         try {
-            String value = System.getenv(name);
+            var value = System.getenv(name);
             if (!Contract.isEmpty(value)){
                 return Optional.of(value);
             }
         } catch (RuntimeException e){
-
+            // If the variable does not exist or cannot be accessed the error is ignored and an empty value is returned
         }
         return Optional.empty();
     }
 
     Optional<String> getSystemProperty(String name){
-        String value = System.getProperty(name, "");
-        if (value.isEmpty()){
-            return Optional.empty();
-        } else {
-            return Optional.of(value);
+        try {
+            var value = System.getProperty(name, "");
+            if (!Contract.isEmpty(value)){
+                return Optional.of(value);
+            }
+        } catch (RuntimeException e){
+            // If the variable does not exist or cannot be accessed the error is ignored and an empty value is returned
         }
+        return Optional.empty();
     }
 }
