@@ -43,7 +43,7 @@ public abstract class Properties {
     }
 
     public Optional<String> readOptionalString(String key){
-        return getProperty(key);
+        return getProperty(key, DEFAULT_LOCALE);
     }
 
 
@@ -154,20 +154,22 @@ public abstract class Properties {
      */
     private String readValueFromResourceBundle(String key, Locale locale, String bundleId){
 
+        // The optional feature would be handled by this class rather than the resource bundle
+        final boolean optional = true;
         boolean defaultConfig = bundleId.equals(getDefaultConfig());
         boolean englishLocale = Locale.UK.equals(locale);
 
-        String value = bundle.getResourceBundle(bundleId, key, locale, !defaultConfig || !englishLocale);
+        String value = bundle.getResourceBundle(bundleId, key, locale, optional);
 
         if (Contract.isEmpty(value)) {
 
             if (!englishLocale) {
-                value = bundle.getResourceBundle(bundleId, key, Locale.UK, !defaultConfig );
+                value = bundle.getResourceBundle(bundleId, key, Locale.UK, optional);
             }
             if (Contract.isEmpty(value) && !defaultConfig) {
-                value = bundle.getResourceBundle(getDefaultConfig(), key,locale, !englishLocale);
+                value = bundle.getResourceBundle(getDefaultConfig(), key,locale, optional);
                 if (Contract.isEmpty(value) && !englishLocale){
-                    value = bundle.getResourceBundle(getDefaultConfig(), key,Locale.UK, false);
+                    value = bundle.getResourceBundle(getDefaultConfig(), key,Locale.UK, optional);
                 }
             }
         }
