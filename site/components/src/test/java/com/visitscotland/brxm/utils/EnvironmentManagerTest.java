@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class EnvironmentManagerTest {
 
     private final EnvironmentManager manager = new EnvironmentManager();
-    private static final String NULL = null;
 
     @Test
     @DisplayName("System properties are read correctly")
