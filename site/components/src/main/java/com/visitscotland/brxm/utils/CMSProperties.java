@@ -196,7 +196,7 @@ public class CMSProperties extends Properties {
             if (value.isPresent()) {
                 return Charset.forName(value.get());
             }
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             logger.warn("{} is not a valid value for the property {}", value, DMS_DATA_ENCODING);
         }
         return StandardCharsets.UTF_8;
