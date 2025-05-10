@@ -115,7 +115,7 @@ public abstract class Properties {
 
     //TODO Reduce visibility to protected after VS-343
     public Optional<String> getProperty(String key){
-        return getProperty(key, Locale.UK);
+        return getProperty(key, DEFAULT_LOCALE);
     }
 
     //TODO Reduce visibility to protected after VS-343
