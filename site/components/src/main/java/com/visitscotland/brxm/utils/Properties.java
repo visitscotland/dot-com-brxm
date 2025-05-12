@@ -115,7 +115,7 @@ public abstract class Properties {
 
     //TODO Reduce visibility to protected after VS-343
     public Optional<String> getProperty(String key){
-        return getProperty(key, Locale.UK);
+        return getProperty(key, DEFAULT_LOCALE);
     }
 
     //TODO Reduce visibility to protected after VS-343
@@ -132,10 +132,15 @@ public abstract class Properties {
 
         if (value == null) {
             return Optional.empty();
-        } else if (value.startsWith("$")){
+        } else if (value.equals("$") || value.equals("%")) {
+            logger.warn("Property {} contains an incomplete environment/system reference", key);
+            return Optional.empty();
+        } else if (value.startsWith("$") && value.length() > 1){
             return environmentManager.getEnvironmentVariable(value.substring(1));
-        } else if (value.startsWith("%")){
+        } else if (value.startsWith("%") && value.length() > 1){
             return environmentManager.getSystemProperty(value.substring(1));
+        } else if (Contract.isEmpty(value)) {
+            return Optional.empty();
         } else {
             return Optional.of(value);
         }
@@ -156,8 +161,8 @@ public abstract class Properties {
 
         // The optional feature would be handled by this class rather than the resource bundle
         final boolean optional = true;
-        boolean defaultConfig = bundleId.equals(getDefaultConfig());
-        boolean englishLocale = Locale.UK.equals(locale);
+        final boolean defaultConfig = bundleId.equals(getDefaultConfig());
+        final boolean englishLocale = Locale.UK.equals(locale);
 
         String value = bundle.getResourceBundle(bundleId, key, locale, optional);
 
