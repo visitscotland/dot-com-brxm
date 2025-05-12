@@ -115,7 +115,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
             request.setModel(SEARCH_RESULTS, true);
         }
-        //TODO: This properties are Optional for each site. This needs to be refactored after VS-343 is completed
+        //TODO: These properties are Optional for each site. This needs to be refactored after VS-343 is completed
         request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()));
         request.setModel("cludoEngineId", properties.getProperty("cludo.engine-id", request.getLocale()));
         request.setModel("cludoExperienceId", properties.getProperty("cludo.experience-id", request.getLocale()));
