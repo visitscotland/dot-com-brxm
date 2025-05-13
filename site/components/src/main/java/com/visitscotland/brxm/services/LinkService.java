@@ -518,6 +518,10 @@ public class LinkService {
 
     private Entry getItineraryTransport(String key) {
         String displayText = new HippoUtilsService().getValueMap(VL_ITINERARY_MAP).get(key);
+        if (displayText == null) {
+            logger.warn("No display text found for transport key: {}", key);
+            displayText = key; // Fallback to using the key as display text
+        }
         return new Entry (key, displayText);
     }
 
