@@ -35,6 +35,8 @@ public class LinkService {
 
     private static final Logger logger = LoggerFactory.getLogger(LinkService.class);
 
+    private static final String VL_ITINERARY_MAP = "vs-itinerary-transports";
+
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
     private final HippoUtilsService utils;
@@ -513,8 +515,6 @@ public class LinkService {
 
         return link;
     }
-
-    private final static String VL_ITINERARY_MAP = "vs-itinerary-transports";
 
     private Entry getItineraryTransport(String key) {
         String displayText = new HippoUtilsService().getValueMap(VL_ITINERARY_MAP).get(key);
