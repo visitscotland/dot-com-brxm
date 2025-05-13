@@ -60,8 +60,8 @@ public class SiteProperties extends Properties {
     static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
 
     private final CMSProperties cmsProperties;
-    public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties){
-        super(bundle, utils);
+    public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties, EnvironmentManager envrionmentManager) {
+        super(bundle, utils, envrionmentManager);
         this.cmsProperties = cmsProperties;
     }
 
@@ -157,7 +157,7 @@ public class SiteProperties extends Properties {
     }
 
     public String getSiteId() {
-        return readString(SITE_ID);
+        return readOptionalString(SITE_ID).orElse("");
     }
 
     public String getFormBregLegalBasis() {
