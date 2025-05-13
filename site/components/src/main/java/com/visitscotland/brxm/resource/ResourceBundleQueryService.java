@@ -49,7 +49,7 @@ public class ResourceBundleQueryService {
      */
     public Optional<String> getValueFor(final @Nonnull String bundleName,
                                  final @Nonnull String itemKey,
-                                 final boolean isSiteBundle) {
+                                 final boolean isSiteBundle) throws ResourceQueryFailedException {
         Objects.requireNonNull(bundleName, "bundleName cannot be null");
         Objects.requireNonNull(itemKey, "itemKey cannot be null");
 
@@ -82,10 +82,10 @@ public class ResourceBundleQueryService {
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
      *         cannot be cast to strings, wrapping the original exception
      */
-    Optional<String> getValueFor(final @Nonnull String bundleName,
+    public Optional<String> getValueFor(final @Nonnull String bundleName,
                                  final @Nonnull String itemKey,
                                  final @Nonnull Locale locale,
-                                 final boolean isSiteBundle) {
+                                 final boolean isSiteBundle) throws ResourceQueryFailedException {
         Objects.requireNonNull(bundleName, "bundleName cannot be null");
         Objects.requireNonNull(itemKey, "itemKey cannot be null");
         Objects.requireNonNull(locale, "locale cannot be null");
@@ -115,7 +115,7 @@ public class ResourceBundleQueryService {
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
      *         cannot be cast to strings, wrapping the original exception
      */
-    public Map<String, String> getAllValuesFor(final @Nonnull String bundleName, final boolean isSiteBundle) {
+    public Map<String, String> getAllValuesFor(final @Nonnull String bundleName, final boolean isSiteBundle) throws ResourceQueryFailedException {
         Objects.requireNonNull(bundleName, "bundleName cannot be null");
 
         final String resolvedBundleName = resolveBundleName(bundleName, isSiteBundle);
@@ -146,7 +146,7 @@ public class ResourceBundleQueryService {
      */
     public Map<String, String> getAllValuesFor(final @Nonnull String bundleName,
                                         final @Nonnull Locale locale,
-                                        final boolean isSiteBundle) {
+                                        final boolean isSiteBundle) throws ResourceQueryFailedException {
         Objects.requireNonNull(bundleName, "bundleName cannot be null");
         Objects.requireNonNull(locale, "locale cannot be null");
 
