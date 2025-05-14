@@ -103,6 +103,7 @@ class PageCompositionHelperTest {
     @Test
     @DisplayName("Calculates the Index depending on the increment")
     void When_calculateThemeIndex_then_returnsIndex() {
+        assertEquals(0, helper.calculateThemeIndex(false));
         assertEquals(0, helper.calculateThemeIndex(true));
         assertEquals(1, helper.calculateThemeIndex(true));
         assertEquals(1, helper.calculateThemeIndex(false));
