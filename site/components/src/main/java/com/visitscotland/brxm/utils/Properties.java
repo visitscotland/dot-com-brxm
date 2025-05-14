@@ -8,17 +8,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Locale;
+import java.util.Optional;
 
 public abstract class Properties {
 
     private static final Logger logger = LoggerFactory.getLogger(Properties.class.getName());
+    private static final Locale DEFAULT_LOCALE = Locale.UK;
 
     private final ResourceBundleService bundle;
     private final HippoUtilsService utils;
+    private final EnvironmentManager environmentManager;
 
-    protected Properties(ResourceBundleService bundle, HippoUtilsService utils){
+    protected Properties(ResourceBundleService bundle, HippoUtilsService utils, EnvironmentManager environmentManager){
         this.bundle = bundle;
         this.utils = utils;
+        this.environmentManager = environmentManager;
     }
 
     abstract String getDefaultConfig();
@@ -26,51 +30,58 @@ public abstract class Properties {
     abstract String getOverrideProperty();
 
     public String readString(String key){
-        String value = getProperty(key);
-        if (value != null){
-            return value;
-        } else {
-            return "";
-        }
+        return readString(key, DEFAULT_LOCALE);
     }
 
     public String readString(String key, Locale locale){
-        String value = getProperty(key, locale);
-        if (value != null){
-            return value;
-        } else {
-            return getProperty(key);
-        }
+        return getProperty(key, locale).orElseGet(() ->
+                getProperty(key).orElseGet(() -> {
+                    logIssueWithProperty(key);
+                    return "";
+                })
+        );
     }
 
-    public int readInteger(String key){
-        String value = getProperty(key);
+    public Optional<String> readOptionalString(String key){
+        return getProperty(key, DEFAULT_LOCALE);
+    }
 
-        try {
-            if (value != null){
-                return Integer.parseInt(value);
+
+    public int readInteger(String key){
+        Optional<String> value = getProperty(key);
+
+        if (value.isPresent()) {
+            try {
+                return Integer.parseInt(value.get());
+            } catch (NumberFormatException nfe) {
+                logger.error("The property value of the property {} cannot be cast to Integer. '{}' is not allowed.", key, value.get());
             }
-        } catch (NumberFormatException nfe){
-            logger.error("The property value of the property {} cannot be casted to Integer. '{}' is not allowed.", key,value);
+        } else {
+            logIssueWithProperty(key);
         }
         return 0;
     }
 
     public double readDouble(String key){
-        String value = getProperty(key);
+        Optional<String> value = getProperty(key);
 
-        try {
-            if (value != null){
-                return Double.parseDouble(value);
+        if (value.isPresent()){
+            try {
+                return Double.parseDouble(value.get());
+            } catch (NumberFormatException nfe){
+                logger.error("The property value of the property {} cannot be cast to Double. '{}' is not allowed.", key,value.get());
             }
-        } catch (NumberFormatException nfe){
-            logger.error("The property value of the property {} cannot be casted to Double. '{}' is not allowed.", key,value);
+        } else {
+            logIssueWithProperty(key);
         }
         return 0;
     }
 
     public boolean readBoolean(String key){
-        return Boolean.parseBoolean(getProperty(key));
+        return Boolean.parseBoolean(getProperty(key).orElseGet(() -> {
+            logIssueWithProperty(key);
+            return "false";
+        }));
     }
 
     /**
@@ -98,56 +109,76 @@ public abstract class Properties {
         return getDefaultConfig();
     }
 
-    public String getProperty(String key){
-        return getProperty(key, Locale.UK);
+    private void logIssueWithProperty (String key) {
+        logger.info("The property {} hasn't been set in the resourceBundle", key);
     }
 
-    public String getProperty(String key, String locale){
+    //TODO Reduce visibility to protected after VS-343
+    public Optional<String> getProperty(String key){
+        return getProperty(key, DEFAULT_LOCALE);
+    }
+
+    //TODO Reduce visibility to protected after VS-343
+    //TODO Remove method only used in FreeMarker
+    @Deprecated(since="2.10.0")
+    public  Optional<String> getProperty(String key, String locale){
         return getProperty(key, Locale.forLanguageTag(locale));
     }
 
-    public String getProperty(String key, Locale locale){
+    //TODO Reduce visibility to protected after VS-343
+    public Optional<String> getProperty(String key, Locale locale){
         String bundleId = getEnvironmentProperties();
-        boolean defaultConfig = bundleId.equals(getDefaultConfig());
-        boolean englishLocale = Locale.UK.equals(locale);
+        String value = readValueFromResourceBundle(key, locale, bundleId);
 
-        String value = bundle.getResourceBundle(bundleId, key, locale, !defaultConfig || !englishLocale);
+        if (value == null) {
+            return Optional.empty();
+        } else if (value.equals("$") || value.equals("%")) {
+            logger.warn("Property {} contains an incomplete environment/system reference", key);
+            return Optional.empty();
+        } else if (value.startsWith("$") && value.length() > 1){
+            return environmentManager.getEnvironmentVariable(value.substring(1));
+        } else if (value.startsWith("%") && value.length() > 1){
+            return environmentManager.getSystemProperty(value.substring(1));
+        } else if (Contract.isEmpty(value)) {
+            return Optional.empty();
+        } else {
+            return Optional.of(value);
+        }
+    }
+
+
+    /**
+     * Reads a value from a Hippo resource bundle using the specified key, locale, and bundle ID.
+     * Attempts to fall back to the default locale if the key is not found for the provided locale.
+     * If the site-specific properties are undefined, it defaults to general properties.
+     *
+     * @param key       the property key to retrieve
+     * @param locale    the locale to use for lookup
+     * @param bundleId  the identifier of the resource bundle
+     * @return the resolved property value, or null if not found
+     */
+    private String readValueFromResourceBundle(String key, Locale locale, String bundleId){
+
+        // The optional feature would be handled by this class rather than the resource bundle
+        final boolean optional = true;
+        final boolean defaultConfig = bundleId.equals(getDefaultConfig());
+        final boolean englishLocale = Locale.UK.equals(locale);
+
+        String value = bundle.getResourceBundle(bundleId, key, locale, optional);
 
         if (Contract.isEmpty(value)) {
 
             if (!englishLocale) {
-                value = bundle.getResourceBundle(bundleId, key, Locale.UK, !defaultConfig );
+                value = bundle.getResourceBundle(bundleId, key, Locale.UK, optional);
             }
             if (Contract.isEmpty(value) && !defaultConfig) {
-                value = bundle.getResourceBundle(getDefaultConfig(), key,locale, !englishLocale);
+                value = bundle.getResourceBundle(getDefaultConfig(), key,locale, optional);
                 if (Contract.isEmpty(value) && !englishLocale){
-                    value = bundle.getResourceBundle(getDefaultConfig(), key,Locale.UK, false);
+                    value = bundle.getResourceBundle(getDefaultConfig(), key,Locale.UK, optional);
                 }
             }
         }
 
-        if (Contract.isEmpty(value)) {
-            logger.info("The property {} hasn't been set in the resourceBundle {}", key, bundleId);
-        } else if (value.startsWith("$")){
-            return getEnvironmentVariable(value.substring(1));
-        } else if (value.startsWith("%")){
-            return getSystemProperty(value.substring(1));
-        } else {
-            return value;
-        }
-
-        return null;
-    }
-
-    String getEnvironmentVariable(String name){
-        try {
-            return System.getenv(name);
-        } catch (RuntimeException e){
-            return null;
-        }
-    }
-
-    String getSystemProperty(String name){
-        return System.getProperty(name, "");
+        return value;
     }
 }

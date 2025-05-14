@@ -38,6 +38,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public static final String DOCUMENT = "document";
     public static final String OTYML_BUNDLE = "otyml";
+    public static final String MEGALINKS_BUNDLE = "megalinks";
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
@@ -133,16 +134,18 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final String SEARCH_BUNDLE = "search";
         final String CMS_MESSAGES = "cms-messages";
         final String SEO = "seo";
+        final String TABLE_CONTENTS = "table-contents";
 
         labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, getGlobalLabels(request.getLocale()));
-        labels(request).put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
-        labels(request).put(SEARCH_BUNDLE, bundle.getAllLabels(SEARCH_BUNDLE, request.getLocale()));
-        labels(request).put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
+        labels(request).put(SOCIAL_SHARE_BUNDLE, bundle.getAllSiteLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
+        labels(request).put(SEARCH_BUNDLE, bundle.getAllSiteLabels(SEARCH_BUNDLE, request.getLocale()));
+        labels(request).put(VIDEO_BUNDLE, bundle.getAllSiteLabels(VIDEO_BUNDLE, request.getLocale()));
         labels(request).put(SEO, bundle.getAllSiteLabels(SEO, request.getLocale()));
-        labels(request).put(SKIP_TO, bundle.getAllLabels(SKIP_TO, request.getLocale()));
+        labels(request).put(SKIP_TO, bundle.getAllSiteLabels(SKIP_TO, request.getLocale()));
+        labels(request).put(TABLE_CONTENTS, bundle.getAllSiteLabels(TABLE_CONTENTS, request.getLocale()));
 
         if (isEditMode(request)) {
-            labels(request).put(CMS_MESSAGES, bundle.getAllLabels(CMS_MESSAGES, request.getLocale()));
+            labels(request).put(CMS_MESSAGES, bundle.getAllSiteLabels(CMS_MESSAGES, request.getLocale()));
         }
     }
 
@@ -243,8 +246,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel(OTYML_BUNDLE, otyml);
         }
 
-        //TODO: Add itinerary labels for days and transport. (https://github.com/visitscotland/business-events-front-end/issues/74)
         labels(request).put(OTYML_BUNDLE, bundle.getAllLabels(OTYML_BUNDLE, request.getLocale()));
+        labels(request).put(MEGALINKS_BUNDLE, bundle.getAllLabels(MEGALINKS_BUNDLE, request.getLocale()));
         labels(request).put(PAGINATION_BUNDLE, bundle.getAllLabels(PAGINATION_BUNDLE, request.getLocale()));
     }
 
@@ -288,9 +291,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         Page page = getDocument(request);
         if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
             Optional<SignpostModule> signpost;
-            if (!Contract.isEmpty(properties.getSiteId())){
-                signpost = signpostFactory.createDeliveryAPIModule(request.getLocale());
-            } else if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
+            if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
                 signpost = signpostFactory.createSnowAlertsModule(request.getLocale());
             } else {
                 signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
@@ -367,9 +368,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         }
 
-        labels(request).put(SOCIAL_MEDIA, bundle.getAllLabels(prefix + SOCIAL_MEDIA, request.getLocale()));
-        labels(request).put(STATIC, bundle.getAllLabels(prefix + STATIC, request.getLocale()));
-        labels(request).put(TABLE_CONTENTS, bundle.getAllLabels(TABLE_CONTENTS, request.getLocale()));
+        labels(request).put(SOCIAL_MEDIA, bundle.getAllSiteLabels(SOCIAL_MEDIA, request.getLocale()));
+        labels(request).put(STATIC, bundle.getAllSiteLabels(STATIC, request.getLocale()));
+        labels(request).put(TABLE_CONTENTS, bundle.getAllSiteLabels(TABLE_CONTENTS, request.getLocale()));
     }
 
     boolean isEditMode(HstRequest request) {

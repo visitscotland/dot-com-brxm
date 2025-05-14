@@ -97,7 +97,7 @@ public class NavigationFactory {
         MenuItem menuItem = new MenuItem(hstItem);
 
         //By default, the name would be populated by the resourceBundle
-        menuItem.setTitle(bundle.getResourceBundle(resourceBundle, hstItem.getName(), request.getLocale(), true));
+        menuItem.setTitle(bundle.getSiteResourceBundle(resourceBundle, hstItem.getName(), request.getLocale()));
 
         //if document base page or widget, we enhance the document
         if (isDocumentBased(hstItem.getHstLink()) && hstItem.resolveToSiteMapItem() != null) {
@@ -232,9 +232,9 @@ public class NavigationFactory {
         }
 
         if (bundle.existsResourceBundleKey(bundleId, menuItem.getHstMenuItem().getName() + CTA_SUFFIX, locale)) {
-            menuItem.setCta(bundle.getResourceBundle(bundleId, menuItem.getHstMenuItem().getName() + CTA_SUFFIX, locale));
+            menuItem.setCta(bundle.getSiteResourceBundle(bundleId, menuItem.getHstMenuItem().getName() + CTA_SUFFIX, locale));
         } else if (menuItem.getTitle() != null) {
-            String seeAll = bundle.getResourceBundle(STATIC, "see-all-cta", locale);
+            String seeAll = bundle.getSiteResourceBundle(STATIC, "see-all-cta", locale);
             if (seeAll != null) {
                 try {
                     menuItem.setCta(String.format(seeAll, menuItem.getTitle()));
