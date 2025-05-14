@@ -38,6 +38,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public static final String DOCUMENT = "document";
     public static final String OTYML_BUNDLE = "otyml";
+    public static final String MEGALINKS_BUNDLE = "megalinks";
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
@@ -245,8 +246,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel(OTYML_BUNDLE, otyml);
         }
 
-        //TODO: Add itinerary labels for days and transport. (https://github.com/visitscotland/business-events-front-end/issues/74)
         labels(request).put(OTYML_BUNDLE, bundle.getAllLabels(OTYML_BUNDLE, request.getLocale()));
+        labels(request).put(MEGALINKS_BUNDLE, bundle.getAllLabels(MEGALINKS_BUNDLE, request.getLocale()));
         labels(request).put(PAGINATION_BUNDLE, bundle.getAllLabels(PAGINATION_BUNDLE, request.getLocale()));
     }
 

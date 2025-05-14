@@ -8,6 +8,7 @@
                 <!--<entry key="name" value="/absolute/repository/path"/>-->
                 <entry key="iknow-community-tags" value="/content/documents/administration/options/iknow-community-tags"/>
                 <entry key="travel-information-transports" value="/content/documents/administration/options/travel-information-transports"/>
+                <entry key="vs-itinerary-transports" value="/content/documents/administration/options/transports"/>
                 <entry key="bsh-external-links" value="/content/documents/administration/options/business-support-hub/external-links"/>
                 <entry key="bsh-regions" value="/content/documents/administration/options/business-support-hub/regions"/>
                 <entry key="bsh-sectors" value="/content/documents/administration/options/business-support-hub/sector"/>

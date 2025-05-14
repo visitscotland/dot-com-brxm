@@ -14,6 +14,7 @@ public class EnhancedLink extends FlatLink {
     private String category;
     private String cta;
     private String itineraryTransport;
+    private Entry itineraryMainTransport;
     private String youtubeId;
     private int itineraryDays;
     private Date publishedDate;
@@ -57,10 +58,12 @@ public class EnhancedLink extends FlatLink {
         this.category = category;
     }
 
+    //TODO: To be deleted after VS-434 is completed
     public String getItineraryTransport() {
         return itineraryTransport;
     }
 
+    //TODO: To be deleted after VS-434 is completed
     public void setItineraryTransport(String itineraryTransport) {
         this.itineraryTransport = itineraryTransport;
     }
@@ -71,6 +74,14 @@ public class EnhancedLink extends FlatLink {
 
     public void setItineraryDays(int itineraryDays) {
         this.itineraryDays = itineraryDays;
+    }
+
+    public Entry getItineraryMainTransport() {
+        return itineraryMainTransport;
+    }
+
+    public void setItineraryMainTransport(Entry itineraryMainTransport) {
+        this.itineraryMainTransport = itineraryMainTransport;
     }
 
     public String getCta() {

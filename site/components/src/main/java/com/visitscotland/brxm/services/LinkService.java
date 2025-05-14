@@ -12,6 +12,7 @@ import com.visitscotland.brxm.hippobeans.capabilities.UrlLink;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -33,6 +34,8 @@ import java.util.stream.Collectors;
 public class LinkService {
 
     private static final Logger logger = LoggerFactory.getLogger(LinkService.class);
+
+    private static final String VL_ITINERARY_MAP = "vs-itinerary-transports";
 
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
@@ -499,6 +502,7 @@ public class LinkService {
             link.setItineraryDays(documentUtilsService.getSiblingDocuments(page, Day.class, "visitscotland:Day").size());
             if (itinerary.getTransports().length > 0) {
                 link.setItineraryTransport(itinerary.getTransports()[0]);
+                link.setItineraryMainTransport(getItineraryTransport(itinerary.getTransports()[0]));
             }
         }  else if (page instanceof GeneralBSH){
             GeneralBSH generalBSH = (GeneralBSH) page;
@@ -510,6 +514,15 @@ public class LinkService {
         }
 
         return link;
+    }
+
+    private Entry getItineraryTransport(String key) {
+        String displayText = utils.getValueMap(VL_ITINERARY_MAP).get(key);
+        if (displayText == null) {
+            logger.warn("No display text found for transport key: {}", key);
+            displayText = key; // Fallback to using the key as display text
+        }
+        return new Entry (key, displayText);
     }
 
     /**
