@@ -7,8 +7,8 @@ import java.util.List;
 
 public class CompositionModel {
 
-    private static final String[] ALIGNMENT = {"right", "left"};
-    private static final Integer THEMES = 3;
+    static final String[] ALIGNMENT = {"right", "left"};
+    static final Integer THEMES = 3;
 
     private List<Module<?>> modules = new ArrayList<>();
     private int style = 0;
