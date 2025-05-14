@@ -35,7 +35,7 @@ public class LinkService {
 
     private static final Logger logger = LoggerFactory.getLogger(LinkService.class);
 
-    private static final String VL_ITINERARY_MAP = "vs-itinerary-transports";
+    static final String VL_ITINERARY_MAP = "vs-itinerary-transports";
 
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
