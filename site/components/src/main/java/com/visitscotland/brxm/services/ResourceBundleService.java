@@ -55,7 +55,7 @@ public class ResourceBundleService {
     }
 
     public String getSiteResourceBundle(String bundleName, String key, Locale locale) {
-        if (!properties.getSiteId().isBlank() && hasSiteResourceBundle(bundleName, locale)) {
+        if (!Contract.isEmpty(properties.getSiteId()) && hasSiteResourceBundle(bundleName, locale)) {
             final String bundleId = getSiteResourceBundleId(bundleName);
             String value = getResourceBundle(bundleId, key, locale, true);
             if (value != null) {
@@ -285,7 +285,7 @@ public class ResourceBundleService {
      */
     public Map<String, String> getAllSiteLabels(String bundleName, Locale locale){
         Map<String, String> labels = new HashMap<>();
-        if (!properties.getSiteId().isEmpty()) {
+        if (!Contract.isEmpty(properties.getSiteId())) {
 
             for (String key : getResourceBundle(bundleName, locale).keySet()) {
                 labels.put(key, getSiteResourceBundle(bundleName, key, locale));

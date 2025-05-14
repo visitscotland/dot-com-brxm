@@ -82,7 +82,7 @@ class NavigationFactoryTest {
         hstMenuItem = newMockBuilder().name("home").build();
         addMenuToRequest(hstMenuItem);
 
-        when(bundle.getResourceBundle(BUNDLE_ID, "home", LOCALE, true)).thenReturn("Home Page");
+        when(bundle.getSiteResourceBundle(BUNDLE_ID, "home", LOCALE)).thenReturn("Home Page");
 
         RootMenuItem menu = factory.buildMenu(request,BUNDLE_ID, null, false);
 
@@ -169,7 +169,7 @@ class NavigationFactoryTest {
         addMenuToRequest(hstMenuItem);
 
         mockLabels("home", null, null);
-        when(bundle.getResourceBundle(NavigationFactory.STATIC, "see-all-cta", request.getLocale())).thenReturn("See all %s");
+        when(bundle.getSiteResourceBundle(NavigationFactory.STATIC, "see-all-cta", request.getLocale())).thenReturn("See all %s");
 
         RootMenuItem menu = factory.buildMenu(request,BUNDLE_ID, null, false);
 
@@ -201,7 +201,7 @@ class NavigationFactoryTest {
         addMenuToRequest(hstMenuItem);
 
         mockLabels("home","Pages", null);
-        when(bundle.getResourceBundle(NavigationFactory.STATIC, "see-all-cta", request.getLocale())).thenReturn(label);
+        when(bundle.getSiteResourceBundle(NavigationFactory.STATIC, "see-all-cta", request.getLocale())).thenReturn(label);
 
         RootMenuItem menu = factory.buildMenu(request,BUNDLE_ID, null, false);
 
@@ -210,12 +210,12 @@ class NavigationFactoryTest {
     }
 
     private void mockLabels(String nodeId, String title, String cta){
-        when(bundle.getResourceBundle(BUNDLE_ID, nodeId, LOCALE, true)).thenReturn(title);
+        when(bundle.getSiteResourceBundle(BUNDLE_ID, nodeId, LOCALE)).thenReturn(title);
         if (cta == null) {
             when(bundle.existsResourceBundleKey(BUNDLE_ID, nodeId + ".cta", LOCALE)).thenReturn(false);
         } else {
             when(bundle.existsResourceBundleKey(BUNDLE_ID, nodeId + ".cta", LOCALE)).thenReturn(true);
-            when(bundle.getResourceBundle(BUNDLE_ID, nodeId + ".cta", LOCALE)).thenReturn(cta);
+            when(bundle.getSiteResourceBundle(BUNDLE_ID, nodeId + ".cta", LOCALE)).thenReturn(cta);
         }
     }
 
