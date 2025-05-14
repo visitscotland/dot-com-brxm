@@ -42,6 +42,6 @@ public class UserGeneratedContentFactory implements ModuleMapper<Stackla, UserGe
     public void include(Stackla document, PageCompositionHelper page) {
         UserGeneratedContentModule module = map(document, page.getLocale());
         page.addModule(Optional.of(module));
-        page.addResourceBundle("ucg");
+        page.addAllSiteLabels("ucg");
     }
 }

@@ -19,10 +19,9 @@ public class CompositionModel {
         return modules;
     }
 
-    void setModules(List<Module<?>> modules) {
-        this.modules = modules;
+    String calculateAlignment(){
+        return ALIGNMENT[alignment++ % ALIGNMENT.length];
     }
-
     /**
      * Return the current Style index and increment the value of the index
      */
@@ -38,16 +37,5 @@ public class CompositionModel {
         } else {
             return 0;
         }
-    }
-
-    /**
-     * Reverts the changes of the index
-     */
-    void alternateIndex(){
-        if (style > 0) style--;
-    }
-
-    String calculateAlignment(){
-        return ALIGNMENT[alignment++ % ALIGNMENT.length];
     }
 }

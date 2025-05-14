@@ -50,18 +50,14 @@ public class PageCompositionHelper {
         return model.getModules();
     }
 
-
-    public void addResourceBundle(String bundleId) {
-        bundle.getAllLabels(bundleId, getLocale());
-    }
-
     void addGlobalLabel(String key) {
+        labels(request).computeIfAbsent(GLOBAL_BUNDLE_FILE, k -> new HashMap<>());
         labels(request).get(GLOBAL_BUNDLE_FILE)
-                .put(key, bundle.getSiteResourceBundle(GLOBAL_BUNDLE_FILE, key, request.getLocale()));
+                .put(key, bundle.getSiteResourceBundle(GLOBAL_BUNDLE_FILE, key, getLocale()));
     }
 
-    private void addAllSiteLabels(HstRequest request, String bundleName) {
-        labels(request).put(bundleName, bundle.getAllSiteLabels(bundleName, request.getLocale()));
+    public void addAllSiteLabels(String bundleName) {
+        labels(request).put(bundleName, bundle.getAllSiteLabels(bundleName, getLocale()));
     }
 
     private Map<String, Map<String, String>> labels(HstRequest request) {
