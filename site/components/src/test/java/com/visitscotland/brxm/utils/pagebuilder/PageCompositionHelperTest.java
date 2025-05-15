@@ -40,7 +40,7 @@ class PageCompositionHelperTest {
     @DisplayName("Modules are added to the Page Items list")
     void When_moduleIsAdded_then_itIsStoredInModuleList() {
         Module<?> module = mock(Module.class);
-        helper.addModule(Optional.of(module));
+        helper.addModule(module);
 
         assertEquals(1, helper.getModules().size());
         assertSame(module, helper.getModules().get(0));
@@ -50,9 +50,9 @@ class PageCompositionHelperTest {
     @DisplayName("The first module of the page is taken from the list")
     void When_severalModules_then_getFirstModuleReturnsFirstEntry() {
         Module<?> firstModule = mock(Module.class);
-        helper.addModule(Optional.of(firstModule));
-        helper.addModule(Optional.of(mock(Module.class)));
-        helper.addModule(Optional.of(mock(Module.class)));
+        helper.addModule(firstModule);
+        helper.addModule(mock(Module.class));
+        helper.addModule(mock(Module.class));
 
         assertSame(firstModule, helper.getFirstModule().orElseThrow());
     }
