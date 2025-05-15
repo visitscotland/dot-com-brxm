@@ -20,8 +20,8 @@ public class CompositionModel {
         return modules;
     }
 
-    void addModule(Optional<Module<?>> module){
-        module.ifPresent(modules::add);
+    void addModule(Module<?> module){
+        modules.add(module);
     }
 
     String calculateAlignment(){

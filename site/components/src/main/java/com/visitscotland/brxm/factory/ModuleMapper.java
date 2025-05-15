@@ -15,11 +15,13 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 public interface ModuleMapper<H extends HippoBean, M extends Module<H>> {
 
     /**
-     * Includes the given document in the page composition.
-     * 
+     * Converts a documentType into a Module
+     *
      * @param document The HippoBean document to include
-     * @param page The PageCompositionHelper to add the module to
+     * @param locale Locale for the request
      */
+    M map(H document, Locale locale);
+
     /**
      * Includes the given document in the page composition.
      * 

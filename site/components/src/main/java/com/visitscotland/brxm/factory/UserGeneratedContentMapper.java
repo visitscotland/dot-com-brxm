@@ -23,6 +23,7 @@ public class UserGeneratedContentMapper implements ModuleMapper<Stackla, UserGen
         this.bundle = bundle;
     }
 
+    @Override
     public UserGeneratedContentModule map(Stackla document, Locale locale) {
         logger.info("Creating user generated content Module for {}", document.getPath());
         UserGeneratedContentModule ugc = new  UserGeneratedContentModule();
@@ -41,7 +42,7 @@ public class UserGeneratedContentMapper implements ModuleMapper<Stackla, UserGen
     @Override
     public void include(Stackla document, PageCompositionHelper page) {
         UserGeneratedContentModule module = map(document, page.getLocale());
-        page.addModule(Optional.of(module));
-        page.addAllSiteLabels("ucg");
+        page.addModule(module);
+        page.addAllSiteLabels(BUNDLE_ID);
     }
 }

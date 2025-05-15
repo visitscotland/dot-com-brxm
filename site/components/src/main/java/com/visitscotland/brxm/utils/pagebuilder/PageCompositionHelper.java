@@ -16,8 +16,8 @@ public class PageCompositionHelper {
     private final CompositionModel model;
 
     public PageCompositionHelper(ResourceBundleService bundle, HstRequest request) {
-        this.bundle = bundle;
-        this.request = request;
+        this.bundle = Objects.requireNonNull(bundle,  "bundle must not be null");
+        this.request = Objects.requireNonNull(request, "request must not be null");
         this.model = new CompositionModel();
     }
 
@@ -25,17 +25,8 @@ public class PageCompositionHelper {
         return request.getLocale();
     }
 
-    public void addModule(Optional<Module<?>> module){
+    public void addModule(Module<?> module){
         model.addModule(module);
-    }
-
-    /**
-     * This method has been created for backwards compatibility. Please use {@code addModule(Optional<Module>)} instead
-     * @param module
-     */
-    @Deprecated
-    void addModule(Module<?> module){
-        addModule(Optional.ofNullable(module));
     }
 
     Optional<Module<?>> getFirstModule(){
