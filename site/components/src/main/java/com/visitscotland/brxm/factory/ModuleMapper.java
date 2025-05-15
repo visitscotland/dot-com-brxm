@@ -20,6 +20,13 @@ public interface ModuleMapper<H extends HippoBean, M extends Module<H>> {
      * @param document The HippoBean document to include
      * @param page The PageCompositionHelper to add the module to
      */
-    void include(H document, PageCompositionHelper page);
+    /**
+     * Includes the given document in the page composition.
+     * 
+     * @param document The HippoBean document to include
+     * @param page The PageCompositionHelper to add the module to
+     * @return The module that was added to the page
+     */
+    M include(H document, PageCompositionHelper page);
 
 }
