@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.utils;
+package com.visitscotland.brxm.utils.pagebuilder;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.LinksModuleMockBuilder;
@@ -9,6 +9,9 @@ import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.mock.TouristInformationMockBuilder;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.mock.core.component.MockHstRequest;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,7 +31,7 @@ import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
-class PageTemplateBuilderTest {
+class PageAssemblerTest {
 
 
     MockHstRequest request;
@@ -63,8 +66,11 @@ class PageTemplateBuilderTest {
     @Mock
     ContentLogger logger;
 
+    @Mock
+    ResourceBundleService bundle;
+
     @InjectMocks
-    PageTemplateBuilder builder;
+    PageAssembler builder;
 
     @BeforeEach
     void init() {
@@ -84,7 +90,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        List<?> items = (List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
         assertEquals(0, items.size());
     }
@@ -101,7 +107,7 @@ class PageTemplateBuilderTest {
         doReturn(module).when(linksFactory).getMegalinkModule(megalinks, Locale.UK);
 
         builder.addModules(request);
-        List<?> items = (List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
         assertEquals(1, items.size());
     }
@@ -122,7 +128,7 @@ class PageTemplateBuilderTest {
 
 
         builder.addModules(request);
-        List<?> items = (List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
         assertEquals(1, items.size());
         assertSame(items.get(0).getClass(), Module.class);
@@ -151,14 +157,14 @@ class PageTemplateBuilderTest {
 
 
         builder.addModules(request);
-        List<LinksModule<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        List<LinksModule<?>> items = request.getModel(PageAssembler.PAGE_ITEMS);
 
         assertEquals(4, items.size());
 
         verify(module1).setThemeIndex(0);
-        verify(module2).setThemeIndex(1 % PageTemplateBuilder.THEMES);
-        verify(module3).setThemeIndex(2 % PageTemplateBuilder.THEMES);
-        verify(module4).setThemeIndex(3 % PageTemplateBuilder.THEMES);
+        verify(module2).setThemeIndex(1 % CompositionModel.THEMES);
+        verify(module3).setThemeIndex(2 % CompositionModel.THEMES);
+        verify(module4).setThemeIndex(3 % CompositionModel.THEMES);
     }
 
     /**
@@ -185,7 +191,7 @@ class PageTemplateBuilderTest {
 
 
         builder.addModules(request);
-        List<?> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = request.getModel(PageAssembler.PAGE_ITEMS);
 
         assertEquals(4, items.size());
 
@@ -243,13 +249,13 @@ class PageTemplateBuilderTest {
 
 
         builder.addModules(request);
-        List<?> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = request.getModel(PageAssembler.PAGE_ITEMS);
         assertEquals(4, items.size());
 
-        verify(module1).setAlignment(PageTemplateBuilder.ALIGNMENT[0 % 2]);
-        verify(module2).setAlignment(PageTemplateBuilder.ALIGNMENT[1 % 2]);
-        verify(module3).setAlignment(PageTemplateBuilder.ALIGNMENT[2 % 2]);
-        verify(module4).setAlignment(PageTemplateBuilder.ALIGNMENT[3 % 2]);
+        verify(module1).setAlignment(CompositionModel.ALIGNMENT[0 % 2]);
+        verify(module2).setAlignment(CompositionModel.ALIGNMENT[1 % 2]);
+        verify(module3).setAlignment(CompositionModel.ALIGNMENT[2 % 2]);
+        verify(module4).setAlignment(CompositionModel.ALIGNMENT[3 % 2]);
     }
 
     /**
@@ -269,7 +275,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        List<Module<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        List<Module<?>> items = request.getModel(PageAssembler.PAGE_ITEMS);
         assertEquals(1, items.size());
         assertEquals(ti, items.get(0).getHippoBean());
     }
@@ -289,7 +295,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        List<?> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = request.getModel(PageAssembler.PAGE_ITEMS);
         assertEquals(0, items.size());
     }
 
@@ -309,7 +315,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        List<Module<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        List<Module<?>> items = request.getModel(PageAssembler.PAGE_ITEMS);
         assertEquals(1, items.size());
         assertEquals(ti, items.get(0).getHippoBean());
     }
@@ -333,7 +339,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        List<Module<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        List<Module<?>> items = request.getModel(PageAssembler.PAGE_ITEMS);
         assertEquals(2, items.size());
         assertEquals(ti, items.get(0).getHippoBean());
         assertNull(items.get(1).getHippoBean());
@@ -348,10 +354,10 @@ class PageTemplateBuilderTest {
         doReturn(new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build()).when(linksFactory).getMegalinkModule(mega, Locale.UK);
 
         builder.addModules(request);
-        LinksModule<?> module = (LinksModule<?>) ((List<?>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).get(0);
+        LinksModule<?> module = (LinksModule<?>) ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).get(0);
 
-        assertNotNull(request.getAttribute(PageTemplateBuilder.INTRO_THEME));
-        assertEquals(request.getAttribute(PageTemplateBuilder.INTRO_THEME), module.getThemeIndex());
+        assertNotNull(request.getAttribute(PageAssembler.INTRO_THEME));
+        assertEquals(request.getAttribute(PageAssembler.INTRO_THEME), module.getThemeIndex());
     }
 
     @Test
@@ -361,7 +367,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        assertNull(request.getAttribute(PageTemplateBuilder.INTRO_THEME));
+        assertNull(request.getAttribute(PageAssembler.INTRO_THEME));
     }
 
     @Test
@@ -380,7 +386,7 @@ class PageTemplateBuilderTest {
         builder.addModules(request);
 
         //List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
-        LongCopyModule module = (LongCopyModule) ((List<Module>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).get(0);
+        LongCopyModule module = (LongCopyModule) ((List<Module>) request.getModel(PageAssembler.PAGE_ITEMS)).get(0);
         assertNotNull(module);
     }
 
@@ -397,7 +403,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        assertEquals(0, ((List<?>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
+        assertEquals(0, ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
     }
 
     @Test
@@ -414,7 +420,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        assertEquals(0,((List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).stream().filter(m -> !(m instanceof ErrorModule)).count());
+        assertEquals(0,((List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS)).stream().filter(m -> !(m instanceof ErrorModule)).count());
     }
 
     @Test
@@ -431,6 +437,6 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        assertEquals(1, ((List<?>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
+        assertEquals(1, ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
     }
 }
