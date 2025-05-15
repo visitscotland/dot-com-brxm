@@ -193,14 +193,14 @@ public class PageAssembler {
         if (page instanceof General && ((General) page).getTheme().equals(GeneralContentComponent.SIMPLE)){
             if (compositionHelper.getModules().stream().anyMatch(LongCopyModule.class::isInstance)){
                 logger.error("Only one instance of Long Module is allowed");
-                compositionHelper.getModules().add(new ErrorModule(document, "Only one instance of Long Module module is allowed"));
+                compositionHelper.addModule(new ErrorModule(document, "Only one instance of Long Module module is allowed"));
             } else {
-                compositionHelper.getModules().add(longCopyFactory.getModule(document));
+                compositionHelper.addModule(longCopyFactory.getModule(document));
             }
         } else {
             logger.error("The document type LongCopy is only allowed in Simple Pages");
             contentLogger.error("The document type LongCopy is not allowed in this page. Path {}", page.getPath());
-            compositionHelper.getModules().add(new ErrorModule(document, "The document type Long Copy is only allowed in Simple Pages"));
+            compositionHelper.addModule(new ErrorModule(document, "The document type Long Copy is only allowed in Simple Pages"));
         }
     }
 

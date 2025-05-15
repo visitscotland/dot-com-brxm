@@ -9,6 +9,7 @@ import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.mock.TouristInformationMockBuilder;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.mock.core.component.MockHstRequest;
@@ -64,6 +65,9 @@ class PageAssemblerTest {
 
     @Mock
     ContentLogger logger;
+
+    @Mock
+    ResourceBundleService bundle;
 
     @InjectMocks
     PageAssembler builder;
