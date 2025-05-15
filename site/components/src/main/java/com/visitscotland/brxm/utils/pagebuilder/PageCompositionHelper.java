@@ -26,7 +26,7 @@ public class PageCompositionHelper {
     }
 
     public void addModule(Optional<Module<?>> module){
-        module.ifPresent(value -> model.getModules().add(value));
+        model.addModule(module);
     }
 
     /**
@@ -47,20 +47,20 @@ public class PageCompositionHelper {
     }
 
     List<Module<?>> getModules(){
-        return model.getModules();
+        return Collections.unmodifiableList(model.getModules());
     }
 
     void addGlobalLabel(String key) {
-        labels(request).computeIfAbsent(GLOBAL_BUNDLE_FILE, k -> new HashMap<>());
-        labels(request).get(GLOBAL_BUNDLE_FILE)
+        labels().computeIfAbsent(GLOBAL_BUNDLE_FILE, k -> new HashMap<>());
+        labels().get(GLOBAL_BUNDLE_FILE)
                 .put(key, bundle.getSiteResourceBundle(GLOBAL_BUNDLE_FILE, key, getLocale()));
     }
 
     public void addAllSiteLabels(String bundleName) {
-        labels(request).put(bundleName, bundle.getAllSiteLabels(bundleName, getLocale()));
+        labels().put(bundleName, bundle.getAllSiteLabels(bundleName, getLocale()));
     }
 
-    private Map<String, Map<String, String>> labels(HstRequest request) {
+    private Map<String, Map<String, String>> labels() {
         if (request.getModel(LABELS) == null) {
             Map<String, Map<String, String>> labels = new HashMap<>();
             request.setModel(LABELS, labels);
