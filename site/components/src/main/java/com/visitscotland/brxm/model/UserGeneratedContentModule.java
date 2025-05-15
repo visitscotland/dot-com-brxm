@@ -10,10 +10,13 @@ public class UserGeneratedContentModule extends Module<Stackla> {
     private String storystreamId;
     private String noCookiesMessage;
     private String noJsMessage;
+
+    @Deprecated
     public void setNoCookiesMessage(String noCookiesMessage) {
         this.noCookiesMessage = noCookiesMessage;
     }
 
+    @Deprecated
     public void setNoJsMessage(String noJsMessage) {
         this.noJsMessage = noJsMessage;
     }
