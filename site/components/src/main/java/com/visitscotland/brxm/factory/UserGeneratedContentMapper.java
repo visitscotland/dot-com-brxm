@@ -13,13 +13,13 @@ import java.util.Locale;
 import java.util.Optional;
 
 @Component
-public class UserGeneratedContentFactory implements ModuleMapper<Stackla, UserGeneratedContentModule> {
+public class UserGeneratedContentMapper implements ModuleMapper<Stackla, UserGeneratedContentModule> {
 
     private final ResourceBundleService bundle;
-    private static final Logger logger = LoggerFactory.getLogger(UserGeneratedContentFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserGeneratedContentMapper.class);
     static final String BUNDLE_ID = "ugc";
 
-    public UserGeneratedContentFactory(ResourceBundleService bundle) {
+    public UserGeneratedContentMapper(ResourceBundleService bundle) {
         this.bundle = bundle;
     }
 

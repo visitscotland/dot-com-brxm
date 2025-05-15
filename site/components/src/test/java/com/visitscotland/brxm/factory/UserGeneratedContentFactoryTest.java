@@ -19,7 +19,7 @@ import java.util.Locale;
 class UserGeneratedContentFactoryTest {
 
     @InjectMocks
-    UserGeneratedContentFactory userGeneratedContentFactory;
+    UserGeneratedContentMapper userGeneratedContentFactory;
 
     @Mock
     ResourceBundleService bundle;

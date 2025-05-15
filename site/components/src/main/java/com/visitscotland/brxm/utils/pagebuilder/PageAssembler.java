@@ -45,7 +45,7 @@ public class PageAssembler {
     private final IKnowFactory iKnowFactory;
     private final ArticleFactory articleFactory;
     private final LongCopyFactory longCopyFactory;
-    private final UserGeneratedContentFactory userGeneratedContentFactory;
+    private final UserGeneratedContentMapper userGeneratedContentFactory;
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
@@ -64,7 +64,7 @@ public class PageAssembler {
     @Autowired
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
                          IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
-                         UserGeneratedContentFactory userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
+                         UserGeneratedContentMapper userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
                          CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                          MapFactory mapFactory, SkiFactory skiFactory, SiteProperties properties,
                          DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger,

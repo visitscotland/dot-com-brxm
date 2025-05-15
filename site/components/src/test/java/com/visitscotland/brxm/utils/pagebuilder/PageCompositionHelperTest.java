@@ -48,7 +48,7 @@ class PageCompositionHelperTest {
 
     @Test
     @DisplayName("The first module of the page is taken from the list")
-    void When_severalModules_then_getFirstModuleReturnsEmpty() {
+    void When_severalModules_then_getFirstModuleReturnsFirstEntry() {
         Module<?> firstModule = mock(Module.class);
         helper.addModule(Optional.of(firstModule));
         helper.addModule(Optional.of(mock(Module.class)));
