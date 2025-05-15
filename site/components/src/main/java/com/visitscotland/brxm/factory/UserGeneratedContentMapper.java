@@ -13,7 +13,7 @@ import java.util.Locale;
 import java.util.Optional;
 
 @Component
-public class UserGeneratedContentMapper implements ModuleMapper<Stackla, UserGeneratedContentModule> {
+public class UserGeneratedContentMapper extends ModuleMapper<Stackla, UserGeneratedContentModule> {
 
     private final ResourceBundleService bundle;
     private static final Logger logger = LoggerFactory.getLogger(UserGeneratedContentMapper.class);
@@ -41,8 +41,7 @@ public class UserGeneratedContentMapper implements ModuleMapper<Stackla, UserGen
 
     @Override
     public void include(Stackla document, PageCompositionHelper page) {
-        UserGeneratedContentModule module = map(document, page.getLocale());
-        page.addModule(module);
+        super.include(document, page);
         page.addAllSiteLabels(BUNDLE_ID);
     }
 }
