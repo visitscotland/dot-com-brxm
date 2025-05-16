@@ -7,10 +7,10 @@ import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SkiModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.utils.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -27,9 +27,9 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule>{
     private final DMSDataService dataService;
     private final ResourceBundleService bundle;
 
-    private final Logger contentLogger;
+    private final ContentLogger contentLogger;
 
-    public SkiCentreMapper(DMSDataService dataService, ResourceBundleService bundle, Logger contentLogger) {
+    public SkiCentreMapper(DMSDataService dataService, ResourceBundleService bundle, ContentLogger contentLogger) {
         this.dataService = dataService;
         this.bundle = bundle;
         this.contentLogger = contentLogger;
@@ -55,7 +55,7 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule>{
          * Note: ProductID is currently mandatory in the CMS but, the DMS might be retired by the end of 2025 and this
          * field might be removed
          */
-        if (Contract.isEmpty(document.getProductId())) {
+        if (!Contract.isEmpty(document.getProductId())) {
             JsonNode product = dataService.productCard(document.getProductId(), locale);
 
             if (product == null) {
@@ -78,7 +78,7 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule>{
      * @param product JSON Object containing the Product data.
      */
     private void populateDmsData(@NotNull SkiModule module, @NotNull JsonNode product,@NotNull Locale locale){
-        List<JsonNode> links = new ArrayList<>();
+        List<JsonNode> links;
 
         if (product.has(ADDRESS)) {
             module.setAddress(product.get(ADDRESS));
@@ -103,9 +103,12 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule>{
         }
 
         if (product.has(SOCIAL_CHANNEL)) {
+            links = new ArrayList<>(product.get(SOCIAL_CHANNEL).size());
             for (JsonNode channel : product.get(SOCIAL_CHANNEL)) {
                 links.add(channel);
             }
+        } else {
+             links = new ArrayList<>();
         }
         module.setSocialChannels(links);
     }
