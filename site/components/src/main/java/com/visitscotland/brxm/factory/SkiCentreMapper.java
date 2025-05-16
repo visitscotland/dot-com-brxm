@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -108,7 +109,7 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule>{
                 links.add(channel);
             }
         } else {
-             links = new ArrayList<>();
+             links = Collections.emptyList();
         }
         module.setSocialChannels(links);
     }

@@ -53,7 +53,7 @@ public class PageAssembler {
     private final MapFactory mapFactory;
     private final SignpostFactory signPostFactory;
     private final SkiCentreMapper skiCentreMapper;
-    private final SkiFactory skiFactory;
+    private final SkiCentreListMapper skiCentreListMapper;
     private final DevModuleFactory devModuleFactory;
     private final EventsListingFactory eventsListingFactory;
     private final SiteProperties properties;
@@ -67,7 +67,7 @@ public class PageAssembler {
                          IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
                          UserGeneratedContentMapper userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
                          CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
-                         MapFactory mapFactory, SkiFactory skiFactory, SkiCentreMapper skiCentreMapper, SiteProperties properties,
+                         MapFactory mapFactory, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger,
                          SignpostFactory signPostFactory, EventsListingFactory eventsListingFactory) {
         this.documentUtils = documentUtils;
@@ -83,7 +83,7 @@ public class PageAssembler {
         this.formFactory = marketoFormFactory;
         this.mapFactory = mapFactory;
         this.devModuleFactory = devModuleFactory;
-        this.skiFactory = skiFactory;
+        this.skiCentreListMapper = skiCentreListMapper;
         this.skiCentreMapper = skiCentreMapper;
         this.properties = properties;
         this.bundle = bundle;
@@ -149,7 +149,7 @@ public class PageAssembler {
         } else if (item instanceof SkiCentre){
             skiCentreMapper.include((SkiCentre) item, compositionHelper);
         } else if (item instanceof SkiCentreList){
-            compositionHelper.addModule(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
+            skiCentreListMapper.include((SkiCentreList) item, compositionHelper);
         } else if (item instanceof DevModule){
             compositionHelper.addModule(devModuleFactory.getModule((DevModule) item));
         } else if (item instanceof CTABanner){
