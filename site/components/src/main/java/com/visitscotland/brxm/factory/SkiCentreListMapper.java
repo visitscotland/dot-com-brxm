@@ -30,17 +30,13 @@ public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModu
 
     static final String BUNDLE_FILE = "ski";
 
-    private final DMSDataService dataService;
-    private final ResourceBundleService bundle;
     private final DocumentUtilsService documentUtils;
     private final LinkService linkService;
     private final SkiCentreMapper skiCentreMapper;
 
     private final ContentLogger contentLogger;
 
-    public SkiCentreListMapper(DMSDataService dataService, ResourceBundleService bundle, DocumentUtilsService documentUtils, LinkService linkService, SkiCentreMapper skiCentreMapper, ContentLogger contentLogger) {
-        this.dataService = dataService;
-        this.bundle = bundle;
+    public SkiCentreListMapper(DocumentUtilsService documentUtils, LinkService linkService, SkiCentreMapper skiCentreMapper, ContentLogger contentLogger) {
         this.documentUtils = documentUtils;
         this.linkService = linkService;
         this.skiCentreMapper = skiCentreMapper;
@@ -88,7 +84,7 @@ public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModu
                     skiModule.setIntroduction(null);
                     skiModule.setCmsPage(link.get());
 
-                    module.getSkiCentres().add(skiModule);
+                    module.addSKiModule(skiModule);
                 }
             }
         }
