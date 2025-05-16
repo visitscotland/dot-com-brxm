@@ -8,6 +8,7 @@ import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SkiModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
+import com.visitscotland.utils.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
@@ -50,15 +51,22 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule>{
         module.setFeedURL(document.getFeed());
         module.setPisteMap(document.getPisteMap());
 
-        JsonNode product = dataService.productCard(document.getProductId(), locale);
+        /*
+         * Note: ProductID is currently mandatory in the CMS but, the DMS might be retired by the end of 2025 and this
+         * field might be removed
+         */
+        if (Contract.isEmpty(document.getProductId())) {
+            JsonNode product = dataService.productCard(document.getProductId(), locale);
 
-        if (product == null){
-            String errorMessage = String.format("The DMS product associated with this Ski Centre (ID=%s) is not available", document.getProductId());
-            contentLogger.error("{}. Path={} ", errorMessage, document.getPath());
-            module.addErrorMessage(errorMessage);
-        } else {
-            populateDmsData(module, product, locale);
+            if (product == null) {
+                String errorMessage = String.format("The DMS product associated with this Ski Centre (ID=%s) is not available", document.getProductId());
+                contentLogger.error("{}. Path={} ", errorMessage, document.getPath());
+                module.addErrorMessage(errorMessage);
+            } else {
+                populateDmsData(module, product, locale);
+            }
         }
+
         return module;
     }
 
@@ -85,8 +93,13 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule>{
         }
 
         if (product.has(OPENING)){
-            module.setOpeningLink(new FlatLink(bundle.getResourceBundle(BUNDLE_FILE, "ski-centre.opening-times.label", locale),
+            if (product.has(URL) && product.get(URL).has(URL_LINK)) {
+                module.setOpeningLink(new FlatLink(bundle.getResourceBundle(BUNDLE_FILE, "ski-centre.opening-times.label", locale),
                     product.get(URL).get(URL_LINK).asText() + "#opening", LinkType.INTERNAL));
+            } else {
+                contentLogger.warn("Missing URL or URL_LINK for Ski Centre with opening times. Path={}",
+                module.getHippoBean() != null ? module.getHippoBean().getPath() : "unknown");
+            }
         }
 
         if (product.has(SOCIAL_CHANNEL)) {
