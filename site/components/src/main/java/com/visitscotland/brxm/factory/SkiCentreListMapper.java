@@ -1,29 +1,20 @@
 package com.visitscotland.brxm.factory;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.hippobeans.*;
-import com.visitscotland.brxm.model.FlatLink;
 
-import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SkiListModule;
 import com.visitscotland.brxm.model.SkiModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
-import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
-
-import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
 @Component
 public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModule>{
@@ -84,7 +75,7 @@ public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModu
                     skiModule.setIntroduction(null);
                     skiModule.setCmsPage(link.get());
 
-                    module.addSKiModule(skiModule);
+                    module.addSkiModule(skiModule);
                 }
             }
         }

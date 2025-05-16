@@ -32,7 +32,7 @@ public class SkiListModule extends Module<SkiCentreList> {
         return skiCentres;
     }
 
-    public void addSKiModule(SkiModule module){
+    public void addSkiModule(SkiModule module){
         if (skiCentres == null){
             skiCentres = new ArrayList<>();
         }
