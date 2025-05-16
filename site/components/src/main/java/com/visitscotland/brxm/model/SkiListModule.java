@@ -3,6 +3,7 @@ package com.visitscotland.brxm.model;
 import com.visitscotland.brxm.hippobeans.SkiCentreList;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SkiListModule extends Module<SkiCentreList> {
@@ -29,6 +30,13 @@ public class SkiListModule extends Module<SkiCentreList> {
 
     public List<SkiModule> getSkiCentres() {
         return skiCentres;
+    }
+
+    public void addSKiModule(SkiModule module){
+        if (skiCentres == null){
+            skiCentres = new ArrayList<>();
+        }
+        skiCentres.add(module);
     }
 
     public void setSkiCentres(List<SkiModule> skiCentres) {
