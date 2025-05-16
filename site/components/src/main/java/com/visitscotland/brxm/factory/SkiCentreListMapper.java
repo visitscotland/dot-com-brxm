@@ -12,6 +12,8 @@ import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
@@ -24,7 +26,7 @@ import java.util.Optional;
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
 @Component
-public class SkiFactory {
+public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModule>{
 
     static final String BUNDLE_FILE = "ski";
 
@@ -32,18 +34,26 @@ public class SkiFactory {
     private final ResourceBundleService bundle;
     private final DocumentUtilsService documentUtils;
     private final LinkService linkService;
+    private final SkiCentreMapper skiCentreMapper;
 
-    private final Logger contentLogger;
+    private final ContentLogger contentLogger;
 
-    public SkiFactory(DMSDataService dataService, ResourceBundleService bundle, DocumentUtilsService documentUtils, Logger contentLogger, LinkService linkService) {
+    public SkiCentreListMapper(DMSDataService dataService, ResourceBundleService bundle, DocumentUtilsService documentUtils, LinkService linkService, SkiCentreMapper skiCentreMapper, ContentLogger contentLogger) {
         this.dataService = dataService;
         this.bundle = bundle;
         this.documentUtils = documentUtils;
-        this.contentLogger = contentLogger;
         this.linkService = linkService;
+        this.skiCentreMapper = skiCentreMapper;
+        this.contentLogger = contentLogger;
     }
 
-    public SkiListModule createSkyListModule(SkiCentreList document, Locale locale){
+    @Override
+    public void include(SkiCentreList document, PageCompositionHelper page) {
+        super.include(document, page);
+        page.addAllSiteLabels(BUNDLE_FILE);
+    }
+
+    public SkiListModule map(SkiCentreList document, Locale locale){
         SkiListModule module = new SkiListModule();
         module.setHippoBean(document);
 
@@ -72,7 +82,7 @@ public class SkiFactory {
                         module.addErrorMessage(message);
                         contentLogger.error("{} (Path={})", message, document.getPath());
                     }
-                    SkiModule skiModule = createSkyModule(skiDocument.get(0), locale);
+                    SkiModule skiModule = skiCentreMapper.map(skiDocument.get(0), locale);
                     //Title is overridden with the title of the page.
                     skiModule.setTitle(page.getTitle());
                     skiModule.setIntroduction(null);
@@ -84,64 +94,4 @@ public class SkiFactory {
         }
         return module;
     }
-
-    @Deprecated(forRemoval = true)
-    public SkiModule createSkyModule(SkiCentre document, Locale locale){
-        SkiModule module = new SkiModule();
-
-        module.setHippoBean(document);
-        module.setTitle(document.getTitle());
-        module.setIntroduction(document.getCopy());
-        module.setFeedURL(document.getFeed());
-        module.setPisteMap(document.getPisteMap());
-
-        JsonNode product = dataService.productCard(document.getProductId(), locale);
-
-        if (product == null){
-            String errorMessage = String.format("The DMS product associated with this Ski Centre (ID=%s) is not available", document.getProductId());
-            contentLogger.error("{}. Path={} ", errorMessage, document.getPath());
-            module.addErrorMessage(errorMessage);
-        } else {
-            populateDmsData(module, product, locale);
-        }
-        return module;
-    }
-
-
-    /**
-     * Reads the data from the Json Object to populate the fields in the module.
-     *
-     * @param module SkiCentre Module
-     *
-     * @param product JSON Object containing the Product data.
-     */
-    private void populateDmsData(@NotNull SkiModule module, @NotNull JsonNode product,@NotNull Locale locale){
-        List<JsonNode> links = new ArrayList<>();
-
-        if (product.has(ADDRESS)) {
-            module.setAddress(product.get(ADDRESS));
-        }
-
-        if (product.has(TELEPHONE_NUMBER)) {
-            module.setPhone(product.get(TELEPHONE_NUMBER).asText());
-        }
-
-        if (product.has(WEBSITE)) {
-            module.setWebsite(product.get(WEBSITE));
-        }
-
-        if (product.has(OPENING)){
-            module.setOpeningLink(new FlatLink(bundle.getResourceBundle(BUNDLE_FILE, "ski-centre.opening-times.label", locale),
-                    product.get(URL).get(URL_LINK).asText() + "#opening", LinkType.INTERNAL));
-        }
-
-        if (product.has(SOCIAL_CHANNEL)) {
-            for (JsonNode channel : product.get(SOCIAL_CHANNEL)) {
-                links.add(channel);
-            }
-        }
-        module.setSocialChannels(links);
-    }
-
-
 }
