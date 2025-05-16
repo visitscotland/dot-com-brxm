@@ -52,6 +52,7 @@ public class PageAssembler {
     private final FormFactory formFactory;
     private final MapFactory mapFactory;
     private final SignpostFactory signPostFactory;
+    private final SkiCentreMapper skiCentreMapper;
     private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
     private final EventsListingFactory eventsListingFactory;
@@ -66,7 +67,7 @@ public class PageAssembler {
                          IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
                          UserGeneratedContentMapper userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
                          CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
-                         MapFactory mapFactory, SkiFactory skiFactory, SiteProperties properties,
+                         MapFactory mapFactory, SkiFactory skiFactory, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger,
                          SignpostFactory signPostFactory, EventsListingFactory eventsListingFactory) {
         this.documentUtils = documentUtils;
@@ -83,6 +84,7 @@ public class PageAssembler {
         this.mapFactory = mapFactory;
         this.devModuleFactory = devModuleFactory;
         this.skiFactory = skiFactory;
+        this.skiCentreMapper = skiCentreMapper;
         this.properties = properties;
         this.bundle = bundle;
         this.contentLogger = contentLogger;
@@ -145,7 +147,7 @@ public class PageAssembler {
         } else if (item instanceof MarketoForm || item instanceof Form) {
             compositionHelper.addModule(getForm(request, item));
         } else if (item instanceof SkiCentre){
-            compositionHelper.addModule(skiFactory.createSkyModule((SkiCentre) item, request.getLocale()));
+            skiCentreMapper.include((SkiCentre) item, compositionHelper);
         } else if (item instanceof SkiCentreList){
             compositionHelper.addModule(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
         } else if (item instanceof DevModule){

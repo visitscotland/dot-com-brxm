@@ -85,6 +85,7 @@ public class SkiFactory {
         return module;
     }
 
+    @Deprecated(forRemoval = true)
     public SkiModule createSkyModule(SkiCentre document, Locale locale){
         SkiModule module = new SkiModule();
 
