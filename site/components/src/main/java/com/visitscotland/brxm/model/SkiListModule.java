@@ -33,10 +33,12 @@ public class SkiListModule extends Module<SkiCentreList> {
     }
 
     public void addSkiModule(SkiModule module){
-        if (skiCentres == null){
-            skiCentres = new ArrayList<>();
+        if (module != null) {
+            if (skiCentres == null) {
+                skiCentres = new ArrayList<>();
+            }
+            skiCentres.add(module);
         }
-        skiCentres.add(module);
     }
 
     public void setSkiCentres(List<SkiModule> skiCentres) {
