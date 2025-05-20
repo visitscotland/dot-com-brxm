@@ -10,15 +10,23 @@ import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.utils.Contract;
 import org.apache.commons.io.FilenameUtils;
 import org.hippoecm.hst.core.component.HstRequest;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
+import org.slf4j.Logger;
 
 @Component
 public class ArticleFactory {
+
+    private static final Logger logger = LoggerFactory.getLogger(ArticleFactory.class);
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy");
 
     private static final String STANDARD = "standard";
     private static final String ACCORDION = "accordion";
@@ -224,11 +232,10 @@ public class ArticleFactory {
                 p = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
                 publishDate = p.getDate();
             } catch (RepositoryException e) {
-                throw new RuntimeException(e);
+                logger.error("Failed to reach the creation date node.", e);
+                return "";
             }
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyy", locale);
-
         return sdf.format(publishDate.getTime());
     }
 
