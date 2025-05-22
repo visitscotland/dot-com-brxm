@@ -28,6 +28,17 @@
 
     <@pageIntro content=document author=author/>
 
+    <vs-container>
+        <vs-row>
+            <vs-col md="8" cols="12">
+                <vs-rich-text-wrapper>
+                    <!-- This will be a label -->
+                    The following list was created by VisitScotland to showcase a range of experiences. It isn’t ranked in any specific order.
+                </vs-rich-text-wrapper>
+            </vs-col>
+        </vs-row>
+    </vs-container>
+
     <vs-container class="mt-150">
         <vs-row>
             <vs-col cols="12">
