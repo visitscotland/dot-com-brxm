@@ -32,8 +32,7 @@
         <vs-row>
             <vs-col md="8" cols="12">
                 <vs-rich-text-wrapper>
-                    <!-- This will be a label -->
-                    The following list was created by VisitScotland to showcase a range of experiences. It isn’t ranked in any specific order.
+                    ${label("listicle", "listicle.disclaimer")}
                 </vs-rich-text-wrapper>
             </vs-col>
         </vs-row>
