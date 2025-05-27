@@ -28,9 +28,4 @@ public class ArticleStyledSection extends ArticleSection {
     public CMSLink getCmsLink() {
         return getBean("visitscotland:cmsLink", CMSLink.class);
     }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:mirror")
-    public HippoBean getMirror() {
-        return getLinkedBean("visitscotland:mirror", HippoBean.class);
-    }
 }
