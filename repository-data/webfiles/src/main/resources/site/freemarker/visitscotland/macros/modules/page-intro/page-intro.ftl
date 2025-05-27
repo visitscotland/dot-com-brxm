@@ -27,7 +27,7 @@
 <#-- @ftlvariable name="itinerary" type="com.visitscotland.brxm.model.ItineraryPage" -->
 <#-- @ftlvariable name="introTheme" type="int" -->
 
-<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false author="" fullScreenMobile=false isListicle="">
+<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false author="" fullScreenMobile=false isListicle=false>
     <@previewWarning editMode content alerts!"" />
     <#if lightBackground>
         <#assign themeName = themeCalculator(1)>
