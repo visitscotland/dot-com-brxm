@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 @Component
+@Deprecated(since = "18/04/2025", forRemoval = true)
 public class ResourceBundleService {
 
     private static final Logger logger = LoggerFactory.getLogger(ResourceBundleService.class.getName());
@@ -53,14 +54,11 @@ public class ResourceBundleService {
         return getResourceBundle(bundleName, key, locale, false);
     }
 
-    public String getSiteResourceBundle(String bundleName, String key, Locale locale){
+    public String getSiteResourceBundle(String bundleName, String key, Locale locale) {
         if (!properties.getSiteId().isBlank() && hasSiteResourceBundle(bundleName, locale)) {
-	    final String bundleId = getSiteResourceBundleId(bundleName);
+            final String bundleId = getSiteResourceBundleId(bundleName);
             String value = getResourceBundle(bundleId, key, locale, true);
-            if (value == null) {
-                logger.warn("The key {} does not exist in the site resource bundle {} for locale {}", key,
-                        getSiteResourceBundleId(bundleName), locale);
-            } else {
+            if (value != null) {
                 return value;
             }
         }

@@ -1,5 +1,6 @@
-package com.visitscotland.brxm.config;
+package com.visitscotland.brxm.valve;
 
+import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.utils.CMSProperties;
 import org.hippoecm.hst.container.valves.AbstractOrderableValve;
 import org.hippoecm.hst.core.container.ContainerException;

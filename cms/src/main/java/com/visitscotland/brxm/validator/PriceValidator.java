@@ -5,6 +5,7 @@ import org.onehippo.cms.services.validation.api.Validator;
 import org.onehippo.cms.services.validation.api.Violation;
 
 import javax.jcr.Node;
+import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 
 import java.util.Optional;
@@ -37,11 +38,12 @@ public class PriceValidator implements Validator<Node> {
      * @throws RepositoryException if there is an error accessing the JCR node
      */
     private boolean isPriceInvalid(final Node node) throws RepositoryException {
-        if(node.hasProperty(AMOUNT_JCR_PROPERTY)) {
-            final double price = node.getProperty(AMOUNT_JCR_PROPERTY).getDouble();
-            return Double.isNaN(price) || price < 0;
+        if (!node.hasProperty(AMOUNT_JCR_PROPERTY)) {
+            return false;
         }
 
-       return true;
+        final Property property = node.getProperty(AMOUNT_JCR_PROPERTY);
+        final double price = property.getDouble();
+        return Double.isNaN(price) || price < 0;
     }
 }

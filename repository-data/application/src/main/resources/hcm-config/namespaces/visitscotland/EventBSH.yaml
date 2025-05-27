@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 709282f7-4738-440f-931b-2737c539b74a
+          jcr:uuid: f1fd9564-b93d-4950-b3ef-27f3fc6ec2bd
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -149,7 +149,7 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:endTime: ''
           visitscotland:startTime: ''
-          jcr:uuid: df37a8bd-2d7e-4d40-9d62-388ce4e42192
+          jcr:uuid: 5d5e342d-734b-4576-9a1c-77eabd287687
           hippostdpubwf:lastModificationDate: 2025-01-14T14:09:59.739Z
           hippostdpubwf:creationDate: 2025-01-14T14:09:59.739Z
           visitscotland:vat: false
@@ -298,7 +298,7 @@ definitions:
               size: '3'
           /vat:
             jcr:primaryType: frontend:plugin
-            caption: VAT Included?
+            caption: +VAT
             field: vat
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin

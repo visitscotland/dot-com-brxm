@@ -18,6 +18,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 
 @Component
 public class CommonUtilsService {
@@ -67,7 +68,7 @@ public class CommonUtilsService {
     public String buildQueryString(Map<String, String> parameters, String encoding) {
         StringBuilder sb = new StringBuilder();
         try {
-            if (parameters.size() > 0) {
+            if (parameters != null && !parameters.isEmpty()) {
                 for (Map.Entry<String, String> entry : parameters.entrySet()) {
                     if (entry.getKey() == null) {
                         continue;
@@ -89,7 +90,9 @@ public class CommonUtilsService {
         return sb.toString();
     }
 
-    public String getExternalDocumentSize(String link, Locale locale) {
+    @Deprecated(since = "2.8.5")
+    @Cacheable (value="externalDocument")
+    public Optional<String> getExternalDocumentSize(String link, Locale locale) {
         return getExternalDocumentSize(link, locale, true);
     }
 
@@ -101,30 +104,31 @@ public class CommonUtilsService {
      *  @param concatFormat boolean to determinate if the method returns only the size or the concatenated label for the front end
      *
      */
+    @Deprecated(since = "2.8.5")
     @Cacheable (value="externalDocument")
-    public String getExternalDocumentSize(String link, Locale locale, boolean concatFormat) {
+    public Optional<String> getExternalDocumentSize(String link, Locale locale, boolean concatFormat) {
         DecimalFormatSymbols dfs = new DecimalFormatSymbols(locale);
         DecimalFormat decimalFormat = new DecimalFormat("#.#", dfs);
         try {
             HttpURLConnection con = openConnection(link);
             if (con.getResponseCode() >= 400){
-                return null;
+                return Optional.empty();
             }
             double bytes = con.getContentLength();
             String displayType = "";
             String contentType = con.getContentType();
             if (!contentType.startsWith("application") && !contentType.startsWith("image")) {
-                return null;
+                return Optional.empty();
             } else if (concatFormat && contentType.contains("pdf")) {
                 displayType = "PDF " ;
             } else if (concatFormat && link.contains(".")) {
                 displayType = link.substring(link.lastIndexOf(".")+1).toUpperCase() + " ";
             }
-            return displayType + decimalFormat.format(bytes / 1024 / 1024) + "MB";
+            return Optional.of(displayType + decimalFormat.format(bytes / 1024 / 1024) + "MB");
         } catch (IOException e) {
             logger.error("The URL {} is not valid", link, e);
         }
-        return null;
+        return Optional.empty();
     }
 
     public String getContentType(String link) throws IOException {

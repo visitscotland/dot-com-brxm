@@ -9,18 +9,15 @@ import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.hippobeans.capabilities.UrlLink;
-import com.visitscotland.brxm.model.FlatLink;
-import com.visitscotland.brxm.model.LinkType;
+import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
-import com.visitscotland.brxm.model.YoutubeVideo;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,15 +40,18 @@ public class LinkService {
     private final CMSProperties cmsProperties;
     private final SiteProperties siteProperties;
     private final ImageFactory imageFactory;
-    private final CommonUtilsService commonUtils;
     private final DocumentUtilsService documentUtilsService;
     private final YoutubeApiService youtubeApiService;
     private final Logger contentLogger;
+    private final AssetLinkFactory assetLinkFactory;
+    private final FileMetaDataCalculator fileMetaDataCalculator;
 
     @Autowired
-    public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties, SiteProperties siteProperties,
-                       ImageFactory imageFactory, CommonUtilsService commonUtils, DocumentUtilsService documentUtilsService,
-                       YoutubeApiService youtubeApiService, ContentLogger contentLogger) {
+    public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils,
+                       CMSProperties cmsProperties, SiteProperties siteProperties, ImageFactory imageFactory,
+                       DocumentUtilsService documentUtilsService,
+                       YoutubeApiService youtubeApiService, ContentLogger contentLogger,
+                       AssetLinkFactory assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator) {
 
         this.dmsData = dmsData;
         this.bundle = bundle;
@@ -59,10 +59,11 @@ public class LinkService {
         this.cmsProperties = cmsProperties;
         this.siteProperties = siteProperties;
         this.imageFactory = imageFactory;
-        this.commonUtils = commonUtils;
         this.documentUtilsService = documentUtilsService;
         this.youtubeApiService = youtubeApiService;
         this.contentLogger = contentLogger;
+        this.assetLinkFactory = assetLinkFactory;
+        this.fileMetaDataCalculator = fileMetaDataCalculator;
     }
 
     /**
@@ -181,7 +182,7 @@ public class LinkService {
                 for (String host : siteProperties.getInternalSites()) {
                     if (urlObject.getHost().equals(host)) {
                         String site = host.equals(siteProperties.getConvertToRelative()) ? "" : url.substring(0, url.lastIndexOf(urlObject.getFile()));
-                        return localize(locale, site, urlObject.getFile());
+                        return localize(locale, site, url.substring(url.lastIndexOf(urlObject.getFile())));
                     }
                 }
             } catch (IllegalArgumentException | MalformedURLException e) {
@@ -233,7 +234,7 @@ public class LinkService {
      * @param link   SharedLink Object;
      * @return Plain link
      */
-    public String getPlainLink(Module module, Locale locale, SharedLink link) {
+    public String getPlainLink(Module<?> module, Locale locale, SharedLink link) {
         return getPlainLink(locale, link.getLinkType(), getNodeFromSharedLink(link, module,locale));
     }
 
@@ -520,11 +521,16 @@ public class LinkService {
      * @param addCategory whether the category field is populated.
      */
     private EnhancedLink enhancedLinkFromSharedLink(SharedLink sharedLink, Module<?> module, Locale locale, boolean addCategory) {
-        EnhancedLink link = new EnhancedLink();
+        EnhancedLink link;
         JsonNode product = getNodeFromSharedLink(sharedLink, module, locale);
 
-        link.setTeaser(sharedLink.getTeaser());
-        link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
+        if (sharedLink.getLinkType() instanceof Asset){
+            link = assetLinkFactory.create(sharedLink, locale);
+        } else {
+            link = new EnhancedLink();
+            link.setTeaser(sharedLink.getTeaser());
+            link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
+        }
 
         if (link.getLink() == null){
             return null;
@@ -552,14 +558,14 @@ public class LinkService {
             if (addCategory && sharedLink.getLinkType() instanceof ExternalDocument) {
                 link.setCategory(((ExternalDocument) sharedLink.getLinkType()).getCategory());
             }
-        } else {
+        } else if (!(sharedLink.getLinkType() instanceof Asset)){
             link.setLabel(sharedLink.getTitle());
             link.setType(getType(link.getLink()));
             if (sharedLink.getLinkType() instanceof DMSLink){
                 link.setCta(bundle.getCtaLabel(((DMSLink)sharedLink.getLinkType()).getLabel(), locale));
             }
         }
-        if (sharedLink.getImage() == null && !(sharedLink.getLinkType() instanceof DMSLink)){
+        if (sharedLink.getImage() == null && !(sharedLink.getLinkType() instanceof DMSLink) && !(sharedLink instanceof SharedLinkBSH)){
             module.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the shared document '%s' at: %s",  sharedLink.getTitle(), sharedLink.getDisplayName(), sharedLink.getPath()));
         }
         return link;
@@ -580,13 +586,21 @@ public class LinkService {
     private EnhancedLink enhancedLinkFromVideo(Video video, Module<?> module, Locale locale, boolean addCategory) {
         EnhancedLink link = createVideo(video, module, locale);
 
-        //TODO: Confirm requirements for Videos in HorizontalLinks VS-2086 indicates that no category is needed but we need to wait for the final designs before taking action.
         if (addCategory) {
             link.setCategory("Video");
             module.addErrorMessage("This module should not contain a Video Link");
+            contentLogger.warn("This module '{}' should not contain a Video Link", getSource(module));
         }
 
         return link;
+    }
+
+    private String getSource(Module<?> module){
+        if (module == null || module.getHippoBean() == null){
+            return "unknown";
+        } else {
+            return module.getHippoBean().getPath();
+        }
     }
 
     /**
@@ -613,15 +627,28 @@ public class LinkService {
 
 
     public String getDownloadText(String link, Locale locale, Module<?> module) {
-        String size = commonUtils.getExternalDocumentSize(link, locale);
-        if (size == null) {
+        return getDownloadText(link, module, fileMetaDataCalculator.getDisplayText(link, locale));
+    }
+
+    /**
+     * Formats a download text with size information for a given link.
+     *
+     * @param link URL to the downloadable resource
+     * @param module Module that will log all issues for the modules
+     * @param sizeType Optional containing the size and type of the document
+     * @return Formatted text with size information or empty string if size is not available
+     */
+    public String getDownloadText(String link, Module<?> module, Optional<String> sizeType) {
+
+        if (sizeType.isEmpty()) {
+            String errorMessage = String.format("The size and type of the document %s is not available.", link);
             if (module != null) {
-                module.addErrorMessage("The Link to the External document might be broken");
+                module.addErrorMessage(errorMessage);
             }
-            contentLogger.warn("The external document {} might be broken.", link);
+            contentLogger.warn(errorMessage);
             return "";
         } else {
-            return " | " + size;
+            return " | " + sizeType.get();
         }
     }
 
@@ -670,7 +697,6 @@ public class LinkService {
      * @param contentType    the field content type
      * @param sectors   sectors selected
      * @param skill skill level field
-     * @param sectors sectors selected
      * @param regions regions selected
      */
     private void setBSHFields (EnhancedLink link, String contentType, String[] sectors, String skill, String[] topics, String[] regions) {

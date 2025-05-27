@@ -120,7 +120,7 @@ public class PageTemplateBuilder {
         setIntroTheme(request, page.modules);
 
         if (page.modules.isEmpty() && Boolean.FALSE.equals(getDocument(request).getSeoNoIndex())){
-            logger.warn("The page {} does not have any modules published", request.getRequestURI());
+            contentLogger.warn("The page {} does not have any modules published", request.getRequestURI());
         }
 
         request.setModel(PAGE_ITEMS, page.modules);

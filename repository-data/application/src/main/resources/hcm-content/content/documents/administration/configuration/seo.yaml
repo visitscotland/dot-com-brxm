@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 17b7a5b3-6c6f-4418-9138-8a30898e3f6a
   hippo:name: SEO Configuration
-  hippo:versionHistory: 55f5afcf-5d6e-4997-bd16-9d3ad2ca2a16
+  hippo:versionHistory: 8aacf639-37c6-4a87-9ed2-7b9fbc52ea80
   /seo[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,18 +13,21 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-02-06T11:06:56.797Z
-    hippostdpubwf:lastModificationDate: 2023-02-06T11:50:30.027Z
+    hippostdpubwf:lastModificationDate: 2025-04-03T22:50:03.575+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ["This property is deprecated and it is only in use\
+        \ in Freemarker at the moment.\r\n\r\nIt is technical-debt to remove this\
+        \ property", '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: seo
     resourcebundle:keys: [vs-logo, organization.description, organization.streetAddress,
       organization.addressLocality, organization.postalCode, organization.addressCountry,
-      og.twitter.site, seo.og.site-name, seo.og.twitter.site, site-name, title-suffix]
+      og.twitter.site, seo.og.site-name, seo.og.twitter.site, site-name, title-suffix,
+      logo]
     resourcebundle:messages: ['https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png',
       'VisitScotland.com is the official consumer website of VisitScotland, Scotland’s
-        national tourist board.', 'Waverley Court, 4 East Market Street', Edinburgh, EH8
-        8BG, Scotland, '@VisitScotland', VisitScotland, '@VisitScotland', VisitScotland,
-      '| VisitScotland']
+        national tourist board.', 'Waverley Court, 4 East Market Street', Edinburgh,
+      EH8 8BG, Scotland, '@VisitScotland', VisitScotland, '@VisitScotland', VisitScotland,
+      '| VisitScotland', 'https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png']
   /seo[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -34,18 +37,21 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-02-06T11:06:56.797Z
-    hippostdpubwf:lastModificationDate: 2023-02-06T11:55:46.756Z
+    hippostdpubwf:lastModificationDate: 2025-04-03T22:51:30.430+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ["This property is deprecated and it is only in use\
+        \ in Freemarker at the moment.\r\n\r\nIt is technical-debt to remove this\
+        \ property", '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: seo
     resourcebundle:keys: [vs-logo, organization.description, organization.streetAddress,
       organization.addressLocality, organization.postalCode, organization.addressCountry,
-      og.twitter.site, seo.og.site-name, seo.og.twitter.site, site-name, title-suffix]
+      og.twitter.site, seo.og.site-name, seo.og.twitter.site, site-name, title-suffix,
+      logo]
     resourcebundle:messages: ['https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png',
       'VisitScotland.com is the official consumer website of VisitScotland, Scotland’s
-        national tourist board.', 'Waverley Court, 4 East Market Street', Edinburgh, EH8
-        8BG, Scotland, '@VisitScotland', VisitScotland, '@VisitScotland', VisitScotland,
-      '| VisitScotland']
+        national tourist board.', 'Waverley Court, 4 East Market Street', Edinburgh,
+      EH8 8BG, Scotland, '@VisitScotland', VisitScotland, '@VisitScotland', VisitScotland,
+      '| VisitScotland', 'https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png']
   /seo[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -55,16 +61,19 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2023-02-06T11:06:56.797Z
-    hippostdpubwf:lastModificationDate: 2023-02-06T11:55:46.756Z
+    hippostdpubwf:lastModificationDate: 2025-04-03T22:51:30.430+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2023-02-06T11:55:51.594Z
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2025-04-03T22:51:32.792+01:00
+    resourcebundle:descriptions: ["This property is deprecated and it is only in use\
+        \ in Freemarker at the moment.\r\n\r\nIt is technical-debt to remove this\
+        \ property", '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: seo
     resourcebundle:keys: [vs-logo, organization.description, organization.streetAddress,
       organization.addressLocality, organization.postalCode, organization.addressCountry,
-      og.twitter.site, seo.og.site-name, seo.og.twitter.site, site-name, title-suffix]
+      og.twitter.site, seo.og.site-name, seo.og.twitter.site, site-name, title-suffix,
+      logo]
     resourcebundle:messages: ['https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png',
       'VisitScotland.com is the official consumer website of VisitScotland, Scotland’s
-        national tourist board.', 'Waverley Court, 4 East Market Street', Edinburgh, EH8
-        8BG, Scotland, '@VisitScotland', VisitScotland, '@VisitScotland', VisitScotland,
-      '| VisitScotland']
+        national tourist board.', 'Waverley Court, 4 East Market Street', Edinburgh,
+      EH8 8BG, Scotland, '@VisitScotland', VisitScotland, '@VisitScotland', VisitScotland,
+      '| VisitScotland', 'https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png']

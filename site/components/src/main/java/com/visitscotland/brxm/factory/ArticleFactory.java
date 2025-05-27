@@ -3,13 +3,15 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
+import com.visitscotland.brxm.model.AssetLink;
 import com.visitscotland.brxm.model.DownloadLink;
-import com.visitscotland.brxm.services.CommonUtilsService;
+import com.visitscotland.brxm.services.AssetLinkFactory;
+import com.visitscotland.brxm.services.FileMetaDataCalculator;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
-import com.visitscotland.utils.Contract;
 import org.apache.commons.io.FilenameUtils;
 import org.hippoecm.hst.core.component.HstRequest;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
@@ -17,16 +19,11 @@ import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
-import org.slf4j.Logger;
 
 @Component
 public class ArticleFactory {
-
-    private static final Logger logger = LoggerFactory.getLogger(ArticleFactory.class);
-    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy");
 
     private static final String STANDARD = "standard";
     private static final String ACCORDION = "accordion";
@@ -34,23 +31,28 @@ public class ArticleFactory {
     private static final String HORIZONTAL_LIST = "horizontal-list";
     private static final String IMAGE_LIST = "image-list";
     private static final String NUMBERED_LIST = "numbered-list";
+    private static final Logger log = LoggerFactory.getLogger(ArticleFactory.class);
 
     private final ImageFactory imageFactory;
     private final LinkService linkService;
     private final QuoteFactory quoteEmbedder;
     private final AnchorFormatter anchorFormatter;
-    private final CommonUtilsService commonUtils;
+    private final FileMetaDataCalculator fileMetaDataCalculator;
+    private final AssetLinkFactory assetLinkFactory;
+
 
     public ArticleFactory(ImageFactory imageFactory,
                           QuoteFactory quoteEmbedder,
                           LinkService linkService,
                           AnchorFormatter anchorFormatter,
-                          CommonUtilsService commonUtils) {
+                          FileMetaDataCalculator fileMetaDataCalculator,
+                          AssetLinkFactory assetLinkFactory) {
         this.imageFactory = imageFactory;
         this.quoteEmbedder = quoteEmbedder;
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
-        this.commonUtils = commonUtils;
+        this.fileMetaDataCalculator = fileMetaDataCalculator;
+        this.assetLinkFactory = assetLinkFactory;
     }
 
     public ArticleModule getModule(HstRequest request, Article doc) {
@@ -84,12 +86,6 @@ public class ArticleFactory {
             module.setLayout(((ArticleStyledBSH) document).getTheme());
             module.setNested(Boolean.TRUE.equals(((ArticleStyledBSH) document).getNested()));
         }
-    }
-
-    private String getAnchor(Article doc){
-        String anchor = Contract.isEmpty(doc.getAnchor())? doc.getTitle() : doc.getAnchor();
-
-        return anchor.replaceAll("[^a-zA-Z0-9]", "-").toLowerCase();
     }
 
     private void setImage(ArticleModule module, Article doc, Locale locale){
@@ -193,50 +189,67 @@ public class ArticleFactory {
             }
         }
     }
-    
+
+    private String getPublishDate(SharedLink sharedLink, Locale locale) {
+        try {
+            Property property = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM yyyy", locale);
+            return dateFormat.format(property.getDate().getTime());
+        } catch (RepositoryException e) {
+            log.warn("An error has occurred while calculating the publish Date link. Path: {}. Error Message {}",
+                    sharedLink.getPath(), e.getMessage());
+        }
+        return null;
+    }
+
+    private DownloadLink createDownloadFromAsset(SharedLinkBSH sharedLink, Locale locale) {
+        AssetLink assetLink = assetLinkFactory.create(sharedLink, locale);
+        if (assetLink.getLink() == null) {
+            return null;
+        }
+        DownloadLink downloadLink = new DownloadLink(assetLink);
+        downloadLink.setSize(fileMetaDataCalculator.getAssetSize(assetLink.getSize(), locale).orElse(null));
+        downloadLink.setExtension(fileMetaDataCalculator.getFileType(
+                assetLink.getMimeType(), downloadLink.getLink()).orElse(null));
+
+        downloadLink.setLabel(sharedLink.getTitle());
+        downloadLink.setTeaser(sharedLink.getTeaser());
+        downloadLink.setPublishedDate(getPublishDate(sharedLink, locale));
+
+        return downloadLink;
+    }
+
+    private DownloadLink createDownloadFromExternalDocument(SharedLinkBSH sharedLink, ArticleModule module, Locale locale) {
+        DownloadLink downloadLink = new DownloadLink(linkService.createSimpleLink(sharedLink, module, locale));
+        if (downloadLink.getLink() == null){
+            return null;
+        }
+        downloadLink.setSize(fileMetaDataCalculator.getDownloadSize(downloadLink.getLink(), locale).orElse(null));
+        downloadLink.setExtension(FilenameUtils.getExtension(downloadLink.getLink()));
+
+        downloadLink.setTeaser(sharedLink.getTeaser());
+        downloadLink.setPublishedDate(getPublishDate(sharedLink, locale));
+
+        return downloadLink;
+    }
+
     private DownloadLink setDownload(ArticleSection paragraph, ArticleModule module, Locale locale) {
-        DownloadLink downloadLink = null;
-        if (paragraph.getCmsLink().getLink() != null && paragraph.getCmsLink().getLink() instanceof SharedLinkBSH) {
+        if (paragraph.getCmsLink().getLink() instanceof SharedLinkBSH) {
             SharedLinkBSH sharedLink = (SharedLinkBSH) paragraph.getCmsLink().getLink();
-            if (sharedLink.getLinkType() instanceof FileLink || sharedLink.getLinkType() instanceof Asset) {
-                downloadLink = new DownloadLink(linkService.createSimpleLink(sharedLink, module, locale));
-                downloadLink.setTeaser(sharedLink.getTeaser());
-                downloadLink.setSize(commonUtils.getExternalDocumentSize(downloadLink.getLink(), locale, false));
-                downloadLink.setPublishedDate(addPublishDate(sharedLink, locale));
 
-                String link = downloadLink.getLink();
-                if (link != null) {
-                    downloadLink.setExtension(FilenameUtils.getExtension(link));
-                }
-
+            if (sharedLink.getLinkType() instanceof ExternalDocument
+                    || sharedLink.getLinkType() instanceof FileLink){
+                return createDownloadFromExternalDocument(sharedLink, module, locale);
+            } else if (sharedLink.getLinkType() instanceof Asset){
+                return createDownloadFromAsset(sharedLink, locale);
             } else {
+                log.warn("Unsupported link type: {}", sharedLink.getLinkType());
                 module.addErrorMessage("The section for the Article only allows File Links or Assets");
             }
         } else {
             module.addErrorMessage("The section for the Article only allows Shared Links");
         }
-        return downloadLink;
-    }
-
-    private String addPublishDate (SharedLinkBSH sharedLink, Locale locale) {
-        Calendar publishDate = null;
-
-        if (sharedLink.getLinkType() instanceof FileLink){
-            publishDate = ((FileLink) sharedLink.getLinkType()).getPublishDate();
-        } else if (sharedLink.getLinkType() instanceof Asset){
-            publishDate = ((Asset) sharedLink.getLinkType()).getPublishDate();
-        }
-        if (publishDate == null) {
-            try {
-                Property p;
-                p = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
-                publishDate = p.getDate();
-            } catch (RepositoryException e) {
-                logger.error("Failed to reach the creation date node.", e);
-                return "";
-            }
-        }
-        return sdf.format(publishDate.getTime());
+        return null;
     }
 
     private boolean in (String field, String... values) {
