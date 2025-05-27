@@ -26,17 +26,7 @@
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
 
-    <@pageIntro content=document author=author/>
-
-    <vs-container>
-        <vs-row>
-            <vs-col md="8" cols="12">
-                <vs-rich-text-wrapper>
-                    ${label("listicle", "listicle.disclaimer")}
-                </vs-rich-text-wrapper>
-            </vs-col>
-        </vs-row>
-    </vs-container>
+    <@pageIntro content=document author=author isListicle=true/>
 
     <vs-container class="mt-150">
         <vs-row>
