@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 0bc299e0-e93b-4204-baf9-152b58322341
   hippo:name: Listicle
-  hippo:versionHistory: 2511bcf6-0f74-46c4-b7b8-12f9f1f5e8db
+  hippo:versionHistory: c53203fd-e05a-4486-af8a-92f019ea35bd
   /listicle[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,18 +14,25 @@
     hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-05-22T16:08:36.786+01:00
-    hippostdpubwf:lastModificationDate: 2025-05-22T16:10:10.236+01:00
+    hippostdpubwf:lastModificationDate: 2025-05-27T12:28:31.286+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['']
     resourcebundle:id: listicle
     resourcebundle:keys: [listicle.disclaimer]
     resourcebundle:messages: [The following list was created by VisitScotland to showcase
         a range of experiences. It isn’t ranked in any specific order.]
-    resourcebundle:messages_de: ['']
-    resourcebundle:messages_es: ['']
-    resourcebundle:messages_fr: ['']
-    resourcebundle:messages_it: ['']
-    resourcebundle:messages_nl: ['']
+    resourcebundle:messages_de: ['Die folgende Liste wurde von VisitScotland erstellt,
+        um eine Auswahl an Erlebnissen zu präsentieren. Sie sind in keiner bestimmten
+        Reihenfolge aufgelistet.']
+    resourcebundle:messages_es: [La siguiente lista ha sido elaborada por VisitScotland
+        para mostrar una amplia gama de experiencias. No responde a un orden o clasificación
+        establecidos.]
+    resourcebundle:messages_fr: [La liste suivante a été créée par VisitScotland afin
+        de présenter différentes expériences et n’est classée dans aucun ordre particulier.]
+    resourcebundle:messages_it: [La seguente lista è stata creata da VisitScotland
+        per mettere in evidenza un mix di esperienze. Non c'è un ordine particolare.]
+    resourcebundle:messages_nl: [De onderstaande lijst is door VisitScotland gemaakt
+        om een aantal ervaringen te laten zien. Het staat niet in een bepaalde volgorde.]
   /listicle[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -36,18 +43,25 @@
     hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-05-22T16:08:36.786+01:00
-    hippostdpubwf:lastModificationDate: 2025-05-22T16:09:50.339+01:00
+    hippostdpubwf:lastModificationDate: 2025-05-27T12:29:10.309+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['']
     resourcebundle:id: listicle
     resourcebundle:keys: [listicle.disclaimer]
     resourcebundle:messages: [The following list was created by VisitScotland to showcase
         a range of experiences. It isn’t ranked in any specific order.]
-    resourcebundle:messages_de: ['']
-    resourcebundle:messages_es: ['']
-    resourcebundle:messages_fr: ['']
-    resourcebundle:messages_it: ['']
-    resourcebundle:messages_nl: ['']
+    resourcebundle:messages_de: ['Die folgende Liste wurde von VisitScotland erstellt,
+        um eine Auswahl an Erlebnissen zu präsentieren. Sie sind in keiner bestimmten
+        Reihenfolge aufgelistet.']
+    resourcebundle:messages_es: [La siguiente lista ha sido elaborada por VisitScotland
+        para mostrar una amplia gama de experiencias. No responde a un orden o clasificación
+        establecidos.]
+    resourcebundle:messages_fr: [La liste suivante a été créée par VisitScotland afin
+        de présenter différentes expériences et n’est classée dans aucun ordre particulier.]
+    resourcebundle:messages_it: [La seguente lista è stata creata da VisitScotland
+        per mettere in evidenza un mix di esperienze. Non c'è un ordine particolare.]
+    resourcebundle:messages_nl: [De onderstaande lijst is door VisitScotland gemaakt
+        om een aantal ervaringen te laten zien. Het staat niet in een bepaalde volgorde.]
   /listicle[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -58,16 +72,23 @@
     hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-05-22T16:08:36.786+01:00
-    hippostdpubwf:lastModificationDate: 2025-05-22T16:09:50.339+01:00
+    hippostdpubwf:lastModificationDate: 2025-05-27T12:29:10.309+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-05-22T16:10:32.419+01:00
+    hippostdpubwf:publicationDate: 2025-05-27T12:29:14.335+01:00
     resourcebundle:descriptions: ['']
     resourcebundle:id: listicle
     resourcebundle:keys: [listicle.disclaimer]
     resourcebundle:messages: [The following list was created by VisitScotland to showcase
         a range of experiences. It isn’t ranked in any specific order.]
-    resourcebundle:messages_de: ['']
-    resourcebundle:messages_es: ['']
-    resourcebundle:messages_fr: ['']
-    resourcebundle:messages_it: ['']
-    resourcebundle:messages_nl: ['']
+    resourcebundle:messages_de: ['Die folgende Liste wurde von VisitScotland erstellt,
+        um eine Auswahl an Erlebnissen zu präsentieren. Sie sind in keiner bestimmten
+        Reihenfolge aufgelistet.']
+    resourcebundle:messages_es: [La siguiente lista ha sido elaborada por VisitScotland
+        para mostrar una amplia gama de experiencias. No responde a un orden o clasificación
+        establecidos.]
+    resourcebundle:messages_fr: [La liste suivante a été créée par VisitScotland afin
+        de présenter différentes expériences et n’est classée dans aucun ordre particulier.]
+    resourcebundle:messages_it: [La seguente lista è stata creata da VisitScotland
+        per mettere in evidenza un mix di esperienze. Non c'è un ordine particolare.]
+    resourcebundle:messages_nl: [De onderstaande lijst is door VisitScotland gemaakt
+        om een aantal ervaringen te laten zien. Het staat niet in een bepaalde volgorde.]
