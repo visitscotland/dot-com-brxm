@@ -135,7 +135,7 @@
             <#if !searchResultsPage??>
                 <template v-slot:vs-intro-content>
                     <@hst.html hippohtml=content.introduction/>
-                    <#if isListicle??>
+                    <#if isListicle>
                         <vs-rich-text-wrapper>
                             <p class="mt-200">${label("listicle", "listicle.disclaimer")}</p>
                         </vs-rich-text-wrapper>
