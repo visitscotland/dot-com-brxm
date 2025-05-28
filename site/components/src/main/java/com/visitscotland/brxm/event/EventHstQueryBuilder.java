@@ -37,6 +37,7 @@ class EventHstQueryBuilder {
     private static final String TOPICS = "visitscotland:topics";
     private static final String DEADLINE = "visitscotland:deadline";
     private static final String INTERNATIONAL = "visitscotland:international";
+    private static final String FEATURED = "visitscotland:featured";
 
     private final HstQueryBuilder builder;
 
@@ -244,6 +245,13 @@ class EventHstQueryBuilder {
      */
     private Map<String, String[]> getQueryParameters() {
         return RequestContextProvider.get().getServletRequest().getParameterMap();
+    }
+
+    //-------------------------- [ GET SET VALUES ] ------------------------
+
+    EventHstQueryBuilder getFeaturedEvents() {
+        constraints.put("featured", constraint(FEATURED).equalTo(Boolean.TRUE));
+        return this;
     }
 
     HstQuery build() {
