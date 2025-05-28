@@ -27,7 +27,7 @@
 <#-- @ftlvariable name="itinerary" type="com.visitscotland.brxm.model.ItineraryPage" -->
 <#-- @ftlvariable name="introTheme" type="int" -->
 
-<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false author="" fullScreenMobile=false>
+<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false author="" fullScreenMobile=false isListicle=false>
     <@previewWarning editMode content alerts!"" />
     <#if lightBackground>
         <#assign themeName = themeCalculator(1)>
@@ -135,6 +135,11 @@
             <#if !searchResultsPage??>
                 <template v-slot:vs-intro-content>
                     <@hst.html hippohtml=content.introduction/>
+                    <#if isListicle>
+                        <vs-rich-text-wrapper>
+                            <p class="mt-200">${label("listicle", "listicle.disclaimer")}</p>
+                        </vs-rich-text-wrapper>
+                    </#if>
                 </template>
             </#if>
 

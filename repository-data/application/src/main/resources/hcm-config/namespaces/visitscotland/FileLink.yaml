@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 888a8657-7f0d-48fd-b03a-a12b301efc36
+          jcr:uuid: 16ba136c-d1d0-4dea-9e1a-c3e8e8556bdb
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -24,11 +24,20 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: ['visitscotland:external-file-validator', required]
+          /publishDate:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:publishDate
+            hipposysedit:primary: false
+            hipposysedit:type: Date
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:FileLink
           visitscotland:link: ''
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -48,5 +57,13 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             hipposysedit:validators: [required, 'visitscotland:external-document-validator']
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /publishDate:
+            jcr:primaryType: frontend:plugin
+            caption: Publish Date
+            field: publishDate
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
