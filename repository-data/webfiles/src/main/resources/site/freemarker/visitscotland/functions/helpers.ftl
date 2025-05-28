@@ -30,9 +30,9 @@
 <#function property key locale="">
     <#if Properties??>
         <#if locale??>
-            <#return Properties.getProperty(key, locale).orElse("")>
+            <#return Properties.getProperty(key, locale)>
         <#else>
-            <#return Properties.getProperty(key).orElse("")>
+            <#return Properties.getProperty(key)>
         </#if>
     <#else>
         <#return labelFallback("default.config", key)>
