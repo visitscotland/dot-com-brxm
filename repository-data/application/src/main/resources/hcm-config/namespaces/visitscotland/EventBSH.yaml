@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f1fd9564-b93d-4950-b3ef-27f3fc6ec2bd
+          jcr:uuid: 893788e7-b0fb-427e-a2f5-17bdb3bcf438
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -130,6 +130,14 @@ definitions:
             hipposysedit:path: visitscotland:vat
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /featured:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:featured
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -149,11 +157,12 @@ definitions:
           visitscotland:endDate: 0001-01-01T12:00:00Z
           visitscotland:endTime: ''
           visitscotland:startTime: ''
-          jcr:uuid: 5d5e342d-734b-4576-9a1c-77eabd287687
+          jcr:uuid: dad37239-6eb7-4e18-9d20-42737253229b
           hippostdpubwf:lastModificationDate: 2025-01-14T14:09:59.739Z
           hippostdpubwf:creationDate: 2025-01-14T14:09:59.739Z
           visitscotland:vat: false
           visitscotland:currency: GBP
+          visitscotland:featured: false
           /visitscotland:summary:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -300,6 +309,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: +VAT
             field: vat
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /featured:
+            jcr:primaryType: frontend:plugin
+            caption: Featured?
+            field: featured
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item

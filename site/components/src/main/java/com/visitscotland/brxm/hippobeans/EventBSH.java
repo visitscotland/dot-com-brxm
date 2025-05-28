@@ -72,4 +72,9 @@ public class EventBSH extends BaseDocument {
     public Boolean getVat() {
         return getSingleProperty("visitscotland:vat");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:featured")
+    public Boolean getFeatured() {
+        return getSingleProperty("visitscotland:featured");
+    }
 }

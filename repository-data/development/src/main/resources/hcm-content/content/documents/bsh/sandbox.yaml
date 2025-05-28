@@ -988,7 +988,7 @@
           jcr:uuid: d941afee-059a-41a6-a6b9-d7668b788c85
           hippo:name: 'How to improve your Google search rankings - part 2: off-page
             optimisation & technical considerations'
-          hippo:versionHistory: 1d023827-de3c-4512-9bd0-62b9dbfaa03c
+          hippo:versionHistory: 01927b5d-40e0-40a4-b844-8804c0a19ae5
           /how-to-improve-your-google-search-rankings---part-2-off-page-optimisation--technical-considerations[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -998,13 +998,14 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:35:31.589Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:41.272Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:08:47.709+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: d4427693-35f2-4014-a144-e9195e70b6cb
             hippotranslation:locale: en
             visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '19:00'
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: ''
             visitscotland:price: 3.0
@@ -1042,13 +1043,14 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:35:31.589Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:48.659Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:08:51.193+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: d4427693-35f2-4014-a144-e9195e70b6cb
             hippotranslation:locale: en
             visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '19:00'
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: ''
             visitscotland:price: 3.0
@@ -1086,14 +1088,15 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:35:31.589Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:18:48.659Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:08:51.193+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-03-11T15:18:50.236Z
+            hippostdpubwf:publicationDate: 2025-05-27T12:08:52.745+01:00
             hippotranslation:id: d4427693-35f2-4014-a144-e9195e70b6cb
             hippotranslation:locale: en
             visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: '19:00'
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: ''
             visitscotland:price: 3.0
@@ -1263,7 +1266,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: de1cf70e-3e7a-4bc7-84b3-6bfeb1997076
           hippo:name: How to generate and increase sales
-          hippo:versionHistory: 2b1140b3-6b11-4c18-aa8e-7982108b253d
+          hippo:versionHistory: 6baec538-9793-44e7-a4b8-f7b7c535db11
           /how-to-generate-and-increase-sales[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -1273,13 +1276,14 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:40:27.645Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:07.380Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:08:55.359+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: cdab99e1-9568-40d0-a8b5-94f91bf0e190
             hippotranslation:locale: en
             visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: bgateway
             visitscotland:price: 5.0
@@ -1318,13 +1322,14 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:40:27.645Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:18.840Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:08:58.564+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: cdab99e1-9568-40d0-a8b5-94f91bf0e190
             hippotranslation:locale: en
             visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: bgateway
             visitscotland:price: 5.0
@@ -1363,14 +1368,15 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:40:27.645Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:19:18.840Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:08:58.564+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-03-11T15:19:20.386Z
+            hippostdpubwf:publicationDate: 2025-05-27T12:09:00.345+01:00
             hippotranslation:id: cdab99e1-9568-40d0-a8b5-94f91bf0e190
             hippotranslation:locale: en
             visitscotland:currency: GBP
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: bgateway
             visitscotland:price: 5.0
@@ -2098,7 +2104,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: ef4e1ca8-066b-4162-8f56-2bad22bcabf6
           hippo:name: Wordpress website development for beginners
-          hippo:versionHistory: 3a8032d8-4d5e-443c-acec-6d095d85aaf6
+          hippo:versionHistory: 2bbcbfd0-6b2f-41e4-b3ea-b82395020846
           /wordpress-website-development-for-beginners[1]:
             jcr:primaryType: visitscotland:TrainingEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -2108,13 +2114,14 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:30:37.480Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:47.736Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:55:48.736+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 6406916c-385f-4e00-a16d-5be15dfe350c
             hippotranslation:locale: en
             visitscotland:currency: AUD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: ''
             visitscotland:price: 3000.0
@@ -2159,13 +2166,14 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:30:37.480Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:54.761Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:55:52.341+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 6406916c-385f-4e00-a16d-5be15dfe350c
             hippotranslation:locale: en
             visitscotland:currency: AUD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: ''
             visitscotland:price: 3000.0
@@ -2210,14 +2218,15 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T16:30:37.480Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:20:54.761Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:55:52.341+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-03-11T15:20:56.257Z
+            hippostdpubwf:publicationDate: 2025-05-27T12:55:54.530+01:00
             hippotranslation:id: 6406916c-385f-4e00-a16d-5be15dfe350c
             hippotranslation:locale: en
             visitscotland:currency: AUD
             visitscotland:endDate: 0001-01-01T12:00:00Z
             visitscotland:endTime: ''
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: ''
             visitscotland:price: 3000.0
@@ -3073,7 +3082,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: ca76f430-d1c3-4e1a-b567-32499709cbed
           hippo:name: Introduction to business websites
-          hippo:versionHistory: bf337060-d581-4151-a04f-ad14f3424939
+          hippo:versionHistory: a23a51f8-66fd-431e-9e3d-298c4a795b12
           /introduction-to-business-websites[1]:
             jcr:primaryType: visitscotland:IndustryEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -3083,13 +3092,14 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:27:54.908Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:16:12.775Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:08:34.948+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: a3be7d85-c63f-4ebf-b4b8-bf563cb7b3d9
             hippotranslation:locale: en
             visitscotland:currency: GBP
             visitscotland:endDate: 2035-01-27T00:00:00Z
             visitscotland:endTime: '15:00'
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
             visitscotland:price: 10.0
@@ -3120,13 +3130,14 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:27:54.908Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:16:18.410Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:08:38.850+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: a3be7d85-c63f-4ebf-b4b8-bf563cb7b3d9
             hippotranslation:locale: en
             visitscotland:currency: GBP
             visitscotland:endDate: 2035-01-27T00:00:00Z
             visitscotland:endTime: '15:00'
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
             visitscotland:price: 10.0
@@ -3157,14 +3168,15 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-29T16:27:54.908Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:16:18.410Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:08:38.850+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-03-11T15:16:20.897Z
+            hippostdpubwf:publicationDate: 2025-05-27T12:08:41.023+01:00
             hippotranslation:id: a3be7d85-c63f-4ebf-b4b8-bf563cb7b3d9
             hippotranslation:locale: en
             visitscotland:currency: GBP
             visitscotland:endDate: 2035-01-27T00:00:00Z
             visitscotland:endTime: '15:00'
+            visitscotland:featured: true
             visitscotland:online: true
             visitscotland:organiser: Business Gateway
             visitscotland:price: 10.0
@@ -3458,7 +3470,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: f1d6c415-bef6-4998-afcf-432c76153e72
           hippo:name: European Travel Marketplace North America 2025
-          hippo:versionHistory: a8362797-76d5-4614-a6a0-d195694fff78
+          hippo:versionHistory: ac77b30b-50a7-4a35-9521-7e8f69a091f1
           /european-travel-marketplace-north-america-2025[1]:
             jcr:primaryType: visitscotland:TravelTradeEventBSH
             jcr:mixinTypes: ['mix:referenceable']
@@ -3468,7 +3480,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T11:54:59.292Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:24.703Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:09:18.696+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 4c299f18-64b0-4b53-9099-0b35222f7334
             hippotranslation:locale: en
@@ -3477,6 +3489,7 @@
             visitscotland:email: ''
             visitscotland:endDate: 2025-11-20T00:00:00Z
             visitscotland:endTime: ''
+            visitscotland:featured: true
             visitscotland:international: true
             visitscotland:online: true
             visitscotland:organiser: ETOA
@@ -3512,7 +3525,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T11:54:59.292Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:36.997Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:09:21.850+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 4c299f18-64b0-4b53-9099-0b35222f7334
             hippotranslation:locale: en
@@ -3521,6 +3534,7 @@
             visitscotland:email: ''
             visitscotland:endDate: 2025-11-20T00:00:00Z
             visitscotland:endTime: ''
+            visitscotland:featured: true
             visitscotland:international: true
             visitscotland:online: true
             visitscotland:organiser: ETOA
@@ -3556,9 +3570,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-01-30T11:54:59.292Z
-            hippostdpubwf:lastModificationDate: 2025-03-11T15:22:36.997Z
+            hippostdpubwf:lastModificationDate: 2025-05-27T12:09:21.850+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-03-11T15:22:38.412Z
+            hippostdpubwf:publicationDate: 2025-05-27T12:09:23.661+01:00
             hippotranslation:id: 4c299f18-64b0-4b53-9099-0b35222f7334
             hippotranslation:locale: en
             visitscotland:currency: USD
@@ -3566,6 +3580,7 @@
             visitscotland:email: ''
             visitscotland:endDate: 2025-11-20T00:00:00Z
             visitscotland:endTime: ''
+            visitscotland:featured: true
             visitscotland:international: true
             visitscotland:online: true
             visitscotland:organiser: ETOA
