@@ -117,9 +117,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel(SEARCH_RESULTS, true);
         }
         //TODO: These properties are Optional for each site. This needs to be refactored after VS-343 is completed
-        request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()));
-        request.setModel("cludoEngineId", properties.getProperty("cludo.engine-id", request.getLocale()));
-        request.setModel("cludoExperienceId", properties.getProperty("cludo.experience-id", request.getLocale()));
+        request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()).orElse(""));
+        request.setModel("cludoEngineId", properties.getProperty("cludo.engine-id", request.getLocale()).orElse(""));
+        request.setModel("cludoExperienceId", properties.getProperty("cludo.experience-id", request.getLocale()).orElse(""));
     }
 
     /**

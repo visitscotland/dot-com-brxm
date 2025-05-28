@@ -30,9 +30,9 @@
 <#function property key locale="">
     <#if Properties??>
         <#if locale??>
-            <#return Properties.getProperty(key, locale)>
+            <#return Properties.getProperty(key, locale).orElse("")>
         <#else>
-            <#return Properties.getProperty(key)>
+            <#return Properties.getProperty(key).orElse("")>
         </#if>
     <#else>
         <#return labelFallback("default.config", key)>
@@ -61,9 +61,9 @@
     <#elseif item.hstLink??>
         <#return "pagenotfound">
     <#elseif item.externalLink??>
-        <#return item.externalLink?replace("\"", "")> 
+        <#return item.externalLink?replace("\"", "")>
     <#else>
-        <#return "#"> 
+        <#return "#">
     </#if>
 </#function>
 
