@@ -26,7 +26,7 @@
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
 
-    <@pageIntro content=document author=author/>
+    <@pageIntro content=document author=author isListicle=true/>
 
     <vs-container class="mt-150">
         <vs-row>

@@ -20275,6 +20275,115 @@
             /visitscotland:link:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 2435b3e4-b59b-4d10-a5a5-1c8762915064
+      /cta-banner-module-unpublished:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 8be58da4-8585-4d23-b512-e21168059017
+        hippo:name: CTA Banner Module Unpublished
+        hippo:versionHistory: a101bae2-0211-4c41-955f-6996a8125c01
+        /cta-banner-module-unpublished[1]:
+          jcr:primaryType: visitscotland:CTABanner
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 20c0ee24-4333-4ca7-9298-ad1db10ed7e2
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-10-22T14:46:10.201+01:00
+          hippostdpubwf:lastModificationDate: 2025-04-14T10:59:57.029+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b70c19b3-088a-4d3c-b33d-3ded767397c2
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:nested: false
+          visitscotland:title: SandBox Area
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>The <em>Sandbox Area </em>is a designated space for building and testing examples of various modules and pages. It allows developers and designers to experiment with different layouts, configurations, and content structures without affecting the live environment.</p>
+
+              <p>The purpose of the sandbox is to provide a safe environment where new features and designs can be tested and iterated before they go live, ensuring smooth implementation across the site.</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f19c54ce-5767-438d-998c-e5055fd41667
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: ''
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 3d79745f-2c9d-4201-a415-cf510cbbd603
+        /cta-banner-module-unpublished[2]:
+          jcr:primaryType: visitscotland:CTABanner
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 6bbea7f5-8d61-40b5-94cb-aac74cf3f3aa
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-10-22T14:46:10.201+01:00
+          hippostdpubwf:lastModificationDate: 2025-04-14T10:59:20.629+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b70c19b3-088a-4d3c-b33d-3ded767397c2
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:nested: false
+          visitscotland:title: SandBox Area
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>The <em>Sandbox Area </em>is a designated space for building and testing examples of various modules and pages. It allows developers and designers to experiment with different layouts, configurations, and content structures without affecting the live environment.</p>
+
+              <p>The purpose of the sandbox is to provide a safe environment where new features and designs can be tested and iterated before they go live, ensuring smooth implementation across the site.</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f19c54ce-5767-438d-998c-e5055fd41667
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: ''
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 3d79745f-2c9d-4201-a415-cf510cbbd603
+        /cta-banner-module-unpublished[3]:
+          jcr:primaryType: visitscotland:CTABanner
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 2a6bdb19-a9a8-4553-a494-df6664507e87
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-10-22T14:46:10.201+01:00
+          hippostdpubwf:lastModificationDate: 2025-04-14T10:59:57.029+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-04-14T11:00:10.727+01:00
+          hippotranslation:id: b70c19b3-088a-4d3c-b33d-3ded767397c2
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:nested: false
+          visitscotland:title: SandBox Area
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>The <em>Sandbox Area </em>is a designated space for building and testing examples of various modules and pages. It allows developers and designers to experiment with different layouts, configurations, and content structures without affecting the live environment.</p>
+
+              <p>The purpose of the sandbox is to provide a safe environment where new features and designs can be tested and iterated before they go live, ensuring smooth implementation across the site.</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f19c54ce-5767-438d-998c-e5055fd41667
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: ''
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 3d79745f-2c9d-4201-a415-cf510cbbd603
     /form:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -21004,7 +21113,7 @@
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: aed7ac69-1fd6-49ea-a670-85131f85658d
-          hippo:versionHistory: d90c669e-5715-48e2-9520-5ffc9fa3547b
+          hippo:versionHistory: b1834a9f-2db8-4e4f-afba-6a7de7bf3187
           /form[1]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
@@ -21015,7 +21124,7 @@
             hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
-            hippostdpubwf:lastModificationDate: 2025-03-03T23:55:41.036Z
+            hippostdpubwf:lastModificationDate: 2025-04-14T12:53:07.124+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
             hippotranslation:locale: en
@@ -21029,7 +21138,7 @@
               visitscotland:activityDescription: Business Support Hub Climate Plan
                 download
               visitscotland:activitySource: BSH Web Form
-              visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
+              visitscotland:jsonUrl: /site/binaries/content/assets/bsh-dev/forms/climate-action-plan-workbook-request.json
               visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
           /form[2]:
             jcr:primaryType: visitscotland:Form
@@ -21041,7 +21150,7 @@
             hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
-            hippostdpubwf:lastModificationDate: 2025-03-03T23:55:50.362Z
+            hippostdpubwf:lastModificationDate: 2025-04-14T12:53:52.298+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
             hippotranslation:locale: en
@@ -21055,7 +21164,7 @@
               visitscotland:activityDescription: Business Support Hub Climate Plan
                 download
               visitscotland:activitySource: BSH Web Form
-              visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
+              visitscotland:jsonUrl: /site/binaries/content/assets/bsh-dev/forms/climate-action-plan-workbook-request.json
               visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
           /form[3]:
             jcr:primaryType: visitscotland:Form
@@ -21067,9 +21176,9 @@
             hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
-            hippostdpubwf:lastModificationDate: 2025-03-03T23:55:50.362Z
+            hippostdpubwf:lastModificationDate: 2025-04-14T12:53:52.298+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-03-03T23:55:51.993Z
+            hippostdpubwf:publicationDate: 2025-04-14T12:53:57.111+01:00
             hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: JavaScript is required for this page
@@ -21082,7 +21191,7 @@
               visitscotland:activityDescription: Business Support Hub Climate Plan
                 download
               visitscotland:activitySource: BSH Web Form
-              visitscotland:jsonUrl: https://static.visitscotland.com/forms/climate-action-plan/climate-action-plan-workbook-request.json
+              visitscotland:jsonUrl: /site/binaries/content/assets/bsh-dev/forms/climate-action-plan-workbook-request.json
               visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
     /events-listing:
       jcr:primaryType: hippostd:folder

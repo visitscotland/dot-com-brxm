@@ -115,6 +115,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
             request.setModel(SEARCH_RESULTS, true);
         }
+        //TODO: These properties are Optional for each site. This needs to be refactored after VS-343 is completed
+        request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()));
+        request.setModel("cludoEngineId", properties.getProperty("cludo.engine-id", request.getLocale()));
+        request.setModel("cludoExperienceId", properties.getProperty("cludo.experience-id", request.getLocale()));
     }
 
     /**
@@ -287,7 +291,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
         if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
-            SignpostModule signpost;
+            Optional<SignpostModule> signpost;
             if (!Contract.isEmpty(properties.getSiteId())){
                 signpost = signpostFactory.createDeliveryAPIModule(request.getLocale());
             } else if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
@@ -295,8 +299,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             } else {
                 signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
             }
-            if (signpost != null) {
-                request.setModel(NEWSLETTER_SIGNPOST, signpost);
+
+            if (signpost.isPresent()) {
+                request.setModel(NEWSLETTER_SIGNPOST, signpost.get());
             }
         }
     }
