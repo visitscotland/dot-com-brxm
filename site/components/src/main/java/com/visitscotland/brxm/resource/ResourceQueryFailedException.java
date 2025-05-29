@@ -11,7 +11,7 @@ package com.visitscotland.brxm.resource;
  * </ul>
  * </p>
  */
-class ResourceQueryFailedException extends ResourceException {
+public class ResourceQueryFailedException extends ResourceException {
     private static final String EXCEPTION_MESSAGE =
         "Attempt to query the requested resource bundle, %s, has failed";
 
