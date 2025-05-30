@@ -87,7 +87,18 @@ public class DMSProxy {
     }
 
     /**
-     * Request a page and return the body as String
+     * Sends an HTTP GET request to the DMS and retrieves the response content.
+     *
+     * <p>The method constructs a full URL by appending the provided path to the DMS host, sets connection and read timeouts,
+     * and applies the required authentication header. If the response status is below 300, the content is returned directly.
+     * For status codes between 300 and 400, a warning is logged, redirection is enabled, and the content is subsequently retrieved.
+     * If a SocketTimeoutException or NoRouteToHostException occurs, the request is retried until the retry limit is reached, after
+     * which a failure is registered. Other I/O exceptions are logged, and the method returns {@code null} in case of failure.
+     * </p>
+     *
+     * @param path    the relative URL of the resource on the DMS
+     * @param retries the number of retries remaining in case of transient exceptions
+     * @return the response body as a string if the request is successful; {@code null} otherwise
      */
     private String request(String path, int retries) {
         try {

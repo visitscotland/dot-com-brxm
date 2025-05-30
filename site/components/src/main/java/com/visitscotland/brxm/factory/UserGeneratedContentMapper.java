@@ -3,25 +3,28 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.hippobeans.Stackla;
 import com.visitscotland.brxm.model.UserGeneratedContentModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.Optional;
 
 @Component
-public class UserGeneratedContentFactory {
+public class UserGeneratedContentMapper extends ModuleMapper<Stackla, UserGeneratedContentModule> {
 
     private final ResourceBundleService bundle;
-    private static final Logger logger = LoggerFactory.getLogger(UserGeneratedContentFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserGeneratedContentMapper.class);
     static final String BUNDLE_ID = "ugc";
 
-    public UserGeneratedContentFactory(ResourceBundleService bundle) {
+    public UserGeneratedContentMapper(ResourceBundleService bundle) {
         this.bundle = bundle;
     }
 
-    public UserGeneratedContentModule getUGCModule(Stackla document, Locale locale) {
+    @Override
+    public UserGeneratedContentModule map(Stackla document, Locale locale) {
         logger.info("Creating user generated content Module for {}", document.getPath());
         UserGeneratedContentModule ugc = new  UserGeneratedContentModule();
         ugc.setTitle(document.getTitle());
@@ -36,5 +39,9 @@ public class UserGeneratedContentFactory {
         return ugc;
     }
 
-
+    @Override
+    public void include(Stackla document, PageCompositionHelper page) {
+        super.include(document, page);
+        page.addAllSiteLabels(BUNDLE_ID);
+    }
 }

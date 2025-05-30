@@ -20,7 +20,7 @@ public class EnvironmentManager {
     }
 
     Optional<String> getEnvironmentVariable(String name) {
-        return readSystemValue(system::getProperty, name, "Environment Variable");
+        return readSystemValue(system::getenv, name, "Environment Variable");
     }
 
     Optional<String> getSystemProperty(String name){
@@ -29,7 +29,7 @@ public class EnvironmentManager {
 
     private Optional<String> readSystemValue(Function<String, String> retriever, String parameter, String type){
         try {
-            var value = system.getProperty(retriever.apply(parameter));
+            var value = retriever.apply(parameter);
             if (!Contract.isEmpty(value)){
                 return Optional.of(value);
             }
