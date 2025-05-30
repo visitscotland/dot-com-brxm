@@ -117,12 +117,17 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
             request.setModel(SEARCH_RESULTS, true);
         }
+
         //TODO: These properties are Optional for each site. This needs to be refactored after VS-343 is completed
-        request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()));
-        request.setModel("cludoEngineId", properties.getProperty("cludo.engine-id", request.getLocale()));
-        request.setModel("cludoExperienceId", properties.getProperty("cludo.experience-id", request.getLocale()));
+        addPropertyIfPresent(request, "cludo.customer-id", "cludoCustomerId");
+        addPropertyIfPresent(request, "cludo.engine-id", "cludoEngineId");
+        addPropertyIfPresent(request, "cludo.customer-id", "cludoCustomerId");
     }
 
+    private void addPropertyIfPresent(HstRequest request, String property, String attributeId) {
+        properties.getProperty(property, request.getLocale())
+                .ifPresent(value -> request.setModel("cludoCustomerId",value));
+    }
     /**
      * Adds labels that are necessary for type of pages. Please notice that there are two strategies for including properties
      * <br>
