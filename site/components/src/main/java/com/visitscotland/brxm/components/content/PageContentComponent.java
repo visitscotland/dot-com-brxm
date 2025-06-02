@@ -120,12 +120,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         //TODO: These properties are Optional for each site. This needs to be refactored after VS-343 is completed
         addPropertyIfPresent(request, "cludo.customer-id", "cludoCustomerId");
         addPropertyIfPresent(request, "cludo.engine-id", "cludoEngineId");
-        addPropertyIfPresent(request, "cludo.customer-id", "cludoCustomerId");
+        addPropertyIfPresent(request, "cludo.experience-id", "cludoExperienceId");
     }
 
     private void addPropertyIfPresent(HstRequest request, String property, String attributeId) {
         properties.getProperty(property, request.getLocale())
-                .ifPresent(value -> request.setModel("cludoCustomerId",value));
+                .ifPresent(value -> request.setModel(attributeId,value));
     }
     /**
      * Adds labels that are necessary for type of pages. Please notice that there are two strategies for including properties
