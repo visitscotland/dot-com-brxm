@@ -793,6 +793,7 @@ class LinkServiceTest {
         Itinerary itinerary = new MegalinksMockBuilder().getItinerary("bus");
         when(documentUtilsService.getSiblingDocuments(itinerary,Day.class, "visitscotland:Day")).thenReturn(Arrays.asList(mock(Day.class), mock(Day.class)));
         when(utils.createUrl(itinerary)).thenReturn("URL");
+        when(utils.getValueMap(LinkService.VL_ITINERARY_MAP)).thenReturn(Collections.emptyMap());
 
 
         EnhancedLink enhancedLink = service.createEnhancedLink(itinerary, null, Locale.UK, false).get();
@@ -800,6 +801,6 @@ class LinkServiceTest {
         assertNotNull(enhancedLink.getItineraryMainTransport());
         assertEquals("bus", enhancedLink.getItineraryMainTransport().getKey());
         assertEquals("bus", enhancedLink.getItineraryMainTransport().getDisplayName());
-        //TODO: Verify Looger message?
+        // TODO: Add verification of logger message when mapping is not found
     }
 }
