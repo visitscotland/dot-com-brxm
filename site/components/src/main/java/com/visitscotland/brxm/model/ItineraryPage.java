@@ -2,6 +2,7 @@ package com.visitscotland.brxm.model;
 
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.hippobeans.Itinerary;
+import com.visitscotland.brxm.model.megalinks.Entry;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -19,6 +20,9 @@ public class ItineraryPage {
     private BigDecimal distance;
     private Map<String, ItineraryStopModule> stops;
     private List<String> errorMessages = new ArrayList<>();
+    private List<Entry> transports;
+    private List<Entry> areas;
+    private Entry theme;
 
     public Itinerary getDocument() {
         return document;
@@ -81,5 +85,29 @@ public class ItineraryPage {
 
     public List<String> getErrorMessages() {
         return errorMessages;
+    }
+
+    public List<Entry> getTransports() {
+        return transports;
+    }
+
+    public void setTransports(List<Entry> transport) {
+        this.transports = transport;
+    }
+
+    public List<Entry> getAreas() {
+        return areas;
+    }
+
+    public void setAreas(List<Entry> areas) {
+        this.areas = areas;
+    }
+
+    public Entry getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Entry theme) {
+        this.theme = theme;
     }
 }
