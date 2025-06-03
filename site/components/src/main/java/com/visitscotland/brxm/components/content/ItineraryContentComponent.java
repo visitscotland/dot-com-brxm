@@ -35,9 +35,11 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         super.doBeforeRender(request, response);
 
         addProductSearchBuilder(request);
+        includeLabels(request);
 
         ItineraryPage itineraryPage = itineraryFactory.buildItinerary(getDocument(request), request.getLocale());
         request.setModel(ITINERARY, itineraryPage);
+
         if (!Contract.isEmpty(itineraryPage.getErrorMessages())) {
             setErrorMessages(request, itineraryPage.getErrorMessages());
         }
@@ -52,6 +54,15 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         } catch (TemplateModelException e) {
             logger.error("Product Search Builder is not available for the Page", e);
         }
+    }
+
+    /**
+     * Adds labels that are necessary for itineraries.
+     *
+     * @param request HstRequest Current Request
+     */
+    private void includeLabels(HstRequest request) {
+        addAllLabels(request, "itinerary");
     }
 
 }
