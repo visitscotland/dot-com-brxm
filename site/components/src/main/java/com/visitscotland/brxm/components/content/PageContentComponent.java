@@ -379,22 +379,20 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request HSt request
      */
     private void addSiteSpecificConfiguration(HstRequest request) {
-        final String SOCIAL_MEDIA = "navigation.social-media";
-        final String STATIC = "navigation.static";
-        final String TABLE_CONTENTS = "table-contents";
-        String prefix = "";
 
         if (Contract.isEmpty(properties.getSiteId())) {
+            //TODO: Create a toggleable property in the CMS
             addProductSearchWidget(request);
         } else {
-            prefix = properties.getSiteId() +".";
             request.setModel(SITE_ID, properties.getSiteId());
-
         }
 
-        labels(request).put(SOCIAL_MEDIA, bundle.getAllSiteLabels(SOCIAL_MEDIA, request.getLocale()));
-        labels(request).put(STATIC, bundle.getAllSiteLabels(STATIC, request.getLocale()));
-        labels(request).put(TABLE_CONTENTS, bundle.getAllSiteLabels(TABLE_CONTENTS, request.getLocale()));
+        //TODO: Investigate if all three sites need Social Media. Create a toggleable property in the CMS otherwise
+        addAllLabels(request, "navigation.social-media");
+        //TODO: Investigate if all three sites need
+        addAllLabels(request, "navigation.static");
+        //TODO: This labels should only be included for GeneralBSH
+        addAllLabels(request, "table-contents");
     }
 
     boolean isEditMode(HstRequest request) {
