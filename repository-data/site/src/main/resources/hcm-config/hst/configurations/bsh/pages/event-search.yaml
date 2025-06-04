@@ -7,7 +7,7 @@ definitions:
         hippo:identifier: b97a582a-4f37-41e6-987a-563872179fa7
         /search:
           jcr:primaryType: hst:containeritemcomponent
-          hst:componentclassname: com.visitscotland.brxm.components.EventSearchComponent
+          hst:componentclassname: com.visitscotland.brxm.event.EventSearchComponent
           hst:parameternames: [documentTypes, pageSize, sortField, sortOrder]
           hst:parametervalues: ['visitscotland:EventBSH', '8', 'visitscotland:title',
             asc]

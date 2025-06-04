@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.components;
+package com.visitscotland.brxm.event;
 
 import com.visitscotland.brxm.exception.EventsSearchException;
 import org.hippoecm.hst.content.beans.query.exceptions.FilterException;
