@@ -157,3 +157,9 @@ definitions:
             hst:componentconfigurationmappingnames: ['visitscotland:GeneralBSH']
             hst:componentconfigurationmappingvalues: ['hst:pages/bsh-page']
             hst:relativecontentpath: ${parent}/content
+      /events:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/events
+        /search:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/event-search

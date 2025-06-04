@@ -1,0 +1,13 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/bsh/hst:pages/event-search:
+      jcr:primaryType: hst:component
+      /main:
+        jcr:primaryType: hst:containercomponent
+        hippo:identifier: b97a582a-4f37-41e6-987a-563872179fa7
+        /search:
+          jcr:primaryType: hst:containeritemcomponent
+          hst:componentclassname: com.visitscotland.brxm.components.EventSearchComponent
+          hst:parameternames: [documentTypes, pageSize, dateField, hidePastItems]
+          hst:parametervalues: ['visitscotland:EventBSH', '8', 'visitscotland:endDate',
+            'true']
