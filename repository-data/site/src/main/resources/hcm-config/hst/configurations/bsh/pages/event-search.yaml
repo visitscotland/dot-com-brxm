@@ -8,6 +8,6 @@ definitions:
         /search:
           jcr:primaryType: hst:containeritemcomponent
           hst:componentclassname: com.visitscotland.brxm.components.EventSearchComponent
-          hst:parameternames: [documentTypes, pageSize, dateField, hidePastItems]
-          hst:parametervalues: ['visitscotland:EventBSH', '8', 'visitscotland:endDate',
-            'true']
+          hst:parameternames: [documentTypes, pageSize, sortField, sortOrder]
+          hst:parametervalues: ['visitscotland:EventBSH', '8', 'visitscotland:title',
+            asc]
