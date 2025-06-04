@@ -112,4 +112,8 @@ action-lists:
 - 2.8.3:
     /content/documents/administration/bsh-labels/global/global: reload
     /content/documents/administration/labels/navigation/banner-dont-translate: delete
-
+- 2.8.5:
+    /content/documents/administration/options/business-support-hub/topic: reload
+    /content/documents/administration/bsh-labels/modules/events-listings-module: reload
+- 2.9.1:
+    /content/documents/administration/configuration/default-site-properties: reload

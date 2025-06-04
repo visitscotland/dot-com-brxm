@@ -17,8 +17,8 @@ import java.util.*;
 public class EventCardFactory {
 
     private static final String BUNDLE = "events-listings";
-    private static final SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd MMM");
-    private static final SimpleDateFormat fullDateFormat = new SimpleDateFormat("dd MMM, yyyy");
+    private static final SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd MMMM");
+    private static final SimpleDateFormat fullDateFormat = new SimpleDateFormat("dd MMMM, yyyy");
     private static final Locale LOCALE = Locale.UK;
 
     private final ResourceBundleService bundle;
@@ -39,7 +39,7 @@ public class EventCardFactory {
         card.setDates(formatDates(document, card));
         card.setTimes(formatTimes(document));
         card.setLocation(formatLocation(document, card));
-        card.setOrganizer(valueOrNull(card.getOrganizer()));
+        card.setOrganiser(valueOrNull(document.getOrganiser()));
         card.setPrice(priceFormatter.format(document));
         card.setCta(formatCTA(document));
 
