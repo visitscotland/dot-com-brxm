@@ -292,8 +292,8 @@ public class ItineraryFactory {
     private List<Entry> valueListToEntryList(String[] items, ValueList valueList){
         if (items != null) {
             List<Entry> entries = new ArrayList<>(items.length);
-            for (String transport : items) {
-                entries.add(entryMapper.getEntry(transport, valueList));
+            for (String item : items) {
+                entries.add(entryMapper.getEntry(item, valueList));
             }
             return entries;
         }
