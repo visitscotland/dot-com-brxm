@@ -91,8 +91,8 @@ public class ItineraryPage {
         return transports;
     }
 
-    public void setTransports(List<Entry> transport) {
-        this.transports = transport;
+    public void setTransports(List<Entry> transports) {
+        this.transports = transports;
     }
 
     public List<Entry> getAreas() {
