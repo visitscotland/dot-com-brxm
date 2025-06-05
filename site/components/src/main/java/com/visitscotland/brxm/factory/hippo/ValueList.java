@@ -5,8 +5,8 @@ package com.visitscotland.brxm.factory.hippo;
  */
 public enum ValueList {
     VS_ITINERARY_TRANSPORT("vs-itinerary-transports"),
-    VS_ITINERARY_THEME("vs-itinerary-theme"),
-    VS_ITINERARY_AREA("vs-itinerary-area");
+    VS_ITINERARY_THEMES("vs-itinerary-themes"),
+    VS_ITINERARY_AREAS("vs-itinerary-areas");
 
     private final String value;
 
