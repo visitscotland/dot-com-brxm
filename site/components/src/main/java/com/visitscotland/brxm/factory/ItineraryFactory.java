@@ -281,12 +281,12 @@ public class ItineraryFactory {
     }
 
     private void populateThemes(ItineraryPage page, String theme){
-        page.setTheme(entryMapper.getEntry(theme, ValueList.VS_ITINERARY_THEME ));
+        page.setTheme(entryMapper.getEntry(theme, ValueList.VS_ITINERARY_THEMES));
 
     }
 
     private void populateAreas(ItineraryPage page, String[] areas){
-        page.setAreas(valueListToEntryList(areas, ValueList.VS_ITINERARY_AREA ));
+        page.setAreas(valueListToEntryList(areas, ValueList.VS_ITINERARY_AREAS));
     }
 
     private List<Entry> valueListToEntryList(String[] items, ValueList valueList){
