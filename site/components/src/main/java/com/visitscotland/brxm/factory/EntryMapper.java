@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-class EntryMapper {
+public class EntryMapper {
 
     private static final Logger logger = LoggerFactory.getLogger(EntryMapper.class);
 
@@ -18,7 +18,7 @@ class EntryMapper {
         this.hippoUtils = hippoUtils;
     }
 
-    Entry getEntry(String key, ValueList valueList) {
+    public Entry getEntry(String key, ValueList valueList) {
         String displayText = hippoUtils.getValueMap(valueList.id()).get(key);
         if (displayText == null) {
             logger.warn("No display text found for the key '{}' in the Value List '{}'", key, valueList.id());
