@@ -422,8 +422,6 @@ class ItineraryFactoryTest {
         assertEquals(2, page.getTransports().size());
         assertEquals("Car", page.getTransports().get(0).getDisplayName());
         assertEquals("Ship", page.getTransports().get(1).getDisplayName());
-
-        factory.buildItinerary(itinerary, Locale.UK);
     }
 
     @Test

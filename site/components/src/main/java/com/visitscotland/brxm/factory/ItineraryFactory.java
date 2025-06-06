@@ -302,7 +302,7 @@ public class ItineraryFactory {
     }
 
     private void populateLastStopLinks(ItineraryPage page, ItineraryStopModule lastStop, Locale locale) {
-        if (lastStop != null) {
+        if (lastStop != null & lastStop.getCoordinates() != null) {
             var latitude = lastStop.getCoordinates().getLatitude();
             var longitude = lastStop.getCoordinates().getLongitude();
 
