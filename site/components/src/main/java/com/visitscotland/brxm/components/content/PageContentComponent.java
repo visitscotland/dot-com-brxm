@@ -146,16 +146,27 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final String TABLE_CONTENTS = "table-contents";
 
         labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, getGlobalLabels(request.getLocale()));
-        labels(request).put(SOCIAL_SHARE_BUNDLE, bundle.getAllSiteLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
-        labels(request).put(SEARCH_BUNDLE, bundle.getAllSiteLabels(SEARCH_BUNDLE, request.getLocale()));
-        labels(request).put(VIDEO_BUNDLE, bundle.getAllSiteLabels(VIDEO_BUNDLE, request.getLocale()));
-        labels(request).put(SEO, bundle.getAllSiteLabels(SEO, request.getLocale()));
-        labels(request).put(SKIP_TO, bundle.getAllSiteLabels(SKIP_TO, request.getLocale()));
-        labels(request).put(TABLE_CONTENTS, bundle.getAllSiteLabels(TABLE_CONTENTS, request.getLocale()));
+        
+         addAllLabels(request, SOCIAL_SHARE_BUNDLE);
+         addAllLabels(request, SEARCH_BUNDLE);
+         addAllLabels(request, VIDEO_BUNDLE);
+         addAllLabels(request, SEO);
+         addAllLabels(request, SKIP_TO);
+         addAllLabels(request, TABLE_CONTENTS);
 
         if (isEditMode(request)) {
-            labels(request).put(CMS_MESSAGES, bundle.getAllSiteLabels(CMS_MESSAGES, request.getLocale()));
+             addAllLabels(request, CMS_MESSAGES);
         }
+    }
+
+    /**
+     * Add all label from a Hippo Resource Bundle File to the {@code label} request attribute
+     *
+     * @param request Current Request
+     * @param bundleId Hippo Resource Bundle id (from the CMS)
+     */
+    protected void addAllLabels(HstRequest request, String bundleId) {
+        labels(request).put(bundleId, bundle.getAllSiteLabels(bundleId, request.getLocale()));
     }
 
     /**
@@ -255,9 +266,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel(OTYML_BUNDLE, otyml);
         }
 
-        labels(request).put(OTYML_BUNDLE, bundle.getAllLabels(OTYML_BUNDLE, request.getLocale()));
-        labels(request).put(MEGALINKS_BUNDLE, bundle.getAllLabels(MEGALINKS_BUNDLE, request.getLocale()));
-        labels(request).put(PAGINATION_BUNDLE, bundle.getAllLabels(PAGINATION_BUNDLE, request.getLocale()));
+         addAllLabels(request, OTYML_BUNDLE);
+         addAllLabels(request, MEGALINKS_BUNDLE);
+         addAllLabels(request, PAGINATION_BUNDLE);
     }
 
     /**
@@ -265,7 +276,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request HstRequest
      * @return labels object from the request
      */
-    private Map<String, Map<String, String>> labels(HstRequest request) {
+    protected Map<String, Map<String, String>> labels(HstRequest request) {
         if (request.getModel(LABELS) == null) {
             Map<String, Map<String, String>> labels = new HashMap<>();
             request.setModel(LABELS, labels);
@@ -369,22 +380,20 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request HSt request
      */
     private void addSiteSpecificConfiguration(HstRequest request) {
-        final String SOCIAL_MEDIA = "navigation.social-media";
-        final String STATIC = "navigation.static";
-        final String TABLE_CONTENTS = "table-contents";
-        String prefix = "";
 
         if (Contract.isEmpty(properties.getSiteId())) {
+            //TODO: Create a toggleable property in the CMS
             addProductSearchWidget(request);
         } else {
-            prefix = properties.getSiteId() +".";
             request.setModel(SITE_ID, properties.getSiteId());
-
         }
 
-        labels(request).put(SOCIAL_MEDIA, bundle.getAllSiteLabels(SOCIAL_MEDIA, request.getLocale()));
-        labels(request).put(STATIC, bundle.getAllSiteLabels(STATIC, request.getLocale()));
-        labels(request).put(TABLE_CONTENTS, bundle.getAllSiteLabels(TABLE_CONTENTS, request.getLocale()));
+        //TODO: Investigate if all three sites need Social Media. Create a toggleable property in the CMS otherwise
+        addAllLabels(request, "navigation.social-media");
+        //TODO: Investigate if all three sites need
+        addAllLabels(request, "navigation.static");
+        //TODO: This labels should only be included for GeneralBSH
+        addAllLabels(request, "table-contents");
     }
 
     boolean isEditMode(HstRequest request) {
