@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Calendar;
 
 @Component
 public class ArticleFactory {
@@ -39,7 +40,7 @@ public class ArticleFactory {
     private final AnchorFormatter anchorFormatter;
     private final FileMetaDataCalculator fileMetaDataCalculator;
     private final AssetLinkFactory assetLinkFactory;
-
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy");
 
     public ArticleFactory(ImageFactory imageFactory,
                           QuoteFactory quoteEmbedder,
@@ -214,7 +215,7 @@ public class ArticleFactory {
 
         downloadLink.setLabel(sharedLink.getTitle());
         downloadLink.setTeaser(sharedLink.getTeaser());
-        downloadLink.setPublishedDate(getPublishDate(sharedLink, locale));
+        downloadLink.setPublishedDate(addPublishDate(sharedLink, locale));
 
         return downloadLink;
     }
@@ -228,7 +229,7 @@ public class ArticleFactory {
         downloadLink.setExtension(FilenameUtils.getExtension(downloadLink.getLink()));
 
         downloadLink.setTeaser(sharedLink.getTeaser());
-        downloadLink.setPublishedDate(getPublishDate(sharedLink, locale));
+        downloadLink.setPublishedDate(addPublishDate(sharedLink, locale));
 
         return downloadLink;
     }
@@ -259,6 +260,28 @@ public class ArticleFactory {
             }
         }
         return false;
+    }
+
+    private String addPublishDate (SharedLinkBSH sharedLink, Locale locale) {
+        Calendar publishDate = null;
+
+        if (sharedLink.getLinkType() instanceof FileLink){
+            publishDate = ((FileLink) sharedLink.getLinkType()).getPublishDate();
+        } else if (sharedLink.getLinkType() instanceof Asset){
+            publishDate = ((Asset) sharedLink.getLinkType()).getPublishDate();
+        }
+        if (publishDate == null) {
+            try {
+                Property p;
+                p = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
+                publishDate = p.getDate();
+            } catch (RepositoryException e) {
+                log.error("An error has occurred while calculating the publish Date link. Path: {}. Error Message {}",
+                        sharedLink.getPath(), e.getMessage());
+                return "";
+            }
+        }
+        return sdf.format(publishDate.getTime());
     }
 
     boolean isEditMode(HstRequest request) {
