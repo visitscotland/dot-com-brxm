@@ -45,8 +45,9 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         }
     }
 
-    //This is only in use in Freemaker to inject product search
-    //TODO: Remove method after VS-343 is completed
+    // This is only in use in Freemarker to inject product search
+    @Deprecated  // TODO: Remove method after VS-343 is completed
+    // TODO: Remove method after VS-343 is completed
     public void addProductSearchBuilder(HstRequest request) {
         BeansWrapper wrapper = BeansWrapper.getDefaultInstance();
         TemplateHashModel staticModels = wrapper.getStaticModels();
