@@ -23,6 +23,9 @@ public class ItineraryPage {
     private List<Entry> transports;
     private List<Entry> areas;
     private Entry theme;
+    private String lastStopNearbyEat;
+    private String lastStopNearbyStay;
+
 
     public Itinerary getDocument() {
         return document;
@@ -109,5 +112,21 @@ public class ItineraryPage {
 
     public void setTheme(Entry theme) {
         this.theme = theme;
+    }
+
+    public String getLastStopNearbyEat() {
+        return lastStopNearbyEat;
+    }
+
+    public void setLastStopNearbyEat(String lastStopNearbyEat) {
+        this.lastStopNearbyEat = lastStopNearbyEat;
+    }
+
+    public String getLastStopNearbyStay() {
+        return lastStopNearbyStay;
+    }
+
+    public void setLastStopNearbyStay(String lastStopNearbyStay) {
+        this.lastStopNearbyStay = lastStopNearbyStay;
     }
 }
