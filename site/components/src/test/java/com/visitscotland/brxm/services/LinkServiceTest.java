@@ -771,4 +771,35 @@ class LinkServiceTest {
         Assertions.assertEquals("dms-image.jpg", link.getImage().getExternalImage());
     }
 
+    @Test
+    @DisplayName("tests successful retrieval of mapped display text")
+    void When_ValidTransportKeyExists_Expect_EntryWithMappedDisplayText(){
+        Itinerary itinerary = new MegalinksMockBuilder().getItinerary("bus");
+        when(documentUtilsService.getSiblingDocuments(itinerary,Day.class, "visitscotland:Day")).thenReturn(Arrays.asList(mock(Day.class), mock(Day.class)));
+        when(utils.createUrl(itinerary)).thenReturn("URL");
+        when(utils.getValueMap(LinkService.VL_ITINERARY_MAP)).thenReturn(Map.of("bus","Bus"));
+
+        EnhancedLink enhancedLink = service.createEnhancedLink(itinerary, null, Locale.UK, false).get();
+
+        assertNotNull(enhancedLink.getItineraryMainTransport());
+        assertEquals("bus", enhancedLink.getItineraryMainTransport().getKey());
+        assertEquals("Bus", enhancedLink.getItineraryMainTransport().getDisplayName());
+
+    }
+
+    @Test
+    @DisplayName("tests fallback behavior using the key itself when no mapping for the itinerary transport exists")
+    void When_TransportKeyNotFound_Expect_EntryWithKeyAsDisplayText(){
+        Itinerary itinerary = new MegalinksMockBuilder().getItinerary("bus");
+        when(documentUtilsService.getSiblingDocuments(itinerary,Day.class, "visitscotland:Day")).thenReturn(Arrays.asList(mock(Day.class), mock(Day.class)));
+        when(utils.createUrl(itinerary)).thenReturn("URL");
+
+
+        EnhancedLink enhancedLink = service.createEnhancedLink(itinerary, null, Locale.UK, false).get();
+
+        assertNotNull(enhancedLink.getItineraryMainTransport());
+        assertEquals("bus", enhancedLink.getItineraryMainTransport().getKey());
+        assertEquals("bus", enhancedLink.getItineraryMainTransport().getDisplayName());
+        //TODO: Verify Looger message?
+    }
 }
