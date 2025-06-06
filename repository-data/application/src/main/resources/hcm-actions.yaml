@@ -117,3 +117,6 @@ action-lists:
     /content/documents/administration/bsh-labels/modules/events-listings-module: reload
 - 2.9.1:
     /content/documents/administration/configuration/default-site-properties: reload
+- 2.10.RC:
+    /content/documents/administration/labels/pages/itinerary: reload
+    /content/documents/administration/labels/modules/listicle: delete
