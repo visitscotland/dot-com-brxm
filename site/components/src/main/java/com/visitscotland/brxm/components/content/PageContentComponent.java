@@ -103,7 +103,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     /**
      * Adds Metadata about the application to the request
      *
-     * @see {@code MetadataFactory}
+     * @see MetadataFactory
      */
     private void addMetadata(HstRequest request){
         request.setModel(METADATA_MODEL, metadata.getMetadata());
@@ -316,8 +316,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * Add the configuration related to the Product Search Widget for the page
      */
     private void addProductSearchWidget(HstRequest request) {
-        if (!request.getPathInfo().contains(properties.getSiteSkiSection()) && !request.getPathInfo().contains(properties.getCampaignSection())) {
+        final String PRODUCT_SEARCH_BUNDLE = "product-search-widget";
+
+        if (!request.getPathInfo().contains(properties.getSiteSkiSection())
+                && !request.getPathInfo().contains(properties.getCampaignSection())) {
             request.setModel(PSR_WIDGET, psrFactory.getWidget(request));
+            labels(request).put(PRODUCT_SEARCH_BUNDLE,
+                    bundle.getAllSiteLabels(PRODUCT_SEARCH_BUNDLE, request.getLocale()));
         }
     }
 
