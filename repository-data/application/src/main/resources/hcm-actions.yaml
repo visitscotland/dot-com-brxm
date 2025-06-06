@@ -120,3 +120,4 @@ action-lists:
 - 2.10.RC:
     /content/documents/administration/labels/pages/itinerary: reload
     /content/documents/administration/labels/modules/listicle: delete
+    /content/documents/administration/labels/global/common-label: reload
