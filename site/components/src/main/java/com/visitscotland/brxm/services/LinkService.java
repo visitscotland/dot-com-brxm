@@ -5,7 +5,9 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
+import com.visitscotland.brxm.factory.EntryMapper;
 import com.visitscotland.brxm.factory.ImageFactory;
+import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.hippobeans.capabilities.UrlLink;
@@ -35,7 +37,8 @@ public class LinkService {
 
     private static final Logger logger = LoggerFactory.getLogger(LinkService.class);
 
-    private static final String VL_ITINERARY_MAP = "vs-itinerary-transports";
+    //TODO: Use entry factory
+    static final String VL_ITINERARY_MAP = "vs-itinerary-transports";
 
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
@@ -48,13 +51,14 @@ public class LinkService {
     private final Logger contentLogger;
     private final AssetLinkFactory assetLinkFactory;
     private final FileMetaDataCalculator fileMetaDataCalculator;
+    private final EntryMapper entryMapper;
 
     @Autowired
     public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils,
                        CMSProperties cmsProperties, SiteProperties siteProperties, ImageFactory imageFactory,
                        DocumentUtilsService documentUtilsService,
                        YoutubeApiService youtubeApiService, ContentLogger contentLogger,
-                       AssetLinkFactory assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator) {
+                       AssetLinkFactory assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator, EntryMapper entryMapper) {
 
         this.dmsData = dmsData;
         this.bundle = bundle;
@@ -67,6 +71,7 @@ public class LinkService {
         this.contentLogger = contentLogger;
         this.assetLinkFactory = assetLinkFactory;
         this.fileMetaDataCalculator = fileMetaDataCalculator;
+        this.entryMapper = entryMapper;
     }
 
     /**
@@ -517,12 +522,7 @@ public class LinkService {
     }
 
     private Entry getItineraryTransport(String key) {
-        String displayText = utils.getValueMap(VL_ITINERARY_MAP).get(key);
-        if (displayText == null) {
-            logger.warn("No display text found for transport key: {}", key);
-            displayText = key; // Fallback to using the key as display text
-        }
-        return new Entry (key, displayText);
+        return entryMapper.getEntry(key, ValueList.VS_ITINERARY_TRANSPORT);
     }
 
     /**

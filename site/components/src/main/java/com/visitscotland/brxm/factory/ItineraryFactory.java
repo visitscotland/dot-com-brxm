@@ -3,9 +3,11 @@ package com.visitscotland.brxm.factory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.DMSUtils;
+import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Coordinates;
+import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -17,7 +19,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.Locale;
+import java.util.*;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
@@ -33,13 +35,14 @@ public class ItineraryFactory {
     private final DMSDataService dmsData;
     private final ImageFactory imageFactory;
     private final DMSUtils utils;
+    private final EntryMapper entryMapper;
     private final DocumentUtilsService documentUtils;
     private final LinkService linkService;
     private final Logger contentLogger;
 
     public ItineraryFactory(ResourceBundleService bundle, DMSDataService dmsData, ImageFactory imageFactory,
                             DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
-                            ContentLogger contentLogger) {
+                            ContentLogger contentLogger, EntryMapper entryMapper) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageFactory = imageFactory;
@@ -47,6 +50,7 @@ public class ItineraryFactory {
         this.documentUtils = documentUtils;
         this.linkService = linkService;
         this.contentLogger = contentLogger;
+        this.entryMapper = entryMapper;
     }
 
     /**
@@ -101,6 +105,9 @@ public class ItineraryFactory {
         page.setDistance(calculateDistance ? totalDistance.setScale(0, BigDecimal.ROUND_HALF_UP) :BigDecimal.valueOf(itinerary.getDistance()));
 
         populateFirstAndLastStopTexts(page, firstStop, lastStop);
+        populateTransports(page, itinerary.getTransports());
+        populateThemes(page, itinerary.getTheme());
+        populateAreas(page, itinerary.getAreas());
 
         return page;
     }
@@ -268,4 +275,30 @@ public class ItineraryFactory {
             module.setOpenLink(new FlatLink(bundle.getResourceBundle(BUNDLE_FILE, "stop.opening", locale),
                      module.getCtaLink().getLink() + "#opening", null));        }
     }
+
+    private void populateTransports(ItineraryPage page, String[] transports){
+        page.setTransports(valueListToEntryList(transports, ValueList.VS_ITINERARY_TRANSPORT));
+    }
+
+    private void populateThemes(ItineraryPage page, String theme){
+        page.setTheme(entryMapper.getEntry(theme, ValueList.VS_ITINERARY_THEMES));
+
+    }
+
+    private void populateAreas(ItineraryPage page, String[] areas){
+        page.setAreas(valueListToEntryList(areas, ValueList.VS_ITINERARY_AREAS));
+    }
+
+    private List<Entry> valueListToEntryList(String[] items, ValueList valueList){
+        if (items != null) {
+            List<Entry> entries = new ArrayList<>(items.length);
+            for (String item : items) {
+                entries.add(entryMapper.getEntry(item, valueList));
+            }
+            return entries;
+        }
+        return Collections.emptyList();
+    }
+
+
 }
