@@ -3,6 +3,7 @@ package com.visitscotland.brxm.factory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.DMSUtils;
+import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
@@ -105,6 +106,7 @@ public class ItineraryFactory {
         page.setDistance(calculateDistance ? totalDistance.setScale(0, BigDecimal.ROUND_HALF_UP) :BigDecimal.valueOf(itinerary.getDistance()));
 
         populateFirstAndLastStopTexts(page, firstStop, lastStop);
+        populateLastStopLinks(page, lastStop, locale);
         populateTransports(page, itinerary.getTransports());
         populateThemes(page, itinerary.getTheme());
         populateAreas(page, itinerary.getAreas());
@@ -297,6 +299,21 @@ public class ItineraryFactory {
             return entries;
         }
         return Collections.emptyList();
+    }
+
+    private void populateLastStopLinks(ItineraryPage page, ItineraryStopModule lastStop, Locale locale) {
+        if (lastStop != null) {
+            var latitude = lastStop.getCoordinates().getLatitude();
+            var longitude = lastStop.getCoordinates().getLongitude();
+
+            page.setLastStopNearbyEat(getProductSearchUrl(locale, "cate", latitude, longitude));
+            page.setLastStopNearbyStay(getProductSearchUrl(locale, "acco", latitude, longitude));
+        }
+    }
+
+    private String getProductSearchUrl(Locale locale, String productType, Double latitude, Double longitude) {
+        return ProductSearchBuilder.newInstance().locale(locale).productTypes(productType).proximity(5.)
+                .coordinates(latitude, longitude).build();
     }
 
 
