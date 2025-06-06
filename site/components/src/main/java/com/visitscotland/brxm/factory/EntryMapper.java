@@ -3,6 +3,7 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.services.HippoUtilsService;
+import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -19,6 +20,9 @@ public class EntryMapper {
     }
 
     public Entry getEntry(String key, ValueList valueList) {
+        if (Contract.isEmpty(key)){
+            return null;
+        }
         String displayText = hippoUtils.getValueMap(valueList.id()).get(key);
         if (displayText == null) {
             logger.warn("No display text found for the key '{}' in the Value List '{}'", key, valueList.id());
