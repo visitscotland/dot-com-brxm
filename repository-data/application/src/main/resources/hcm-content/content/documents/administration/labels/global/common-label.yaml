@@ -118,14 +118,16 @@
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: f6ae492b-7620-4657-9783-c120d4cf32e4
     hippo:availability: []
+    hippostd:holder: admin
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2014-08-21T22:10:13.443+02:00
-    hippostdpubwf:lastModificationDate: 2024-11-21T08:31:33.573Z
+    hippostdpubwf:lastModificationDate: 2025-06-06T12:44:58.852+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', Deprecated -> The label Has been moved
+        to Itineraries & Listicles, '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '']
     resourcebundle:id: essentials.global
     resourcebundle:keys: [button.find-out-more, default.alt-text, label.download,
       keyfacilities.title, home, image.toggle.text, image.no.credit, image.title,
