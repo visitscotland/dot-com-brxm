@@ -2,6 +2,7 @@ package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.LocalizedURL;
+import com.visitscotland.brxm.translation.TranslationFallbackProvider;
 import com.visitscotland.brxm.utils.*;
 import org.apache.jackrabbit.commons.iterator.NodeIteratorAdapter;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
@@ -36,6 +37,8 @@ class DocumentUtilsServiceTest {
 
     @Mock
     HippoUtilsService utils;
+    @Mock
+    TranslationFallbackProvider translationFallbackProvider;
     @Mock
     ResourceBundleService bundle;
     @Mock
@@ -171,7 +174,7 @@ class DocumentUtilsServiceTest {
         when(document.getAvailableTranslations().getTranslation(anyString())).thenReturn(translation);
         when(bundle.getResourceBundle(any(), any(), any(Locale.class))).thenReturn("Label");
         when(utils.createUrl(any(), anyBoolean())).thenReturn(TRANSLATED_URL);
-        when(utils.getContentBeanWithTranslationFallback(any())).thenReturn(Optional.of(document));
+        when(translationFallbackProvider.getContentBeanForRequest(any())).thenReturn(Optional.of(document));
 
         List<LocalizedURL> list = documentUtils.getLocalizedURLs(request);
 
@@ -195,7 +198,7 @@ class DocumentUtilsServiceTest {
         HippoBean translation = mock(Page.class, RETURNS_DEEP_STUBS);
         when(document.getAvailableTranslations().getTranslation(Locale.UK.getLanguage())).thenReturn(translation);
         when(utils.createUrl(any(), anyBoolean())).thenReturn(ENGLISH_URL);
-        when(utils.getContentBeanWithTranslationFallback(any())).thenReturn(Optional.of(document));
+        when(translationFallbackProvider.getContentBeanForRequest(any())).thenReturn(Optional.of(document));
 
         List<LocalizedURL> list = documentUtils.getLocalizedURLs(request);
 
