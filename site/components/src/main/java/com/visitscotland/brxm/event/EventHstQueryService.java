@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.event;
 
+import com.visitscotland.brxm.hippobeans.EventBSH;
 import com.visitscotland.brxm.hippobeans.IndustryEventBSH;
 import com.visitscotland.brxm.hippobeans.TrainingEventBSH;
 import com.visitscotland.brxm.hippobeans.TravelTradeEventBSH;
@@ -72,6 +73,23 @@ public class EventHstQueryService {
         } catch (QueryException | RepositoryException e) {
             throw new HstComponentException(
                     "Exception occurred during creation or execution of HstQuery.", e);
+        }
+    }
+
+    HstQueryResult queryFeaturedEvents() {
+
+        try {
+            final HstQuery hstQuery = new EventHstQueryBuilder(EventBSH.class)
+                .addPagination(getPageSize())
+                .getFeaturedEvents()
+                .sort()
+                .build();
+
+            return hstQuery.execute();
+
+        } catch (QueryException | RepositoryException e) {
+            throw new HstComponentException(
+                "Exception occurred during creation or execution of HstQuery.", e);
         }
     }
 
