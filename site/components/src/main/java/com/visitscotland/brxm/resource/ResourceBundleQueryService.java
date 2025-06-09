@@ -16,12 +16,12 @@ import java.util.Locale;
 import java.util.Map;
 
 @Component
-class ResourceBundleQueryService {
+public class ResourceBundleQueryService {
     private final ResourceBundleValueExtractor resourceBundleValueExtractor;
     private final ResourceBundleRegistry resourceBundleRegistry;
     private final SiteProperties siteProperties;
 
-    protected ResourceBundleQueryService(final ResourceBundleRegistry resourceBundleRegistry,
+    public ResourceBundleQueryService(final ResourceBundleRegistry resourceBundleRegistry,
                                          final ResourceBundleValueExtractor resourceBundleValueExtractor,
                                          final SiteProperties properties) {
         this.resourceBundleValueExtractor = resourceBundleValueExtractor;
@@ -47,9 +47,9 @@ class ResourceBundleQueryService {
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
      *         cannot be cast to strings, wrapping the original exception
      */
-    Optional<String> getValueFor(final @Nonnull String bundleName,
+    public Optional<String> getValueFor(final @Nonnull String bundleName,
                                  final @Nonnull String itemKey,
-                                 final boolean isSiteBundle) {
+                                 final boolean isSiteBundle) throws ResourceQueryFailedException {
         Objects.requireNonNull(bundleName, "bundleName cannot be null");
         Objects.requireNonNull(itemKey, "itemKey cannot be null");
 
@@ -82,10 +82,10 @@ class ResourceBundleQueryService {
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
      *         cannot be cast to strings, wrapping the original exception
      */
-    Optional<String> getValueFor(final @Nonnull String bundleName,
+    public Optional<String> getValueFor(final @Nonnull String bundleName,
                                  final @Nonnull String itemKey,
                                  final @Nonnull Locale locale,
-                                 final boolean isSiteBundle) {
+                                 final boolean isSiteBundle) throws ResourceQueryFailedException {
         Objects.requireNonNull(bundleName, "bundleName cannot be null");
         Objects.requireNonNull(itemKey, "itemKey cannot be null");
         Objects.requireNonNull(locale, "locale cannot be null");
@@ -115,7 +115,7 @@ class ResourceBundleQueryService {
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
      *         cannot be cast to strings, wrapping the original exception
      */
-    Map<String, String> getAllValuesFor(final @Nonnull String bundleName, final boolean isSiteBundle) {
+    public Map<String, String> getAllValuesFor(final @Nonnull String bundleName, final boolean isSiteBundle) throws ResourceQueryFailedException {
         Objects.requireNonNull(bundleName, "bundleName cannot be null");
 
         final String resolvedBundleName = resolveBundleName(bundleName, isSiteBundle);
@@ -144,9 +144,9 @@ class ResourceBundleQueryService {
      * @throws ResourceQueryFailedException if the resource bundle cannot be found or if the contents
      *         cannot be cast to strings, wrapping the original exception
      */
-    Map<String, String> getAllValuesFor(final @Nonnull String bundleName,
+    public Map<String, String> getAllValuesFor(final @Nonnull String bundleName,
                                         final @Nonnull Locale locale,
-                                        final boolean isSiteBundle) {
+                                        final boolean isSiteBundle) throws ResourceQueryFailedException {
         Objects.requireNonNull(bundleName, "bundleName cannot be null");
         Objects.requireNonNull(locale, "locale cannot be null");
 
