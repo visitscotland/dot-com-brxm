@@ -173,6 +173,15 @@
 [visitscotland:OTYML] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:ObsFunction] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
+[visitscotland:ObsPayment] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:ObsProvider] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
 [visitscotland:Personalization] > hippo:compound, hippostd:relaxed
   orderable
 
