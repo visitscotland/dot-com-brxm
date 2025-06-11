@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:namespaces/obs:
+      jcr:primaryType: hipposysedit:namespace
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 10ea3cfb-de22-49f3-9853-f120823d416d
