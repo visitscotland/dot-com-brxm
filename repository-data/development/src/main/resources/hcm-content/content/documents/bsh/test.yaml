@@ -1,4 +1,5 @@
 /content/documents/bsh/test:
+  .meta:order-before: online-booking-system-comparator
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
   jcr:uuid: 67065e9f-0682-416b-8a19-0d8c728f8d09
