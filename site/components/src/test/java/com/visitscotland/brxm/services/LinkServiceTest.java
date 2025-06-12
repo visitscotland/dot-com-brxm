@@ -6,7 +6,9 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
+import com.visitscotland.brxm.factory.EntryMapper;
 import com.visitscotland.brxm.factory.ImageFactory;
+import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.mock.SharedLinkMockBuilder;
@@ -14,6 +16,7 @@ import com.visitscotland.brxm.mock.VideoMockBuilder;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.utils.*;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.core.container.ComponentManager;
@@ -74,6 +77,9 @@ class LinkServiceTest {
 
     @Mock
     private YoutubeApiService youtubeApiService;
+
+    @Mock
+    private EntryMapper entryMapper;
 
     @Mock
     ContentLogger logger;
@@ -777,30 +783,12 @@ class LinkServiceTest {
         Itinerary itinerary = new MegalinksMockBuilder().getItinerary("bus");
         when(documentUtilsService.getSiblingDocuments(itinerary,Day.class, "visitscotland:Day")).thenReturn(Arrays.asList(mock(Day.class), mock(Day.class)));
         when(utils.createUrl(itinerary)).thenReturn("URL");
-        when(utils.getValueMap(LinkService.VL_ITINERARY_MAP)).thenReturn(Map.of("bus","Bus"));
+        when(entryMapper.getEntry("bus", ValueList.VS_ITINERARY_TRANSPORT)).thenReturn(new Entry("bus", "Bus"));
 
         EnhancedLink enhancedLink = service.createEnhancedLink(itinerary, null, Locale.UK, false).get();
 
         assertNotNull(enhancedLink.getItineraryMainTransport());
         assertEquals("bus", enhancedLink.getItineraryMainTransport().getKey());
         assertEquals("Bus", enhancedLink.getItineraryMainTransport().getDisplayName());
-
-    }
-
-    @Test
-    @DisplayName("tests fallback behavior using the key itself when no mapping for the itinerary transport exists")
-    void When_TransportKeyNotFound_Expect_EntryWithKeyAsDisplayText(){
-        Itinerary itinerary = new MegalinksMockBuilder().getItinerary("bus");
-        when(documentUtilsService.getSiblingDocuments(itinerary,Day.class, "visitscotland:Day")).thenReturn(Arrays.asList(mock(Day.class), mock(Day.class)));
-        when(utils.createUrl(itinerary)).thenReturn("URL");
-        when(utils.getValueMap(LinkService.VL_ITINERARY_MAP)).thenReturn(Collections.emptyMap());
-
-
-        EnhancedLink enhancedLink = service.createEnhancedLink(itinerary, null, Locale.UK, false).get();
-
-        assertNotNull(enhancedLink.getItineraryMainTransport());
-        assertEquals("bus", enhancedLink.getItineraryMainTransport().getKey());
-        assertEquals("bus", enhancedLink.getItineraryMainTransport().getDisplayName());
-        // TODO: Add verification of logger message when mapping is not found
     }
 }

@@ -5,12 +5,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.DMSUtils;
+import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.DMSLink;
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Itinerary;
 import com.visitscotland.brxm.mock.ItineraryDayMockBuilder;
 import com.visitscotland.brxm.model.*;
+import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -34,6 +36,7 @@ import java.util.List;
 import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -58,6 +61,8 @@ class ItineraryFactoryTest {
     DocumentUtilsService documentUtils;
     @Mock
     LinkService linkService;
+    @Mock
+    EntryMapper entryMapper;
     @Mock
     ContentLogger logger;
 
@@ -405,6 +410,45 @@ class ItineraryFactoryTest {
         verify(linkService).createExternalLink(Locale.UK, "https://example.com", "Find out more about title", null);
     }
 
+    @Test
+    @DisplayName("The transports are populated")
+    void transportsArePopulated() {
+        when(itinerary.getTransports()).thenReturn(new String[]{"n", "s"});
+        when(entryMapper.getEntry("n", ValueList.VS_ITINERARY_TRANSPORT)).thenReturn(new Entry("n","Car"));
+        when(entryMapper.getEntry("s", ValueList.VS_ITINERARY_TRANSPORT)).thenReturn(new Entry("s","Ship"));
+
+        ItineraryPage page = factory.buildItinerary(itinerary, Locale.UK);
+
+        assertEquals(2, page.getTransports().size());
+        assertEquals("Car", page.getTransports().get(0).getDisplayName());
+        assertEquals("Ship", page.getTransports().get(1).getDisplayName());
+    }
+
+    @Test
+    @DisplayName("The themes are populated")
+    void themesArePopulated() {
+        when(itinerary.getTheme()).thenReturn("ar");
+        when(entryMapper.getEntry("ar", ValueList.VS_ITINERARY_THEMES)).thenReturn(new Entry("ar","Augmented Reality"));
+
+        ItineraryPage page = factory.buildItinerary(itinerary, Locale.UK);
+
+        assertEquals("Augmented Reality", page.getTheme().getDisplayName());
+    }
+
+    @Test
+    @DisplayName("The areas are populated")
+    void areasArePopulated() {
+        when(itinerary.getAreas()).thenReturn(new String[]{"n", "s"});
+        when(entryMapper.getEntry(eq("n"), eq(ValueList.VS_ITINERARY_AREAS))).thenReturn(new Entry("n","North"));
+        when(entryMapper.getEntry(eq("s"), eq(ValueList.VS_ITINERARY_AREAS))).thenReturn(new Entry("s","South"));
+        when(entryMapper.getEntry(isNull(), any())).thenReturn(null);
+
+        ItineraryPage page = factory.buildItinerary(itinerary, Locale.UK);
+
+        assertEquals(2, page.getAreas().size());
+        assertEquals("North", page.getAreas().get(0).getDisplayName());
+        assertEquals("South", page.getAreas().get(1).getDisplayName());
+    }
 
 
 }
