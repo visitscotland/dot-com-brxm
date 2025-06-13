@@ -31,4 +31,20 @@ public class Function {
     public String getDescription() {
         return description;
     }
+
+    public String[] getCategory() {
+        return category;
+    }
+
+    public Boolean getFeatured() {
+        return featured;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public HippoHtml getContent() {
+        return content;
+    }
 }
