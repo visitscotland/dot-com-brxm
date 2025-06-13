@@ -3,6 +3,3 @@ definitions:
     visitscotland:
       uri: http://www.visitscotland.com/visitscotland/nt/1.0
       cnd: namespaces/visitscotland.cnd
-    obs:
-      uri: http://www.visitscotland.com/visitscotland/obs/1.0
-      cnd: obs.cnd
