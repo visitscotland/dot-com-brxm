@@ -2,6 +2,8 @@ package com.visitscotland.brxm.obs;
 
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.ObsProvider;
+import com.visitscotland.brxm.obs.model.ContractFee;
+import com.visitscotland.brxm.obs.model.Function;
 import com.visitscotland.brxm.obs.model.Provider;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.VsException;
@@ -27,6 +29,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Note: These endpoint don't use Spring but JAX-RS for mapping to the main application
@@ -57,69 +60,39 @@ public class ObsFunctionRestService extends AbstractResource {
         }
     }
 
-    private List<Provider> getFunctions(){
-        List<Provider> entries = new ArrayList<>();
+    @GET
+    @Path("/fees")
+    @Produces("application/json")
+    public Response fees(@Context HstRequest request,
+                         @DefaultValue("hst:root") @QueryParam("channel") String locale) {
         try {
-            HippoBeanIterator iterator = VsComponentManager.get(HippoUtilsService.class).getValueMap();
+            return Response.ok().entity(getFees()).build();
+        } catch (VsException e){
+            return Response.serverError().build();
+        }
+    }
 
-            while (iterator.hasNext()){
-                ObsProvider hippoBean = (ObsProvider) iterator.nextHippoBean();
-                entries.add(new Provider(hippoBean));
-            }
+    private List<Function> getFunctions(){
+        List<Function> entries = new ArrayList<>();
+        Map <String, String> valueList = VsComponentManager.get(
+                    HippoUtilsService.class).getValueMap("obs-features");
 
-        } catch (RepositoryException | QueryException e) {
-            throw new RuntimeException(e);
+        for (Map.Entry<String, String> entry : valueList.entrySet()) {
+            entries.add(new Function(entry.getKey(), entry.getValue()));
         }
 
         return entries;
     }
 
-    //TODO REfactor
-    private HippoBeanIterator findAllProviders() throws RepositoryException, QueryException {
-        HstRequestContext requestContext = RequestContextProvider.get();
-        HstQueryManager hstQueryManager =
-                getHstQueryManager(requestContext.getSession(),
-                        requestContext);
+    private List<ContractFee> getFees(){
+        List<ContractFee> entries = new ArrayList<>();
+        Map <String, String> valueList = VsComponentManager.get(
+                HippoUtilsService.class).getValueMap("obs-contract-fees");
 
-        String mountContentPath = getMountforChannel("bsh").getContentPath();
-        Node mountContentNode = requestContext.getSession().getRootNode()
-                .getNode(PathUtils.normalizePath(mountContentPath));
-        HstQuery hstQuery = hstQueryManager.createQuery(mountContentNode, ObsProvider.class);
-        Filter filter = hstQuery.createFilter();
-        //TODO Use Constants for these fields
-        // Only documents of published type (green)
-        filter.addEqualTo("hippostd:state", "published");
-        // Only documents that are actually live and (opposing to those taken offline)
-        filter.addEqualTo("hippostd:stateSummary", "live");
-        hstQuery.setFilter(filter);
-
-        HstQueryResult result = hstQuery.execute();
-
-        return result.getHippoBeans();
-    }
-
-    /**
-     * TODO Move to Utils
-     * @param channel
-     * @return
-     */
-    public Mount getMountforChannel(String channel){
-        HstRequestContext context = RequestContextProvider.get();
-        String currentHost = context.getVirtualHost().getHostGroupName();
-
-        Mount rootMount = context.getResolvedMount().getMount().getParent();
-
-        if (channel.equals("hst:root")){
-            return rootMount;
-        } else {
-            Mount lang = rootMount.getChildMount(channel);
-            if (lang == null) {
-                logger.warn("The mount point for the channel {} was not located. Defaulting to English", channel);
-                throw new VsException("The requested channel was not found");
-            } else {
-                return lang;
-            }
+        for (Map.Entry<String, String> entry : valueList.entrySet()) {
+            entries.add(new ContractFee(entry.getKey(), entry.getValue()));
         }
-    }
 
+        return entries;
+    }
 }
