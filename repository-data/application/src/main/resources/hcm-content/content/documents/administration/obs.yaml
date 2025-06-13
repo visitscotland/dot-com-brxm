@@ -1,0 +1,8 @@
+/content/documents/administration/obs:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 9db16132-3ae2-4f8f-8be6-65d9a5827b2e
+  hippo:name: Online Booking System
+  hippostd:foldertype: [new-value-list]
+  hippotranslation:id: c8de28ba-9425-4d16-9f9d-27bab8673cf0
+  hippotranslation:locale: en
