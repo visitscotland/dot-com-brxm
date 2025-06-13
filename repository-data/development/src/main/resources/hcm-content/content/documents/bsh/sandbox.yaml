@@ -26419,6 +26419,103 @@
               /visitscotland:link:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: c111f78e-a3a7-43f5-8fab-873b9df47538
+    /online-booking-system:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 8d110f48-9c80-4eee-b8d7-d5b0df798575
+      hippo:name: Online Booking System
+      hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+      hippotranslation:id: 9a99af78-d3b5-446e-8090-e3b611b7d2db
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 8b977a7e-69d5-412a-87d4-3ffee0f2a2e7
+        hippo:name: content
+        /content:
+          jcr:primaryType: visitscotland:GeneralBSH
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 78448924-6c63-48aa-b97e-1d41daa4ba84
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
+          hippostdpubwf:lastModificationDate: 2024-08-30T15:47:55.562+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 60880b62-e936-40f1-94e5-7de66739da68
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: [all.of.scotland]
+          visitscotland:sectors: []
+          visitscotland:seoDescription: This is an example of a page
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Standard Page
+          visitscotland:skill: ''
+          visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
+            nulla nunc, viverra eros.
+          visitscotland:theme: standard
+          visitscotland:title: Standard Page
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend
+              aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis,
+              sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo
+              rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a
+              ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus
+              purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
+              nisi tempus auctor cras amet.</p>
+      /dev-module:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 9651680d-eef6-49e5-b8a0-c184223e330b
+        hippo:name: Dev Module
+        /dev-module[1]:
+          jcr:primaryType: visitscotland:DevModule
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f89062e8-3161-4a46-b394-7b8a298cfa8d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-13T11:09:33.336+01:00
+          hippostdpubwf:lastModificationDate: 2025-06-13T11:09:33.336+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b3418d77-1e02-4603-8313-6a7ed626e0ac
+          hippotranslation:locale: en
+          visitscotland:footerContributions: []
+          visitscotland:headContributions: []
+          visitscotland:html: "<div id=\"obs\">\r\n</div>"
+          visitscotland:notes: ''
+        /dev-module[2]:
+          jcr:primaryType: visitscotland:DevModule
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 7ff0a493-39fb-4afb-a9b7-b7316f71cfc4
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-13T11:09:33.336+01:00
+          hippostdpubwf:lastModificationDate: 2025-06-13T11:11:57.593+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b3418d77-1e02-4603-8313-6a7ed626e0ac
+          hippotranslation:locale: en
+          visitscotland:footerContributions: []
+          visitscotland:headContributions: []
+          visitscotland:html: "<div id=\"obs\">\r\n</div>"
+          visitscotland:notes: ''
   /experimental:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']

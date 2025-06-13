@@ -478,9 +478,9 @@
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 082ae5fb-196c-4df1-a074-67e343e5c870
         hippo:availability: []
-        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T18:28:49.164+01:00
         hippostdpubwf:lastModificationDate: 2025-06-12T12:45:45.215+01:00
@@ -491,7 +491,7 @@
         visitscotland:description: The online booking system should function on mobile,
           desktop and tablet devices
         visitscotland:featured: true
-        visitscotland:id: online-booking
+        visitscotland:id: ''
         /visitscotland:content:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>Compatibility with a variety of payment gateway solutions.</p>
@@ -530,18 +530,17 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 8c625897-1bc3-4338-9449-4389a247bab4
       hippo:name: Access UK
-      hippo:versionHistory: 99304ae3-316c-415d-b59c-37e2a640d41a
+      hippo:versionHistory: 5c63b218-a2ec-4737-903a-75596308f39d
       /access-uk[1]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 95ae3afd-a8da-444f-9346-e93aa3a85454
         hippo:availability: []
-        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-12T12:45:52.710+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:03:05.567+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: fdd542a9-d543-465f-ab3d-c94c24f2988f
         hippotranslation:locale: en
@@ -551,6 +550,15 @@
           social-media, online-booking, crm, email]
         visitscotland:name: Access UK
         visitscotland:url: https://www.theaccessgroup.com/en-gb/
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>The Access Group is one of the leading providers of
+            business management software. We provide solutions that empower more than
+            160,000 small and mid-sized organisations in commercial and non-profit
+            sectors across Europe, USA and APAC, giving every employee the freedom
+            to do more of what’s important. Our innovative cloud solutions and integrated
+            AI software experience across multiple Access products transform how business
+            technology is used.</p>
       /access-uk[2]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -560,7 +568,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T19:59:04.260+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:03:09.951+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: fdd542a9-d543-465f-ab3d-c94c24f2988f
         hippotranslation:locale: en
@@ -570,6 +578,15 @@
           social-media, online-booking, crm, email]
         visitscotland:name: Access UK
         visitscotland:url: https://www.theaccessgroup.com/en-gb/
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>The Access Group is one of the leading providers of
+            business management software. We provide solutions that empower more than
+            160,000 small and mid-sized organisations in commercial and non-profit
+            sectors across Europe, USA and APAC, giving every employee the freedom
+            to do more of what’s important. Our innovative cloud solutions and integrated
+            AI software experience across multiple Access products transform how business
+            technology is used.</p>
       /access-uk[3]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:referenceable']
@@ -579,9 +596,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T19:59:04.260+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:03:09.951+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-06-11T20:10:18.514+01:00
+        hippostdpubwf:publicationDate: 2025-06-13T10:03:20.863+01:00
         hippotranslation:id: fdd542a9-d543-465f-ab3d-c94c24f2988f
         hippotranslation:locale: en
         visitscotland:contract: [channel-manager-fee]
@@ -590,12 +607,21 @@
           social-media, online-booking, crm, email]
         visitscotland:name: Access UK
         visitscotland:url: https://www.theaccessgroup.com/en-gb/
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>The Access Group is one of the leading providers of
+            business management software. We provide solutions that empower more than
+            160,000 small and mid-sized organisations in commercial and non-profit
+            sectors across Europe, USA and APAC, giving every employee the freedom
+            to do more of what’s important. Our innovative cloud solutions and integrated
+            AI software experience across multiple Access products transform how business
+            technology is used.</p>
     /anyroad:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 1cae90fa-dd39-4b7b-994b-22a40b998de2
       hippo:name: AnyRoad
-      hippo:versionHistory: c1c02862-0316-4091-8440-30b2bdd08a2a
+      hippo:versionHistory: 9e869fba-4ca8-407d-9b15-3fa761af09c2
       /anyroad[1]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:versionable']
@@ -605,7 +631,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:01:40.643+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:05:32.282+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 51d9e28a-1006-43e6-aada-53730a7db17c
         hippotranslation:locale: en
@@ -616,6 +642,11 @@
           email]
         visitscotland:name: AnyRoad
         visitscotland:url: https://www.anyroad.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>AnyRoad’s industry-leading platform enables businesses
+            to operate and optimize their events, tours, classes, and activations
+            to grow consumer brand loyalty and drive greater ROI.</p>
       /anyroad[2]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:referenceable']
@@ -625,7 +656,7 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:00:58.995+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:03:24.566+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 51d9e28a-1006-43e6-aada-53730a7db17c
         hippotranslation:locale: en
@@ -636,6 +667,11 @@
           email]
         visitscotland:name: AnyRoad
         visitscotland:url: https://www.anyroad.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>AnyRoad’s industry-leading platform enables businesses
+            to operate and optimize their events, tours, classes, and activations
+            to grow consumer brand loyalty and drive greater ROI.</p>
       /anyroad[3]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:referenceable']
@@ -645,9 +681,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:01:40.643+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:05:32.282+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-06-11T20:10:18.591+01:00
+        hippostdpubwf:publicationDate: 2025-06-13T10:06:06.916+01:00
         hippotranslation:id: 51d9e28a-1006-43e6-aada-53730a7db17c
         hippotranslation:locale: en
         visitscotland:contract: [setup-fee, booking-fee, card-processing-fee, time-based-fee,
@@ -657,12 +693,17 @@
           email]
         visitscotland:name: AnyRoad
         visitscotland:url: https://www.anyroad.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>AnyRoad’s industry-leading platform enables businesses
+            to operate and optimize their events, tours, classes, and activations
+            to grow consumer brand loyalty and drive greater ROI.</p>
     /beyonk:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 4d7d6407-feec-4c65-b024-87051408840f
       hippo:name: Beyonk
-      hippo:versionHistory: 7e16f0ea-3097-4a95-8177-5af1f5400022
+      hippo:versionHistory: 07ba0df3-64e4-4cb3-91e8-486657b1b116
       /beyonk[1]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:versionable']
@@ -672,7 +713,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:03:24.846+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:07:19.238+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 58a75467-d361-411a-b1e7-ace08d93b731
         hippotranslation:locale: en
@@ -683,6 +724,67 @@
           online-booking, email, business-support]
         visitscotland:name: Beyonk
         visitscotland:url: https://www.beyonk.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <div class="e1162-e6 mwa-0 mwa-4 mwa-5 mwa-6 x-section">
+            <div class="e1162-e7 max mwa-a mwa-b mwa-e mwa-f mwa-n width x-container x-row">
+            <div class="x-row-inner">
+            <div class="e1162-e8 mwa-10 mwa-11 mwa-12 x-col">
+            <div class="e1162-e9 mwa-1z mwa-20 mwa-21 mwa-22 mwa-23 mwa-24 x-text x-text-headline">
+            <div class="x-text-content">
+            <div class="x-text-content-text">
+            <h2>Beyonk is award winning event ticketing software</h2>
+            </div>
+            </div>
+            </div>
+
+            <div class="e1162-e10 mwa-a mwa-d mwa-e mwa-g mwa-h mwa-i mwa-j mwa-o mwa-p x-row">
+            <div class="x-row-inner">
+            <div class="e1162-e11 mwa-10 mwa-13 mwa-14 x-col">
+            <div class="e1162-e12 mwa-1e mwa-1f mwa-1i mwa-1k mwa-1l mwa-1m mwa-1n x-content x-text">
+            <p>Beyonk's mission is to deliver the leading technology platform for attractions that empowers businesses with modern, intuitive, and visitor-focused technology to make it effortless to experience.</p>
+
+            <p>We prioritise simplicity and the best customer experience, enabling you to seamlessly integrate ticketing, personalise every interaction, and access real-time insights—breaking free from outdated systems that overwhelm with irrelevant features and forget the end customer.</p>
+
+            <p>&nbsp;</p>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="e1162-e13 mwa-10 mwa-11 mwa-15 x-col">
+            <div class="e1162-e14 mwa-1z mwa-20 mwa-21 mwa-22 mwa-23 mwa-24 x-text x-text-headline">
+            <div class="x-text-content">
+            <div class="x-text-content-text">
+            <h2>Work with Beyonk to unlock...</h2>
+            </div>
+            </div>
+            </div>
+
+            <div class="e1162-e15 mwa-a mwa-d mwa-e mwa-g mwa-h mwa-i mwa-j mwa-o mwa-q x-row">
+            <div class="x-row-inner">
+            <div class="e1162-e16 mwa-10 mwa-13 mwa-14 x-col">
+            <div class="e1162-e17 mwa-1z mwa-20 mwa-21 mwa-25 mwa-26 x-text x-text-headline">
+            <div class="x-text-content">
+            <div class="x-text-content-text">
+            <ol>
+             <li>Visitor centric ticketing™<br />
+             Beyonk is the only technology platform for visitor attractions that puts customers first, with our <a rel="noopener noreferrer" href="https://beyonk.com/blog/what-is-visitor-centric-ticketing" target="_blank">Visitor Centric Ticketing</a>™, because we believe happier customers makes your business more successful.</li>
+             <li>A true partnership<br />
+             Unlike legacy platforms who focus on winning your business, we focus on winning you business, with proactive account reviews to help you optimize sales and marketing approaches to reach our full potential together.</li>
+            </ol>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
       /beyonk[2]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:referenceable']
@@ -692,7 +794,7 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:02:51.322+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:06:09.255+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 58a75467-d361-411a-b1e7-ace08d93b731
         hippotranslation:locale: en
@@ -703,6 +805,67 @@
           online-booking, email, business-support]
         visitscotland:name: Beyonk
         visitscotland:url: https://www.beyonk.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <div class="e1162-e6 mwa-0 mwa-4 mwa-5 mwa-6 x-section">
+            <div class="e1162-e7 max mwa-a mwa-b mwa-e mwa-f mwa-n width x-container x-row">
+            <div class="x-row-inner">
+            <div class="e1162-e8 mwa-10 mwa-11 mwa-12 x-col">
+            <div class="e1162-e9 mwa-1z mwa-20 mwa-21 mwa-22 mwa-23 mwa-24 x-text x-text-headline">
+            <div class="x-text-content">
+            <div class="x-text-content-text">
+            <h2>Beyonk is award winning event ticketing software</h2>
+            </div>
+            </div>
+            </div>
+
+            <div class="e1162-e10 mwa-a mwa-d mwa-e mwa-g mwa-h mwa-i mwa-j mwa-o mwa-p x-row">
+            <div class="x-row-inner">
+            <div class="e1162-e11 mwa-10 mwa-13 mwa-14 x-col">
+            <div class="e1162-e12 mwa-1e mwa-1f mwa-1i mwa-1k mwa-1l mwa-1m mwa-1n x-content x-text">
+            <p>Beyonk's mission is to deliver the leading technology platform for attractions that empowers businesses with modern, intuitive, and visitor-focused technology to make it effortless to experience.</p>
+
+            <p>We prioritise simplicity and the best customer experience, enabling you to seamlessly integrate ticketing, personalise every interaction, and access real-time insights—breaking free from outdated systems that overwhelm with irrelevant features and forget the end customer.</p>
+
+            <p>&nbsp;</p>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="e1162-e13 mwa-10 mwa-11 mwa-15 x-col">
+            <div class="e1162-e14 mwa-1z mwa-20 mwa-21 mwa-22 mwa-23 mwa-24 x-text x-text-headline">
+            <div class="x-text-content">
+            <div class="x-text-content-text">
+            <h2>Work with Beyonk to unlock...</h2>
+            </div>
+            </div>
+            </div>
+
+            <div class="e1162-e15 mwa-a mwa-d mwa-e mwa-g mwa-h mwa-i mwa-j mwa-o mwa-q x-row">
+            <div class="x-row-inner">
+            <div class="e1162-e16 mwa-10 mwa-13 mwa-14 x-col">
+            <div class="e1162-e17 mwa-1z mwa-20 mwa-21 mwa-25 mwa-26 x-text x-text-headline">
+            <div class="x-text-content">
+            <div class="x-text-content-text">
+            <ol>
+             <li>Visitor centric ticketing™<br />
+             Beyonk is the only technology platform for visitor attractions that puts customers first, with our <a rel="noopener noreferrer" href="https://beyonk.com/blog/what-is-visitor-centric-ticketing" target="_blank">Visitor Centric Ticketing</a>™, because we believe happier customers makes your business more successful.</li>
+             <li>A true partnership<br />
+             Unlike legacy platforms who focus on winning your business, we focus on winning you business, with proactive account reviews to help you optimize sales and marketing approaches to reach our full potential together.</li>
+            </ol>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
       /beyonk[3]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:referenceable']
@@ -712,9 +875,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:03:24.846+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:07:19.238+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-06-11T20:10:18.712+01:00
+        hippostdpubwf:publicationDate: 2025-06-13T10:08:40.373+01:00
         hippotranslation:id: 58a75467-d361-411a-b1e7-ace08d93b731
         hippotranslation:locale: en
         visitscotland:contract: [setup-fee, booking-fee, card-processing-fee, zero-business-cost,
@@ -724,12 +887,73 @@
           online-booking, email, business-support]
         visitscotland:name: Beyonk
         visitscotland:url: https://www.beyonk.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <div class="e1162-e6 mwa-0 mwa-4 mwa-5 mwa-6 x-section">
+            <div class="e1162-e7 max mwa-a mwa-b mwa-e mwa-f mwa-n width x-container x-row">
+            <div class="x-row-inner">
+            <div class="e1162-e8 mwa-10 mwa-11 mwa-12 x-col">
+            <div class="e1162-e9 mwa-1z mwa-20 mwa-21 mwa-22 mwa-23 mwa-24 x-text x-text-headline">
+            <div class="x-text-content">
+            <div class="x-text-content-text">
+            <h2>Beyonk is award winning event ticketing software</h2>
+            </div>
+            </div>
+            </div>
+
+            <div class="e1162-e10 mwa-a mwa-d mwa-e mwa-g mwa-h mwa-i mwa-j mwa-o mwa-p x-row">
+            <div class="x-row-inner">
+            <div class="e1162-e11 mwa-10 mwa-13 mwa-14 x-col">
+            <div class="e1162-e12 mwa-1e mwa-1f mwa-1i mwa-1k mwa-1l mwa-1m mwa-1n x-content x-text">
+            <p>Beyonk's mission is to deliver the leading technology platform for attractions that empowers businesses with modern, intuitive, and visitor-focused technology to make it effortless to experience.</p>
+
+            <p>We prioritise simplicity and the best customer experience, enabling you to seamlessly integrate ticketing, personalise every interaction, and access real-time insights—breaking free from outdated systems that overwhelm with irrelevant features and forget the end customer.</p>
+
+            <p>&nbsp;</p>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="e1162-e13 mwa-10 mwa-11 mwa-15 x-col">
+            <div class="e1162-e14 mwa-1z mwa-20 mwa-21 mwa-22 mwa-23 mwa-24 x-text x-text-headline">
+            <div class="x-text-content">
+            <div class="x-text-content-text">
+            <h2>Work with Beyonk to unlock...</h2>
+            </div>
+            </div>
+            </div>
+
+            <div class="e1162-e15 mwa-a mwa-d mwa-e mwa-g mwa-h mwa-i mwa-j mwa-o mwa-q x-row">
+            <div class="x-row-inner">
+            <div class="e1162-e16 mwa-10 mwa-13 mwa-14 x-col">
+            <div class="e1162-e17 mwa-1z mwa-20 mwa-21 mwa-25 mwa-26 x-text x-text-headline">
+            <div class="x-text-content">
+            <div class="x-text-content-text">
+            <ol>
+             <li>Visitor centric ticketing™<br />
+             Beyonk is the only technology platform for visitor attractions that puts customers first, with our <a rel="noopener noreferrer" href="https://beyonk.com/blog/what-is-visitor-centric-ticketing" target="_blank">Visitor Centric Ticketing</a>™, because we believe happier customers makes your business more successful.</li>
+             <li>A true partnership<br />
+             Unlike legacy platforms who focus on winning your business, we focus on winning you business, with proactive account reviews to help you optimize sales and marketing approaches to reach our full potential together.</li>
+            </ol>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
     /bokun:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 37b521fa-6368-4f94-aa86-3ed862f00449
       hippo:name: Bokun
-      hippo:versionHistory: e527d851-a9bc-4f33-97bc-373d6fb87d9d
+      hippo:versionHistory: 2e20685d-0329-42ea-b94b-72d5c6f552c3
       /bokun[1]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:versionable']
@@ -739,16 +963,37 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:07:02.913+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:08:30.792+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 6ac16255-b49f-41ea-9fd2-e4de7f9b38d3
         hippotranslation:locale: en
         visitscotland:contract: [channel-manager-fee, zero-business-cost, commision]
         visitscotland:contractLegth: None
-        visitscotland:functions: [social-media, ota-apis, Payment Processing, online-booking,
-          crm, email, business-support]
+        visitscotland:functions: [social-media, ota-apis, online-booking, crm, email,
+          business-support]
         visitscotland:name: Bokun
         visitscotland:url: https://www.bokun.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <div class="hero-text-col text-center">
+            <p>The all-in-one solution built to help you stay organised and get more bookings with thousands of connections to online travel agencies (OTAs), resellers and suppliers.</p>
+            </div>
+
+            <div class="home-hero-bullets">
+            <ul>
+             <li><strong>Start Selling in Minutes:</strong> Import products from Viator in one click and pay 0% Bókun fees on Viator bookings.</li>
+            </ul>
+            </div>
+
+            <ul>
+             <li>
+             <p><strong>Never Double Book Again:</strong> Simplify availability and manage all booking channels in one place.</p>
+             </li>
+             <li>
+             <p><strong>Generate More Bookings:</strong> Make your own website bookable and access 2,600+ resellers.</p>
+             </li>
+            </ul>
       /bokun[2]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:referenceable']
@@ -758,16 +1003,37 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:06:09.793+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:08:02.359+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 6ac16255-b49f-41ea-9fd2-e4de7f9b38d3
         hippotranslation:locale: en
         visitscotland:contract: [channel-manager-fee, zero-business-cost, commision]
         visitscotland:contractLegth: None
-        visitscotland:functions: [social-media, ota-apis, Payment Processing, online-booking,
-          crm, email, business-support]
+        visitscotland:functions: [social-media, ota-apis, online-booking, crm, email,
+          business-support]
         visitscotland:name: Bokun
         visitscotland:url: https://www.bokun.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <div class="hero-text-col text-center">
+            <p>The all-in-one solution built to help you stay organised and get more bookings with thousands of connections to online travel agencies (OTAs), resellers and suppliers.</p>
+            </div>
+
+            <div class="home-hero-bullets">
+            <ul>
+             <li><strong>Start Selling in Minutes:</strong> Import products from Viator in one click and pay 0% Bókun fees on Viator bookings.</li>
+            </ul>
+            </div>
+
+            <ul>
+             <li>
+             <p><strong>Never Double Book Again:</strong> Simplify availability and manage all booking channels in one place.</p>
+             </li>
+             <li>
+             <p><strong>Generate More Bookings:</strong> Make your own website bookable and access 2,600+ resellers.</p>
+             </li>
+            </ul>
       /bokun[3]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:referenceable']
@@ -777,23 +1043,44 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:07:02.913+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:08:30.792+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-06-11T20:10:18.789+01:00
+        hippostdpubwf:publicationDate: 2025-06-13T10:08:37.208+01:00
         hippotranslation:id: 6ac16255-b49f-41ea-9fd2-e4de7f9b38d3
         hippotranslation:locale: en
         visitscotland:contract: [channel-manager-fee, zero-business-cost, commision]
         visitscotland:contractLegth: None
-        visitscotland:functions: [social-media, ota-apis, Payment Processing, online-booking,
-          crm, email, business-support]
+        visitscotland:functions: [social-media, ota-apis, online-booking, crm, email,
+          business-support]
         visitscotland:name: Bokun
         visitscotland:url: https://www.bokun.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <div class="hero-text-col text-center">
+            <p>The all-in-one solution built to help you stay organised and get more bookings with thousands of connections to online travel agencies (OTAs), resellers and suppliers.</p>
+            </div>
+
+            <div class="home-hero-bullets">
+            <ul>
+             <li><strong>Start Selling in Minutes:</strong> Import products from Viator in one click and pay 0% Bókun fees on Viator bookings.</li>
+            </ul>
+            </div>
+
+            <ul>
+             <li>
+             <p><strong>Never Double Book Again:</strong> Simplify availability and manage all booking channels in one place.</p>
+             </li>
+             <li>
+             <p><strong>Generate More Bookings:</strong> Make your own website bookable and access 2,600+ resellers.</p>
+             </li>
+            </ul>
     /bookeo:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 68162ebc-c0cd-440d-994b-4f2a3bb25a6d
       hippo:name: Bookeo
-      hippo:versionHistory: 74e217e4-084b-4421-a19d-0420c74e148b
+      hippo:versionHistory: 6b003859-e9f7-450f-9a2d-f87c7e95d73c
       /bookeo[1]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:versionable']
@@ -803,7 +1090,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:10:08.390+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:09:09.501+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: ab7ee6b5-d347-454d-bc4c-2138e5c50fc3
         hippotranslation:locale: en
@@ -814,17 +1101,28 @@
           ota-apis, online-booking, email]
         visitscotland:name: Bookeo
         visitscotland:url: https://www.bookeo.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <div class="sub-text">
+            <p>We created a simple yet powerful booking tool that’s effortless for you and intuitive for your customers.</p>
+            </div>
+
+            <p>We are a team of IT experts dedicated to saving you time, money and aggravation with the best online booking and scheduling system on earth.</p>
+
+            <p>We provide one-person proprietorships and multinational corporations (plus every size in between) with a powerful booking tool that’s incredibly easy to use.</p>
+
+            <p>Bookeo lets you spend more time growing revenues and less time trying to dig up lost appointments.</p>
       /bookeo[2]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 72363e29-08db-4c45-b02d-2fa3436575bc
         hippo:availability: []
-        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-12T12:47:38.407+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:09:06.239+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: ab7ee6b5-d347-454d-bc4c-2138e5c50fc3
         hippotranslation:locale: en
@@ -832,9 +1130,21 @@
           commision]
         visitscotland:contractLegth: None
         visitscotland:functions: [online-booking-process, pricing-funcionality, cloud-based-updates,
-          ota-apis, online-booking, email, whatever]
+          ota-apis, online-booking, email]
         visitscotland:name: Bookeo
         visitscotland:url: https://www.bookeo.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <div class="sub-text">
+            <p>We created a simple yet powerful booking tool that’s effortless for you and intuitive for your customers.</p>
+            </div>
+
+            <p>We are a team of IT experts dedicated to saving you time, money and aggravation with the best online booking and scheduling system on earth.</p>
+
+            <p>We provide one-person proprietorships and multinational corporations (plus every size in between) with a powerful booking tool that’s incredibly easy to use.</p>
+
+            <p>Bookeo lets you spend more time growing revenues and less time trying to dig up lost appointments.</p>
       /bookeo[3]:
         jcr:primaryType: visitscotland:ObsProvider
         jcr:mixinTypes: ['mix:referenceable']
@@ -844,9 +1154,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:10:08.390+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-13T10:09:09.501+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-06-11T20:10:18.652+01:00
+        hippostdpubwf:publicationDate: 2025-06-13T10:09:13.931+01:00
         hippotranslation:id: ab7ee6b5-d347-454d-bc4c-2138e5c50fc3
         hippotranslation:locale: en
         visitscotland:contract: [setup-fee, booking-fee, time-based-fee, zero-business-cost,
@@ -856,3 +1166,15 @@
           ota-apis, online-booking, email]
         visitscotland:name: Bookeo
         visitscotland:url: https://www.bookeo.com
+        /visitscotland:description:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <div class="sub-text">
+            <p>We created a simple yet powerful booking tool that’s effortless for you and intuitive for your customers.</p>
+            </div>
+
+            <p>We are a team of IT experts dedicated to saving you time, money and aggravation with the best online booking and scheduling system on earth.</p>
+
+            <p>We provide one-person proprietorships and multinational corporations (plus every size in between) with a powerful booking tool that’s incredibly easy to use.</p>
+
+            <p>Bookeo lets you spend more time growing revenues and less time trying to dig up lost appointments.</p>
