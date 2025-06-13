@@ -1,7 +1,9 @@
 package com.visitscotland.brxm.obs;
 
-import com.visitscotland.brxm.hippobeans.*;
+import com.visitscotland.brxm.config.VsComponentManager;
+import com.visitscotland.brxm.hippobeans.ObsProvider;
 import com.visitscotland.brxm.obs.model.Provider;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.VsException;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -31,10 +33,10 @@ import java.util.List;
  *
  * https://en.wikipedia.org/wiki/Jakarta_RESTful_Web_Services#Implementations
  */
-@Path("/obs/provider")
-public class ObsProviderRestService extends AbstractResource {
+@Path("/obs/function")
+public class ObsFunctionRestService extends AbstractResource {
 
-    private static final Logger logger = LoggerFactory.getLogger(ObsProviderRestService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ObsFunctionRestService.class);
 
     @GET
     @Path("/")
@@ -49,16 +51,16 @@ public class ObsProviderRestService extends AbstractResource {
     public Response list(@Context HstRequest request,
                              @DefaultValue("hst:root") @QueryParam("channel") String locale) {
         try {
-            return Response.ok().entity(getProviders()).build();
+            return Response.ok().entity(getFunctions()).build();
         } catch (VsException e){
             return Response.serverError().build();
         }
     }
 
-    private List<Provider> getProviders(){
+    private List<Provider> getFunctions(){
         List<Provider> entries = new ArrayList<>();
         try {
-            HippoBeanIterator iterator = findAllProviders();
+            HippoBeanIterator iterator = VsComponentManager.get(HippoUtilsService.class).getValueMap();
 
             while (iterator.hasNext()){
                 ObsProvider hippoBean = (ObsProvider) iterator.nextHippoBean();
