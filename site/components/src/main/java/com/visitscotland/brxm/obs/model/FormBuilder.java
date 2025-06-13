@@ -61,12 +61,14 @@ public class FormBuilder {
         field.setName(id);
         field.setElement("select");
 
-        List<Option> options = new ArrayList<Option>();
+        List<Option> options = new ArrayList<>();
 
         options.add(new Option("Very Important","3"));
         options.add(new Option("Desired","2"));
         options.add(new Option("Useful","1"));
         options.add(new Option("Not Required","0"));
+
+        field.setOptions(options);
 
         if (required) {
             field.getValidation().put("required", true);
