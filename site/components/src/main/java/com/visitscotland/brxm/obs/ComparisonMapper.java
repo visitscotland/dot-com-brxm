@@ -88,7 +88,7 @@ public class ComparisonMapper {
 
         HstQueryManager hstQueryManager = getHstQueryManager();
 
-        String mountContentPath = getMountforChannel("bsh").getContentPath();
+        String mountContentPath = RequestContextProvider.get().getResolvedMount().getMount().getContentPath();
         Node mountContentNode = RequestContextProvider.get().getSession().getRootNode()
                 .getNode(PathUtils.normalizePath(mountContentPath));
         HstQuery hstQuery = hstQueryManager.createQuery(mountContentNode, ObsProvider.class);
