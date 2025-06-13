@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 599741ec-e657-49d1-963d-aefb661cfc4b
+          jcr:uuid: abc09757-0a6d-4c79-b1a1-adb7091d9c7a
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -68,6 +68,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             hipposysedit:validators: [required]
+          /cta:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:cta
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -81,12 +90,13 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:name: ''
           visitscotland:url: ''
-          jcr:uuid: 3fc5f290-dc7a-41a4-b7aa-fbc917cd0fa6
+          jcr:uuid: 43dd181a-9811-4dc0-a647-f6614252e4e9
           hippostdpubwf:lastModificationDate: 2025-06-11T16:41:15.291+01:00
           hippostdpubwf:creationDate: 2025-06-11T16:41:15.291+01:00
           visitscotland:functions: []
           visitscotland:contractLegth: None
           visitscotland:contract: []
+          visitscotland:cta: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -159,6 +169,15 @@ definitions:
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /cta:
+            jcr:primaryType: frontend:plugin
+            caption: Booking CTA
+            field: cta
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /functions:

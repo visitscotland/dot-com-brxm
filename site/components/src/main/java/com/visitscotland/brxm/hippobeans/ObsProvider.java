@@ -36,4 +36,9 @@ public class ObsProvider extends BaseDocument {
     public HippoHtml getDescription() {
         return getHippoHtml("visitscotland:description");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:cta")
+    public String getCta() {
+        return getSingleProperty("visitscotland:cta");
+    }
 }
