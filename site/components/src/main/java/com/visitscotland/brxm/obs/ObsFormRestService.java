@@ -74,9 +74,11 @@ public class ObsFormRestService extends AbstractResource {
     }
 
     private boolean in(String value, String[] list){
-        for (String elm : list) {
-            if (value.trim().equalsIgnoreCase(elm)){
-                return true;
+        if (list != null) {
+            for (String elm : list) {
+                if (value.trim().equalsIgnoreCase(elm)) {
+                    return true;
+                }
             }
         }
         return false;
