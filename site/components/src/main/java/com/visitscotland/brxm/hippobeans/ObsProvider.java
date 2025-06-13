@@ -2,6 +2,7 @@ package com.visitscotland.brxm.hippobeans;
 
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:ObsProvider")
 @Node(jcrType = "visitscotland:ObsProvider")
@@ -29,5 +30,10 @@ public class ObsProvider extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:contractLegth")
     public String getContractLegth() {
         return getSingleProperty("visitscotland:contractLegth");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:description")
+    public HippoHtml getDescription() {
+        return getHippoHtml("visitscotland:description");
     }
 }
