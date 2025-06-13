@@ -26721,12 +26721,13 @@
                 <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
 
                 <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
-        /breg-form:
+        /form:
           jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 53a95e0d-242b-44eb-9069-501ade6784ae
-          hippo:name: BREG Form
-          /breg-form[1]:
+          hippo:name: Form
+          hippo:versionHistory: d7b6622e-6772-4529-86fd-47a50bbc0ebc
+          /form[1]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 52b31e44-53fe-48f8-8f55-9ac210479ea6
@@ -26735,25 +26736,22 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
-            hippostdpubwf:lastModificationDate: 2024-12-03T15:47:56.940Z
+            hippostdpubwf:lastModificationDate: 2025-06-13T14:31:33.625+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: ''
-            visitscotland:title: Subscribe to our newsletter
+            visitscotland:title: Online Booking System Comparison Tool
             visitscotland:translation: ''
             /visitscotland:form:
               jcr:primaryType: visitscotland:FormCompoundBreg
-              visitscotland:activityCode: BSHMAIL_001
-              visitscotland:activityDescription: Website opt in for Support Hub newsletter
-              visitscotland:activitySource: BSH Web Form
-              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-business-support.json
-              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
-              /visitscotland:consents:
-                jcr:primaryType: visitscotland:Entry
-                visitscotland:key: business_support_hub
-                visitscotland:value: BSHMAIL_001
-          /breg-form[2]:
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: Online Booking System Comparison
+                Tool
+              visitscotland:activitySource: OBSCT
+              visitscotland:jsonUrl: /site/api/obs/form
+              visitscotland:url: /site/api/obs/form/submit
+          /form[2]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:versionable']
             jcr:uuid: 79e581aa-eee0-43e6-8153-a207a825a650
@@ -26762,25 +26760,22 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
-            hippostdpubwf:lastModificationDate: 2024-12-03T15:49:38.352Z
+            hippostdpubwf:lastModificationDate: 2025-06-13T14:33:59.623+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: ''
-            visitscotland:title: Subscribe to our newsletter
+            visitscotland:title: Online Booking System Comparison Tool
             visitscotland:translation: ''
             /visitscotland:form:
               jcr:primaryType: visitscotland:FormCompoundBreg
-              visitscotland:activityCode: BSHMAIL_001
-              visitscotland:activityDescription: Website opt in for Support Hub newsletter
-              visitscotland:activitySource: BSH Web Form
-              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-business-support.json
-              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
-              /visitscotland:consents:
-                jcr:primaryType: visitscotland:Entry
-                visitscotland:key: business_support_hub
-                visitscotland:value: BSHMAIL_001
-          /breg-form[3]:
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: Online Booking System Comparison
+                Tool
+              visitscotland:activitySource: OBSCT
+              visitscotland:jsonUrl: /site/api/obs/form
+              visitscotland:url: /site/api/obs/form/submit
+          /form[3]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 1e9fed42-0d0a-4e8a-9fab-50639e758e7e
@@ -26789,25 +26784,22 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
-            hippostdpubwf:lastModificationDate: 2024-12-03T15:49:38.352Z
+            hippostdpubwf:lastModificationDate: 2025-06-13T14:33:59.623+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2024-12-03T15:49:52.989Z
+            hippostdpubwf:publicationDate: 2025-06-13T14:34:16.246+01:00
             hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: ''
-            visitscotland:title: Subscribe to our newsletter
+            visitscotland:title: Online Booking System Comparison Tool
             visitscotland:translation: ''
             /visitscotland:form:
               jcr:primaryType: visitscotland:FormCompoundBreg
-              visitscotland:activityCode: BSHMAIL_001
-              visitscotland:activityDescription: Website opt in for Support Hub newsletter
-              visitscotland:activitySource: BSH Web Form
-              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-business-support.json
-              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
-              /visitscotland:consents:
-                jcr:primaryType: visitscotland:Entry
-                visitscotland:key: business_support_hub
-                visitscotland:value: BSHMAIL_001
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: Online Booking System Comparison
+                Tool
+              visitscotland:activitySource: OBSCT
+              visitscotland:jsonUrl: /site/api/obs/form
+              visitscotland:url: /site/api/obs/form/submit
   /experimental:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']

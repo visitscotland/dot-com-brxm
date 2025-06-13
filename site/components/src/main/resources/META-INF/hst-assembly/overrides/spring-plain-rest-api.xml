@@ -26,11 +26,6 @@
         </bean>
         <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
           <constructor-arg>
-            <bean class="com.visitscotland.brxm.obs.ObsProviderRestService"/>
-          </constructor-arg>
-        </bean>
-        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
-          <constructor-arg>
             <bean class="com.visitscotland.brxm.obs.ObsFormRestService"/>
           </constructor-arg>
         </bean>
