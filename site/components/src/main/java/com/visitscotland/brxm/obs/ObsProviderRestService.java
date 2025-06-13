@@ -49,75 +49,11 @@ public class ObsProviderRestService extends AbstractResource {
     public Response list(@Context HstRequest request,
                              @DefaultValue("hst:root") @QueryParam("channel") String locale) {
         try {
-            return Response.ok().entity(getProviders()).build();
+            return Response.ok().entity(new ComparisonMapper().getProviders()).build();
         } catch (VsException e){
             return Response.serverError().build();
         }
     }
 
-    private List<Provider> getProviders(){
-        List<Provider> entries = new ArrayList<>();
-        try {
-            HippoBeanIterator iterator = findAllProviders();
-
-            while (iterator.hasNext()){
-                ObsProvider hippoBean = (ObsProvider) iterator.nextHippoBean();
-                entries.add(new Provider(hippoBean));
-            }
-
-        } catch (RepositoryException | QueryException e) {
-            throw new RuntimeException(e);
-        }
-
-        return entries;
-    }
-
-    //TODO REfactor
-    private HippoBeanIterator findAllProviders() throws RepositoryException, QueryException {
-        HstRequestContext requestContext = RequestContextProvider.get();
-        HstQueryManager hstQueryManager =
-                getHstQueryManager(requestContext.getSession(),
-                        requestContext);
-
-        String mountContentPath = getMountforChannel("bsh").getContentPath();
-        Node mountContentNode = requestContext.getSession().getRootNode()
-                .getNode(PathUtils.normalizePath(mountContentPath));
-        HstQuery hstQuery = hstQueryManager.createQuery(mountContentNode, ObsProvider.class);
-        Filter filter = hstQuery.createFilter();
-        //TODO Use Constants for these fields
-        // Only documents of published type (green)
-        filter.addEqualTo("hippostd:state", "published");
-        // Only documents that are actually live and (opposing to those taken offline)
-        filter.addEqualTo("hippostd:stateSummary", "live");
-        hstQuery.setFilter(filter);
-
-        HstQueryResult result = hstQuery.execute();
-
-        return result.getHippoBeans();
-    }
-
-    /**
-     * TODO Move to Utils
-     * @param channel
-     * @return
-     */
-    public Mount getMountforChannel(String channel){
-        HstRequestContext context = RequestContextProvider.get();
-        String currentHost = context.getVirtualHost().getHostGroupName();
-
-        Mount rootMount = context.getResolvedMount().getMount().getParent();
-
-        if (channel.equals("hst:root")){
-            return rootMount;
-        } else {
-            Mount lang = rootMount.getChildMount(channel);
-            if (lang == null) {
-                logger.warn("The mount point for the channel {} was not located. Defaulting to English", channel);
-                throw new VsException("The requested channel was not found");
-            } else {
-                return lang;
-            }
-        }
-    }
 
 }

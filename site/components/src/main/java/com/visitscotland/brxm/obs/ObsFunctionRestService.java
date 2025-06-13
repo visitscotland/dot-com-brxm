@@ -54,7 +54,7 @@ public class ObsFunctionRestService extends AbstractResource {
     public Response list(@Context HstRequest request,
                              @DefaultValue("hst:root") @QueryParam("channel") String locale) {
         try {
-            return Response.ok().entity(getFunctions()).build();
+            return Response.ok().entity(new ComparisonMapper().getFunctions()).build();
         } catch (VsException e){
             return Response.serverError().build();
         }
@@ -66,33 +66,11 @@ public class ObsFunctionRestService extends AbstractResource {
     public Response fees(@Context HstRequest request,
                          @DefaultValue("hst:root") @QueryParam("channel") String locale) {
         try {
-            return Response.ok().entity(getFees()).build();
+            return Response.ok().entity(new ComparisonMapper().getFees()).build();
         } catch (VsException e){
             return Response.serverError().build();
         }
     }
 
-    private List<Function> getFunctions(){
-        List<Function> entries = new ArrayList<>();
-        Map <String, String> valueList = VsComponentManager.get(
-                    HippoUtilsService.class).getValueMap("obs-features");
 
-        for (Map.Entry<String, String> entry : valueList.entrySet()) {
-            entries.add(new Function(entry.getKey(), entry.getValue()));
-        }
-
-        return entries;
-    }
-
-    private List<ContractFee> getFees(){
-        List<ContractFee> entries = new ArrayList<>();
-        Map <String, String> valueList = VsComponentManager.get(
-                HippoUtilsService.class).getValueMap("obs-contract-fees");
-
-        for (Map.Entry<String, String> entry : valueList.entrySet()) {
-            entries.add(new ContractFee(entry.getKey(), entry.getValue()));
-        }
-
-        return entries;
-    }
 }
