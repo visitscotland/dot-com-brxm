@@ -26582,6 +26582,232 @@
           visitscotland:headContributions: []
           visitscotland:html: "<div id=\"obs\">\r\n</div>"
           visitscotland:notes: ''
+      /assessment:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 878d4d57-ea7d-4be3-bd93-9a2fdb296caa
+        hippo:name: Assessment
+        hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+        hippotranslation:id: e9d8056e-bd34-4ae5-a1ae-7fa3bef8c71a
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: fe3da6b5-7da0-4a1a-af98-abb0eb367b3c
+          /content[1]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 7331f202-3619-43be-811c-4fca7c82c0e5
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:52.983Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a4a8cfe0-c82e-45d9-890c-caeba99e3339
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 56a18479-d8ba-4db7-bf7d-f2bd70e9a5c3
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:56.439Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a4a8cfe0-c82e-45d9-890c-caeba99e3339
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 57cd59c0-84cf-4fcc-814b-9c94b4f2d42e
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:56.439Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-11-28T16:03:59.260Z
+            hippotranslation:id: a4a8cfe0-c82e-45d9-890c-caeba99e3339
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+        /breg-form:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 53a95e0d-242b-44eb-9069-501ade6784ae
+          hippo:name: BREG Form
+          /breg-form[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 52b31e44-53fe-48f8-8f55-9ac210479ea6
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2024-12-03T15:47:56.940Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Subscribe to our newsletter
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: BSHMAIL_001
+              visitscotland:activityDescription: Website opt in for Support Hub newsletter
+              visitscotland:activitySource: BSH Web Form
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-business-support.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: business_support_hub
+                visitscotland:value: BSHMAIL_001
+          /breg-form[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 79e581aa-eee0-43e6-8153-a207a825a650
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2024-12-03T15:49:38.352Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Subscribe to our newsletter
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: BSHMAIL_001
+              visitscotland:activityDescription: Website opt in for Support Hub newsletter
+              visitscotland:activitySource: BSH Web Form
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-business-support.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: business_support_hub
+                visitscotland:value: BSHMAIL_001
+          /breg-form[3]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 1e9fed42-0d0a-4e8a-9fab-50639e758e7e
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2024-12-03T15:49:38.352Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-12-03T15:49:52.989Z
+            hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Subscribe to our newsletter
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: BSHMAIL_001
+              visitscotland:activityDescription: Website opt in for Support Hub newsletter
+              visitscotland:activitySource: BSH Web Form
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-business-support.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/stakeholder/
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: business_support_hub
+                visitscotland:value: BSHMAIL_001
   /experimental:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
