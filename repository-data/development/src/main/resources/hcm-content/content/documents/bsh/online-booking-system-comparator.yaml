@@ -48,7 +48,7 @@
           selection:label: OTA APIs
         /selection:listitem[6]:
           jcr:primaryType: selection:listitem
-          selection:key: Payment Processing
+          selection:key: payment-processing
           selection:label: Payment Processing
         /selection:listitem[7]:
           jcr:primaryType: selection:listitem
@@ -66,6 +66,10 @@
           jcr:primaryType: selection:listitem
           selection:key: business-support
           selection:label: Business support
+        /selection:listitem[11]:
+          jcr:primaryType: selection:listitem
+          selection:key: whatever
+          selection:label: Whatever
     /contract-fees:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -578,11 +582,12 @@
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 082ae5fb-196c-4df1-a074-67e343e5c870
         hippo:availability: []
+        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T18:28:49.164+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T19:49:52.231+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-12T12:45:45.215+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: dd4c0349-433a-4561-95cb-5a603cd80c8b
         hippotranslation:locale: en
@@ -635,11 +640,12 @@
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 95ae3afd-a8da-444f-9346-e93aa3a85454
         hippo:availability: []
+        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T19:54:30.274+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-12T12:45:52.710+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: fdd542a9-d543-465f-ab3d-c94c24f2988f
         hippotranslation:locale: en
@@ -917,11 +923,12 @@
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 72363e29-08db-4c45-b02d-2fa3436575bc
         hippo:availability: []
+        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-06-11T19:54:30.274+01:00
-        hippostdpubwf:lastModificationDate: 2025-06-11T20:09:29.069+01:00
+        hippostdpubwf:lastModificationDate: 2025-06-12T12:47:38.407+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: ab7ee6b5-d347-454d-bc4c-2138e5c50fc3
         hippotranslation:locale: en
@@ -929,7 +936,7 @@
           commision]
         visitscotland:contractLegth: None
         visitscotland:functions: [online-booking-process, pricing-funcionality, cloud-based-updates,
-          ota-apis, online-booking, email]
+          ota-apis, online-booking, email, whatever]
         visitscotland:name: Bookeo
         visitscotland:url: https://www.bookeo.com
       /bookeo[3]:
