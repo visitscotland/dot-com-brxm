@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4851456f-91d3-463c-9fa2-cf2dcde761ff
+          jcr:uuid: 599741ec-e657-49d1-963d-aefb661cfc4b
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -24,6 +24,7 @@ definitions:
             hipposysedit:path: visitscotland:name
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [required]
           /url:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -32,6 +33,7 @@ definitions:
             hipposysedit:path: visitscotland:url
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [required]
           /functions:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -57,6 +59,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
+          /description:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:description
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -70,12 +81,15 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:name: ''
           visitscotland:url: ''
-          jcr:uuid: b6c087ab-52d6-4688-abef-cc86b38cb013
+          jcr:uuid: 3fc5f290-dc7a-41a4-b7aa-fbc917cd0fa6
           hippostdpubwf:lastModificationDate: 2025-06-11T16:41:15.291+01:00
           hippostdpubwf:creationDate: 2025-06-11T16:41:15.291+01:00
           visitscotland:functions: []
           visitscotland:contractLegth: None
           visitscotland:contract: []
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -115,20 +129,15 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /functions:
+          /description:
             jcr:primaryType: frontend:plugin
-            caption: System Functions
-            field: functions
-            multiselect.type: checkboxes
-            palette.alloworder: false
-            palette.maxrows: '10'
-            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
-            selectlist.maxrows: '10'
-            valuelist.provider: service.valuelist.default
+            caption: Company Description
+            field: description
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/bsh/online-booking-system-comparator/configuration/functions
           /contract:
             jcr:primaryType: frontend:plugin
             caption: Contract Terms
@@ -142,7 +151,7 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/bsh/online-booking-system-comparator/configuration/contract-fees
+              source: /content/documents/administration/obs/contract-fees
           /contractLegth:
             jcr:primaryType: frontend:plugin
             caption: Minimum Contract
@@ -152,3 +161,17 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /functions:
+            jcr:primaryType: frontend:plugin
+            caption: System Functions
+            field: functions
+            multiselect.type: checkboxes
+            palette.alloworder: false
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/obs/functions

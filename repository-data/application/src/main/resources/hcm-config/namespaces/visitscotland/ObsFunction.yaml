@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 36e21598-6072-46e0-a9a6-9f83c75a89e4
+          jcr:uuid: 9ddc6677-279d-4913-ba07-b5665656dad9
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -74,7 +74,7 @@ definitions:
           visitscotland:description: ''
           visitscotland:category: ['']
           visitscotland:featured: false
-          jcr:uuid: 2bf30244-d2f9-4be7-815f-d08029a4d672
+          jcr:uuid: 1da7feaf-57b5-446a-b45b-0cfc31f0b466
           hippostdpubwf:lastModificationDate: 2025-06-11T16:41:19.020+01:00
           hippostdpubwf:creationDate: 2025-06-11T16:41:19.020+01:00
           visitscotland:id: ''
@@ -131,7 +131,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               orientation: vertical
-              source: /content/documents/bsh/online-booking-system-comparator/configuration/functions
+              source: /content/documents/administration/obs/functions
           /category:
             jcr:primaryType: frontend:plugin
             caption: Category Group
