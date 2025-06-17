@@ -45,7 +45,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
-    public static final String VIDEO_HEADER = "VideoHeader";
+    public static final String VIDEO_HEADER = "videoHeader";
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
