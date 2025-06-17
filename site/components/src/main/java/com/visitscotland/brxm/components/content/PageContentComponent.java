@@ -220,7 +220,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         VideoLink videoDocument = getDocument(request).getHeroVideo();
         if (videoDocument != null && videoDocument.getVideoLink() != null) {
             EnhancedLink video = linksService.createVideo(videoDocument.getVideoLink(), introModule, request.getLocale());
-            if (video.getYoutubeId()!= null){
+            if (Contract.isEmpty((video.getYoutubeId()))) {
                 request.setModel(VIDEO_HEADER, true);
             }
             request.setModel(HERO_VIDEO, video);
