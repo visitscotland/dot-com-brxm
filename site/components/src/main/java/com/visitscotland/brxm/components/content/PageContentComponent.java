@@ -45,6 +45,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
+    public static final String VIDEO_HEADER = "VideoHeader";
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
@@ -219,6 +220,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         VideoLink videoDocument = getDocument(request).getHeroVideo();
         if (videoDocument != null && videoDocument.getVideoLink() != null) {
             EnhancedLink video = linksService.createVideo(videoDocument.getVideoLink(), introModule, request.getLocale());
+            if (video.getYoutubeId()!= null){
+                request.setModel(VIDEO_HEADER, true);
+            }
             request.setModel(HERO_VIDEO, video);
         }
 
