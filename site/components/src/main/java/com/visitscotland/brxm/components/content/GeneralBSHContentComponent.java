@@ -27,6 +27,7 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
 
     private static final String ERROR_CODE = "errorCode";
     private static final String READ_DATA = "readData";
+    private static final String COMPARISON_MODULE = "comparisonModule";
 
 
     private final PageTemplateBuilder builder;
@@ -48,6 +49,7 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
         if (request.getRequestURI().endsWith("online-booking-system")){
             List<Module<?>> list = request.getModel("pageItems");
             list.add(new ComparisonMapper().map());
+            request.setModel(COMPARISON_MODULE, true);
         }
     }
 
