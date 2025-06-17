@@ -49,7 +49,6 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
         if (request.getRequestURI().endsWith("online-booking-system")){
             List<Module<?>> list = request.getModel("pageItems");
             list.add(new ComparisonMapper().map());
-            request.setModel(COMPARISON_MODULE, true);
         }
     }
 
