@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 1c350d37-70eb-4706-a990-20dbc4acd744
+          jcr:uuid: 72557ce7-5a22-48a1-a480-80fa5bc09fa8
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -84,7 +84,7 @@ definitions:
           visitscotland:title: ''
           visitscotland:teaser: ''
           visitscotland:label: ''
-          jcr:uuid: bfe08386-191f-45c0-b216-7407bc59ee05
+          jcr:uuid: 16d35ea6-f8d0-4c44-af99-4e8ec09f51e1
           hippostdpubwf:lastModificationDate: 2021-11-05T10:54:33.360Z
           hippostdpubwf:creationDate: 2021-11-05T10:54:33.360Z
           visitscotland:translation: ''
@@ -116,7 +116,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /url:
             jcr:primaryType: frontend:plugin
-            caption: Youtube URL
+            caption: Video URL
             field: url
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
