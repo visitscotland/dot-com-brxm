@@ -7,7 +7,7 @@ package com.visitscotland.brxm.resource;
  * providing a consistent way to represent errors encountered during resource handling.
  * </p>
  */
-public abstract class ResourceException extends RuntimeException {
+public abstract class ResourceException extends Exception {
     protected ResourceException(String message, Throwable cause) {
         super(message, cause);
     }
