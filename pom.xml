@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.visitscotland</groupId>
+    <groupId>com.visitscotland</groupId
     <artifactId>brxm-parent-enterprise-pom</artifactId>
     <version>1.0</version>
     <relativePath>brxm-pom.xml</relativePath>
