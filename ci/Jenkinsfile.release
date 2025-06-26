@@ -424,6 +424,7 @@ pipeline {
                         }
                     }
                     steps {
+                        sh 'echo "z" >> $WORKSPACE/pom.xml'
                         sh 'mvn --batch-mode deploy -Pdist 2>&1 | tee $GIT_COMMIT.log'
                     }
                 }
