@@ -14,6 +14,7 @@
     <#include "../../frontend/components/vs-heading.ftl">
     <#include "../../frontend/components/vs-html-error.ftl">
     <#include "../macros/modules/page-intro/page-intro.ftl">
+    <#include "../macros/modules/page-intro/hero-section.ftl">
     <#include "../macros/global/otyml.ftl">
 
     <#-- Implicit Request Objects -->
@@ -33,7 +34,11 @@
 		<@pageIntro content=document lightBackground=true author=author />
 		<@introImage mainImage=heroImage />
 	<#elseif topLevelTemplate>
-		<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
+		<#if heroVideo?? && !heroVideo.youtubeId??>
+			<@heroSection content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
+		<#else>
+			<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
+		</#if>
 	<#elseif standardTemplate>
         <@pageIntro content=document lightBackground=true />
 		<@introImage mainImage=heroImage />
