@@ -1,0 +1,1759 @@
+{
+  "meta": {
+    "product": "brxm",
+    "version": "1.0",
+    "branch": "master"
+  },
+  "links": {
+    "self": {
+      "href": "http://localhost:8080/site/bsh-api/resourceapi/sandbox/features/online-booking-system/_index_",
+      "type": "external"
+    },
+    "site": {
+      "href": "/sandbox/features/online-booking-system/_index_",
+      "type": "internal"
+    }
+  },
+  "channel": {
+    "info": {
+      "props": {
+        "org.hippoecm.hst.configuration.channel.PreviewURLChannelInfo_url": "${VS_BRXM_SVO_SPA_URL:http://localhost:3000}"
+      }
+    }
+  },
+  "root": {
+    "$ref": "/page/u42faee5411774e8582c7fcb9b6c1c1a6"
+  },
+  "document": {
+    "$ref": "/page/u8b977a7e69d5412a87d43ffee0f2a2e7"
+  },
+  "page": {
+    "u42faee5411774e8582c7fcb9b6c1c1a6": {
+      "id": "r4",
+      "links": {
+        "self": {
+          "href": "http://localhost:8080/site/bsh-api/resourceapi/sandbox/features/online-booking-system?_hn:type=component-rendering&_hn:ref=r4",
+          "type": "external"
+        }
+      },
+      "meta": {
+        "definitionId": "hst:pages/bsh-page",
+        "params": {
+          "breadcrumb-separator": "|",
+          "breadcrumb-menus": "main,footer,utility"
+        }
+      },
+      "name": "bsh-page",
+      "type": "component",
+      "componentClass": "com.visitscotland.brxm.components.breadcrumb.VsBreadcrumbComponent",
+      "children": [
+        {
+          "$ref": "/page/u5d40a534fefc49ec8e2740f0540288fe"
+        },
+        {
+          "$ref": "/page/u98b826b4d1f047d195f5cfcf17fdf6ab"
+        },
+        {
+          "$ref": "/page/u44689b1cd726485f81f85eeaf18e6e11"
+        },
+        {
+          "$ref": "/page/ud43e4613dc5545cd80c3ebd3453d5751"
+        }
+      ],
+      "models": {
+        "breadcrumb": {
+          "items": [
+            {
+              "title": "Development Sandbox",
+              "link": {
+                "href": "/sandbox",
+                "type": "internal"
+              }
+            },
+            {
+              "title": "Features",
+              "link": {
+                "href": "/sandbox/features",
+                "type": "internal"
+              }
+            },
+            {
+              "title": "Standard Page",
+              "link": {
+                "href": "/sandbox/features/online-booking-system",
+                "type": "internal"
+              }
+            }
+          ],
+          "separator": "|",
+          "linkNotFoundMode": null
+        },
+        "requestedURI": "/site/bsh-api/resourceapi/sandbox/features/online-booking-system",
+        "document": {
+          "$ref": "/page/u8b977a7e69d5412a87d43ffee0f2a2e7"
+        },
+        "isHome": false,
+        "orderedTranslations": [
+          {
+            "$ref": "/page/u8b977a7e69d5412a87d43ffee0f2a2e7"
+          }
+        ]
+      }
+    },
+    "u8b977a7e69d5412a87d43ffee0f2a2e7": {
+      "type": "document",
+      "links": {
+        "site": {
+          "href": "/sandbox/features/online-booking-system",
+          "type": "internal"
+        }
+      },
+      "meta": {},
+      "data": {
+        "name": "content",
+        "displayName": "content",
+        "type": null,
+        "theme": "standard",
+        "topic": null,
+        "publishDate": null,
+        "readingTime": 0,
+        "sectors": [],
+        "skill": "",
+        "regions": [
+          "all.of.scotland"
+        ],
+        "links": [],
+        "title": "Standard Page",
+        "translationFlag": null,
+        "translation": null,
+        "diff": null,
+        "seoDescription": "This is an example of a page",
+        "hideNewsletter": false,
+        "seoTitle": "Standard Page",
+        "otherThings": null,
+        "heroVideo": null,
+        "heroImage": {
+          "$ref": "/page/uc6adc092756e447d861e54a217b297d4"
+        },
+        "image": {
+          "$ref": "/page/uc6adc092756e447d861e54a217b297d4"
+        },
+        "teaser": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer nulla nunc, viverra eros.",
+        "blog": null,
+        "introduction": {
+          "contentType": "hippostd:html",
+          "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis, sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat nisi tempus auctor cras amet.</p>"
+        },
+        "breadcrumb": "",
+        "seoNoIndex": false,
+        "translationDeadline": null,
+        "translationPriority": null,
+        "localeString": "en",
+        "contentType": "visitscotland:GeneralBSH",
+        "id": "8b977a7e-69d5-412a-87d4-3ffee0f2a2e7"
+      }
+    },
+    "u5d40a534fefc49ec8e2740f0540288fe": {
+      "id": "r4_r1",
+      "links": {
+        "self": {
+          "href": "http://localhost:8080/site/bsh-api/resourceapi/sandbox/features/online-booking-system?_hn:type=component-rendering&_hn:ref=r4_r1",
+          "type": "external"
+        }
+      },
+      "meta": {
+        "paramsInfo": {
+          "status": "200"
+        },
+        "params": {
+          "breadcrumb-separator": "|",
+          "breadcrumb-menus": "main,footer,utility"
+        }
+      },
+      "name": "main",
+      "type": "component",
+      "componentClass": "com.visitscotland.brxm.components.content.GeneralBSHContentComponent",
+      "children": [
+        {
+          "$ref": "/page/u328fa681337a453d88e816cadf077412"
+        }
+      ],
+      "models": {
+        "gtm": {
+          "gtm.container-id": "GTM-MHCC4QZR",
+          "gtm.preview-query-string": "&gtm_auth=WNBB45OrGGCHWFJ_L3bmSA&gtm_preview=env-1",
+          "gtm.is-production": "false"
+        },
+        "metadata": {
+          "version": "2.9.2-SNAPSHOT",
+          "branch": null,
+          "lastCommitAuthor": null,
+          "pr": null
+        },
+        "readData": {
+          "authorName": null,
+          "publishDate": null,
+          "readingTime": null
+        },
+        "document": {
+          "$ref": "/page/u8b977a7e69d5412a87d43ffee0f2a2e7"
+        },
+        "cludoEngineId": "14100",
+        "cludoExperienceId": "not-defined",
+        "pageItems": [
+          {
+            "hippoBean": {
+              "$ref": "/page/u9651680deef649e5b8a0c184223e330b"
+            },
+            "anchor": null,
+            "errorMessages": null,
+            "marketoId": null,
+            "type": "SimpleDevModule"
+          },
+          {
+            "hippoBean": null,
+            "anchor": null,
+            "errorMessages": null,
+            "marketoId": null,
+            "functions": [
+              {
+                "description": "Online Booking Process",
+                "category": null,
+                "featured": null,
+                "id": "online-booking-process",
+                "content": null
+              },
+              {
+                "description": "Pricing funciontality",
+                "category": null,
+                "featured": null,
+                "id": "pricing-funcionality",
+                "content": null
+              },
+              {
+                "description": "Cloud-based updates",
+                "category": null,
+                "featured": null,
+                "id": "cloud-based-updates",
+                "content": null
+              },
+              {
+                "description": "Social media",
+                "category": null,
+                "featured": null,
+                "id": "social-media",
+                "content": null
+              },
+              {
+                "description": "OTA APIs",
+                "category": null,
+                "featured": null,
+                "id": "ota-apis",
+                "content": null
+              },
+              {
+                "description": "Payment Processing",
+                "category": null,
+                "featured": null,
+                "id": "payment-processing",
+                "content": null
+              },
+              {
+                "description": "Online booking process device  compatibility",
+                "category": null,
+                "featured": null,
+                "id": "online-booking",
+                "content": null
+              },
+              {
+                "description": "Customer profiles, CRM",
+                "category": null,
+                "featured": null,
+                "id": "crm",
+                "content": null
+              },
+              {
+                "description": "Email/Marketing Platform",
+                "category": null,
+                "featured": null,
+                "id": "email",
+                "content": null
+              },
+              {
+                "description": "Business support",
+                "category": null,
+                "featured": null,
+                "id": "business-support",
+                "content": null
+              },
+              {
+                "description": "Whatever",
+                "category": null,
+                "featured": null,
+                "id": "whatever",
+                "content": null
+              }
+            ],
+            "providers": [
+              {
+                "name": "Beyonk",
+                "url": "https://www.beyonk.com",
+                "functions": [
+                  "online-booking-process",
+                  "pricing-funcionality",
+                  "social-media",
+                  "online-booking",
+                  "email",
+                  "business-support"
+                ],
+                "contract": [
+                  "setup-fee",
+                  "booking-fee",
+                  "card-processing-fee",
+                  "zero-business-cost",
+                  "commision"
+                ],
+                "contractLength": "1 year",
+                "description": "<div class=\"e1162-e6 mwa-0 mwa-4 mwa-5 mwa-6 x-section\">\n<div class=\"e1162-e7 max mwa-a mwa-b mwa-e mwa-f mwa-n width x-container x-row\">\n<div class=\"x-row-inner\">\n<div class=\"e1162-e8 mwa-10 mwa-11 mwa-12 x-col\">\n<div class=\"e1162-e9 mwa-1z mwa-20 mwa-21 mwa-22 mwa-23 mwa-24 x-text x-text-headline\">\n<div class=\"x-text-content\">\n<div class=\"x-text-content-text\">\n<h2>Beyonk is award winning event ticketing software</h2>\n</div>\n</div>\n</div>\n\n<div class=\"e1162-e10 mwa-a mwa-d mwa-e mwa-g mwa-h mwa-i mwa-j mwa-o mwa-p x-row\">\n<div class=\"x-row-inner\">\n<div class=\"e1162-e11 mwa-10 mwa-13 mwa-14 x-col\">\n<div class=\"e1162-e12 mwa-1e mwa-1f mwa-1i mwa-1k mwa-1l mwa-1m mwa-1n x-content x-text\">\n<p>Beyonk's mission is to deliver the leading technology platform for attractions that empowers businesses with modern, intuitive, and visitor-focused technology to make it effortless to experience.</p>\n\n<p>We prioritise simplicity and the best customer experience, enabling you to seamlessly integrate ticketing, personalise every interaction, and access real-time insights—breaking free from outdated systems that overwhelm with irrelevant features and forget the end customer.</p>\n\n<p>&nbsp;</p>\n</div>\n</div>\n</div>\n</div>\n</div>\n\n<div class=\"e1162-e13 mwa-10 mwa-11 mwa-15 x-col\">\n<div class=\"e1162-e14 mwa-1z mwa-20 mwa-21 mwa-22 mwa-23 mwa-24 x-text x-text-headline\">\n<div class=\"x-text-content\">\n<div class=\"x-text-content-text\">\n<h2>Work with Beyonk to unlock...</h2>\n</div>\n</div>\n</div>\n\n<div class=\"e1162-e15 mwa-a mwa-d mwa-e mwa-g mwa-h mwa-i mwa-j mwa-o mwa-q x-row\">\n<div class=\"x-row-inner\">\n<div class=\"e1162-e16 mwa-10 mwa-13 mwa-14 x-col\">\n<div class=\"e1162-e17 mwa-1z mwa-20 mwa-21 mwa-25 mwa-26 x-text x-text-headline\">\n<div class=\"x-text-content\">\n<div class=\"x-text-content-text\">\n<ol>\n <li>Visitor centric ticketing™<br />\n Beyonk is the only technology platform for visitor attractions that puts customers first, with our <a rel=\"noopener noreferrer\" href=\"https://beyonk.com/blog/what-is-visitor-centric-ticketing\" target=\"_blank\">Visitor Centric Ticketing</a>™, because we believe happier customers makes your business more successful.</li>\n <li>A true partnership<br />\n Unlike legacy platforms who focus on winning your business, we focus on winning you business, with proactive account reviews to help you optimize sales and marketing approaches to reach our full potential together.</li>\n</ol>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>"
+              },
+              {
+                "name": "Bookeo",
+                "url": "https://www.bookeo.com",
+                "functions": [
+                  "online-booking-process",
+                  "pricing-funcionality",
+                  "cloud-based-updates",
+                  "ota-apis",
+                  "online-booking",
+                  "email"
+                ],
+                "contract": [
+                  "setup-fee",
+                  "booking-fee",
+                  "time-based-fee",
+                  "zero-business-cost",
+                  "commision"
+                ],
+                "contractLength": "None",
+                "description": "<div class=\"sub-text\">\n<p>We created a simple yet powerful booking tool that’s effortless for you and intuitive for your customers.</p>\n</div>\n\n<p>We are a team of IT experts dedicated to saving you time, money and aggravation with the best online booking and scheduling system on earth.</p>\n\n<p>We provide one-person proprietorships and multinational corporations (plus every size in between) with a powerful booking tool that’s incredibly easy to use.</p>\n\n<p>Bookeo lets you spend more time growing revenues and less time trying to dig up lost appointments.</p>"
+              },
+              {
+                "name": "Access UK",
+                "url": "https://www.theaccessgroup.com/en-gb/",
+                "functions": [
+                  "online-booking-process",
+                  "pricing-funcionality",
+                  "cloud-based-updates",
+                  "social-media",
+                  "online-booking",
+                  "crm",
+                  "email"
+                ],
+                "contract": [
+                  "channel-manager-fee"
+                ],
+                "contractLength": "1 or 2 years (depending on product used)",
+                "description": "<p>The Access Group is one of the leading providers of business management software. We provide solutions that empower more than 160,000 small and mid-sized organisations in commercial and non-profit sectors across Europe, USA and APAC, giving every employee the freedom to do more of what’s important. Our innovative cloud solutions and integrated AI software experience across multiple Access products transform how business technology is used.</p>"
+              },
+              {
+                "name": "AnyRoad",
+                "url": "https://www.anyroad.com",
+                "functions": [
+                  "pricing-funcionality",
+                  "social-media",
+                  "online-booking",
+                  "email"
+                ],
+                "contract": [
+                  "setup-fee",
+                  "booking-fee",
+                  "card-processing-fee",
+                  "time-based-fee",
+                  "channel-manager-fee",
+                  "zero-business-cost",
+                  "commision"
+                ],
+                "contractLength": "1 or 2 years (depending on product used)",
+                "description": "<p>AnyRoad’s industry-leading platform enables businesses to operate and optimize their events, tours, classes, and activations to grow consumer brand loyalty and drive greater ROI.</p>"
+              },
+              {
+                "name": "Bokun",
+                "url": "https://www.bokun.com",
+                "functions": [
+                  "social-media",
+                  "ota-apis",
+                  "online-booking",
+                  "crm",
+                  "email",
+                  "business-support"
+                ],
+                "contract": [
+                  "channel-manager-fee",
+                  "zero-business-cost",
+                  "commision"
+                ],
+                "contractLength": "None",
+                "description": "<div class=\"hero-text-col text-center\">\n<p>The all-in-one solution built to help you stay organised and get more bookings with thousands of connections to online travel agencies (OTAs), resellers and suppliers.</p>\n</div>\n\n<div class=\"home-hero-bullets\">\n<ul>\n <li><strong>Start Selling in Minutes:</strong> Import products from Viator in one click and pay 0% Bókun fees on Viator bookings.</li>\n</ul>\n</div>\n\n<ul>\n <li>\n <p><strong>Never Double Book Again:</strong> Simplify availability and manage all booking channels in one place.</p>\n </li>\n <li>\n <p><strong>Generate More Bookings:</strong> Make your own website bookable and access 2,600+ resellers.</p>\n </li>\n</ul>"
+              }
+            ],
+            "fees": [
+              {
+                "key": "setup-fee",
+                "value": "Setup Fee"
+              },
+              {
+                "key": "booking-fee",
+                "value": "Admin Fee per booking"
+              },
+              {
+                "key": "card-processing-fee",
+                "value": "Credit/debit card processing fee"
+              },
+              {
+                "key": "time-based-fee",
+                "value": "Annual/monthly fee option available"
+              },
+              {
+                "key": "channel-manager-fee",
+                "value": "Additional fee for use of channel manager"
+              },
+              {
+                "key": "zero-business-cost",
+                "value": "Zero business cost (visitor chargeable) option available"
+              },
+              {
+                "key": "commision",
+                "value": "Commission only option available"
+              }
+            ],
+            "type": "ComparisonModule"
+          }
+        ],
+        "heroImage": {
+          "errorMessages": [],
+          "cmsImage": {
+            "$ref": "/page/uc6adc092756e447d861e54a217b297d4"
+          },
+          "externalImage": null,
+          "altText": "",
+          "credit": "VisitScotland / Trevor Martin",
+          "description": "Two professionals in the tourism industry collaborate on a tablet",
+          "coordinates": {
+            "latitude": 55.95357800000001,
+            "longitude": -3.2852550000000003
+          },
+          "source": null,
+          "postUrl": null,
+          "location": "Edinburgh"
+        },
+        "newsletterSignpost": {
+          "hippoBean": null,
+          "anchor": null,
+          "errorMessages": null,
+          "marketoId": null,
+          "title": "Newsletter Sign up",
+          "nested": false,
+          "copy": {
+            "contentType": null,
+            "value": "Subscribe here to our newsletter for updates, articles and insights from across the Scottish business events sector."
+          },
+          "cta": {
+            "label": "Sign up Now",
+            "link": "https://businessevents.visitscotland.com/newsletter-signup/",
+            "type": "INTERNAL"
+          },
+          "image": {
+            "errorMessages": [],
+            "cmsImage": null,
+            "externalImage": "assets/images/illustrations/newsletter.svg",
+            "altText": null,
+            "credit": null,
+            "description": null,
+            "coordinates": null,
+            "source": null,
+            "postUrl": null,
+            "location": null
+          },
+          "type": "SignpostModule"
+        },
+        "site-id": "bsh",
+        "Logger": {
+          "name": "freemarker",
+          "warnEnabled": true,
+          "errorEnabled": true,
+          "infoEnabled": false,
+          "traceEnabled": false,
+          "debugEnabled": false
+        },
+        "labels": {
+          "search": {
+            "close-form": "Close search form",
+            "search": "Search",
+            "search-label": "What are you looking for?",
+            "no-js": "JavaScript needs to be enabled to see search result. You can turn this on in your browser settings.",
+            "clear-form": "Clear form"
+          },
+          "navigation.static": {
+            "see-all-cta": "All %s",
+            "universal.language": "Language",
+            "meganav.logo-alt-text": "Business Events Scotland",
+            "meganav-toggle-btn-alt-text": "Toggle menu",
+            "footer.find-us-on": "Find us on",
+            "footer.logo-alt-text": "Brand Scotland",
+            "footer.text": "VisitScotland. All rights reserved.",
+            "footer.logo-url": "https://www.scotland.org/",
+            "footer.get-touch": "Get in touch",
+            "footer.visitor-information": "Visitor information",
+            "uninav.our-sites": "Our websites"
+          },
+          "skip-to": {
+            "skip-to.label": "Skip to",
+            "skip-to.main-menu": "Main menu",
+            "skip-to.search": "Search",
+            "skip-to.footer": "Footer",
+            "skip-to.main-content": "Content"
+          },
+          "social.share": {
+            "close.share": "Close social share",
+            "link.copied.text": "Link copied!",
+            "facebook.link.text": "Facebook",
+            "email.link.text": "Email",
+            "share.on": "Share on",
+            "whatsapp.link.text": "WhatsApp",
+            "twitter.link.text": "Twitter",
+            "pinterest.link.text": "Pinterest",
+            "copy.link.text": "Copy link",
+            "share.button.text": "Share"
+          },
+          "navigation.social-media": {
+            "youtube": "https://www.youtube.com/user/VisitScotlandNews",
+            "twitter": "https://twitter.com/VisitScotNews",
+            "linkedin": "https://www.linkedin.com/company/visitscotland"
+          },
+          "essentials.global": {
+            "third-party-error": "Sorry, something's gone wrong. We can't display this content at the moment.",
+            "image.toggle.text": "Toggle caption information",
+            "image.no.credit": "No credit available",
+            "image.title": "Image",
+            "cookie.link-message": "Manage cookie settings",
+            "back-to-top": "Back to top",
+            "page.previous": "Previous",
+            "default.alt-text": "No image title",
+            "page.next": "Next",
+            "close": "Close",
+            "last-update": "Last updated:",
+            "home": "Home"
+          },
+          "video": {
+            "video.minutes-text": "%s minute video",
+            "video.video-descriptor": "Video",
+            "video.play-btn": "Play video",
+            "video.no-cookies": "Cookies need to be enabled to watch this video",
+            "video.minute-text": "%s minute video",
+            "video.no-js": "JavaScript needs to be enabled to watch this video. You can turn this on in your browser settings."
+          },
+          "table-contents": {
+            "title": "In this article:"
+          },
+          "seo": {
+            "organization.streetAddress": "Waverley Court, 4 East Market Street",
+            "seo.og.site-name": "VisitScotland",
+            "vs-logo": "https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png",
+            "site-name": "VisitScotland",
+            "organization.postalCode": "EH8 8BG",
+            "seo.og.twitter.site": "@VisitScotland",
+            "organization.description": "VisitScotland.com is the official consumer website of VisitScotland, Scotland’s national tourist board.",
+            "og.twitter.site": "@VisitScotland",
+            "organization.addressLocality": "Edinburgh",
+            "title-suffix": "| VisitScotland Business Support",
+            "logo": "https://sttc.visitscotland.com/static/img/logos/vs-logo-corp-360.png",
+            "organization.addressCountry": "Scotland"
+          }
+        },
+        "cludoCustomerId": "623"
+      }
+    },
+    "u98b826b4d1f047d195f5cfcf17fdf6ab": {
+      "id": "r4_r2",
+      "links": {
+        "self": {
+          "href": "http://localhost:8080/site/bsh-api/resourceapi/sandbox/features/online-booking-system?_hn:type=component-rendering&_hn:ref=r4_r2",
+          "type": "external"
+        }
+      },
+      "meta": {
+        "paramsInfo": {
+          "siteMenu": "main"
+        },
+        "params": {
+          "breadcrumb-separator": "|",
+          "selectedMenu": "on",
+          "level": "1",
+          "breadcrumb-menus": "main,footer,utility"
+        }
+      },
+      "name": "menu",
+      "type": "component",
+      "componentClass": "com.visitscotland.brxm.components.navigation.MainMenuComponent",
+      "models": {
+        "localizedURLs": [
+          {
+            "locale": "en_GB",
+            "language": "en",
+            "url": "/site/bsh-api/resourceapi/sandbox/features/online-booking-system",
+            "exists": true,
+            "displayName": "English"
+          },
+          {
+            "locale": "es_ES",
+            "language": "es",
+            "url": "http://localhost:8080/site/es-es/sandbox/features/online-booking-system",
+            "exists": false,
+            "displayName": "Español"
+          },
+          {
+            "locale": "it_IT",
+            "language": "it",
+            "url": "http://localhost:8080/site/it-it/sandbox/features/online-booking-system",
+            "exists": false,
+            "displayName": "Italiano"
+          },
+          {
+            "locale": "de_DE",
+            "language": "de",
+            "url": "http://localhost:8080/site/de-de/sandbox/features/online-booking-system",
+            "exists": false,
+            "displayName": "Deutsch"
+          },
+          {
+            "locale": "nl_NL",
+            "language": "nl",
+            "url": "http://localhost:8080/site/nl-nl/sandbox/features/online-booking-system",
+            "exists": false,
+            "displayName": "Nederlands"
+          },
+          {
+            "locale": "fr_FR",
+            "language": "fr",
+            "url": "http://localhost:8080/site/fr-fr/sandbox/features/online-booking-system",
+            "exists": false,
+            "displayName": "Français"
+          }
+        ],
+        "banner": {
+          "hippoBean": {
+            "$ref": "/page/uf9b6ff7204064f9ebc3746ac314e6a85"
+          },
+          "anchor": null,
+          "errorMessages": null,
+          "marketoId": null,
+          "copy": {
+            "contentType": "hippostd:html",
+            "value": "<p>Banner example for BSH development site</p>"
+          },
+          "ctaLink": {
+            "label": "Find out more",
+            "link": "/site/bsh-api/resourceapi/sandbox/pages/standard-page",
+            "type": "INTERNAL"
+          },
+          "type": "BannerModule"
+        },
+        "menu": {
+          "$ref": "/page/ua1bc6431d4764be28819d82cf055c4b3"
+        }
+      }
+    },
+    "u44689b1cd726485f81f85eeaf18e6e11": {
+      "id": "r4_r3",
+      "links": {
+        "self": {
+          "href": "http://localhost:8080/site/bsh-api/resourceapi/sandbox/features/online-booking-system?_hn:type=component-rendering&_hn:ref=r4_r3",
+          "type": "external"
+        }
+      },
+      "meta": {
+        "params": {
+          "breadcrumb-separator": "|",
+          "breadcrumb-menus": "main,footer,utility"
+        }
+      },
+      "name": "top",
+      "label": "Top",
+      "type": "container",
+      "xtype": "hst.vbox",
+      "componentClass": "org.hippoecm.hst.builtin.components.StandardContainerComponent"
+    },
+    "ud43e4613dc5545cd80c3ebd3453d5751": {
+      "id": "r4_r4",
+      "links": {
+        "self": {
+          "href": "http://localhost:8080/site/bsh-api/resourceapi/sandbox/features/online-booking-system?_hn:type=component-rendering&_hn:ref=r4_r4",
+          "type": "external"
+        }
+      },
+      "meta": {
+        "paramsInfo": {
+          "siteMenu": "footer"
+        },
+        "params": {
+          "breadcrumb-separator": "|",
+          "selectedMenu": "on",
+          "level": "1",
+          "breadcrumb-menus": "main,footer,utility"
+        }
+      },
+      "name": "footer",
+      "type": "component",
+      "componentClass": "com.visitscotland.brxm.components.navigation.MenuComponent",
+      "children": [
+        {
+          "$ref": "/page/ufa800f8cbdea4218b6524cd060064893"
+        }
+      ],
+      "models": {
+        "menu": {
+          "$ref": "/page/ub286b30920784492be5ac4038c55d648"
+        }
+      }
+    },
+    "uc6adc092756e447d861e54a217b297d4": {
+      "type": "imageset",
+      "links": {},
+      "meta": {},
+      "data": {
+        "name": "page-placeholder.jpg",
+        "displayName": "page-placeholder.jpg",
+        "location": "Edinburgh",
+        "nl": {
+          "name": "visitscotland:nl",
+          "displayName": "visitscotland:nl",
+          "caption": "",
+          "altText": "",
+          "contentType": "visitscotland:ImageData"
+        },
+        "it": {
+          "name": "visitscotland:it",
+          "displayName": "visitscotland:it",
+          "caption": "",
+          "altText": "",
+          "contentType": "visitscotland:ImageData"
+        },
+        "fr": {
+          "name": "visitscotland:fr",
+          "displayName": "visitscotland:fr",
+          "caption": "",
+          "altText": "",
+          "contentType": "visitscotland:ImageData"
+        },
+        "es": {
+          "name": "visitscotland:es",
+          "displayName": "visitscotland:es",
+          "caption": "",
+          "altText": "",
+          "contentType": "visitscotland:ImageData"
+        },
+        "credit": "VisitScotland / Trevor Martin",
+        "de": {
+          "name": "visitscotland:de",
+          "displayName": "visitscotland:de",
+          "caption": "",
+          "altText": "",
+          "contentType": "visitscotland:ImageData"
+        },
+        "altText": "",
+        "fileName": "placeholder.jpg",
+        "description": "Two professionals in the tourism industry collaborate on a tablet",
+        "thumbnail": {
+          "name": "hippogallery:thumbnail",
+          "displayName": "hippogallery:thumbnail",
+          "height": 44,
+          "width": 60,
+          "lastModified": 1729701077685,
+          "mimeType": "image/jpeg",
+          "filename": "placeholder.jpg",
+          "contentType": "hippogallery:image",
+          "size": 4754,
+          "links": {
+            "site": {
+              "href": "http://localhost:8080/site/binaries/thumbnail/content/gallery/bsh/static/page-placeholder.jpg",
+              "type": "resource"
+            }
+          }
+        },
+        "original": {
+          "name": "hippogallery:original",
+          "displayName": "hippogallery:original",
+          "height": 884,
+          "width": 1202,
+          "lastModified": 1729701077685,
+          "mimeType": "image/jpeg",
+          "filename": null,
+          "contentType": "hippogallery:image",
+          "size": 419065,
+          "links": {
+            "site": {
+              "href": "http://localhost:8080/site/binaries/content/gallery/bsh/static/page-placeholder.jpg",
+              "type": "resource"
+            }
+          }
+        },
+        "contentType": "visitscotland:Image",
+        "localeString": null,
+        "id": "c6adc092-756e-447d-861e-54a217b297d4"
+      }
+    },
+    "u328fa681337a453d88e816cadf077412": {
+      "id": "r4_r1_r1",
+      "links": {
+        "self": {
+          "href": "http://localhost:8080/site/bsh-api/resourceapi/sandbox/features/online-booking-system?_hn:type=component-rendering&_hn:ref=r4_r1_r1",
+          "type": "external"
+        }
+      },
+      "meta": {
+        "params": {
+          "breadcrumb-separator": "|",
+          "breadcrumb-menus": "main,footer,utility",
+          "status": "200"
+        }
+      },
+      "name": "breadcrumb",
+      "type": "component",
+      "componentClass": "com.visitscotland.brxm.components.breadcrumb.VsBreadcrumbComponent",
+      "models": {
+        "breadcrumb": {
+          "items": [
+            {
+              "title": "Development Sandbox",
+              "link": {
+                "href": "/sandbox",
+                "type": "internal"
+              }
+            },
+            {
+              "title": "Features",
+              "link": {
+                "href": "/sandbox/features",
+                "type": "internal"
+              }
+            },
+            {
+              "title": "Standard Page",
+              "link": {
+                "href": "/sandbox/features/online-booking-system",
+                "type": "internal"
+              }
+            }
+          ],
+          "separator": "|",
+          "linkNotFoundMode": null
+        },
+        "requestedURI": "/site/bsh-api/resourceapi/sandbox/features/online-booking-system",
+        "document": {
+          "$ref": "/page/u8b977a7e69d5412a87d43ffee0f2a2e7"
+        },
+        "isHome": false,
+        "orderedTranslations": [
+          {
+            "$ref": "/page/u8b977a7e69d5412a87d43ffee0f2a2e7"
+          }
+        ]
+      }
+    },
+    "u9651680deef649e5b8a0c184223e330b": {
+      "type": "document",
+      "links": {
+        "site": {
+          "href": "/sandbox/features/online-booking-system/dev-module",
+          "type": "internal"
+        }
+      },
+      "meta": {},
+      "data": {
+        "name": "dev-module",
+        "displayName": "Dev Module",
+        "notes": "",
+        "freemarkerId": null,
+        "html": "<div id=\"obs\">\r\n</div>",
+        "footerContributions": [],
+        "headContributions": [],
+        "localeString": "en",
+        "contentType": "visitscotland:DevModule",
+        "id": "9651680d-eef6-49e5-b8a0-c184223e330b"
+      }
+    },
+    "uf9b6ff7204064f9ebc3746ac314e6a85": {
+      "type": "document",
+      "links": {
+        "site": {
+          "type": "unknown"
+        }
+      },
+      "meta": {},
+      "data": {
+        "name": "content",
+        "displayName": "General banner",
+        "copy": {
+          "contentType": "hippostd:html",
+          "value": "<p>Banner example for BSH development site</p>"
+        },
+        "translationFlag": null,
+        "translation": "",
+        "diff": null,
+        "ctaLink": {
+          "name": "visitscotland:ctaLink",
+          "displayName": "visitscotland:ctaLink",
+          "link": {
+            "$ref": "/page/ua2ba1a3ed3304c56b6960e99ee64f00f"
+          },
+          "label": "",
+          "contentType": "visitscotland:CMSLink"
+        },
+        "translationDeadline": null,
+        "translationPriority": null,
+        "localeString": "en",
+        "contentType": "visitscotland:Banner",
+        "id": "f9b6ff72-0406-4f9e-bc37-46ac314e6a85"
+      }
+    },
+    "ua1bc6431d4764be28819d82cf055c4b3": {
+      "type": "menu",
+      "links": {},
+      "meta": {},
+      "data": {
+        "timeStamp": 1750670885353,
+        "cmsCached": false,
+        "name": "main",
+        "siteMenuItems": [
+          {
+            "hstMenuItem": {
+              "depth": 0,
+              "repositoryBased": false,
+              "properties": {
+                "hst:referencesitemapitem": "pagenotfound",
+                "hst:repobased": false
+              },
+              "name": "venues",
+              "expanded": false,
+              "selected": false,
+              "parameters": {},
+              "childMenuItems": [],
+              "links": {
+                "site": {
+                  "href": "/pagenotfound",
+                  "type": "internal"
+                }
+              }
+            },
+            "title": "Venues",
+            "widget": null,
+            "cta": "All Venues",
+            "plainLink": "/site/bsh-api/resourceapi/pagenotfound",
+            "name": "venues",
+            "properties": {
+              "hst:referencesitemapitem": "pagenotfound",
+              "hst:repobased": false
+            },
+            "parameters": {},
+            "selected": false,
+            "depth": 0,
+            "repositoryBased": false,
+            "expanded": false,
+            "childMenuItems": [],
+            "links": {
+              "site": {
+                "href": "/pagenotfound",
+                "type": "internal"
+              }
+            }
+          },
+          {
+            "hstMenuItem": {
+              "depth": 0,
+              "repositoryBased": false,
+              "properties": {
+                "hst:referencesitemapitem": "pagenotfound",
+                "hst:repobased": false
+              },
+              "name": "services",
+              "expanded": false,
+              "selected": false,
+              "parameters": {},
+              "childMenuItems": [],
+              "links": {
+                "site": {
+                  "href": "/pagenotfound",
+                  "type": "internal"
+                }
+              }
+            },
+            "title": "Services",
+            "widget": null,
+            "cta": "All Services",
+            "plainLink": "/site/bsh-api/resourceapi/pagenotfound",
+            "name": "services",
+            "properties": {
+              "hst:referencesitemapitem": "pagenotfound",
+              "hst:repobased": false
+            },
+            "parameters": {},
+            "selected": false,
+            "depth": 0,
+            "repositoryBased": false,
+            "expanded": false,
+            "childMenuItems": [],
+            "links": {
+              "site": {
+                "href": "/pagenotfound",
+                "type": "internal"
+              }
+            }
+          },
+          {
+            "hstMenuItem": {
+              "depth": 0,
+              "repositoryBased": false,
+              "properties": {
+                "hst:repobased": false
+              },
+              "name": "why-scotland",
+              "expanded": false,
+              "selected": false,
+              "parameters": {},
+              "childMenuItems": [],
+              "links": {}
+            },
+            "title": "Why Scotland",
+            "widget": null,
+            "cta": null,
+            "plainLink": null,
+            "name": "why-scotland",
+            "properties": {
+              "hst:repobased": false
+            },
+            "parameters": {},
+            "selected": false,
+            "depth": 0,
+            "repositoryBased": false,
+            "expanded": false,
+            "childMenuItems": [],
+            "links": {}
+          },
+          {
+            "hstMenuItem": {
+              "depth": 0,
+              "repositoryBased": false,
+              "properties": {
+                "hst:repobased": false
+              },
+              "name": "key-sectors",
+              "expanded": false,
+              "selected": false,
+              "parameters": {},
+              "childMenuItems": [],
+              "links": {}
+            },
+            "title": "Key Sectors",
+            "widget": null,
+            "cta": null,
+            "plainLink": null,
+            "name": "key-sectors",
+            "properties": {
+              "hst:repobased": false
+            },
+            "parameters": {},
+            "selected": false,
+            "depth": 0,
+            "repositoryBased": false,
+            "expanded": false,
+            "childMenuItems": [],
+            "links": {}
+          },
+          {
+            "hstMenuItem": {
+              "depth": 0,
+              "repositoryBased": false,
+              "properties": {
+                "hst:repobased": false
+              },
+              "name": "events-tradeshows",
+              "expanded": false,
+              "selected": false,
+              "parameters": {},
+              "childMenuItems": [],
+              "links": {}
+            },
+            "title": "Events and Tradeshows",
+            "widget": null,
+            "cta": null,
+            "plainLink": null,
+            "name": "events-tradeshows",
+            "properties": {
+              "hst:repobased": false
+            },
+            "parameters": {},
+            "selected": false,
+            "depth": 0,
+            "repositoryBased": false,
+            "expanded": false,
+            "childMenuItems": [],
+            "links": {}
+          },
+          {
+            "hstMenuItem": {
+              "depth": 0,
+              "repositoryBased": false,
+              "properties": {
+                "hst:repobased": false
+              },
+              "name": "news",
+              "expanded": false,
+              "selected": false,
+              "parameters": {},
+              "childMenuItems": [],
+              "links": {}
+            },
+            "title": "News",
+            "widget": null,
+            "cta": null,
+            "plainLink": null,
+            "name": "news",
+            "properties": {
+              "hst:repobased": false
+            },
+            "parameters": {},
+            "selected": false,
+            "depth": 0,
+            "repositoryBased": false,
+            "expanded": false,
+            "childMenuItems": [],
+            "links": {}
+          },
+          {
+            "hstMenuItem": {
+              "depth": 0,
+              "repositoryBased": false,
+              "properties": {
+                "hst:repobased": false
+              },
+              "name": "about-us",
+              "expanded": false,
+              "selected": false,
+              "parameters": {},
+              "childMenuItems": [],
+              "links": {}
+            },
+            "title": "About us",
+            "widget": null,
+            "cta": null,
+            "plainLink": null,
+            "name": "about-us",
+            "properties": {
+              "hst:repobased": false
+            },
+            "parameters": {},
+            "selected": false,
+            "depth": 0,
+            "repositoryBased": false,
+            "expanded": false,
+            "childMenuItems": [],
+            "links": {}
+          }
+        ]
+      }
+    },
+    "ufa800f8cbdea4218b6524cd060064893": {
+      "id": "r4_r4_r1",
+      "links": {
+        "self": {
+          "href": "http://localhost:8080/site/bsh-api/resourceapi/sandbox/features/online-booking-system?_hn:type=component-rendering&_hn:ref=r4_r4_r1",
+          "type": "external"
+        }
+      },
+      "meta": {
+        "paramsInfo": {
+          "siteMenu": "utility"
+        },
+        "params": {
+          "breadcrumb-separator": "|",
+          "selectedMenu": "on",
+          "level": "1",
+          "breadcrumb-menus": "main,footer,utility"
+        }
+      },
+      "name": "utility",
+      "type": "component",
+      "componentClass": "com.visitscotland.brxm.components.navigation.MenuComponent",
+      "models": {
+        "menu": {
+          "$ref": "/page/u041c20716eb74c95bbdbc512279f78ab"
+        }
+      }
+    },
+    "ub286b30920784492be5ac4038c55d648": {
+      "type": "menu",
+      "links": {},
+      "meta": {},
+      "data": {
+        "timeStamp": 1750670885452,
+        "cmsCached": false,
+        "name": "footer",
+        "siteMenuItems": [
+          {
+            "hstMenuItem": {
+              "depth": 0,
+              "repositoryBased": false,
+              "properties": {
+                "hst:repobased": false
+              },
+              "name": "footer.about-us",
+              "expanded": true,
+              "selected": false,
+              "parameters": {},
+              "childMenuItems": [
+                {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://www.visitscotland.com/policies/",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.policy",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://www.visitscotland.com/policies/",
+                      "type": "external"
+                    }
+                  }
+                },
+                {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://www.visitscotland.com/policies/accessibility/",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.accessibility",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://www.visitscotland.com/policies/accessibility/",
+                      "type": "external"
+                    }
+                  }
+                },
+                {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://www.visitscotland.com/policies/privacy/cookies",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.cookies",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://www.visitscotland.com/policies/privacy/cookies",
+                      "type": "external"
+                    }
+                  }
+                },
+                {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:referencesitemapitem": "sandbox",
+                    "hst:repobased": false
+                  },
+                  "name": "Sandbox - Development Data",
+                  "expanded": true,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "/sandbox",
+                      "type": "internal"
+                    }
+                  }
+                }
+              ],
+              "links": {}
+            },
+            "title": "About us",
+            "widget": null,
+            "cta": null,
+            "plainLink": null,
+            "name": "footer.about-us",
+            "properties": {
+              "hst:repobased": false
+            },
+            "parameters": {},
+            "selected": false,
+            "depth": 0,
+            "repositoryBased": false,
+            "expanded": true,
+            "childMenuItems": [
+              {
+                "hstMenuItem": {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://www.visitscotland.com/policies/",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.policy",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://www.visitscotland.com/policies/",
+                      "type": "external"
+                    }
+                  }
+                },
+                "title": "Policies",
+                "widget": null,
+                "cta": null,
+                "plainLink": null,
+                "name": "footer.policy",
+                "properties": {
+                  "hst:externallink": "https://www.visitscotland.com/policies/",
+                  "hst:repobased": false
+                },
+                "parameters": {},
+                "selected": false,
+                "depth": 0,
+                "repositoryBased": false,
+                "expanded": false,
+                "childMenuItems": [],
+                "links": {
+                  "site": {
+                    "href": "https://www.visitscotland.com/policies/",
+                    "type": "external"
+                  }
+                }
+              },
+              {
+                "hstMenuItem": {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://www.visitscotland.com/policies/accessibility/",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.accessibility",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://www.visitscotland.com/policies/accessibility/",
+                      "type": "external"
+                    }
+                  }
+                },
+                "title": "Accessibility",
+                "widget": null,
+                "cta": null,
+                "plainLink": null,
+                "name": "footer.accessibility",
+                "properties": {
+                  "hst:externallink": "https://www.visitscotland.com/policies/accessibility/",
+                  "hst:repobased": false
+                },
+                "parameters": {},
+                "selected": false,
+                "depth": 0,
+                "repositoryBased": false,
+                "expanded": false,
+                "childMenuItems": [],
+                "links": {
+                  "site": {
+                    "href": "https://www.visitscotland.com/policies/accessibility/",
+                    "type": "external"
+                  }
+                }
+              },
+              {
+                "hstMenuItem": {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://www.visitscotland.com/policies/privacy/cookies",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.cookies",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://www.visitscotland.com/policies/privacy/cookies",
+                      "type": "external"
+                    }
+                  }
+                },
+                "title": "Cookies",
+                "widget": null,
+                "cta": null,
+                "plainLink": null,
+                "name": "footer.cookies",
+                "properties": {
+                  "hst:externallink": "https://www.visitscotland.com/policies/privacy/cookies",
+                  "hst:repobased": false
+                },
+                "parameters": {},
+                "selected": false,
+                "depth": 0,
+                "repositoryBased": false,
+                "expanded": false,
+                "childMenuItems": [],
+                "links": {
+                  "site": {
+                    "href": "https://www.visitscotland.com/policies/privacy/cookies",
+                    "type": "external"
+                  }
+                }
+              },
+              {
+                "hstMenuItem": {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:referencesitemapitem": "sandbox",
+                    "hst:repobased": false
+                  },
+                  "name": "Sandbox - Development Data",
+                  "expanded": true,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "/sandbox",
+                      "type": "internal"
+                    }
+                  }
+                },
+                "title": "Development Sandbox",
+                "widget": null,
+                "cta": "All Development Sandbox",
+                "plainLink": "/site/bsh-api/resourceapi/sandbox",
+                "name": "Sandbox - Development Data",
+                "properties": {
+                  "hst:referencesitemapitem": "sandbox",
+                  "hst:repobased": false
+                },
+                "parameters": {},
+                "selected": false,
+                "depth": 0,
+                "repositoryBased": false,
+                "expanded": true,
+                "childMenuItems": [],
+                "links": {
+                  "site": {
+                    "href": "/sandbox",
+                    "type": "internal"
+                  }
+                }
+              }
+            ],
+            "links": {}
+          },
+          {
+            "hstMenuItem": {
+              "depth": 0,
+              "repositoryBased": false,
+              "properties": {
+                "hst:repobased": false
+              },
+              "name": "footer.other-sites",
+              "expanded": false,
+              "selected": false,
+              "parameters": {},
+              "childMenuItems": [
+                {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://www.visitscotland.org/",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.corporate",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://www.visitscotland.org/",
+                      "type": "external"
+                    }
+                  }
+                },
+                {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://businessevents.visitscotland.com/",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.dot-com",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://businessevents.visitscotland.com/",
+                      "type": "external"
+                    }
+                  }
+                },
+                {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://www.scotland.org/",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.scotland-is-now",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://www.scotland.org/",
+                      "type": "external"
+                    }
+                  }
+                }
+              ],
+              "links": {}
+            },
+            "title": "Our other sites",
+            "widget": null,
+            "cta": null,
+            "plainLink": null,
+            "name": "footer.other-sites",
+            "properties": {
+              "hst:repobased": false
+            },
+            "parameters": {},
+            "selected": false,
+            "depth": 0,
+            "repositoryBased": false,
+            "expanded": false,
+            "childMenuItems": [
+              {
+                "hstMenuItem": {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://www.visitscotland.org/",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.corporate",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://www.visitscotland.org/",
+                      "type": "external"
+                    }
+                  }
+                },
+                "title": "Corporate",
+                "widget": null,
+                "cta": null,
+                "plainLink": null,
+                "name": "footer.corporate",
+                "properties": {
+                  "hst:externallink": "https://www.visitscotland.org/",
+                  "hst:repobased": false
+                },
+                "parameters": {},
+                "selected": false,
+                "depth": 0,
+                "repositoryBased": false,
+                "expanded": false,
+                "childMenuItems": [],
+                "links": {
+                  "site": {
+                    "href": "https://www.visitscotland.org/",
+                    "type": "external"
+                  }
+                }
+              },
+              {
+                "hstMenuItem": {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://businessevents.visitscotland.com/",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.dot-com",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://businessevents.visitscotland.com/",
+                      "type": "external"
+                    }
+                  }
+                },
+                "title": "VisitScotland.com",
+                "widget": null,
+                "cta": null,
+                "plainLink": null,
+                "name": "footer.dot-com",
+                "properties": {
+                  "hst:externallink": "https://businessevents.visitscotland.com/",
+                  "hst:repobased": false
+                },
+                "parameters": {},
+                "selected": false,
+                "depth": 0,
+                "repositoryBased": false,
+                "expanded": false,
+                "childMenuItems": [],
+                "links": {
+                  "site": {
+                    "href": "https://businessevents.visitscotland.com/",
+                    "type": "external"
+                  }
+                }
+              },
+              {
+                "hstMenuItem": {
+                  "depth": 0,
+                  "repositoryBased": false,
+                  "properties": {
+                    "hst:externallink": "https://www.scotland.org/",
+                    "hst:repobased": false
+                  },
+                  "name": "footer.scotland-is-now",
+                  "expanded": false,
+                  "selected": false,
+                  "parameters": {},
+                  "childMenuItems": [],
+                  "links": {
+                    "site": {
+                      "href": "https://www.scotland.org/",
+                      "type": "external"
+                    }
+                  }
+                },
+                "title": "Scotland is Now",
+                "widget": null,
+                "cta": null,
+                "plainLink": null,
+                "name": "footer.scotland-is-now",
+                "properties": {
+                  "hst:externallink": "https://www.scotland.org/",
+                  "hst:repobased": false
+                },
+                "parameters": {},
+                "selected": false,
+                "depth": 0,
+                "repositoryBased": false,
+                "expanded": false,
+                "childMenuItems": [],
+                "links": {
+                  "site": {
+                    "href": "https://www.scotland.org/",
+                    "type": "external"
+                  }
+                }
+              }
+            ],
+            "links": {}
+          }
+        ]
+      }
+    },
+    "ua2ba1a3ed3304c56b6960e99ee64f00f": {
+      "type": "document",
+      "links": {
+        "site": {
+          "href": "/sandbox/pages/standard-page",
+          "type": "internal"
+        }
+      },
+      "meta": {},
+      "data": {
+        "name": "content",
+        "displayName": "Standard Page",
+        "type": "",
+        "theme": "standard",
+        "topic": [],
+        "publishDate": null,
+        "readingTime": 0,
+        "sectors": [],
+        "skill": "",
+        "regions": [],
+        "links": [],
+        "title": "Standard Page",
+        "translationFlag": null,
+        "translation": null,
+        "diff": null,
+        "seoDescription": "This is an example of a page",
+        "hideNewsletter": false,
+        "seoTitle": "Standard Page",
+        "otherThings": null,
+        "heroVideo": null,
+        "heroImage": {
+          "$ref": "/page/uc6adc092756e447d861e54a217b297d4"
+        },
+        "image": {
+          "$ref": "/page/uc6adc092756e447d861e54a217b297d4"
+        },
+        "teaser": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer nulla nunc, viverra eros.",
+        "blog": null,
+        "introduction": {
+          "contentType": "hippostd:html",
+          "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis, sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat nisi tempus auctor cras amet.</p>"
+        },
+        "breadcrumb": "",
+        "seoNoIndex": false,
+        "translationDeadline": null,
+        "translationPriority": null,
+        "localeString": "en",
+        "contentType": "visitscotland:GeneralBSH",
+        "id": "a2ba1a3e-d330-4c56-b696-0e99ee64f00f"
+      }
+    },
+    "u041c20716eb74c95bbdbc512279f78ab": {
+      "type": "menu",
+      "links": {},
+      "meta": {},
+      "data": {
+        "timeStamp": 1750670885466,
+        "cmsCached": false,
+        "name": "utility",
+        "siteMenuItems": []
+      }
+    }
+  }
+}

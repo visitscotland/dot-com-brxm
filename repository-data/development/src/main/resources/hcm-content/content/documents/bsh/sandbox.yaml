@@ -8705,6 +8705,605 @@
           /visitscotland:links[4]:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 3d6250b7-6374-4199-969a-077f05cdf972
+    /online-booking-system:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 8d110f48-9c80-4eee-b8d7-d5b0df798575
+      hippo:name: Online Booking System
+      hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+      hippotranslation:id: 9a99af78-d3b5-446e-8090-e3b611b7d2db
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 8b977a7e-69d5-412a-87d4-3ffee0f2a2e7
+        hippo:name: content
+        hippo:versionHistory: 6d752e22-f1db-47eb-bbc9-10e2c92cf8cd
+        /content[1]:
+          jcr:primaryType: visitscotland:GeneralBSH
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 78448924-6c63-48aa-b97e-1d41daa4ba84
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
+          hippostdpubwf:lastModificationDate: 2024-08-30T15:47:55.562+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 60880b62-e936-40f1-94e5-7de66739da68
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: [all.of.scotland]
+          visitscotland:sectors: []
+          visitscotland:seoDescription: This is an example of a page
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Standard Page
+          visitscotland:skill: ''
+          visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
+            nulla nunc, viverra eros.
+          visitscotland:theme: standard
+          visitscotland:title: Standard Page
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend
+              aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis,
+              sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo
+              rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a
+              ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus
+              purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
+              nisi tempus auctor cras amet.</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:GeneralBSH
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 050c241d-72f7-4d4c-bc52-88fa66db95d0
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
+          hippostdpubwf:lastModificationDate: 2024-08-30T15:47:55.562+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-06-13T12:36:16.603+01:00
+          hippotranslation:id: 60880b62-e936-40f1-94e5-7de66739da68
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:publishDate: 0001-01-01T12:00:00Z
+          visitscotland:readingTime: 0
+          visitscotland:regions: [all.of.scotland]
+          visitscotland:sectors: []
+          visitscotland:seoDescription: This is an example of a page
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Standard Page
+          visitscotland:skill: ''
+          visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
+            nulla nunc, viverra eros.
+          visitscotland:theme: standard
+          visitscotland:title: Standard Page
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend
+              aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis,
+              sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo
+              rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a
+              ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus
+              purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
+              nisi tempus auctor cras amet.</p>
+      /dev-module:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 9651680d-eef6-49e5-b8a0-c184223e330b
+        hippo:name: Dev Module
+        hippo:versionHistory: c17494f8-5164-44e8-bd58-408897ca8368
+        /dev-module[1]:
+          jcr:primaryType: visitscotland:DevModule
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f89062e8-3161-4a46-b394-7b8a298cfa8d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-13T11:09:33.336+01:00
+          hippostdpubwf:lastModificationDate: 2025-06-13T11:09:33.336+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b3418d77-1e02-4603-8313-6a7ed626e0ac
+          hippotranslation:locale: en
+          visitscotland:footerContributions: []
+          visitscotland:headContributions: []
+          visitscotland:html: "<div id=\"obs\">\r\n</div>"
+          visitscotland:notes: ''
+        /dev-module[2]:
+          jcr:primaryType: visitscotland:DevModule
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 7ff0a493-39fb-4afb-a9b7-b7316f71cfc4
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-13T11:09:33.336+01:00
+          hippostdpubwf:lastModificationDate: 2025-06-13T11:11:57.593+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: b3418d77-1e02-4603-8313-6a7ed626e0ac
+          hippotranslation:locale: en
+          visitscotland:footerContributions: []
+          visitscotland:headContributions: []
+          visitscotland:html: "<div id=\"obs\">\r\n</div>"
+          visitscotland:notes: ''
+        /dev-module[3]:
+          jcr:primaryType: visitscotland:DevModule
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 54fb09af-0690-4127-b34e-a6cb85a6fc39
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-13T11:09:33.336+01:00
+          hippostdpubwf:lastModificationDate: 2025-06-13T11:11:57.593+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-06-13T12:36:15.839+01:00
+          hippotranslation:id: b3418d77-1e02-4603-8313-6a7ed626e0ac
+          hippotranslation:locale: en
+          visitscotland:footerContributions: []
+          visitscotland:headContributions: []
+          visitscotland:html: "<div id=\"obs\">\r\n</div>"
+          visitscotland:notes: ''
+      /assessment:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 878d4d57-ea7d-4be3-bd93-9a2fdb296caa
+        hippo:name: Assessment
+        hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+        hippotranslation:id: e9d8056e-bd34-4ae5-a1ae-7fa3bef8c71a
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: fe3da6b5-7da0-4a1a-af98-abb0eb367b3c
+          /content[1]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 7331f202-3619-43be-811c-4fca7c82c0e5
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:52.983Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a4a8cfe0-c82e-45d9-890c-caeba99e3339
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 56a18479-d8ba-4db7-bf7d-f2bd70e9a5c3
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:56.439Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a4a8cfe0-c82e-45d9-890c-caeba99e3339
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 57cd59c0-84cf-4fcc-814b-9c94b4f2d42e
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:56.439Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-11-28T16:03:59.260Z
+            hippotranslation:id: a4a8cfe0-c82e-45d9-890c-caeba99e3339
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+        /form:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 53a95e0d-242b-44eb-9069-501ade6784ae
+          hippo:name: Form
+          hippo:versionHistory: bd2be638-d3a6-4d43-aee5-54bd10a7c0ec
+          /form[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 52b31e44-53fe-48f8-8f55-9ac210479ea6
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2025-06-27T17:01:06.536+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Manually Generated
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: Online Booking System Comparison
+                Tool
+              visitscotland:activitySource: OBSCT
+              visitscotland:jsonUrl: http://localhost:8080/site/binaries/content/assets/bsh-dev/forms/online-booking-system.json
+              visitscotland:url: http://localhost:8080/site/bsh-api/api/obs/form/shortlist
+          /form[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 79e581aa-eee0-43e6-8153-a207a825a650
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2025-06-30T09:05:25.511+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Manually Generated
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: Online Booking System Comparison
+                Tool
+              visitscotland:activitySource: OBSCT
+              visitscotland:jsonUrl: http://localhost:8080/site/binaries/content/assets/bsh-dev/forms/online-booking-system.json
+              visitscotland:url: http://localhost:8080/site/bsh-api/api/obs/form/shortlist
+          /form[3]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 1e9fed42-0d0a-4e8a-9fab-50639e758e7e
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2025-06-30T09:05:25.511+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-06-30T09:05:31.712+01:00
+            hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Manually Generated
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: Online Booking System Comparison
+                Tool
+              visitscotland:activitySource: OBSCT
+              visitscotland:jsonUrl: http://localhost:8080/site/binaries/content/assets/bsh-dev/forms/online-booking-system.json
+              visitscotland:url: http://localhost:8080/site/bsh-api/api/obs/form/shortlist
+      /auto-form:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: a7c3d509-ee45-4c3b-b67e-636119f022f2
+        hippo:name: Generated Form
+        hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+        hippotranslation:id: 2d9c0a23-9548-462e-8763-7cf486ce0c54
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b3aadf19-6418-45c3-bbd1-555dfa6ae28a
+          /content[1]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 652ac028-89e6-4a06-8558-d68d59297d95
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:52.983Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 73d7b2b8-c85a-49a0-83b3-2a1f4de5ca2d
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 70807ab6-4b60-4aea-9a83-f89b6d4a8d24
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:56.439Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 73d7b2b8-c85a-49a0-83b3-2a1f4de5ca2d
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: e1dfdc01-eac3-400b-b11a-8e20940e5134
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
+            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:56.439Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2024-11-28T16:03:59.260Z
+            hippotranslation:id: 73d7b2b8-c85a-49a0-83b3-2a1f4de5ca2d
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: true
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: test
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Newsletter sign up page
+            visitscotland:skill: ''
+            visitscotland:teaser: Subscribe to our newsletter
+            visitscotland:theme: standard
+            visitscotland:title: Newsletter sign up page
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
+
+                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
+
+                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
+        /form:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 1df2ede7-eedb-4c07-a50e-6de32a920808
+          hippo:name: Form
+          hippo:versionHistory: 1c383e17-1b99-485f-a22d-c0fb1701e22f
+          /form[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 5704746b-1a4a-405c-aaa3-c4170b804d58
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2025-06-30T08:56:22.572+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: fe015e1e-5f60-4917-8762-ed8fb17fb6f4
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Programatically Generated Form
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: Online Booking System Comparison
+                Tool
+              visitscotland:activitySource: OBSCT
+              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config
+              visitscotland:url: http://localhost:8080/site/bsh-api/api/obs/form/shortlist
+          /form[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 7f41445f-113e-43d2-b65e-6e7aabb09670
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2025-06-30T08:56:33.981+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: fe015e1e-5f60-4917-8762-ed8fb17fb6f4
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Programatically Generated Form
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: Online Booking System Comparison
+                Tool
+              visitscotland:activitySource: OBSCT
+              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config
+              visitscotland:url: http://localhost:8080/site/bsh-api/api/obs/form/shortlist
+          /form[3]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: c0397ae2-e42a-44a1-a898-a722e7338f33
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2025-06-30T08:56:33.981+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-06-30T08:56:36.571+01:00
+            hippotranslation:id: fe015e1e-5f60-4917-8762-ed8fb17fb6f4
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Programatically Generated Form
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: Online Booking System Comparison
+                Tool
+              visitscotland:activitySource: OBSCT
+              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config
+              visitscotland:url: http://localhost:8080/site/bsh-api/api/obs/form/shortlist
   /document-types:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -21125,7 +21724,7 @@
             hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-02-26T13:41:11.322Z
-            hippostdpubwf:lastModificationDate: 2025-04-14T12:53:07.124+01:00
+            hippostdpubwf:lastModificationDate: 2025-06-27T11:03:48.533+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 89259ea8-7931-4b6c-978d-0bc5fc169655
             hippotranslation:locale: en
@@ -26419,387 +27018,6 @@
               /visitscotland:link:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: c111f78e-a3a7-43f5-8fab-873b9df47538
-    /online-booking-system:
-      jcr:primaryType: hippostd:folder
-      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-      jcr:uuid: 8d110f48-9c80-4eee-b8d7-d5b0df798575
-      hippo:name: Online Booking System
-      hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
-      hippotranslation:id: 9a99af78-d3b5-446e-8090-e3b611b7d2db
-      hippotranslation:locale: en
-      /content:
-        jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: 8b977a7e-69d5-412a-87d4-3ffee0f2a2e7
-        hippo:name: content
-        hippo:versionHistory: 6d752e22-f1db-47eb-bbc9-10e2c92cf8cd
-        /content[1]:
-          jcr:primaryType: visitscotland:GeneralBSH
-          jcr:mixinTypes: ['mix:versionable']
-          jcr:uuid: 78448924-6c63-48aa-b97e-1d41daa4ba84
-          hippo:availability: [preview]
-          hippostd:retainable: false
-          hippostd:state: unpublished
-          hippostd:transferable: false
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-08-30T15:47:55.562+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 60880b62-e936-40f1-94e5-7de66739da68
-          hippotranslation:locale: en
-          visitscotland:breadcrumb: ''
-          visitscotland:hideNewsletter: false
-          visitscotland:publishDate: 0001-01-01T12:00:00Z
-          visitscotland:readingTime: 0
-          visitscotland:regions: [all.of.scotland]
-          visitscotland:sectors: []
-          visitscotland:seoDescription: This is an example of a page
-          visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Standard Page
-          visitscotland:skill: ''
-          visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
-            nulla nunc, viverra eros.
-          visitscotland:theme: standard
-          visitscotland:title: Standard Page
-          /visitscotland:heroImage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend
-              aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis,
-              sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo
-              rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a
-              ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus
-              purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
-              nisi tempus auctor cras amet.</p>
-        /content[2]:
-          jcr:primaryType: visitscotland:GeneralBSH
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 050c241d-72f7-4d4c-bc52-88fa66db95d0
-          hippo:availability: [live]
-          hippostd:retainable: false
-          hippostd:state: published
-          hippostd:transferable: false
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2024-08-30T15:41:08.220+01:00
-          hippostdpubwf:lastModificationDate: 2024-08-30T15:47:55.562+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-06-13T12:36:16.603+01:00
-          hippotranslation:id: 60880b62-e936-40f1-94e5-7de66739da68
-          hippotranslation:locale: en
-          visitscotland:breadcrumb: ''
-          visitscotland:hideNewsletter: false
-          visitscotland:publishDate: 0001-01-01T12:00:00Z
-          visitscotland:readingTime: 0
-          visitscotland:regions: [all.of.scotland]
-          visitscotland:sectors: []
-          visitscotland:seoDescription: This is an example of a page
-          visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Standard Page
-          visitscotland:skill: ''
-          visitscotland:teaser: Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Vivamus purus massa, porta id mattis non, finibus vel elit. Integer
-            nulla nunc, viverra eros.
-          visitscotland:theme: standard
-          visitscotland:title: Standard Page
-          /visitscotland:heroImage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: c6adc092-756e-447d-861e-54a217b297d4
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Nulla ac ullamcorper metus. Vestibulum rutrum mauris ut eleifend
-              aliquet. Donec et congue urna. Morbi nibh lorem, maximus id arcu quis,
-              sodales imperdiet libero. Donec maximus felis ipsum, ac dapibus justo
-              rhoncus nec. In fringilla neque eu risus rutrum lobortis. Aliquam a
-              ullamcorper nisl. Nunc molestie vestibulum ultrices. Donec ac luctus
-              purus. Aenean quis arcu magna. Nunc placerat elit massa, quis placerat
-              nisi tempus auctor cras amet.</p>
-      /dev-module:
-        jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: 9651680d-eef6-49e5-b8a0-c184223e330b
-        hippo:name: Dev Module
-        hippo:versionHistory: c17494f8-5164-44e8-bd58-408897ca8368
-        /dev-module[1]:
-          jcr:primaryType: visitscotland:DevModule
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: f89062e8-3161-4a46-b394-7b8a298cfa8d
-          hippo:availability: []
-          hippostd:retainable: false
-          hippostd:state: draft
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-06-13T11:09:33.336+01:00
-          hippostdpubwf:lastModificationDate: 2025-06-13T11:09:33.336+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: b3418d77-1e02-4603-8313-6a7ed626e0ac
-          hippotranslation:locale: en
-          visitscotland:footerContributions: []
-          visitscotland:headContributions: []
-          visitscotland:html: "<div id=\"obs\">\r\n</div>"
-          visitscotland:notes: ''
-        /dev-module[2]:
-          jcr:primaryType: visitscotland:DevModule
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: 7ff0a493-39fb-4afb-a9b7-b7316f71cfc4
-          hippo:availability: [preview]
-          hippostd:retainable: false
-          hippostd:state: unpublished
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-06-13T11:09:33.336+01:00
-          hippostdpubwf:lastModificationDate: 2025-06-13T11:11:57.593+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: b3418d77-1e02-4603-8313-6a7ed626e0ac
-          hippotranslation:locale: en
-          visitscotland:footerContributions: []
-          visitscotland:headContributions: []
-          visitscotland:html: "<div id=\"obs\">\r\n</div>"
-          visitscotland:notes: ''
-        /dev-module[3]:
-          jcr:primaryType: visitscotland:DevModule
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 54fb09af-0690-4127-b34e-a6cb85a6fc39
-          hippo:availability: [live]
-          hippostd:retainable: false
-          hippostd:state: published
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-06-13T11:09:33.336+01:00
-          hippostdpubwf:lastModificationDate: 2025-06-13T11:11:57.593+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-06-13T12:36:15.839+01:00
-          hippotranslation:id: b3418d77-1e02-4603-8313-6a7ed626e0ac
-          hippotranslation:locale: en
-          visitscotland:footerContributions: []
-          visitscotland:headContributions: []
-          visitscotland:html: "<div id=\"obs\">\r\n</div>"
-          visitscotland:notes: ''
-      /assessment:
-        jcr:primaryType: hippostd:folder
-        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-        jcr:uuid: 878d4d57-ea7d-4be3-bd93-9a2fdb296caa
-        hippo:name: Assessment
-        hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
-        hippotranslation:id: e9d8056e-bd34-4ae5-a1ae-7fa3bef8c71a
-        hippotranslation:locale: en
-        /content:
-          jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: fe3da6b5-7da0-4a1a-af98-abb0eb367b3c
-          /content[1]:
-            jcr:primaryType: visitscotland:GeneralBSH
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 7331f202-3619-43be-811c-4fca7c82c0e5
-            hippo:availability: []
-            hippostd:retainable: false
-            hippostd:state: draft
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
-            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:52.983Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: a4a8cfe0-c82e-45d9-890c-caeba99e3339
-            hippotranslation:locale: en
-            visitscotland:breadcrumb: ''
-            visitscotland:hideNewsletter: true
-            visitscotland:publishDate: 0001-01-01T12:00:00Z
-            visitscotland:readingTime: 0
-            visitscotland:regions: []
-            visitscotland:sectors: []
-            visitscotland:seoDescription: test
-            visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: Newsletter sign up page
-            visitscotland:skill: ''
-            visitscotland:teaser: Subscribe to our newsletter
-            visitscotland:theme: standard
-            visitscotland:title: Newsletter sign up page
-            visitscotland:topic: []
-            visitscotland:type: ''
-            /visitscotland:heroImage:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:introduction:
-              jcr:primaryType: hippostd:html
-              hippostd:content: |-
-                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
-
-                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
-
-                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
-          /content[2]:
-            jcr:primaryType: visitscotland:GeneralBSH
-            jcr:mixinTypes: ['mix:versionable']
-            jcr:uuid: 56a18479-d8ba-4db7-bf7d-f2bd70e9a5c3
-            hippo:availability: [preview]
-            hippostd:retainable: false
-            hippostd:state: unpublished
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
-            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:56.439Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: a4a8cfe0-c82e-45d9-890c-caeba99e3339
-            hippotranslation:locale: en
-            visitscotland:breadcrumb: ''
-            visitscotland:hideNewsletter: true
-            visitscotland:publishDate: 0001-01-01T12:00:00Z
-            visitscotland:readingTime: 0
-            visitscotland:regions: []
-            visitscotland:sectors: []
-            visitscotland:seoDescription: test
-            visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: Newsletter sign up page
-            visitscotland:skill: ''
-            visitscotland:teaser: Subscribe to our newsletter
-            visitscotland:theme: standard
-            visitscotland:title: Newsletter sign up page
-            visitscotland:topic: []
-            visitscotland:type: ''
-            /visitscotland:heroImage:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:introduction:
-              jcr:primaryType: hippostd:html
-              hippostd:content: |-
-                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
-
-                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
-
-                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
-          /content[3]:
-            jcr:primaryType: visitscotland:GeneralBSH
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 57cd59c0-84cf-4fcc-814b-9c94b4f2d42e
-            hippo:availability: [live]
-            hippostd:retainable: false
-            hippostd:state: published
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2024-11-28T15:18:14.806Z
-            hippostdpubwf:lastModificationDate: 2024-11-28T16:03:56.439Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2024-11-28T16:03:59.260Z
-            hippotranslation:id: a4a8cfe0-c82e-45d9-890c-caeba99e3339
-            hippotranslation:locale: en
-            visitscotland:breadcrumb: ''
-            visitscotland:hideNewsletter: true
-            visitscotland:publishDate: 0001-01-01T12:00:00Z
-            visitscotland:readingTime: 0
-            visitscotland:regions: []
-            visitscotland:sectors: []
-            visitscotland:seoDescription: test
-            visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: Newsletter sign up page
-            visitscotland:skill: ''
-            visitscotland:teaser: Subscribe to our newsletter
-            visitscotland:theme: standard
-            visitscotland:title: Newsletter sign up page
-            visitscotland:topic: []
-            visitscotland:type: ''
-            /visitscotland:heroImage:
-              jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: c49653a8-4cb9-4eb4-a343-2e6607ec39a3
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-            /visitscotland:introduction:
-              jcr:primaryType: hippostd:html
-              hippostd:content: |-
-                <p>Subscribe to our newsletter curated to support businesses in the tourism and events industry in Scotland. We’ll send you an email every two weeks with all the latest updates on training and event opportunities, advice and guidance in your sector.</p>
-
-                <p>By submitting your details, you are indicating your consent to receiving our newsletter. You can unsubscribe at any time. Please read our privacy notice before proceeding.</p>
-
-                <p>You can unsubscribe at any time through a link provided in each newsletter.</p>
-        /form:
-          jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-          jcr:uuid: 53a95e0d-242b-44eb-9069-501ade6784ae
-          hippo:name: Form
-          hippo:versionHistory: 37cc5da6-145e-4d8d-bf11-d0bc8b9775ad
-          /form[1]:
-            jcr:primaryType: visitscotland:Form
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 52b31e44-53fe-48f8-8f55-9ac210479ea6
-            hippo:availability: []
-            hippostd:retainable: false
-            hippostd:state: draft
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
-            hippostdpubwf:lastModificationDate: 2025-06-13T17:02:37.945+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
-            hippotranslation:locale: en
-            visitscotland:nonJavaScriptMessage: ''
-            visitscotland:title: Online Booking System Comparison Tool
-            visitscotland:translation: ''
-            /visitscotland:form:
-              jcr:primaryType: visitscotland:FormCompoundBreg
-              visitscotland:activityCode: ''
-              visitscotland:activityDescription: Online Booking System Comparison
-                Tool
-              visitscotland:activitySource: OBSCT
-              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config
-              visitscotland:url: http://localhost:8080/site/api/obs/form/submit
-          /form[2]:
-            jcr:primaryType: visitscotland:Form
-            jcr:mixinTypes: ['mix:versionable']
-            jcr:uuid: 79e581aa-eee0-43e6-8153-a207a825a650
-            hippo:availability: [preview]
-            hippostd:retainable: false
-            hippostd:state: unpublished
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
-            hippostdpubwf:lastModificationDate: 2025-06-13T17:04:53.219+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
-            hippotranslation:locale: en
-            visitscotland:nonJavaScriptMessage: ''
-            visitscotland:title: Online Booking System Comparison Tool
-            visitscotland:translation: ''
-            /visitscotland:form:
-              jcr:primaryType: visitscotland:FormCompoundBreg
-              visitscotland:activityCode: ''
-              visitscotland:activityDescription: Online Booking System Comparison
-                Tool
-              visitscotland:activitySource: OBSCT
-              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config
-              visitscotland:url: http://localhost:8080/site/api/obs/form/submit
-          /form[3]:
-            jcr:primaryType: visitscotland:Form
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 1e9fed42-0d0a-4e8a-9fab-50639e758e7e
-            hippo:availability: [live]
-            hippostd:retainable: false
-            hippostd:state: published
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
-            hippostdpubwf:lastModificationDate: 2025-06-13T17:04:53.219+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-06-13T17:05:00.457+01:00
-            hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
-            hippotranslation:locale: en
-            visitscotland:nonJavaScriptMessage: ''
-            visitscotland:title: Online Booking System Comparison Tool
-            visitscotland:translation: ''
-            /visitscotland:form:
-              jcr:primaryType: visitscotland:FormCompoundBreg
-              visitscotland:activityCode: ''
-              visitscotland:activityDescription: Online Booking System Comparison
-                Tool
-              visitscotland:activitySource: OBSCT
-              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config
-              visitscotland:url: http://localhost:8080/site/api/obs/form/submit
   /experimental:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
