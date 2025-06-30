@@ -55,10 +55,20 @@ public class FormBuilder {
         return this;
     }
 
+    public FormBuilder checkbox(String label, String id) {
+        Field field = new Field();
+        field.setLabel(label);
+        field.setName(id);
+        field.setElement("checkbox");
+
+        return this;
+    }
+
     public FormBuilder selectImportance(String label, String id, boolean required) {
         Field field = new Field();
         field.setLabel(label);
         field.setName(id);
+
         field.setElement("select");
 
         List<Option> options = new ArrayList<>();
