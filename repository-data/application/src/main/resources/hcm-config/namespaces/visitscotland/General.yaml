@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 6e55b518-bee1-4e39-b0a2-fc9ab8121a59
+          jcr:uuid: 94d63177-a78b-4f3b-b676-4c5b0ecef3b1
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -50,7 +50,7 @@ definitions:
           visitscotland:title: ''
           visitscotland:seoTitle: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: e0b8d0f4-ac11-4c9d-94da-f374a516ef9f
+          jcr:uuid: 44f04547-a2c1-435e-8886-ea30b4658083
           hippostdpubwf:lastModificationDate: 2020-09-25T13:13:22.744+01:00
           hippostdpubwf:creationDate: 2020-09-25T13:13:22.744+01:00
           visitscotland:theme: Standard
@@ -99,7 +99,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /heroVideo:
             jcr:primaryType: frontend:plugin
-            caption: Overlay Youtube Video
+            caption: Overlay Video
             field: heroVideo
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
