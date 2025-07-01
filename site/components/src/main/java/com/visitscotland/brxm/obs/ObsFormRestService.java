@@ -51,9 +51,6 @@ public class ObsFormRestService extends AbstractResource {
         }
     }
 
-    @POST
-
-
     private Form buildForm(String category, Boolean checkboxes) {
         FormBuilder builder = FormBuilder.create()
                 .input("Business Name", true)
@@ -84,6 +81,7 @@ public class ObsFormRestService extends AbstractResource {
         return false;
     }
 
+    @POST
     @Path("/shortlist")
     @Produces("application/json")
     public Response shortlist(@Context HstRequest request,
@@ -99,15 +97,19 @@ public class ObsFormRestService extends AbstractResource {
         }
     }
 
+
+
     private List<Provider> shortlist(Map<String, String> body){
         List<Provider> provider = new ComparisonMapper().getProviders();
+        String[] allFunctions = getAllFunctions();
         List<Provider> shortlist = new ArrayList<>();
 
         for (Provider p : provider) {
             boolean include = true;
             for (Map.Entry<String, String> entry: body.entrySet()){
                 if (entry.getValue().equals("true") &&
-                        !in(entry.getKey(), p.getFunctions())){
+                        !in(entry.getKey(), p.getFunctions()) &&
+                        in(entry.getKey(), allFunctions)){
                     include = false;
                     break;
                 }
@@ -119,4 +121,12 @@ public class ObsFormRestService extends AbstractResource {
         return shortlist;
 
     }
+
+    private String[] getAllFunctions(){
+        return new ComparisonMapper().getFunctions().stream().map(
+                function -> function.id
+        ).toArray(String[]::new);
+    }
+
+
 }
