@@ -61,6 +61,8 @@ public class FormBuilder {
         field.setName(id);
         field.setElement("checkbox");
 
+        form.getFields().add(field);
+
         return this;
     }
 
