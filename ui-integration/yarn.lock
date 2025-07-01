@@ -684,10 +684,10 @@
   resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.20.tgz#f066abfcd1cbe66267cdbbf0de010d8a41b41597"
   integrity sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==
 
-"@visitscotland/component-library@4.18.0":
-  version "4.18.0"
-  resolved "https://registry.yarnpkg.com/@visitscotland/component-library/-/component-library-4.18.0.tgz#ea6ca92b1a9fe0f3766ca7a9b6e23b8cd0a7e1f4"
-  integrity sha512-HWxY/aAOvM1qxikcUEatvSp5HuMl4/Cn7DXKNhL7MiJgMpAUt4wyoif9sCKvOUFcSLdsGCwgTJZmSL2On3slBw==
+"@visitscotland/component-library@^4.26.3":
+  version "4.26.3"
+  resolved "https://registry.yarnpkg.com/@visitscotland/component-library/-/component-library-4.26.3.tgz#d9bd647549c140eb3eae6d1f179688c288d19dff"
+  integrity sha512-lnt9vYVk3lvd7hks9H8pTVM1uIlPOErlKH8Ut45Wf1NJv53Vl/+NYtGS46O16a8CZmX667p0tl4Od1AFZuL2xA==
   dependencies:
     "@mapbox/geojson-extent" "^1.0.1"
     "@pinia/testing" "^0.1.3"
