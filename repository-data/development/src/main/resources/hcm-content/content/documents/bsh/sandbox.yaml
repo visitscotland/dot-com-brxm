@@ -9018,11 +9018,12 @@
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 52b31e44-53fe-48f8-8f55-9ac210479ea6
             hippo:availability: []
+            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
-            hippostdpubwf:lastModificationDate: 2025-06-27T17:01:06.536+01:00
+            hippostdpubwf:lastModificationDate: 2025-06-30T10:09:35.638+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 30ff8c04-f7ba-44e8-9728-8d92d2f1d641
             hippotranslation:locale: en
@@ -9240,7 +9241,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
-            hippostdpubwf:lastModificationDate: 2025-06-30T08:56:22.572+01:00
+            hippostdpubwf:lastModificationDate: 2025-06-30T10:09:51.890+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: fe015e1e-5f60-4917-8762-ed8fb17fb6f4
             hippotranslation:locale: en
@@ -9253,7 +9254,7 @@
               visitscotland:activityDescription: Online Booking System Comparison
                 Tool
               visitscotland:activitySource: OBSCT
-              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config
+              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config?checkboxes=true
               visitscotland:url: http://localhost:8080/site/bsh-api/api/obs/form/shortlist
           /form[2]:
             jcr:primaryType: visitscotland:Form
@@ -9264,7 +9265,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
-            hippostdpubwf:lastModificationDate: 2025-06-30T08:56:33.981+01:00
+            hippostdpubwf:lastModificationDate: 2025-06-30T10:09:58.378+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: fe015e1e-5f60-4917-8762-ed8fb17fb6f4
             hippotranslation:locale: en
@@ -9277,7 +9278,7 @@
               visitscotland:activityDescription: Online Booking System Comparison
                 Tool
               visitscotland:activitySource: OBSCT
-              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config
+              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config?checkboxes=true
               visitscotland:url: http://localhost:8080/site/bsh-api/api/obs/form/shortlist
           /form[3]:
             jcr:primaryType: visitscotland:Form
@@ -9288,10 +9289,63 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
-            hippostdpubwf:lastModificationDate: 2025-06-30T08:56:33.981+01:00
+            hippostdpubwf:lastModificationDate: 2025-06-30T10:09:58.378+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-06-30T08:56:36.571+01:00
+            hippostdpubwf:publicationDate: 2025-06-30T10:10:04.662+01:00
             hippotranslation:id: fe015e1e-5f60-4917-8762-ed8fb17fb6f4
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Programatically Generated Form
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: Online Booking System Comparison
+                Tool
+              visitscotland:activitySource: OBSCT
+              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config?checkboxes=true
+              visitscotland:url: http://localhost:8080/site/bsh-api/api/obs/form/shortlist
+        /form-dropdown:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: bff7e742-6344-43fa-9c51-d517e9b8c3a2
+          hippo:name: Form Dropdown
+          /form-dropdown[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 9b6acc35-1d0c-464d-ab26-625c6d030917
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2025-06-30T10:10:27.710+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 7626d844-d724-43e5-8bb4-55f1965387e6
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Programatically Generated Form
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: Online Booking System Comparison
+                Tool
+              visitscotland:activitySource: OBSCT
+              visitscotland:jsonUrl: http://localhost:8080/site/api/obs/form/json-config
+              visitscotland:url: http://localhost:8080/site/bsh-api/api/obs/form/shortlist
+          /form-dropdown[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 3360d482-44e0-45fc-b459-a4dcff27c4d8
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2024-11-28T15:19:16.974Z
+            hippostdpubwf:lastModificationDate: 2025-06-30T10:10:22.738+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 7626d844-d724-43e5-8bb4-55f1965387e6
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: ''
             visitscotland:title: Programatically Generated Form
