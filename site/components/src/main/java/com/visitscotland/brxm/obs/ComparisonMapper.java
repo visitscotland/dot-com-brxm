@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.obs;
 
 import com.visitscotland.brxm.config.VsComponentManager;
+import com.visitscotland.brxm.hippobeans.ObsFunction;
 import com.visitscotland.brxm.hippobeans.ObsProvider;
 import com.visitscotland.brxm.obs.model.ComparisonModule;
 import com.visitscotland.brxm.obs.model.ContractFee;
@@ -23,8 +24,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,20 +39,6 @@ public class ComparisonMapper {
         module.setProviders(getProviders());
         module.setFees(getFees());
         return module;
-    }
-
-
-
-    List<Function> getFunctions(){
-        List<Function> entries = new ArrayList<>();
-        Map<String, String> valueList = VsComponentManager.get(
-                HippoUtilsService.class).getValueMap("obs-features");
-
-        for (Map.Entry<String, String> entry : valueList.entrySet()) {
-            entries.add(new Function(entry.getKey(), entry.getValue()));
-        }
-
-        return entries;
     }
 
     List<ContractFee> getFees(){
@@ -83,7 +70,6 @@ public class ComparisonMapper {
 
         return entries;
     }
-
     private HippoBeanIterator findAllProviders() throws RepositoryException, QueryException {
 
         HstQueryManager hstQueryManager = getHstQueryManager();
@@ -92,6 +78,63 @@ public class ComparisonMapper {
         Node mountContentNode = RequestContextProvider.get().getSession().getRootNode()
                 .getNode(PathUtils.normalizePath(mountContentPath));
         HstQuery hstQuery = hstQueryManager.createQuery(mountContentNode, ObsProvider.class);
+        Filter filter = hstQuery.createFilter();
+        //TODO Use Constants for these fields
+        // Only documents of published type (green)
+        filter.addEqualTo("hippostd:state", "published");
+        // Only documents that are actually live and (opposing to those taken offline)
+        filter.addEqualTo("hippostd:stateSummary", "live");
+        hstQuery.setFilter(filter);
+
+        HstQueryResult result = hstQuery.execute();
+
+        return result.getHippoBeans();
+    }
+
+    List<Function> getFunctions(){
+        List<Function> entries = new ArrayList<>();
+        Map<String, String> valueList = VsComponentManager.get(
+                HippoUtilsService.class).getValueMap("obs-features");
+        Map<String, Function> functions = getFunctionsMap();
+
+        for (Map.Entry<String, String> entry : valueList.entrySet()) {
+            if (functions.containsKey(entry.getKey())) {
+                entries.add(functions.get(entry.getKey()));
+            } else {
+                entries.add(new Function(entry.getKey(), entry.getValue()));
+                logger.warn("Function {} not defined", entry.getKey());
+            }
+        }
+
+        return entries;
+    }
+
+    Map<String, Function> getFunctionsMap(){
+        Map<String, Function> map = new HashMap<>();
+
+        try {
+            HippoBeanIterator iterator = findAllFunctions();
+
+            while (iterator.hasNext()){
+                var document = (ObsFunction) iterator.nextHippoBean();
+                map.put(document.getName(),new Function(document));
+            }
+
+        } catch (RepositoryException | QueryException e) {
+            throw new RuntimeException(e);
+        }
+
+        return map;
+    }
+
+    private HippoBeanIterator findAllFunctions() throws RepositoryException, QueryException {
+
+        HstQueryManager hstQueryManager = getHstQueryManager();
+
+        String mountContentPath = RequestContextProvider.get().getResolvedMount().getMount().getContentPath();
+        Node mountContentNode = RequestContextProvider.get().getSession().getRootNode()
+                .getNode(PathUtils.normalizePath(mountContentPath));
+        HstQuery hstQuery = hstQueryManager.createQuery(mountContentNode, ObsFunction.class);
         Filter filter = hstQuery.createFilter();
         //TODO Use Constants for these fields
         // Only documents of published type (green)
