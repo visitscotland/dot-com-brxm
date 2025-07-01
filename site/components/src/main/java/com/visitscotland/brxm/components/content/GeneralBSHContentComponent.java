@@ -46,9 +46,12 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
 
         builder.addModules(request);
 
-        if (request.getRequestURI().endsWith("online-booking-system")){
+        if (request.getRequestURI().contains("/online-booking-system")){
+            var comparison = new ComparisonMapper().map();
             List<Module<?>> list = request.getModel("pageItems");
-            list.add(new ComparisonMapper().map());
+            list.add(comparison);
+
+            request.setModel("comparisonData", comparison);
         }
     }
 
