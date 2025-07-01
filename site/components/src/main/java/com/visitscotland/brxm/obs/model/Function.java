@@ -19,10 +19,6 @@ public class Function {
         this.content = obsFunction.getContent();
     }
 
-    /**
-     * @deprecated To be replaced by Funcion(ObsFunction)
-     */
-    @Deprecated
     public Function(String key, String value) {
         this.id = key;
         this.description = value;
