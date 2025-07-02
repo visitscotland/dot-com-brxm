@@ -84,6 +84,9 @@
 [visitscotland:ExternalLink] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:FeaturedEventBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
 [visitscotland:Widget] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
