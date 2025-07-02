@@ -67,4 +67,16 @@ public class EventsRestService extends AbstractResource {
             return Response.serverError().build();
         }
     }
+
+    @GET
+    @Path("featured")
+    @Produces("application/json")
+    public Response featuredEvents(@Context HstRequest request) {
+        try {
+            return Response.ok().entity(eventRepository.findFeaturedEvents()).build();
+        } catch (VsException e) {
+            logger.error("Error while fetching travel trade events", e);
+            return Response.serverError().build();
+        }
+    }
 }

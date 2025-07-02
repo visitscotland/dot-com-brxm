@@ -20,4 +20,9 @@ public class IndustryEventBSH extends EventBSH {
     public String[] getTypes() {
         return getMultipleProperty("visitscotland:types");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:featured")
+    public Boolean getFeatured() {
+        return getSingleProperty("visitscotland:featured");
+    }
 }
