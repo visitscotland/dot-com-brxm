@@ -239,6 +239,7 @@ public class HippoUtilsService {
      * @param request HstRequest
      * @return Optional<HippoBean>
      */
+    @Deprecated(forRemoval = true)
     public Optional<HippoBean> getContentBeanWithTranslationFallback(HstRequest request) {
         HstRequestContext context = request.getRequestContext();
         HippoBean contentBean = request.getRequestContext().getContentBean();
