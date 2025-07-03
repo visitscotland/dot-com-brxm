@@ -68,6 +68,13 @@
                             value="true"
                         />
                         </#if>
+                        <#if form.config.activityCode == '25EVNT001A'>
+                        <input
+                            type="hidden"
+                            name="terms"
+                            value="We will process your details in accordance with our privacy policy. By submitting you are indicating that you agree to the prize draw terms and conditions."
+                        />
+                        </#if>
                     </template>
                 </vs-form>
             </vs-col>

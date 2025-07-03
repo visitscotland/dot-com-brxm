@@ -16,6 +16,8 @@
                 <entry key="bsh-content-types" value="/content/documents/administration/options/business-support-hub/content-types"/>
                 <entry key="bsh-industry-event-types" value="/content/documents/administration/options/business-support-hub/event-types---industry-events"/>
                 <entry key="bsh-training-topics" value="/content/documents/administration/options/business-support-hub/topics---training-events"/>
+                <entry key="obs-features" value="/content/documents/administration/obs/functions"/>
+                <entry key="obs-contract-fees" value="/content/documents/administration/obs/contract-fees"/>
             </map>
         </constructor-arg>
     </bean>

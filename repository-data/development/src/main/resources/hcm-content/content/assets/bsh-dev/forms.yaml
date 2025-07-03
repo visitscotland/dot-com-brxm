@@ -20,3 +20,18 @@
           resource: /content/assets/bsh-dev/forms/climate-action-plan-workbook-request.json/climate-action-plan-workbook-request.json/asset/climate-action-plan-workbook-request.json
         jcr:lastModified: 2025-04-14T12:47:00.327+01:00
         jcr:mimeType: application/json
+  /online-booking-system.json:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: d031dd34-6307-427b-8b49-4a23352770b7
+    /online-booking-system.json:
+      jcr:primaryType: hippogallery:exampleAssetSet
+      hippo:availability: [live, preview]
+      /hippogallery:asset:
+        jcr:primaryType: hippo:resource
+        hippo:filename: online-booking-system.json
+        jcr:data:
+          type: binary
+          resource: /content/assets/bsh-dev/forms/online-booking-system.json/online-booking-system.json/asset/online-booking-system.json
+        jcr:lastModified: 2025-06-27T10:59:30.828+01:00
+        jcr:mimeType: application/json

@@ -5,7 +5,9 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.GeneralBSH;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.FlatBlog;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
+import com.visitscotland.brxm.obs.ComparisonMapper;
 import com.visitscotland.brxm.utils.PageTemplateBuilder;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -16,6 +18,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @ParametersInfo(type = GeneralPageComponentInfo.class)
 public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH> {
@@ -24,6 +27,7 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
 
     private static final String ERROR_CODE = "errorCode";
     private static final String READ_DATA = "readData";
+    private static final String COMPARISON_MODULE = "comparisonModule";
 
 
     private final PageTemplateBuilder builder;
@@ -41,6 +45,14 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
         addPageStatusCode(request, response);
 
         builder.addModules(request);
+
+        if (request.getRequestURI().contains("/online-booking-system")){
+            var comparison = new ComparisonMapper().map();
+            List<Module<?>> list = request.getModel("pageItems");
+            list.add(comparison);
+
+            request.setModel("comparisonData", comparison);
+        }
     }
 
     @Override
@@ -57,7 +69,7 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
         request.setModel(READ_DATA, blog);
     }
 
-    //TODO mode to PageContentComponent
+    //TODO move to PageContentComponent
     private void addPageStatusCode(HstRequest request, HstResponse response){
         GeneralPageComponentInfo pageInfo = getComponentParametersInfo(request);
         int pageStatus = Integer.parseInt(pageInfo.getStatus());
