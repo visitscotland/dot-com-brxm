@@ -856,7 +856,7 @@ packageSSRArtifact() {
 # create Docker container
 containerCreateAndStart() {
   if [ "$VS_CONTAINER_PRESERVE" == "TRUE" ] && [ -z "$CONTAINER_ID" ]; then
-    echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] VS_CONTAINER_PRESERVE was set to $VS_CONTAINER_PRESERVE, but no container was found, starting new contanier"
+    echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] VS_CONTAINER_PRESERVE was set to $VS_CONTAINER_PRESERVE, but no container was found, starting new container"
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME]  - setting VS_CONTAINER_PRESERVE to FALSE for this run only"; echo ""
     VS_CONTAINER_PRESERVE=FALSE
   fi
