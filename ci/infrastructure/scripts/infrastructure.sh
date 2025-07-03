@@ -232,13 +232,13 @@ defaultSettings() {
   fi
   # set unique container name from JOB_NAME and VS_BRANCH_NAME - removing / characters
   if [ -z "$VS_CONTAINER_NAME" ]&&[ "$VS_BRANCH_NAME" != "branch-not-found" ]; then
-    VS_CONTAINER_NAME=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")"_"$(basename "$VS_BRANCH_NAME")
+    VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
     VS_CONTAINER_NAME_SHORT=$(basename "$VS_BRANCH_NAME")
-    VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
+    VS_CONTAINER_NAME=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")"_"$(echo "$VS_BRANCH_NAME" | sed -e "s/\//_/g")
   else
-    VS_CONTAINER_NAME=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")"_"$(basename "$BRANCH_NAME")
-    VS_CONTAINER_NAME_SHORT=$(basename "$BRANCH_NAME")
     VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
+    VS_CONTAINER_NAME_SHORT=$(basename "$BRANCH_NAME")
+    VS_CONTAINER_NAME=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")"_"$(echo "$BRANCH_NAME" | sed -e "s/\//_/g")
   fi
   # check for VS_CONTAINER_BASE_PORT_OVERRIDE, ensure it's unset if it's not overridden
   if [ -z "$VS_CONTAINER_BASE_PORT_OVERRIDE" ]; then
