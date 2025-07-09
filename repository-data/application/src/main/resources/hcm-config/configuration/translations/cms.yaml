@@ -66,7 +66,7 @@ definitions:
       visitscotland:map-page-validator#destinationPage: Individual destination maps
         work automatically. No category is required.
       visitscotland:number-validator: The field only accepts numbers.
-      visitscotland:youtube-url-validator: Enter a valid Youtube link URL.
+      visitscotland:youtube-url-validator: Enter a valid Youtube or static server link URL.
       visitscotland:featured-widget-validator: Invalid featured widget.
       visitscotland:featured-widget-validator#multipleFeaturedEvent: Only 1 featured
         event allowed.
