@@ -41,6 +41,11 @@ public class EventRepository extends BaseHstComponent {
         return convertToPaginatedResults(query);
     }
 
+    PaginatedResult<EventCard> findFeaturedEvents() {
+        HstQueryResult query = hstQueryService.queryFeaturedEvents();
+        return convertToPaginatedResults(query);
+    }
+
     private PaginatedResult<EventCard> convertToPaginatedResults(HstQueryResult query) {
         PaginatedResult<EventCard> page = new PaginatedResult<>();
         page.setTotal(query.getTotalSize());
