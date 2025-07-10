@@ -12,4 +12,4 @@ definitions:
         or jcr:primaryType='visitscotland:ArticleBSH' or jcr:primaryType='visitscotland:Form'
         or jcr:primaryType='visitscotland:LongCopy' or jcr:primaryType='visitscotland:ArticleStyledBSH'
         or jcr:primaryType='visitscotland:CTABanner' or jcr:primaryType='visitscotland:DevModule'
-        or jcr:primaryType='visitscotland:EventsListing']
+        or jcr:primaryType='visitscotland:EventsListing' or jcr:primaryType='visitscotland:FeaturedEventBSH']
