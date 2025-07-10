@@ -10,6 +10,12 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:type: Reference
           hipposys:value: /content/documents/administration/bsh-labels
+        /obs-config:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/administration/obs
       /admin:
         jcr:primaryType: hipposys:authrole
         hipposys:role: admin

@@ -37654,6 +37654,275 @@
             visitscotland:nonJavaScriptMessage: ''
             visitscotland:title: Ski Form
             visitscotland:translation: ''
+      /prize-draw-form:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 19abb18c-9a04-4578-9d5f-f7efea3e0440
+        hippo:name: Prize Draw Form
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: e7403f5f-76ce-4ff6-8a3f-ef11df78f79a
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 0952cc23-574b-41fd-9e74-e1cdc792f2f1
+          hippo:name: Content
+          hippo:versionHistory: 08e24459-9214-4b4d-8adf-6890b96485d9
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 27192392-f5ca-4b43-aa42-d28150225571
+            hippo:availability: []
+            hippostd:holder: admin
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-20T12:16:50.967Z
+            hippostdpubwf:lastModificationDate: 2025-07-02T08:15:34.298Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: acb1cea7-85c9-4956-b4a2-37249d05e373
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: The Open - Prize Draw
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: The Open - Prize Draw
+            visitscotland:teaser: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:theme: Simple
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Enter our free prize draw to win a two-night stay for two with golf, at 5-star Mar Hall<br />
+                Golf &amp; Spa Resort near Glasgow. Enjoy a twin or double classic room with breakfast,<br />
+                a two ball on their spectacular par-70 championship course, and two £100 dinner<br />
+                vouchers.</p>
+
+                <p>10 runners-up will win a luxurious Lochcarron lambswool tartan scarf.</p>
+
+                <p>You can also sign up to our newsletter to get Scotland in your inbox. We’ll note your<br />
+                interest in golf and inspire you with ideas on where to stay and play.</p>
+
+                <p>We will process your details in accordance with our privacy policy. By submitting you<br />
+                are indicating that you agree to the prize draw terms and conditions.</p>
+
+                <p>View our&nbsp;<a href="https://www.visitscotland.com/policies/privacy">privacy policy</a>.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 83fd14b9-6412-4072-b185-c64a926f4e76
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-20T12:16:50.967Z
+            hippostdpubwf:lastModificationDate: 2025-06-20T16:18:23.108Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: acb1cea7-85c9-4956-b4a2-37249d05e373
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: The Open - Prize Draw
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: The Open - Prize Draw
+            visitscotland:teaser: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:theme: Simple
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Enter our free prize draw to win a two-night stay for two with golf, at 5-star Mar Hall<br />
+                Golf &amp; Spa Resort near Glasgow. Enjoy a twin or double classic room with breakfast,<br />
+                a two ball on their spectacular par-70 championship course, and two £100 dinner<br />
+                vouchers.</p>
+
+                <p>10 runners-up will win a luxurious Lochcarron lambswool tartan scarf.</p>
+
+                <p>You can also sign up to our newsletter to get Scotland in your inbox. We’ll note your<br />
+                interest in golf and inspire you with ideas on where to stay and play.</p>
+
+                <p>We will process your details in accordance with our privacy policy. By submitting you<br />
+                are indicating that you agree to the prize draw terms and conditions.</p>
+
+                <p>View our&nbsp;<a href="https://www.visitscotland.com/policies/privacy">privacy policy</a>.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: b6f59d5a-211f-4df6-bd01-6d633dabd3e4
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-20T12:16:50.967Z
+            hippostdpubwf:lastModificationDate: 2025-06-20T16:18:23.108Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-06-20T16:18:32.062Z
+            hippotranslation:id: acb1cea7-85c9-4956-b4a2-37249d05e373
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: The Open - Prize Draw
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: The Open - Prize Draw
+            visitscotland:teaser: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:theme: Simple
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Enter our free prize draw to win a two-night stay for two with golf, at 5-star Mar Hall<br />
+                Golf &amp; Spa Resort near Glasgow. Enjoy a twin or double classic room with breakfast,<br />
+                a two ball on their spectacular par-70 championship course, and two £100 dinner<br />
+                vouchers.</p>
+
+                <p>10 runners-up will win a luxurious Lochcarron lambswool tartan scarf.</p>
+
+                <p>You can also sign up to our newsletter to get Scotland in your inbox. We’ll note your<br />
+                interest in golf and inspire you with ideas on where to stay and play.</p>
+
+                <p>We will process your details in accordance with our privacy policy. By submitting you<br />
+                are indicating that you agree to the prize draw terms and conditions.</p>
+
+                <p>View our&nbsp;<a href="https://www.visitscotland.com/policies/privacy">privacy policy</a>.</p>
+        /form:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 856a0674-ae4f-4955-bf79-f52af6a50d6f
+          hippo:name: Form
+          hippo:versionHistory: 4a28b502-a8b2-44dd-87ec-a80b8e08d039
+          /form[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 9421a7d0-7ef6-4cac-993a-03a4ae39d6cd
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-20T12:19:44.293Z
+            hippostdpubwf:lastModificationDate: 2025-06-27T11:35:20.290Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 1b7dfe9e-0573-4834-a254-d9f7ad27e031
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: 25EVNT001A
+              visitscotland:activityDescription: Event - The Open At Royal Port Rush
+                - Win luxury golf break - offline
+              visitscotland:activitySource: Event
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/prize-draws/the-open-golf-prize-draw.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/consumer
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: newsletter
+                visitscotland:value: Please tick if you would like to subscribe to
+                  our newsletter, with emails packed with trip ideas, inspiration,
+                  travel tips and what's new. You can unsubscribe at any time.
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+          /form[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 48df5873-743a-4a8c-bfb9-b4d98ec0fb6c
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-20T12:19:44.293Z
+            hippostdpubwf:lastModificationDate: 2025-06-30T12:24:07.226Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 1b7dfe9e-0573-4834-a254-d9f7ad27e031
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: 25EVNT001A
+              visitscotland:activityDescription: Event - The Open At Royal Port Rush
+                - Win luxury golf break - offline
+              visitscotland:activitySource: Event
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/prize-draws/the-open-golf-prize-draw.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/consumer
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: newsletter
+                visitscotland:value: Please tick if you would like to subscribe to
+                  our newsletter, with emails packed with trip ideas, inspiration,
+                  travel tips and what's new. You can unsubscribe at any time.
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+          /form[3]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 3ca3737b-0939-48dd-b738-823b2ef288d9
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-20T12:19:44.293Z
+            hippostdpubwf:lastModificationDate: 2025-06-30T12:24:07.226Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-06-30T12:24:12.912Z
+            hippotranslation:id: 1b7dfe9e-0573-4834-a254-d9f7ad27e031
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: 25EVNT001A
+              visitscotland:activityDescription: Event - The Open At Royal Port Rush
+                - Win luxury golf break - offline
+              visitscotland:activitySource: Event
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/prize-draws/the-open-golf-prize-draw.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/consumer
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: newsletter
+                visitscotland:value: Please tick if you would like to subscribe to
+                  our newsletter, with emails packed with trip ideas, inspiration,
+                  travel tips and what's new. You can unsubscribe at any time.
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
     /product-search-module:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
