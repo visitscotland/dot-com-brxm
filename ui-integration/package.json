@@ -19,6 +19,7 @@
     "ssr:serve": "nodemon ./ssr/server/index.js"
   },
   "dependencies": {
+    "@babel/runtime": "7.12.5",
     "@visitscotland/component-library": "^4.28.1",
     "autoprefixer": "^10.4.2",
     "cheerio": "1.0.0-rc.3",

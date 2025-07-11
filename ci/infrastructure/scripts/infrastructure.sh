@@ -232,11 +232,13 @@ defaultSettings() {
   fi
   # set unique container name from JOB_NAME and VS_BRANCH_NAME - removing / characters
   if [ -z "$VS_CONTAINER_NAME" ]&&[ "$VS_BRANCH_NAME" != "branch-not-found" ]; then
-    VS_CONTAINER_NAME=$(dirname $JOB_NAME | sed -e "s/\//_/g")"_"$(basename $VS_BRANCH_NAME)
-    VS_CONTAINER_NAME_SHORT=$(basename $VS_BRANCH_NAME)
+    VS_CONTAINER_NAME=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")"_"$(basename "$VS_BRANCH_NAME")
+    VS_CONTAINER_NAME_SHORT=$(basename "$VS_BRANCH_NAME")
+    VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
   else
-    VS_CONTAINER_NAME=$(dirname $JOB_NAME | sed -e "s/\//_/g")"_"$(basename $BRANCH_NAME)
-    VS_CONTAINER_NAME_SHORT=$(basename $BRANCH_NAME)
+    VS_CONTAINER_NAME=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")"_"$(basename "$BRANCH_NAME")
+    VS_CONTAINER_NAME_SHORT=$(basename "$BRANCH_NAME")
+    VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
   fi
   # check for VS_CONTAINER_BASE_PORT_OVERRIDE, ensure it's unset if it's not overridden
   if [ -z "$VS_CONTAINER_BASE_PORT_OVERRIDE" ]; then
@@ -247,7 +249,7 @@ defaultSettings() {
   # check for VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE, ensure it's unset if it's not overridden
   # - this variable is needed when the pipeline is used with fixed port environments where the branch name may change
   if [ -z "$VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE" ]; then
-    unset VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE
+    VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE="unset"
   else
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE was set to $VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE before $0 was called"
   fi
@@ -261,7 +263,8 @@ defaultSettings() {
   VS_COMMIT_ID_SHORT=$(git rev-parse --short ${GIT_COMMIT})
   VS_DATESTAMP=$(date +%Y%m%d)
   VS_HOST_IP_ADDRESS=$(/usr/sbin/ip ad sh  | egrep "global noprefixroute" | awk '{print $2}' | sed -e "s/\/.*$//")
-  VS_PARENT_JOB_NAME=$(echo $JOB_NAME | sed -e "s/\/.*//g")
+  VS_PARENT_JOB_NAME=$(echo "$JOB_NAME" | sed -e "s/\/.*//g")
+  VS_PARENT_JOB_NAME_FULL=$(dirname "$JOB_NAME")
   VS_SCRIPT_LOG=$VS_CI_DIR/logs/$VS_SCRIPTNAME.log
   if [ ! -z "$STAGE_NAME" ]; then VS_STAGE_NAME=$(echo ${STAGE_NAME,,} | sed -e "s/ /-/g"); fi
   if [ "${VS_SSR_PROXY_ON^^}" == "TRUE" ]; then
@@ -462,7 +465,7 @@ manageContainers() {
       deleteContainers
       unset CONTAINER_ID
     else
-      echo "$(eval $VS_LOG_DATESTAMP) WARN  [$VS_SCRIPTNAME] VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE is $VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE but VS_CONTAINER_PORT_CLASH_PREDICTED is $VS_CONTAINER_PORT_CLASH_PREDICTED, so existing container $CONTAINER_ID will be left"
+      echo "$(eval $VS_LOG_DATESTAMP) WARN  [$VS_SCRIPTNAME]  VS_CONTAINER_PORT_CLASH_PREDICTED is $VS_CONTAINER_PORT_CLASH_PREDICTED but VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE is $VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE, so existing container $CONTAINER_ID will be left and this operation will be marked as a failure"
     fi
   else
     echo "$(eval $VS_LOG_DATESTAMP) INFO [$VS_SCRIPTNAME] No CONTAINER_ID was found"
@@ -508,7 +511,7 @@ getPullRequestListViaCurl() {
 }
 
 getBranchListFromWorkspace() {
-  echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] checking for branches and PRs for $VS_PARENT_JOB_NAME listed in workspaces.txt"
+  echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] checking for branches and PRs for $VS_PARENT_JOB_NAME_FULL listed in workspaces.txt"
   # to-do: gp - update echo above to reflect changes to branch and PR scan method
   for BRANCH in $(cat $JENKINS_HOME/workspace/workspaces.txt | grep "$VS_PARENT_JOB_NAME" | sed -e "s/%2F/\//g" | sed "s/.*\//$VS_PARENT_JOB_NAME\_/g"); do
     if [ "${VS_DEBUG^^}" == "TRUE" ]; then echo "$(eval $VS_LOG_DATESTAMP) DEBUG [$VS_SCRIPTNAME]  - found branch $BRANCH"; fi
@@ -518,7 +521,7 @@ getBranchListFromWorkspace() {
   #           for PR in [logic above | grep _PR] check PR's workspace/ci for vs-container-name file
   #           cat the file for a branch name and add those branches to BRANCH_LIST (some)
   
-  for PR in $(cat $JENKINS_HOME/workspace/workspaces.txt | grep "$VS_PARENT_JOB_NAME/PR-"); do
+  for PR in $(cat $JENKINS_HOME/workspace/workspaces.txt | grep "$VS_PARENT_JOB_NAME_FULL/PR-"); do
     PR_DIR=$(cat $JENKINS_HOME/workspace/workspaces.txt | grep -a1 "$PR" | tail -1)
     unset BRANCH VS_LAST_ENV_FOUND VS_CONTAINER_NAME_FILE_FOUND
     if [ ! -z "$JENKINS_HOME/workspace/$PR_DIR" ] && [ -d $JENKINS_HOME/workspace/$PR_DIR ]; then
@@ -569,9 +572,9 @@ getReservedPortList() {
 
 tidyContainers() {
   # tidy containers when building the "develop" branch
-  if [ "$GIT_BRANCH" == "develop" ]||[ "$VS_TIDY_CONTAINERS" == "TRUE" ]; then
-    echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] checking all containers on $NODE_NAME matching $VS_PARENT_JOB_NAME*"
-    for CONTAINER in $(docker ps -a --filter "name=$VS_PARENT_JOB_NAME*" --format "table {{.Names}}" | tail -n +2); do
+  if [ "$GIT_BRANCH" == "develop" ]||[ "${VS_TIDY_CONTAINERS^^}" == "TRUE" ]; then
+    echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] checking all containers on $NODE_NAME matching $VS_CONTAINER_NAME_BASE*"
+    for CONTAINER in $(docker ps -a --filter "name=$VS_CONTAINER_NAME_BASE*" --format "table {{.Names}}" | tail -n +2); do
       CONTAINER_MATCHED=
       ALL_CONTAINER_LIST="$ALL_CONTAINER_LIST $CONTAINER"
       #echo "checking to see if there's a branch for $CONTAINER"
@@ -695,7 +698,7 @@ findBasePort() {
 findDynamicPorts() {
   echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] finding free ports from $VS_CONTAINER_BASE_PORT in increments of $VS_CONTAINER_PORT_INCREMENT to dynamically map to other services on the new container - up to $VS_CONTAINER_DYN_PORT_MAX"
   THIS_PORT=$VS_CONTAINER_BASE_PORT
-  echo "" > $VS_MAIL_NOTIFY_BUILD_MESSAGE_EXTRA
+  echo "# " > $VS_MAIL_NOTIFY_BUILD_MESSAGE_EXTRA
   for VS_CONTAINER_INT_PORT in $(set | grep -E "^VS_CONTAINER_INT_PORT_"); do
     VS_CONTAINER_SERVICE=$(echo "$VS_CONTAINER_INT_PORT" | sed -e "s/.*_//g" | sed -e "s/=.*//g")
     VS_CONTAINER_SERVICE_PORT=$(echo "$VS_CONTAINER_INT_PORT" | sed -e "s/.*=//g")
@@ -707,7 +710,7 @@ findDynamicPorts() {
       if [ "$FREE" = "" ]; then
         #echo " - netstat says $THIS_PORT is free - using it"
 	      eval "VS_CONTAINER_EXT_PORT_"$VS_CONTAINER_SERVICE"="$THIS_PORT
-        echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME]  - service $VS_CONTAINER_SERVICE on port $VS_CONTAINER_SERVICE_PORT has been mapped to external port $THIS_PORT" >> $VS_MAIL_NOTIFY_BUILD_MESSAGE_EXTRA
+          echo "# service $VS_CONTAINER_SERVICE on port $VS_CONTAINER_SERVICE_PORT has been mapped to external port $THIS_PORT" >> $VS_MAIL_NOTIFY_BUILD_MESSAGE_EXTRA
 	      THIS_DOCKER_MAP="-p $THIS_PORT:$VS_CONTAINER_SERVICE_PORT"
 	      VS_CONTAINER_PORT_MAPPINGS="$THIS_DOCKER_MAP $VS_CONTAINER_PORT_MAPPINGS"
 	      break
@@ -729,9 +732,9 @@ findDynamicPorts() {
   for SERVICE in $VS_CONTAINER_SERVICE_LIST; do
     unset MAPPINGS
     for MAPPING in $(set | grep -E "^VS_CONTAINER_(INT|EXT)_PORT_$SERVICE"); do
-      if [ "${VS_DEBUG^^}" == "TRUE" ]; then echo "found MAPPING $MAPPING for SERVICE $SERVICE"; fi
+      if [ "${VS_DEBUG^^}" == "TRUE" ]; then echo "$(eval $VS_LOG_DATESTAMP) DEBUG [$VS_SCRIPTNAME]  found MAPPING $MAPPING for SERVICE $SERVICE"; fi
       MAPPINGS=$MAPPING" "$MAPPINGS
-      if [ "${VS_DEBUG^^}" == "TRUE" ]; then echo "added $MAPPING for $SERVICE to MAPPINGS for $MAPPINGS"; fi
+      if [ "${VS_DEBUG^^}" == "TRUE" ]; then echo "$(eval $VS_LOG_DATESTAMP) DEBUG [$VS_SCRIPTNAME]  added $MAPPING for $SERVICE to MAPPINGS for $MAPPINGS"; fi
     done
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME]  - for service $SERVICE: $MAPPINGS" 
   done
@@ -860,13 +863,12 @@ containerCreateAndStart() {
     VS_CONTAINER_EXPOSE_PORT=$VS_CONTAINER_MAIN_APP_PORT
     echo ""
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] about to create a new Docker container with:"
-    # TO-DO: (gp) write a loop to grab all the variables that should be passed to the containers so they can be passed as a single, reusable, entity
     if [ "$VS_BRXM_PERSISTENCE_METHOD" == "mysql" ]; then
-      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' --env VS_BRXM_BVC_SPA_URL="'$VS_BRXM_BVC_SPA_URL'" --env VS_BRXM_SVO_SPA_URL="'$VS_BRXM_SVO_SPA_URL'" '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
+      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
     elif [ "${VS_BUILD_TYPE^^}" == "DSSR" ]; then
-      VS_DOCKER_CMD='docker run -t -d -u $VS_CONTAINER_USR:$VS_CONTAINER_GRP --name '$VS_CONTAINER_NAME' --hostname '$VS_CONTAINER_NAME_SHORT' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --workdir '$VS_CONTAINER_WD'  --volume $VS_CONTAINER_WORKSPACE:$VS_CONTAINER_WORKSPACE:$VS_CONTAINER_VOLUME_PERMISSIONS --volume $VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_VOLUME_PERMISSIONS --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' --env VS_BRXM_BVC_SPA_URL="'$VS_BRXM_BVC_SPA_URL'" --env VS_BRXM_SVO_SPA_URL="'$VS_BRXM_SVO_SPA_URL'" $VS_CONTAINER_ENVIRONMENT '$VS_DOCKER_IMAGE_NAME' '$VS_CONTAINER_INIT_EXEC''
+      VS_DOCKER_CMD='docker run -t -d -u $VS_CONTAINER_USR:$VS_CONTAINER_GRP --name '$VS_CONTAINER_NAME' --hostname '$VS_CONTAINER_NAME_SHORT' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --workdir '$VS_CONTAINER_WD'  --volume $VS_CONTAINER_WORKSPACE:$VS_CONTAINER_WORKSPACE:$VS_CONTAINER_VOLUME_PERMISSIONS --volume $VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_VOLUME_PERMISSIONS --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' $VS_CONTAINER_ENVIRONMENT '$VS_DOCKER_IMAGE_NAME' '$VS_CONTAINER_INIT_EXEC''
     else
-      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' --env VS_BRXM_BVC_SPA_URL="'$VS_BRXM_BVC_SPA_URL'" --env VS_BRXM_SVO_SPA_URL="'$VS_BRXM_SVO_SPA_URL'" '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
+      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
     fi
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME]  - $VS_DOCKER_CMD"
     eval $VS_DOCKER_CMD
@@ -891,8 +893,8 @@ containerUpdates() {
   # check files for updated versions, if the checksum matches we've found a version of the file earlier than this script requires and want to update
   #  - this was originally seen as better than a pure versioning system as it allows a locally modified version to be used for testing without fear of overwrite
   #  - to-do: gp-20240513 replace the MD5 check with a versioning system, always overwrite the scripts with SCM versions, remove scripts from the image
-  TEST_FILES=("/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo")
-  TEST_SUMS=("5c92fa2dfbc167d0163c1dc1d8690bfa" "a15eed06d6840e95cc7d68c5223b79ae" "165ae4f494a092da25a68d70070d85fb" "69f81c5752890bcaaf237c7a92a39e5d" "7e4b0646f0cc3914ea8ee3305e5c06a7")
+  TEST_FILES=("/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "/usr/local/bin/vs-hippo" "" "/usr/local/bin/vs-test")
+  TEST_SUMS=("5c92fa2dfbc167d0163c1dc1d8690bfa" "a15eed06d6840e95cc7d68c5223b79ae" "165ae4f494a092da25a68d70070d85fb" "69f81c5752890bcaaf237c7a92a39e5d" "" "")
   for i in ${!TEST_FILES[@]}; do
     THIS_FILE="${TEST_FILES[$i]}"
     THIS_SUM="${TEST_SUMS[$i]}"
@@ -1041,35 +1043,47 @@ createBuildReport() {
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] writing mail message to $VS_MAIL_NOTIFY_BUILD_MESSAGE"
     echo "" | tee $VS_MAIL_NOTIFY_BUILD_MESSAGE
     echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "#### Feature Environment Details ##########################################" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "The site instance for branch $VS_BRANCH_NAME should now be available in a few moments on $NODE_NAME - $VS_HOST_IP_ADDRESS" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "To configure your browser session for this branch please follow this link:"
-    echo "  - $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/?vs_brxm_host=$VS_HOST_IP_ADDRESS&vs_brxm_port=$VS_CONTAINER_BASE_PORT&vs_brxm_http_host=$VS_BRXM_INSTANCE_HTTP_HOST&vs_ssr_http_port=$VS_CONTAINER_EXT_PORT_SSR&vs_tln_http_port=$VS_CONTAINER_EXT_PORT_TLN&vs_feature_branch=$BRANCH_NAME$VS_PROXY_QS_SSR" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "Thereafter, until you clear the settings, you will be able to access the environment on the following URLs" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo " - site:    $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    #echo "The CMS for the instance should now be available at:" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo " - cms:     $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/cms/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    #echo "and the Console at:" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo " - console: $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/cms/console/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo " - logs:    $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/logs/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    if [ ! -z "$VS_CONTAINER_EXT_PORT_TLN" ]; then echo " - tailon:  $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/tailon/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE; fi
-    echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "To clear the proxy server settings between sessions either close your browser or browse to:" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "  - $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/?vs_brxm_reset" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "Direct Tomcat access - available only on the Web Development LAN" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "  - http://$VS_HOST_IP_ADDRESS:$VS_CONTAINER_BASE_PORT/cms/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "  - http://$VS_HOST_IP_ADDRESS:$VS_CONTAINER_BASE_PORT/site/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "    -  both need a HOST header of \"localhost:8080\" to be passed with the request" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    if [ ! -z "$VS_CONTAINER_EXT_PORT_SSR" ]; then
-      echo "Direct SSR access - available only on the Web Development LAN" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-      echo "  - http://$VS_HOST_IP_ADDRESS:$VS_CONTAINER_EXT_PORT_SSR/site/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-      echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "#### Feature Environment Details #########################################################################################################" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# The site instance for branch $VS_BRANCH_NAME should now be available in a few moments on $NODE_NAME - $VS_HOST_IP_ADDRESS" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# To configure your browser session for this branch please follow this link:"
+    if [ "${VS_BUILD_TYPE^^}" == "BRXM" ]; then
+		  echo "#   - $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/?vs_brxm_host=$VS_HOST_IP_ADDRESS&vs_brxm_port=$VS_CONTAINER_BASE_PORT&vs_brxm_http_host=$VS_BRXM_INSTANCE_HTTP_HOST&vs_ssr_http_port=$VS_CONTAINER_EXT_PORT_SSR&vs_tln_http_port=$VS_CONTAINER_EXT_PORT_TLN&vs_feature_branch=$BRANCH_NAME$VS_PROXY_QS_SSR" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "# Thereafter, until you clear the settings, you will be able to access the environment on the following URLs" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "#  - site:    $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "#  - cms:     $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/cms/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "#  - console: $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/cms/console/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "#  - logs:    $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/logs/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    elif [ "${VS_BUILD_TYPE^^}" == "DSSR" ]; then
+		  echo "#   - $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/?vs-dssr-host=$VS_HOST_IP_ADDRESS&vs-dssr-http-port=$VS_CONTAINER_BASE_PORT&vs-brxm-host=$VS_BRXM_HOST&vs-brxm-port=$VS_BRXM_PORT&vs_brxm_http_host=$VS_BRXM_INSTANCE_HTTP_HOST&vs_tln_http_port=$VS_CONTAINER_EXT_PORT_TLN&vs_feature_branch=$BRANCH_NAME" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "# Thereafter, until you clear the settings, you will be able to access the environment on the following URLs" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "#  - site:    $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "#  - cms:     $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/cms/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "#             this will redirect you to this branch's associated BRXM site/cms" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+	fi
+	if [ ! -z "$VS_CONTAINER_EXT_PORT_TLN" ]; then
+		echo "#  - tailon:  $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/tailon/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+	fi
+    echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# To clear the proxy server settings between sessions either clear your cookies for $VS_PROXY_SERVER_FQDN or browse to:" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "#   - $VS_PROXY_SERVER_SCHEME://$VS_PROXY_SERVER_FQDN/?vs-reset" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+  	if [ "${VS_BUILD_TYPE^^}" == "BRXM" ]; then
+		  echo "# Direct Tomcat access - available only on the Digital Development network" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "#   - http://$VS_HOST_IP_ADDRESS:$VS_CONTAINER_BASE_PORT/cms/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "#   - http://$VS_HOST_IP_ADDRESS:$VS_CONTAINER_BASE_PORT/site/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "#     -  both need a HOST header of \"localhost:8080\" to be passed with the request" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    elif [ "${VS_BUILD_TYPE^^}" == "DSSR" ]; then
+		  echo "# Direct Node app access - available only on the Digital Development network" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+		  echo "#   - http://$VS_HOST_IP_ADDRESS:$VS_CONTAINER_BASE_PORT/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+	fi
+    echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    if [ ! -z "$VS_CONTAINER_EXT_PORT_SSR" ]&&[ "${VS_BUILD_TYPE^^}" == "BRXM" ]; then
+      echo "# Direct SSR access - available only on the Web Development LAN" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+      echo "#   - http://$VS_HOST_IP_ADDRESS:$VS_CONTAINER_EXT_PORT_SSR/site/" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
     fi
     if [ ! -z "$VS_BRXM_DSSR_SITES" ]; then
       echo "Resource API URLs for SPA-SDK/DSSR sites" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
@@ -1079,31 +1093,31 @@ createBuildReport() {
       echo "NOTE: the vs-no-redirect query string parameter allows the content to be served without redirecting to a bare URL"
       echo "      this is necessary to allow non-browser requests, such as those from the front-end to the resourceapi, to be served"
       echo "      to view a fully integrated SPA-SDK/DSSR site, please use the configuration URL provided by the CI job for that site/branch"
-      echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+      echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
     fi
     if [ ! -z "$VS_CONTAINER_EXT_PORT_SSH" ]; then
-      echo "SSH access (if enabled on the container) - available only on the Web Development LAN" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-      echo "  - ssh -o UserKnownHostsFile=/dev/null -p $VS_CONTAINER_EXT_PORT_SSH hippo@$VS_HOST_IP_ADDRESS ($VS_CONTAINER_SSH_PASS_HIPPO)" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-      echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+      echo "# SSH access (if enabled on the container) - available only on the Web Development LAN" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+      echo "#   - ssh -o UserKnownHostsFile=/dev/null -p $VS_CONTAINER_EXT_PORT_SSH hippo@$VS_HOST_IP_ADDRESS ($VS_CONTAINER_SSH_PASS_HIPPO)" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+      echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
     fi
     if [ -e "$VS_MAIL_NOTIFY_BUILD_MESSAGE_EXTRA" ]; then
       cat $VS_MAIL_NOTIFY_BUILD_MESSAGE_EXTRA | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
     fi
-    echo "####/Feature Environment Details ##########################################" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "" >> $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "" >> $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "####/Feature Environment Details #########################################################################################################" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# " >> $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# " >> $VS_MAIL_NOTIFY_BUILD_MESSAGE
     echo "$VS_CONTAINER_BASE_PORT" > env_port.txt
     echo "$VS_HOST_IP_ADDRESS" > env_host.txt
   else
     EXIT_CODE=127
     VS_MAIL_NOTIFY_BUILD_SUBJECT="environment build FAILED for $JOB_BASE_NAME in $VS_PARENT_JOB_NAME"
-    echo "" | tee $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "########################################################################" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "JOB FAILED because $FAIL_REASON" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
-    echo "########################################################################" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# " | tee $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "#######################################################################################################################################" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# JOB FAILED because $FAIL_REASON" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "# " | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+    echo "#######################################################################################################################################" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
     echo "" >> $VS_MAIL_NOTIFY_BUILD_MESSAGE
     echo "" >> $VS_MAIL_NOTIFY_BUILD_MESSAGE
   fi
