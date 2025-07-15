@@ -17,14 +17,14 @@
                         class="<#if row?is_first>border-top-0</#if>"
                     >
                         <template v-slot:title>
-                            <vs-icon name="${row.transport.key}" size="sm" class="me-050"></vs-icon>
+                            <vs-icon icon="fa-regular fa-${row.transport.key}" size="sm" class="me-050"></vs-icon>
                             ${row.transport.label}
                         </template>
                         <template v-slot:icon-open>
-                            <vs-icon name="chevron" size="sm" />
+                            <vs-icon icon="fa-regular fa-chevron-up" size="sm" />
                         </template>
                         <template v-slot:icon-closed>
-                            <vs-icon name="chevron" orientation="down" size="sm" />
+                            <vs-icon icon="fa-regular fa-chevron-down" orientation="down" size="sm" />
                         </template>
                         <div class="p-075">
                             <@hst.html hippohtml=row.copy/>
