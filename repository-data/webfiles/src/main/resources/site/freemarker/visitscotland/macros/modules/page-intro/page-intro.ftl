@@ -20,7 +20,7 @@
 <#include "../../../../frontend/components/vs-description-list-item.ftl">
 <#include "../../../../frontend/components/vs-alert.ftl">
 <#include "../../../../frontend/components/vs-tag-manager-wrapper.ftl">
-<#include "../../../../frontend/components/vs-blog-details.ftl">
+<#include "../../../../frontend/components/vs-article-details.ftl">
 
 <#-- @ftlvariable name="content" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#-- @ftlvariable name="heroDetails" type="com.visitscotland.brxm.model.FlatImage" -->
@@ -118,13 +118,13 @@
 
             <#if author?? && author?has_content>
                 <template
-                    v-slot:vs-blog-data
+                    v-slot:vs-article-data
                 >
-                    <vs-blog-details
-                        blog-author="<#if author.authorName?has_content>${author.authorName}</#if>"
-                        blog-publish-date="${author.publishDate}"
-                        blog-read-time="${author.readingTime}"
-                    ></vs-blog-details>
+                    <vs-article-details
+                        article-author="<#if author.authorName?has_content>${author.authorName}</#if>"
+                        article-publish-date="${author.publishDate}"
+                        article-read-time="${author.readingTime}"
+                    ></vs-article-details>
                 </template>
             </#if>
 
