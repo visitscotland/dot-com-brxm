@@ -21,7 +21,7 @@
                 </template>
 
                 <template v-slot:icon-closed>
-                    <vs-icon icon="fa-regular fa-chevron-down" orientation="down" variant="inverse" size="xs"></vs-icon>
+                    <vs-icon icon="fa-regular fa-chevron-down" variant="inverse" size="xs"></vs-icon>
                 </template>
 
                 <#if menuItem.childMenuItems?size gt 0>
