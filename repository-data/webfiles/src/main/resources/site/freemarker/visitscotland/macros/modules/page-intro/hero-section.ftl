@@ -29,7 +29,7 @@
         <vs-hero-section
             heading="${content.title}"
             lede="${content.teaser}"
-            src="${heroSrc}"
+            img-src="${heroSrc}"
             video-src="${heroVideo.link}"
             video-btn-text="${videoPlay}"
         />
