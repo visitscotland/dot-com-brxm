@@ -77,9 +77,9 @@
                                     cols="10"
                                     offset="1"
                                 >
-                                    <vs-rich-text-wrapper>
+                                    <vs-body>
                                         <p>${heroVideo.teaser}</p>
-                                    </vs-rich-text-wrapper>
+                                    </vs-body>
                                 </vs-col>
                         </@modal>
 
@@ -136,9 +136,7 @@
                 <template v-slot:vs-intro-content>
                     <@hst.html hippohtml=content.introduction/>
                     <#if isListicle>
-                        <vs-rich-text-wrapper>
-                            <p class="mt-200">${label("listicle", "listicle.disclaimer")}</p>
-                        </vs-rich-text-wrapper>
+                        <p class="mt-200">${label("listicle", "listicle.disclaimer")}</p>
                     </#if>
                 </template>
             </#if>

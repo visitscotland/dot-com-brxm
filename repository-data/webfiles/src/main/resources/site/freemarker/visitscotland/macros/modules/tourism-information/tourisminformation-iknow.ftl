@@ -32,7 +32,7 @@
                         class="mb-200 d-inline">
                     </vs-img>
 
-                    <vs-rich-text-wrapper variant="lead">
+                    <vs-body variant="lead">
                         <p class="mb-200 mb-md-300">
                             <@hst.html hippohtml=module.description/>
                         </p>
@@ -43,7 +43,7 @@
                         >
                             ${module.link.label}
                         </vs-link>
-                    </vs-rich-text-wrapper>
+                    </vs-body>
                 </vs-col>
                 <vs-col
                     cols="4"
