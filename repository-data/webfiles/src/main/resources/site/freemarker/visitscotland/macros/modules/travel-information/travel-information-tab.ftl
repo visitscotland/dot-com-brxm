@@ -48,7 +48,7 @@
                             <vs-icon icon="fa-regular fa-chevron-up" size="sm" />
                         </template>
                         <template v-slot:icon-closed>
-                            <vs-icon icon="fa-regular fa-chevron-down" orientation="down" size="sm" />
+                            <vs-icon icon="fa-regular fa-chevron-down" size="sm" />
                         </template>
                         <div class="p-075">
                             <@hst.html hippohtml=row.copy/>
