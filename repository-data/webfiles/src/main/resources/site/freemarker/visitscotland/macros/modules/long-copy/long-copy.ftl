@@ -1,5 +1,5 @@
 <#include "../../../../include/imports.ftl">
-<#include "../../../../frontend/components/vs-rich-text-wrapper.ftl">
+<#include "../../../../frontend/components/vs-body.ftl">
 <#include "../../../../frontend/components/vs-container.ftl">
 <#include "../../../../frontend/components/vs-row.ftl">
 <#include "../../../../frontend/components/vs-col.ftl">
@@ -18,9 +18,9 @@
                 xl="7"
                 class="col-xxl-6"
             >
-                <vs-rich-text-wrapper>
+                <vs-body>
                     <@hst.html hippohtml=module.copy/>
-                </vs-rich-text-wrapper>
+                </vs-body>
             </vs-col>
         </vs-row>
     </vs-container>

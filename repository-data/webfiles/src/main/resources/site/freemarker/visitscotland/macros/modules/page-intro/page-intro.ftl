@@ -20,7 +20,7 @@
 <#include "../../../../frontend/components/vs-description-list-item.ftl">
 <#include "../../../../frontend/components/vs-alert.ftl">
 <#include "../../../../frontend/components/vs-tag-manager-wrapper.ftl">
-<#include "../../../../frontend/components/vs-blog-details.ftl">
+<#include "../../../../frontend/components/vs-article-details.ftl">
 
 <#-- @ftlvariable name="content" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#-- @ftlvariable name="heroDetails" type="com.visitscotland.brxm.model.FlatImage" -->
@@ -77,9 +77,9 @@
                                     cols="10"
                                     offset="1"
                                 >
-                                    <vs-rich-text-wrapper>
+                                    <vs-body>
                                         <p>${heroVideo.teaser}</p>
-                                    </vs-rich-text-wrapper>
+                                    </vs-body>
                                 </vs-col>
                         </@modal>
 
@@ -118,13 +118,13 @@
 
             <#if author?? && author?has_content>
                 <template
-                    v-slot:vs-blog-data
+                    v-slot:vs-article-data
                 >
-                    <vs-blog-details
-                        blog-author="<#if author.authorName?has_content>${author.authorName}</#if>"
-                        blog-publish-date="${author.publishDate}"
-                        blog-read-time="${author.readingTime}"
-                    ></vs-blog-details>
+                    <vs-article-details
+                        article-author="<#if author.authorName?has_content>${author.authorName}</#if>"
+                        article-publish-date="${author.publishDate}"
+                        article-read-time="${author.readingTime}"
+                    ></vs-article-details>
                 </template>
             </#if>
 
@@ -136,9 +136,7 @@
                 <template v-slot:vs-intro-content>
                     <@hst.html hippohtml=content.introduction/>
                     <#if isListicle>
-                        <vs-rich-text-wrapper>
-                            <p class="mt-200">${label("listicle", "listicle.disclaimer")}</p>
-                        </vs-rich-text-wrapper>
+                        <p class="mt-200">${label("listicle", "listicle.disclaimer")}</p>
                     </#if>
                 </template>
             </#if>
