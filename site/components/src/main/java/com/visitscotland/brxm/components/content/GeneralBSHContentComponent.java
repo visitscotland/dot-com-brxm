@@ -37,6 +37,8 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
         this.builder = VsComponentManager.get(PageTemplateBuilder.class);
     }
 
+
+
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);

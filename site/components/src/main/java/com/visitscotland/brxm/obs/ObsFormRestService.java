@@ -4,6 +4,7 @@ import com.visitscotland.brxm.obs.form.Form;
 import com.visitscotland.brxm.obs.model.FormBuilder;
 import com.visitscotland.brxm.obs.model.Function;
 import com.visitscotland.brxm.obs.model.Provider;
+import com.visitscotland.brxm.obs.model.SpreadSheetRequest;
 import com.visitscotland.brxm.utils.VsException;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -11,9 +12,7 @@ import org.hippoecm.hst.jaxrs.services.AbstractResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpSession;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
@@ -88,16 +87,20 @@ public class ObsFormRestService extends AbstractResource {
                               @RequestBody Map<String, String> body
     ) {
         try {
-
-
-            return Response.ok().entity(shortlist(body)).build();
-
+            return Response.ok().entity(generateRequestBody(body)).build();
         } catch (VsException e){
             return Response.serverError().build();
         }
     }
 
 
+    private SpreadSheetRequest generateRequestBody(Map<String, String> body){
+        SpreadSheetRequest requestBody = new SpreadSheetRequest();
+        requestBody.setFunctions(new ComparisonMapper().getFunctions());
+        requestBody.setProviders(shortlist(body));
+
+        return requestBody;
+    }
 
     private List<Provider> shortlist(Map<String, String> body){
         List<Provider> provider = new ComparisonMapper().getProviders();
