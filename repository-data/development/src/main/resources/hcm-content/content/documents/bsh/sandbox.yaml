@@ -5554,34 +5554,34 @@
     /comparator:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-      jcr:uuid: a50c4c71-1ad0-4724-8abd-b717c70605ef
+      jcr:uuid: bca566e5-219f-4820-8400-0ee20559602a
       hippo:name: Comparison Tool
-      hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
-      hippotranslation:id: 208a4f31-8a7b-4528-9f8d-89044a4cbab2
+      hippostd:foldertype: []
+      hippotranslation:id: eb34ef63-de24-4f8f-9452-ee5eed4d005c
       hippotranslation:locale: en
       /online-booking-provider:
         jcr:primaryType: hippostd:folder
         jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-        jcr:uuid: 3eaf3b9a-0cd3-4b77-aab7-350c4299ea53
+        jcr:uuid: f089f0a5-e494-4e3e-912e-1f679f6b40cb
         hippo:name: Online Booking Provider
-        hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
-        hippotranslation:id: 438bc8bd-c033-4275-b167-102bb758cca1
+        hippostd:foldertype: []
+        hippotranslation:id: 61c95f41-38a3-45cf-9ffd-643d0a7b959e
         hippotranslation:locale: en
         /feature:
           jcr:primaryType: hippostd:folder
           jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-          jcr:uuid: 7cb4ffdb-27cc-4559-866e-74f041e00f5b
+          jcr:uuid: 943a178f-3651-40f3-99e9-f795028a6a0b
           hippo:name: Feature
-          hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
-          hippotranslation:id: 32f2db00-847e-441e-b36d-f2fd24242f4d
+          hippostd:foldertype: [new-bsh-comparator-feature]
+          hippotranslation:id: 700280b0-503b-44d9-a74d-bbab119cf0cb
           hippotranslation:locale: en
-        /provider:
+        /system:
           jcr:primaryType: hippostd:folder
           jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
-          jcr:uuid: 2d119986-735f-4637-a677-207b5c06594e
+          jcr:uuid: d385341a-928d-468f-b633-16c82aad7d3e
           hippo:name: Provider
-          hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
-          hippotranslation:id: e0cdd95b-e45f-4f1b-b2ad-d7b2b2b476be
+          hippostd:foldertype: [new-bsh-comparator-system]
+          hippotranslation:id: 09aa678f-fef7-4741-a655-479fb01176b8
           hippotranslation:locale: en
   /pages:
     jcr:primaryType: hippostd:folder
