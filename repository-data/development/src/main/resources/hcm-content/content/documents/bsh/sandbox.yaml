@@ -5575,6 +5575,351 @@
           hippostd:foldertype: [new-bsh-comparator-feature]
           hippotranslation:id: 700280b0-503b-44d9-a74d-bbab119cf0cb
           hippotranslation:locale: en
+          /online-booking-process:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: a27afbbb-d5bf-41db-8020-8dcd86b8a38f
+            hippo:name: Online Booking Process
+            hippo:versionHistory: 68d6da65-3ca2-4e2d-9598-7482b3fe665b
+            /online-booking-process[1]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 6d3d217b-267b-4951-9fd4-b5cc91bb6849
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:13:06.035+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:13:06.036+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 1350b482-be3c-44f9-a0cb-a0712236f10b
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Accept bookings through a website
+              visitscotland:id: online-booking-process
+            /online-booking-process[2]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 27e0c439-f2de-4b27-8e87-2aac08e197d0
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:13:06.035+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:13:51.280+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 1350b482-be3c-44f9-a0cb-a0712236f10b
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Accept bookings through a website
+              visitscotland:id: online-booking-process
+            /online-booking-process[3]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: b77a7b85-c338-47fe-9815-cedc711d08fd
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:13:06.035+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:13:51.280+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2025-07-18T20:18:17.495+01:00
+              hippotranslation:id: 1350b482-be3c-44f9-a0cb-a0712236f10b
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Accept bookings through a website
+              visitscotland:id: online-booking-process
+          /pricing-funciontality:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: e3e14b1a-f621-4f05-9dd7-2978d21cfaba
+            hippo:name: Pricing funciontality
+            hippo:versionHistory: 5fef7e30-b8da-428e-a808-ffc3e9e00338
+            /pricing-funciontality[1]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: b5d203d1-9b47-4894-a877-37549f397254
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:14:11.442+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:14:11.442+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 8db37570-90a1-4538-8410-230d62a5da1b
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Options to support a variety of ticket/pricing
+                models including free entrance, discounts, deposits a
+              visitscotland:id: pricing-funcionality
+            /pricing-funciontality[2]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: ed49644f-1543-4dc6-ac52-6c32dedb7e63
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:14:11.442+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:14:28.627+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 8db37570-90a1-4538-8410-230d62a5da1b
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Options to support a variety of ticket/pricing
+                models including free entrance, discounts, deposits a
+              visitscotland:id: pricing-funcionality
+            /pricing-funciontality[3]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 7a9c24e5-3958-4819-92ce-2e860de987ee
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:14:11.442+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:14:28.627+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2025-07-18T20:18:17.633+01:00
+              hippotranslation:id: 8db37570-90a1-4538-8410-230d62a5da1b
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Options to support a variety of ticket/pricing
+                models including free entrance, discounts, deposits a
+              visitscotland:id: pricing-funcionality
+          /cloud-based-updates:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 9550fabb-96d6-465f-b757-7e98a536a3c6
+            hippo:name: Cloud-based updates
+            hippo:versionHistory: 82012d62-c90f-47ab-8f83-8984b36c3423
+            /cloud-based-updates[1]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: cb62fdbd-48fe-49b2-a5c8-4d3ed6eda684
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:15:21.292+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:15:21.292+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 03c2adbc-1466-47e9-b7df-9bcae0f41267
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Cloud-based updates i.e. you should be able
+                to update availability and pricing remotely
+              visitscotland:id: cloud-based-updates
+            /cloud-based-updates[2]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 4187e451-8a5a-45bb-ab26-f5da610e9979
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:15:21.292+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:15:37.483+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 03c2adbc-1466-47e9-b7df-9bcae0f41267
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Cloud-based updates i.e. you should be able
+                to update availability and pricing remotely
+              visitscotland:id: cloud-based-updates
+            /cloud-based-updates[3]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 9401c3bf-e63b-4a7d-9b44-e48b25846bf2
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:15:21.292+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:15:37.483+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2025-07-18T20:18:17.675+01:00
+              hippotranslation:id: 03c2adbc-1466-47e9-b7df-9bcae0f41267
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Cloud-based updates i.e. you should be able
+                to update availability and pricing remotely
+              visitscotland:id: cloud-based-updates
+          /social-media:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 098de520-b58c-4f9a-8c26-cc8d56dc9a82
+            hippo:name: Social media
+            hippo:versionHistory: c1f392fc-4a12-4dc8-bf96-348c82c234eb
+            /social-media[1]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 63118a32-3de5-4cd1-9f9f-32906b857380
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:15:54.478+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:15:54.478+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 46e96635-b546-4b06-ab2c-f38d01fc0b0b
+              hippotranslation:locale: en
+              visitscotland:category: customer
+              visitscotland:description: A booking widget/link for use on social media
+                platforms
+              visitscotland:id: social-media
+            /social-media[2]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 91941520-3f81-4d67-84df-37258a893e70
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:15:54.478+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:16:07.394+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 46e96635-b546-4b06-ab2c-f38d01fc0b0b
+              hippotranslation:locale: en
+              visitscotland:category: customer
+              visitscotland:description: A booking widget/link for use on social media
+                platforms
+              visitscotland:id: social-media
+            /social-media[3]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 19efd360-4947-4b90-97ba-957fc46db87f
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:15:54.478+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:16:07.394+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2025-07-18T20:18:17.709+01:00
+              hippotranslation:id: 46e96635-b546-4b06-ab2c-f38d01fc0b0b
+              hippotranslation:locale: en
+              visitscotland:category: customer
+              visitscotland:description: A booking widget/link for use on social media
+                platforms
+              visitscotland:id: social-media
+          /ota-apis:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 3ebcc8be-3ffb-4c16-b865-dcc45de917af
+            hippo:name: OTA APIs
+            hippo:versionHistory: f8bf9199-7a97-401a-8b10-7cbb1257ce82
+            /ota-apis[1]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: e8ddd91f-c222-4bbb-8521-70f6897dde71
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:16:23.606+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:16:23.606+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: b514eb7b-068d-4313-be49-8ecb7b4913a8
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Connects directly to the systems of online
+                travel agents (OTAs) to distribute live availability
+              visitscotland:id: ota-apis
+            /ota-apis[2]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 26af3ce0-4bab-4869-a36c-80e2d449b4e9
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:16:23.606+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:16:50.199+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: b514eb7b-068d-4313-be49-8ecb7b4913a8
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Connects directly to the systems of online
+                travel agents (OTAs) to distribute live availability
+              visitscotland:id: ota-apis
+            /ota-apis[3]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 5316fc8b-b7dc-4b0f-acd9-f17cacf37478
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:16:23.606+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:16:50.199+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2025-07-18T20:18:17.570+01:00
+              hippotranslation:id: b514eb7b-068d-4313-be49-8ecb7b4913a8
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: Connects directly to the systems of online
+                travel agents (OTAs) to distribute live availability
+              visitscotland:id: ota-apis
+          /online-booking-process-device-compatibility:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 360c457a-974b-4b5f-b48a-e782b07070f9
+            hippo:name: Online booking process device compatibility
+            hippo:versionHistory: 15eb615b-31df-446a-93a8-99adb94970f5
+            /online-booking-process-device-compatibility[1]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 7eacab5b-0d38-4fa6-8964-091acdc35633
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:17:39.691+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:17:39.691+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 7d20c160-bc17-4e81-a2b5-ba7bb66f5592
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: The online booking system should function
+                on mobile, desktop and tablet devices
+              visitscotland:id: online-booking
+            /online-booking-process-device-compatibility[2]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 0b2fa457-c51d-4d15-8757-a4b74877a16d
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:17:39.691+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:18:04.438+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 7d20c160-bc17-4e81-a2b5-ba7bb66f5592
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: The online booking system should function
+                on mobile, desktop and tablet devices
+              visitscotland:id: online-booking
+            /online-booking-process-device-compatibility[3]:
+              jcr:primaryType: visitscotland:ComparatorFeature
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 49e2a2b8-afc0-4908-9812-9d87b5cc8a33
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:17:39.691+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:18:04.438+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2025-07-18T20:18:10.297+01:00
+              hippotranslation:id: 7d20c160-bc17-4e81-a2b5-ba7bb66f5592
+              hippotranslation:locale: en
+              visitscotland:category: integration
+              visitscotland:description: The online booking system should function
+                on mobile, desktop and tablet devices
+              visitscotland:id: online-booking
         /system:
           jcr:primaryType: hippostd:folder
           jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -5583,6 +5928,280 @@
           hippostd:foldertype: [new-bsh-comparator-system]
           hippotranslation:id: 09aa678f-fef7-4741-a655-479fb01176b8
           hippotranslation:locale: en
+          /provider-1---all-functionalities:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: c6b94b05-6b48-4e1a-821d-6b358e3e5ff3
+            hippo:name: Provider 1 - All Functionalities
+            hippo:versionHistory: a4a09a76-40ad-425b-bcca-2d2d7c024e78
+            /provider-1---all-functionalities[1]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 08f2c991-913c-46b7-965c-0ea17b0acda7
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:18:52.551+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:23:24.119+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 4af954ca-785c-49a8-b8d6-fcef0cab8818
+              hippotranslation:locale: en
+              visitscotland:features: [online-booking-process, pricing-funcionality,
+                cloud-based-updates, social-media, ota-apis, payment-processing, online-booking,
+                crm, email, business-support, whatever, system-training-support]
+              visitscotland:name: Provider 1
+              visitscotland:url: http://www.best-provider.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>This provider has everything you need and also
+                  what you don't need (and I am not talking about the prohibite price)</p>
+            /provider-1---all-functionalities[2]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 0976dc2b-29dc-49e2-8559-94c1f3e69020
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:18:52.551+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:23:31.034+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 4af954ca-785c-49a8-b8d6-fcef0cab8818
+              hippotranslation:locale: en
+              visitscotland:features: [online-booking-process, pricing-funcionality,
+                cloud-based-updates, social-media, ota-apis, payment-processing, online-booking,
+                crm, email, business-support, whatever, system-training-support]
+              visitscotland:name: Provider 1
+              visitscotland:url: http://www.best-provider.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>This provider has everything you need and also
+                  what you don't need (and I am not talking about the prohibite price)</p>
+            /provider-1---all-functionalities[3]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: c9e14e69-033d-454e-9662-659330121928
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:18:52.551+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:23:31.034+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2025-07-18T20:30:46.900+01:00
+              hippotranslation:id: 4af954ca-785c-49a8-b8d6-fcef0cab8818
+              hippotranslation:locale: en
+              visitscotland:features: [online-booking-process, pricing-funcionality,
+                cloud-based-updates, social-media, ota-apis, payment-processing, online-booking,
+                crm, email, business-support, whatever, system-training-support]
+              visitscotland:name: Provider 1
+              visitscotland:url: http://www.best-provider.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>This provider has everything you need and also
+                  what you don't need (and I am not talking about the prohibite price)</p>
+          /provider-2---only-basic:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 4c81b595-3e5d-498b-97d6-248f46bcb643
+            hippo:name: Provider 2 - Basic
+            hippo:versionHistory: 67c3141d-c9e7-4a5c-9f04-1dd698d70069
+            /provider-2---only-basic[1]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: bbf2bfd5-6554-423c-8409-aa925fc3775c
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:21:26.973+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:23:33.390+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: e18826d2-74e3-4b06-9d87-1732200b82ad
+              hippotranslation:locale: en
+              visitscotland:features: [online-booking-process]
+              visitscotland:name: Provider 2 - Only Booking Process
+              visitscotland:url: https://www.basic.provider.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>It is free.... free of funcionalities. Competitive
+                  price :)</p>
+            /provider-2---only-basic[2]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 667920d6-aa4c-41d8-bd3e-107bddbae481
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:21:26.973+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:23:21.325+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: e18826d2-74e3-4b06-9d87-1732200b82ad
+              hippotranslation:locale: en
+              visitscotland:features: [online-booking-process]
+              visitscotland:name: Provider 2 - Only Booking Process
+              visitscotland:url: https://www.basic.provider.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>It is free.... free of funcionalities. Competitive
+                  price :)</p>
+            /provider-2---only-basic[3]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: c14d6740-b4d9-4485-b979-0522fb66b30c
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:21:26.973+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:23:21.325+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2025-07-18T20:30:46.838+01:00
+              hippotranslation:id: e18826d2-74e3-4b06-9d87-1732200b82ad
+              hippotranslation:locale: en
+              visitscotland:features: [online-booking-process]
+              visitscotland:name: Provider 2 - Only Booking Process
+              visitscotland:url: https://www.basic.provider.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>It is free.... free of funcionalities. Competitive
+                  price :)</p>
+          /provider-3---all-integrations:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 5211bb64-33bc-4e2a-bb9f-7872cc43da67
+            hippo:name: Provider 3 - All Integrations
+            hippo:versionHistory: 6e8f2b20-808a-4889-b290-b60939874bec
+            /provider-3---all-integrations[1]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: ffff7aef-a6d6-4049-b715-1f1d9c485df0
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:21:26.973+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:29:25.893+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: b5d0aba0-e9d8-42ee-8ea0-1f69153f4550
+              hippotranslation:locale: en
+              visitscotland:features: [online-booking-process, pricing-funcionality,
+                cloud-based-updates, ota-apis, payment-processing, online-booking,
+                crm]
+              visitscotland:name: Provider 3 - Integrable
+              visitscotland:url: https://www.integration-provider.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>You can integrate this in any sytem</p>
+            /provider-3---all-integrations[2]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: b803c583-6c16-4fb7-a8a6-6dea8ecc61b7
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:21:26.973+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:24:29.283+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: b5d0aba0-e9d8-42ee-8ea0-1f69153f4550
+              hippotranslation:locale: en
+              visitscotland:features: [online-booking-process, pricing-funcionality,
+                cloud-based-updates, ota-apis, payment-processing, online-booking,
+                crm]
+              visitscotland:name: Provider 3 - Integrable
+              visitscotland:url: https://www.integration-provider.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>You can integrate this in any sytem</p>
+            /provider-3---all-integrations[3]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 1007d0e3-e575-4cb5-8746-0591ecc282e0
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:21:26.973+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:29:25.893+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2025-07-18T20:30:46.690+01:00
+              hippotranslation:id: b5d0aba0-e9d8-42ee-8ea0-1f69153f4550
+              hippotranslation:locale: en
+              visitscotland:features: [online-booking-process, pricing-funcionality,
+                cloud-based-updates, ota-apis, payment-processing, online-booking,
+                crm]
+              visitscotland:name: Provider 3 - Integrable
+              visitscotland:url: https://www.integration-provider.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>You can integrate this in any sytem</p>
+          /provider-0---nothing:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 8a458540-3498-4540-b8a5-ddcc8ce16770
+            hippo:name: Provider 0 - Nothing
+            hippo:versionHistory: 35c9137c-cde9-4578-9328-b8f875ad62f6
+            /provider-0---nothing[1]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: 4ea2410c-e954-49d5-ac9a-14f95389fd29
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:21:26.973+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:30:35.120+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: b194a6b8-6f7f-4022-9591-b1caa4b9a5cd
+              hippotranslation:locale: en
+              visitscotland:features: []
+              visitscotland:name: Provider 0 - Missingno
+              visitscotland:url: https://www.missingno.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>This provider should no appear</p>
+            /provider-0---nothing[2]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 205bd0ca-a282-4777-8528-a66ec2bcb796
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:21:26.973+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:29:56.586+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: b194a6b8-6f7f-4022-9591-b1caa4b9a5cd
+              hippotranslation:locale: en
+              visitscotland:features: []
+              visitscotland:name: Provider 0 - Missingno
+              visitscotland:url: https://www.missingno.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>This provider should no appear</p>
+            /provider-0---nothing[3]:
+              jcr:primaryType: visitscotland:ComparatorSystem
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 5d4a17c2-f318-47a9-a77c-e183da043431
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-07-18T20:21:26.973+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-18T20:30:35.120+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2025-07-18T20:30:46.771+01:00
+              hippotranslation:id: b194a6b8-6f7f-4022-9591-b1caa4b9a5cd
+              hippotranslation:locale: en
+              visitscotland:features: []
+              visitscotland:name: Provider 0 - Missingno
+              visitscotland:url: https://www.missingno.com
+              /visitscotland:description:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>This provider should no appear</p>
   /pages:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
