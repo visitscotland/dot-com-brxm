@@ -1,0 +1,57 @@
+/content/documents/administration/obs/functions:
+  .meta:order-before: contract-fees
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 5635dbc2-b4bb-4ccc-9c9a-553b30961496
+  hippo:name: Functions
+  /functions:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 954aa22e-3f22-43ca-8f13-5a6eef376e95
+    hippo:availability: [live, preview]
+    hippotranslation:id: 4696f27e-c9a5-45bd-81a1-8500bde1ddee
+    hippotranslation:locale: en
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: online-booking-process
+      selection:label: Online Booking Process
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: pricing-funcionality
+      selection:label: Pricing funciontality
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: cloud-based-updates
+      selection:label: Cloud-based updates
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: social-media
+      selection:label: Social media
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: ota-apis
+      selection:label: OTA APIs
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: payment-processing
+      selection:label: Payment Processing
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: online-booking
+      selection:label: Online booking process device  compatibility
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: crm
+      selection:label: Customer profiles, CRM
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: email
+      selection:label: Email/Marketing Platform
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: business-support
+      selection:label: Business support
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: whatever
+      selection:label: Whatever
