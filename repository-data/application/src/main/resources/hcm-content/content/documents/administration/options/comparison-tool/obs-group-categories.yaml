@@ -1,9 +1,9 @@
-/content/documents/administration/options/comparison-tool/online-booking-system---group-categories:
+/content/documents/administration/options/comparison-tool/obs-group-categories:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: f4eca331-008a-407e-ad8d-c86842560fce
   hippo:name: Online Booking System - Group Categories
-  /online-booking-system---group-categories:
+  /obs-group-categories:
     jcr:primaryType: selection:valuelist
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
     jcr:uuid: c15f9804-8646-42a7-bf70-0e9685f7c212

@@ -1,9 +1,9 @@
-/content/documents/administration/options/comparison-tool/online-booking-system---contract-fees:
+/content/documents/administration/options/comparison-tool/obs-contract-fees:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: f0cae318-d811-4076-8a31-aab7535a701d
   hippo:name: Online Booking System - Contract Fees
-  /online-booking-system---contract-fees:
+  /obs-contract-fees:
     jcr:primaryType: selection:valuelist
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
     jcr:uuid: 04f95f71-a47f-4239-82f6-078a60ce4d3c

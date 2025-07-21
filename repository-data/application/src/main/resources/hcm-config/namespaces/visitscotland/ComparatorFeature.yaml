@@ -91,7 +91,7 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/comparison-tool/online-booking-system---features
+              source: /content/documents/administration/options/comparison-tool/obs-features
           /description:
             jcr:primaryType: frontend:plugin
             caption: Short Description
@@ -111,4 +111,4 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/comparison-tool/online-booking-system---group-categories
+              source: /content/documents/administration/options/comparison-tool/obs-group-categories
