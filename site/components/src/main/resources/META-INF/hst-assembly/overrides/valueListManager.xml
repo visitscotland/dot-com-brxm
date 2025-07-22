@@ -17,8 +17,8 @@
                 <entry key="bsh-content-types" value="/content/documents/administration/options/business-support-hub/content-types"/>
                 <entry key="bsh-industry-event-types" value="/content/documents/administration/options/business-support-hub/event-types---industry-events"/>
                 <entry key="bsh-training-topics" value="/content/documents/administration/options/business-support-hub/topics---training-events"/>
-                <entry key="bsh-obs-features" value="/content/documents/administration/options/comparison-tool/online-booking-system---features"/>
-                <entry key="bsh-obs-groups" value="/content/documents/administration/options/comparison-tool/online-booking-system---group-categories"/>
+                <entry key="bsh-obs-features" value="/content/documents/administration/options/comparison-tool/obs-features"/>
+                <entry key="bsh-obs-groups" value="/content/documents/administration/options/comparison-tool/obs-group-categories"/>
             </map>
         </constructor-arg>
     </bean>
