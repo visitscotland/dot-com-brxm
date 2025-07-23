@@ -5,23 +5,10 @@ import com.visitscotland.brxm.model.Module;
 
 import java.util.List;
 
-public class ComparisonModule extends Module<DevModule> {
+public class ShortListModule extends Module<DevModule> {
 
-    List<Feature> features;
     List<Provider> providers;
-
-    public ComparisonModule(DevModule document) {
-        setHippoBean(document);
-    }
-
-    //TODO: TO BE RENAMED
-    public List<Feature> getFunctions() {
-        return features;
-    }
-
-    public void setFunctions(List<Feature> functions) {
-        this.features = functions;
-    }
+    List<Feature> functions;
 
     public List<Provider> getProviders() {
         return providers;
@@ -29,5 +16,13 @@ public class ComparisonModule extends Module<DevModule> {
 
     public void setProviders(List<Provider> providers) {
         this.providers = providers;
+    }
+
+    public List<Feature> getFunctions() {
+        return functions;
+    }
+
+    public void setFunctions(List<Feature> functions) {
+        this.functions = functions;
     }
 }
