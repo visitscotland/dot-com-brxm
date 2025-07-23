@@ -90,80 +90,52 @@
 </#function>
 
 <#function getDMSIconName dmsKey="">
-    <#if dmsKey == "accesstoliet">
-        <#return "fa-kit fa-vs-accessible-toilet">
-    <#elseif dmsKey == "accessparkdrop">
-        <#return "fa-kit fa-vs-accessible-parking">
-    <#elseif dmsKey == "acco">
-        <#return "fa-regular fa-bed">
-    <#elseif dmsKey == "attr">
-        <#return "fa-regular fa-attractions">
-    <#elseif dmsKey == "audioloop">
-        <#return "fa-regular fa-ear-listen">
-    <#elseif dmsKey == "cafereston">
-        <#return "fa-regular fa-mug-saucer">
-    <#elseif dmsKey == "cate">
-        <#return "fa-regular fa-utensils">
-    <#elseif dmsKey == "cities" || dmsKey == "city">
-        <#return "fa-regular fa-city">
-    <#elseif dmsKey == "cycling">
-        <#return "fa-regular fa-person-biking">
-    <#elseif dmsKey == "dsblaccess" || dmsKey == "wheelchairaccess">
-        <#return "fa-regular fa-wheelchair">
-    <#elseif dmsKey == "even">
-        <#return "fa-regular fa-calendar-range">
-    <#elseif dmsKey == "familyev">
-        <#return "fa-regular fa-family">
-    <#elseif dmsKey == "filmev">
-        <#return "fa-regular fa-camera-movie">
-    <#elseif dmsKey == "hottub">
-        <#return "fa-regular fa-hot-tub-person">
-    <#elseif dmsKey == "parking">
-        <#return "fa-regular fa-square-parking">
-    <#elseif dmsKey == "petswelcom">
-        <#return "fa-regular fa-dog-leashed">
-    <#elseif dmsKey == "wifi">
-        <#return "fa-regular fa-wifi">
-    <#elseif dmsKey == "public" || dmsKey == "pubtranrte">
-        <#return "fa-kit fa-vs-public-transport">
-    <#elseif dmsKey == "reta">
-        <#return "fa-regular fa-bag-shopping">
-    <#elseif dmsKey == "spahealth">
-        <#return "fa-regular fa-spa">
-    <#elseif dmsKey == "vege">
-        <#return "fa-kit fa-vs-vegan">
-    <#elseif dmsKey == "walking" || dmsKey == "walk">
-        <#return "fa-regular fa-person-walking">
-    <#elseif dmsKey == "boat">
-        <#return "fa-regular fa-ship">
-    <#elseif dmsKey == "transport">
-        <#return "fa-regular fa-taxi-bus">
-    <#elseif dmsKey == "brekavail">
-        <#return "fa-regular fa-egg-fried">
-    <#elseif dmsKey == "wetroom">
-        <#return "fa-kit fa-vs-accessible-shower">
-    <#elseif dmsKey == "car">
-        <#return "fa-regular fa-car-side">
-    <#elseif dmsKey == "boat">
-        <#return "fa-regular fa-ferry">
-    <#elseif dmsKey == "map-marker">
-        <#return "fa-regular fa-location-dot">
-    <#elseif dmsKey == "tram">
-        <#return "fa-regular fa-train-subway">
-    <#elseif dmsKey == "acti">
-        <#return "fa-regular fa-person-hiking">
-    <#elseif dmsKey == "castle">
-        <#return "fa-regular fa-chess-rook">
-    <#elseif dmsKey == "history">
-        <#return "fa-regular fa-landmark">
-    <#elseif dmsKey == "islands">
-        <#return "fa-regular fa-island-tropical">
-    <#elseif dmsKey == "landscapes" || dmsKey == "landscape">
-        <#return "fa-regular fa-mountain">
-    <#elseif dmsKey == "sightseeing">
-        <#return "fa-regular fa-binoculars">
-    <#elseif dmsKey == "whisky">
-        <#return "fa-regular fa-whiskey-glass-ice">
+    <#assign iconMap = {
+        "accesstoliet": "fa-kit fa-vs-accessible-toilet",
+        "accessparkdrop": "fa-kit fa-vs-accessible-parking",
+        "acco": "fa-regular fa-bed",
+        "attr": "fa-regular fa-attractions",
+        "audioloop": "fa-regular fa-ear-listen",
+        "cafereston": "fa-regular fa-mug-saucer",
+        "cate": "fa-regular fa-utensils",
+        "cities": "fa-regular fa-city",
+        "city": "fa-regular fa-city",
+        "cycling": "fa-regular fa-person-biking",
+        "dsblaccess": "fa-regular fa-wheelchair",
+        "wheelchairaccess": "fa-regular fa-wheelchair",
+        "even": "fa-regular fa-calendar-range",
+        "familyev": "fa-regular fa-family",
+        "filmev": "fa-regular fa-camera-movie",
+        "hottub": "fa-regular fa-hot-tub-person",
+        "parking": "fa-regular fa-square-parking",
+        "petswelcom": "fa-regular fa-dog-leashed",
+        "wifi": "fa-regular fa-wifi",
+        "public": "fa-kit fa-vs-public-transport",
+        "pubtranrte": "fa-kit fa-vs-public-transport",
+        "reta": "fa-regular fa-bag-shopping",
+        "spahealth": "fa-regular fa-spa",
+        "vege": "fa-kit fa-vs-vegan",
+        "walking": "fa-regular fa-person-walking",
+        "walk": "fa-regular fa-person-walking",
+        "boat": "fa-regular fa-ferry",
+        "transport": "fa-regular fa-taxi-bus",
+        "brekavail": "fa-regular fa-egg-fried",
+        "wetroom": "fa-kit fa-vs-accessible-shower",
+        "car": "fa-regular fa-car-side",
+        "map-marker": "fa-regular fa-location-dot",
+        "tram": "fa-regular fa-train-subway",
+        "acti": "fa-regular fa-person-hiking",
+        "castle": "fa-regular fa-chess-rook",
+        "history": "fa-regular fa-landmark",
+        "islands": "fa-regular fa-island-tropical",
+        "landscapes": "fa-regular fa-mountain",
+        "landscape": "fa-regular fa-mountain",
+        "sightseeing": "fa-regular fa-binoculars",
+        "whisky": "fa-regular fa-whiskey-glass-ice"
+    }>
+
+    <#if iconMap[dmsKey]??>
+        <#return iconMap[dmsKey]>
     <#else>
         <#return "fa-regular fa-" + dmsKey>
     </#if>
