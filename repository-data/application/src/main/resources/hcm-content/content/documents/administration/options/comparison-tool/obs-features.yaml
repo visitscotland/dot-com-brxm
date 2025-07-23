@@ -53,13 +53,5 @@
       selection:label: Business support
     /selection:listitem[11]:
       jcr:primaryType: selection:listitem
-      selection:key: whatever
-      selection:label: Whatever
-    /selection:listitem[12]:
-      jcr:primaryType: selection:listitem
       selection:key: system-training-support
       selection:label: System training/support
-    /selection:listitem[13]:
-      jcr:primaryType: selection:listitem
-      selection:key: ''
-      selection:label: ''
