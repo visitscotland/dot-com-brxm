@@ -9588,56 +9588,6 @@
               jcr:primaryType: hippostd:html
               hippostd:content: <p>This page disnae maiter. It wull be replaced by
                 a copy o' th' real yin&nbsp;</p>
-        /obs---shortlist:
-          jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-          jcr:uuid: 014c297d-bee1-4ef9-bf0e-ca3b8e8750a5
-          hippo:name: OBS - Shortlist
-          hippo:versionHistory: 4bdac3c0-d289-4f27-bfda-4f7fd2912c13
-          /obs---shortlist[1]:
-            jcr:primaryType: visitscotland:Bespoke
-            jcr:mixinTypes: ['mix:versionable']
-            jcr:uuid: 55f80c18-86cb-493a-9736-080d9a37b1cc
-            hippo:availability: [preview]
-            hippostd:retainable: false
-            hippostd:state: unpublished
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2025-07-21T09:35:59.107+01:00
-            hippostdpubwf:lastModificationDate: 2025-07-21T09:39:04.156+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 6873b727-9769-46fe-8bc2-a7aed372446b
-            hippotranslation:locale: en
-            visitscotland:id: obs-results
-          /obs---shortlist[2]:
-            jcr:primaryType: visitscotland:Bespoke
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 93445e8b-1ce2-4732-b62c-f97cf18f0c30
-            hippo:availability: []
-            hippostd:retainable: false
-            hippostd:state: draft
-            hippostd:transferable: false
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2025-07-21T09:35:59.107+01:00
-            hippostdpubwf:lastModificationDate: 2025-07-22T14:45:46.906+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 6873b727-9769-46fe-8bc2-a7aed372446b
-            hippotranslation:locale: en
-            visitscotland:id: obs-results
-          /obs---shortlist[3]:
-            jcr:primaryType: visitscotland:Bespoke
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: e6f25241-13ba-4aec-8e58-37c0ce5b1893
-            hippo:availability: [live]
-            hippostd:retainable: false
-            hippostd:state: published
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2025-07-21T09:35:59.107+01:00
-            hippostdpubwf:lastModificationDate: 2025-07-21T09:39:04.156+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-07-23T11:25:11.055+01:00
-            hippotranslation:id: 6873b727-9769-46fe-8bc2-a7aed372446b
-            hippotranslation:locale: en
-            visitscotland:id: obs-results
         /dev---results:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -9749,40 +9699,6 @@
                 jcr:primaryType: visitscotland:Entry
                 visitscotland:key: ''
                 visitscotland:value: ''
-      /events-form:
-        jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-        jcr:uuid: ac8a3f3c-3a4d-4cf3-8369-78829a06d919
-        hippo:name: OBS - Input Form
-        /events-form[1]:
-          jcr:primaryType: visitscotland:Bespoke
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 8ad8d3ad-4bd4-4ca9-93dc-43ef671dbed6
-          hippo:availability: []
-          hippostd:retainable: false
-          hippostd:state: draft
-          hippostd:transferable: false
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-07-21T09:35:59.107+01:00
-          hippostdpubwf:lastModificationDate: 2025-07-22T14:31:06.720+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 8c22c0d7-3f21-4d0a-8eae-440357fe5d17
-          hippotranslation:locale: en
-          visitscotland:id: obs-form
-        /events-form[2]:
-          jcr:primaryType: visitscotland:Bespoke
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: 13f13a4b-5095-4b02-87f0-8ab4d87c90be
-          hippo:availability: [preview]
-          hippostd:retainable: false
-          hippostd:state: unpublished
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-07-21T09:35:59.107+01:00
-          hippostdpubwf:lastModificationDate: 2025-07-21T09:37:34.611+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 8c22c0d7-3f21-4d0a-8eae-440357fe5d17
-          hippotranslation:locale: en
-          visitscotland:id: obs-form
       /dev---input-form:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
