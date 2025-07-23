@@ -5586,15 +5586,16 @@
               jcr:mixinTypes: ['mix:referenceable']
               jcr:uuid: 6d3d217b-267b-4951-9fd4-b5cc91bb6849
               hippo:availability: []
+              hippostd:holder: admin
               hippostd:retainable: false
               hippostd:state: draft
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2025-07-18T20:13:06.035+01:00
-              hippostdpubwf:lastModificationDate: 2025-07-18T20:13:06.036+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-22T14:23:48.081+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotranslation:id: 1350b482-be3c-44f9-a0cb-a0712236f10b
               hippotranslation:locale: en
-              visitscotland:category: integration
+              visitscotland:category: customer
               visitscotland:description: Accept bookings through a website
               visitscotland:id: online-booking-process
             /online-booking-process[2]:
@@ -5939,11 +5940,12 @@
               jcr:mixinTypes: ['mix:referenceable']
               jcr:uuid: 08f2c991-913c-46b7-965c-0ea17b0acda7
               hippo:availability: []
+              hippostd:holder: admin
               hippostd:retainable: false
               hippostd:state: draft
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2025-07-18T20:18:52.551+01:00
-              hippostdpubwf:lastModificationDate: 2025-07-18T20:23:24.119+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-22T14:22:53.970+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotranslation:id: 4af954ca-785c-49a8-b8d6-fcef0cab8818
               hippotranslation:locale: en
@@ -6100,11 +6102,12 @@
               jcr:mixinTypes: ['mix:referenceable']
               jcr:uuid: b803c583-6c16-4fb7-a8a6-6dea8ecc61b7
               hippo:availability: []
+              hippostd:holder: admin
               hippostd:retainable: false
               hippostd:state: draft
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2025-07-18T20:21:26.973+01:00
-              hippostdpubwf:lastModificationDate: 2025-07-18T20:24:29.283+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-22T14:28:10.273+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotranslation:id: b5d0aba0-e9d8-42ee-8ea0-1f69153f4550
               hippotranslation:locale: en
@@ -9494,10 +9497,11 @@
         hippotranslation:locale: en
         /content:
           jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 5f37ed04-70d2-4a1a-ad74-75636646b510
           hippo:name: content
-          /content:
+          hippo:versionHistory: 2a8f57b4-85ac-4096-88f3-f356ccc3a454
+          /content[1]:
             jcr:primaryType: visitscotland:GeneralBSH
             jcr:mixinTypes: ['mix:versionable']
             jcr:uuid: c41d12ee-643b-46fd-b4b9-7678e3e8b679
@@ -9538,12 +9542,54 @@
               jcr:primaryType: hippostd:html
               hippostd:content: <p>This page disnae maiter. It wull be replaced by
                 a copy o' th' real yin&nbsp;</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: b837b217-1cce-40ba-9bef-aa5b812ebfe1
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-07-21T09:23:24.881+01:00
+            hippostdpubwf:lastModificationDate: 2025-07-21T09:27:35.873+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-07-23T11:25:11.392+01:00
+            hippotranslation:id: 260f16ac-6a55-42c2-823c-224c568012d8
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: This page disnae maiter. It wull be replaced
+              by a copy o' th' real yin
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: This page disnae maiter
+            visitscotland:skill: ''
+            visitscotland:teaser: This page disnae maiter. It wull be replaced by
+              a copy o' th' real yin
+            visitscotland:theme: standard
+            visitscotland:title: This page disnae maiter. It wull be replaced by a
+              copy o' th' real yin
+            visitscotland:topic: []
+            visitscotland:type: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 54edd55a-0411-492e-a3df-b9f5489e839c
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This page disnae maiter. It wull be replaced by
+                a copy o' th' real yin&nbsp;</p>
         /obs---shortlist:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 014c297d-bee1-4ef9-bf0e-ca3b8e8750a5
           hippo:name: OBS - Shortlist
-          hippo:versionHistory: 18f320e6-3c85-43cb-9a75-49565d005aae
+          hippo:versionHistory: 4bdac3c0-d289-4f27-bfda-4f7fd2912c13
           /obs---shortlist[1]:
             jcr:primaryType: visitscotland:Bespoke
             jcr:mixinTypes: ['mix:versionable']
@@ -9565,9 +9611,10 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-07-21T09:35:59.107+01:00
-            hippostdpubwf:lastModificationDate: 2025-07-21T09:39:00.020+01:00
+            hippostdpubwf:lastModificationDate: 2025-07-22T14:45:46.906+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 6873b727-9769-46fe-8bc2-a7aed372446b
             hippotranslation:locale: en
@@ -9576,56 +9623,23 @@
             jcr:primaryType: visitscotland:Bespoke
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: e6f25241-13ba-4aec-8e58-37c0ce5b1893
-            hippo:availability: []
+            hippo:availability: [live]
             hippostd:retainable: false
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-07-21T09:35:59.107+01:00
             hippostdpubwf:lastModificationDate: 2025-07-21T09:39:04.156+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-07-21T09:39:34.392+01:00
+            hippostdpubwf:publicationDate: 2025-07-23T11:25:11.055+01:00
             hippotranslation:id: 6873b727-9769-46fe-8bc2-a7aed372446b
             hippotranslation:locale: en
             visitscotland:id: obs-results
-        /request-workbook:
-          jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-          jcr:uuid: 2d19e783-1e8a-44b9-b97d-2d4b0e3945cf
-          hippo:name: Request Workbook
-          /request-workbook:
-            jcr:primaryType: visitscotland:Form
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: cb0986ba-b2b8-4a39-8c4a-0c1cc75728e2
-            hippo:availability: []
-            hippostd:holder: admin
-            hippostd:retainable: true
-            hippostd:state: draft
-            hippostd:transferable: true
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2025-07-21T09:40:39.007+01:00
-            hippostdpubwf:lastModificationDate: 2025-07-21T09:40:39.007+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 4e9c2063-b09f-4116-9f81-905dc6aecb57
-            hippotranslation:locale: en
-            visitscotland:nonJavaScriptMessage: ''
-            visitscotland:title: Request your Workbook!
-            visitscotland:translation: ''
-            /visitscotland:form:
-              jcr:primaryType: visitscotland:FormCompoundBreg
-              visitscotland:activityCode: ''
-              visitscotland:activityDescription: ''
-              visitscotland:activitySource: ''
-              visitscotland:jsonUrl: ''
-              visitscotland:url: ''
-              /visitscotland:consents:
-                jcr:primaryType: visitscotland:Entry
-                visitscotland:key: ''
-                visitscotland:value: ''
         /dev---results:
           jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 402a3d10-fd45-417e-a62a-f0d6b7dee2c3
           hippo:name: Dev - Results
+          hippo:versionHistory: de0ada7d-f66e-4d09-9ade-1d02ba136db1
           /dev---results[1]:
             jcr:primaryType: visitscotland:DevModule
             jcr:mixinTypes: ['mix:referenceable']
@@ -9662,6 +9676,59 @@
             visitscotland:headContributions: []
             visitscotland:html: ''
             visitscotland:notes: ''
+          /dev---results[3]:
+            jcr:primaryType: visitscotland:DevModule
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: cef4ba54-3a31-40c5-9717-be82a3165133
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-07-21T10:34:58.784+01:00
+            hippostdpubwf:lastModificationDate: 2025-07-21T10:35:03.649+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-07-23T11:25:11.281+01:00
+            hippotranslation:id: 00da76c9-0213-4f94-9d3b-4f1408eabcfc
+            hippotranslation:locale: en
+            visitscotland:bespoken: obs-results
+            visitscotland:footerContributions: []
+            visitscotland:headContributions: []
+            visitscotland:html: ''
+            visitscotland:notes: ''
+        /request-workbook:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 2d19e783-1e8a-44b9-b97d-2d4b0e3945cf
+          hippo:name: Request Workbook
+          /request-workbook:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: cb0986ba-b2b8-4a39-8c4a-0c1cc75728e2
+            hippo:availability: []
+            hippostd:holder: admin
+            hippostd:retainable: true
+            hippostd:state: draft
+            hippostd:transferable: true
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-07-21T09:40:39.007+01:00
+            hippostdpubwf:lastModificationDate: 2025-07-21T09:40:39.007+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 4e9c2063-b09f-4116-9f81-905dc6aecb57
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Request your Workbook!
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: ''
+              visitscotland:activityDescription: ''
+              visitscotland:activitySource: ''
+              visitscotland:jsonUrl: ''
+              visitscotland:url: ''
+              /visitscotland:consents:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: ''
+                visitscotland:value: ''
       /events-form:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -9674,9 +9741,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-07-21T09:35:59.107+01:00
-          hippostdpubwf:lastModificationDate: 2025-07-21T09:35:59.107+01:00
+          hippostdpubwf:lastModificationDate: 2025-07-22T14:31:06.720+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 8c22c0d7-3f21-4d0a-8eae-440357fe5d17
           hippotranslation:locale: en
@@ -9706,16 +9774,18 @@
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: a7801f12-0dfa-4a54-84be-e568bc2d9a1e
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-07-21T10:31:47.720+01:00
-          hippostdpubwf:lastModificationDate: 2025-07-21T10:31:47.720+01:00
+          hippostdpubwf:lastModificationDate: 2025-07-22T14:33:34.619+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 8cb141ff-a516-4a81-82fa-37ab138a26ae
           hippotranslation:locale: en
           visitscotland:bespoken: obs-form
           visitscotland:footerContributions: []
+          visitscotland:freemarkerId: ''
           visitscotland:headContributions: []
           visitscotland:html: ''
           visitscotland:notes: ''
