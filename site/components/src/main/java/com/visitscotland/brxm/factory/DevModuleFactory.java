@@ -1,36 +1,56 @@
 package com.visitscotland.brxm.factory;
 
+import com.visitscotland.brxm.comparator.BrxmWrapperException;
 import com.visitscotland.brxm.comparator.ComparisonMapper;
-import com.visitscotland.brxm.comparator.ResultMapper;
+import com.visitscotland.brxm.comparator.VsContractException;
 import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.hippobeans.SimpleDevModule;
 import com.visitscotland.brxm.model.ErrorModule;
 import com.visitscotland.brxm.model.Module;
+import com.visitscotland.brxm.services.ResourceBundleService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+
+import java.util.Locale;
+import java.util.Map;
 
 @Controller
 public class DevModuleFactory {
 
-    private final ComparisonMapper comparisonMapper;
-    private final ResultMapper resultMapper;
+    private static final String  OBS_BUNDLE = "online-booking-system-comparator";
 
-    public DevModuleFactory(ComparisonMapper comparisonMapper, ResultMapper resultMapper) {
+    private static final Logger logger = LoggerFactory.getLogger(DevModuleFactory.class);
+
+    private final ComparisonMapper comparisonMapper;
+    private final ResourceBundleService bundle;
+
+
+
+    public DevModuleFactory(ComparisonMapper comparisonMapper, ResourceBundleService bundle) {
         this.comparisonMapper = comparisonMapper;
-        this.resultMapper = resultMapper;
+        this.bundle = bundle;
     }
 
-    public Module<? extends BaseDocument> getModule(DevModule document){
+
+    public Module<? extends BaseDocument> getModule(DevModule document, Map<String, Map<String, String>> labels, Locale locale){
         if (document.getBespoken() == null) {
             return new SimpleDevModule(document);
         }
-        switch (document.getBespoken()){
-            case "obs-form":
-                return comparisonMapper.map(document);
-            case "obs-results":
-                return resultMapper.map();
-            default:
-                return new ErrorModule(document, "The implementation of this module is not ready");
+
+        try {
+            if (document.getBespoken().equals("obs-form")) {
+                var module = comparisonMapper.map(document);
+                labels.put(OBS_BUNDLE, bundle.getAllSiteLabels(OBS_BUNDLE, locale));
+
+                return module;
+            }
+        } catch (VsContractException | BrxmWrapperException e) {
+            logger.error("The bespoken Dev module could not be generated", e);
+            return new ErrorModule(document, "The bespoken Dev module could not be generated");
         }
+
+        return new ErrorModule(document, "The implementation of this module is not ready");
     }
 }

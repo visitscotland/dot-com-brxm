@@ -154,7 +154,7 @@ public class PageTemplateBuilder {
         } else if (item instanceof SkiCentreList){
             page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
         } else if (item instanceof DevModule){
-            page.modules.add(devModuleFactory.getModule((DevModule) item));
+            page.modules.add(devModuleFactory.getModule((DevModule) item, labels(request), request.getLocale()));
         } else if (item instanceof CTABanner){
             page.modules.add(signPostFactory.createModule((CTABanner) item));
         } else if (item instanceof EventsListing){
