@@ -103,8 +103,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Development Notes (Not renderable)
             field: notes
-            hint: The content of this filed won't render. It is just a handy field
-              for developers to add notes.
+            hint: The content of this field won't render. It is just a handy field
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
