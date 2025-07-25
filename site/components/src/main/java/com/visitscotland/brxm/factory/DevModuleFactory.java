@@ -34,7 +34,7 @@ public class DevModuleFactory {
     }
 
 
-    public Module<? extends BaseDocument> getModule(DevModule document, Map<String, Map<String, String>> labels, Locale locale){
+    public Module<?> getModule(DevModule document, Map<String, Map<String, String>> labels, Locale locale){
         if (document.getBespoken() == null) {
             return new SimpleDevModule(document);
         }
