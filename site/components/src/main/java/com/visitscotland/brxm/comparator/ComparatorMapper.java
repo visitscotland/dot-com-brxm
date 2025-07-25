@@ -1,6 +1,6 @@
 package com.visitscotland.brxm.comparator;
 
-import com.visitscotland.brxm.comparator.model.ComparisonModule;
+import com.visitscotland.brxm.comparator.model.ComparatorModule;
 import com.visitscotland.brxm.comparator.model.Feature;
 import com.visitscotland.brxm.comparator.model.Provider;
 import com.visitscotland.brxm.config.VsComponentManager;
@@ -21,19 +21,19 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class ComparisonMapper {
+public class ComparatorMapper {
 
-    private static final Logger logger = LoggerFactory.getLogger(ComparisonMapper.class);
+    private static final Logger logger = LoggerFactory.getLogger(ComparatorMapper.class);
 
     private final HippoQueryService queryService;
 
-    public ComparisonMapper(HippoQueryService queryService) {
+    public ComparatorMapper(HippoQueryService queryService) {
         this.queryService = queryService;
     }
 
-    public ComparisonModule map(DevModule document) throws VsContractException, BrxmWrapperException {
-        ComparisonModule module = new ComparisonModule(document);
-        module.setFunctions(getFunctions());
+    public ComparatorModule map(DevModule document) throws VsContractException, BrxmWrapperException {
+        ComparatorModule module = new ComparatorModule(document);
+        module.setFeatures(getFunctions());
         module.setProviders(getProviders());
         return module;
     }

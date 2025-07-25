@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.comparator.BrxmWrapperException;
-import com.visitscotland.brxm.comparator.ComparisonMapper;
+import com.visitscotland.brxm.comparator.ComparatorMapper;
 import com.visitscotland.brxm.comparator.VsContractException;
 import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.hippobeans.DevModule;
@@ -23,12 +23,12 @@ public class DevModuleFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(DevModuleFactory.class);
 
-    private final ComparisonMapper comparisonMapper;
+    private final ComparatorMapper comparisonMapper;
     private final ResourceBundleService bundle;
 
 
 
-    public DevModuleFactory(ComparisonMapper comparisonMapper, ResourceBundleService bundle) {
+    public DevModuleFactory(ComparatorMapper comparisonMapper, ResourceBundleService bundle) {
         this.comparisonMapper = comparisonMapper;
         this.bundle = bundle;
     }
