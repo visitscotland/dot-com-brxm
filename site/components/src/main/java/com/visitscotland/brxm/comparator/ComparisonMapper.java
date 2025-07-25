@@ -23,7 +23,7 @@ import java.util.Map;
 @Component
 public class ComparisonMapper {
 
-    private static final Logger logger = LoggerFactory.getLogger(HippoQueryService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ComparisonMapper.class);
 
     private final HippoQueryService queryService;
 
@@ -31,14 +31,14 @@ public class ComparisonMapper {
         this.queryService = queryService;
     }
 
-    public ComparisonModule map(DevModule document) {
+    public ComparisonModule map(DevModule document) throws VsContractException, BrxmWrapperException {
         ComparisonModule module = new ComparisonModule(document);
         module.setFunctions(getFunctions());
         module.setProviders(getProviders());
         return module;
     }
 
-    List<Provider> getProviders(){
+    List<Provider> getProviders() throws BrxmWrapperException, VsContractException {
         List<Provider> entries = new ArrayList<>();
         try {
             HippoBeanIterator iterator = queryService.findAll(ComparatorSystem.class);
@@ -48,14 +48,14 @@ public class ComparisonMapper {
                 entries.add(new Provider(hippoBean));
             }
 
-        } catch (RepositoryException | QueryException | VsContractException e) {
-            throw new RuntimeException(e);
+            return entries;
+        } catch (RepositoryException | QueryException e) {
+            logger.error(e.getMessage(), e);
+            throw new BrxmWrapperException(e);
         }
-
-        return entries;
     }
 
-    List<Feature> getFunctions(){
+    List<Feature> getFunctions() throws BrxmWrapperException, VsContractException {
         List<Feature> entries = new ArrayList<>();
         Map<String, String> valueList = VsComponentManager.get(
                 HippoUtilsService.class).getValueMap("bsh-obs-features");
@@ -73,10 +73,10 @@ public class ComparisonMapper {
         return entries;
     }
 
-    Map<String, Feature> getFunctionsMap(){
+    Map<String, Feature> getFunctionsMap() throws BrxmWrapperException, VsContractException {
         Map<String, Feature> map = new HashMap<>();
 
-        Map<String, String> valueList = VsComponentManager.get(
+        Map<String, String> featureList = VsComponentManager.get(
                 HippoUtilsService.class).getValueMap("bsh-obs-features");
 
         Map<String, String> groupList = VsComponentManager.get(
@@ -92,13 +92,8 @@ public class ComparisonMapper {
 
             return map;
 
-        } catch (RepositoryException | QueryException | VsContractException e) {
-            logger.error(e.getMessage(), e);
+        } catch (RepositoryException | QueryException e) {
+            throw new BrxmWrapperException(e);
         }
-
-        return Map.of();
     }
-
-
-
 }
