@@ -9,12 +9,12 @@ public class Feature {
     private String group;
     private String groupDescription;
 
-    public Feature (ComparatorFeature feature, String groupDescription) {
+    public Feature (ComparatorFeature feature, String featureName, String groupName) {
         this.id = feature.getId();
-        this.name = feature.getName();
+        this.name = featureName;
         this.description = feature.getDescription();
         this.group = feature.getCategory();
-        this.groupDescription = groupDescription;
+        this.groupDescription = groupName;
     }
 
     public Feature (String id, String name) {

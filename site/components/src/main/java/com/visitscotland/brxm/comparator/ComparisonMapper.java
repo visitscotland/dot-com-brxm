@@ -79,12 +79,15 @@ public class ComparisonMapper {
         Map<String, String> valueList = VsComponentManager.get(
                 HippoUtilsService.class).getValueMap("bsh-obs-features");
 
+        Map<String, String> groupList = VsComponentManager.get(
+                HippoUtilsService.class).getValueMap("bsh-obs-groups");
+
         try {
             HippoBeanIterator iterator = queryService.findAll(ComparatorFeature.class);
 
             while (iterator.hasNext()){
                 var document = (ComparatorFeature) iterator.nextHippoBean();
-                map.put(document.getName(),new Feature(document, valueList.get(document.getId())));
+                map.put(document.getName(),new Feature(document, featureList.get(document.getId()), groupList.get(document.getCategory())));
             }
 
             return map;
