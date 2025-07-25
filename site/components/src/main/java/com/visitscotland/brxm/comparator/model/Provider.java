@@ -13,7 +13,6 @@ public class Provider {
         this.name = hippoBean.getName();
         this.url = hippoBean.getUrl();
         this.features = hippoBean.getFeatures();
-
         this.description = hippoBean.getDescription().getContent();
     }
 
@@ -25,8 +24,7 @@ public class Provider {
         return url;
     }
 
-    // TODO: TO BE RENAMED
-    public String[] getFunctions() {
+    public String[] getFeatures() {
         return features;
     }
 
