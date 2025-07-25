@@ -1,5 +1,4 @@
 /content/documents/administration/options/comparison-tool/obs-features:
-  .meta:order-before: obs-contract-fees
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: 5635dbc2-b4bb-4ccc-9c9a-553b30961496

@@ -1,0 +1,59 @@
+/content/documents/administration/labels/modules/dev-module:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 65f2cfad-9716-42ff-84af-2cdee6d75e65
+  hippo:name: Dev Module
+  hippostd:foldertype: [new-untranslated-folder-resource-bundle, new-resource-bundle]
+  /online-booking-system:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+
+    jcr:uuid: 1a574b72-eebe-49ea-8300-e672436594c9
+    hippo:name: Online Booking System
+    hippo:versionHistory: fe69a219-deb5-46a4-8c1d-12dae9222cab
+    /online-booking-system[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 08ed9dfc-8a0e-42a7-994d-aea29db7654f
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-07-24T15:27:45.589+01:00
+      hippostdpubwf:lastModificationDate: 2025-07-24T15:27:45.589+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: online-booking-system-comparator
+      resourcebundle:keys: [cta]
+      resourcebundle:messages: [Visit Website]
+    /online-booking-system[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: a6c4f351-539d-48a9-996c-2a5fcbe688ed
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-07-24T15:27:45.589+01:00
+      hippostdpubwf:lastModificationDate: 2025-07-24T15:29:59.973+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: online-booking-system-comparator
+      resourcebundle:keys: [cta]
+      resourcebundle:messages: [Visit Website]
+    /online-booking-system[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 2640e75a-d670-405b-972d-4a33ae9b1f7f
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-07-24T15:27:45.589+01:00
+      hippostdpubwf:lastModificationDate: 2025-07-24T15:29:59.973+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-07-24T15:30:02.914+01:00
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: online-booking-system-comparator
+      resourcebundle:keys: [cta]
+      resourcebundle:messages: [Visit Website]
