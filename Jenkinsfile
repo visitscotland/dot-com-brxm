@@ -7,33 +7,44 @@ cron_string = ""
 // set any environment-specific environment variables here using the format: env.MY_VAR = "conditional_value" }
 // please see ci/README_PIPELINE_VARIABLES.md or consult Web Operations for details on environment variables and their purposes
 echo "== Setting conditional environment variables"
-if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "develop.visitscotland.(com|org)(-mb)?/develop")) {
+if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop.visitscotland.(com|org)(-mb)?/develop")) {
     echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
     thisAgent = "xvcdocker"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8099"
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
     env.VS_RELEASE_SNAPSHOT = "FALSE"
-} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "develop-nightly.visitscotland.(com|org)(-mb)?/develop")) {
+    env.VS_PROXY_SERVER_FQDN = "develop.visitscotland.com"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop-nightly.visitscotland.(com|org)(-mb)?/develop")) {
     echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
     thisAgent = "xvcdocker"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8098"
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
     env.VS_CONTAINER_PRESERVE = "FALSE"
+    env.VS_PROXY_SERVER_FQDN = "develop-nightly.visitscotland.com"
     cron_string = "@midnight"
-} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "develop-stable.visitscotland.(com|org)(-mb)?/develop")) {
+} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop-stable.visitscotland.(com|org)(-mb)?/develop")) {
     echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
     thisAgent = "xvcdocker"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8100"
-} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "feature.visitscotland.(com|org)(-mb)?/develop")) {
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
+    env.VS_PROXY_SERVER_FQDN = "develop-stable.visitscotland.com"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?feature.visitscotland.(com|org)(-mb)?/develop")) {
     echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
     thisAgent = "xvcdocker"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
-} else if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements" && (JOB_NAME ==~ "feature.visitscotland.(com|org)(-mb)?/ops%2Ffeature-environment(s)?-enhancements")) {
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
+    env.VS_PROXY_SERVER_FQDN = "feature.visitscotland.com"
+} else if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements" && (JOB_NAME ==~ "^(.*/)?feature.visitscotland.(com|org)(-mb)?/ops%2Ffeature-environment(s)?-enhancements")) {
     echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
     thisAgent = "xvcdocker"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8091"
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
+    env.VS_PROXY_SERVER_FQDN = "feature.visitscotland.com"
 } else {
     env.VS_RELEASE_SNAPSHOT = "FALSE"
     // thisAgent should always be set to "xvcdocker" unless you have been informed otherwise!
     thisAgent = "xvcdocker"
+    env.VS_PROXY_SERVER_FQDN = "feature.visitscotland.com"
 }
 echo "==/Setting conditional environment variables"
 

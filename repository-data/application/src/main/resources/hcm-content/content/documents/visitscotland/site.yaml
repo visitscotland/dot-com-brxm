@@ -2,7 +2,7 @@
   .meta:order-before: shared
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
-  jcr:uuid: e8d415ec-a08a-478c-bb98-2605a2854e47
+  jcr:uuid: 42a5c1c3-bd5d-4411-9176-e454b80489fd
   hippostd:foldertype: [new-translated-folder, new-page, new-module]
   hippotranslation:id: a65bff6c-4edf-4d28-b036-84bdee4b4bcd
   hippotranslation:locale: en
@@ -11,7 +11,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: c0e6cfc5-53fa-4a5f-89dd-9b23624d08a4
     hippo:name: Home Page
-    hippo:versionHistory: aa7fef27-b30d-4832-adee-2bb8db95696e
+    hippo:versionHistory: 155e7fce-2080-4b4b-97cd-f75a75c12af3
     /content[1]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -21,13 +21,14 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-05T10:55:44.150+01:00
+      hippostdpubwf:lastModificationDate: 2025-06-17T10:51:56.453+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
       hippotranslation:locale: en
       visitscotland:breadcrumb: ''
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
       visitscotland:seoDescription: Get all the information you need for your trip
         to Scotland! Book accommodation, discover new places to visit, find amazing
         things to do and more!
@@ -56,6 +57,11 @@
           <p>Then maybe a coastal seaside retreat with miles of sandy beaches during our extended <a href="https://www.visitscotland.com/about/themed-years/coasts-waters/" title="YOCW 2020">Scotland's Year of Coasts &amp; Waters</a>?</p>
 
           <p>After all, we deserve some quality time to ourselves, and with our friends and family.</p>
+      /visitscotland:heroVideo:
+        jcr:primaryType: visitscotland:VideoLink
+        /visitscotland:videoLink:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
     /content[2]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -65,13 +71,14 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-05T10:55:48.121+01:00
+      hippostdpubwf:lastModificationDate: 2025-06-17T14:11:00.535+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
       hippotranslation:locale: en
       visitscotland:breadcrumb: ''
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
       visitscotland:seoDescription: Get all the information you need for your trip
         to Scotland! Book accommodation, discover new places to visit, find amazing
         things to do and more!
@@ -100,6 +107,11 @@
           <p>Then maybe a coastal seaside retreat with miles of sandy beaches during our extended <a href="https://www.visitscotland.com/about/themed-years/coasts-waters/" title="YOCW 2020">Scotland's Year of Coasts &amp; Waters</a>?</p>
 
           <p>After all, we deserve some quality time to ourselves, and with our friends and family.</p>
+      /visitscotland:heroVideo:
+        jcr:primaryType: visitscotland:VideoLink
+        /visitscotland:videoLink:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
     /content[3]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -109,14 +121,15 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-05T10:55:48.121+01:00
+      hippostdpubwf:lastModificationDate: 2025-06-17T14:11:00.535+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2022-10-05T10:55:52.040+01:00
+      hippostdpubwf:publicationDate: 2025-06-17T14:11:03.697+01:00
       hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
       hippotranslation:locale: en
       visitscotland:breadcrumb: ''
       visitscotland:hideNewsletter: false
       visitscotland:newsletter: true
+      visitscotland:pswPosition: Default
       visitscotland:seoDescription: Get all the information you need for your trip
         to Scotland! Book accommodation, discover new places to visit, find amazing
         things to do and more!
@@ -145,6 +158,11 @@
           <p>Then maybe a coastal seaside retreat with miles of sandy beaches during our extended <a href="https://www.visitscotland.com/about/themed-years/coasts-waters/" title="YOCW 2020">Scotland's Year of Coasts &amp; Waters</a>?</p>
 
           <p>After all, we deserve some quality time to ourselves, and with our friends and family.</p>
+      /visitscotland:heroVideo:
+        jcr:primaryType: visitscotland:VideoLink
+        /visitscotland:videoLink:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
   /site-search-results:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
