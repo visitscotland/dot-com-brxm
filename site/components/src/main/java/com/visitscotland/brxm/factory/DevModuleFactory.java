@@ -9,6 +9,7 @@ import com.visitscotland.brxm.hippobeans.SimpleDevModule;
 import com.visitscotland.brxm.model.ErrorModule;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -35,7 +36,7 @@ public class DevModuleFactory {
 
 
     public Module<?> getModule(DevModule document, Map<String, Map<String, String>> labels, Locale locale){
-        if (document.getBespoken() == null) {
+        if (Contract.isEmpty(document.getBespoken())) {
             return new SimpleDevModule(document);
         }
 
