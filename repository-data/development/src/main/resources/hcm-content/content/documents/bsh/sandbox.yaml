@@ -5943,19 +5943,20 @@
               jcr:mixinTypes: ['mix:referenceable']
               jcr:uuid: 08f2c991-913c-46b7-965c-0ea17b0acda7
               hippo:availability: []
+              hippostd:holder: admin
               hippostd:retainable: false
               hippostd:state: draft
-              hippostd:transferable: false
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2025-07-18T20:18:52.551+01:00
-              hippostdpubwf:lastModificationDate: 2025-07-22T14:22:53.970+01:00
+              hippostdpubwf:lastModificationDate: 2025-07-28T10:36:55.983+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotranslation:id: 4af954ca-785c-49a8-b8d6-fcef0cab8818
               hippotranslation:locale: en
               visitscotland:features: [online-booking-process, pricing-funcionality,
                 cloud-based-updates, social-media, ota-apis, payment-processing, online-booking,
-                crm, email, business-support, system-training-support]
+                crm, email, business-support, whatever, system-training-support]
               visitscotland:name: Provider 1
+              visitscotland:referral: http://www.best-provider.com?referral=vs
               visitscotland:url: http://www.best-provider.com
               /visitscotland:description:
                 jcr:primaryType: hippostd:html
