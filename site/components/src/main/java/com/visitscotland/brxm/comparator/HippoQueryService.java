@@ -20,6 +20,10 @@ import org.springframework.stereotype.Component;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
+/**
+ * Service for executing queries against the Hippo CMS repository.
+ * Provides methods to find and filter content beans with proper state filtering.
+ */
 @Component
 public class HippoQueryService {
 
@@ -30,6 +34,17 @@ public class HippoQueryService {
     private static final String PUBLISHED = "published";
     private static final String LIVE = "live";
 
+    /**
+     * Finds all published documents of the specified type.
+     *
+     * <i>Note: that this method is not looking for a specific path</i>
+     *
+     * @param type The HippoBean class type to search for
+     * @return Iterator containing all matching documents
+     * @throws RepositoryException If repository access fails
+     * @throws QueryException If query execution fails
+     * @throws VsContractException If type parameter is null
+     */
     HippoBeanIterator findAll(Class<? extends HippoBean> type) throws RepositoryException, QueryException, VsContractException {
         if (type == null) {
             throw new UnexpectedNullException("type");
@@ -45,17 +60,35 @@ public class HippoQueryService {
         return iterator;
     }
 
-    public HstQueryManager getHstQueryManager() throws RepositoryException {
+    /**
+     * Gets the HST query manager for the current request context.
+     *
+     * @return The HstQueryManager instance
+     * @throws RepositoryException If unable to access the repository session
+     */
+    private HstQueryManager getHstQueryManager() throws RepositoryException {
         var requestContext = RequestContextProvider.get();
         return requestContext.getQueryManager(requestContext.getSession());
     }
 
+    /**
+     * Gets the project mount point node for the current channel (site)
+     *
+     * @return The root node for the current mount's content path
+     * @throws RepositoryException If unable to access the mount point
+     */
     private Node getProjectMountPoint() throws RepositoryException {
         String mountContentPath = RequestContextProvider.get().getResolvedMount().getMount().getContentPath();
         return RequestContextProvider.get().getSession().getRootNode()
                 .getNode(PathUtils.normalizePath(mountContentPath));
     }
 
+    /**
+     * Applies filters to only return published documents.
+     *
+     * @param hstQuery The query to apply filters to
+     * @throws FilterException If unable to apply the filters
+     */
     private void filterOnlyLiveDocuments(HstQuery hstQuery) throws FilterException {
         Filter filter = hstQuery.createFilter();
         // Only documents of published type (green)
