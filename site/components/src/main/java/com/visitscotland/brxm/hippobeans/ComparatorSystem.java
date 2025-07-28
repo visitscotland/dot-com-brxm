@@ -26,4 +26,9 @@ public class ComparatorSystem extends BaseDocument {
     public HippoHtml getDescription() {
         return getHippoHtml("visitscotland:description");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:contract")
+    public String getContract() {
+        return getSingleProperty("visitscotland:contract");
+    }
 }

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 3181ceda-35b5-418d-86b8-addf72638b57
+          jcr:uuid: 980c11b4-c7eb-48b9-a6f7-c47718c7d968
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -51,6 +51,14 @@ definitions:
             hipposysedit:path: visitscotland:features
             hipposysedit:primary: false
             hipposysedit:type: String
+          /referral:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:referral
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -64,10 +72,11 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:name: ''
           visitscotland:url: ''
-          jcr:uuid: 2ec30ef9-0dec-4ca3-a0f5-c05fb4fbfef6
+          jcr:uuid: 77680ff2-23ae-4211-9e52-74d0d79ae080
           hippostdpubwf:lastModificationDate: 2025-07-18T19:16:54.617+01:00
           hippostdpubwf:creationDate: 2025-07-18T19:16:54.618+01:00
           visitscotland:features: []
+          visitscotland:referral: ''
           /visitscotland:description:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -119,7 +128,7 @@ definitions:
                 ] , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
           /url:
             jcr:primaryType: frontend:plugin
-            caption: Product Referral URL
+            caption: Provider URL
             field: url
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
@@ -139,3 +148,11 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/comparison-tool/obs-features
+          /referral:
+            jcr:primaryType: frontend:plugin
+            caption: Contact Details
+            field: referral
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
