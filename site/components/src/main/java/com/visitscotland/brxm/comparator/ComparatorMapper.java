@@ -125,7 +125,7 @@ public class ComparatorMapper {
 
             while (iterator.hasNext()){
                 var document = (ComparatorFeature) iterator.nextHippoBean();
-                map.put(document.getName(),new Feature(document, featureList.get(document.getId()), groupList.get(document.getCategory())));
+                map.put(document.getId(), new Feature(document, featureList.get(document.getId()), groupList.get(document.getCategory())));
             }
 
             return map;
