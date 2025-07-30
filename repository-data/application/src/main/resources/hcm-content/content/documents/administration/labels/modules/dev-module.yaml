@@ -7,10 +7,9 @@
   /online-booking-system:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-
     jcr:uuid: 1a574b72-eebe-49ea-8300-e672436594c9
     hippo:name: Online Booking System
-    hippo:versionHistory: fe69a219-deb5-46a4-8c1d-12dae9222cab
+    hippo:versionHistory: 122c0158-d014-4b8d-851b-2e9f8423fdb8
     /online-booking-system[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -20,12 +19,22 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2025-07-24T15:27:45.589+01:00
-      hippostdpubwf:lastModificationDate: 2025-07-24T15:27:45.589+01:00
+      hippostdpubwf:lastModificationDate: 2025-07-30T14:29:26.380+01:00
       hippostdpubwf:lastModifiedBy: admin
-      resourcebundle:descriptions: ['']
+      resourcebundle:descriptions: ['', 'Deprecated: waiting for UI to confirm removal',
+        'Deprecated: waiting for UI to confirm removal', '', 'Deprecated: waiting
+          for UI to confirm removal', 'Deprecated: waiting for UI to confirm removal',
+        'Deprecated: waiting for UI to confirm removal', '', '', '', '', 'Deprecated:
+          waiting for UI to confirm removal', '']
       resourcebundle:id: online-booking-system-comparator
-      resourcebundle:keys: [cta]
-      resourcebundle:messages: [Visit Website]
+      resourcebundle:keys: [cta, viewToggle_features, viewToggle_results, results_heading,
+        alert_no_selections, alert_result_count, alert_no_matches, alert-no-matches,
+        alert-no-selections, alert-result-count, results-heading, viewToggle-features,
+        viewToggle-results]
+      resourcebundle:messages: [Visit Website, Select features, View results, Results,
+        Select at least one feature, results found, No matched found — select fewer
+          options, No matched found — select fewer options, Select at least one feature,
+        results found, Results, Select features, View results]
     /online-booking-system[2]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -35,12 +44,22 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2025-07-24T15:27:45.589+01:00
-      hippostdpubwf:lastModificationDate: 2025-07-24T15:29:59.973+01:00
+      hippostdpubwf:lastModificationDate: 2025-07-30T14:36:31.477+01:00
       hippostdpubwf:lastModifiedBy: admin
-      resourcebundle:descriptions: ['']
+      resourcebundle:descriptions: ['', 'Deprecated: waiting for UI to confirm removal',
+        'Deprecated: waiting for UI to confirm removal', '', 'Deprecated: waiting
+          for UI to confirm removal', 'Deprecated: waiting for UI to confirm removal',
+        'Deprecated: waiting for UI to confirm removal', '', '', '', '', 'Deprecated:
+          waiting for UI to confirm removal', '']
       resourcebundle:id: online-booking-system-comparator
-      resourcebundle:keys: [cta]
-      resourcebundle:messages: [Visit Website]
+      resourcebundle:keys: [cta, viewToggle_features, viewToggle_results, results_heading,
+        alert_no_selections, alert_result_count, alert_no_matches, alert-no-matches,
+        alert-no-selections, alert-result-count, results-heading, viewToggle-features,
+        viewToggle-results]
+      resourcebundle:messages: [Visit Website, Select features, View results, Results,
+        Select at least one feature, results found, No matched found — select fewer
+          options, No matched found — select fewer options, Select at least one feature,
+        results found, Results, Select features, View results]
     /online-booking-system[3]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -50,10 +69,20 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2025-07-24T15:27:45.589+01:00
-      hippostdpubwf:lastModificationDate: 2025-07-24T15:29:59.973+01:00
+      hippostdpubwf:lastModificationDate: 2025-07-30T14:36:31.477+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-07-24T15:30:02.914+01:00
-      resourcebundle:descriptions: ['']
+      hippostdpubwf:publicationDate: 2025-07-30T14:36:53.840+01:00
+      resourcebundle:descriptions: ['', 'Deprecated: waiting for UI to confirm removal',
+        'Deprecated: waiting for UI to confirm removal', '', 'Deprecated: waiting
+          for UI to confirm removal', 'Deprecated: waiting for UI to confirm removal',
+        'Deprecated: waiting for UI to confirm removal', '', '', '', '', 'Deprecated:
+          waiting for UI to confirm removal', '']
       resourcebundle:id: online-booking-system-comparator
-      resourcebundle:keys: [cta]
-      resourcebundle:messages: [Visit Website]
+      resourcebundle:keys: [cta, viewToggle_features, viewToggle_results, results_heading,
+        alert_no_selections, alert_result_count, alert_no_matches, alert-no-matches,
+        alert-no-selections, alert-result-count, results-heading, viewToggle-features,
+        viewToggle-results]
+      resourcebundle:messages: [Visit Website, Select features, View results, Results,
+        Select at least one feature, results found, No matched found — select fewer
+          options, No matched found — select fewer options, Select at least one feature,
+        results found, Results, Select features, View results]
