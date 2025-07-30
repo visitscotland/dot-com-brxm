@@ -13,8 +13,20 @@
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
       selection:key: customer
-      selection:label: Customer engagement & automation
+      selection:label: Customer engagement and automation
     /selection:listitem[2]:
       jcr:primaryType: selection:listitem
       selection:key: integration
-      selection:label: Integrations & data management
+      selection:label: Integrations and data management
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: operational
+      selection:label: Operational efficiency and admin tools
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: specialised
+      selection:label: Specialised features
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: payment
+      selection:label: Payment options
