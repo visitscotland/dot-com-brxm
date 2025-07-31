@@ -11,19 +11,19 @@
 
         <vs-footer-social-item
             href="${optionalLabel('navigation.social-media', 'facebook')}"
-            icon="facebook"
+            icon="fab fa-facebook"
         ></vs-footer-social-item>
         <vs-footer-social-item
             href="${optionalLabel('navigation.social-media', 'twitter')}"
-            icon="x-twitter"
+            icon="fab fa-x-twitter"
         ></vs-footer-social-item>
         <vs-footer-social-item
             href="${optionalLabel('navigation.social-media', 'youtube')}"
-            icon="youtube"
+            icon="fab fa-youtube"
         ></vs-footer-social-item>
         <vs-footer-social-item
             href="${optionalLabel('navigation.social-media', 'instagram')}"
-            icon="instagram"
+            icon="fab fa-instagram"
         ></vs-footer-social-item>
     </vs-footer-social-menu>
 </#macro>
