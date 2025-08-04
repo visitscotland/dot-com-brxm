@@ -3,7 +3,6 @@ package com.visitscotland.brxm.factory;
 import com.visitscotland.brxm.comparator.BrxmWrapperException;
 import com.visitscotland.brxm.comparator.ComparatorMapper;
 import com.visitscotland.brxm.comparator.VsContractException;
-import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.hippobeans.SimpleDevModule;
 import com.visitscotland.brxm.model.ErrorModule;
@@ -41,7 +40,7 @@ public class DevModuleFactory {
         }
 
         try {
-            if (document.getBespoken().equals("obs-form")) {
+            if (document.getBespoken().equals("online-booking-system")) {
                 var module = comparisonMapper.map(document);
                 labels.put(OBS_BUNDLE, bundle.getAllSiteLabels(OBS_BUNDLE, locale));
 
