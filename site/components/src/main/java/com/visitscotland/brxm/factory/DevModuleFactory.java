@@ -20,6 +20,7 @@ import java.util.Map;
 public class DevModuleFactory {
 
     private static final String  OBS_BUNDLE = "online-booking-system-comparator";
+    private static final String  FORMS_BUNDLE = "forms";
 
     private static final Logger logger = LoggerFactory.getLogger(DevModuleFactory.class);
 
@@ -43,6 +44,7 @@ public class DevModuleFactory {
             if (document.getBespoken().equals("online-booking-system")) {
                 var module = comparisonMapper.map(document);
                 labels.put(OBS_BUNDLE, bundle.getAllSiteLabels(OBS_BUNDLE, locale));
+                labels.put(FORMS_BUNDLE, bundle.getAllSiteLabels(FORMS_BUNDLE, locale));
 
                 return module;
             }
