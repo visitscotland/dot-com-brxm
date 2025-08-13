@@ -4,6 +4,7 @@
 // based on Jenkinsfile, modified by Matthew Syrigos, Gavin Park
 // phase 2: June 2024
 // phase 3: July 2024
+// phase 4: August 2025
 
 def MAIL_TO = "webops@visitscotland.net"
 def MAIL_TO_NET = 'net@visitscotland.com'
