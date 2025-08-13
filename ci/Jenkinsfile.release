@@ -548,7 +548,7 @@ pipeline {
                     emailext(
                             subject: "[Release] ${repoName} v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL} - build #${env.BUILD_NUMBER} - ${VS_PIPELINE_OUTCOME_EMAIL}",
                             body: "${emailBody}",
-                            to: "${MAIL_TO_NET}, ${VS_COMMIT_AUTHOR}, ${CC_DEV_LIST}",
+                            to: "${MAIL_TO_NET}, ${VS_COMMIT_AUTHOR}, ${CC_DEV3}",
                             mimeType: 'text/html'
                     )
                 }
