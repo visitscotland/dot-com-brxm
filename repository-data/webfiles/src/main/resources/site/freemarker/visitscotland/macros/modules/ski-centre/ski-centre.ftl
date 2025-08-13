@@ -97,7 +97,7 @@
                                     <#if module.phone??>
                                         <li class="mb-050">
                                             <vs-icon
-                                                name="phone"
+                                                icon="fa-regular fa-phone"
                                                 size="xs"
                                                 class="me-050"
                                             ></vs-icon>
@@ -109,7 +109,7 @@
                                     <#if module.website.link??>
                                         <li class="mb-050">
                                             <vs-icon
-                                                name="globe"
+                                                icon="fa-regular fa-globe"
                                                 size="xs"
                                                 class="me-050"
                                             ></vs-icon>
@@ -124,7 +124,7 @@
                                     <#if module.address??>
                                         <li class="mb-050">
                                             <vs-icon
-                                                name="map-marker"
+                                                icon="fa-regular fa-location-dot"
                                                 size="xs"
                                                 class="me-050"
                                             ></vs-icon>
@@ -136,7 +136,7 @@
                                     <#if module.pisteMap??>
                                         <li class="mb-050">
                                             <vs-icon
-                                                name="landscape"
+                                                icon="fa-regular fa-mountain"
                                                 size="xs"
                                                 class="me-050"
                                             ></vs-icon>
@@ -151,7 +151,7 @@
                                     <#if module.openingLink?? && module.openingLink.label??>
                                         <li class="mb-050">
                                             <vs-icon
-                                                name="clock"
+                                                icon="fa-regular fa-clock"
                                                 size="xs"
                                                 class="me-050"
                                             ></vs-icon>
@@ -166,7 +166,7 @@
                                     <#if module.webcam??>
                                         <li class="mb-050">
                                             <vs-icon
-                                                name="webcam"
+                                                icon="fa-regular fa-webcam"
                                                 size="xs"
                                                 class="me-050"
                                             ></vs-icon>
@@ -191,7 +191,7 @@
                                             <span class="visually-hidden">${channel.label?eval}</span>
                                             <vs-icon
                                                 size="sm"
-                                                name="${channel.label?eval?lower_case}"
+                                                icon="fa-brands fa-${channel.label?eval?lower_case}"
                                                 <#switch channel.label?eval>
                                                     <#case 'Twitter'>
                                                         custom-colour="#55ACEE"

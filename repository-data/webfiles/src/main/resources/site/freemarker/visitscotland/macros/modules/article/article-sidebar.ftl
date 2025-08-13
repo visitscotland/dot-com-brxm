@@ -31,9 +31,9 @@
                             cols="10"
                             offset="1"
                         >
-                            <vs-rich-text-wrapper>
+                            <vs-body>
                                 <p>${section.video.teaser}</p>
-                            </vs-rich-text-wrapper>
+                            </vs-body>
                         </vs-col>
                     </vs-row>
                 </@modal>
