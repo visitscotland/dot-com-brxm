@@ -1,0 +1,32 @@
+/content/documents/administration/options/comparison-tool/obs-group-categories:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: f4eca331-008a-407e-ad8d-c86842560fce
+  hippo:name: Online Booking System - Group Categories
+  /obs-group-categories:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: c15f9804-8646-42a7-bf70-0e9685f7c212
+    hippo:availability: [live, preview]
+    hippotranslation:id: f5f3496b-70ea-42d6-85fe-ad0442623ad7
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: customer
+      selection:label: Customer engagement and automation
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: integration
+      selection:label: Integrations and data management
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: operational
+      selection:label: Operational efficiency and admin tools
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: specialised
+      selection:label: Specialised features
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: payment
+      selection:label: Payment options

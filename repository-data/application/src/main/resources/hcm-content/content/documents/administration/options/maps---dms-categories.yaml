@@ -1,4 +1,5 @@
 /content/documents/administration/options/maps---dms-categories:
+  # If this meta order changes. Please flag to the owner of the PR and reject it
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: cfbc7102-50fd-4866-850b-d05f52925f19
