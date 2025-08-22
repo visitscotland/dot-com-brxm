@@ -27,8 +27,12 @@ public class MegalinkFactory {
     public static final int MIN_ITEMS_CAROUSEL = 5;
     public static final String HORIZONTAL_LAYOUT = "Horizontal Links";
     public static final String DEFAULT_LAYOUT = "Default";
-    public static final String OTYML = "otyml";
+    public static final String GRID_3 = "Grid 3";
+    public static final String GRID_4 = "Grid 4";
+    public static final String SCROLL_SNAP = "Scroll Snap";
+    public static final List<String> CARD_GROUP = List.of(GRID_3, GRID_4, SCROLL_SNAP);
 
+    public static final String OTYML = "otyml";
 
     private final LinkService linkService;
     private final ResourceBundleService bundle;
@@ -49,16 +53,30 @@ public class MegalinkFactory {
     }
 
     public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) {
-        if (!Contract.isEmpty(doc.getLayout()) && doc.getLayout().equals(HORIZONTAL_LAYOUT) && doc.getMegalinkItems().size() >= MIN_ITEMS_CAROUSEL) {
+        if (Contract.isEmpty(doc.getLayout())){
+            logger.warn("The Megalinks layout hasn't been set for {}", doc.getPath());
+            //TODO throw Exception to be captured by TemplateBuilder creating an ErrorModule
+        }
+
+        if (CARD_GROUP.contains(doc.getLayout())){
+            return getCardGroupModule(doc, locale);
+        } else if (doc.getLayout().equals(HORIZONTAL_LAYOUT) && doc.getMegalinkItems().size() >= MIN_ITEMS_CAROUSEL) {
             return horizontalListLayout(doc, locale);
-        } else if (!Contract.isEmpty(doc.getLayout()) && !doc.getLayout().equals(DEFAULT_LAYOUT) || doc.getMegalinkItems().size() > MAX_ITEMS) {
+        } else if (!doc.getLayout().equals(DEFAULT_LAYOUT) || doc.getMegalinkItems().size() > MAX_ITEMS) {
             return listLayout(doc, locale);
         } else if (doc.getSingleImageModule() != null) {
             return singleImageLayout(doc, locale);
-        } else {
-            return multiImageLayout(doc, locale);
         }
 
+        return multiImageLayout(doc, locale);
+    }
+
+    public CardGroupModule getCardGroupModule(Megalinks doc, Locale locale){
+        CardGroupModule module = new CardGroupModule();
+        populateCommonFields(module, doc, locale);
+
+        module.setLinks(convertToEnhancedLinks(module, doc.getMegalinkItems(), locale, false));
+        return module;
     }
 
     /**
