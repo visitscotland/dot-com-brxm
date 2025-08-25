@@ -53,16 +53,21 @@ public class MegalinkFactory {
     }
 
     public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) {
-        if (Contract.isEmpty(doc.getLayout())){
+        String layout = (Contract.isEmpty(doc.getLayout())? "" : doc.getLayout());
+        if ("".equals(layout)) {
             logger.warn("The Megalinks layout hasn't been set for {}", doc.getPath());
-            //TODO throw Exception to be captured by TemplateBuilder creating an ErrorModule
+            //TODO throw Exception to be captured by TemplateBuilder creating an ErrorModule. Note some
         }
 
-        if (CARD_GROUP.contains(doc.getLayout())){
+        if (CARD_GROUP.contains(layout)) {
             return getCardGroupModule(doc, locale);
-        } else if (doc.getLayout().equals(HORIZONTAL_LAYOUT) && doc.getMegalinkItems().size() >= MIN_ITEMS_CAROUSEL) {
-            return horizontalListLayout(doc, locale);
-        } else if (!doc.getLayout().equals(DEFAULT_LAYOUT) || doc.getMegalinkItems().size() > MAX_ITEMS) {
+        } else if (layout.equals(HORIZONTAL_LAYOUT)){
+            if (doc.getMegalinkItems().size() >= MIN_ITEMS_CAROUSEL) {
+                return horizontalListLayout(doc, locale);
+            } else {
+                return listLayout(doc, locale);
+            }
+        } else if (layout.equals(LIST_LAYOUT) || doc.getMegalinkItems().size() > MAX_ITEMS) {
             return listLayout(doc, locale);
         } else if (doc.getSingleImageModule() != null) {
             return singleImageLayout(doc, locale);
