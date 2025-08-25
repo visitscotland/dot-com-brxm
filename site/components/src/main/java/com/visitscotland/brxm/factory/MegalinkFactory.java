@@ -20,17 +20,41 @@ import java.util.stream.Collectors;
 @Component
 public class MegalinkFactory {
 
+    public enum MegalinkLayout {
+        HORIZONTAL_LINKS("Horizontal Links"),
+        LIST_LAYOUT("List"),
+        DEFAULT("Default"),
+        GRID_3("Grid 3"),
+        GRID_4("Grid 4"),
+        SCROLL_SNAP("Scroll Snap");
+
+        private final String value;
+
+        MegalinkLayout(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public static boolean isCardGroup(String layout) {
+            return GRID_3.value.equals(layout) || GRID_4.value.equals(layout) || SCROLL_SNAP.value.equals(layout);
+        }
+    }
+
     private static final Logger logger = LoggerFactory.getLogger(MegalinkFactory.class);
 
 
     public static final int MAX_ITEMS = 6;
     public static final int MIN_ITEMS_CAROUSEL = 5;
-    public static final String HORIZONTAL_LAYOUT = "Horizontal Links";
-    public static final String DEFAULT_LAYOUT = "Default";
-    public static final String GRID_3 = "Grid 3";
-    public static final String GRID_4 = "Grid 4";
-    public static final String SCROLL_SNAP = "Scroll Snap";
-    public static final List<String> CARD_GROUP = List.of(GRID_3, GRID_4, SCROLL_SNAP);
+//    public static final String HORIZONTAL_LAYOUT = "Horizontal Links";
+//    public static final String DEFAULT_LAYOUT = "Default";
+//    public static final String LIST_LAYOUT = "List";
+//    public static final String GRID_3 = "Grid 3";
+//    public static final String GRID_4 = "Grid 4";
+//    public static final String SCROLL_SNAP = "Scroll Snap";
+//    public static final List<String> CARD_GROUP = List.of(GRID_3, GRID_4, SCROLL_SNAP);
 
     public static final String OTYML = "otyml";
 
@@ -53,16 +77,21 @@ public class MegalinkFactory {
     }
 
     public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) {
-        if (Contract.isEmpty(doc.getLayout())){
+        String layout = (Contract.isEmpty(doc.getLayout())? "" : doc.getLayout());
+        if ("".equals(layout)) {
             logger.warn("The Megalinks layout hasn't been set for {}", doc.getPath());
-            //TODO throw Exception to be captured by TemplateBuilder creating an ErrorModule
+            //TODO throw Exception to be captured by TemplateBuilder creating an ErrorModule. Note some
         }
 
-        if (CARD_GROUP.contains(doc.getLayout())){
+        if (MegalinkLayout.isCardGroup(layout)) {
             return getCardGroupModule(doc, locale);
-        } else if (doc.getLayout().equals(HORIZONTAL_LAYOUT) && doc.getMegalinkItems().size() >= MIN_ITEMS_CAROUSEL) {
-            return horizontalListLayout(doc, locale);
-        } else if (!doc.getLayout().equals(DEFAULT_LAYOUT) || doc.getMegalinkItems().size() > MAX_ITEMS) {
+        } else if (layout.equals(MegalinkLayout.HORIZONTAL_LINKS.getValue())){
+            if (doc.getMegalinkItems().size() >= MIN_ITEMS_CAROUSEL) {
+                return horizontalListLayout(doc, locale);
+            } else {
+                return listLayout(doc, locale);
+            }
+        } else if (layout.equals(MegalinkLayout.LIST_LAYOUT.getValue()) || doc.getMegalinkItems().size() > MAX_ITEMS) {
             return listLayout(doc, locale);
         } else if (doc.getSingleImageModule() != null) {
             return singleImageLayout(doc, locale);
@@ -71,7 +100,7 @@ public class MegalinkFactory {
         return multiImageLayout(doc, locale);
     }
 
-    public CardGroupModule getCardGroupModule(Megalinks doc, Locale locale){
+    public CardGroupModule getCardGroupModule(Megalinks doc, Locale locale) {
         CardGroupModule module = new CardGroupModule();
         populateCommonFields(module, doc, locale);
 
@@ -138,8 +167,8 @@ public class MegalinkFactory {
         sil.setInnerTitle(doc.getSingleImageModule().getTitle());
         sil.setInnerIntroduction(doc.getSingleImageModule().getIntroduction());
         sil.setImage(imageFactory.createImage(doc.getSingleImageModule().getImage(), sil, locale));
-        if (doc.getSingleImageModule().getImage() == null){
-            sil.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the single image document '%s' at: %s",  sil.getTitle(), doc.getDisplayName(), doc.getPath()));
+        if (doc.getSingleImageModule().getImage() == null) {
+            sil.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the single image document '%s' at: %s", sil.getTitle(), doc.getDisplayName(), doc.getPath()));
         }
         sil.setLinks(convertToEnhancedLinks(sil, doc.getMegalinkItems(), locale, false));
 
@@ -216,8 +245,8 @@ public class MegalinkFactory {
         }
     }
 
-    private void addSpecialFields(Megalinks doc, LinksModule<?> module, Locale locale){
-        if (doc instanceof MegalinksBSH){
+    private void addSpecialFields(Megalinks doc, LinksModule<?> module, Locale locale) {
+        if (doc instanceof MegalinksBSH) {
             MegalinksBSH megalinksBSH = (MegalinksBSH) doc;
             module.setNested(Boolean.TRUE.equals(megalinksBSH.getNested()));
             module.setAnchor(anchorFormatter.getAnchorOrFallback(megalinksBSH.getAnchor(), megalinksBSH::getTitle));
