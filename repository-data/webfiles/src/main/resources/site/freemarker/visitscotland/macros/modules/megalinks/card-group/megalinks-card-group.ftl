@@ -9,8 +9,13 @@
 <#include "../../video/video-modal.ftl">
 
 <#macro cardGroup item theme>
-
-    <vs-card-group scroll-snap>
+    <vs-card-group scroll-snap cards-per-row="
+        <#if item.layout=='Grid 4'>
+        4
+        <#else>
+        3
+        </#if>
+    ">
         <#list item.links as listItem>
             <#if listItem.image.cmsImage??>
                 <#assign image>

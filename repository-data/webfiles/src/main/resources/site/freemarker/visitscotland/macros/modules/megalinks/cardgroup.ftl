@@ -39,8 +39,6 @@
 
         <#if type == "CardGroupModule">
             <@cardGroup item=item theme=theme />
-<#--            <@linkList item=item showTeaser=showTeaser theme=theme />-->
-
         <#else>
             SOMETHING WENT WRONG!
         </#if>
