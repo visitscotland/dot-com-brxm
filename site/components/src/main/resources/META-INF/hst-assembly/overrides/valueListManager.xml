@@ -8,6 +8,7 @@
                 <!--<entry key="name" value="/absolute/repository/path"/>-->
                 <entry key="iknow-community-tags" value="/content/documents/administration/options/iknow-community-tags"/>
                 <entry key="travel-information-transports" value="/content/documents/administration/options/travel-information-transports"/>
+
                 <entry key="bsh-external-links" value="/content/documents/administration/options/business-support-hub/external-links"/>
                 <entry key="bsh-regions" value="/content/documents/administration/options/business-support-hub/regions"/>
                 <entry key="bsh-sectors" value="/content/documents/administration/options/business-support-hub/sector"/>
@@ -16,6 +17,8 @@
                 <entry key="bsh-content-types" value="/content/documents/administration/options/business-support-hub/content-types"/>
                 <entry key="bsh-industry-event-types" value="/content/documents/administration/options/business-support-hub/event-types---industry-events"/>
                 <entry key="bsh-training-topics" value="/content/documents/administration/options/business-support-hub/topics---training-events"/>
+                <entry key="bsh-obs-features" value="/content/documents/administration/options/comparison-tool/obs-features"/>
+                <entry key="bsh-obs-groups" value="/content/documents/administration/options/comparison-tool/obs-group-categories"/>
             </map>
         </constructor-arg>
     </bean>

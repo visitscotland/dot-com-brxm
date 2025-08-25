@@ -592,10 +592,10 @@
   resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.20.tgz#f066abfcd1cbe66267cdbbf0de010d8a41b41597"
   integrity sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==
 
-"@visitscotland/component-library@^4.28.1":
-  version "4.28.1"
-  resolved "https://registry.yarnpkg.com/@visitscotland/component-library/-/component-library-4.28.1.tgz#daeee1ac690aa5ccab03dbdf0a9085cc3cd2c181"
-  integrity sha512-5Ir9Uq7ZYBkLqhMPUUEV0Bh3RGs8VrZ9qdGX+g2NgBDNm2EhRRP98Xf7m8APvSQOvdRc8cw6UzycQaHizStWyw==
+"@visitscotland/component-library@^5.3.6":
+  version "5.3.6"
+  resolved "https://registry.yarnpkg.com/@visitscotland/component-library/-/component-library-5.3.6.tgz#7464dcfe9d9be957bdf9f9badf06d25a8ae794f7"
+  integrity sha512-DIkmo4QH4ECM7taECVuSixsZTH7dVt81h6nlbMcusUY1F3C228KMT2yru9jeFtZ84nJTLzebwGalv5IXPoA+Bw==
   dependencies:
     "@mapbox/geojson-extent" "^1.0.1"
     "@pinia/testing" "^0.1.3"
@@ -609,7 +609,7 @@
     mitt "^3.0.0"
     pinia "^2.1.3"
     vite "^5.1.3"
-    vite-plugin-node-polyfills "^0.23.0"
+    vite-plugin-node-polyfills "^0.24.0"
     vue "^3.3.4"
     vue-combo-blocks "^2.1.1"
     vue-recaptcha "^2.0.1"
@@ -6050,10 +6050,10 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-vite-plugin-node-polyfills@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-node-polyfills/-/vite-plugin-node-polyfills-0.23.0.tgz#99d0d1524fa75ce5c7bb1fc8af30283379e9c684"
-  integrity sha512-4n+Ys+2bKHQohPBKigFlndwWQ5fFKwaGY6muNDMTb0fSQLyBzS+jjUNRZG9sKF0S/Go4ApG6LFnUGopjkILg3w==
+vite-plugin-node-polyfills@^0.24.0:
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-node-polyfills/-/vite-plugin-node-polyfills-0.24.0.tgz#4a2e984bba134017fc88cace0149cf8afdb50b54"
+  integrity sha512-GA9QKLH+vIM8NPaGA+o2t8PDfFUl32J8rUp1zQfMKVJQiNkOX4unE51tR6ppl6iKw5yOrDAdSH7r/UIFLCVhLw==
   dependencies:
     "@rollup/plugin-inject" "^5.0.5"
     node-stdlib-browser "^1.2.0"

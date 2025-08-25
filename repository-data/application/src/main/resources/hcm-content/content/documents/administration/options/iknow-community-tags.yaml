@@ -1,4 +1,5 @@
 /content/documents/administration/options/iknow-community-tags:
+  # If this meta order changes. Please flag to the owner of the PR and reject it
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: 4635b41c-a165-4fdd-84d0-b6246236ec8e

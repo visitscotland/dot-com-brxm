@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 9504952e-485e-4156-90eb-623802fa7a79
+          jcr:uuid: a810a523-c89a-40ad-9195-7adb8d9de6c4
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -60,6 +60,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators: [optional]
+          /bespoken:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:bespoken
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -73,11 +82,12 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:html: ''
           visitscotland:notes: ''
-          jcr:uuid: 91a9e6e8-6f4a-497f-b8bd-57c4a8edcad2
+          jcr:uuid: 07449767-c934-40e8-ae72-49bed836d154
           hippostdpubwf:lastModificationDate: 2023-01-18T16:27:53.908Z
           hippostdpubwf:creationDate: 2023-01-18T16:27:53.908Z
           visitscotland:headContributions: []
           visitscotland:footerContributions: []
+          visitscotland:bespoken: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -89,6 +99,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /notes:
+            jcr:primaryType: frontend:plugin
+            caption: Development Notes (Not renderable)
+            field: notes
+            hint: The content of this field won't render. It is just a handy field
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /headContributions:
             jcr:primaryType: frontend:plugin
             caption: CSS Files
@@ -116,9 +135,19 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /bespoken:
+            jcr:primaryType: frontend:plugin
+            caption: Bespoken Module
+            field: bespoken
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/options/bespoken-modules
           /freemarkerId:
             jcr:primaryType: frontend:plugin
-            caption: FreeMarker Template
+            caption: FreeMarker Template (Deprecated)
             field: freemarkerId
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -126,13 +155,3 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: Carbon Calculator
-          /notes:
-            jcr:primaryType: frontend:plugin
-            caption: Notes (Not renderable)
-            field: notes
-            hint: The content of this filed won't render. It is just a handy field
-              for developers to add notes.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
