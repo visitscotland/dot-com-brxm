@@ -103,6 +103,7 @@ public class MegalinkFactory {
     public CardGroupModule getCardGroupModule(Megalinks doc, Locale locale) {
         CardGroupModule module = new CardGroupModule();
         populateCommonFields(module, doc, locale);
+        module.setLayout(doc.getLayout());
 
         module.setLinks(convertToEnhancedLinks(module, doc.getMegalinkItems(), locale, false));
         return module;
