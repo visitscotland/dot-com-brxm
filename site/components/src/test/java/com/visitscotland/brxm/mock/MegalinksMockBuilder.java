@@ -45,12 +45,19 @@ public class MegalinksMockBuilder {
         megalinks = mock(Megalinks.class, RETURNS_DEEP_STUBS);
         when (megalinks.getLayout()).thenReturn(MegalinkFactory.HORIZONTAL_LAYOUT);
         when (megalinks.getMegalinkItems().size()).thenReturn(numberLinks);
+        lenient().when(megalinks.getSingleImageModule()).thenReturn(null);
 
         return this;
     }
 
     public MegalinksMockBuilder singleImageLayout() {
         when(megalinks.getSingleImageModule()).thenReturn(mock(SingleImageModule.class));
+
+        return this;
+    }
+
+    public MegalinksMockBuilder defaultLayout(){
+        when (megalinks.getLayout()).thenReturn(MegalinkFactory.DEFAULT_LAYOUT);
 
         return this;
     }
