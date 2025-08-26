@@ -4,7 +4,9 @@
 <#include "../../../../../frontend/components/vs-img.ftl">
 <#include "../../../../../frontend/components/vs-heading.ftl">
 <#include "../../../../../frontend/components/vs-link.ftl">
-<#include "../../../../../frontend/components/vs-img.ftl">
+<#include "../../../../../frontend/components/vs-heading.ftl">
+<#include "../../../../../frontend/components/vs-link.ftl">
+<#include "../../video/video-modal.ftl">
 <#include "../../video/video-modal.ftl">
 
 <#macro cardGroup item theme>
