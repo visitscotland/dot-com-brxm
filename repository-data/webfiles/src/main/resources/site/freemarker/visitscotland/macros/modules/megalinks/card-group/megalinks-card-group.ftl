@@ -1,5 +1,4 @@
 <#include "../../../../../include/imports.ftl">
-<#include "../../../../../frontend/components/vs-megalink-link-list.ftl">
 <#include "../../../../../frontend/components/vs-card-group.ftl">
 <#include "../../../../../frontend/components/vs-card.ftl">
 <#include "../../../../../frontend/components/vs-img.ftl">
@@ -9,13 +8,8 @@
 <#include "../../video/video-modal.ftl">
 
 <#macro cardGroup item theme>
-    <vs-card-group scroll-snap cards-per-row="
-        <#if item.layout=='Grid 4'>
-        4
-        <#else>
-        3
-        </#if>
-    ">
+    <#assign cardsPerRow = (item.layout == 'Grid 4')?then('4', '3') />
+    <vs-card-group scroll-snap cards-per-row="${cardsPerRow}">
         <#list item.links as listItem>
             <#if listItem.image.cmsImage??>
                 <#assign image>
