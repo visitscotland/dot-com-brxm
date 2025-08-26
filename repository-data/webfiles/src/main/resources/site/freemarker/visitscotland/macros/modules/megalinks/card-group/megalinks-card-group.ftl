@@ -1,5 +1,4 @@
 <#include "../../../../../include/imports.ftl">
-<#include "../../../../../frontend/components/vs-megalink-link-list.ftl">
 <#include "../../../../../frontend/components/vs-card-group.ftl">
 <#include "../../../../../frontend/components/vs-card.ftl">
 <#include "../../../../../frontend/components/vs-img.ftl">
