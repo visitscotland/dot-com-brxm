@@ -5,7 +5,7 @@
 <#include "../../../../frontend/components/vs-col.ftl">
 <#include "../../../../frontend/components/vs-button.ftl">
 <#include "../../../../frontend/components/vs-img.ftl">
-<#include "../../../../frontend/components/vs-rich-text-wrapper.ftl">
+<#include "../../../../frontend/components/vs-body.ftl">
 
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.SignpostModule" -->
 <#macro signpost module>
@@ -24,11 +24,11 @@
                     offset-lg="1"
                     class="text-center text-sm-start col-xxl-4"
                 >   
-                    <vs-rich-text-wrapper variant="lead" class="mb-300 mb-lg-400">
+                    <vs-body variant="lead" class="mb-300 mb-lg-400">
                         <p>
                             <@hst.html hippohtml=module.copy/>
                         </p>
-                    </vs-rich-text-wrapper>
+                    </vs-body>
                     <vs-button
                         href="${module.cta.link}"
                     >

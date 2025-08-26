@@ -16,6 +16,8 @@
         md="6"
         xl="12"
     >
+        <#assign transportIcon = getDMSIconName(feature.itineraryTransport)>
+
         <vs-megalink-multi-image
             featured
             <#if lastFeatured == 'true'>last-featured</#if>
@@ -25,7 +27,7 @@
             link-url="${feature.link}"
             error-message="${label('essentials.global', 'third-party-error')}"
             <#if feature.itineraryTransport??>
-                transport="${feature.itineraryTransport}"
+                transport="${transportIcon}"
                 transport-name="${label('transports', feature.itineraryTransport)}"
             </#if>
             <#if feature.itineraryDays??>
