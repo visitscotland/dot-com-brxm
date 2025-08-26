@@ -151,7 +151,7 @@ public class PageAssembler {
         } else if (item instanceof SkiCentreList){
             skiCentreListMapper.include((SkiCentreList) item, compositionHelper);
         } else if (item instanceof DevModule){
-            compositionHelper.addModule(devModuleFactory.getModule((DevModule) item));
+            compositionHelper.addModule(devModuleFactory.getModule((DevModule) item, labels(request), request.getLocale()));
         } else if (item instanceof CTABanner){
             compositionHelper.addModule(signPostFactory.createModule((CTABanner) item));
         } else if (item instanceof EventsListing){
@@ -173,8 +173,8 @@ public class PageAssembler {
         Map<String, String> formLabels = labels(request).get("forms");
 
         //The following files are required independent of the Form Framework
-        formLabels.put("cfg.form.json.countries", properties.getProperty("form.json.countries"));
-        formLabels.put("cfg.form.json.messages", properties.getProperty("form.json.messages"));
+        formLabels.put("cfg.form.json.countries", properties.getProperty("form.json.countries").orElse(""));
+        formLabels.put("cfg.form.json.messages", properties.getProperty("form.json.messages").orElse(""));
 
         if (form instanceof MarketoForm) {
             return formFactory.getModule((MarketoForm) form);
