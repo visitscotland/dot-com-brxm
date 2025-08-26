@@ -14,9 +14,9 @@
         <#assign variant = "link-list">
     </#if>
 
-    <#if item.teaserVisible??>
-        <#assign showTeaser = item.teaserVisible?string('true', 'false') />
-    </#if>
+-    <#if item.teaserVisible??>
+-        <#assign showTeaser = item.teaserVisible?string('true', 'false') />
+-    </#if>
 
     <@previewWarning editMode item item.errorMessages/>
 
