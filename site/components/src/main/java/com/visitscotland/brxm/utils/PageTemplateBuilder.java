@@ -140,7 +140,7 @@ public class PageTemplateBuilder {
         } else if (item instanceof MapModule) {
             page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
         } else if (item instanceof Stackla) {
-            page.modules.add(userGeneratedContentFactory.getUGCModule((Stackla) item, request.getLocale()));
+            page.modules.add(userGeneratedContentFactory.map((Stackla) item, request.getLocale()));
         } else if (item instanceof TravelInformation) {
             page.modules.add(travelInformationFactory.getTravelInformation((TravelInformation) item, request.getLocale()));
         } else if (item instanceof CannedSearch) {
