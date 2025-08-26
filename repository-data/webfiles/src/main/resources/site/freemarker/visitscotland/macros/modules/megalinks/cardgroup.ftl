@@ -1,6 +1,5 @@
 <#include "../../../../include/imports.ftl">
 <#include "./card-group/megalinks-card-group.ftl">
-<#include "./link-list/megalinks-link-list.ftl">
 <#include "../../global/preview-warning.ftl">
 
 <#macro cardgroup item type theme="">
@@ -13,11 +12,7 @@
     <#else>
         <#assign variant = "link-list">
     </#if>
-
-    <#if item.teaserVisible??>
-        <#assign showTeaser = item.teaserVisible?string('true', 'false') />
-    </#if>
-
+    
     <@previewWarning editMode item item.errorMessages/>
 
     <vs-megalinks
