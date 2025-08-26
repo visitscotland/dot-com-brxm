@@ -5,6 +5,10 @@
     jcr:primaryType: hst:sitemenuitem
     hst:externallink: https://businessevents.visitscotland.com/
     hst:repobased: false
+  /footer.business-support-hub:
+    jcr:primaryType: hst:sitemenuitem
+    hst:externallink: https://support.visitscotland.org/
+    hst:repobased: false
   /footer.travel-trade:
     jcr:primaryType: hst:sitemenuitem
     hst:externallink: https://traveltrade.visitscotland.org/

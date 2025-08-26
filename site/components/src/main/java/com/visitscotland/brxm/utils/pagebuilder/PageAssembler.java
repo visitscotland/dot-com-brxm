@@ -151,7 +151,7 @@ public class PageAssembler {
         } else if (item instanceof SkiCentreList){
             skiCentreListMapper.include((SkiCentreList) item, compositionHelper);
         } else if (item instanceof DevModule){
-            compositionHelper.addModule(devModuleFactory.getModule((DevModule) item));
+            compositionHelper.addModule(devModuleFactory.getModule((DevModule) item, labels(request), request.getLocale()));
         } else if (item instanceof CTABanner){
             compositionHelper.addModule(signPostFactory.createModule((CTABanner) item));
         } else if (item instanceof EventsListing){

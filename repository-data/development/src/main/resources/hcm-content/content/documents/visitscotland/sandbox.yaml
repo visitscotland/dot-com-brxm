@@ -8412,17 +8412,18 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 23d70711-bab2-4981-a696-c24599ad3f29
           hippo:name: Itinerary example
-          hippo:versionHistory: 92af5f2a-ea75-4919-8200-454d39f31a5d
+          hippo:versionHistory: 393159b0-6fec-499a-baab-3edf06484801
           /content[1]:
             jcr:primaryType: visitscotland:Itinerary
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: ae73b73c-a080-4f54-a858-33e9bf73655c
             hippo:availability: []
+            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-24T12:36:38.073+01:00
-            hippostdpubwf:lastModificationDate: 2022-01-17T13:52:43.033Z
+            hippostdpubwf:lastModificationDate: 2025-07-23T09:56:27.645+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 3fb03d02-9124-4ec2-8af0-400a9291591f
             hippotranslation:locale: en
@@ -8466,7 +8467,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-24T12:36:38.073+01:00
-            hippostdpubwf:lastModificationDate: 2022-01-17T13:52:48.519Z
+            hippostdpubwf:lastModificationDate: 2025-07-23T09:48:49.728+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 3fb03d02-9124-4ec2-8af0-400a9291591f
             hippotranslation:locale: en
@@ -8510,9 +8511,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-24T12:36:38.073+01:00
-            hippostdpubwf:lastModificationDate: 2022-01-17T13:52:48.519Z
+            hippostdpubwf:lastModificationDate: 2025-07-23T09:48:49.728+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2022-01-17T13:52:51.205Z
+            hippostdpubwf:publicationDate: 2025-07-23T09:48:52.140+01:00
             hippotranslation:id: 3fb03d02-9124-4ec2-8af0-400a9291591f
             hippotranslation:locale: en
             visitscotland:areas: [east]
@@ -31581,6 +31582,247 @@
                 /visitscotland:mapPins[2]:
                   jcr:primaryType: hippo:mirror
                   hippo:docbase: 961348bd-660b-423f-bca8-e694f5e892ce
+      /the-open-prize-draw:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 0fa29a71-ae4b-4111-bb47-3a1e47f222ee
+        hippo:name: The Open Prize Draw
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 72182320-326c-4f69-82b7-c202a6e61417
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: bf3fbc9f-5b09-4f3b-aabb-5fb992a90d41
+          hippo:name: Content
+          hippo:versionHistory: 373d1378-ba45-4814-accb-9898eedaa140
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 6205b6c8-8e68-4fdb-a9c2-637b70a64dfd
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-19T16:29:11.398+01:00
+            hippostdpubwf:lastModificationDate: 2025-06-19T16:39:11.279+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 0d6bbb7a-031d-4a9c-9805-d5b284e8bfda
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: The Open - Prize Draw
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: The Open - Prize Draw
+            visitscotland:teaser: Teaser
+            visitscotland:theme: Simple
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Enter free our prize draw to win a two-night stay for two with golf, at the unforgettable 5-star Mar Hall Golf &amp; Spa Resort near Glasgow. You’ll stay in a twin or double classic room with&nbsp; breakfast, have access to on-site leisure facilities and enjoy a two ball on Mar Hall’s spectacular par-70 championship course. The prize also includes two £100 dinner vouchers for The Dining Room at Mar Hall.</p>
+
+                <p>Ten runners-up will win a luxurious Lochcarron lambswool Ryder Cup tartan scarf – perfect for your next outdoor adventure.</p>
+
+                <p>We will process your details in accordance with our privacy policy. By submitting you are indicating that you agree to the prize draw terms and conditions .</p>
+
+                <p>View our <a href="https://www.visitscotland.com/policies/privacy">privacy policy</a>.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: ae241743-dc40-42e5-86db-5a06012c0538
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-19T16:29:11.398+01:00
+            hippostdpubwf:lastModificationDate: 2025-06-19T16:40:27.486+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 0d6bbb7a-031d-4a9c-9805-d5b284e8bfda
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: The Open - Prize Draw
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: The Open - Prize Draw
+            visitscotland:teaser: Teaser
+            visitscotland:theme: Simple
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Enter free our prize draw to win a two-night stay for two with golf, at the unforgettable 5-star Mar Hall Golf &amp; Spa Resort near Glasgow. You’ll stay in a twin or double classic room with&nbsp; breakfast, have access to on-site leisure facilities and enjoy a two ball on Mar Hall’s spectacular par-70 championship course. The prize also includes two £100 dinner vouchers for The Dining Room at Mar Hall.</p>
+
+                <p>Ten runners-up will win a luxurious Lochcarron lambswool Ryder Cup tartan scarf – perfect for your next outdoor adventure.</p>
+
+                <p>We will process your details in accordance with our privacy policy. By submitting you are indicating that you agree to the prize draw terms and conditions .</p>
+
+                <p>View our <a href="https://www.visitscotland.com/policies/privacy">privacy policy</a>.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 025ca3a7-7d26-4ffb-a50b-a6393da0b589
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-19T16:29:11.398+01:00
+            hippostdpubwf:lastModificationDate: 2025-06-19T16:40:27.486+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-06-19T16:40:30.983+01:00
+            hippotranslation:id: 0d6bbb7a-031d-4a9c-9805-d5b284e8bfda
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:pswPosition: Default
+            visitscotland:seoDescription: The Open - Prize Draw
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: The Open - Prize Draw
+            visitscotland:teaser: Teaser
+            visitscotland:theme: Simple
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Enter free our prize draw to win a two-night stay for two with golf, at the unforgettable 5-star Mar Hall Golf &amp; Spa Resort near Glasgow. You’ll stay in a twin or double classic room with&nbsp; breakfast, have access to on-site leisure facilities and enjoy a two ball on Mar Hall’s spectacular par-70 championship course. The prize also includes two £100 dinner vouchers for The Dining Room at Mar Hall.</p>
+
+                <p>Ten runners-up will win a luxurious Lochcarron lambswool Ryder Cup tartan scarf – perfect for your next outdoor adventure.</p>
+
+                <p>We will process your details in accordance with our privacy policy. By submitting you are indicating that you agree to the prize draw terms and conditions .</p>
+
+                <p>View our <a href="https://www.visitscotland.com/policies/privacy">privacy policy</a>.</p>
+        /form:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 67d13a43-61c7-4c34-be03-9bd1326689f9
+          hippo:name: Form
+          hippo:versionHistory: d59dd191-6c2a-4987-bef0-ec10c7344dbc
+          /form[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: a042af69-3d18-498e-9684-03c0920d475c
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-19T16:33:52.248+01:00
+            hippostdpubwf:lastModificationDate: 2025-06-19T16:33:52.248+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: e6dd5728-4c5f-496b-b54a-d41127bb478c
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: 25EVNT001A
+              visitscotland:activityDescription: Event - The Open At Royal Port Rush  -
+                Win luxury golf break - offline
+              visitscotland:activitySource: Event
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/prize-draws/the-open-golf-prize-draw.json
+              visitscotland:url: '#'
+              /visitscotland:consents[1]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: data_provider
+                visitscotland:value: API VS
+              /visitscotland:consents[2]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: legal_basis
+                visitscotland:value: Contract - Prize draw
+          /form[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: efc1cbc6-9763-4a1b-b6db-c7d5d909722b
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-19T16:33:52.248+01:00
+            hippostdpubwf:lastModificationDate: 2025-06-19T16:37:00.385+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: e6dd5728-4c5f-496b-b54a-d41127bb478c
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: 25EVNT001A
+              visitscotland:activityDescription: Event - The Open At Royal Port Rush  -
+                Win luxury golf break - offline
+              visitscotland:activitySource: Event
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/prize-draws/the-open-golf-prize-draw.json
+              visitscotland:url: '#'
+              /visitscotland:consents[1]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: data_provider
+                visitscotland:value: API VS
+              /visitscotland:consents[2]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: legal_basis
+                visitscotland:value: Contract - Prize draw
+          /form[3]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 6728d250-def6-403b-b4c4-02178edfd30b
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-06-19T16:33:52.248+01:00
+            hippostdpubwf:lastModificationDate: 2025-06-19T16:37:00.385+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-06-19T16:37:02.546+01:00
+            hippotranslation:id: e6dd5728-4c5f-496b-b54a-d41127bb478c
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: WIN a golf break at Mar Hall Golf & Spa Resort for
+              two
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: 25EVNT001A
+              visitscotland:activityDescription: Event - The Open At Royal Port Rush  -
+                Win luxury golf break - offline
+              visitscotland:activitySource: Event
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/prize-draws/the-open-golf-prize-draw.json
+              visitscotland:url: '#'
+              /visitscotland:consents[1]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: data_provider
+                visitscotland:value: API VS
+              /visitscotland:consents[2]:
+                jcr:primaryType: visitscotland:Entry
+                visitscotland:key: legal_basis
+                visitscotland:value: Contract - Prize draw
   /modules:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
