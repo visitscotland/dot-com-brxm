@@ -1,7 +1,6 @@
 <#include "../../../../include/imports.ftl">
 <#include "../../../../frontend/components/vs-megalinks.ftl">
 <#include "./card-group/megalinks-card-group.ftl">
-<#include "./link-list/megalinks-link-list.ftl">
 <#include "../../global/preview-warning.ftl">
 
 <#macro cardgroup item type theme="">
