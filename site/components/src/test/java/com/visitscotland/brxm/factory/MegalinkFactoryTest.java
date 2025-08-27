@@ -262,8 +262,8 @@ public class MegalinkFactoryTest {
     @DisplayName("Validate Maximun and minimum number of featured items")
     @CsvSource({"1,1,1", "2,0,0", "3,0,1", "4,1,2","5,1,2", "6,1,2"})
     void createFeaturedLayoutAndCheckItems(Integer total, Integer minItems, Integer maxItems){
-        MegalinksMockBuilder min = new MegalinksMockBuilder();
-        MegalinksMockBuilder max = new MegalinksMockBuilder();
+        MegalinksMockBuilder min = new MegalinksMockBuilder().defaultLayout();
+        MegalinksMockBuilder max = new MegalinksMockBuilder().defaultLayout();
 
         for (int i = 0; i < total; i++){
             min.addPageLink().featured(false);
