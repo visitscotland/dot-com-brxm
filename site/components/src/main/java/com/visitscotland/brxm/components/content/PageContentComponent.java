@@ -105,7 +105,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addOTYML(request);
         addNewsletterSignup(request);
         addLogging(request);
-        addFlags(request);
         addBlog(request);
         addGtmConfiguration(request);
 
