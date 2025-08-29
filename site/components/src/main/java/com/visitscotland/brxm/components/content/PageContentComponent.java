@@ -407,7 +407,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addPropertyIfPresent(request, "cludo.customer-id", "cludoCustomerId");
         addPropertyIfPresent(request, "cludo.engine-id", "cludoEngineId");
         addPropertyIfPresent(request, "cludo.experience-id", "cludoExperienceId");
-        addPropertyIfPresent(request, "global-search.path", "globalSearchPath");
+        addPropertyIfPresent(request, "global-search.url", properties.getGlobalSearchURL());
     }
 
     boolean isEditMode(HstRequest request) {

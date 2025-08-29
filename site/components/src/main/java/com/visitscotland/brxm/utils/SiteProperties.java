@@ -33,10 +33,8 @@ public class SiteProperties extends Properties {
 
 
     //Page References
-    private static final String PATH_GLOBAL_SEARCH = "site.path.global-search";
     private static final String PATH_SKI_SECTION = "site.path.ski-landing";
     private static final String PATH_CAMPAIGN_SECTION = "site.path.campaigns";
-    private static final String PATH_ABOUT_US = "site.path.about-us";
     private static final String PATH_NEWSLETTER = "site.path.newsletter";
     private static final String PATH_ICENTRE = "site.path.icentre-landing";
 
@@ -103,12 +101,7 @@ public class SiteProperties extends Properties {
     public String getCampaignSection() {
         return readString(PATH_CAMPAIGN_SECTION);
     }
-    public String getSiteAboutUs() {
-        return readString(PATH_ABOUT_US);
-    }
-    public String getSiteGlobalSearch() {
-        return readString(PATH_GLOBAL_SEARCH);
-    }
+
     public String getSiteNewsletter() {
         return readString(PATH_NEWSLETTER);
     }
@@ -152,18 +145,22 @@ public class SiteProperties extends Properties {
         return Collections.emptyList();
     }
 
+    @Deprecated
     public String getFormsMarketoUrl() {
         return readString(FORMS_MARKETO_URL);
     }
 
+    @Deprecated
     public String getFormsRecaptcha() {
         return readString(FORMS_RECAPTCHA);
     }
 
+    @Deprecated
     public String getFormsMarketoMunchkin() {
         return readString(FORMS_MARKETO_MUNCHKIN);
     }
 
+    @Deprecated
     public String getFormsMarketoScript() {
         return readString(FORMS_MARKETO_SCRIPT);
     }
