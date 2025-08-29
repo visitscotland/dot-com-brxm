@@ -62,14 +62,16 @@ public class ResourceBundleService {
         return getResourceBundle(bundleName, key, locale, false);
     }
 
-    /**
-     * @deprecated Please use get {@code getResourceBundle} instead
-     */
-    @Deprecated(forRemoval = true)
-    public String getSiteResourceBundle(String bundleName, String key, Locale locale) {
-        return getResourceBundle(bundleName, key, locale);
-    }
 
+    /**
+     * Gets all keys from the resource bundle for the specified locale.
+     * If a site-specific bundle exists, returns the union of keys from both
+     * the general and site-specific bundles.
+     *
+     * @param bundleName id of the Resource Bundle defined in Hippo
+     * @param locale locale for which to retrieve the keys
+     * @return set of all available keys in the resource bundle
+     */
     public Set<String> getResourceBundleKeys(String bundleName, Locale locale) {
         String siteBundleName = getResourceBundleId(bundleName);
         if (!Contract.isEmpty(properties.getSiteId()) && hasSiteResourceBundle(siteBundleName, locale)) {
@@ -285,22 +287,5 @@ public class ResourceBundleService {
             labels.put(key, getResourceBundle(bundleName, key, locale));
         }
         return labels;
-    }
-
-    /**
-     * @deprecated To be replaced by getAllLabels
-     */
-    @Deprecated(forRemoval = true)
-    public Map<String, String> getAllSiteLabels(String bundleName, Locale locale) {
-        Map<String, String> labels = new HashMap<>();
-        if (!Contract.isEmpty(properties.getSiteId())) {
-
-            for (String key : getResourceBundleKeys(bundleName, locale)) {
-                labels.put(key, getResourceBundle(bundleName, key, locale));
-            }
-            return labels;
-        } else {
-            return getAllLabels(bundleName, locale);
-        }
     }
 }
