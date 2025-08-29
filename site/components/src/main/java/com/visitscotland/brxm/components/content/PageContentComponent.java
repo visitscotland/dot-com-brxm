@@ -172,7 +172,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param bundleId Hippo Resource Bundle id (from the CMS)
      */
     protected void addAllLabels(HstRequest request, String bundleId) {
-        labels(request).put(bundleId, bundle.getAllSiteLabels(bundleId, request.getLocale()));
+        labels(request).put(bundleId, bundle.getAllLabels(bundleId, request.getLocale()));
     }
 
     /**
@@ -222,7 +222,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param locale: Locale of the request
      */
     private void addGlobalLabel(Map<String, String> map, String key, Locale locale) {
-        map.put(key, bundle.getSiteResourceBundle(ResourceBundleService.GLOBAL_BUNDLE_FILE, key, locale));
+        map.put(key, bundle.getResourceBundle(ResourceBundleService.GLOBAL_BUNDLE_FILE, key, locale));
     }
 
     /**
@@ -342,7 +342,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
                 && !request.getPathInfo().contains(properties.getCampaignSection())) {
             request.setModel(PSR_WIDGET, psrFactory.getWidget(request));
             labels(request).put(PRODUCT_SEARCH_BUNDLE,
-                    bundle.getAllSiteLabels(PRODUCT_SEARCH_BUNDLE, request.getLocale()));
+                    bundle.getAllLabels(PRODUCT_SEARCH_BUNDLE, request.getLocale()));
         }
     }
 

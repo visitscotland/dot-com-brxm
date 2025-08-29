@@ -22,13 +22,11 @@ public class MegalinkFactory {
 
     private static final Logger logger = LoggerFactory.getLogger(MegalinkFactory.class);
 
-
     public static final int MAX_ITEMS = 6;
     public static final int MIN_ITEMS_CAROUSEL = 5;
     public static final String HORIZONTAL_LAYOUT = "Horizontal Links";
     public static final String DEFAULT_LAYOUT = "Default";
     public static final String OTYML = "otyml";
-
 
     private final LinkService linkService;
     private final ResourceBundleService bundle;
@@ -99,7 +97,7 @@ public class MegalinkFactory {
 
     public HorizontalListLinksModule horizontalListLayout(GeneralBSH page, Locale locale) {
         HorizontalListLinksModule hll = new HorizontalListLinksModule();
-        hll.setTitle(bundle.getSiteResourceBundle(OTYML, "otyml.title.default", locale));
+        hll.setTitle(bundle.getResourceBundle(OTYML, "otyml.title.default", locale));
         hll.setLinks(convertPageLinksToEnhancedLinks(hll, page.getLinks(), locale, true));
 
         return hll;
@@ -255,7 +253,7 @@ public class MegalinkFactory {
             return null;
         }
 
-        if (!link.isPresent()) {
+        if (link.isEmpty()) {
             contentLogger.warn("The module {} might be linking an unpublished document", item.getPath());
             return null;
         }

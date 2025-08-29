@@ -44,11 +44,11 @@ public class PageCompositionHelper {
     void addGlobalLabel(String key) {
         labels().computeIfAbsent(GLOBAL_BUNDLE_FILE, k -> new HashMap<>());
         labels().get(GLOBAL_BUNDLE_FILE)
-                .put(key, bundle.getSiteResourceBundle(GLOBAL_BUNDLE_FILE, key, getLocale()));
+                .put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, getLocale()));
     }
 
     public void addAllSiteLabels(String bundleName) {
-        labels().put(bundleName, bundle.getAllSiteLabels(bundleName, getLocale()));
+        labels().put(bundleName, bundle.getAllLabels(bundleName, getLocale()));
     }
 
     private Map<String, Map<String, String>> labels() {

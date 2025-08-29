@@ -46,7 +46,7 @@ public class BlogFactory {
         FlatBlog blog = new FlatBlog();
         blog.setPublishDate(formatPublishDate(page.getPublishDate(), locale));
         if (page.getReadingTime() > 0) {
-            String readTime = bundle.getSiteResourceBundle(BLOG_LABELS,"read-time.generic", locale);
+            String readTime = bundle.getResourceBundle(BLOG_LABELS, "read-time.generic", locale);
             blog.setReadingTime(String.format(readTime, page.getReadingTime().toString()));
         }
 

@@ -43,8 +43,8 @@ public class DevModuleFactory {
         try {
             if (document.getBespoken().equals("online-booking-system")) {
                 var module = comparisonMapper.map(document);
-                labels.put(OBS_BUNDLE, bundle.getAllSiteLabels(OBS_BUNDLE, locale));
-                labels.put(FORMS_BUNDLE, bundle.getAllSiteLabels(FORMS_BUNDLE, locale));
+                labels.put(OBS_BUNDLE, bundle.getAllLabels(OBS_BUNDLE, locale));
+                labels.put(FORMS_BUNDLE, bundle.getAllLabels(FORMS_BUNDLE, locale));
 
                 return module;
             }

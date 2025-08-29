@@ -71,7 +71,7 @@ class PageCompositionHelperTest {
 
         helper.addAllSiteLabels( "bundleId");
 
-        verify(resourceBundleService).getAllSiteLabels("bundleId", locale);
+        verify(resourceBundleService).getAllLabels("bundleId", locale);
         verify(request).setModel(eq(LABELS), any());
 
     }
@@ -81,9 +81,9 @@ class PageCompositionHelperTest {
     void When_addGlobalLabel_then_storeLabelInGlobalBundle() {
         Map<String, Map<String, String>> labelsMap = new HashMap<>();
         when(request.getModel(LABELS)).thenReturn(labelsMap);
-        when(resourceBundleService.getSiteResourceBundle(any(), eq("testKey"), any()))
+        when(resourceBundleService.getResourceBundle(any(), eq("testKey"), any(Locale.class)))
                 .thenReturn("labelValue");
-        when(resourceBundleService.getSiteResourceBundle(any(), eq("testKey2"), any()))
+        when(resourceBundleService.getResourceBundle(any(), eq("testKey2"), any(Locale.class)))
                 .thenReturn("labelValue2");
         helper.addGlobalLabel("testKey");
         helper.addGlobalLabel("testKey2");
