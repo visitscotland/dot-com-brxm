@@ -141,26 +141,25 @@ public class ResourceBundleService {
      * @return string for the given key
      */
     public String getResourceBundle(String bundleName, String key, Locale locale, boolean optional) {
-
-        ResourceBundle bundle = getResourceBundle(bundleName, locale);
-
+        final ResourceBundle bundle = getResourceBundle(bundleName, locale);
         String value = null;
 
         if (bundle == null) {
             logger.warn("The resource bundle '{}' does not exist", bundleName);
-        } else {
-            if (bundle.containsKey(key)) {
-                value = bundle.getString(key);
-                if (Contract.isEmpty(value) && locale != null && !optional) {
-                    value = getResourceBundle(bundleName, key, (Locale) null, false);
-                    if (!Contract.isEmpty(value)) {
-                        logContentIssue("The label key {} does not exists for the {} channel. Resource Bundle key {}", key, locale, bundleName);
-                    }
+            return null;
+        }
+
+        if (bundle.containsKey(key)) {
+            value = bundle.getString(key);
+            if (Contract.isEmpty(value) && locale != null && !optional) {
+                value = getResourceBundle(bundleName, key, (Locale) null, false);
+                if (!Contract.isEmpty(value)) {
+                    logContentIssue("The label key {} does not exists for the {} channel. Resource Bundle key {}", key, locale, bundleName);
                 }
             }
-            if (Contract.isEmpty(value) && !optional) {
-                logContentIssue("The label key {} does not exists for the English channel. Resource Bundle key {}", key, bundleName);
-            }
+        }
+        if (Contract.isEmpty(value) && !optional) {
+            logContentIssue("The label key {} does not exists for the English channel. Resource Bundle key {}", key, bundleName);
         }
 
         return value;
@@ -226,6 +225,21 @@ public class ResourceBundleService {
     }
 
     /**
+     * Return all labels for a Resource bundle file
+     *
+     * @param bundleName Resource Bundle CMS ID
+     * @param locale     Locale of the request
+     * @return All labels for a Resource bundle file
+     */
+    public Map<String, String> getAllLabels(String bundleName, Locale locale) {
+        Map<String, String> labels = new HashMap<>();
+        for (String key : getResourceBundleKeys(bundleName, locale)) {
+            labels.put(key, getResourceBundle(bundleName, key, locale));
+        }
+        return labels;
+    }
+
+    /**
      * Logs an issue that can be solved from the CMS
      *
      * @param message message
@@ -261,31 +275,5 @@ public class ResourceBundleService {
 
     public String getFindOutMoreAboutCta(String title, Locale locale) {
         return String.format("%s %s", getResourceBundle(GLOBAL_BUNDLE_FILE, "find-out-more-about", locale), title);
-    }
-
-    /**
-     * Return all labels for a Resource bundle file
-     *
-     * @param bundleName Resource Bundle CMS ID
-     * @param locale     Locale of the request
-     * @return All labels for a Resource bundle file
-     */
-    public Map<String, String> getAllLabels(String bundleName, String locale) {
-        return getAllLabels(bundleName, toLocale(locale));
-    }
-
-    /**
-     * Return all labels for a Resource bundle file
-     *
-     * @param bundleName Resource Bundle CMS ID
-     * @param locale     Locale of the request
-     * @return All labels for a Resource bundle file
-     */
-    public Map<String, String> getAllLabels(String bundleName, Locale locale) {
-        Map<String, String> labels = new HashMap<>();
-        for (String key : getResourceBundleKeys(bundleName, locale)) {
-            labels.put(key, getResourceBundle(bundleName, key, locale));
-        }
-        return labels;
     }
 }
