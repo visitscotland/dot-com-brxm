@@ -81,9 +81,9 @@ class PageCompositionHelperTest {
     void When_addGlobalLabel_then_storeLabelInGlobalBundle() {
         Map<String, Map<String, String>> labelsMap = new HashMap<>();
         when(request.getModel(LABELS)).thenReturn(labelsMap);
-        when(resourceBundleService.getResourceBundle(any(), eq("testKey"), any(Locale.class)))
+        when(resourceBundleService.getResourceBundle(any(), eq("testKey"), (Locale) eq(null)))
                 .thenReturn("labelValue");
-        when(resourceBundleService.getResourceBundle(any(), eq("testKey2"), any(Locale.class)))
+        when(resourceBundleService.getResourceBundle(any(), eq("testKey2"), (Locale) eq(null)))
                 .thenReturn("labelValue2");
         helper.addGlobalLabel("testKey");
         helper.addGlobalLabel("testKey2");
