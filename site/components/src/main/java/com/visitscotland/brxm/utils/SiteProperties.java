@@ -44,6 +44,9 @@ public class SiteProperties extends Properties {
     private static final String PATH_BANNER = "site.path.banner";
     static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
     static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
+    private static final String PRODUCTS_SEARCH_ENABLED = "feature.products-search.enable";
+    private static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
+    private static final String GLOBAL_SEARCH_ENABLED = "feature.global-search.enable";
 
     //GTM Properties
     public static final String GTM_CONTAINER_ID = "gtm.container-id";
@@ -56,7 +59,7 @@ public class SiteProperties extends Properties {
     static final String FORMS_MARKETO_MUNCHKIN = "form.marketo.munchkin";
     static final String FORMS_MARKETO_SCRIPT = "form.marketo.script";
     static final String FORMS_MARKETO_IS_PRODUCTION = "form.is-production";
-    static final String FORM_BREG_LEGAL_BASIS = "form.breg.legal-basis";
+    static final String FORM_BREG_LEGAL_BASIS_TEXT = "form.breg.legal-basis.text";
     static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
 
     private final CMSProperties cmsProperties;
@@ -127,6 +130,19 @@ public class SiteProperties extends Properties {
     public boolean isIknowEnabled() {
         return readBoolean(ENABLE_IKNOW_MODULE);
     }
+
+    public boolean isProductSearchEnabled() {
+        return readBoolean(PRODUCTS_SEARCH_ENABLED);
+    }
+
+    public boolean isTableOfContentsEnabled() {
+        return readBoolean(TABLE_OF_CONTENTS_ENABLED);
+    }
+
+    public boolean isGlobalSearchEnabled() {
+        return readBoolean(GLOBAL_SEARCH_ENABLED);
+    }
+
     public List<String> getInternalSites() {
         String sites = readString(INTERNAL_SITES);
         if (!Contract.isEmpty(sites)){
@@ -160,8 +176,8 @@ public class SiteProperties extends Properties {
         return readOptionalString(SITE_ID).orElse("");
     }
 
-    public String getFormBregLegalBasis() {
-        return readString(FORM_BREG_LEGAL_BASIS);
+    public String getFormBregLegalBasisText() {
+        return readString(FORM_BREG_LEGAL_BASIS_TEXT);
     }
     public Boolean isFormBregLegalBasisEnabled() {
         return readBoolean(FORM_BREG_LEGAL_BASIS_ENABLE);
