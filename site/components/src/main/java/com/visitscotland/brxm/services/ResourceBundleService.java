@@ -23,7 +23,7 @@ public class ResourceBundleService {
 
     private final SiteProperties properties;
 
-    public ResourceBundleService(ContentLogger contentLogger, @Lazy SiteProperties properties){
+    public ResourceBundleService(ContentLogger contentLogger, @Lazy SiteProperties properties) {
         this.contentLogger = contentLogger;
         this.properties = properties;
     }
@@ -35,8 +35,8 @@ public class ResourceBundleService {
      * wire this the {@code ResourceBundleRegistry}. That's the reason why we need to check the registry before
      * using it.
      */
-    private ResourceBundleRegistry getResourceBundleRegistry(){
-        if (registry== null){
+    private ResourceBundleRegistry getResourceBundleRegistry() {
+        if (registry == null) {
             registry = VsComponentManager.get(ResourceBundleRegistry.class);
         }
         return registry;
@@ -46,16 +46,13 @@ public class ResourceBundleService {
      * Gets a string for the given key from this resource bundle or one of its parents.
      *
      * @param bundleName id of the Resource Bundle defined in Hippo
-     * @param key key
-     * @param locale locale
+     * @param key        key
+     * @param locale     locale
      */
-    public String getResourceBundle(String bundleName, String key, Locale locale){
-        return getResourceBundle(bundleName, key, locale, false);
-    }
+    public String getResourceBundle(String bundleName, String key, Locale locale) {
 
-    public String getSiteResourceBundle(String bundleName, String key, Locale locale) {
         if (!Contract.isEmpty(properties.getSiteId()) && hasSiteResourceBundle(bundleName, locale)) {
-            final String bundleId = getSiteResourceBundleId(bundleName);
+            final String bundleId = getResourceBundleId(bundleName);
             String value = getResourceBundle(bundleId, key, locale, true);
             if (value != null) {
                 return value;
@@ -66,14 +63,40 @@ public class ResourceBundleService {
     }
 
     /**
+     * @deprecated Please use get {@code getResourceBundle} instead
+     */
+    @Deprecated(forRemoval = true)
+    public String getSiteResourceBundle(String bundleName, String key, Locale locale) {
+        return getResourceBundle(bundleName, key, locale);
+    }
+
+    public Set<String> getResourceBundleKeys(String bundleName, Locale locale) {
+        String siteBundleName = getResourceBundleId(bundleName);
+        if (!Contract.isEmpty(properties.getSiteId()) && hasSiteResourceBundle(siteBundleName, locale)) {
+            //We try to identify if the key in the general file and the site specific file are different
+            Set<String> keys = getResourceBundle(bundleName, locale).keySet();
+            int size = keys.size();
+            keys.addAll(getResourceBundle(siteBundleName, locale).keySet());
+            if (keys.size() > size) {
+                logger.warn("There is a mismatch of resource bundle key between {} and {}", bundleName, siteBundleName);
+            }
+
+            return keys;
+
+        } else {
+            return getResourceBundle(bundleName, locale).keySet();
+        }
+    }
+
+    /**
      * Gets a string for the given key from this resource bundle or one of its parents.
      * This method is usually used from FREEMARKER
      *
      * @param bundleName id of the Resource Bundle defined in Hippo
-     * @param key key
-     * @param locale locale
+     * @param key        key
+     * @param locale     locale
      */
-    public String getResourceBundle(String bundleName, String key, String locale){
+    public String getResourceBundle(String bundleName, String key, String locale) {
         return getResourceBundle(bundleName, key, toLocale(locale));
     }
 
@@ -82,13 +105,12 @@ public class ResourceBundleService {
      * This method is usually used from FREEMARKER
      *
      * @param bundleName id of the Resource Bundle defined in Hippo
-     * @param key key
-     * @param locale locale
-     * @param optional when {@code false} if the value does not exist in the language it would fallback to English
-     *
+     * @param key        key
+     * @param locale     locale
+     * @param optional   when {@code false} if the value does not exist in the language it would fallback to English
      * @return string for the given key
      */
-    public String getResourceBundle(String bundleName, String key, String locale, boolean optional){
+    public String getResourceBundle(String bundleName, String key, String locale, boolean optional) {
         return getResourceBundle(bundleName, key, toLocale(locale), optional);
     }
 
@@ -97,11 +119,10 @@ public class ResourceBundleService {
      * Locale.forLanguageTag(String) specification
      *
      * @param locale String with the locale information
-     *
      * @return a {@code Locale} object version of the {@code String} or {@code null} when empty String or null
      */
-    Locale toLocale(String locale){
-        if (locale == null || locale.isEmpty()){
+    Locale toLocale(String locale) {
+        if (locale == null || locale.isEmpty()) {
             return null;
         } else {
             return Locale.forLanguageTag(locale);
@@ -111,14 +132,13 @@ public class ResourceBundleService {
     /**
      * Gets a string for the given key from this resource bundle (or one of its parents when is not {@code optional}).
      *
-     *
      * @param bundleName id of the Resource Bundle defined in Hippo
-     * @param key key
-     * @param locale locale
-     * @param optional when {@code false} if the value does not exist in the language it would fallback to English
+     * @param key        key
+     * @param locale     locale
+     * @param optional   when {@code false} if the value does not exist in the language it would fallback to English
      * @return string for the given key
      */
-    public String getResourceBundle(String bundleName, String key, Locale locale, boolean optional){
+    public String getResourceBundle(String bundleName, String key, Locale locale, boolean optional) {
 
         ResourceBundle bundle = getResourceBundle(bundleName, locale);
 
@@ -127,16 +147,16 @@ public class ResourceBundleService {
         if (bundle == null) {
             logger.warn("The resource bundle '{}' does not exist", bundleName);
         } else {
-            if(bundle.containsKey(key)) {
+            if (bundle.containsKey(key)) {
                 value = bundle.getString(key);
                 if (Contract.isEmpty(value) && locale != null && !optional) {
-                    value = getResourceBundle(bundleName,key, (Locale) null, false);
+                    value = getResourceBundle(bundleName, key, (Locale) null, false);
                     if (!Contract.isEmpty(value)) {
                         logContentIssue("The label key {} does not exists for the {} channel. Resource Bundle key {}", key, locale, bundleName);
                     }
                 }
             }
-            if (Contract.isEmpty(value) && !optional){
+            if (Contract.isEmpty(value) && !optional) {
                 logContentIssue("The label key {} does not exists for the English channel. Resource Bundle key {}", key, bundleName);
             }
         }
@@ -148,11 +168,10 @@ public class ResourceBundleService {
      * Return a resource bundle for a specific locale
      *
      * @param bundleName id of the Resource Bundle defined in Hippo
-     * @param locale locale
-     *
+     * @param locale     locale
      * @return resource bundle for a specific locale
      */
-    private ResourceBundle getResourceBundle(String bundleName, Locale locale){
+    private ResourceBundle getResourceBundle(String bundleName, Locale locale) {
         if (locale == null) {
             return getResourceBundleRegistry().getBundle(bundleName);
         } else {
@@ -164,19 +183,16 @@ public class ResourceBundleService {
      * Return a resource bundle for a specific locale
      *
      * @param bundleName id of the Resource Bundle defined in Hippo
-     * @param locale locale
-     *
+     * @param locale     locale
      * @return resource bundle for a specific locale
      */
-    private boolean hasSiteResourceBundle(String bundleName, Locale locale){
+    private boolean hasSiteResourceBundle(String bundleName, Locale locale) {
         if (!Contract.isEmpty(properties.getSiteId())) {
-          try {
-               if (getResourceBundle(getSiteResourceBundleId(bundleName), locale) != null){
-                   return true;
-               }
-          } catch (MissingResourceException e) {
-              // The resource bundle does not exist, the default file will be used instead
-          }
+            try {
+                return (getResourceBundle(getResourceBundleId(bundleName), locale) != null);
+            } catch (MissingResourceException e) {
+                // The resource bundle does not exist, the default file will be used instead
+            }
         }
         return false;
     }
@@ -186,11 +202,11 @@ public class ResourceBundleService {
      *
      * @param bundleName id of the Resource Bundle defined in Hippo
      */
-    private String getSiteResourceBundleId(String bundleName) {
+    private String getResourceBundleId(String bundleName) {
         return properties.getSiteId() + "." + bundleName;
     }
 
-    public void setResourceBundleRegistry(ResourceBundleRegistry registry){
+    public void setResourceBundleRegistry(ResourceBundleRegistry registry) {
         this.registry = registry;
     }
 
@@ -198,12 +214,11 @@ public class ResourceBundleService {
      * Verify that a value exists for a key in the specified language
      *
      * @param bundleName id of the Resource Bundle defined in Hippo
-     * @param key Key
-     * @param locale Locale
-     *
+     * @param key        Key
+     * @param locale     Locale
      * @return {@code true} when the key exists in that language and has a value.
      */
-    public boolean existsResourceBundleKey(String bundleName, String key,  Locale locale){
+    public boolean existsResourceBundleKey(String bundleName, String key, Locale locale) {
         ResourceBundle bundle = getResourceBundle(bundleName, locale);
         return bundle != null && bundle.containsKey(key) && !Contract.isEmpty(bundle.getString(key));
     }
@@ -212,7 +227,7 @@ public class ResourceBundleService {
      * Logs an issue that can be solved from the CMS
      *
      * @param message message
-     * @param args arguments for the message
+     * @param args    arguments for the message
      */
     void logContentIssue(String message, Object... args) {
         contentLogger.warn(message, args);
@@ -222,15 +237,15 @@ public class ResourceBundleService {
      * Returns the default global label or the override Text when that is defined
      *
      * @param overrideText Manual CTA defined in the CMS
-     * @param bundleKey key of the label in the essentials.global Resource Bundle File
-     * @param locale    Locale
+     * @param bundleKey    key of the label in the essentials.global Resource Bundle File
+     * @param locale       Locale
      * @return the manual CTA if provided otherwise the default CTA
      */
     public String getCtaLabel(String overrideText, String bundleKey, Locale locale) {
         if (!Contract.isEmpty(overrideText)) {
             return overrideText;
         } else {
-            return getResourceBundle(GLOBAL_BUNDLE_FILE, bundleKey,  locale);
+            return getResourceBundle(GLOBAL_BUNDLE_FILE, bundleKey, locale);
         }
     }
 
@@ -238,7 +253,7 @@ public class ResourceBundleService {
         return getCtaLabel(overrideText, "button.find-out-more", locale);
     }
 
-    public String getVideoCtaLabel(String overrideText, Locale locale){
+    public String getVideoCtaLabel(String overrideText, Locale locale) {
         return getCtaLabel(overrideText, "video.play-btn", locale);
     }
 
@@ -247,47 +262,41 @@ public class ResourceBundleService {
     }
 
     /**
-     *  Return all labels for a Resource bundle file
+     * Return all labels for a Resource bundle file
      *
      * @param bundleName Resource Bundle CMS ID
-     * @param locale Locale of the request
-     *
+     * @param locale     Locale of the request
      * @return All labels for a Resource bundle file
      */
-    public Map<String, String> getAllLabels(String bundleName, String locale){
+    public Map<String, String> getAllLabels(String bundleName, String locale) {
         return getAllLabels(bundleName, toLocale(locale));
     }
 
     /**
-     *  Return all labels for a Resource bundle file
+     * Return all labels for a Resource bundle file
      *
      * @param bundleName Resource Bundle CMS ID
-     * @param locale Locale of the request
-     *
+     * @param locale     Locale of the request
      * @return All labels for a Resource bundle file
      */
-    public Map<String, String> getAllLabels(String bundleName, Locale locale){
+    public Map<String, String> getAllLabels(String bundleName, Locale locale) {
         Map<String, String> labels = new HashMap<>();
-        for (String key : getResourceBundle(bundleName, locale).keySet()){
+        for (String key : getResourceBundleKeys(bundleName, locale)) {
             labels.put(key, getResourceBundle(bundleName, key, locale));
         }
         return labels;
     }
 
     /**
-     *  Return all labels for a Resource bundle file
-     *
-     * @param bundleName Resource Bundle CMS ID
-     * @param locale Locale of the request
-     *
-     * @return All labels for a Resource bundle file
+     * @deprecated To be replaced by getAllLabels
      */
-    public Map<String, String> getAllSiteLabels(String bundleName, Locale locale){
+    @Deprecated(forRemoval = true)
+    public Map<String, String> getAllSiteLabels(String bundleName, Locale locale) {
         Map<String, String> labels = new HashMap<>();
         if (!Contract.isEmpty(properties.getSiteId())) {
 
-            for (String key : getResourceBundle(bundleName, locale).keySet()) {
-                labels.put(key, getSiteResourceBundle(bundleName, key, locale));
+            for (String key : getResourceBundleKeys(bundleName, locale)) {
+                labels.put(key, getResourceBundle(bundleName, key, locale));
             }
             return labels;
         } else {
