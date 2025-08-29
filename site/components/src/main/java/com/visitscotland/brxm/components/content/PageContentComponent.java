@@ -36,9 +36,22 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private final Logger freemarkerLogger = LoggerFactory.getLogger("freemarker");
 
+    //Resource Bundle
+    private static final String SOCIAL_SHARE_BUNDLE = "social.share";
+    private static final String VIDEO_BUNDLE_BUNDLE = "video";
+    private static final String SKIP_TO_BUNDLE = "skip-to";
+    private static final String SEARCH_BUNDLE = "search";
+    private static final String CMS_MESSAGES_BUNDLE = "cms-messages";
+    private static final String SEO_BUNDLE = "seo";
+    private static final String TABLE_CONTENTS_BUNDLE = "table-contents";
+    private static final String MEGALINKS_BUNDLE = "megalinks";
+
+    //TODO Duplicate where it is used
+    protected static final String OTYML_BUNDLE = "otyml";
+
+    //Objects injected in the page payload
     public static final String DOCUMENT = "document";
-    public static final String OTYML_BUNDLE = "otyml";
-    public static final String MEGALINKS_BUNDLE = "megalinks";
+
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
@@ -52,7 +65,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String SEARCH_RESULTS = "searchResultsPage";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
-    public static final String SITE_ID = "site-id";
 
     final BlogFactory blogFactory;
     protected final MegalinkFactory megalinkFactory;
@@ -110,24 +122,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         request.setModel(METADATA_MODEL, metadata.getMetadata());
     }
 
-    /**
-     * Add flags to indicate what type of page is being processed
-     */
-    private void addFlags(HstRequest request) {
-        if (request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
-            request.setModel(SEARCH_RESULTS, true);
-        }
-
-        //TODO: These properties are Optional for each site. This needs to be refactored after VS-343 is completed
-        addPropertyIfPresent(request, "cludo.customer-id", "cludoCustomerId");
-        addPropertyIfPresent(request, "cludo.engine-id", "cludoEngineId");
-        addPropertyIfPresent(request, "cludo.experience-id", "cludoExperienceId");
-    }
-
     private void addPropertyIfPresent(HstRequest request, String property, String attributeId) {
         properties.getProperty(property, request.getLocale())
-                .ifPresent(value -> request.setModel(attributeId,value));
+                .ifPresent(value -> request.setModel(attributeId, value));
     }
+
+
     /**
      * Adds labels that are necessary for type of pages. Please notice that there are two strategies for including properties
      * <br>
@@ -138,26 +138,31 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request HstRequest
      */
     private void addLabels(HstRequest request) {
-        final String SOCIAL_SHARE_BUNDLE = "social.share";
-        final String VIDEO_BUNDLE = "video";
-        final String SKIP_TO = "skip-to";
-        final String SEARCH_BUNDLE = "search";
-        final String CMS_MESSAGES = "cms-messages";
-        final String SEO = "seo";
-        final String TABLE_CONTENTS = "table-contents";
+
 
         labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, getGlobalLabels(request.getLocale()));
+
+        addNavigationLabels(request);
         
-         addAllLabels(request, SOCIAL_SHARE_BUNDLE);
-         addAllLabels(request, SEARCH_BUNDLE);
-         addAllLabels(request, VIDEO_BUNDLE);
-         addAllLabels(request, SEO);
-         addAllLabels(request, SKIP_TO);
-         addAllLabels(request, TABLE_CONTENTS);
+        addAllLabels(request, SOCIAL_SHARE_BUNDLE);
+        addAllLabels(request, SEARCH_BUNDLE);
+        addAllLabels(request, VIDEO_BUNDLE_BUNDLE);
+        addAllLabels(request, SEO_BUNDLE);
+        addAllLabels(request, SKIP_TO_BUNDLE);
 
         if (isEditMode(request)) {
-             addAllLabels(request, CMS_MESSAGES);
+             addAllLabels(request, CMS_MESSAGES_BUNDLE);
         }
+    }
+
+    private static final String SEARCH = "search";
+    private static final String NAVIGATION_STATIC = "navigation.static";
+    private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
+
+    private void addNavigationLabels(HstRequest request) {
+        addAllLabels(request, SEARCH);
+        addAllLabels(request, NAVIGATION_STATIC);
+        addAllLabels(request, NAVIGATION_SOCIAL_MEDIA);
     }
 
     /**
@@ -384,20 +389,26 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request HSt request
      */
     private void addSiteSpecificConfiguration(HstRequest request) {
-
-        if (Contract.isEmpty(properties.getSiteId())) {
-            //TODO: Create a toggleable property in the CMS
+        if (properties.isProductSearchEnabled()){
             addProductSearchWidget(request);
-        } else {
-            request.setModel(SITE_ID, properties.getSiteId());
         }
+        if (properties.isTableOfContentsEnabled()){
+            addAllLabels(request, TABLE_CONTENTS_BUNDLE);
+        }
+        if (properties.isGlobalSearchEnabled()){
+            enableGlobalSearch(request);
+        }
+    }
 
-        //TODO: Investigate if all three sites need Social Media. Create a toggleable property in the CMS otherwise
-        addAllLabels(request, "navigation.social-media");
-        //TODO: Investigate if all three sites need
-        addAllLabels(request, "navigation.static");
-        //TODO: This labels should only be included for GeneralBSH
-        addAllLabels(request, "table-contents");
+    /**
+     * Enable Global Search in the site
+     * @param request
+     */
+    private void enableGlobalSearch(HstRequest request){
+        addPropertyIfPresent(request, "cludo.customer-id", "cludoCustomerId");
+        addPropertyIfPresent(request, "cludo.engine-id", "cludoEngineId");
+        addPropertyIfPresent(request, "cludo.experience-id", "cludoExperienceId");
+        addPropertyIfPresent(request, "global-search.path", "globalSearchPath");
     }
 
     boolean isEditMode(HstRequest request) {
