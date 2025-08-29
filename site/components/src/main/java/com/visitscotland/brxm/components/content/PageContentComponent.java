@@ -407,10 +407,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addPropertyIfPresent(request, "cludo.customer-id", "cludoCustomerId");
         addPropertyIfPresent(request, "cludo.engine-id", "cludoEngineId");
         addPropertyIfPresent(request, "cludo.experience-id", "cludoExperienceId");
-        addPropertyIfPresent(request, "global-search.url", properties.getGlobalSearchURL());
+        addPropertyIfPresent(request, "cludo.language", request.getLocale().getLanguage());
+        addPropertyIfPresent(request, "cludo.global-search.url", properties.getGlobalSearchURL());
+
     }
 
     boolean isEditMode(HstRequest request) {
         return Boolean.TRUE.equals(request.getAttribute("editMode"));
     }
 }
+
