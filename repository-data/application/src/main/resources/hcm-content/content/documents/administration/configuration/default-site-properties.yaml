@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-08-29T17:07:27.503+01:00
+    hippostdpubwf:lastModificationDate: 2025-08-29T17:17:57.421+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -32,7 +32,7 @@
         Script required for the form to work, '', '', '', '', This property is used
         to set up the Cludo Chatbox functionality, This property is used to set up
         the Cludo Chatbox functionality, This property is used to set up the Cludo
-        Chatbox functionality, '', '', '', '', '']
+        Chatbox functionality, '', '', '', '', '', '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -43,7 +43,8 @@
       form.marketo.scripts, form.marketo.script, links.download.extensions, events-listings.page-size,
       form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.engine-id,
       cludo.experience-id, feature.products-search.enable, feature.table-of-contents.enable,
-      feature.global-search.enable, form.breg.legal-basis.text, site.path.icentre-landing]
+      feature.global-search.enable, form.breg.legal-basis.text, site.path.icentre-landing,
+      site-id]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, 'en,fr,de,nl,it,es', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
@@ -52,32 +53,34 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '', '', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content]
+      '', '', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
+      '']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
   /default-site-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: 114fe124-d365-4f1f-9b72-1f35e5bb6783
     hippo:availability: []
+    hippostd:holder: admin
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-08-29T16:53:11.636+01:00
+    hippostdpubwf:lastModificationDate: 2025-08-29T17:20:23.625+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -95,7 +98,7 @@
         Script required for the form to work, '', '', '', '', This property is used
         to set up the Cludo Chatbox functionality, This property is used to set up
         the Cludo Chatbox functionality, This property is used to set up the Cludo
-        Chatbox functionality, '', '', '', '', '']
+        Chatbox functionality, '', '', '', '', '', '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -106,7 +109,8 @@
       form.marketo.scripts, form.marketo.script, links.download.extensions, events-listings.page-size,
       form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.engine-id,
       cludo.experience-id, feature.products-search.enable, feature.table-of-contents.enable,
-      feature.global-search.enable, form.breg.legal-basis.text, site.path.icentre-landing]
+      feature.global-search.enable, form.breg.legal-basis.text, site.path.icentre-landing,
+      site-id]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, 'en,fr,de,nl,it,es', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
@@ -115,22 +119,23 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '', '', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content]
+      '', '', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
+      '']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
   /default-site-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -140,9 +145,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-08-29T17:07:27.503+01:00
+    hippostdpubwf:lastModificationDate: 2025-08-29T17:17:57.421+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-08-29T17:07:29.727+01:00
+    hippostdpubwf:publicationDate: 2025-08-29T17:17:59.544+01:00
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -159,7 +164,7 @@
         Script required for the form to work, '', '', '', '', This property is used
         to set up the Cludo Chatbox functionality, This property is used to set up
         the Cludo Chatbox functionality, This property is used to set up the Cludo
-        Chatbox functionality, '', '', '', '', '']
+        Chatbox functionality, '', '', '', '', '', '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -170,7 +175,8 @@
       form.marketo.scripts, form.marketo.script, links.download.extensions, events-listings.page-size,
       form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.engine-id,
       cludo.experience-id, feature.products-search.enable, feature.table-of-contents.enable,
-      feature.global-search.enable, form.breg.legal-basis.text, site.path.icentre-landing]
+      feature.global-search.enable, form.breg.legal-basis.text, site.path.icentre-landing,
+      site-id]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, 'en,fr,de,nl,it,es', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
@@ -179,19 +185,20 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '', '', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content]
+      '', '', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
+      '']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
