@@ -24,6 +24,7 @@
                         cols="12"
                         md="6"
                     >
+                        <#assign transportIcon = getDMSIconName(listItem.itineraryTransport)>
                         <vs-megalink-link-list
                             img-src="${image}"
                             theme="${theme}"
@@ -31,7 +32,7 @@
                             link-url="${listItem.link}"
                             error-message="${label('essentials.global', 'third-party-error')}"
                             <#if listItem.itineraryTransport??>
-                                transport="${listItem.itineraryTransport}"
+                                transport="${transportIcon}"
                                 transport-name="${label('transports', listItem.itineraryTransport)}"
                             </#if>
                             <#if listItem.itineraryDays??>
