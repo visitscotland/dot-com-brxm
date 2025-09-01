@@ -39,8 +39,8 @@
                             ${listItem.label}
                         </vs-link>
                     </vs-heading>
-                    <vs-body>
-                        <p>
+                    <vs-body class="mb-150">
+                        <p class="truncate-2-lines">
                             ${listItem.teaser}
                         </p>
                     </vs-body>
