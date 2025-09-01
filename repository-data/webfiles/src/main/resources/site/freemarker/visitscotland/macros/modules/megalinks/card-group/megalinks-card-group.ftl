@@ -4,7 +4,7 @@
 <#include "../../../../../frontend/components/vs-img.ftl">
 <#include "../../../../../frontend/components/vs-heading.ftl">
 <#include "../../../../../frontend/components/vs-link.ftl">
-<#include "../../../../../frontend/components/vs-heading.ftl">
+<#include "../../../../../frontend/components/vs-body.ftl">
 <#include "../../../../../frontend/components/vs-link.ftl">
 <#include "../../video/video-modal.ftl">
 <#include "../../video/video-modal.ftl">
@@ -42,10 +42,12 @@
                             ${listItem.label}
                         </vs-link>
                     </vs-heading>
-                    <p>
-                        ${listItem.teaser}
-                    </p>
-                </template>
+                    <vs-body>
+                        <p>
+                            ${listItem.teaser}
+                        </p>
+                    </vs-body>
+                </template> 
             </vs-card>
         </#list>
     </vs-card-group>
