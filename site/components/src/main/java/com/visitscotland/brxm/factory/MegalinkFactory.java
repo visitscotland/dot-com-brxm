@@ -25,8 +25,7 @@ public class MegalinkFactory {
         LIST_LAYOUT("List"),
         DEFAULT("Default"),
         GRID_3("Grid 3"),
-        GRID_4("Grid 4"),
-        SCROLL_SNAP("Scroll Snap");
+        GRID_4("Grid 4");
 
         private static final Map<String, MegalinkLayout> BY_VALUE =
                 Arrays.stream(values()).collect(Collectors.toMap(MegalinkLayout::getValue, e -> e));
@@ -44,7 +43,7 @@ public class MegalinkFactory {
         public static Optional<MegalinkLayout> fromValue(String value) { return Optional.ofNullable(BY_VALUE.get(value)); }
 
         public static boolean isCardGroup(MegalinkLayout layout) {
-            return GRID_3 == layout || GRID_4 == layout || SCROLL_SNAP == layout;
+            return GRID_3 == layout || GRID_4 == layout;
         }
     }
 

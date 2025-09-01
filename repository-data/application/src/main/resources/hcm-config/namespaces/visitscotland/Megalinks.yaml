@@ -199,8 +199,7 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Default,List,Horizontal Links,Grid 3,Grid 4,Scroll
-                Snap
+              selectable.options: Default,List,Horizontal Links,Grid 3,Grid 4
           /teaserVisible:
             jcr:primaryType: frontend:plugin
             caption: Show Teasers
