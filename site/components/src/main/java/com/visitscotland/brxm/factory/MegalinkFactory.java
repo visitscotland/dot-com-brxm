@@ -74,24 +74,24 @@ public class MegalinkFactory {
     }
 
     public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) {
-        var layout = MegalinkLayout.fromValue(doc.getLayout());
-        if (layout.isEmpty()) {
+        var layout = MegalinkLayout.fromValue(doc.getLayout()).orElse(MegalinkLayout.DEFAULT);
+        if (MegalinkLayout.fromValue(doc.getLayout()).isEmpty()) {
             logger.warn("The Megalinks layout hasn't been set for {}", doc.getPath());
             //TODO throw Exception to be captured by TemplateBuilder creating an ErrorModule. Note some
-        } else {
-            if (MegalinkLayout.isCardGroup(layout.get())) {
-                return getCardGroupModule(doc, locale);
-            } else if (layout.get() == MegalinkLayout.HORIZONTAL_LINKS) {
-                if (doc.getMegalinkItems().size() >= MIN_ITEMS_CAROUSEL) {
-                    return horizontalListLayout(doc, locale);
-                } else {
-                    return listLayout(doc, locale);
-                }
-            } else if (layout.get() == MegalinkLayout.LIST_LAYOUT || doc.getMegalinkItems().size() > MAX_ITEMS) {
+        }
+
+        if (MegalinkLayout.isCardGroup(layout)) {
+            return getCardGroupModule(doc, locale);
+        } else if (layout == MegalinkLayout.HORIZONTAL_LINKS) {
+            if (doc.getMegalinkItems().size() >= MIN_ITEMS_CAROUSEL) {
+                return horizontalListLayout(doc, locale);
+            } else {
                 return listLayout(doc, locale);
-            } else if (doc.getSingleImageModule() != null) {
-                return singleImageLayout(doc, locale);
             }
+        } else if (layout == MegalinkLayout.LIST_LAYOUT || doc.getMegalinkItems().size() > MAX_ITEMS) {
+            return listLayout(doc, locale);
+        } else if (doc.getSingleImageModule() != null) {
+            return singleImageLayout(doc, locale);
         }
 
         return multiImageLayout(doc, locale);

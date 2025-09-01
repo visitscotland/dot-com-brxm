@@ -220,7 +220,6 @@ public class MegalinkFactoryTest {
         LinksModule layout = factory.getMegalinkModule(mega, Locale.UK);
 
         Assertions.assertEquals("SingleImageLinksModule", layout.getType());
-
     }
 
     @ParameterizedTest
