@@ -25,6 +25,7 @@
                         md="6"
                     >
                         <#assign transportIcon = getDMSIconName(listItem.itineraryTransport)>
+
                         <vs-megalink-link-list
                             img-src="${image}"
                             theme="${theme}"
