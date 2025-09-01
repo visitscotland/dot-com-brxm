@@ -30,14 +30,9 @@
                 <@hst.html hippohtml=item.introduction/>
             </template>
         </#if>
-
         <#if type == "CardGroupModule">
             <@cardGroup item=item theme=theme />
-        <#else>
-            SOMETHING WENT WRONG!
         </#if>
-
-
         <#if item.cta?? >
             <template v-slot:vs-megalinks-button>
                 ${item.cta.label}
