@@ -1,5 +1,7 @@
 package com.visitscotland.brxm.factory;
 
+import com.visitscotland.brxm.hippobeans.BaseDocument;
+import com.visitscotland.brxm.model.ErrorModule;
 import com.visitscotland.brxm.model.Module;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.springframework.stereotype.Controller;
@@ -12,5 +14,9 @@ public class PreviewModeFactory {
         errorModule.setHippoBean(source.getHippoBean());
         errorModule.setErrorMessages(source.getErrorMessages());
         return errorModule;
+    }
+
+    public ErrorModule createErrorModule(BaseDocument document, String message){
+        return new ErrorModule(document, message);
     }
 }
