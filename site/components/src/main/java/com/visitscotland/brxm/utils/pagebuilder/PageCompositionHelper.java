@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.utils.pagebuilder;
 
+import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -23,6 +24,26 @@ public class PageCompositionHelper {
 
     public Locale getLocale(){
         return request.getLocale();
+    }
+
+    public Page getPage() throws PageCompostionException {
+        Object page = request.getAttribute("document");
+        if (page == null){
+            throw new PageCompostionException("The page document hasn't been defined");
+        } else if (page  instanceof Page){
+            return (Page) page;
+        } else  {
+            throw new PageCompostionException("The main document is not an Page instance. Class = " + page.getClass().getSimpleName());
+        }
+    }
+
+    /**
+     *
+     * @deprecated
+     */
+    @Deprecated(forRemoval = true)
+    public HstRequest getRequest() {
+        return request;
     }
 
     public void addModule(Module<?> module){
@@ -68,5 +89,6 @@ public class PageCompositionHelper {
     int calculateThemeIndex(boolean increment){
         return model.calculateThemeIndex(increment);
     }
+
 
 }
