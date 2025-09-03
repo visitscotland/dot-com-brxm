@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.google.common.collect.Lists;
 import com.visitscotland.brxm.hippobeans.Page;

@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.dms.DMSDataService;
@@ -9,7 +9,6 @@ import com.visitscotland.brxm.model.SkiModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import com.visitscotland.utils.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
@@ -19,7 +18,7 @@ import java.util.*;
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
 @Component
-public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule>{
+public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
 
     static final String BUNDLE_FILE = "ski";
 

@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.model.megalinks.Entry;

@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.*;
 
@@ -9,13 +9,12 @@ import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 @Component
-public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModule>{
+public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModule> {
 
     static final String BUNDLE_FILE = "ski";
 

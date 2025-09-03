@@ -6,6 +6,7 @@ import com.visitscotland.brxm.dms.DMSUtils;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
+import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.megalinks.Entry;

@@ -2,6 +2,10 @@ package com.visitscotland.brxm.utils.pagebuilder;
 
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.factory.event.EventsListingFactory;
+import com.visitscotland.brxm.mapper.MapFactory;
+import com.visitscotland.brxm.mapper.SkiCentreListMapper;
+import com.visitscotland.brxm.mapper.SkiCentreMapper;
+import com.visitscotland.brxm.mapper.UserGeneratedContentMapper;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.SiteProperties;

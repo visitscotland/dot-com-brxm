@@ -1,9 +1,8 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.services.HippoUtilsService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

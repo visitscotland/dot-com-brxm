@@ -5,7 +5,7 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
-import com.visitscotland.brxm.factory.EntryMapper;
+import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
