@@ -22,17 +22,14 @@ import java.util.MissingResourceException;
 public abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
 
     private final static Logger logger = LoggerFactory.getLogger(ModuleMapper.class);
-    private final PreviewModeFactory previewFactory;
-
-    public ModuleMapper(PreviewModeFactory previewModeFactory) {
-        this.previewFactory = previewModeFactory;
-    }
 
     /**
      * Converts a documentType into a Module
      *
      * @param document The HippoBean document to include
      * @param compositionHelper The PageCompositionHelper with the context of the request
+     *
+     * @throws PageCompostionException if an unrecoverable error was detected during the mapping of the module
      */
     abstract M map(H document, PageCompositionHelper compositionHelper) throws PageCompostionException;
 
@@ -41,9 +38,12 @@ public abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> 
      *
      * @param document The HippoBean document to include
      * @param page The PageCompositionHelper to add the module to
+     *
      * @return The module that was added to the page
+     *
+     * @throws PageCompostionException if an unrecoverable error was detected during the mapping of the module
      */
-    public void include(H document, PageCompositionHelper page)  {
+    public void include(H document, PageCompositionHelper page) throws PageCompostionException {
         Module<?> module;
         if (document == null ){
             logger.warn("An empty document was sent to the module mapper");
@@ -52,23 +52,14 @@ public abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> 
         try {
             module = map(document, page);
             if (module == null) {
-                module = generateErrorModule(document, "The document could not be converted to an UI module");
+                throw new PageCompostionException(document.getPath(), "The document could not be converted to an UI module");
             }
-        } catch (PageCompostionException e){
-            logger.error(e.getMessage());
-            module = generateErrorModule(document, e.getMessage());
         } catch (MissingResourceException e){
-            String message = String.format("The module for %s couldn't be built because some labels do not exist", document.getPath());
-            logger.error(message, e);
-            module = generateErrorModule(document,message);
+            throw new PageCompostionException(document.getPath(), "The module couldn't be built because some labels do not exist", e);
         } catch (RuntimeException e){
-            logger.error("An unexpected exception happened while building the module for {}", document.getPath(), e);
-            module = generateErrorModule(document, "An unexpected exception happened while building the module");
+            throw new PageCompostionException(document.getPath(), "An unexpected exception happened while building the module", e);
         }
         page.addModule(module);
     }
 
-    private ErrorModule generateErrorModule(H document, String message) {
-        return previewFactory.createErrorModule(document, message);
-    }
 }

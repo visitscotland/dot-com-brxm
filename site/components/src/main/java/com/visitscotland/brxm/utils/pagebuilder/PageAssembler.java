@@ -45,7 +45,7 @@ public class PageAssembler {
     private final IKnowFactory iKnowFactory;
     private final ArticleFactory articleFactory;
     private final LongCopyFactory longCopyFactory;
-    private final UserGeneratedContentMapper userGeneratedContentFactory;
+    private final UserGeneratedContentMapper userGeneratedContentMapper;
     private final TravelInformationFactory travelInformationFactory;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
@@ -65,7 +65,7 @@ public class PageAssembler {
     @Autowired
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
                          IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
-                         UserGeneratedContentMapper userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
+                         UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationFactory travelInformationFactory,
                          CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                          MapFactory mapFactory, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger,
@@ -76,7 +76,7 @@ public class PageAssembler {
         this.iKnowFactory = iKnowFactory;
         this.articleFactory = articleFactory;
         this.longCopyFactory = longCopyFactory;
-        this.userGeneratedContentFactory = userGeneratedContentFactory;
+        this.userGeneratedContentMapper = userGeneratedContentMapper;
         this.travelInformationFactory = travelInformationFactory;
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
@@ -107,10 +107,9 @@ public class PageAssembler {
             try {
                 logger.debug("A {} module was found. Type {}", item.getClass(), item.getPath());
                 addModule(request, page, item, location);
-            } catch (MissingResourceException e){
-                logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);
-            } catch (RuntimeException e){
-                logger.error("An unexpected exception happened while building the module for {}", item.getPath(), e);
+            } catch (PageCompostionException e){
+                logger.error(e.getMessage());
+                page.addModule(previewFactory.createErrorModule(item, e.getMessage()));
             }
         }
 
@@ -123,7 +122,7 @@ public class PageAssembler {
         request.setModel(PAGE_ITEMS, page.getModules());
     }
 
-    private void addModule(HstRequest request, PageCompositionHelper compositionHelper, BaseDocument item, String location){
+    private void addModule(HstRequest request, PageCompositionHelper compositionHelper, BaseDocument item, String location) throws PageCompostionException {
         if (item instanceof Megalinks) {
             processMegalinks(request, compositionHelper, (Megalinks) item);
         } else if (item instanceof TourismInformation) {
@@ -135,9 +134,10 @@ public class PageAssembler {
         } else if (item instanceof LongCopy){
             processLongCopy(request, compositionHelper, (LongCopy) item);
         } else if (item instanceof MapModule) {
-            compositionHelper.addModule(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
+            mapFactory.include((MapModule) item, compositionHelper);
+//            compositionHelper.addModule(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
         } else if (item instanceof Stackla) {
-            userGeneratedContentFactory.include((Stackla) item, compositionHelper);
+            userGeneratedContentMapper.include((Stackla) item, compositionHelper);
         } else if (item instanceof TravelInformation) {
             compositionHelper.addModule(travelInformationFactory.getTravelInformation((TravelInformation) item, request.getLocale()));
         } else if (item instanceof CannedSearch) {
@@ -157,7 +157,9 @@ public class PageAssembler {
         } else if (item instanceof EventsListing){
             compositionHelper.addModule(getEventListingModule(request, (EventsListing) item));
         } else {
-            logger.warn("Unrecognized Module Type: {}", item.getClass());
+            String message = String.format("Unrecognized Module Type: %s", item.getClass());
+            logger.warn(message);
+            throw new PageCompostionException(message);
         }
     }
 
