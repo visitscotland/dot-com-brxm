@@ -38,8 +38,7 @@ public class PageCompositionHelper {
     }
 
     /**
-     *
-     * @deprecated
+     * @deprecated This method has been added so simplify the transition to the delivery API
      */
     @Deprecated(forRemoval = true)
     public HstRequest getRequest() {
