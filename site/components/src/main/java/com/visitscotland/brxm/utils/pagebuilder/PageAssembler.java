@@ -47,7 +47,7 @@ public class PageAssembler {
     private final ArticleMapper articleMapper;
     private final LongCopyFactory longCopyFactory;
     private final UserGeneratedContentMapper userGeneratedContentMapper;
-    private final TravelInformationFactory travelInformationFactory;
+    private final TravelInformationMapper travelInformationMapper;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
     private final FormFactory formFactory;
@@ -66,7 +66,7 @@ public class PageAssembler {
     @Autowired
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
                          IKnowFactory iKnowFactory, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
-                         UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationFactory travelInformationFactory,
+                         UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
                          CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                          MapFactory mapFactory, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger,
@@ -78,7 +78,7 @@ public class PageAssembler {
         this.articleMapper = articleMapper;
         this.longCopyFactory = longCopyFactory;
         this.userGeneratedContentMapper = userGeneratedContentMapper;
-        this.travelInformationFactory = travelInformationFactory;
+        this.travelInformationMapper = travelInformationMapper;
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
         this.formFactory = marketoFormFactory;
@@ -140,7 +140,7 @@ public class PageAssembler {
         } else if (item instanceof Stackla) {
             userGeneratedContentMapper.include((Stackla) item, compositionHelper);
         } else if (item instanceof TravelInformation) {
-            compositionHelper.addModule(travelInformationFactory.getTravelInformation((TravelInformation) item, request.getLocale()));
+            compositionHelper.addModule(travelInformationMapper.getTravelInformation((TravelInformation) item, request.getLocale()));
         } else if (item instanceof CannedSearch) {
             compositionHelper.addModule(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
         } else if (item instanceof CannedSearchTours) {

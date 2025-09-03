@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 
 import com.visitscotland.brxm.hippobeans.TravelInformation;
@@ -22,14 +22,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class TravelInformationFactoryTest {
+class TravelInformationMapperTest {
     private final String TRAVEL_INFO_TRANSPORTS_OPTIONS = "travel-information-transports";
 
     @Mock
     ResourceBundleService bundle;
 
     @InjectMocks
-    TravelInformationFactory factory;
+    TravelInformationMapper factory;
 
     @DisplayName("Travel information module created correctly")
     @Test

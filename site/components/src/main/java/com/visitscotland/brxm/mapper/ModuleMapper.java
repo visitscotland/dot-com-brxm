@@ -22,18 +22,6 @@ abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
     private final static Logger logger = LoggerFactory.getLogger(ModuleMapper.class);
 
     /**
-     * Converts a documentType into a Module
-     *
-     * @param document The HippoBean document to include
-     * @param compositionHelper The PageCompositionHelper with the context of the request
-     *
-     * @throws PageCompostionException if an unrecoverable error was detected during the mapping of the module
-     */
-    abstract M map(H document, PageCompositionHelper compositionHelper) throws PageCompostionException;
-
-    abstract void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException;
-
-    /**
      * Includes the given document in the page composition.
      *
      * @param document The HippoBean document to include
@@ -63,5 +51,25 @@ abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
             throw new PageCompostionException(document.getPath(), "An unexpected exception happened while building the module", e);
         }
     }
+
+    /**
+     * Defines the labels required for the module by adding them to the page composition.
+     * This method should identify and register all resource bundle keys needed
+     * for proper rendering of the module.
+     *
+     * @param compositionHelper The PageCompositionHelper to add the labels to
+     * @throws MissingResourceException if required labels file is not defined on the CMS
+     */
+    abstract void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException;
+
+    /**
+     * Converts a documentType into a Module
+     *
+     * @param document The HippoBean document to include
+     * @param compositionHelper The PageCompositionHelper with the context of the request
+     *
+     * @throws PageCompostionException if an unrecoverable error was detected during the mapping of the module
+     */
+    abstract M map(H document, PageCompositionHelper compositionHelper) throws PageCompostionException;
 
 }

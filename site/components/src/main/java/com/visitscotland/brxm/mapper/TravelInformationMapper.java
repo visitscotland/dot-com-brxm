@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.TravelInformation;
 import com.visitscotland.brxm.hippobeans.TravelInformationTab;
@@ -8,23 +8,34 @@ import com.visitscotland.brxm.model.TravelInformationModule;
 import com.visitscotland.brxm.model.TravelInformationModuleTab;
 import com.visitscotland.brxm.model.TravelInformationTransportRowModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.stream.Collectors;
 
 @Component
-public class TravelInformationFactory {
+public class TravelInformationMapper extends ModuleMapper<TravelInformation, TravelInformationModule> {
 
     private final String TRAVEL_INFO_TRANSPORTS_OPTIONS = "travel-information-transports";
     private final ResourceBundleService resourceBundleService;
-    private static final Logger logger = LoggerFactory.getLogger(TravelInformationFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(TravelInformationMapper.class);
 
-    public TravelInformationFactory(ResourceBundleService resourceBundleService) {
+    public TravelInformationMapper(ResourceBundleService resourceBundleService) {
         this.resourceBundleService = resourceBundleService;
+    }
+
+    @Override
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {}
+
+    @Override
+    TravelInformationModule map(TravelInformation document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+        return getTravelInformation(document, compositionHelper.getLocale());
     }
 
     public TravelInformationModule getTravelInformation(TravelInformation document, Locale locale) {
