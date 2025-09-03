@@ -42,8 +42,8 @@ public class PageAssembler {
 
     //Factories
     private final MegalinkFactory linksFactory;
-    private final ICentreFactory iCentreFactory;
-    private final IKnowFactory iKnowFactory;
+    private final ICentreMapper iCentreFactory;
+    private final IKnowMapper iKnowFactory;
     private final ArticleMapper articleMapper;
     private final LongCopyFactory longCopyFactory;
     private final UserGeneratedContentMapper userGeneratedContentMapper;
@@ -64,8 +64,8 @@ public class PageAssembler {
 
 
     @Autowired
-    public PageAssembler(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
-                         IKnowFactory iKnowFactory, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
+    public PageAssembler(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreMapper iCentreFactory,
+                         IKnowMapper iKnowFactory, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
                          UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
                          CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                          MapFactory mapFactory, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
@@ -98,16 +98,12 @@ public class PageAssembler {
     }
 
     public void addModules(HstRequest request) {
-        addModules(request, null);
-    }
-
-    public void addModules(HstRequest request, String location) {
         PageCompositionHelper page = new PageCompositionHelper(bundle, request);
 
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {
             try {
                 logger.debug("A {} module was found. Type {}", item.getClass(), item.getPath());
-                addModule(request, page, item, location);
+                addModule(request, page, item);
             } catch (PageCompostionException e){
                 logger.error(e.getMessage());
                 page.addModule(previewFactory.createErrorModule(item, e.getMessage()));
@@ -126,11 +122,11 @@ public class PageAssembler {
         request.setModel(PAGE_ITEMS, page.getModules());
     }
 
-    private void addModule(HstRequest request, PageCompositionHelper compositionHelper, BaseDocument item, String location) throws PageCompostionException {
+    private void addModule(HstRequest request, PageCompositionHelper compositionHelper, BaseDocument item) throws PageCompostionException {
         if (item instanceof Megalinks) {
             processMegalinks(request, compositionHelper, (Megalinks) item);
         } else if (item instanceof TourismInformation) {
-            processTouristInformation(request,compositionHelper, (TourismInformation) item, location);
+            iCentreFactory.include((TourismInformation) item, compositionHelper);
         } else if (item instanceof Article){
             articleMapper.include((Article) item, compositionHelper);
         } else if (item instanceof LongCopy){
@@ -270,29 +266,6 @@ public class PageAssembler {
 
         return al;
 
-    }
-
-    private boolean isICentreLanding(HstRequest request) {
-        return request.getPathInfo().equals(properties.getSiteICentre().substring(0, properties.getSiteICentre().length() - 8));
-    }
-    /**
-     * Creates a LinkModule from a TouristInformation document
-     */
-    private void processTouristInformation(HstRequest request, PageCompositionHelper compositionHelper, TourismInformation touristInfo, String location) {
-        if (!isICentreLanding(request)) {
-            ICentreModule iCentreModule = iCentreFactory.getModule(touristInfo.getICentre(), request.getLocale(), location);
-
-            if (iCentreModule != null) {
-                iCentreModule.setHippoBean(touristInfo);
-                compositionHelper.addModule(iCentreModule);
-            }
-        }
-        if (properties.isIknowEnabled()) {
-            IKnowModule iKnowModule = iKnowFactory.getIKnowModule(touristInfo.getIKnow(), location, request.getLocale());
-            iKnowModule.setHippoBean(touristInfo);
-
-            compositionHelper.addModule(iKnowModule);
-        }
     }
 
     /**

@@ -7,6 +7,7 @@ import com.visitscotland.brxm.hippobeans.Quote;
 import com.visitscotland.brxm.hippobeans.Video;
 import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.mapper.ArticleMapper;
+import com.visitscotland.brxm.mapper.QuoteMapper;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.AnchorFormatter;
@@ -41,7 +42,7 @@ class ArticleMapperTest {
     AnchorFormatter anchorFormatter;
 
     @Mock
-    QuoteFactory embedder;
+    QuoteMapper embedder;
 
     private static final String DUMMY_ANCHOR = "dummy-anchor";
 
