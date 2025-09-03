@@ -13,6 +13,8 @@ import com.visitscotland.brxm.services.MapService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.services.HippoUtilsService;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.onehippo.taxonomy.api.Category;
@@ -23,11 +25,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.MissingResourceException;
 
 @Component
-public class MapFactory {
+public class MapFactory extends ModuleMapper<MapModule, MapsModule> {
 
     private static final Logger logger = LoggerFactory.getLogger(MapFactory.class);
+
+    static final String BUNDLE_ID = "map";
 
     static final String ID = "id";
     static final String TYPE = "type";
@@ -61,45 +66,53 @@ public class MapFactory {
         this.locationLoader = locationLoader;
     }
 
-    /**
-     * Method to build a MapsModule to be used by feds with
-     *
-     * @param request HstRequest request
-     * @param mapModuleDocument CMS document
-     * @return module to be sent to feds
-     */
-    public MapsModule getModule(HstRequest request, MapModule mapModuleDocument, Page page) {
+    @Override
+    public void include(MapModule document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+        super.include(document, compositionHelper);
+        compositionHelper.addAllSiteLabels(BUNDLE_ID);
+    }
+
+    @Override
+    void addLabels(PageCompositionHelper page) throws MissingResourceException {
+        page.addAllSiteLabels(BUNDLE_ID);
+    }
+
+    @Override
+    MapsModule map(MapModule document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+        Page page = compositionHelper.getPage();
+        Locale locale = compositionHelper.getLocale();
+
         MapsModule module = new MapsModule();
 
-        module.setId(mapModuleDocument.getCanonicalUUID());
-        module.setHippoBean(mapModuleDocument);
-        module.setTitle(mapModuleDocument.getTitle());
-        module.setIntroduction(mapModuleDocument.getCopy());
-        module.setTabTitle(mapModuleDocument.getTabTitle());
+        module.setId(document.getCanonicalUUID());
+        module.setHippoBean(document);
+        module.setTitle(document.getTitle());
+        module.setIntroduction(document.getCopy());
+        module.setTabTitle(document.getTabTitle());
 
         ObjectNode featureCollectionGeoJson = mapper.createObjectNode();
         featureCollectionGeoJson.put(TYPE, "FeatureCollection");
         ArrayNode features = mapper.createArrayNode();
         ArrayNode keys = mapper.createArrayNode();
 
-        if (page instanceof Destination){
-            buildDestinationMapPages(request.getLocale(),(Destination)page, mapModuleDocument, module, keys, features);
-        }else{
+        if (page instanceof Destination) {
+            buildDestinationMapPages(locale,(Destination) page, document, module, keys, features);
+        } else {
             module.setDetailsEndpoint("");
             module.setMapPosition(mapper.createObjectNode());
             //bespoke maps data and pins coming from DMS
-            if (!Contract.isEmpty(mapModuleDocument.getMapType())){
-                module.setMapType(mapModuleDocument.getMapType());
+            if (!Contract.isEmpty(document.getMapType())){
+                module.setMapType(document.getMapType());
                 //Feature places on top of these maps
-                if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
-                    mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
+                if (!Contract.isNull(document.getFeaturedPlacesItem())) {
+                    mapService.addFeaturePlacesNode(module, document.getCategories(), locale, keys, features);
                 }
-                for (BespokeDmsMap bespokeMap : getValues(mapModuleDocument.getMapType())) {
-                    buildDMSMapPages(bespokeMap, module, keys, features, request.getLocale(), null);
+                for (BespokeDmsMap bespokeMap : getValues(document.getMapType())) {
+                    buildDMSMapPages(bespokeMap, module, keys, features, locale, null);
                 }
-            }else {
+            } else {
                 // CMS maps, data and pins coming from CMS
-                buildMapGeneralPages(request, mapModuleDocument, module, keys, features);
+                buildMapGeneralPages(compositionHelper.getRequest(), document, module, keys, features);
             }
         }
 
