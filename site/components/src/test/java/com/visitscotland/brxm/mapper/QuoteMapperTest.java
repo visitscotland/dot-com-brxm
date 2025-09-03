@@ -1,5 +1,6 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
+import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.CMSLink;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Quote;
@@ -23,7 +24,7 @@ import java.util.Optional;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class QuoteFactoryTest {
+class QuoteMapperTest {
 
     @Mock
     ImageFactory imageFactory;
@@ -32,7 +33,7 @@ class QuoteFactoryTest {
     LinkService linkService;
 
     @InjectMocks
-    QuoteFactory embedder;
+    QuoteMapper embedder;
 
     /** TODO Break down this test case in several parts */
     @Test

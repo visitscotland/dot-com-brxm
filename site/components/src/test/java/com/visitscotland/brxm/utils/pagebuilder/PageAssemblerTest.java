@@ -2,13 +2,13 @@ package com.visitscotland.brxm.utils.pagebuilder;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.ArticleMapper;
+import com.visitscotland.brxm.mapper.ICentreMapper;
 import com.visitscotland.brxm.mock.LinksModuleMockBuilder;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
-import com.visitscotland.brxm.mock.TouristInformationMockBuilder;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
@@ -41,10 +41,7 @@ class PageAssemblerTest {
     Page page;
 
     @Mock
-    ICentreFactory iCentreFactory;
-
-    @Mock
-    IKnowFactory iKnowFactory;
+    ICentreMapper iCentreFactory;
 
     @Mock
     MegalinkFactory linksFactory;
@@ -257,93 +254,6 @@ class PageAssemblerTest {
         verify(module2).setAlignment(CompositionModel.ALIGNMENT[1 % 2]);
         verify(module3).setAlignment(CompositionModel.ALIGNMENT[2 % 2]);
         verify(module4).setAlignment(CompositionModel.ALIGNMENT[3 % 2]);
-    }
-
-    /**
-     * Verifies that is able to add an iKnowModule when the minimum amount of information has been provided
-     * Verifies that is able to set the Hippo bean for only Iknow configuration
-     */
-    @Test
-    void addTouristInformation_iKnowModule() {
-        TourismInformation ti = new TouristInformationMockBuilder().build();
-
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
-        when (properties.isIknowEnabled()).thenReturn(true);
-        when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
-
-        when(properties.getSiteICentre()).thenReturn("/icentre-landing");
-        request.setPathInfo("/destination/edinburgh");
-
-        builder.addModules(request);
-
-        List<Module<?>> items = request.getModel(PageAssembler.PAGE_ITEMS);
-        assertEquals(1, items.size());
-        assertEquals(ti, items.get(0).getHippoBean());
-    }
-
-    /**
-     * Verifies that is able to hide an iKnowModule when boolean is set to false
-     */
-    @Test
-    void hideTouristInformation_iKnowModule() {
-        TourismInformation ti = new TouristInformationMockBuilder().build();
-
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
-        when (properties.isIknowEnabled()).thenReturn(false);
-
-        when(properties.getSiteICentre()).thenReturn("/icentre-landing");
-        request.setPathInfo("/destination/edinburgh");
-
-        builder.addModules(request);
-
-        List<?> items = request.getModel(PageAssembler.PAGE_ITEMS);
-        assertEquals(0, items.size());
-    }
-
-    @Test
-    @DisplayName("VS-4404 -  The iCentre module should not appear on the iCentre landing page")
-    void getModule_iCentreLanding(){
-        TourismInformation ti = new TouristInformationMockBuilder().build();
-
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
-
-        lenient().when(iCentreFactory.getModule(any(), eq(request.getLocale()), eq(null))).thenReturn(new ICentreModule());
-        when (properties.isIknowEnabled()).thenReturn(true);
-        when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
-
-        when(properties.getSiteICentre()).thenReturn("/icentre-landing/content");
-        request.setPathInfo("/icentre-landing");
-
-        builder.addModules(request);
-
-        List<Module<?>> items = request.getModel(PageAssembler.PAGE_ITEMS);
-        assertEquals(1, items.size());
-        assertEquals(ti, items.get(0).getHippoBean());
-    }
-
-    /**
-     * Verifies that is able to add an iKnowModule when the minimum amount of information has been provided
-     * Verifies that is able to set the Hippo Bean when 2 items are returned.
-     * Verifies that only one Hippo Bean is set edit module is enabled.
-     */
-    @Test
-    @Disabled("This requirement is being reviewed")
-    @DisplayName("Verifies that only one edit button appears in the preview mode")
-    void addTouristInformation_iCentreModule() {
-
-        TourismInformation ti = new TouristInformationMockBuilder().build();
-
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
-
-        when(iCentreFactory.getModule(any(), eq(request.getLocale()), eq(null))).thenReturn(new ICentreModule());
-        when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
-
-        builder.addModules(request);
-
-        List<Module<?>> items = request.getModel(PageAssembler.PAGE_ITEMS);
-        assertEquals(2, items.size());
-        assertEquals(ti, items.get(0).getHippoBean());
-        assertNull(items.get(1).getHippoBean());
     }
 
     @Test

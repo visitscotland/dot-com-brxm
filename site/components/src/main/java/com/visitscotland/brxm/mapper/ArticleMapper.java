@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.factory.ImageFactory;
-import com.visitscotland.brxm.factory.QuoteFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
@@ -37,14 +36,14 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
 
     private final ImageFactory imageFactory;
     private final LinkService linkService;
-    private final QuoteFactory quoteEmbedder;
+    private final QuoteMapper quoteEmbedder;
     private final AnchorFormatter anchorFormatter;
     private final FileMetaDataCalculator fileMetaDataCalculator;
     private final AssetLinkFactory assetLinkFactory;
     private static final SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy");
 
     public ArticleMapper(ImageFactory imageFactory,
-                         QuoteFactory quoteEmbedder,
+                         QuoteMapper quoteEmbedder,
                          LinkService linkService,
                          AnchorFormatter anchorFormatter,
                          FileMetaDataCalculator fileMetaDataCalculator,
