@@ -55,7 +55,7 @@ public class PageAssembler {
     private final SignpostFactory signPostFactory;
     private final SkiCentreMapper skiCentreMapper;
     private final SkiCentreListMapper skiCentreListMapper;
-    private final DevModuleFactory devModuleFactory;
+    private final DevModuleMapper devModuleMapper;
     private final EventsListingFactory eventsListingFactory;
     private final SiteProperties properties;
 
@@ -69,7 +69,7 @@ public class PageAssembler {
                          UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
                          CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                          MapFactory mapFactory, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
-                         DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger,
+                         DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
                          SignpostFactory signPostFactory, EventsListingFactory eventsListingFactory) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;
@@ -83,7 +83,7 @@ public class PageAssembler {
         this.previewFactory = previewFactory;
         this.formFactory = marketoFormFactory;
         this.mapFactory = mapFactory;
-        this.devModuleFactory = devModuleFactory;
+        this.devModuleMapper = devModuleMapper;
         this.skiCentreListMapper = skiCentreListMapper;
         this.skiCentreMapper = skiCentreMapper;
         this.properties = properties;
@@ -148,7 +148,7 @@ public class PageAssembler {
         } else if (item instanceof SkiCentreList){
             skiCentreListMapper.include((SkiCentreList) item, compositionHelper);
         } else if (item instanceof DevModule){
-            compositionHelper.addModule(devModuleFactory.getModule((DevModule) item, labels(request), request.getLocale()));
+            devModuleMapper.include((DevModule) item, compositionHelper);
         } else if (item instanceof CTABanner){
             compositionHelper.addModule(signPostFactory.createModule((CTABanner) item));
         } else if (item instanceof EventsListing){
@@ -167,7 +167,14 @@ public class PageAssembler {
         return eventsListingFactory.createModule(document);
     }
 
+    /**
+     * TODO: Marketo need to be retired before re
+     * @param request
+     * @param form
+     * @return
+     */
     private FormModule getForm(HstRequest request, BaseDocument form){
+
         addAllLabels(request, "forms");
         Map<String, String> formLabels = labels(request).get("forms");
 

@@ -1,41 +1,39 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.comparator.BrxmWrapperException;
 import com.visitscotland.brxm.comparator.ComparatorMapper;
 import com.visitscotland.brxm.comparator.VsContractException;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.hippobeans.SimpleDevModule;
-import com.visitscotland.brxm.model.ErrorModule;
 import com.visitscotland.brxm.model.Module;
-import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import com.visitscotland.utils.Contract;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 
-import java.util.Locale;
-import java.util.Map;
+import java.util.MissingResourceException;
 
 @Controller
-public class DevModuleFactory {
+public class DevModuleMapper extends  ModuleMapper<DevModule, Module<DevModule>> {
 
     private static final String  OBS_BUNDLE = "online-booking-system-comparator";
     private static final String  FORMS_BUNDLE = "forms";
 
-    private static final Logger logger = LoggerFactory.getLogger(DevModuleFactory.class);
-
     private final ComparatorMapper comparisonMapper;
-    private final ResourceBundleService bundle;
 
 
 
-    public DevModuleFactory(ComparatorMapper comparisonMapper, ResourceBundleService bundle) {
+    public DevModuleMapper(ComparatorMapper comparisonMapper) {
         this.comparisonMapper = comparisonMapper;
-        this.bundle = bundle;
     }
 
+    @Override
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        // Each implementation of the Dev Module has its own label requirements
+    }
 
-    public Module<?> getModule(DevModule document, Map<String, Map<String, String>> labels, Locale locale){
+    @Override
+    Module<DevModule> map(DevModule document, PageCompositionHelper compositionHelper) throws PageCompostionException {
         if (Contract.isEmpty(document.getBespoken())) {
             return new SimpleDevModule(document);
         }
@@ -43,16 +41,15 @@ public class DevModuleFactory {
         try {
             if (document.getBespoken().equals("online-booking-system")) {
                 var module = comparisonMapper.map(document);
-                labels.put(OBS_BUNDLE, bundle.getAllLabels(OBS_BUNDLE, locale));
-                labels.put(FORMS_BUNDLE, bundle.getAllLabels(FORMS_BUNDLE, locale));
+                compositionHelper.addAllSiteLabels(OBS_BUNDLE);
+                compositionHelper.addAllSiteLabels(FORMS_BUNDLE);
 
                 return module;
             }
         } catch (VsContractException | BrxmWrapperException e) {
-            logger.error("The bespoken Dev module could not be generated", e);
-            return new ErrorModule(document, "The bespoken Dev module could not be generated");
+            throw new PageCompostionException(document.getPath(), "The bespoken Dev module could not be generated", e);
         }
 
-        return new ErrorModule(document, "The implementation of this module is not ready");
+        throw new PageCompostionException(document.getPath(), "The implementation of this module is not ready");
     }
 }
