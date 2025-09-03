@@ -1,14 +1,12 @@
 package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.hippobeans.BaseDocument;
-import com.visitscotland.brxm.model.ErrorModule;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Locale;
 import java.util.MissingResourceException;
 
 /**
@@ -33,33 +31,37 @@ public abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> 
      */
     abstract M map(H document, PageCompositionHelper compositionHelper) throws PageCompostionException;
 
+    abstract void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException;
+
     /**
      * Includes the given document in the page composition.
      *
      * @param document The HippoBean document to include
-     * @param page The PageCompositionHelper to add the module to
+     * @param compositionHelper The PageCompositionHelper to add the module to
      *
      * @return The module that was added to the page
      *
      * @throws PageCompostionException if an unrecoverable error was detected during the mapping of the module
      */
-    public void include(H document, PageCompositionHelper page) throws PageCompostionException {
+    public void include(H document, PageCompositionHelper compositionHelper) throws PageCompostionException {
         Module<?> module;
         if (document == null ){
             logger.warn("An empty document was sent to the module mapper");
             return;
         }
         try {
-            module = map(document, page);
+            module = map(document, compositionHelper);
             if (module == null) {
                 throw new PageCompostionException(document.getPath(), "The document could not be converted to an UI module");
+            } else {
+                addLabels(compositionHelper);
             }
+            compositionHelper.addModule(module);
         } catch (MissingResourceException e){
             throw new PageCompostionException(document.getPath(), "The module couldn't be built because some labels do not exist", e);
         } catch (RuntimeException e){
             throw new PageCompostionException(document.getPath(), "An unexpected exception happened while building the module", e);
         }
-        page.addModule(module);
     }
 
 }

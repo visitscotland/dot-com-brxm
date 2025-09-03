@@ -14,10 +14,7 @@ import com.visitscotland.utils.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
@@ -38,9 +35,8 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule>{
     }
 
     @Override
-    public void include(SkiCentre document, PageCompositionHelper page) throws PageCompostionException {
-        super.include(document, page);
-        page.addAllSiteLabels(BUNDLE_FILE);
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        compositionHelper.addAllSiteLabels(BUNDLE_FILE);
     }
 
     @Override

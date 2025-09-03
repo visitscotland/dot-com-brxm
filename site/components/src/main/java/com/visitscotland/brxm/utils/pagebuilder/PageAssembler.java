@@ -110,6 +110,9 @@ public class PageAssembler {
             } catch (PageCompostionException e){
                 logger.error(e.getMessage());
                 page.addModule(previewFactory.createErrorModule(item, e.getMessage()));
+            } catch (RuntimeException e) {
+                // Note: This exception should not happen. We are catching it for the sake of recoverability
+                logger.error("Uncaught Exception while building a page at {}: {}", request.getRequestURI(), e.getMessage(), e);
             }
         }
 

@@ -12,10 +12,7 @@ import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
 
 @Component
 public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModule>{
@@ -36,8 +33,7 @@ public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModu
     }
 
     @Override
-    public void include(SkiCentreList document, PageCompositionHelper compositionHelper) throws PageCompostionException {
-        super.include(document, compositionHelper);
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
         compositionHelper.addAllSiteLabels(BUNDLE_FILE);
     }
 
