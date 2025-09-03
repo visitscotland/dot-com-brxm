@@ -68,12 +68,6 @@ public class MapFactory extends ModuleMapper<MapModule, MapsModule> {
     }
 
     @Override
-    public void include(MapModule document, PageCompositionHelper compositionHelper) throws PageCompostionException {
-        super.include(document, compositionHelper);
-        compositionHelper.addAllSiteLabels(BUNDLE_ID);
-    }
-
-    @Override
     void addLabels(PageCompositionHelper page) throws MissingResourceException {
         page.addAllSiteLabels(BUNDLE_ID);
     }

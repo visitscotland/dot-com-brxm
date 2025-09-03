@@ -6,6 +6,7 @@ import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Quote;
 import com.visitscotland.brxm.hippobeans.Video;
 import com.visitscotland.brxm.hippobeans.VideoLink;
+import com.visitscotland.brxm.mapper.ArticleMapper;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.AnchorFormatter;
@@ -25,10 +26,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class ArticleFactoryTest {
+class ArticleMapperTest {
 
     @InjectMocks
-    ArticleFactory factory;
+    ArticleMapper factory;
 
     @Mock
     ImageFactory imageFactory;

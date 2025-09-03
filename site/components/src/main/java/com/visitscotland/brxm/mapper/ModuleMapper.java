@@ -17,7 +17,7 @@ import java.util.MissingResourceException;
  * @param <H> The HippoBean type handled by this mapper
  * @param <M> The Module type produced by this mapper
  */
-public abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
+abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
 
     private final static Logger logger = LoggerFactory.getLogger(ModuleMapper.class);
 
@@ -43,7 +43,7 @@ public abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> 
      *
      * @throws PageCompostionException if an unrecoverable error was detected during the mapping of the module
      */
-    public void include(H document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+    public final void include(H document, PageCompositionHelper compositionHelper) throws PageCompostionException {
         Module<?> module;
         if (document == null ){
             logger.warn("An empty document was sent to the module mapper");

@@ -4,10 +4,7 @@ import com.visitscotland.brxm.components.content.GeneralContentComponent;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.factory.event.EventsListingFactory;
 import com.visitscotland.brxm.hippobeans.*;
-import com.visitscotland.brxm.mapper.MapFactory;
-import com.visitscotland.brxm.mapper.SkiCentreListMapper;
-import com.visitscotland.brxm.mapper.SkiCentreMapper;
-import com.visitscotland.brxm.mapper.UserGeneratedContentMapper;
+import com.visitscotland.brxm.mapper.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
@@ -47,7 +44,7 @@ public class PageAssembler {
     private final MegalinkFactory linksFactory;
     private final ICentreFactory iCentreFactory;
     private final IKnowFactory iKnowFactory;
-    private final ArticleFactory articleFactory;
+    private final ArticleMapper articleMapper;
     private final LongCopyFactory longCopyFactory;
     private final UserGeneratedContentMapper userGeneratedContentMapper;
     private final TravelInformationFactory travelInformationFactory;
@@ -68,7 +65,7 @@ public class PageAssembler {
 
     @Autowired
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
-                         IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
+                         IKnowFactory iKnowFactory, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
                          UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationFactory travelInformationFactory,
                          CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                          MapFactory mapFactory, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
@@ -78,7 +75,7 @@ public class PageAssembler {
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentreFactory;
         this.iKnowFactory = iKnowFactory;
-        this.articleFactory = articleFactory;
+        this.articleMapper = articleMapper;
         this.longCopyFactory = longCopyFactory;
         this.userGeneratedContentMapper = userGeneratedContentMapper;
         this.travelInformationFactory = travelInformationFactory;
@@ -135,14 +132,11 @@ public class PageAssembler {
         } else if (item instanceof TourismInformation) {
             processTouristInformation(request,compositionHelper, (TourismInformation) item, location);
         } else if (item instanceof Article){
-            compositionHelper.addModule(articleFactory.getModule(request, (Article) item));
-            //TODO allow labels to be used from Factories
-            addAllLabels(request, "download");
+            articleMapper.include((Article) item, compositionHelper);
         } else if (item instanceof LongCopy){
             processLongCopy(request, compositionHelper, (LongCopy) item);
         } else if (item instanceof MapModule) {
             mapFactory.include((MapModule) item, compositionHelper);
-//            compositionHelper.addModule(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
         } else if (item instanceof Stackla) {
             userGeneratedContentMapper.include((Stackla) item, compositionHelper);
         } else if (item instanceof TravelInformation) {
