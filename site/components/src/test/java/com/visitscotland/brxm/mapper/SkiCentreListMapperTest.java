@@ -84,7 +84,7 @@ class SkiCentreListMapperTest {
                 .thenReturn(Collections.singletonList(mock(SkiCentre.class)));
         when(linkService.createEnhancedLink(any(), any(), any(), anyBoolean()))
                 .thenReturn(java.util.Optional.of(new EnhancedLink()));
-        when(skiCentreMapper.map(any(), any(PageCompositionHelper.class))).thenReturn(new SkiModule());
+        when(skiCentreMapper.map(any(), any(Locale.class))).thenReturn(new SkiModule());
 
         SkiListModule module = skiCentreListMapper.map(document, Locale.UK);
 
@@ -125,7 +125,7 @@ class SkiCentreListMapperTest {
                 .thenReturn(Collections.emptyList());
         when(linkService.createEnhancedLink(any(), any(), any(), anyBoolean()))
                 .thenReturn(java.util.Optional.of(new EnhancedLink()));
-        when(skiCentreMapper.map(any(), any(PageCompositionHelper.class))).thenReturn(new SkiModule());
+        when(skiCentreMapper.map(any(), any(Locale.class))).thenReturn(new SkiModule());
 
         SkiListModule module = skiCentreListMapper.map(document, Locale.UK);
 
@@ -149,7 +149,7 @@ class SkiCentreListMapperTest {
                 .thenReturn(Lists.newArrayList(mock(SkiCentre.class), mock(SkiCentre.class), mock(SkiCentre.class)));
         when(linkService.createEnhancedLink(any(), any(), any(), anyBoolean()))
                 .thenReturn(java.util.Optional.of(new EnhancedLink()));
-        when(skiCentreMapper.map(any(), any(PageCompositionHelper.class))).thenReturn(new SkiModule());
+        when(skiCentreMapper.map(any(), any(Locale.class))).thenReturn(new SkiModule());
 
         SkiListModule module = skiCentreListMapper.map(document, Locale.UK);
 

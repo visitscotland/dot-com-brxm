@@ -1,17 +1,16 @@
-package com.visitscotland.brxm.mapper;
+package com.visitscotland.brxm.factory;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.DMSUtils;
-import com.visitscotland.brxm.factory.ImageFactory;
-import com.visitscotland.brxm.factory.ItineraryFactory;
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.DMSLink;
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Itinerary;
+import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.mock.ItineraryDayMockBuilder;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.Entry;
