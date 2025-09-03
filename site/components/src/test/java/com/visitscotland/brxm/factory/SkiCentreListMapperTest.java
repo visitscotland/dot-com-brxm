@@ -11,6 +11,7 @@ import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -83,7 +84,7 @@ class SkiCentreListMapperTest {
                 .thenReturn(Collections.singletonList(mock(SkiCentre.class)));
         when(linkService.createEnhancedLink(any(), any(), any(), anyBoolean()))
                 .thenReturn(java.util.Optional.of(new EnhancedLink()));
-        when(skiCentreMapper.map(any(), any())).thenReturn(new SkiModule());
+        when(skiCentreMapper.map(any(), any(PageCompositionHelper.class))).thenReturn(new SkiModule());
 
         SkiListModule module = skiCentreListMapper.map(document, Locale.UK);
 
@@ -124,7 +125,7 @@ class SkiCentreListMapperTest {
                 .thenReturn(Collections.emptyList());
         when(linkService.createEnhancedLink(any(), any(), any(), anyBoolean()))
                 .thenReturn(java.util.Optional.of(new EnhancedLink()));
-        when(skiCentreMapper.map(any(), any())).thenReturn(new SkiModule());
+        when(skiCentreMapper.map(any(), any(PageCompositionHelper.class))).thenReturn(new SkiModule());
 
         SkiListModule module = skiCentreListMapper.map(document, Locale.UK);
 
@@ -148,7 +149,7 @@ class SkiCentreListMapperTest {
                 .thenReturn(Lists.newArrayList(mock(SkiCentre.class), mock(SkiCentre.class), mock(SkiCentre.class)));
         when(linkService.createEnhancedLink(any(), any(), any(), anyBoolean()))
                 .thenReturn(java.util.Optional.of(new EnhancedLink()));
-        when(skiCentreMapper.map(any(), any())).thenReturn(new SkiModule());
+        when(skiCentreMapper.map(any(), any(PageCompositionHelper.class))).thenReturn(new SkiModule());
 
         SkiListModule module = skiCentreListMapper.map(document, Locale.UK);
 
@@ -161,7 +162,7 @@ class SkiCentreListMapperTest {
 
     @Test
     @DisplayName("Resource Bundle are included in the template")
-    void testIncludeResourceBundle() {
+    void testIncludeResourceBundle() throws PageCompostionException {
         SkiCentreList document = mock(SkiCentreList.class);
         PageCompositionHelper compositionHelper = mock(PageCompositionHelper.class);
 

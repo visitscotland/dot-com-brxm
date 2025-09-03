@@ -9,6 +9,7 @@ import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -35,9 +36,13 @@ public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModu
     }
 
     @Override
-    public void include(SkiCentreList document, PageCompositionHelper page) {
-        super.include(document, page);
-        page.addAllSiteLabels(BUNDLE_FILE);
+    public void include(SkiCentreList document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+        super.include(document, compositionHelper);
+        compositionHelper.addAllSiteLabels(BUNDLE_FILE);
+    }
+
+    public SkiListModule map(SkiCentreList document, PageCompositionHelper compositionHelper){
+        return map(document, compositionHelper.getLocale());
     }
 
     public SkiListModule map(SkiCentreList document, Locale locale){

@@ -4,6 +4,7 @@ import com.visitscotland.brxm.hippobeans.Stackla;
 import com.visitscotland.brxm.model.UserGeneratedContentModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,10 @@ public class UserGeneratedContentMapper extends ModuleMapper<Stackla, UserGenera
     }
 
     @Override
+    public UserGeneratedContentModule map(Stackla document, PageCompositionHelper compositionHelper) {
+        return map(document, compositionHelper.getLocale());
+    }
+
     public UserGeneratedContentModule map(Stackla document, Locale locale) {
         logger.info("Creating user generated content Module for {}", document.getPath());
         UserGeneratedContentModule ugc = new  UserGeneratedContentModule();
@@ -40,7 +45,7 @@ public class UserGeneratedContentMapper extends ModuleMapper<Stackla, UserGenera
     }
 
     @Override
-    public void include(Stackla document, PageCompositionHelper page) {
+    public void include(Stackla document, PageCompositionHelper page) throws PageCompostionException {
         super.include(document, page);
         page.addAllSiteLabels(BUNDLE_ID);
     }
