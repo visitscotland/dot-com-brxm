@@ -1,8 +1,10 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.ICentre;
 import com.visitscotland.brxm.hippobeans.Image;
+import com.visitscotland.brxm.hippobeans.TourismInformation;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ICentreModule;
 import com.visitscotland.brxm.model.LinkType;
@@ -15,39 +17,41 @@ import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.SiteProperties;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import com.visitscotland.utils.Contract;
 import com.visitscotland.utils.DataServiceUtils;
+import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import vs.ase.dms.ProductTypes;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
+import javax.jcr.RepositoryException;
+import java.util.*;
 
 @Component
-public class ICentreFactory {
+public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModule> {
 
-    private static final Logger logger = LoggerFactory.getLogger(ICentreFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(ICentreMapper.class);
 
     static final String BUNDLE_ID = "tourism.information";
 
     private final HippoUtilsService utils;
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
-    private final QuoteFactory quoteEmbedder;
+    private final QuoteMapper quoteEmbedder;
     private final ImageFactory imageFactory;
     private final CMSProperties cmsProperties;
     private final SiteProperties siteProperties;
     private final HippoUtilsService hippoUtilsService;
 
     @Autowired
-    public ICentreFactory(HippoUtilsService utils, DMSDataService dmsData, ResourceBundleService bundle, QuoteFactory quoteEmbedder,
-                          ImageFactory imageFactory, CMSProperties cmsProperties, SiteProperties siteProperties,
-                          HippoUtilsService hippoUtilsService) {
+    public ICentreMapper(HippoUtilsService utils, DMSDataService dmsData, ResourceBundleService bundle, QuoteMapper quoteEmbedder,
+                         ImageFactory imageFactory, CMSProperties cmsProperties, SiteProperties siteProperties,
+                         HippoUtilsService hippoUtilsService) {
         this.utils = utils;
         this.dmsData = dmsData;
         this.bundle = bundle;
@@ -58,10 +62,26 @@ public class ICentreFactory {
         this.hippoUtilsService = hippoUtilsService;
     }
 
+    @Override
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        compositionHelper.addAllSiteLabels(BUNDLE_ID);
+    }
+
+    @Override
+    ICentreModule map(TourismInformation document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+        ICentreModule module =  getModule(document.getICentre(), compositionHelper.getLocale());
+
+        if (module != null) {
+            module.setHippoBean(document);
+        }
+
+        return module;
+    }
+
     /**
      * Builds an iCentre module when there is enough data to build it or null when there is not.
      */
-    public ICentreModule getModule(ICentre doc, Locale locale, String location) {
+    public ICentreModule getModule(ICentre doc, Locale locale) throws PageCompostionException {
         logger.info("Creating iCentreModule for {}", doc.getPath());
 
         ICentreModule module = new ICentreModule();
@@ -88,11 +108,13 @@ public class ICentreFactory {
 
         //Default the Image if it hasn't been set
         if (module.getImage() == null) {
+
             try {
-                Image defaultImage = utils.getDocumentFromNode(bundle.getResourceBundle(BUNDLE_ID, "icentre.image.default", locale));
+                Image defaultImage = utils.getDocumentFromNode(
+                        bundle.getResourceBundle(BUNDLE_ID, "icentre.image.default", locale));
                 module.setImage(imageFactory.createImage(defaultImage, module, locale));
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (QueryException | ObjectBeanManagerException | RepositoryException e) {
+                throw new PageCompostionException(doc.getPath(), "The location for the  default iCentre image is not valid", e);
             }
         }
 

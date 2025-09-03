@@ -39,7 +39,6 @@ public class SiteProperties extends Properties {
 
     //Modules References
     private static final String PATH_BANNER = "site.path.banner";
-    static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
     static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
     private static final String PRODUCTS_SEARCH_ENABLED = "feature.products-search.enable";
     private static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
@@ -118,9 +117,6 @@ public class SiteProperties extends Properties {
     }
     public String getGtmPreviewQueryString() {
         return readString(GTM_PREVIEW_QUERY_STRING);
-    }
-    public boolean isIknowEnabled() {
-        return readBoolean(ENABLE_IKNOW_MODULE);
     }
 
     public boolean isProductSearchEnabled() {

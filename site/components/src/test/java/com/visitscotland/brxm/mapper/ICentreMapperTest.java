@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
+import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.ICentre;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Quote;
@@ -18,6 +19,7 @@ import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.SiteProperties;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.core.container.ComponentManager;
@@ -38,7 +40,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class ICentreFactoryTest {
+class ICentreMapperTest {
 
     @Mock
     HippoUtilsService utils;
@@ -47,7 +49,7 @@ class ICentreFactoryTest {
     DMSDataService dmsData;
 
     @Mock
-    QuoteFactory quoteEmbedder;
+    QuoteMapper quoteEmbedder;
 
     @Mock
     ImageFactory imageFactory;
@@ -63,7 +65,7 @@ class ICentreFactoryTest {
 
 
     @InjectMocks
-    ICentreFactory factory;
+    ICentreMapper factory;
 
     TouristInformationMockBuilder mockBuilder;
 
@@ -92,31 +94,31 @@ class ICentreFactoryTest {
 
     @BeforeEach
     void init() {
-        factory = new ICentreFactory(utils, dmsData, bundle, quoteEmbedder, imageFactory, properties, siteProperties, utils);
+        factory = new ICentreMapper(utils, dmsData, bundle, quoteEmbedder, imageFactory, properties, siteProperties, utils);
         mockBuilder = new TouristInformationMockBuilder().addICentre();
     }
 
     @Test
     @DisplayName("iCentre Module for General pages")
-    void getNoModule() {
+    void getNoModule() throws PageCompostionException {
         //Gets a module with a link to a  when  no location defined (General Pages)
         //Verifies that a link to the iCentres page is defined
         //Verifies that no request to the dms is performed
 
-        ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, "");
+        ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK);
 
         verify(dmsData, never()).legacyMapSearch(any());
     }
 
     @Test
     @DisplayName("iCentre Module for Destination pages")
-    void getModule() throws JsonProcessingException {
+    void getModule() throws JsonProcessingException, PageCompostionException {
         //Returns a basic module when the location is provided (Destination Pages)
         //Also verifies that the list of iCentre match with the location
         String location = "Edinburgh";
         JsonNode node = new ObjectMapper().readTree(MOCK_JSON);
 
-        ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, location);
+        ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK);
 
         assertNotNull(module);
     }
@@ -126,7 +128,7 @@ class ICentreFactoryTest {
      */
     @Test
     @DisplayName("ICentre Module - All fields are mapped correctly")
-    void getModule_mapping() {
+    void getModule_mapping() throws PageCompostionException {
         // Verifies that all data coming from the document gets correctly mapped in the module
         // The Product doesn't get directly mapped.
         ICentre ti = mockBuilder.addICentreTitle("title").addICentreImage()
@@ -136,7 +138,7 @@ class ICentreFactoryTest {
         image.setCmsImage(ti.getImage());
         when(imageFactory.createImage(any(Image.class), any(), any())).thenReturn(image);
 
-        ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, null);
+        ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK);
 
         assertEquals("title", module.getTitle());
         assertEquals(ti.getImage(), module.getImage().getCmsImage());
@@ -148,30 +150,30 @@ class ICentreFactoryTest {
 
     @Test
     @DisplayName("VS-1507 - Explicit and Default Title")
-    void getModule_defaultTitle() {
+    void getModule_defaultTitle() throws PageCompostionException {
         // Verifies that the default title is used when a title is not defined the document
         ICentreModule module;
-        when(bundle.getResourceBundle(eq(ICentreFactory.BUNDLE_ID), any(), eq(Locale.UK))).thenReturn(null);
+        when(bundle.getResourceBundle(eq(ICentreMapper.BUNDLE_ID), any(), eq(Locale.UK))).thenReturn(null);
 
         //Default title
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID, "icentre.title.default", Locale.UK))
+        when(bundle.getResourceBundle(ICentreMapper.BUNDLE_ID, "icentre.title.default", Locale.UK))
                 .thenReturn("title");
-        module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, null);
+        module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK);
         assertEquals("title", module.getTitle());
 
         //Title from the document
-        module = factory.getModule(mockBuilder.addICentreTitle("Document title").build().getICentre(), Locale.UK, null);
+        module = factory.getModule(mockBuilder.addICentreTitle("Document title").build().getICentre(), Locale.UK);
         assertEquals("Document title", module.getTitle());
     }
 
     @Test
     @DisplayName("VS-1507 - Image logic")
-    void getModule_getImageFromTheProduct() throws JsonProcessingException, RepositoryException, QueryException, ObjectBeanManagerException {
+    void getModule_getImageFromTheProduct() throws JsonProcessingException, RepositoryException, QueryException, ObjectBeanManagerException, PageCompostionException {
         // Verifies the following requirement:
         // - Default to generic image of from any iCentre
         // - Option to pull an image from DMS (to match a location mentioned within quote, using CTA link to DMS listing page)
         ICentreModule module;
-        when(bundle.getResourceBundle(eq(ICentreFactory.BUNDLE_ID), any(), eq(Locale.UK))).thenReturn(null);
+        when(bundle.getResourceBundle(eq(ICentreMapper.BUNDLE_ID), any(), eq(Locale.UK))).thenReturn(null);
 
         //Definition of the Quote when != null
         EnhancedLink link = new EnhancedLink();
@@ -194,18 +196,18 @@ class ICentreFactoryTest {
         when(imageFactory.createImage(eq(defaultCMSImage), any(), any())).thenReturn(defaultImage);
 
         //Case 1: No image Defined => Default Image.
-        module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK, null);
+        module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK);
         assertNull(module.getImage().getExternalImage());
         assertEquals(defaultImage, module.getImage());
 
         //Case 2: No image Defined but DMS ID provided => Image from DMS
         JsonNode node = new ObjectMapper().readTree(MOCK_JSON);
-        module = factory.getModule(mockBuilder.addQuote().build().getICentre(), Locale.CANADA_FRENCH, "St. Kilda");
+        module = factory.getModule(mockBuilder.addQuote().build().getICentre(), Locale.CANADA_FRENCH);
         assertEquals("dms-image.jpg", module.getImage().getExternalImage());
         assertNull(module.getImage().getCmsImage());
 
         //Case 3: Image defined in the document => Defined Image
-        module = factory.getModule(mockBuilder.addICentreImage().build().getICentre(), Locale.CANADA_FRENCH, "St. Kilda");
+        module = factory.getModule(mockBuilder.addICentreImage().build().getICentre(), Locale.CANADA_FRENCH);
         assertEquals(cmsImage, module.getImage());
         assertNull(module.getImage().getExternalImage());
     }
