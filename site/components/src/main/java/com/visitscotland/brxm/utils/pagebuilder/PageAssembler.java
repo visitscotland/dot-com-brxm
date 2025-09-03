@@ -136,7 +136,7 @@ public class PageAssembler {
         } else if (item instanceof Stackla) {
             userGeneratedContentMapper.include((Stackla) item, compositionHelper);
         } else if (item instanceof TravelInformation) {
-            compositionHelper.addModule(travelInformationMapper.getTravelInformation((TravelInformation) item, request.getLocale()));
+            travelInformationMapper.include((TravelInformation) item, compositionHelper);
         } else if (item instanceof CannedSearch) {
             compositionHelper.addModule(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
         } else if (item instanceof CannedSearchTours) {
