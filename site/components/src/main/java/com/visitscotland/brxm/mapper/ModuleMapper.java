@@ -19,7 +19,7 @@ import java.util.MissingResourceException;
  */
 abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
 
-    private final static Logger logger = LoggerFactory.getLogger(ModuleMapper.class);
+    private static final Logger logger = LoggerFactory.getLogger(ModuleMapper.class);
 
     /**
      * Includes the given document in the page composition.
@@ -32,6 +32,9 @@ abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
      * @throws PageCompostionException if an unrecoverable error was detected during the mapping of the module
      */
     public final void include(H document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+        if (compositionHelper == null){
+            throw new PageCompostionException("compositionHelper must not be null");
+        }
         Module<?> module;
         if (document == null ){
             logger.warn("An empty document was sent to the module mapper");
@@ -40,7 +43,7 @@ abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
         try {
             module = map(document, compositionHelper);
             if (module == null) {
-                throw new PageCompostionException(document.getPath(), "The document could not be converted to an UI module");
+                throw new PageCompostionException(document.getPath(), "The document could not be converted to a UI module");
             } else {
                 addLabels(compositionHelper);
             }
