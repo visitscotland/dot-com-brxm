@@ -1,5 +1,6 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
+import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.Module;
