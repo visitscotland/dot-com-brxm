@@ -24,7 +24,7 @@ public class TravelInformationMapper extends ModuleMapper<TravelInformation, Tra
 
     private static final Logger logger = LoggerFactory.getLogger(TravelInformationMapper.class);
 
-    private static final String TRAVEL_INFO_TRANSPORTS_OPTIONS = "travel-information-transports";
+    static final String TRAVEL_INFO_TRANSPORTS_OPTIONS = "travel-information-transports";
 
     private final ResourceBundleService resourceBundleService;
 

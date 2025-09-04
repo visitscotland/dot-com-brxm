@@ -23,7 +23,6 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class TravelInformationMapperTest {
-    private final String TRAVEL_INFO_TRANSPORTS_OPTIONS = "travel-information-transports";
 
     @Mock
     ResourceBundleService bundle;
@@ -34,8 +33,8 @@ class TravelInformationMapperTest {
     @DisplayName("Travel information module created correctly")
     @Test
     void travelInformationModuleCreated() {
-        doReturn("Train").when(bundle).getResourceBundle(TRAVEL_INFO_TRANSPORTS_OPTIONS, "train", Locale.UK);
-        doReturn("Cycling").when(bundle).getResourceBundle(TRAVEL_INFO_TRANSPORTS_OPTIONS, "cycling", Locale.UK);
+        doReturn("Train").when(bundle).getResourceBundle(TravelInformationMapper.TRAVEL_INFO_TRANSPORTS_OPTIONS, "train", Locale.UK);
+        doReturn("Cycling").when(bundle).getResourceBundle(TravelInformationMapper.TRAVEL_INFO_TRANSPORTS_OPTIONS, "cycling", Locale.UK);
 
         TravelInformationTransportRow trainRow = new TravelInformationTransportRowMockBuilder().copy("train row copy").transport("train").build();
         TravelInformationTransportRow cyclingRow = new TravelInformationTransportRowMockBuilder().copy("cycling row copy").transport("cycling").build();
