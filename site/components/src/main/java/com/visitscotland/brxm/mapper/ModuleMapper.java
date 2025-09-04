@@ -27,8 +27,6 @@ abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
      * @param document The HippoBean document to include
      * @param compositionHelper The PageCompositionHelper to add the module to
      *
-     * @return The module that was added to the page
-     *
      * @throws PageCompostionException if an unrecoverable error was detected during the mapping of the module
      */
     public final void include(H document, PageCompositionHelper compositionHelper) throws PageCompostionException {
