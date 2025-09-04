@@ -215,34 +215,20 @@ public class PageAssembler {
     /**
      * Creates a LinkModule from a Megalinks document
      */
-    private void processMegalinks(HstRequest request, PageCompositionHelper compositionHelper, Megalinks item) {
-        LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
-        int numLinks = al.getLinks().size();
-        if (al instanceof MultiImageLinksModule) {
-            numLinks += ((MultiImageLinksModule) al).getFeaturedLinks().size();
-        }
-        if (numLinks == 0) {
-            contentLogger.warn("Megalinks module at {} contains no valid items", item.getPath());
-            compositionHelper.addModule(previewFactory.createErrorModule(al));
-            return;
-        }
+    @Deprecated(forRemoval = true)
+    private void processMegalinks(HstRequest request, PageCompositionHelper compositionHelper, Megalinks document) throws PageCompostionException {
+        // TODO: Rework personalization so Megalinks could be used as any other mapper
+        // linksFactory.include(document, compositionHelper);
 
-        if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
-            al.setAlignment(compositionHelper.calculateAlignment());
-            if (Contract.isEmpty(al.getAlignment())) {
-                logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", item.getPath());
-            }
-        }
+        LinksModule<?> al = linksFactory.getMegalinkModule(document, request.getLocale());
 
-        al.setThemeIndex(compositionHelper.calculateThemeIndex(!Contract.isEmpty(al.getTitle())));
-        al.setHippoBean(item);
-
-        if (!item.getPersonalization().isEmpty()) {
+        //Note that personalization is currently disabled.
+        if (!document.getPersonalization().isEmpty()) {
             PersonalisationModule personalisationModule = new PersonalisationModule();
             List<Module> personalisationList = new ArrayList<>();
             al.setMarketoId(DEFAULT);
             personalisationList.add(al);
-            for (Personalization personalisationMegalink : item.getPersonalization()) {
+            for (Personalization personalisationMegalink : document.getPersonalization()) {
                 personalisationList.add(processPersonalisation(request, (Megalinks)personalisationMegalink.getModule(), personalisationMegalink.getId(), al));
             }
             personalisationModule.setModules(personalisationList);
@@ -254,7 +240,9 @@ public class PageAssembler {
 
         addGlobalLabel(request, "third-party-error");
     }
-    private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent) {
+
+    @Deprecated(forRemoval = true)
+    private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent)  throws PageCompostionException {
         LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
 
         al.setThemeIndex(parent.getThemeIndex());
@@ -272,7 +260,6 @@ public class PageAssembler {
         }
 
         return al;
-
     }
 
     /**

@@ -99,7 +99,7 @@ class PageAssemblerTest {
      * Build a page with one Megalinks document associated
      */
     @Test
-    void addMegalinksModule_basic() {
+    void addMegalinksModule_basic()  throws PageCompostionException {
         Megalinks megalinks = new MegalinksMockBuilder().build();
         LinksModule<?> module = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
 
@@ -117,7 +117,7 @@ class PageAssemblerTest {
      */
     @Test
     @DisplayName("VS-3269 - Megalinks with no links are completely removed. But they still show a preview message")
-    void addMegalinksModule_noLinks() {
+    void addMegalinksModule_noLinks()  throws PageCompostionException {
         Megalinks megalinks = new MegalinksMockBuilder().build();
         LinksModule<?> module = new LinksModuleMockBuilder().build();
 
@@ -138,7 +138,7 @@ class PageAssemblerTest {
      * Styles alternate, and the last repeats the first colour
      */
     @Test
-    void addMegalinksModule_alternateStyles() {
+    void addMegalinksModule_alternateStyles()  throws PageCompostionException {
         List<BaseDocument> list = Arrays.asList(
                 new MegalinksMockBuilder().build(),
                 new MegalinksMockBuilder().build(),
@@ -171,7 +171,7 @@ class PageAssemblerTest {
      * 3 first items share colour because their title is null, 4th is different
      */
     @Test
-    void addMegalinksModule_skipAlternateStyles_whenNoH2() {
+    void addMegalinksModule_skipAlternateStyles_whenNoH2()  throws PageCompostionException {
         List<BaseDocument> list = Arrays.asList(
                 new MegalinksMockBuilder().build(),
                 new MegalinksMockBuilder().build(),
@@ -205,7 +205,7 @@ class PageAssemblerTest {
      * First item always have the same style independently of if the section title is defined
      */
     @Test
-    void addMegalinksModule_firstItemColourIsStyle3_whenNoH2() {
+    void addMegalinksModule_firstItemColourIsStyle3_whenNoH2()  throws PageCompostionException {
         Megalinks mega = new MegalinksMockBuilder().build();
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
 
@@ -228,7 +228,7 @@ class PageAssemblerTest {
      * Verifies that the alignment for Single Image modules alternates
      */
     @Test
-    void addMegalinksModule_alternateAlignment() {
+    void addMegalinksModule_alternateAlignment()  throws PageCompostionException {
         List<BaseDocument> list = Arrays.asList(
                 new MegalinksMockBuilder().build(),
                 new MegalinksMockBuilder().build(),
@@ -260,7 +260,7 @@ class PageAssemblerTest {
 
     @Test
     @DisplayName("VS-2015 - Match the initial background colour with the megalinks")
-    void setIntroTheme(){
+    void setIntroTheme()  throws PageCompostionException {
         Megalinks mega = new MegalinksMockBuilder().build();
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
 

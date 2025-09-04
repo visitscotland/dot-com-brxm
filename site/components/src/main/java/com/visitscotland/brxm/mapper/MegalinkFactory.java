@@ -4,13 +4,17 @@ import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.Module;
+import com.visitscotland.brxm.model.PersonalisationModule;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -19,7 +23,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
-public class MegalinkFactory {
+public class MegalinkFactory extends ModuleMapper<Megalinks, LinksModule<EnhancedLink>> {
 
     public enum MegalinkLayout {
         HORIZONTAL_LINKS("Horizontal Links"),
@@ -73,11 +77,74 @@ public class MegalinkFactory {
         this.anchorFormatter = anchorFormatter;
     }
 
-    public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) {
+    @Override
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        compositionHelper.addGlobalLabel("third-party-error");
+    }
+
+    @Override
+    LinksModule<EnhancedLink> map(Megalinks document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+        return getMegalinkModule(document, compositionHelper.getLocale());
+    }
+
+    /**
+     * Creates a LinkModule from a Megalinks document
+     */
+    private void processMegalinks(PageCompositionHelper compositionHelper, Megalinks item) throws PageCompostionException {
+        if (item.getPersonalization().isEmpty()) {
+            LinksModule<?> al = getMegalinkModule(item, compositionHelper.getLocale());
+
+            validateLinks(al);
+            calculateAlignment(al, compositionHelper);
+            calculateTheme(al, compositionHelper);
+        } else {
+            //TODO: Create
+            throw new PageCompostionException("Personalization is not currently supported");
+        }
+    }
+
+    /**
+     * Validates that the module has at least one link to render
+     * @param module
+     * @throws PageCompostionException
+     */
+    private void validateLinks(LinksModule<?> module) throws PageCompostionException {
+        int numLinks = module.getLinks().size();
+        if (numLinks == 0 && module instanceof MultiImageLinksModule) {
+            numLinks = ((MultiImageLinksModule) module).getFeaturedLinks().size();
+        }
+        if (numLinks == 0) {
+            throw new PageCompostionException(module.getHippoBean().getPath(), "Megalinks module does not contain any valid items");
+        }
+    }
+
+    /**
+     * Calculate the alignment for the module
+     * @param module
+     * @param compositionHelper
+     */
+    private void calculateAlignment(LinksModule<?> module, PageCompositionHelper compositionHelper) {
+        if (module.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
+            module.setAlignment(compositionHelper.calculateAlignment());
+            if (Contract.isEmpty(module.getAlignment())) {
+                logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", module.getHippoBean().getPath());
+            }
+        }
+    }
+
+    /**
+     * Calculate the index for the background colour
+     * @param module
+     * @param compositionHelper
+     */
+    private void calculateTheme(LinksModule<?> module, PageCompositionHelper compositionHelper) {
+        module.setThemeIndex(compositionHelper.calculateThemeIndex(!Contract.isEmpty(module.getTitle())));
+    }
+
+    public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) throws PageCompostionException {
         var layout = MegalinkLayout.fromValue(doc.getLayout()).orElse(MegalinkLayout.DEFAULT);
         if (MegalinkLayout.fromValue(doc.getLayout()).isEmpty()) {
-            logger.warn("The Megalinks layout hasn't been set for {}", doc.getPath());
-            //TODO throw Exception to be captured by TemplateBuilder creating an ErrorModule. Note some
+            throw new PageCompostionException(doc.getPath(), "The Megalinks layout hasn't been set");
         }
 
         if (MegalinkLayout.isCardGroup(layout)) {

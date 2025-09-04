@@ -61,7 +61,7 @@ public class PageCompositionHelper {
         return Collections.unmodifiableList(model.getModules());
     }
 
-    void addGlobalLabel(String key) {
+    public void addGlobalLabel(String key) {
         labels().computeIfAbsent(GLOBAL_BUNDLE_FILE, k -> new HashMap<>());
         labels().get(GLOBAL_BUNDLE_FILE)
                 .put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, getLocale()));
@@ -81,11 +81,11 @@ public class PageCompositionHelper {
         return request.getModel(LABELS);
     }
 
-    String calculateAlignment(){
+    public String calculateAlignment(){
         return model.calculateAlignment();
     }
 
-    int calculateThemeIndex(boolean increment){
+    public int calculateThemeIndex(boolean increment){
         return model.calculateThemeIndex(increment);
     }
 
