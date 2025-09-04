@@ -22,9 +22,11 @@ import java.util.stream.Collectors;
 @Component
 public class TravelInformationMapper extends ModuleMapper<TravelInformation, TravelInformationModule> {
 
-    private final String TRAVEL_INFO_TRANSPORTS_OPTIONS = "travel-information-transports";
-    private final ResourceBundleService resourceBundleService;
     private static final Logger logger = LoggerFactory.getLogger(TravelInformationMapper.class);
+
+    private static final String TRAVEL_INFO_TRANSPORTS_OPTIONS = "travel-information-transports";
+
+    private final ResourceBundleService resourceBundleService;
 
     public TravelInformationMapper(ResourceBundleService resourceBundleService) {
         this.resourceBundleService = resourceBundleService;
