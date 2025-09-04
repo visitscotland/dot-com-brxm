@@ -3,7 +3,7 @@ package com.visitscotland.brxm.utils.pagebuilder;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.ArticleMapper;
 import com.visitscotland.brxm.mapper.ICentreMapper;
-import com.visitscotland.brxm.mapper.MegalinkFactory;
+import com.visitscotland.brxm.mapper.MegalinkMapper;
 import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.mock.LinksModuleMockBuilder;
 import com.visitscotland.brxm.model.Module;
@@ -46,7 +46,7 @@ class PageAssemblerTest {
     ICentreMapper iCentreFactory;
 
     @Mock
-    MegalinkFactory linksFactory;
+    MegalinkMapper megalinkMapper;
 
     @Mock
     ArticleMapper articleMapper;
@@ -104,7 +104,7 @@ class PageAssemblerTest {
         LinksModule<?> module = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
-        doReturn(module).when(linksFactory).getMegalinkModule(megalinks, Locale.UK);
+        doReturn(module).when(megalinkMapper).getMegalinkModule(megalinks, Locale.UK);
 
         builder.addModules(request);
         List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
@@ -123,7 +123,7 @@ class PageAssemblerTest {
 
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
-        doReturn(module).when(linksFactory).getMegalinkModule(megalinks, Locale.UK);
+        doReturn(module).when(megalinkMapper).getMegalinkModule(megalinks, Locale.UK);
         when(previewModeFactory.createErrorModule(any())).thenReturn(new Module<>());
 
 
@@ -150,10 +150,10 @@ class PageAssemblerTest {
         LinksModule<?> module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
         LinksModule<?> module3 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
         LinksModule<?> module4 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
-        doReturn(module1).when(linksFactory).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
-        doReturn(module2).when(linksFactory).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
-        doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
-        doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
+        doReturn(module1).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
+        doReturn(module2).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
+        doReturn(module3).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
+        doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
 
         builder.addModules(request);
@@ -184,10 +184,10 @@ class PageAssemblerTest {
         LinksModule<?> module3 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
         LinksModule<?> module4 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
 
-        doReturn(module1).when(linksFactory).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
-        doReturn(module2).when(linksFactory).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
-        doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
-        doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
+        doReturn(module1).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
+        doReturn(module2).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
+        doReturn(module3).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
+        doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
 
         builder.addModules(request);
@@ -212,12 +212,12 @@ class PageAssemblerTest {
         // Build the first case where the first element has no title
         LinksModule<?> module1 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
         LinksModule<?> module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
-        doReturn(module1).when(linksFactory).getMegalinkModule(mega, Locale.UK);
+        doReturn(module1).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
 
         builder.addModules(request);
 
         // Build the second case where the first element has a title
-        doReturn(module2).when(linksFactory).getMegalinkModule(mega, Locale.UK);
+        doReturn(module2).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
         builder.addModules(request);
 
         verify(module1).setThemeIndex(0);
@@ -242,10 +242,10 @@ class PageAssemblerTest {
         LinksModule<?> module3 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
         LinksModule<?> module4 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
 
-        doReturn(module1).when(linksFactory).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
-        doReturn(module2).when(linksFactory).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
-        doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
-        doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
+        doReturn(module1).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
+        doReturn(module2).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
+        doReturn(module3).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
+        doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
 
         builder.addModules(request);
@@ -264,7 +264,7 @@ class PageAssemblerTest {
         Megalinks mega = new MegalinksMockBuilder().build();
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
 
-        doReturn(new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build()).when(linksFactory).getMegalinkModule(mega, Locale.UK);
+        doReturn(new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build()).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
 
         builder.addModules(request);
         LinksModule<?> module = (LinksModule<?>) ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).get(0);

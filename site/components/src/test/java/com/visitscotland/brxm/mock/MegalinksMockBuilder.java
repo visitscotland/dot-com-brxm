@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.mock;
 
-import com.visitscotland.brxm.mapper.MegalinkFactory;
-import com.visitscotland.brxm.mapper.MegalinkFactoryTest;
+import com.visitscotland.brxm.mapper.MegalinkMapper;
+import com.visitscotland.brxm.mapper.MegalinkMapperTest;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -43,7 +43,7 @@ public class MegalinksMockBuilder {
 
     public MegalinksMockBuilder horizontalLayout(int numberLinks) {
         megalinks = mock(Megalinks.class, RETURNS_DEEP_STUBS);
-        when (megalinks.getLayout()).thenReturn(MegalinkFactory.MegalinkLayout.HORIZONTAL_LINKS.getValue());
+        when (megalinks.getLayout()).thenReturn(MegalinkMapper.MegalinkLayout.HORIZONTAL_LINKS.getValue());
         when (megalinks.getMegalinkItems().size()).thenReturn(numberLinks);
         lenient().when(megalinks.getSingleImageModule()).thenReturn(null);
 
@@ -57,7 +57,7 @@ public class MegalinksMockBuilder {
     }
 
     public MegalinksMockBuilder defaultLayout(){
-        when (megalinks.getLayout()).thenReturn(MegalinkFactory.MegalinkLayout.DEFAULT.getValue());
+        when (megalinks.getLayout()).thenReturn(MegalinkMapper.MegalinkLayout.DEFAULT.getValue());
 
         return this;
     }
@@ -116,11 +116,11 @@ public class MegalinksMockBuilder {
        return mock(Page.class);
     }
 
-    public MegalinkItem createMockItem(boolean featured, MegalinkFactoryTest.LinkType type, String title) {
+    public MegalinkItem createMockItem(boolean featured, MegalinkMapperTest.LinkType type, String title) {
         MegalinkItem item = mock(MegalinkItem.class, withSettings().lenient());
 
         when(item.getFeature()).thenReturn(featured);
-        if (type == MegalinkFactoryTest.LinkType.CMS) {
+        if (type == MegalinkMapperTest.LinkType.CMS) {
             when(item.getLinkItem()).thenReturn(mock(Page.class));
         } else {
             SharedLink link = mockSharedLink(type);
@@ -134,7 +134,7 @@ public class MegalinksMockBuilder {
         return item;
     }
 
-    private SharedLink mockSharedLink(MegalinkFactoryTest.LinkType linkType) {
+    private SharedLink mockSharedLink(MegalinkMapperTest.LinkType linkType) {
         SharedLink link = mock(SharedLink.class, withSettings().lenient());
         when(link.getImage()).thenReturn(mock(Image.class, withSettings().lenient()));
 

@@ -8,7 +8,6 @@ import com.visitscotland.brxm.mapper.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
-import com.visitscotland.brxm.model.megalinks.MultiImageLinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -41,7 +40,7 @@ public class PageAssembler {
     private final DocumentUtilsService documentUtils;
 
     //Factories
-    private final MegalinkFactory linksFactory;
+    private final MegalinkMapper megalinkMapper;
     private final ICentreMapper iCentreFactory;
     private final IKnowMapper iKnowFactory;
     private final ArticleMapper articleMapper;
@@ -64,7 +63,7 @@ public class PageAssembler {
 
 
     @Autowired
-    public PageAssembler(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreMapper iCentreFactory,
+    public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreFactory,
                          IKnowMapper iKnowFactory, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
                          UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
                          CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewFactory, FormFactory marketoFormFactory,
@@ -72,7 +71,7 @@ public class PageAssembler {
                          DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
                          SignpostFactory signPostFactory, EventsListingFactory eventsListingFactory) {
         this.documentUtils = documentUtils;
-        this.linksFactory = linksFactory;
+        this.megalinkMapper = megalinkMapper;
         this.iCentreFactory = iCentreFactory;
         this.iKnowFactory = iKnowFactory;
         this.articleMapper = articleMapper;
@@ -218,9 +217,9 @@ public class PageAssembler {
     @Deprecated(forRemoval = true)
     private void processMegalinks(HstRequest request, PageCompositionHelper compositionHelper, Megalinks document) throws PageCompostionException {
         // TODO: Rework personalization so Megalinks could be used as any other mapper
-        // linksFactory.include(document, compositionHelper);
+        // megalinkMapper.include(document, compositionHelper);
 
-        LinksModule<?> al = linksFactory.getMegalinkModule(document, request.getLocale());
+        LinksModule<?> al = megalinkMapper.getMegalinkModule(document, request.getLocale());
 
         //Note that personalization is currently disabled.
         if (!document.getPersonalization().isEmpty()) {
@@ -243,7 +242,7 @@ public class PageAssembler {
 
     @Deprecated(forRemoval = true)
     private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent)  throws PageCompostionException {
-        LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
+        LinksModule<?> al = megalinkMapper.getMegalinkModule(item, request.getLocale());
 
         al.setThemeIndex(parent.getThemeIndex());
         al.setHippoBean(item);

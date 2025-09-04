@@ -34,7 +34,7 @@ import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
-public class MegalinkFactoryTest {
+public class MegalinkMapperTest {
 
     public static final String DMS_ID = "0123456798";
     public static final String EXTERNAL_URL = "http://www.fake.site";
@@ -56,7 +56,7 @@ public class MegalinkFactoryTest {
     ContentLogger logger;
 
     @InjectMocks
-    MegalinkFactory factory;
+    MegalinkMapper factory;
 
     @BeforeEach
     public void beforeEach() {

@@ -4,7 +4,7 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
-import com.visitscotland.brxm.mapper.MegalinkFactory;
+import com.visitscotland.brxm.mapper.MegalinkMapper;
 import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.FlatImage;
@@ -69,7 +69,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String GTM = "gtm";
 
     final BlogFactory blogFactory;
-    protected final MegalinkFactory megalinkFactory;
+    protected final MegalinkMapper megalinkMapper;
     private final ImageFactory imageFactory;
     private final LinkService linksService;
     private final SignpostFactory signpostFactory;
@@ -83,7 +83,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public PageContentComponent() {
         blogFactory = VsComponentManager.get(BlogFactory.class);
-        megalinkFactory = VsComponentManager.get(MegalinkFactory.class);
+        megalinkMapper = VsComponentManager.get(MegalinkMapper.class);
         imageFactory = VsComponentManager.get(ImageFactory.class);
         signpostFactory = VsComponentManager.get(SignpostFactory.class);
         linksService = VsComponentManager.get(LinkService.class);
@@ -264,13 +264,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         Page page = getDocument(request);
         if (page.getOtherThings() != null) {
-            HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page.getOtherThings(), request.getLocale());
+            HorizontalListLinksModule otyml = megalinkMapper.horizontalListLayout(page.getOtherThings(), request.getLocale());
             if (Contract.isEmpty(otyml.getLinks())) {
                 contentLogger.warn("OTYML at {} contains 0 published items. Skipping module", page.getOtherThings().getPath());
                 request.setModel(OTYML_BUNDLE, previewFactory.createErrorModule(otyml));
                 return;
             }
-            if (otyml.getLinks().size() < MegalinkFactory.MIN_ITEMS_CAROUSEL) {
+            if (otyml.getLinks().size() < MegalinkMapper.MIN_ITEMS_CAROUSEL) {
                 contentLogger.warn("OTYML at {} contains only {} published items. Expected a minimum of 5", page.getOtherThings().getPath(), otyml.getLinks().size());
             }
             request.setModel(OTYML_BUNDLE, otyml);

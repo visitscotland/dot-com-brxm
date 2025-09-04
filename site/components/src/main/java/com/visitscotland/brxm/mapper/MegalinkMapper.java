@@ -4,7 +4,6 @@ import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.Module;
-import com.visitscotland.brxm.model.PersonalisationModule;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
@@ -14,7 +13,6 @@ import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -23,7 +21,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
-public class MegalinkFactory extends ModuleMapper<Megalinks, LinksModule<EnhancedLink>> {
+public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<EnhancedLink>> {
 
     public enum MegalinkLayout {
         HORIZONTAL_LINKS("Horizontal Links"),
@@ -52,7 +50,7 @@ public class MegalinkFactory extends ModuleMapper<Megalinks, LinksModule<Enhance
         }
     }
 
-    private static final Logger logger = LoggerFactory.getLogger(MegalinkFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(MegalinkMapper.class);
 
     public static final int MAX_ITEMS = 6;
     public static final int MIN_ITEMS_CAROUSEL = 5;
@@ -65,11 +63,11 @@ public class MegalinkFactory extends ModuleMapper<Megalinks, LinksModule<Enhance
     private final Logger contentLogger;
     private final AnchorFormatter anchorFormatter;
 
-    public MegalinkFactory(LinkService linkService,
-                           ResourceBundleService bundle,
-                           ImageFactory imageFactory,
-                           ContentLogger contentLogger,
-                           AnchorFormatter anchorFormatter) {
+    public MegalinkMapper(LinkService linkService,
+                          ResourceBundleService bundle,
+                          ImageFactory imageFactory,
+                          ContentLogger contentLogger,
+                          AnchorFormatter anchorFormatter) {
         this.linkService = linkService;
         this.bundle = bundle;
         this.imageFactory = imageFactory;
