@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.model.ErrorModule;
@@ -7,7 +7,7 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class PreviewModeFactory {
+public class PreviewWarningMapper {
 
     public <T extends HippoBean> Module<T> createErrorModule(Module<T> source){
         Module<T> errorModule = new Module<>();

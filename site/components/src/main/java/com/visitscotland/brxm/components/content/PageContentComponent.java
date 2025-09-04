@@ -4,6 +4,7 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
+import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
@@ -72,7 +73,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final LinkService linksService;
     private final SignpostFactory signpostFactory;
     private final ProductSearchWidgetFactory psrFactory;
-    private final PreviewModeFactory previewFactory;
+    private final PreviewWarningMapper previewFactory;
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private final Logger contentLogger;
@@ -86,7 +87,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         signpostFactory = VsComponentManager.get(SignpostFactory.class);
         linksService = VsComponentManager.get(LinkService.class);
         psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
-        previewFactory = VsComponentManager.get(PreviewModeFactory.class);
+        previewFactory = VsComponentManager.get(PreviewWarningMapper.class);
         contentLogger = VsComponentManager.get(ContentLogger.class);
         properties = VsComponentManager.get(SiteProperties.class);
         bundle = VsComponentManager.get(ResourceBundleService.class);

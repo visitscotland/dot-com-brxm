@@ -3,6 +3,7 @@ package com.visitscotland.brxm.utils.pagebuilder;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.ArticleMapper;
 import com.visitscotland.brxm.mapper.ICentreMapper;
+import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.mock.LinksModuleMockBuilder;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
@@ -56,7 +57,7 @@ class PageAssemblerTest {
     DocumentUtilsService utils;
 
     @Mock
-    PreviewModeFactory previewModeFactory;
+    PreviewWarningMapper previewModeFactory;
 
     @Mock
     SiteProperties properties;

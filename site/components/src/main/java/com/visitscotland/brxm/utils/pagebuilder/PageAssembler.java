@@ -49,7 +49,7 @@ public class PageAssembler {
     private final UserGeneratedContentMapper userGeneratedContentMapper;
     private final TravelInformationMapper travelInformationMapper;
     private final CannedSearchFactory cannedSearchFactory;
-    private final PreviewModeFactory previewFactory;
+    private final PreviewWarningMapper previewFactory;
     private final FormFactory formFactory;
     private final MapFactory mapFactory;
     private final SignpostFactory signPostFactory;
@@ -67,7 +67,7 @@ public class PageAssembler {
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreMapper iCentreFactory,
                          IKnowMapper iKnowFactory, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
                          UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
-                         CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
+                         CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewFactory, FormFactory marketoFormFactory,
                          MapFactory mapFactory, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
                          SignpostFactory signPostFactory, EventsListingFactory eventsListingFactory) {
