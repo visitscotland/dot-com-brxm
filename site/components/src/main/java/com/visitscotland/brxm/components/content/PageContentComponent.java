@@ -402,11 +402,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void enableGlobalSearch(HstRequest request){
         Map<String, String> searchProperties = new HashMap<>();
-        searchProperties.put("customer-id", properties.getCludoCustomerId());
-        searchProperties.put("engine-id", properties.getCludoEngineId());
-        searchProperties.put("experience-id", properties.getCludoExperienceId());
+        properties.getGlobalSearchURL().ifPresent(v -> searchProperties.put("global-search-url", v));
+        properties.getCludoCustomerId().ifPresent(v -> searchProperties.put("customer-id", v));
+        properties.getCludoEngineId().ifPresent(v -> searchProperties.put("engine-id", v));
+        properties.getCludoExperienceId().ifPresent(v -> searchProperties.put("experience-id", v));
         searchProperties.put("language", request.getLocale().getLanguage());
-        searchProperties.put("global-search-url", properties.getGlobalSearchURL());
 
         request.setModel("cludo", searchProperties);
     }

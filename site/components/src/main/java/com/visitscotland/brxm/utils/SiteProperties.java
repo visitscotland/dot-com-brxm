@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -84,20 +85,20 @@ public class SiteProperties extends Properties {
             return "";
         }
     }
-    public String getGlobalSearchURL() {
-        return readString(GLOBAL_SEARCH_PATH);
+    public Optional<String> getGlobalSearchURL() {
+        return readOptionalString(GLOBAL_SEARCH_PATH);
     }
 
-    public String getCludoCustomerId() {
-        return readString(CLUDO_CUSTOMER_ID);
+    public Optional<String> getCludoCustomerId() {
+        return readOptionalString(CLUDO_CUSTOMER_ID);
     }
 
-    public String getCludoEngineId() {
-        return readString(CLUDO_ENGINE_ID);
+    public Optional<String> getCludoEngineId() {
+        return readOptionalString(CLUDO_ENGINE_ID);
     }
 
-    public String getCludoExperienceId() {
-        return readString(CLUDO_EXPERIENCE_ID);
+    public Optional<String> getCludoExperienceId() {
+        return readOptionalString(CLUDO_EXPERIENCE_ID);
     }
 
     public String getChannelOrder(){
