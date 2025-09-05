@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.Stackla;
 import com.visitscotland.brxm.mock.UserGeneratedContentMockBuilder;

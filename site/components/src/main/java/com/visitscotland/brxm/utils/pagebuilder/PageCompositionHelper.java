@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.utils.pagebuilder;
 
+import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -25,6 +26,26 @@ public class PageCompositionHelper {
         return request.getLocale();
     }
 
+    public Page getPage() throws PageCompostionException {
+        Object page = request.getAttribute("document");
+        if (page == null){
+            throw new PageCompostionException("The page document hasn't been defined");
+        } else if (page  instanceof Page){
+            return (Page) page;
+        } else  {
+            throw new PageCompostionException("The main document is not an Page instance. Class = " + page.getClass().getSimpleName());
+        }
+    }
+
+    /**
+     *
+     * @deprecated
+     */
+    @Deprecated(forRemoval = true)
+    public HstRequest getRequest() {
+        return request;
+    }
+
     public void addModule(Module<?> module){
         model.addModule(module);
     }
@@ -44,11 +65,11 @@ public class PageCompositionHelper {
     void addGlobalLabel(String key) {
         labels().computeIfAbsent(GLOBAL_BUNDLE_FILE, k -> new HashMap<>());
         labels().get(GLOBAL_BUNDLE_FILE)
-                .put(key, bundle.getSiteResourceBundle(GLOBAL_BUNDLE_FILE, key, getLocale()));
+                .put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, getLocale()));
     }
 
     public void addAllSiteLabels(String bundleName) {
-        labels().put(bundleName, bundle.getAllSiteLabels(bundleName, getLocale()));
+        labels().put(bundleName, bundle.getAllLabels(bundleName, getLocale()));
     }
 
     private Map<String, Map<String, String>> labels() {
@@ -68,5 +89,6 @@ public class PageCompositionHelper {
     int calculateThemeIndex(boolean increment){
         return model.calculateThemeIndex(increment);
     }
+
 
 }

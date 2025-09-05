@@ -69,8 +69,8 @@ public class SignpostFactory {
     private Optional<SignpostModule> createSignPostModule(String prefix, Locale locale) {
         SignpostModule signpostModule = new SignpostModule();
         FlatLink cta = new FlatLink(
-                bundle.getSiteResourceBundle(BUNDLE_ID, prefix + ".cta.text", locale),
-                bundle.getSiteResourceBundle(BUNDLE_ID, prefix + ".cta.link", locale),
+                bundle.getResourceBundle(BUNDLE_ID, prefix + ".cta.text", locale),
+                bundle.getResourceBundle(BUNDLE_ID, prefix + ".cta.link", locale),
                 LinkType.INTERNAL);
 
         if (Contract.isNull(cta.getLink())) {
@@ -78,11 +78,11 @@ public class SignpostFactory {
         }
 
         FlatImage image = new FlatImage();
-        image.setExternalImage(bundle.getSiteResourceBundle(BUNDLE_ID, prefix + ".image", locale));
+        image.setExternalImage(bundle.getResourceBundle(BUNDLE_ID, prefix + ".image", locale));
         signpostModule.setCta(cta);
         signpostModule.setImage(image);
-        signpostModule.setTitle(bundle.getSiteResourceBundle(BUNDLE_ID, prefix + ".title", locale));
-        signpostModule.setCopy(new HippoHtmlWrapper(bundle.getSiteResourceBundle(BUNDLE_ID, prefix + ".copy", locale)));
+        signpostModule.setTitle(bundle.getResourceBundle(BUNDLE_ID, prefix + ".title", locale));
+        signpostModule.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(BUNDLE_ID, prefix + ".copy", locale)));
 
         return Optional.of(signpostModule);
     }

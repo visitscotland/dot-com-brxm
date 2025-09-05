@@ -87,12 +87,11 @@ public class FormFactory {
             } else {
                 consentValue = consentValue + ";" + cons.getKey() + "," + cons.getValue();
             }
-
         }
 
         cfg.setConsents(consentValue);
         if (properties.isFormBregLegalBasisEnabled()) {
-            cfg.setLegalBasis(properties.getFormBregLegalBasis());
+            cfg.setLegalBasis(properties.getFormBregLegalBasisText());
         }
 
         return cfg;

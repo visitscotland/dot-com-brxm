@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.utils.pagebuilder;
 
 import com.visitscotland.brxm.hippobeans.*;
+import com.visitscotland.brxm.mapper.ArticleMapper;
 import com.visitscotland.brxm.mock.LinksModuleMockBuilder;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
@@ -49,7 +50,7 @@ class PageAssemblerTest {
     MegalinkFactory linksFactory;
 
     @Mock
-    ArticleFactory articleFactory;
+    ArticleMapper articleMapper;
 
     @Mock
     LongCopyFactory longCopyFactory;

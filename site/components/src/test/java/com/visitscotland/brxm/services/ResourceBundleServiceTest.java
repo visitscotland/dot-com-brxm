@@ -210,35 +210,35 @@ class ResourceBundleServiceTest {
     @Test
     @DisplayName("Alternative sites can have alternative labels")
     @Disabled
-    void getSiteResourceBundle(){
+    void getResourceBundle(){
         //TODO
     }
 
     @Test
     @DisplayName("Alternative sites can have alternative labels in other locales")
     @Disabled
-    void getSiteResourceBundle_locale(){
+    void getResourceBundle_locale(){
         //TODO
     }
 
     @Test
     @DisplayName("If keys in alternative sites don't exist, they return ")
     @Disabled
-    void getSiteResourceBundle_missingKey(){
+    void getResourceBundle_missingKey(){
         //TODO
     }
 
     @Test
     @DisplayName("Return a collection of labels from the default file")
     @Disabled
-    void getAllSiteLabels(){
+    void getAllLabels(){
         //TODO
     }
 
     @Test
     @DisplayName("Return a collection of labels. Some of the labels don't exist in the site and the default value is returned instead")
     @Disabled
-    void getAllSiteLabels_missingKeys(){
+    void getAllLabels_missingKeys(){
         //TODO
     }
 

@@ -1,5 +1,7 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
+import com.visitscotland.brxm.factory.ImageFactory;
+import com.visitscotland.brxm.factory.QuoteFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
@@ -9,6 +11,8 @@ import com.visitscotland.brxm.services.AssetLinkFactory;
 import com.visitscotland.brxm.services.FileMetaDataCalculator;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
 import org.apache.commons.io.FilenameUtils;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
@@ -18,13 +22,10 @@ import org.springframework.stereotype.Component;
 import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Calendar;
+import java.util.*;
 
 @Component
-public class ArticleFactory {
+public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
 
     private static final String STANDARD = "standard";
     private static final String ACCORDION = "accordion";
@@ -32,7 +33,7 @@ public class ArticleFactory {
     private static final String HORIZONTAL_LIST = "horizontal-list";
     private static final String IMAGE_LIST = "image-list";
     private static final String NUMBERED_LIST = "numbered-list";
-    private static final Logger log = LoggerFactory.getLogger(ArticleFactory.class);
+    private static final Logger log = LoggerFactory.getLogger(ArticleMapper.class);
 
     private final ImageFactory imageFactory;
     private final LinkService linkService;
@@ -42,18 +43,28 @@ public class ArticleFactory {
     private final AssetLinkFactory assetLinkFactory;
     private static final SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy");
 
-    public ArticleFactory(ImageFactory imageFactory,
-                          QuoteFactory quoteEmbedder,
-                          LinkService linkService,
-                          AnchorFormatter anchorFormatter,
-                          FileMetaDataCalculator fileMetaDataCalculator,
-                          AssetLinkFactory assetLinkFactory) {
+    public ArticleMapper(ImageFactory imageFactory,
+                         QuoteFactory quoteEmbedder,
+                         LinkService linkService,
+                         AnchorFormatter anchorFormatter,
+                         FileMetaDataCalculator fileMetaDataCalculator,
+                         AssetLinkFactory assetLinkFactory) {
         this.imageFactory = imageFactory;
         this.quoteEmbedder = quoteEmbedder;
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
         this.fileMetaDataCalculator = fileMetaDataCalculator;
         this.assetLinkFactory = assetLinkFactory;
+    }
+
+    @Override
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        compositionHelper.addAllSiteLabels("download");
+    }
+
+    @Override
+    ArticleModule map(Article document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+        return getModule(compositionHelper.getRequest(), document);
     }
 
     public ArticleModule getModule(HstRequest request, Article doc) {

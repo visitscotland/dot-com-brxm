@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.dms.DMSDataService;
@@ -13,15 +13,12 @@ import com.visitscotland.utils.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
 @Component
-public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule>{
+public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
 
     static final String BUNDLE_FILE = "ski";
 
@@ -37,12 +34,15 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule>{
     }
 
     @Override
-    public void include(SkiCentre document, PageCompositionHelper page) {
-        super.include(document, page);
-        page.addAllSiteLabels(BUNDLE_FILE);
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        compositionHelper.addAllSiteLabels(BUNDLE_FILE);
     }
 
     @Override
+    SkiModule map(SkiCentre document, PageCompositionHelper compositionHelper) {
+        return map(document, compositionHelper.getLocale());
+    }
+
     SkiModule map(SkiCentre document, Locale locale) {
         SkiModule module = new SkiModule();
 

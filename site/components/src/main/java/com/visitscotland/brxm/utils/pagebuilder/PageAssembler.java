@@ -4,6 +4,7 @@ import com.visitscotland.brxm.components.content.GeneralContentComponent;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.factory.event.EventsListingFactory;
 import com.visitscotland.brxm.hippobeans.*;
+import com.visitscotland.brxm.mapper.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
@@ -43,10 +44,10 @@ public class PageAssembler {
     private final MegalinkFactory linksFactory;
     private final ICentreFactory iCentreFactory;
     private final IKnowFactory iKnowFactory;
-    private final ArticleFactory articleFactory;
+    private final ArticleMapper articleMapper;
     private final LongCopyFactory longCopyFactory;
-    private final UserGeneratedContentMapper userGeneratedContentFactory;
-    private final TravelInformationFactory travelInformationFactory;
+    private final UserGeneratedContentMapper userGeneratedContentMapper;
+    private final TravelInformationMapper travelInformationMapper;
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewModeFactory previewFactory;
     private final FormFactory formFactory;
@@ -64,8 +65,8 @@ public class PageAssembler {
 
     @Autowired
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
-                         IKnowFactory iKnowFactory, ArticleFactory articleFactory, LongCopyFactory longCopyFactory,
-                         UserGeneratedContentMapper userGeneratedContentFactory, TravelInformationFactory travelInformationFactory,
+                         IKnowFactory iKnowFactory, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
+                         UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
                          CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                          MapFactory mapFactory, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger,
@@ -74,10 +75,10 @@ public class PageAssembler {
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentreFactory;
         this.iKnowFactory = iKnowFactory;
-        this.articleFactory = articleFactory;
+        this.articleMapper = articleMapper;
         this.longCopyFactory = longCopyFactory;
-        this.userGeneratedContentFactory = userGeneratedContentFactory;
-        this.travelInformationFactory = travelInformationFactory;
+        this.userGeneratedContentMapper = userGeneratedContentMapper;
+        this.travelInformationMapper = travelInformationMapper;
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
         this.formFactory = marketoFormFactory;
@@ -107,10 +108,12 @@ public class PageAssembler {
             try {
                 logger.debug("A {} module was found. Type {}", item.getClass(), item.getPath());
                 addModule(request, page, item, location);
-            } catch (MissingResourceException e){
-                logger.error("The module for {} couldn't be built because some labels do not exist", item.getPath(), e);
-            } catch (RuntimeException e){
-                logger.error("An unexpected exception happened while building the module for {}", item.getPath(), e);
+            } catch (PageCompostionException e){
+                logger.error(e.getMessage());
+                page.addModule(previewFactory.createErrorModule(item, e.getMessage()));
+            } catch (RuntimeException e) {
+                // Note: This exception should not happen. We are catching it for the sake of recoverability
+                logger.error("Uncaught Exception while building a page at {}: {}", request.getRequestURI(), e.getMessage(), e);
             }
         }
 
@@ -123,23 +126,21 @@ public class PageAssembler {
         request.setModel(PAGE_ITEMS, page.getModules());
     }
 
-    private void addModule(HstRequest request, PageCompositionHelper compositionHelper, BaseDocument item, String location){
+    private void addModule(HstRequest request, PageCompositionHelper compositionHelper, BaseDocument item, String location) throws PageCompostionException {
         if (item instanceof Megalinks) {
             processMegalinks(request, compositionHelper, (Megalinks) item);
         } else if (item instanceof TourismInformation) {
             processTouristInformation(request,compositionHelper, (TourismInformation) item, location);
         } else if (item instanceof Article){
-            compositionHelper.addModule(articleFactory.getModule(request, (Article) item));
-            //TODO allow labels to be used from Factories
-            addAllLabels(request, "download");
+            articleMapper.include((Article) item, compositionHelper);
         } else if (item instanceof LongCopy){
             processLongCopy(request, compositionHelper, (LongCopy) item);
         } else if (item instanceof MapModule) {
-            compositionHelper.addModule(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
+            mapFactory.include((MapModule) item, compositionHelper);
         } else if (item instanceof Stackla) {
-            userGeneratedContentFactory.include((Stackla) item, compositionHelper);
+            userGeneratedContentMapper.include((Stackla) item, compositionHelper);
         } else if (item instanceof TravelInformation) {
-            compositionHelper.addModule(travelInformationFactory.getTravelInformation((TravelInformation) item, request.getLocale()));
+            compositionHelper.addModule(travelInformationMapper.getTravelInformation((TravelInformation) item, request.getLocale()));
         } else if (item instanceof CannedSearch) {
             compositionHelper.addModule(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
         } else if (item instanceof CannedSearchTours) {
@@ -157,7 +158,9 @@ public class PageAssembler {
         } else if (item instanceof EventsListing){
             compositionHelper.addModule(getEventListingModule(request, (EventsListing) item));
         } else {
-            logger.warn("Unrecognized Module Type: {}", item.getClass());
+            String message = String.format("Unrecognized Module Type: %s", item.getClass());
+            logger.warn(message);
+            throw new PageCompostionException(message);
         }
     }
 
@@ -314,7 +317,7 @@ public class PageAssembler {
     }
 
     private void addGlobalLabel(HstRequest request, String key) {
-        labels(request).get(GLOBAL_BUNDLE_FILE).put(key, bundle.getSiteResourceBundle(GLOBAL_BUNDLE_FILE, key, request.getLocale()));
+        labels(request).get(GLOBAL_BUNDLE_FILE).put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, request.getLocale()));
     }
 
     private void addAllLabels(HstRequest request, String bundleName) {
@@ -322,6 +325,6 @@ public class PageAssembler {
     }
 
     private void addAllSiteLabels(HstRequest request, String bundleName) {
-        labels(request).put(bundleName, bundle.getAllSiteLabels(bundleName, request.getLocale()));
+        labels(request).put(bundleName, bundle.getAllLabels(bundleName, request.getLocale()));
     }
 }

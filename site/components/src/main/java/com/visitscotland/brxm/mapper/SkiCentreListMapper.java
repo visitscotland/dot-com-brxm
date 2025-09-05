@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.*;
 
@@ -11,13 +11,10 @@ import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
 
 @Component
-public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModule>{
+public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModule> {
 
     static final String BUNDLE_FILE = "ski";
 
@@ -35,9 +32,12 @@ public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModu
     }
 
     @Override
-    public void include(SkiCentreList document, PageCompositionHelper page) {
-        super.include(document, page);
-        page.addAllSiteLabels(BUNDLE_FILE);
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        compositionHelper.addAllSiteLabels(BUNDLE_FILE);
+    }
+
+    public SkiListModule map(SkiCentreList document, PageCompositionHelper compositionHelper){
+        return map(document, compositionHelper.getLocale());
     }
 
     public SkiListModule map(SkiCentreList document, Locale locale){
