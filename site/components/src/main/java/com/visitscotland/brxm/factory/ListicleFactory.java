@@ -118,7 +118,7 @@ public class ListicleFactory {
      */
     private FlatLink processMainProduct(Locale locale, HippoCompound link, ListicleModule module){
         if (link == null) {
-            contentLogger.warn("The ListicleItem {} doesn't contain a main product", module.getHippoBean().getPath());
+            contentLogger.warn("The ListicleItem {} doesn't contain a main product", module.getDocumentPath());
         } else if (link instanceof DMSLink) {
             DMSLink dmsLink = (DMSLink) link;
             JsonNode product = dmsData.productCard(dmsLink.getProduct(), locale);
@@ -159,7 +159,7 @@ public class ListicleFactory {
             } else if (link instanceof ExternalLink || link instanceof ProductSearchLink) {
                 return linksService.createFindOutMoreLink(module, locale, link);
             } else {
-                contentLogger.warn("The ListicleItem {} is pointing to a document that is not a page ", module.getHippoBean().getPath());
+                contentLogger.warn("The ListicleItem {} is pointing to a document that is not a page ", module.getDocumentPath());
 
         }
 

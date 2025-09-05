@@ -24,7 +24,7 @@ public class Module<T extends HippoBean> {
     }
 
     public String getDocumentPath() {
-        return getHippoBean() == null ? null : getHippoBean().getPath();
+        return hippoBean == null ? null : hippoBean.getPath();
     }
 
     public void setHippoBean(T hippoBean) {

@@ -99,7 +99,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
             return al;
         } else {
-            //TODO: Create
+            //TODO: Create an implementation for personalization
             throw new PageCompositionException("Personalization is not currently supported");
         }
     }
@@ -115,7 +115,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
             numLinks = ((MultiImageLinksModule) module).getFeaturedLinks().size();
         }
         if (numLinks == 0) {
-            throw new PageCompositionException(module.getHippoBean().getPath(), "Megalinks module does not contain any valid items");
+            throw new PageCompositionException(module.getDocumentPath(), "Megalinks module does not contain any valid items");
         }
     }
 
@@ -128,7 +128,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
         if (module.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
             module.setAlignment(compositionHelper.calculateAlignment());
             if (Contract.isEmpty(module.getAlignment())) {
-                logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", module.getHippoBean().getPath());
+                logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", module.getDocumentPath());
             }
         }
     }

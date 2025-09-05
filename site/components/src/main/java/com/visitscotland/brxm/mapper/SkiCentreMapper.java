@@ -99,7 +99,7 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
                     product.get(URL).get(URL_LINK).asText() + "#opening", LinkType.INTERNAL));
             } else {
                 contentLogger.warn("Missing URL or URL_LINK for Ski Centre with opening times. Path={}",
-                module.getHippoBean() != null ? module.getHippoBean().getPath() : "unknown");
+                module.getHippoBean() != null ? module.getDocumentPath() : "unknown");
             }
         }
 
