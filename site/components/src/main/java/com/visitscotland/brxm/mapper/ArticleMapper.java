@@ -63,10 +63,10 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
 
     @Override
     ArticleModule map(Article document, PageCompositionHelper compositionHelper) throws PageCompositionException {
-        return getModule(compositionHelper.getRequest(), document);
+        return getModule(document, compositionHelper.getLocale(), compositionHelper.isEditMode());
     }
 
-    public ArticleModule getModule(HstRequest request, Article doc) {
+    public ArticleModule getModule(Article doc, Locale locale, boolean editMode) {
         ArticleModule module = new ArticleModule();
 
         module.setTitle(doc.getTitle());
@@ -75,13 +75,13 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
 
         addSpecialFields(doc, module);
 
-        setImage(module, doc, request.getLocale());
+        setImage(module, doc, locale);
 
         module.setAnchor(anchorFormatter.getAnchorOrFallback(doc.getAnchor(), doc::getTitle));
 
-        setSections(module, doc, request.getLocale());
+        setSections(module, doc, locale);
 
-        if (isEditMode(request) && doc instanceof ArticleBSH) {
+        if (editMode && doc instanceof ArticleBSH) {
             // This validation is only required for Edit Mode
             validate(module);
         }

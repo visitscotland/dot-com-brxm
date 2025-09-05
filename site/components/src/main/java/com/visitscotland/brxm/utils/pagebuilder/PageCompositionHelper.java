@@ -89,5 +89,8 @@ public class PageCompositionHelper {
         return model.calculateThemeIndex(increment);
     }
 
+    public boolean isEditMode() {
+        return Boolean.TRUE.equals(request.getAttribute("editMode"));
+    }
 
 }
