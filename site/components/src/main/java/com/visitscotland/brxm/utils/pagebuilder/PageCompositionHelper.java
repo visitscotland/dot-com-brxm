@@ -33,7 +33,7 @@ public class PageCompositionHelper {
         } else if (page  instanceof Page){
             return (Page) page;
         } else  {
-            throw new PageCompositionException("The main document is not an Page instance. Class = " + page.getClass().getSimpleName());
+            throw new PageCompositionException("The main document is not a Page instance. Class = " + page.getClass().getSimpleName());
         }
     }
 
