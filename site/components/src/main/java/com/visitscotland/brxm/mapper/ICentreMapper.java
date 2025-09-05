@@ -39,7 +39,6 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
 
     static final String BUNDLE_ID = "tourism.information";
 
-    private final HippoUtilsService utils;
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
     private final QuoteMapper quoteEmbedder;
@@ -49,10 +48,9 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
     private final HippoUtilsService hippoUtilsService;
 
     @Autowired
-    public ICentreMapper(HippoUtilsService utils, DMSDataService dmsData, ResourceBundleService bundle, QuoteMapper quoteEmbedder,
+    public ICentreMapper(DMSDataService dmsData, ResourceBundleService bundle, QuoteMapper quoteEmbedder,
                          ImageFactory imageFactory, CMSProperties cmsProperties, SiteProperties siteProperties,
                          HippoUtilsService hippoUtilsService) {
-        this.utils = utils;
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.quoteEmbedder = quoteEmbedder;
@@ -79,7 +77,7 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
     }
 
     /**
-     * Builds an iCentre module when there is enough data to build it or null when there is not.
+     * Builds an iCentre module
      */
     public ICentreModule getModule(ICentre doc, Locale locale) throws PageCompositionException {
         logger.info("Creating iCentreModule for {}", doc.getPath());
@@ -110,7 +108,7 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
         if (module.getImage() == null) {
 
             try {
-                Image defaultImage = utils.getDocumentFromNode(
+                Image defaultImage = hippoUtilsService.getDocumentFromNode(
                         bundle.getResourceBundle(BUNDLE_ID, "icentre.image.default", locale));
                 module.setImage(imageFactory.createImage(defaultImage, module, locale));
             } catch (QueryException | ObjectBeanManagerException | RepositoryException e) {
