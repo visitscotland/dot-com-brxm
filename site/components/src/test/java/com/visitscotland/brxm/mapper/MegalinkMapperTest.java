@@ -56,7 +56,7 @@ public class MegalinkMapperTest {
     ContentLogger logger;
 
     @InjectMocks
-    MegalinkMapper factory;
+    MegalinkMapper mapper;
 
     @BeforeEach
     public void beforeEach() {
@@ -127,7 +127,7 @@ public class MegalinkMapperTest {
         List<MegalinkItem> items = new MegalinksMockBuilder().addPageLink().addSharedLink().build().getMegalinkItems();
         when(linkService.createEnhancedLink(any(),any(), any(), anyBoolean())).thenReturn(Optional.of(new EnhancedLink()));
 
-        assertEquals(2, factory.convertToEnhancedLinks(null, items, Locale.UK, false).size());
+        assertEquals(2, mapper.convertToEnhancedLinks(null, items, Locale.UK, false).size());
     }
 
     @Test
@@ -137,7 +137,7 @@ public class MegalinkMapperTest {
         List<MegalinkItem> items =  new MegalinksMockBuilder().addLink(null).addLink(mock(MegalinkItem.class)).build().getMegalinkItems();
         Module<Megalinks> module = new Module<>();
 
-        assertEquals(0, factory.convertToEnhancedLinks(module, items, Locale.UK, false).size());
+        assertEquals(0, mapper.convertToEnhancedLinks(module, items, Locale.UK, false).size());
 
         verify(linkService, never()).createEnhancedLink(any(),any(), any(), anyBoolean());
         assertEquals(1, module.getErrorMessages().size());
@@ -154,7 +154,7 @@ public class MegalinkMapperTest {
         when(unpublishedVideo.getPath()).thenReturn("path-to-document");
         when(linkService.createEnhancedLink(null, module, Locale.UK, false)).thenReturn(Optional.empty());
 
-        assertEquals(0, factory.convertToEnhancedLinks(module, items, Locale.UK, false).size());
+        assertEquals(0, mapper.convertToEnhancedLinks(module, items, Locale.UK, false).size());
     }
 
 
@@ -167,7 +167,7 @@ public class MegalinkMapperTest {
         when(mega.getProductItem()).thenReturn(mockLink);
         when(linkService.createFindOutMoreLink(any(), any(Locale.class), eq(mockLink))).thenReturn(new FlatLink(null, "cta-link", null));
 
-        LinksModule<?> layout = factory.multiImageLayout(mega, Locale.UK);
+        LinksModule<?> layout = mapper.multiImageLayout(mega, Locale.UK);
 
         assertEquals("cta-link", layout.getCta().getLink());
     }
@@ -177,7 +177,7 @@ public class MegalinkMapperTest {
     void getMegalinkModule_horizontalListLayout() throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().horizontalLayout(7).build();
 
-        LinksModule linkModule = factory.getMegalinkModule(mega,Locale.UK);
+        LinksModule linkModule = mapper.getMegalinkModule(mega,Locale.UK);
         assertEquals("HorizontalListLinksModule", linkModule.getType());
     }
 
@@ -186,7 +186,7 @@ public class MegalinkMapperTest {
     void getMegalinkModule_horizontalListLayoutNoEnoughItems() throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().horizontalLayout(4).build();
 
-        LinksModule linkModule = factory.getMegalinkModule(mega,Locale.UK);
+        LinksModule linkModule = mapper.getMegalinkModule(mega,Locale.UK);
         assertEquals("ListLinksModule", linkModule.getType());
     }
 
@@ -198,7 +198,7 @@ public class MegalinkMapperTest {
         when(otyml.getTitle()).thenReturn("Other things");
         when(otyml.getIntroduction()).thenReturn(mock(HippoHtml.class));
 
-        HorizontalListLinksModule module= factory.horizontalListLayout(otyml,Locale.UK);
+        HorizontalListLinksModule module= mapper.horizontalListLayout(otyml,Locale.UK);
         assertEquals("Other things", module.getTitle());
         assertNotNull(module.getIntroduction());
     }
@@ -210,7 +210,7 @@ public class MegalinkMapperTest {
 
         when (resourceBundleService.getResourceBundle("otyml", "otyml.title.default", Locale.UK )).thenReturn("otyml");
 
-        HorizontalListLinksModule module= factory.horizontalListLayout(otyml,Locale.UK);
+        HorizontalListLinksModule module= mapper.horizontalListLayout(otyml,Locale.UK);
         assertEquals("otyml", module.getTitle());
     }
 
@@ -219,7 +219,7 @@ public class MegalinkMapperTest {
     void getSingleImage() throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().singleImageLayout().build();
 
-        LinksModule layout = factory.getMegalinkModule(mega, Locale.UK);
+        LinksModule layout = mapper.getMegalinkModule(mega, Locale.UK);
 
         Assertions.assertEquals("SingleImageLinksModule", layout.getType());
     }
@@ -234,7 +234,7 @@ public class MegalinkMapperTest {
             builder.addPageLink();
         }
 
-        LinksModule layout = factory.getMegalinkModule(builder.build(), Locale.UK);
+        LinksModule layout = mapper.getMegalinkModule(builder.build(), Locale.UK);
 
         Assertions.assertEquals(expectedModule, layout.getType());
     }
@@ -254,7 +254,7 @@ public class MegalinkMapperTest {
         //verify that it does not affect the output
         lenient().when(mega.getSingleImageModule()).thenReturn(mock(SingleImageModule.class));
 
-        LinksModule layout = factory.getMegalinkModule(mega, Locale.UK);
+        LinksModule layout = mapper.getMegalinkModule(mega, Locale.UK);
 
         Assertions.assertEquals(expectedModule, layout.getType());
     }
@@ -273,8 +273,8 @@ public class MegalinkMapperTest {
 
         when(linkService.createEnhancedLink(any(),any(), any(), anyBoolean())).thenReturn(Optional.of(new EnhancedLink()));
 
-        Assertions.assertEquals(minItems, ((MultiImageLinksModule) factory.getMegalinkModule(min.build(), Locale.UK)).getFeaturedLinks().size());
-        Assertions.assertEquals(maxItems, ((MultiImageLinksModule) factory.getMegalinkModule(max.build(), Locale.UK)).getFeaturedLinks().size());
+        Assertions.assertEquals(minItems, ((MultiImageLinksModule) mapper.getMegalinkModule(min.build(), Locale.UK)).getFeaturedLinks().size());
+        Assertions.assertEquals(maxItems, ((MultiImageLinksModule) mapper.getMegalinkModule(max.build(), Locale.UK)).getFeaturedLinks().size());
     }
 
 

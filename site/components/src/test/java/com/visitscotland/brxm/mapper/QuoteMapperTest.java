@@ -33,7 +33,7 @@ class QuoteMapperTest {
     LinkService linkService;
 
     @InjectMocks
-    QuoteMapper embedder;
+    QuoteMapper mapper;
 
     /** TODO Break down this test case in several parts */
     @Test
@@ -60,7 +60,7 @@ class QuoteMapperTest {
         when(linkService.createEnhancedLink(link,null,Locale.UK,false)).thenReturn(Optional.of(enhancedLink));
         when(linkService.createFindOutMoreLink(null, Locale.UK, cmsLink)).thenReturn(new FlatLink());
 
-        FlatQuote flat = embedder.getQuote(quote, null, Locale.UK);
+        FlatQuote flat = mapper.getQuote(quote, null, Locale.UK);
 
         verify(linkService).createEnhancedLink(link, null, Locale.UK, false);
         verify(imageFactory).createImage(image, null, Locale.UK);
