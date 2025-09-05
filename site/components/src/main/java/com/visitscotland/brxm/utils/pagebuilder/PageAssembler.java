@@ -50,7 +50,7 @@ public class PageAssembler {
     private final CannedSearchFactory cannedSearchFactory;
     private final PreviewWarningMapper previewFactory;
     private final FormFactory formFactory;
-    private final MapFactory mapFactory;
+    private final MapModuleMapper mapModuleMapper;
     private final SignpostFactory signPostFactory;
     private final SkiCentreMapper skiCentreMapper;
     private final SkiCentreListMapper skiCentreListMapper;
@@ -67,7 +67,7 @@ public class PageAssembler {
                          IKnowMapper iKnowFactory, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
                          UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
                          CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewFactory, FormFactory marketoFormFactory,
-                         MapFactory mapFactory, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
+                         MapModuleMapper mapModuleMapper, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
                          SignpostFactory signPostFactory, EventsListingFactory eventsListingFactory) {
         this.documentUtils = documentUtils;
@@ -81,7 +81,7 @@ public class PageAssembler {
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewFactory = previewFactory;
         this.formFactory = marketoFormFactory;
-        this.mapFactory = mapFactory;
+        this.mapModuleMapper = mapModuleMapper;
         this.devModuleMapper = devModuleMapper;
         this.skiCentreListMapper = skiCentreListMapper;
         this.skiCentreMapper = skiCentreMapper;
@@ -131,7 +131,7 @@ public class PageAssembler {
         } else if (item instanceof LongCopy){
             processLongCopy(request, compositionHelper, (LongCopy) item);
         } else if (item instanceof MapModule) {
-            mapFactory.include((MapModule) item, compositionHelper);
+            mapModuleMapper.include((MapModule) item, compositionHelper);
         } else if (item instanceof Stackla) {
             userGeneratedContentMapper.include((Stackla) item, compositionHelper);
         } else if (item instanceof TravelInformation) {

@@ -29,9 +29,9 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 
 @Component
-public class MapFactory extends ModuleMapper<MapModule, MapsModule> {
+public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
 
-    private static final Logger logger = LoggerFactory.getLogger(MapFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(MapModuleMapper.class);
 
     static final String BUNDLE_ID = "map";
 
@@ -56,7 +56,7 @@ public class MapFactory extends ModuleMapper<MapModule, MapsModule> {
     private final ImageFactory imageFactory;
     private final LocationLoader locationLoader;
 
-    public MapFactory(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, CMSProperties properties, ImageFactory imageFactory,LocationLoader locationLoader) {
+    public MapModuleMapper(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, CMSProperties properties, ImageFactory imageFactory, LocationLoader locationLoader) {
         this.hippoUtilsService = hippoUtilsService;
         this.mapper = new ObjectMapper();
         this.mapService = mapService;
