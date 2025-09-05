@@ -5,6 +5,7 @@ import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.ICentre;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.TourismInformation;
+import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ICentreModule;
 import com.visitscotland.brxm.model.LinkType;
@@ -106,17 +107,23 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
 
         //Default the Image if it hasn't been set
         if (module.getImage() == null) {
-
-            try {
-                Image defaultImage = hippoUtilsService.getDocumentFromNode(
-                        bundle.getResourceBundle(BUNDLE_ID, "icentre.image.default", locale));
-                module.setImage(imageFactory.createImage(defaultImage, module, locale));
-            } catch (QueryException | ObjectBeanManagerException | RepositoryException e) {
-                throw new PageCompositionException(doc.getPath(), "The location for the  default iCentre image is not valid", e);
-            }
+            module.setImage(getDefaultImage(module, locale));
         }
 
         return module;
+    }
+
+    private FlatImage getDefaultImage(ICentreModule module, Locale locale) throws PageCompositionException {
+        try {
+            String defaultPath = bundle.getResourceBundle(BUNDLE_ID, "icentre.image.default", locale);
+            if (defaultPath == null) {
+                throw new PageCompositionException(module.getDocumentPath(), "The default image has not being defined");
+            }
+            Image defaultImage = hippoUtilsService.getDocumentFromNode(defaultPath);
+            return imageFactory.createImage(defaultImage, module, locale);
+        } catch (QueryException | ObjectBeanManagerException | RepositoryException e) {
+            throw new PageCompositionException(module.getDocumentPath(), "The location for the  default iCentre image is not valid", e);
+        }
     }
 
 

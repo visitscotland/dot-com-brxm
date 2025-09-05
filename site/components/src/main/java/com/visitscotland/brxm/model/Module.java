@@ -23,6 +23,10 @@ public class Module<T extends HippoBean> {
         return hippoBean;
     }
 
+    public String getDocumentPath() {
+        return getHippoBean() == null ? null : getHippoBean().getPath();
+    }
+
     public void setHippoBean(T hippoBean) {
         this.hippoBean = hippoBean;
     }
