@@ -22,7 +22,6 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 import static com.visitscotland.brxm.components.content.PageContentComponent.LABELS;
-import static com.visitscotland.brxm.services.ResourceBundleService.GLOBAL_BUNDLE_FILE;
 
 @Component
 public class PageAssembler {
@@ -41,21 +40,23 @@ public class PageAssembler {
 
     //Factories
     private final MegalinkMapper megalinkMapper;
-    private final ICentreMapper iCentreFactory;
-    private final IKnowMapper iKnowFactory;
+    private final ICentreMapper iCentreMapper;
+    private final IKnowMapper iKnowMapper;
     private final ArticleMapper articleMapper;
-    private final LongCopyFactory longCopyFactory;
     private final UserGeneratedContentMapper userGeneratedContentMapper;
     private final TravelInformationMapper travelInformationMapper;
-    private final CannedSearchFactory cannedSearchFactory;
-    private final PreviewWarningMapper previewFactory;
-    private final FormFactory formFactory;
+    private final PreviewWarningMapper previewWarningMapper;
     private final MapModuleMapper mapModuleMapper;
-    private final SignpostFactory signPostFactory;
     private final SkiCentreMapper skiCentreMapper;
     private final SkiCentreListMapper skiCentreListMapper;
     private final DevModuleMapper devModuleMapper;
+
+    private final LongCopyFactory longCopyFactory;
+    private final CannedSearchFactory cannedSearchFactory;
+    private final FormFactory formFactory;
+    private final SignpostFactory signPostFactory;
     private final EventsListingFactory eventsListingFactory;
+
     private final SiteProperties properties;
 
     private final ResourceBundleService bundle;
@@ -63,23 +64,23 @@ public class PageAssembler {
 
 
     @Autowired
-    public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreFactory,
-                         IKnowMapper iKnowFactory, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
+    public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
+                         IKnowMapper iKnowMapper, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
                          UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
-                         CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewFactory, FormFactory marketoFormFactory,
+                         CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewWarningMapper, FormFactory marketoFormFactory,
                          MapModuleMapper mapModuleMapper, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
                          SignpostFactory signPostFactory, EventsListingFactory eventsListingFactory) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
-        this.iCentreFactory = iCentreFactory;
-        this.iKnowFactory = iKnowFactory;
+        this.iCentreMapper = iCentreMapper;
+        this.iKnowMapper = iKnowMapper;
         this.articleMapper = articleMapper;
         this.longCopyFactory = longCopyFactory;
         this.userGeneratedContentMapper = userGeneratedContentMapper;
         this.travelInformationMapper = travelInformationMapper;
         this.cannedSearchFactory = cannedSearchFactory;
-        this.previewFactory = previewFactory;
+        this.previewWarningMapper = previewWarningMapper;
         this.formFactory = marketoFormFactory;
         this.mapModuleMapper = mapModuleMapper;
         this.devModuleMapper = devModuleMapper;
@@ -105,7 +106,7 @@ public class PageAssembler {
                 addModule(request, page, item);
             } catch (PageCompositionException e){
                 logger.error(e.getMessage());
-                page.addModule(previewFactory.createErrorModule(item, e.getMessage()));
+                page.addModule(previewWarningMapper.createErrorModule(item, e.getMessage()));
             } catch (RuntimeException e) {
                 // Note: This exception should not happen. We are catching it for the sake of recoverability
                 logger.error("Uncaught Exception while building a page at {}: {}", request.getRequestURI(), e.getMessage(), e);
@@ -125,7 +126,7 @@ public class PageAssembler {
         if (item instanceof Megalinks) {
             processMegalinks(request, compositionHelper, (Megalinks) item);
         } else if (item instanceof TourismInformation) {
-            iCentreFactory.include((TourismInformation) item, compositionHelper);
+            iCentreMapper.include((TourismInformation) item, compositionHelper);
         } else if (item instanceof Article){
             articleMapper.include((Article) item, compositionHelper);
         } else if (item instanceof LongCopy){
