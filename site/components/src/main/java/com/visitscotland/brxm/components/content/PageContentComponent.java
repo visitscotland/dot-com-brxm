@@ -123,9 +123,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         request.setModel(METADATA_MODEL, metadata.getMetadata());
     }
 
-    private void addPropertyIfPresent(HstRequest request, String property, String attributeId) {
-        properties.getProperty(property, request.getLocale())
-                .ifPresent(value -> request.setModel(attributeId, value));
+    private void addPropertyIfPresent(HstRequest request, String attributeId, String value) {
+        if (!Contract.isEmpty(value)){
+            request.setModel(attributeId, value);
+        }
     }
 
 
@@ -406,12 +407,14 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request
      */
     private void enableGlobalSearch(HstRequest request){
-        addPropertyIfPresent(request, "cludo.customer-id", "cludoCustomerId");
-        addPropertyIfPresent(request, "cludo.engine-id", "cludoEngineId");
-        addPropertyIfPresent(request, "cludo.experience-id", "cludoExperienceId");
-        addPropertyIfPresent(request, "cludo.language", request.getLocale().getLanguage());
-        addPropertyIfPresent(request, "cludo.global-search.url", properties.getGlobalSearchURL());
+        Map<String, String> searchProperties = new HashMap<>();
+        searchProperties.put("customer-id", properties.getCludoCustomerId());
+        searchProperties.put("engine-id", properties.getCludoEngineId());
+        searchProperties.put("experience-id", properties.getCludoExperienceId());
+        searchProperties.put("language", request.getLocale().getLanguage());
+        searchProperties.put("global-search-url", properties.getGlobalSearchURL());
 
+        request.setModel("cludo", searchProperties);
     }
 
     boolean isEditMode(HstRequest request) {

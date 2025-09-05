@@ -23,6 +23,9 @@ public class SiteProperties extends Properties {
 
     static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
     static final String GLOBAL_SEARCH_PATH = "global-search.path";
+    static final String CLUDO_CUSTOMER_ID = "cludo.customer-id";
+    static final String CLUDO_ENGINE_ID = "cludo.engine-id";
+    static final String CLUDO_EXPERIENCE_ID = "cludo.experience-id";
 
 
     //Environment
@@ -84,6 +87,19 @@ public class SiteProperties extends Properties {
     public String getGlobalSearchURL() {
         return readString(GLOBAL_SEARCH_PATH);
     }
+
+    public String getCludoCustomerId() {
+        return readString(CLUDO_CUSTOMER_ID);
+    }
+
+    public String getCludoEngineId() {
+        return readString(CLUDO_ENGINE_ID);
+    }
+
+    public String getCludoExperienceId() {
+        return readString(CLUDO_EXPERIENCE_ID);
+    }
+
     public String getChannelOrder(){
         return readString(CHANNEL_ORDER);
     }
