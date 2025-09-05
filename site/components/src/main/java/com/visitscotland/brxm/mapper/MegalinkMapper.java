@@ -125,7 +125,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
      * @param compositionHelper
      */
     private void calculateAlignment(LinksModule<?> module, PageCompositionHelper compositionHelper) {
-        if (module.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
+        if (module instanceof SingleImageLinksModule) {
             module.setAlignment(compositionHelper.calculateAlignment());
             if (Contract.isEmpty(module.getAlignment())) {
                 logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", module.getDocumentPath());
