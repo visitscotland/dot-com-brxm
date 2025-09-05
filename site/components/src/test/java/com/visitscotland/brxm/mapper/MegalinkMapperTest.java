@@ -9,7 +9,7 @@ import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.junit.jupiter.api.Assertions;
@@ -174,7 +174,7 @@ public class MegalinkMapperTest {
 
     @Test
     @DisplayName("Get a horizontal layout")
-    void getMegalinkModule_horizontalListLayout() throws PageCompostionException {
+    void getMegalinkModule_horizontalListLayout() throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().horizontalLayout(7).build();
 
         LinksModule linkModule = factory.getMegalinkModule(mega,Locale.UK);
@@ -183,7 +183,7 @@ public class MegalinkMapperTest {
 
     @Test
     @DisplayName("Get a list layout when horizontal list is selected but there are less than 5 links")
-    void getMegalinkModule_horizontalListLayoutNoEnoughItems() throws PageCompostionException {
+    void getMegalinkModule_horizontalListLayoutNoEnoughItems() throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().horizontalLayout(4).build();
 
         LinksModule linkModule = factory.getMegalinkModule(mega,Locale.UK);
@@ -216,7 +216,7 @@ public class MegalinkMapperTest {
 
     @Test
     @DisplayName("Returns a SingleImageLayout when the Single image fields are populated")
-    void getSingleImage() throws PageCompostionException {
+    void getSingleImage() throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().singleImageLayout().build();
 
         LinksModule layout = factory.getMegalinkModule(mega, Locale.UK);
@@ -227,7 +227,7 @@ public class MegalinkMapperTest {
     @ParameterizedTest
     @DisplayName("From 7 items is not Featured any longer")
     @CsvSource({"1,MultiImageLinksModule", "2,MultiImageLinksModule", "6,MultiImageLinksModule", "7,ListLinksModule"})
-    void featuredLayoutDependsOnNumberOfItem(Integer links, String expectedModule) throws PageCompostionException {
+    void featuredLayoutDependsOnNumberOfItem(Integer links, String expectedModule) throws PageCompositionException {
         MegalinksMockBuilder builder = new MegalinksMockBuilder();
 
         for (int i = 0; i < links; i++){
@@ -242,7 +242,7 @@ public class MegalinkMapperTest {
     @ParameterizedTest
     @DisplayName("From 7 items is not Featured any longer")
     @CsvSource({"1,SingleImageLinksModule", "6,SingleImageLinksModule", "7,ListLinksModule"})
-    void singleImageLayoutDependsOnNumberOfItem(Integer links, String expectedModule) throws PageCompostionException {
+    void singleImageLayoutDependsOnNumberOfItem(Integer links, String expectedModule) throws PageCompositionException {
         MegalinksMockBuilder builder = new MegalinksMockBuilder();
 
         for (int i = 0; i < links; i++){
@@ -262,7 +262,7 @@ public class MegalinkMapperTest {
     @ParameterizedTest
     @DisplayName("Validate Maximun and minimum number of featured items")
     @CsvSource({"1,1,1", "2,0,0", "3,0,1", "4,1,2","5,1,2", "6,1,2"})
-    void createFeaturedLayoutAndCheckItems(Integer total, Integer minItems, Integer maxItems) throws PageCompostionException {
+    void createFeaturedLayoutAndCheckItems(Integer total, Integer minItems, Integer maxItems) throws PageCompositionException {
         MegalinksMockBuilder min = new MegalinksMockBuilder().defaultLayout();
         MegalinksMockBuilder max = new MegalinksMockBuilder().defaultLayout();
 

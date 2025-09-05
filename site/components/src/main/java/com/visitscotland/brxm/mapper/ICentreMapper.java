@@ -18,7 +18,7 @@ import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import com.visitscotland.utils.Contract;
 import com.visitscotland.utils.DataServiceUtils;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
@@ -68,7 +68,7 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
     }
 
     @Override
-    ICentreModule map(TourismInformation document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+    ICentreModule map(TourismInformation document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         ICentreModule module =  getModule(document.getICentre(), compositionHelper.getLocale());
 
         if (module != null) {
@@ -81,7 +81,7 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
     /**
      * Builds an iCentre module when there is enough data to build it or null when there is not.
      */
-    public ICentreModule getModule(ICentre doc, Locale locale) throws PageCompostionException {
+    public ICentreModule getModule(ICentre doc, Locale locale) throws PageCompositionException {
         logger.info("Creating iCentreModule for {}", doc.getPath());
 
         ICentreModule module = new ICentreModule();
@@ -114,7 +114,7 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
                         bundle.getResourceBundle(BUNDLE_ID, "icentre.image.default", locale));
                 module.setImage(imageFactory.createImage(defaultImage, module, locale));
             } catch (QueryException | ObjectBeanManagerException | RepositoryException e) {
-                throw new PageCompostionException(doc.getPath(), "The location for the  default iCentre image is not valid", e);
+                throw new PageCompositionException(doc.getPath(), "The location for the  default iCentre image is not valid", e);
             }
         }
 

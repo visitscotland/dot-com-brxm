@@ -11,7 +11,7 @@ import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -162,7 +162,7 @@ class SkiCentreListMapperTest {
 
     @Test
     @DisplayName("Resource Bundle are included in the template")
-    void testIncludeResourceBundle() throws PageCompostionException {
+    void testIncludeResourceBundle() throws PageCompositionException {
         SkiCentreList document = mock(SkiCentreList.class);
         PageCompositionHelper compositionHelper = mock(PageCompositionHelper.class);
 

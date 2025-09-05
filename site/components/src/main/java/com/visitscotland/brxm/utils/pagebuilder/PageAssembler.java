@@ -103,7 +103,7 @@ public class PageAssembler {
             try {
                 logger.debug("A {} module was found. Type {}", item.getClass(), item.getPath());
                 addModule(request, page, item);
-            } catch (PageCompostionException e){
+            } catch (PageCompositionException e){
                 logger.error(e.getMessage());
                 page.addModule(previewFactory.createErrorModule(item, e.getMessage()));
             } catch (RuntimeException e) {
@@ -121,7 +121,7 @@ public class PageAssembler {
         request.setModel(PAGE_ITEMS, page.getModules());
     }
 
-    private void addModule(HstRequest request, PageCompositionHelper compositionHelper, BaseDocument item) throws PageCompostionException {
+    private void addModule(HstRequest request, PageCompositionHelper compositionHelper, BaseDocument item) throws PageCompositionException {
         if (item instanceof Megalinks) {
             processMegalinks(request, compositionHelper, (Megalinks) item);
         } else if (item instanceof TourismInformation) {
@@ -155,7 +155,7 @@ public class PageAssembler {
         } else {
             String message = String.format("Unrecognized Module Type: %s", item.getClass());
             logger.warn(message);
-            throw new PageCompostionException(message);
+            throw new PageCompositionException(message);
         }
     }
 
@@ -215,7 +215,7 @@ public class PageAssembler {
      * Creates a LinkModule from a Megalinks document
      */
     @Deprecated(forRemoval = true)
-    private void processMegalinks(HstRequest request, PageCompositionHelper compositionHelper, Megalinks document) throws PageCompostionException {
+    private void processMegalinks(HstRequest request, PageCompositionHelper compositionHelper, Megalinks document) throws PageCompositionException {
         // TODO: Rework personalization so Megalinks could be used as any other mapper
         // megalinkMapper.include(document, compositionHelper);
 
@@ -241,7 +241,7 @@ public class PageAssembler {
     }
 
     @Deprecated(forRemoval = true)
-    private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent)  throws PageCompostionException {
+    private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent)  throws PageCompositionException {
         LinksModule<?> al = megalinkMapper.getMegalinkModule(item, request.getLocale());
 
         al.setThemeIndex(parent.getThemeIndex());

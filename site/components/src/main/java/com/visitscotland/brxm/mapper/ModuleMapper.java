@@ -3,7 +3,7 @@ package com.visitscotland.brxm.mapper;
 import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,11 +27,11 @@ abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
      * @param document The HippoBean document to include
      * @param compositionHelper The PageCompositionHelper to add the module to
      *
-     * @throws PageCompostionException if an unrecoverable error was detected during the mapping of the module
+     * @throws PageCompositionException if an unrecoverable error was detected during the mapping of the module
      */
-    public final void include(H document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+    public final void include(H document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         if (compositionHelper == null){
-            throw new PageCompostionException("compositionHelper must not be null");
+            throw new PageCompositionException("compositionHelper must not be null");
         }
         Module<?> module;
         if (document == null ){
@@ -41,15 +41,15 @@ abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
         try {
             module = map(document, compositionHelper);
             if (module == null) {
-                throw new PageCompostionException(document.getPath(), "The document could not be converted to a UI module");
+                throw new PageCompositionException(document.getPath(), "The document could not be converted to a UI module");
             } else {
                 addLabels(compositionHelper);
             }
             compositionHelper.addModule(module);
         } catch (MissingResourceException e){
-            throw new PageCompostionException(document.getPath(), "The module couldn't be built because some labels do not exist", e);
+            throw new PageCompositionException(document.getPath(), "The module couldn't be built because some labels do not exist", e);
         } catch (RuntimeException e){
-            throw new PageCompostionException(document.getPath(), "An unexpected exception happened while building the module", e);
+            throw new PageCompositionException(document.getPath(), "An unexpected exception happened while building the module", e);
         }
     }
 
@@ -69,8 +69,8 @@ abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
      * @param document The HippoBean document to include
      * @param compositionHelper The PageCompositionHelper with the context of the request
      *
-     * @throws PageCompostionException if an unrecoverable error was detected during the mapping of the module
+     * @throws PageCompositionException if an unrecoverable error was detected during the mapping of the module
      */
-    abstract M map(H document, PageCompositionHelper compositionHelper) throws PageCompostionException;
+    abstract M map(H document, PageCompositionHelper compositionHelper) throws PageCompositionException;
 
 }

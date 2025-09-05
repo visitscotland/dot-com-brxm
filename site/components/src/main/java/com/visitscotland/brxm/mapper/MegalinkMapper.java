@@ -10,7 +10,7 @@ import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.slf4j.Logger;
@@ -81,14 +81,14 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
     }
 
     @Override
-    LinksModule<EnhancedLink> map(Megalinks document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+    LinksModule<EnhancedLink> map(Megalinks document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         return getMegalinkModule(document, compositionHelper.getLocale());
     }
 
     /**
      * Creates a LinkModule from a Megalinks document
      */
-    private void processMegalinks(PageCompositionHelper compositionHelper, Megalinks item) throws PageCompostionException {
+    private void processMegalinks(PageCompositionHelper compositionHelper, Megalinks item) throws PageCompositionException {
         if (item.getPersonalization().isEmpty()) {
             LinksModule<?> al = getMegalinkModule(item, compositionHelper.getLocale());
 
@@ -97,22 +97,22 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
             calculateTheme(al, compositionHelper);
         } else {
             //TODO: Create
-            throw new PageCompostionException("Personalization is not currently supported");
+            throw new PageCompositionException("Personalization is not currently supported");
         }
     }
 
     /**
      * Validates that the module has at least one link to render
      * @param module
-     * @throws PageCompostionException
+     * @throws PageCompositionException
      */
-    private void validateLinks(LinksModule<?> module) throws PageCompostionException {
+    private void validateLinks(LinksModule<?> module) throws PageCompositionException {
         int numLinks = module.getLinks().size();
         if (numLinks == 0 && module instanceof MultiImageLinksModule) {
             numLinks = ((MultiImageLinksModule) module).getFeaturedLinks().size();
         }
         if (numLinks == 0) {
-            throw new PageCompostionException(module.getHippoBean().getPath(), "Megalinks module does not contain any valid items");
+            throw new PageCompositionException(module.getHippoBean().getPath(), "Megalinks module does not contain any valid items");
         }
     }
 
@@ -139,10 +139,10 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
         module.setThemeIndex(compositionHelper.calculateThemeIndex(!Contract.isEmpty(module.getTitle())));
     }
 
-    public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) throws PageCompostionException {
+    public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) throws PageCompositionException {
         var layout = MegalinkLayout.fromValue(doc.getLayout()).orElse(MegalinkLayout.DEFAULT);
         if (MegalinkLayout.fromValue(doc.getLayout()).isEmpty()) {
-            throw new PageCompostionException(doc.getPath(), "The Megalinks layout hasn't been set");
+            throw new PageCompositionException(doc.getPath(), "The Megalinks layout hasn't been set");
         }
 
         if (MegalinkLayout.isCardGroup(layout)) {

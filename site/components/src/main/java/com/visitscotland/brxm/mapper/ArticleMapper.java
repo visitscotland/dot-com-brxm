@@ -11,7 +11,7 @@ import com.visitscotland.brxm.services.FileMetaDataCalculator;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import org.apache.commons.io.FilenameUtils;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
@@ -62,7 +62,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
     }
 
     @Override
-    ArticleModule map(Article document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+    ArticleModule map(Article document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         return getModule(compositionHelper.getRequest(), document);
     }
 

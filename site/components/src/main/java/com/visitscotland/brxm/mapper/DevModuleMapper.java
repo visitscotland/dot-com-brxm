@@ -7,7 +7,7 @@ import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.hippobeans.SimpleDevModule;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import com.visitscotland.utils.Contract;
 import org.springframework.stereotype.Controller;
 
@@ -33,7 +33,7 @@ public class DevModuleMapper extends  ModuleMapper<DevModule, Module<DevModule>>
     }
 
     @Override
-    Module<DevModule> map(DevModule document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+    Module<DevModule> map(DevModule document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         if (Contract.isEmpty(document.getBespoken())) {
             return new SimpleDevModule(document);
         }
@@ -47,9 +47,9 @@ public class DevModuleMapper extends  ModuleMapper<DevModule, Module<DevModule>>
                 return module;
             }
         } catch (VsContractException | BrxmWrapperException e) {
-            throw new PageCompostionException(document.getPath(), "The bespoken Dev module could not be generated", e);
+            throw new PageCompositionException(document.getPath(), "The bespoken Dev module could not be generated", e);
         }
 
-        throw new PageCompostionException(document.getPath(), "The implementation of this module is not ready");
+        throw new PageCompositionException(document.getPath(), "The implementation of this module is not ready");
     }
 }

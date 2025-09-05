@@ -26,14 +26,14 @@ public class PageCompositionHelper {
         return request.getLocale();
     }
 
-    public Page getPage() throws PageCompostionException {
+    public Page getPage() throws PageCompositionException {
         Object page = request.getAttribute("document");
         if (page == null){
-            throw new PageCompostionException("The page document hasn't been defined");
+            throw new PageCompositionException("The page document hasn't been defined");
         } else if (page  instanceof Page){
             return (Page) page;
         } else  {
-            throw new PageCompostionException("The main document is not an Page instance. Class = " + page.getClass().getSimpleName());
+            throw new PageCompositionException("The main document is not an Page instance. Class = " + page.getClass().getSimpleName());
         }
     }
 

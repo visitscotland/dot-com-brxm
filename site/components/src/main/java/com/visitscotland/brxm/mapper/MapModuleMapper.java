@@ -15,7 +15,7 @@ import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.onehippo.taxonomy.api.Category;
@@ -73,7 +73,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
     }
 
     @Override
-    MapsModule map(MapModule document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+    MapsModule map(MapModule document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         Page page = compositionHelper.getPage();
         Locale locale = compositionHelper.getLocale();
 

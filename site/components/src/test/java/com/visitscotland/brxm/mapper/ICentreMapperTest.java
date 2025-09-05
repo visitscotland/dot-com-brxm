@@ -19,7 +19,7 @@ import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.SiteProperties;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.core.container.ComponentManager;
@@ -100,7 +100,7 @@ class ICentreMapperTest {
 
     @Test
     @DisplayName("iCentre Module for General pages")
-    void getNoModule() throws PageCompostionException {
+    void getNoModule() throws PageCompositionException {
         //Gets a module with a link to a  when  no location defined (General Pages)
         //Verifies that a link to the iCentres page is defined
         //Verifies that no request to the dms is performed
@@ -112,7 +112,7 @@ class ICentreMapperTest {
 
     @Test
     @DisplayName("iCentre Module for Destination pages")
-    void getModule() throws JsonProcessingException, PageCompostionException {
+    void getModule() throws JsonProcessingException, PageCompositionException {
         //Returns a basic module when the location is provided (Destination Pages)
         //Also verifies that the list of iCentre match with the location
         String location = "Edinburgh";
@@ -128,7 +128,7 @@ class ICentreMapperTest {
      */
     @Test
     @DisplayName("ICentre Module - All fields are mapped correctly")
-    void getModule_mapping() throws PageCompostionException {
+    void getModule_mapping() throws PageCompositionException {
         // Verifies that all data coming from the document gets correctly mapped in the module
         // The Product doesn't get directly mapped.
         ICentre ti = mockBuilder.addICentreTitle("title").addICentreImage()
@@ -150,7 +150,7 @@ class ICentreMapperTest {
 
     @Test
     @DisplayName("VS-1507 - Explicit and Default Title")
-    void getModule_defaultTitle() throws PageCompostionException {
+    void getModule_defaultTitle() throws PageCompositionException {
         // Verifies that the default title is used when a title is not defined the document
         ICentreModule module;
         when(bundle.getResourceBundle(eq(ICentreMapper.BUNDLE_ID), any(), eq(Locale.UK))).thenReturn(null);
@@ -168,7 +168,7 @@ class ICentreMapperTest {
 
     @Test
     @DisplayName("VS-1507 - Image logic")
-    void getModule_getImageFromTheProduct() throws JsonProcessingException, RepositoryException, QueryException, ObjectBeanManagerException, PageCompostionException {
+    void getModule_getImageFromTheProduct() throws JsonProcessingException, RepositoryException, QueryException, ObjectBeanManagerException, PageCompositionException {
         // Verifies the following requirement:
         // - Default to generic image of from any iCentre
         // - Option to pull an image from DMS (to match a location mentioned within quote, using CTA link to DMS listing page)
