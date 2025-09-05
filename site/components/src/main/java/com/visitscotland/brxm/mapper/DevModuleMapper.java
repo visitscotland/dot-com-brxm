@@ -9,11 +9,12 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import com.visitscotland.utils.Contract;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import java.util.MissingResourceException;
 
-@Controller
+@Component
 public class DevModuleMapper extends  ModuleMapper<DevModule, Module<DevModule>> {
 
     private static final String  OBS_BUNDLE = "online-booking-system-comparator";
