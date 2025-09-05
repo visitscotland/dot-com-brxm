@@ -55,7 +55,7 @@ class SkiCentreListMapperTest {
     void skiCentreList(){
         SkiCentreList document = mock(SkiCentreList.class);
 
-        Assertions.assertNotNull(skiCentreListMapper.map(document, Locale.UK));
+        Assertions.assertNotNull(skiCentreListMapper.getModule(document, Locale.UK));
     }
 
 
@@ -67,7 +67,7 @@ class SkiCentreListMapperTest {
         when(document.getTitle()).thenReturn("title");
         when(document.getCopy()).thenReturn(mock(HippoHtml.class));
 
-        SkiListModule module = skiCentreListMapper.map(document, Locale.UK);
+        SkiListModule module = skiCentreListMapper.getModule(document, Locale.UK);
 
         Assertions.assertEquals("title", module.getTitle());
         Assertions.assertNotNull(module.getIntroduction());
@@ -86,7 +86,7 @@ class SkiCentreListMapperTest {
                 .thenReturn(java.util.Optional.of(new EnhancedLink()));
         when(skiCentreMapper.map(any(), any(Locale.class))).thenReturn(new SkiModule());
 
-        SkiListModule module = skiCentreListMapper.map(document, Locale.UK);
+        SkiListModule module = skiCentreListMapper.getModule(document, Locale.UK);
 
         Assertions.assertEquals(1, module.getSkiCentres().size());
     }
@@ -102,7 +102,7 @@ class SkiCentreListMapperTest {
                 .thenReturn(Optional.empty());
         when(document.getPath()).thenReturn("path-to-document");
 
-        SkiListModule module = skiCentreListMapper.map(document, Locale.UK);
+        SkiListModule module = skiCentreListMapper.getModule(document, Locale.UK);
 
         Assertions.assertTrue(module.getSkiCentres().isEmpty());
         Assertions.assertFalse(module.getErrorMessages().isEmpty());
@@ -127,7 +127,7 @@ class SkiCentreListMapperTest {
                 .thenReturn(java.util.Optional.of(new EnhancedLink()));
         when(skiCentreMapper.map(any(), any(Locale.class))).thenReturn(new SkiModule());
 
-        SkiListModule module = skiCentreListMapper.map(document, Locale.UK);
+        SkiListModule module = skiCentreListMapper.getModule(document, Locale.UK);
 
         Assertions.assertEquals(2, module.getSkiCentres().size());
         Assertions.assertEquals(1, module.getErrorMessages().size());
@@ -151,7 +151,7 @@ class SkiCentreListMapperTest {
                 .thenReturn(java.util.Optional.of(new EnhancedLink()));
         when(skiCentreMapper.map(any(), any(Locale.class))).thenReturn(new SkiModule());
 
-        SkiListModule module = skiCentreListMapper.map(document, Locale.UK);
+        SkiListModule module = skiCentreListMapper.getModule(document, Locale.UK);
 
         Assertions.assertEquals(1, module.getSkiCentres().size());
         Assertions.assertEquals(1, module.getErrorMessages().size());

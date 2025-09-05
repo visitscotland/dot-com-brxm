@@ -49,7 +49,6 @@ class ArticleMapperTest {
     @Test
     @DisplayName("Main Article - Populates all fields")
     void getModule() {
-        HstRequest request = new MockHstRequest();
         Article article = mock(Article.class);
         when(article.getMediaItem()).thenReturn(mock(Image.class));
         when(article.getTitle()).thenReturn("Title");
@@ -57,7 +56,7 @@ class ArticleMapperTest {
         when(article.getCopy()).thenReturn(mock(HippoHtml.class));
         when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
-        ArticleModule module = factory.getModule(request, article);
+        ArticleModule module = factory.getModule(article, null, false);
 
         verify(imageFactory, only()).getImage(any(Image.class), any(), any());
         verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
@@ -70,7 +69,6 @@ class ArticleMapperTest {
     @Test
     @DisplayName("VS-4069 Main Article - Populates all fields with video")
     void getModuleWithMainVideo() {
-        HstRequest request = new MockHstRequest();
         Article article = mock(Article.class);
         VideoLink videoLink = mock(VideoLink.class);
 
@@ -81,7 +79,7 @@ class ArticleMapperTest {
         when(article.getCopy()).thenReturn(mock(HippoHtml.class));
         when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
-        ArticleModule module = factory.getModule(request, article);
+        ArticleModule module =factory.getModule(article, null, false);
 
         verify(linkService, only()).createVideo(any(Video.class), any(), any());
         verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
@@ -95,7 +93,6 @@ class ArticleMapperTest {
     @Test
     @DisplayName("Article Sections - Populates all fields")
     void getModuleSections() {
-        HstRequest request = new MockHstRequest();
         ArticleSection section = mock(ArticleSection.class);
         Article article = mock(Article.class);
 
@@ -106,7 +103,7 @@ class ArticleMapperTest {
         when(article.getAnchor()).thenReturn(DUMMY_ANCHOR);
         when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
-        ArticleModule module = factory.getModule(request, article);
+        ArticleModule module = factory.getModule(article, null, false);
 
         verify(imageFactory, times(2)).getImage(any(Image.class), any(), any());
         verify(embedder, times(2)).getQuote(any(Quote.class), any(), any());
@@ -117,7 +114,6 @@ class ArticleMapperTest {
     @Test
     @DisplayName("VS-4069 Article Sections - Populates all fields with video")
     void getModuleSectionsWithVideo() {
-        HstRequest request = new MockHstRequest();
         ArticleSection section = mock(ArticleSection.class);
         Article article = mock(Article.class);
 
@@ -130,7 +126,7 @@ class ArticleMapperTest {
         when(article.getAnchor()).thenReturn(DUMMY_ANCHOR);
         when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
-        ArticleModule module = factory.getModule(request, article);
+        ArticleModule module = factory.getModule(article, null, false);
 
         verify(linkService, times(2)).createVideo(any(Video.class), any(), any());
         verify(embedder, times(2)).getQuote(any(Quote.class), any(), any());
