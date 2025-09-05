@@ -265,7 +265,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
                 return;
             }
             if (otyml.getLinks().size() < MegalinkMapper.MIN_ITEMS_CAROUSEL) {
-                contentLogger.warn("OTYML at {} contains only {} published items. Expected a minimum of 5", page.getOtherThings().getPath(), otyml.getLinks().size());
+                contentLogger.warn("OTYML at {} contains only {} published items. Expected a minimum of {}",
+                        page.getOtherThings().getPath(), otyml.getLinks().size(), MegalinkMapper.MIN_ITEMS_CAROUSEL);
             }
             request.setModel(OTYML_BUNDLE, otyml);
         }
