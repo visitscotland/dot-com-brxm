@@ -4,9 +4,10 @@ import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.model.ErrorModule;
 import com.visitscotland.brxm.model.Module;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-@Controller
+@Component
 public class PreviewWarningMapper {
 
     public <T extends HippoBean> Module<T> createErrorModule(Module<T> source){
