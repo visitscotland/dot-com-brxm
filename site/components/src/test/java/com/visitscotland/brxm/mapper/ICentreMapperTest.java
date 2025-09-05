@@ -94,7 +94,7 @@ class ICentreMapperTest {
 
     @BeforeEach
     void init() {
-        factory = new ICentreMapper(utils, dmsData, bundle, quoteEmbedder, imageFactory, properties, siteProperties, utils);
+        factory = new ICentreMapper(dmsData, bundle, quoteEmbedder, imageFactory, properties, siteProperties, utils);
         mockBuilder = new TouristInformationMockBuilder().addICentre();
     }
 
