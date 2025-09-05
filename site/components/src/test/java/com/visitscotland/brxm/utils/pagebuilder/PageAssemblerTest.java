@@ -36,7 +36,6 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class PageAssemblerTest {
 
-
     MockHstRequest request;
 
     @Mock

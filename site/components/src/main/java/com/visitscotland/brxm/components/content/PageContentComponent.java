@@ -40,7 +40,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     //Resource Bundle
     private static final String SOCIAL_SHARE_BUNDLE = "social.share";
-    private static final String VIDEO_BUNDLE_BUNDLE = "video";
+    private static final String VIDEO_BUNDLE = "video";
     private static final String SKIP_TO_BUNDLE = "skip-to";
     private static final String SEARCH_BUNDLE = "search";
     private static final String CMS_MESSAGES_BUNDLE = "cms-messages";
@@ -147,7 +147,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         
         addAllLabels(request, SOCIAL_SHARE_BUNDLE);
         addAllLabels(request, SEARCH_BUNDLE);
-        addAllLabels(request, VIDEO_BUNDLE_BUNDLE);
+        addAllLabels(request, VIDEO_BUNDLE);
         addAllLabels(request, SEO_BUNDLE);
         addAllLabels(request, SKIP_TO_BUNDLE);
 
