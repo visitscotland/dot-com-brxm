@@ -3,15 +3,14 @@ package com.visitscotland.brxm.mapper;
 import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
-import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.*;
-import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.slf4j.Logger;
@@ -100,7 +99,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
             return al;
         } else {
             //TODO: Create an implementation for personalization
-            throw new PageCompositionException("Personalization is not currently supported");
+            throw new PageCompositionException(item.getPath(), "Personalization is not currently supported");
         }
     }
 

@@ -293,9 +293,4 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
         }
         return dateFormat.format(publishDate.getTime());
     }
-
-    boolean isEditMode(HstRequest request) {
-        return Boolean.TRUE.equals(request.getAttribute("editMode"));
-    }
-
 }

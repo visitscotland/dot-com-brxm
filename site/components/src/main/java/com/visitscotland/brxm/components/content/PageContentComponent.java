@@ -413,7 +413,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     boolean isEditMode(HstRequest request) {
-        return Boolean.TRUE.equals(request.getAttribute("editMode"));
+        return Boolean.TRUE.equals(request.getAttribute(EDIT_MODE));
     }
 }
 
