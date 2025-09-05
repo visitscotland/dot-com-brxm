@@ -3,6 +3,7 @@ package com.visitscotland.brxm.mapper;
 import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
+import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.utils.AnchorFormatter;
@@ -82,19 +83,21 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
     @Override
     LinksModule<EnhancedLink> map(Megalinks document, PageCompositionHelper compositionHelper) throws PageCompositionException {
-        return getMegalinkModule(document, compositionHelper.getLocale());
+        return processMegalinks(document, compositionHelper);
     }
 
     /**
      * Creates a LinkModule from a Megalinks document
      */
-    private void processMegalinks(PageCompositionHelper compositionHelper, Megalinks item) throws PageCompositionException {
+    private LinksModule<EnhancedLink> processMegalinks(Megalinks item, PageCompositionHelper compositionHelper) throws PageCompositionException {
         if (item.getPersonalization().isEmpty()) {
-            LinksModule<?> al = getMegalinkModule(item, compositionHelper.getLocale());
+            LinksModule<EnhancedLink> al = getMegalinkModule(item, compositionHelper.getLocale());
 
             validateLinks(al);
             calculateAlignment(al, compositionHelper);
             calculateTheme(al, compositionHelper);
+
+            return al;
         } else {
             //TODO: Create
             throw new PageCompositionException("Personalization is not currently supported");
