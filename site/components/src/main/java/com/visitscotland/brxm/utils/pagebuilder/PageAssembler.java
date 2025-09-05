@@ -153,9 +153,7 @@ public class PageAssembler {
         } else if (item instanceof EventsListing){
             compositionHelper.addModule(getEventListingModule(request, (EventsListing) item));
         } else {
-            String message = String.format("Unrecognized Module Type: %s", item.getClass());
-            logger.warn(message);
-            throw new PageCompositionException(message);
+            throw new PageCompositionException(item.getPath(), String.format("Unrecognized Module Type: %s", item.getClass()));
         }
     }
 
@@ -237,7 +235,7 @@ public class PageAssembler {
             compositionHelper.addModule(al);
         }
 
-        addGlobalLabel(request, "third-party-error");
+        compositionHelper.addGlobalLabel( "third-party-error");
     }
 
     @Deprecated(forRemoval = true)
@@ -280,10 +278,6 @@ public class PageAssembler {
         }
 
         return request.getModel(LABELS);
-    }
-
-    private void addGlobalLabel(HstRequest request, String key) {
-        labels(request).get(GLOBAL_BUNDLE_FILE).put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, request.getLocale()));
     }
 
     private void addAllLabels(HstRequest request, String bundleName) {
