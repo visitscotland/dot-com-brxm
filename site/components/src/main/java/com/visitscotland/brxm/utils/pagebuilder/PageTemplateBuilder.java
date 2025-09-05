@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 /**
  * This class is deprecated and It will only be used as a reference to {@code PageAssembler}.
  *
- * @deprecated It will be removed on version 3.0.0 is released
+ * @deprecated  It will be removed in version 3.0.0
  */
 @Deprecated(forRemoval = true, since = "2.10.2")
 public final class PageTemplateBuilder extends PageAssembler {
