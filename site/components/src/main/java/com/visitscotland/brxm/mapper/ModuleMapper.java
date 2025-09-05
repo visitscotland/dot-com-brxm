@@ -64,7 +64,7 @@ abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
     abstract void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException;
 
     /**
-     * Converts a documentType into a Module
+     * Converts a document into a Module
      *
      * @param document The HippoBean document to include
      * @param compositionHelper The PageCompositionHelper with the context of the request
