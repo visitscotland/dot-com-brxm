@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.utils.pagebuilder;
 
+import com.visitscotland.brxm.components.content.PageContentComponent;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -27,7 +28,7 @@ public class PageCompositionHelper {
     }
 
     public Page getPage() throws PageCompositionException {
-        Object page = request.getAttribute("document");
+        Object page = request.getAttribute(PageContentComponent.DOCUMENT);
         if (page == null){
             throw new PageCompositionException("The page document hasn't been defined");
         } else if (page  instanceof Page){
@@ -38,7 +39,7 @@ public class PageCompositionHelper {
     }
 
     /**
-     * @deprecated This method has been added so simplify the transition to the delivery API
+     * @deprecated This method has been added to simplify the transition to the delivery API
      */
     @Deprecated(forRemoval = true)
     public HstRequest getRequest() {
