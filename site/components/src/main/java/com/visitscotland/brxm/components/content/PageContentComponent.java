@@ -53,6 +53,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     //Objects injected in the page payload
     public static final String DOCUMENT = "document";
+    public static final String EDIT_MODE = "editMode";
 
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";

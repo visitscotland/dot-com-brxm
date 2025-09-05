@@ -91,7 +91,7 @@ public class PageCompositionHelper {
     }
 
     public boolean isEditMode() {
-        return Boolean.TRUE.equals(request.getAttribute("editMode"));
+        return Boolean.TRUE.equals(request.getAttribute(PageContentComponent.EDIT_MODE));
     }
 
 }
