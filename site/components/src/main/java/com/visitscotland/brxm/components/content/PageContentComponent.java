@@ -74,7 +74,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final LinkService linksService;
     private final SignpostFactory signpostFactory;
     private final ProductSearchWidgetFactory psrFactory;
-    private final PreviewWarningMapper previewFactory;
+    private final PreviewWarningMapper previewMapper;
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private final Logger contentLogger;
@@ -88,7 +88,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         signpostFactory = VsComponentManager.get(SignpostFactory.class);
         linksService = VsComponentManager.get(LinkService.class);
         psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
-        previewFactory = VsComponentManager.get(PreviewWarningMapper.class);
+        previewMapper = VsComponentManager.get(PreviewWarningMapper.class);
         contentLogger = VsComponentManager.get(ContentLogger.class);
         properties = VsComponentManager.get(SiteProperties.class);
         bundle = VsComponentManager.get(ResourceBundleService.class);
@@ -122,13 +122,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private void addMetadata(HstRequest request){
         request.setModel(METADATA_MODEL, metadata.getMetadata());
     }
-
-    private void addPropertyIfPresent(HstRequest request, String attributeId, String value) {
-        if (!Contract.isEmpty(value)){
-            request.setModel(attributeId, value);
-        }
-    }
-
 
     /**
      * Adds labels that are necessary for type of pages. Please notice that there are two strategies for including properties
@@ -268,7 +261,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             HorizontalListLinksModule otyml = megalinkMapper.horizontalListLayout(page.getOtherThings(), request.getLocale());
             if (Contract.isEmpty(otyml.getLinks())) {
                 contentLogger.warn("OTYML at {} contains 0 published items. Skipping module", page.getOtherThings().getPath());
-                request.setModel(OTYML_BUNDLE, previewFactory.createErrorModule(otyml));
+                request.setModel(OTYML_BUNDLE, previewMapper.createErrorModule(otyml));
                 return;
             }
             if (otyml.getLinks().size() < MegalinkMapper.MIN_ITEMS_CAROUSEL) {
