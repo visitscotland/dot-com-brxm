@@ -40,7 +40,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
     private final AnchorFormatter anchorFormatter;
     private final FileMetaDataCalculator fileMetaDataCalculator;
     private final AssetLinkFactory assetLinkFactory;
-    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy");
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
 
     public ArticleMapper(ImageFactory imageFactory,
                          QuoteMapper quoteEmbedder,
@@ -57,7 +57,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
     }
 
     @Override
-    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+    void addLabels(PageCompositionHelper compositionHelper) {
         compositionHelper.addAllSiteLabels("download");
     }
 
@@ -291,7 +291,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
                 return "";
             }
         }
-        return sdf.format(publishDate.getTime());
+        return dateFormat.format(publishDate.getTime());
     }
 
     boolean isEditMode(HstRequest request) {
