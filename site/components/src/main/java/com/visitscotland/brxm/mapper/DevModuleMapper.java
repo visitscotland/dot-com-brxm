@@ -17,8 +17,9 @@ import java.util.MissingResourceException;
 @Component
 public class DevModuleMapper extends  ModuleMapper<DevModule, Module<DevModule>> {
 
-    private static final String  OBS_BUNDLE = "online-booking-system-comparator";
-    private static final String  FORMS_BUNDLE = "forms";
+    private static final String OBS_BUNDLE = "online-booking-system-comparator";
+    private static final String OBS_MODULE = "online-booking-system";
+    private static final String FORMS_BUNDLE = "forms";
 
     private final ComparatorMapper comparisonMapper;
 
@@ -40,7 +41,7 @@ public class DevModuleMapper extends  ModuleMapper<DevModule, Module<DevModule>>
         }
 
         try {
-            if (document.getBespoken().equals("online-booking-system")) {
+            if (document.getBespoken().equals(OBS_MODULE)) {
                 var module = comparisonMapper.map(document);
                 compositionHelper.addAllSiteLabels(OBS_BUNDLE);
                 compositionHelper.addAllSiteLabels(FORMS_BUNDLE);
