@@ -43,7 +43,7 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
 
     @Override
     SkiModule map(SkiCentre document, PageCompositionHelper compositionHelper) {
-        return map(document, compositionHelper.getLocale());
+        return getModule(document, compositionHelper.getLocale());
     }
 
     SkiModule getModule(SkiCentre document, Locale locale) {
