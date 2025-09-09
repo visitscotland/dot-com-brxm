@@ -15,25 +15,65 @@
             </noscript>
         <#else>
             <script>
+                // To avoid an awkward race condition, we need to check if civic was loaded before we find the
+                // datalayer, as well as listening for it being loaded afterwards.
+                const checkIfCivicLoaded = () => {
+                    for (let x = 0; x < window.dataLayer.length; x++) {
+                        let argEvent = '';
+
+                        if (window.dataLayer[x].value && window.dataLayer[x].value.event) {
+                            argEvent = window.dataLayer[x].value.event;
+                        } else if (window.dataLayer[x].event) {
+                            argEvent = window.dataLayer[x].event;
+                        }
+
+                        if (argEvent === 'cookie_permission_loaded') {
+                            setTimeout(() => {
+                                window.dispatchEvent(new Event('cookieManagerLoaded'));
+                            });
+                        }
+
+                        if (argEvent === 'cookie_permission_changed') {
+                            setTimeout(() => {
+                                window.dispatchEvent(new Event('cookiesUpdated'));
+                            });
+                        }
+                    }
+                };
+
                 const attachCivicEvents = (counter = 1) => {
                     if (counter < 20) {
                         if (typeof window !== 'undefined' && window.google_tag_manager) {
+                            checkIfCivicLoaded();
+
                             // GTM can't call browser events directly, so we need to listen for events on the
                             // datalayer and then latch our code onto those.
                             const originalDataLayerPush = window.dataLayer.push;
 
-                            window.dataLayer.push = (...args) => {
-                                const res = originalDataLayerPush(...args);
+                            window.dataLayer.push = (arg) => {
+                                let res = null;
 
-                                const evt = args[0];
+                                if (arg) {
+                                    res = originalDataLayerPush(arg);
+                                } else {
+                                    return originalDataLayerPush();
+                                }
 
-                                if (evt && evt.event === 'cookie_permission_loaded') {
+                                let argEvent = '';
+
+                                if (arg.value && arg.value.event) {
+                                    argEvent = arg.value.event;
+                                } else if (arg.event) {
+                                    argEvent = arg.event;
+                                }
+
+                                if (argEvent === 'cookie_permission_loaded') {
                                     setTimeout(() => {
                                         window.dispatchEvent(new Event('cookieManagerLoaded'));
                                     });
                                 }
 
-                                if (evt && evt.event === 'cookie_permission_changed') {
+                                if (argEvent === 'cookie_permission_changed') {
                                     setTimeout(() => {
                                         window.dispatchEvent(new Event('cookiesUpdated'));
                                     });
