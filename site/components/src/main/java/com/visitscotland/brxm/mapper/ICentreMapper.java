@@ -38,6 +38,7 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
 
     private static final Logger logger = LoggerFactory.getLogger(ICentreMapper.class);
 
+    static final String DEFAULT_IMAGE = "icentre.image.default";
     static final String BUNDLE_ID = "tourism.information";
 
     private final DMSDataService dmsData;
@@ -92,16 +93,22 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
             module.setTitle(doc.getTitle());
         }
 
-        //Populate Image
-        if (doc.getImage() != null) {
-            module.setImage(imageFactory.createImage(doc.getImage(), module, locale));
-        }
-
         //Quote
         if (doc.getQuote() != null) {
             module.setQuote(quoteEmbedder.getQuote(doc.getQuote(), module, locale));
             if (module.getImage() == null && module.getQuote().getLink() != null && module.getQuote().getLink().getImage() != null) {
                 module.setImage(module.getQuote().getLink().getImage());
+            }
+        }
+
+        //Populate Image
+        if (doc.getImage() != null) {
+            var image = imageFactory.createImage(doc.getImage(), module, locale);
+            if (image == null) {
+                //Default the Image if it hasn't been set
+                module.setImage(getDefaultImage(module, locale));
+            } else {
+                module.setImage(imageFactory.createImage(doc.getImage(), module, locale));
             }
         }
 
@@ -115,7 +122,7 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
 
     private FlatImage getDefaultImage(ICentreModule module, Locale locale) throws PageCompositionException {
         try {
-            String defaultPath = bundle.getResourceBundle(BUNDLE_ID, "icentre.image.default", locale);
+            String defaultPath = bundle.getResourceBundle(BUNDLE_ID, DEFAULT_IMAGE, locale);
             if (defaultPath == null) {
                 throw new PageCompositionException(module.getDocumentPath(), "The default image has not being defined");
             }

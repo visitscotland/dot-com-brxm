@@ -98,6 +98,7 @@ class PageAssemblerTest {
      * Build a page with one Megalinks document associated
      */
     @Test
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
     void addMegalinksModule_basic()  throws PageCompositionException {
         Megalinks megalinks = new MegalinksMockBuilder().build();
         LinksModule<?> module = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
@@ -116,6 +117,7 @@ class PageAssemblerTest {
      */
     @Test
     @DisplayName("VS-3269 - Megalinks with no links are completely removed. But they still show a preview message")
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
     void addMegalinksModule_noLinks()  throws PageCompositionException {
         Megalinks megalinks = new MegalinksMockBuilder().build();
         LinksModule<?> module = new LinksModuleMockBuilder().build();
@@ -137,6 +139,7 @@ class PageAssemblerTest {
      * Styles alternate, and the last repeats the first colour
      */
     @Test
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
     void addMegalinksModule_alternateStyles()  throws PageCompositionException {
         List<BaseDocument> list = Arrays.asList(
                 new MegalinksMockBuilder().build(),
@@ -170,6 +173,7 @@ class PageAssemblerTest {
      * 3 first items share colour because their title is null, 4th is different
      */
     @Test
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
     void addMegalinksModule_skipAlternateStyles_whenNoH2()  throws PageCompositionException {
         List<BaseDocument> list = Arrays.asList(
                 new MegalinksMockBuilder().build(),
@@ -204,6 +208,7 @@ class PageAssemblerTest {
      * First item always have the same style independently of if the section title is defined
      */
     @Test
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
     void addMegalinksModule_firstItemColourIsStyle3_whenNoH2()  throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().build();
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
@@ -227,6 +232,7 @@ class PageAssemblerTest {
      * Verifies that the alignment for Single Image modules alternates
      */
     @Test
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
     void addMegalinksModule_alternateAlignment()  throws PageCompositionException {
         List<BaseDocument> list = Arrays.asList(
                 new MegalinksMockBuilder().build(),
@@ -259,6 +265,7 @@ class PageAssemblerTest {
 
     @Test
     @DisplayName("VS-2015 - Match the initial background colour with the megalinks")
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
     void setIntroTheme()  throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().build();
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));

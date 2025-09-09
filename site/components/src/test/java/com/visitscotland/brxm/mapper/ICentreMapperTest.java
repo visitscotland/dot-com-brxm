@@ -31,6 +31,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Answers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.jcr.RepositoryException;
@@ -104,8 +105,9 @@ class ICentreMapperTest {
         //Gets a module with a link to a  when  no location defined (General Pages)
         //Verifies that a link to the iCentres page is defined
         //Verifies that no request to the dms is performed
+        when(imageFactory.createImage(any(Image.class), any(), any())).thenReturn(new FlatImage());
 
-        ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK);
+        factory.getModule(mockBuilder.addICentreImage().build().getICentre(), Locale.UK);
 
         verify(dmsData, never()).legacyMapSearch(any());
     }
@@ -115,10 +117,12 @@ class ICentreMapperTest {
     void getModule() throws JsonProcessingException, PageCompositionException {
         //Returns a basic module when the location is provided (Destination Pages)
         //Also verifies that the list of iCentre match with the location
+        when(imageFactory.createImage(any(Image.class), any(), any())).thenReturn(new FlatImage());
+
         String location = "Edinburgh";
         JsonNode node = new ObjectMapper().readTree(MOCK_JSON);
 
-        ICentreModule module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK);
+        ICentreModule module = factory.getModule(mockBuilder.addICentreImage().build().getICentre(), Locale.UK);
 
         assertNotNull(module);
     }
@@ -151,6 +155,7 @@ class ICentreMapperTest {
     @Test
     @DisplayName("VS-1507 - Explicit and Default Title")
     void getModule_defaultTitle() throws PageCompositionException {
+        when(imageFactory.createImage(any(Image.class), any(), any())).thenReturn(new FlatImage());
         // Verifies that the default title is used when a title is not defined the document
         ICentreModule module;
         when(bundle.getResourceBundle(eq(ICentreMapper.BUNDLE_ID), any(), eq(Locale.UK))).thenReturn(null);
@@ -158,7 +163,7 @@ class ICentreMapperTest {
         //Default title
         when(bundle.getResourceBundle(ICentreMapper.BUNDLE_ID, "icentre.title.default", Locale.UK))
                 .thenReturn("title");
-        module = factory.getModule(mockBuilder.build().getICentre(), Locale.UK);
+        module = factory.getModule(mockBuilder.addICentreImage().build().getICentre(), Locale.UK);
         assertEquals("title", module.getTitle());
 
         //Title from the document
@@ -192,7 +197,9 @@ class ICentreMapperTest {
         Image defaultCMSImage = mock(Image.class);
         FlatImage defaultImage = new FlatImage();
         defaultImage.setCmsImage(defaultCMSImage);
-        when(utils.getDocumentFromNode((String) null)).thenReturn(defaultCMSImage);
+        when(bundle.getResourceBundle(ICentreMapper.BUNDLE_ID, ICentreMapper.DEFAULT_IMAGE, Locale.UK))
+                .thenReturn("imagePath");
+        when(utils.getDocumentFromNode("imagePath")).thenReturn(defaultCMSImage);
         when(imageFactory.createImage(eq(defaultCMSImage), any(), any())).thenReturn(defaultImage);
 
         //Case 1: No image Defined => Default Image.

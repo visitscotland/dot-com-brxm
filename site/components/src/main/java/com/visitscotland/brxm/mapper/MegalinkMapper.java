@@ -144,7 +144,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
     public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) throws PageCompositionException {
         var layout = MegalinkLayout.fromValue(doc.getLayout()).orElse(MegalinkLayout.DEFAULT);
         if (MegalinkLayout.fromValue(doc.getLayout()).isEmpty()) {
-            throw new PageCompositionException(doc.getPath(), "The Megalinks layout hasn't been set");
+            logger.warn("The Megalinks layout hasn't been set for {}", doc.getPath());
         }
 
         if (MegalinkLayout.isCardGroup(layout)) {
