@@ -61,6 +61,7 @@ public class SiteProperties extends Properties {
     static final String FORMS_MARKETO_IS_PRODUCTION = "form.is-production";
     static final String FORM_BREG_LEGAL_BASIS_TEXT = "form.breg.legal-basis.text";
     static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
+    static final String SKI_TIMEOUT = "ski.timeout";
 
     private final CMSProperties cmsProperties;
     public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties, EnvironmentManager envrionmentManager) {
@@ -197,4 +198,7 @@ public class SiteProperties extends Properties {
         return size > 0 ? size : 10;
     }
 
+    public Integer getSkiTimeout() {
+        return readInteger(SKI_TIMEOUT);
+    }
 }
