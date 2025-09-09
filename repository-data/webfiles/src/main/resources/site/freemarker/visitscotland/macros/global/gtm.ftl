@@ -22,24 +22,24 @@
                             // datalayer and then latch our code onto those.
                             const originalDataLayerPush = window.dataLayer.push;
 
-                            window.dataLayer.push = (arg : any) => {
-                                if (arg) {
-                                    originalDataLayerPush(arg);
-                                } else {
-                                    originalDataLayerPush();
-                                }
+                            window.dataLayer.push = (...args) => {
+                                const res = originalDataLayerPush(...args);
 
-                                if (arg && arg.event === 'cookie_permission_loaded') {
+                                const evt = args[0];
+
+                                if (evt && evt.event === 'cookie_permission_loaded') {
                                     setTimeout(() => {
                                         window.dispatchEvent(new Event('cookieManagerLoaded'));
                                     });
                                 }
 
-                                if (arg && arg.event === 'cookie_permission_changed') {
+                                if (evt && evt.event === 'cookie_permission_changed') {
                                     setTimeout(() => {
                                         window.dispatchEvent(new Event('cookiesUpdated'));
                                     });
                                 }
+
+                                return res;
                             };
                         } else {
                             setTimeout(() => {
