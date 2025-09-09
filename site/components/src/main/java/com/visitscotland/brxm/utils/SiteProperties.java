@@ -177,10 +177,6 @@ public class SiteProperties extends Properties {
         return readString(FORMS_MARKETO_SCRIPT);
     }
 
-    public Boolean getFormsMarketoIsProduction() {
-        return readBoolean(FORMS_MARKETO_IS_PRODUCTION);
-    }
-
     public String getSiteId() {
         return readOptionalString(SITE_ID).orElse("");
     }
