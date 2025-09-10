@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.utils.pagebuilder;
 
+import com.visitscotland.brxm.components.content.PageContentComponent;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -26,20 +27,19 @@ public class PageCompositionHelper {
         return request.getLocale();
     }
 
-    public Page getPage() throws PageCompostionException {
-        Object page = request.getAttribute("document");
+    public Page getPage() throws PageCompositionException {
+        Object page = request.getAttribute(PageContentComponent.DOCUMENT);
         if (page == null){
-            throw new PageCompostionException("The page document hasn't been defined");
+            throw new PageCompositionException("The page document hasn't been defined");
         } else if (page  instanceof Page){
             return (Page) page;
         } else  {
-            throw new PageCompostionException("The main document is not an Page instance. Class = " + page.getClass().getSimpleName());
+            throw new PageCompositionException("The main document is not a Page instance. Class = " + page.getClass().getSimpleName());
         }
     }
 
     /**
-     *
-     * @deprecated
+     * @deprecated This method has been added to simplify the transition to the delivery API
      */
     @Deprecated(forRemoval = true)
     public HstRequest getRequest() {
@@ -62,7 +62,7 @@ public class PageCompositionHelper {
         return Collections.unmodifiableList(model.getModules());
     }
 
-    void addGlobalLabel(String key) {
+    public void addGlobalLabel(String key) {
         labels().computeIfAbsent(GLOBAL_BUNDLE_FILE, k -> new HashMap<>());
         labels().get(GLOBAL_BUNDLE_FILE)
                 .put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, getLocale()));
@@ -82,13 +82,16 @@ public class PageCompositionHelper {
         return request.getModel(LABELS);
     }
 
-    String calculateAlignment(){
+    public String calculateAlignment(){
         return model.calculateAlignment();
     }
 
-    int calculateThemeIndex(boolean increment){
+    public int calculateThemeIndex(boolean increment){
         return model.calculateThemeIndex(increment);
     }
 
+    public boolean isEditMode() {
+        return Boolean.TRUE.equals(request.getAttribute(PageContentComponent.EDIT_MODE));
+    }
 
 }

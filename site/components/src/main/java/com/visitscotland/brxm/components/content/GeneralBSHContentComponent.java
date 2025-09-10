@@ -43,7 +43,7 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
     protected void addOTYML(HstRequest request) {
         GeneralBSH page = getDocument(request);
         if (!Contract.isEmpty(page.getLinks())) {
-            HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page, request.getLocale());
+            HorizontalListLinksModule otyml = megalinkMapper.horizontalListLayout(page, request.getLocale());
             request.setModel(OTYML_BUNDLE, otyml);
         }
     }

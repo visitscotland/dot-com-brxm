@@ -23,19 +23,18 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class TravelInformationMapperTest {
-    private final String TRAVEL_INFO_TRANSPORTS_OPTIONS = "travel-information-transports";
 
     @Mock
     ResourceBundleService bundle;
 
     @InjectMocks
-    TravelInformationMapper factory;
+    TravelInformationMapper mapper;
 
     @DisplayName("Travel information module created correctly")
     @Test
     void travelInformationModuleCreated() {
-        doReturn("Train").when(bundle).getResourceBundle(TRAVEL_INFO_TRANSPORTS_OPTIONS, "train", Locale.UK);
-        doReturn("Cycling").when(bundle).getResourceBundle(TRAVEL_INFO_TRANSPORTS_OPTIONS, "cycling", Locale.UK);
+        doReturn("Train").when(bundle).getResourceBundle(TravelInformationMapper.TRAVEL_INFO_TRANSPORTS_OPTIONS, "train", Locale.UK);
+        doReturn("Cycling").when(bundle).getResourceBundle(TravelInformationMapper.TRAVEL_INFO_TRANSPORTS_OPTIONS, "cycling", Locale.UK);
 
         TravelInformationTransportRow trainRow = new TravelInformationTransportRowMockBuilder().copy("train row copy").transport("train").build();
         TravelInformationTransportRow cyclingRow = new TravelInformationTransportRowMockBuilder().copy("cycling row copy").transport("cycling").build();
@@ -43,7 +42,7 @@ class TravelInformationMapperTest {
         TravelInformationTab gettingTo = new TravelInformationTabMockBuilder().title("getting to tab title").addTransportRow(trainRow).addTransportRow(cyclingRow).build();
         TravelInformation travelInformation = new TravelInformationMockBuilder().title("travel information title").copy("travel information copy").gettingAround(gettingAround).gettingTo(gettingTo).build();
 
-        TravelInformationModule module = factory.getTravelInformation(travelInformation, Locale.UK);
+        TravelInformationModule module = mapper.getTravelInformation(travelInformation, Locale.UK);
 
         assertEquals("travel information title", module.getTitle());
         assertEquals("travel information copy", module.getCopy().getContent());
@@ -67,7 +66,7 @@ class TravelInformationMapperTest {
         TravelInformationTab gettingAround = new TravelInformationTabMockBuilder().addTransportRow(trainRow).build();
         TravelInformationTab gettingTo = new TravelInformationTabMockBuilder().build();
         TravelInformation travelInformation = new TravelInformationMockBuilder().gettingAround(gettingAround).gettingTo(gettingTo).build();
-        TravelInformationModule module = factory.getTravelInformation(travelInformation, Locale.UK);
+        TravelInformationModule module = mapper.getTravelInformation(travelInformation, Locale.UK);
 
         assertEquals("key does not exist", module.getGettingAround().getTravelInformationTransportRows().get(0).getTransport().getKey());
         assertEquals("key does not exist", module.getGettingAround().getTravelInformationTransportRows().get(0).getTransport().getLabel());

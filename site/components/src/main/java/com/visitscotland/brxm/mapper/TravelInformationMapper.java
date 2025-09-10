@@ -9,7 +9,7 @@ import com.visitscotland.brxm.model.TravelInformationModuleTab;
 import com.visitscotland.brxm.model.TravelInformationTransportRowModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +22,11 @@ import java.util.stream.Collectors;
 @Component
 public class TravelInformationMapper extends ModuleMapper<TravelInformation, TravelInformationModule> {
 
-    private final String TRAVEL_INFO_TRANSPORTS_OPTIONS = "travel-information-transports";
-    private final ResourceBundleService resourceBundleService;
     private static final Logger logger = LoggerFactory.getLogger(TravelInformationMapper.class);
+
+    static final String TRAVEL_INFO_TRANSPORTS_OPTIONS = "travel-information-transports";
+
+    private final ResourceBundleService resourceBundleService;
 
     public TravelInformationMapper(ResourceBundleService resourceBundleService) {
         this.resourceBundleService = resourceBundleService;
@@ -34,7 +36,7 @@ public class TravelInformationMapper extends ModuleMapper<TravelInformation, Tra
     void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {}
 
     @Override
-    TravelInformationModule map(TravelInformation document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+    TravelInformationModule map(TravelInformation document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         return getTravelInformation(document, compositionHelper.getLocale());
     }
 

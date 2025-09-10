@@ -38,7 +38,7 @@ public class DestinationContentComponent extends PageContentComponent<Destinatio
         request.setModel("location", location);
         request.setModel("region", locationLoader.getRegion(location, Locale.UK));
 
-        builder.addModules(request, document.getLocation());
+        builder.addModules(request);
     }
 
 }

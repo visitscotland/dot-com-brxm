@@ -8,7 +8,6 @@ import com.visitscotland.brxm.mapper.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
-import com.visitscotland.brxm.model.megalinks.MultiImageLinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -23,7 +22,6 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 import static com.visitscotland.brxm.components.content.PageContentComponent.LABELS;
-import static com.visitscotland.brxm.services.ResourceBundleService.GLOBAL_BUNDLE_FILE;
 
 @Component
 public class PageAssembler {
@@ -41,22 +39,24 @@ public class PageAssembler {
     private final DocumentUtilsService documentUtils;
 
     //Factories
-    private final MegalinkFactory linksFactory;
-    private final ICentreFactory iCentreFactory;
-    private final IKnowFactory iKnowFactory;
+    private final MegalinkMapper megalinkMapper;
+    private final ICentreMapper iCentreMapper;
+    private final IKnowMapper iKnowMapper;
     private final ArticleMapper articleMapper;
-    private final LongCopyFactory longCopyFactory;
     private final UserGeneratedContentMapper userGeneratedContentMapper;
     private final TravelInformationMapper travelInformationMapper;
-    private final CannedSearchFactory cannedSearchFactory;
-    private final PreviewModeFactory previewFactory;
-    private final FormFactory formFactory;
-    private final MapFactory mapFactory;
-    private final SignpostFactory signPostFactory;
+    private final PreviewWarningMapper previewWarningMapper;
+    private final MapModuleMapper mapModuleMapper;
     private final SkiCentreMapper skiCentreMapper;
     private final SkiCentreListMapper skiCentreListMapper;
-    private final DevModuleFactory devModuleFactory;
+    private final DevModuleMapper devModuleMapper;
+
+    private final LongCopyFactory longCopyFactory;
+    private final CannedSearchFactory cannedSearchFactory;
+    private final FormFactory formFactory;
+    private final SignpostFactory signPostFactory;
     private final EventsListingFactory eventsListingFactory;
+
     private final SiteProperties properties;
 
     private final ResourceBundleService bundle;
@@ -64,26 +64,26 @@ public class PageAssembler {
 
 
     @Autowired
-    public PageAssembler(DocumentUtilsService documentUtils, MegalinkFactory linksFactory, ICentreFactory iCentreFactory,
-                         IKnowFactory iKnowFactory, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
+    public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
+                         IKnowMapper iKnowMapper, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
                          UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
-                         CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
-                         MapFactory mapFactory, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
-                         DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger,
+                         CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewWarningMapper, FormFactory marketoFormFactory,
+                         MapModuleMapper mapModuleMapper, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
+                         DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
                          SignpostFactory signPostFactory, EventsListingFactory eventsListingFactory) {
         this.documentUtils = documentUtils;
-        this.linksFactory = linksFactory;
-        this.iCentreFactory = iCentreFactory;
-        this.iKnowFactory = iKnowFactory;
+        this.megalinkMapper = megalinkMapper;
+        this.iCentreMapper = iCentreMapper;
+        this.iKnowMapper = iKnowMapper;
         this.articleMapper = articleMapper;
         this.longCopyFactory = longCopyFactory;
         this.userGeneratedContentMapper = userGeneratedContentMapper;
         this.travelInformationMapper = travelInformationMapper;
         this.cannedSearchFactory = cannedSearchFactory;
-        this.previewFactory = previewFactory;
+        this.previewWarningMapper = previewWarningMapper;
         this.formFactory = marketoFormFactory;
-        this.mapFactory = mapFactory;
-        this.devModuleFactory = devModuleFactory;
+        this.mapModuleMapper = mapModuleMapper;
+        this.devModuleMapper = devModuleMapper;
         this.skiCentreListMapper = skiCentreListMapper;
         this.skiCentreMapper = skiCentreMapper;
         this.properties = properties;
@@ -98,19 +98,15 @@ public class PageAssembler {
     }
 
     public void addModules(HstRequest request) {
-        addModules(request, null);
-    }
-
-    public void addModules(HstRequest request, String location) {
         PageCompositionHelper page = new PageCompositionHelper(bundle, request);
 
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {
             try {
                 logger.debug("A {} module was found. Type {}", item.getClass(), item.getPath());
-                addModule(request, page, item, location);
-            } catch (PageCompostionException e){
+                addModule(request, page, item);
+            } catch (PageCompositionException e){
                 logger.error(e.getMessage());
-                page.addModule(previewFactory.createErrorModule(item, e.getMessage()));
+                page.addModule(previewWarningMapper.createErrorModule(item, e.getMessage()));
             } catch (RuntimeException e) {
                 // Note: This exception should not happen. We are catching it for the sake of recoverability
                 logger.error("Uncaught Exception while building a page at {}: {}", request.getRequestURI(), e.getMessage(), e);
@@ -126,21 +122,21 @@ public class PageAssembler {
         request.setModel(PAGE_ITEMS, page.getModules());
     }
 
-    private void addModule(HstRequest request, PageCompositionHelper compositionHelper, BaseDocument item, String location) throws PageCompostionException {
+    private void addModule(HstRequest request, PageCompositionHelper compositionHelper, BaseDocument item) throws PageCompositionException {
         if (item instanceof Megalinks) {
             processMegalinks(request, compositionHelper, (Megalinks) item);
         } else if (item instanceof TourismInformation) {
-            processTouristInformation(request,compositionHelper, (TourismInformation) item, location);
+            iCentreMapper.include((TourismInformation) item, compositionHelper);
         } else if (item instanceof Article){
             articleMapper.include((Article) item, compositionHelper);
         } else if (item instanceof LongCopy){
             processLongCopy(request, compositionHelper, (LongCopy) item);
         } else if (item instanceof MapModule) {
-            mapFactory.include((MapModule) item, compositionHelper);
+            mapModuleMapper.include((MapModule) item, compositionHelper);
         } else if (item instanceof Stackla) {
             userGeneratedContentMapper.include((Stackla) item, compositionHelper);
         } else if (item instanceof TravelInformation) {
-            compositionHelper.addModule(travelInformationMapper.getTravelInformation((TravelInformation) item, request.getLocale()));
+            travelInformationMapper.include((TravelInformation) item, compositionHelper);
         } else if (item instanceof CannedSearch) {
             compositionHelper.addModule(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
         } else if (item instanceof CannedSearchTours) {
@@ -152,15 +148,13 @@ public class PageAssembler {
         } else if (item instanceof SkiCentreList){
             skiCentreListMapper.include((SkiCentreList) item, compositionHelper);
         } else if (item instanceof DevModule){
-            compositionHelper.addModule(devModuleFactory.getModule((DevModule) item, labels(request), request.getLocale()));
+            devModuleMapper.include((DevModule) item, compositionHelper);
         } else if (item instanceof CTABanner){
             compositionHelper.addModule(signPostFactory.createModule((CTABanner) item));
         } else if (item instanceof EventsListing){
             compositionHelper.addModule(getEventListingModule(request, (EventsListing) item));
         } else {
-            String message = String.format("Unrecognized Module Type: %s", item.getClass());
-            logger.warn(message);
-            throw new PageCompostionException(message);
+            throw new PageCompositionException(item.getPath(), String.format("Unrecognized Module Type: %s", item.getClass()));
         }
     }
 
@@ -171,7 +165,14 @@ public class PageAssembler {
         return eventsListingFactory.createModule(document);
     }
 
+    /**
+     * TODO: Marketo need to be retired before re
+     * @param request
+     * @param form
+     * @return
+     */
     private FormModule getForm(HstRequest request, BaseDocument form){
+
         addAllLabels(request, "forms");
         Map<String, String> formLabels = labels(request).get("forms");
 
@@ -212,34 +213,20 @@ public class PageAssembler {
     /**
      * Creates a LinkModule from a Megalinks document
      */
-    private void processMegalinks(HstRequest request, PageCompositionHelper compositionHelper, Megalinks item) {
-        LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
-        int numLinks = al.getLinks().size();
-        if (al instanceof MultiImageLinksModule) {
-            numLinks += ((MultiImageLinksModule) al).getFeaturedLinks().size();
-        }
-        if (numLinks == 0) {
-            contentLogger.warn("Megalinks module at {} contains no valid items", item.getPath());
-            compositionHelper.addModule(previewFactory.createErrorModule(al));
-            return;
-        }
+    @Deprecated(forRemoval = true)
+    private void processMegalinks(HstRequest request, PageCompositionHelper compositionHelper, Megalinks document) throws PageCompositionException {
+        // TODO: Rework personalization so Megalinks could be used as any other mapper
+        // megalinkMapper.include(document, compositionHelper);
 
-        if (al.getType().equalsIgnoreCase(SingleImageLinksModule.class.getSimpleName())) {
-            al.setAlignment(compositionHelper.calculateAlignment());
-            if (Contract.isEmpty(al.getAlignment())) {
-                logger.warn("The Single Image Megalink module for {} does not have the alignment field defined", item.getPath());
-            }
-        }
+        LinksModule<?> al = megalinkMapper.getMegalinkModule(document, request.getLocale());
 
-        al.setThemeIndex(compositionHelper.calculateThemeIndex(!Contract.isEmpty(al.getTitle())));
-        al.setHippoBean(item);
-
-        if (!item.getPersonalization().isEmpty()) {
+        //Note that personalization is currently disabled.
+        if (!document.getPersonalization().isEmpty()) {
             PersonalisationModule personalisationModule = new PersonalisationModule();
             List<Module> personalisationList = new ArrayList<>();
             al.setMarketoId(DEFAULT);
             personalisationList.add(al);
-            for (Personalization personalisationMegalink : item.getPersonalization()) {
+            for (Personalization personalisationMegalink : document.getPersonalization()) {
                 personalisationList.add(processPersonalisation(request, (Megalinks)personalisationMegalink.getModule(), personalisationMegalink.getId(), al));
             }
             personalisationModule.setModules(personalisationList);
@@ -249,10 +236,12 @@ public class PageAssembler {
             compositionHelper.addModule(al);
         }
 
-        addGlobalLabel(request, "third-party-error");
+        compositionHelper.addGlobalLabel( "third-party-error");
     }
-    private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent) {
-        LinksModule<?> al = linksFactory.getMegalinkModule(item, request.getLocale());
+
+    @Deprecated(forRemoval = true)
+    private Module<Megalinks> processPersonalisation(HstRequest request, Megalinks item, String marketoId, LinksModule<?> parent)  throws PageCompositionException {
+        LinksModule<?> al = megalinkMapper.getMegalinkModule(item, request.getLocale());
 
         al.setThemeIndex(parent.getThemeIndex());
         al.setHippoBean(item);
@@ -269,30 +258,6 @@ public class PageAssembler {
         }
 
         return al;
-
-    }
-
-    private boolean isICentreLanding(HstRequest request) {
-        return request.getPathInfo().equals(properties.getSiteICentre().substring(0, properties.getSiteICentre().length() - 8));
-    }
-    /**
-     * Creates a LinkModule from a TouristInformation document
-     */
-    private void processTouristInformation(HstRequest request, PageCompositionHelper compositionHelper, TourismInformation touristInfo, String location) {
-        if (!isICentreLanding(request)) {
-            ICentreModule iCentreModule = iCentreFactory.getModule(touristInfo.getICentre(), request.getLocale(), location);
-
-            if (iCentreModule != null) {
-                iCentreModule.setHippoBean(touristInfo);
-                compositionHelper.addModule(iCentreModule);
-            }
-        }
-        if (properties.isIknowEnabled()) {
-            IKnowModule iKnowModule = iKnowFactory.getIKnowModule(touristInfo.getIKnow(), location, request.getLocale());
-            iKnowModule.setHippoBean(touristInfo);
-
-            compositionHelper.addModule(iKnowModule);
-        }
     }
 
     /**
@@ -314,10 +279,6 @@ public class PageAssembler {
         }
 
         return request.getModel(LABELS);
-    }
-
-    private void addGlobalLabel(HstRequest request, String key) {
-        labels(request).get(GLOBAL_BUNDLE_FILE).put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, request.getLocale()));
     }
 
     private void addAllLabels(HstRequest request, String bundleName) {

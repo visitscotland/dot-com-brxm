@@ -1,5 +1,6 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
+import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.model.FlatLink;
@@ -8,6 +9,7 @@ import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.junit.jupiter.api.Assertions;
@@ -32,7 +34,7 @@ import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
-public class MegalinkFactoryTest {
+public class MegalinkMapperTest {
 
     public static final String DMS_ID = "0123456798";
     public static final String EXTERNAL_URL = "http://www.fake.site";
@@ -54,7 +56,7 @@ public class MegalinkFactoryTest {
     ContentLogger logger;
 
     @InjectMocks
-    MegalinkFactory factory;
+    MegalinkMapper mapper;
 
     @BeforeEach
     public void beforeEach() {
@@ -125,7 +127,7 @@ public class MegalinkFactoryTest {
         List<MegalinkItem> items = new MegalinksMockBuilder().addPageLink().addSharedLink().build().getMegalinkItems();
         when(linkService.createEnhancedLink(any(),any(), any(), anyBoolean())).thenReturn(Optional.of(new EnhancedLink()));
 
-        assertEquals(2, factory.convertToEnhancedLinks(null, items, Locale.UK, false).size());
+        assertEquals(2, mapper.convertToEnhancedLinks(null, items, Locale.UK, false).size());
     }
 
     @Test
@@ -135,7 +137,7 @@ public class MegalinkFactoryTest {
         List<MegalinkItem> items =  new MegalinksMockBuilder().addLink(null).addLink(mock(MegalinkItem.class)).build().getMegalinkItems();
         Module<Megalinks> module = new Module<>();
 
-        assertEquals(0, factory.convertToEnhancedLinks(module, items, Locale.UK, false).size());
+        assertEquals(0, mapper.convertToEnhancedLinks(module, items, Locale.UK, false).size());
 
         verify(linkService, never()).createEnhancedLink(any(),any(), any(), anyBoolean());
         assertEquals(1, module.getErrorMessages().size());
@@ -152,7 +154,7 @@ public class MegalinkFactoryTest {
         when(unpublishedVideo.getPath()).thenReturn("path-to-document");
         when(linkService.createEnhancedLink(null, module, Locale.UK, false)).thenReturn(Optional.empty());
 
-        assertEquals(0, factory.convertToEnhancedLinks(module, items, Locale.UK, false).size());
+        assertEquals(0, mapper.convertToEnhancedLinks(module, items, Locale.UK, false).size());
     }
 
 
@@ -165,26 +167,26 @@ public class MegalinkFactoryTest {
         when(mega.getProductItem()).thenReturn(mockLink);
         when(linkService.createFindOutMoreLink(any(), any(Locale.class), eq(mockLink))).thenReturn(new FlatLink(null, "cta-link", null));
 
-        LinksModule<?> layout = factory.multiImageLayout(mega, Locale.UK);
+        LinksModule<?> layout = mapper.multiImageLayout(mega, Locale.UK);
 
         assertEquals("cta-link", layout.getCta().getLink());
     }
 
     @Test
     @DisplayName("Get a horizontal layout")
-    void getMegalinkModule_horizontalListLayout() {
+    void getMegalinkModule_horizontalListLayout() throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().horizontalLayout(7).build();
 
-        LinksModule linkModule = factory.getMegalinkModule(mega,Locale.UK);
+        LinksModule linkModule = mapper.getMegalinkModule(mega,Locale.UK);
         assertEquals("HorizontalListLinksModule", linkModule.getType());
     }
 
     @Test
     @DisplayName("Get a list layout when horizontal list is selected but there are less than 5 links")
-    void getMegalinkModule_horizontalListLayoutNoEnoughItems() {
+    void getMegalinkModule_horizontalListLayoutNoEnoughItems() throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().horizontalLayout(4).build();
 
-        LinksModule linkModule = factory.getMegalinkModule(mega,Locale.UK);
+        LinksModule linkModule = mapper.getMegalinkModule(mega,Locale.UK);
         assertEquals("ListLinksModule", linkModule.getType());
     }
 
@@ -196,7 +198,7 @@ public class MegalinkFactoryTest {
         when(otyml.getTitle()).thenReturn("Other things");
         when(otyml.getIntroduction()).thenReturn(mock(HippoHtml.class));
 
-        HorizontalListLinksModule module= factory.horizontalListLayout(otyml,Locale.UK);
+        HorizontalListLinksModule module= mapper.horizontalListLayout(otyml,Locale.UK);
         assertEquals("Other things", module.getTitle());
         assertNotNull(module.getIntroduction());
     }
@@ -208,16 +210,16 @@ public class MegalinkFactoryTest {
 
         when (resourceBundleService.getResourceBundle("otyml", "otyml.title.default", Locale.UK )).thenReturn("otyml");
 
-        HorizontalListLinksModule module= factory.horizontalListLayout(otyml,Locale.UK);
+        HorizontalListLinksModule module= mapper.horizontalListLayout(otyml,Locale.UK);
         assertEquals("otyml", module.getTitle());
     }
 
     @Test
     @DisplayName("Returns a SingleImageLayout when the Single image fields are populated")
-    void getSingleImage(){
+    void getSingleImage() throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().singleImageLayout().build();
 
-        LinksModule layout = factory.getMegalinkModule(mega, Locale.UK);
+        LinksModule layout = mapper.getMegalinkModule(mega, Locale.UK);
 
         Assertions.assertEquals("SingleImageLinksModule", layout.getType());
     }
@@ -225,14 +227,14 @@ public class MegalinkFactoryTest {
     @ParameterizedTest
     @DisplayName("From 7 items is not Featured any longer")
     @CsvSource({"1,MultiImageLinksModule", "2,MultiImageLinksModule", "6,MultiImageLinksModule", "7,ListLinksModule"})
-    void featuredLayoutDependsOnNumberOfItem(Integer links, String expectedModule){
+    void featuredLayoutDependsOnNumberOfItem(Integer links, String expectedModule) throws PageCompositionException {
         MegalinksMockBuilder builder = new MegalinksMockBuilder();
 
         for (int i = 0; i < links; i++){
             builder.addPageLink();
         }
 
-        LinksModule layout = factory.getMegalinkModule(builder.build(), Locale.UK);
+        LinksModule layout = mapper.getMegalinkModule(builder.build(), Locale.UK);
 
         Assertions.assertEquals(expectedModule, layout.getType());
     }
@@ -240,7 +242,7 @@ public class MegalinkFactoryTest {
     @ParameterizedTest
     @DisplayName("From 7 items is not Featured any longer")
     @CsvSource({"1,SingleImageLinksModule", "6,SingleImageLinksModule", "7,ListLinksModule"})
-    void singleImageLayoutDependsOnNumberOfItem(Integer links, String expectedModule){
+    void singleImageLayoutDependsOnNumberOfItem(Integer links, String expectedModule) throws PageCompositionException {
         MegalinksMockBuilder builder = new MegalinksMockBuilder();
 
         for (int i = 0; i < links; i++){
@@ -252,7 +254,7 @@ public class MegalinkFactoryTest {
         //verify that it does not affect the output
         lenient().when(mega.getSingleImageModule()).thenReturn(mock(SingleImageModule.class));
 
-        LinksModule layout = factory.getMegalinkModule(mega, Locale.UK);
+        LinksModule layout = mapper.getMegalinkModule(mega, Locale.UK);
 
         Assertions.assertEquals(expectedModule, layout.getType());
     }
@@ -260,7 +262,7 @@ public class MegalinkFactoryTest {
     @ParameterizedTest
     @DisplayName("Validate Maximun and minimum number of featured items")
     @CsvSource({"1,1,1", "2,0,0", "3,0,1", "4,1,2","5,1,2", "6,1,2"})
-    void createFeaturedLayoutAndCheckItems(Integer total, Integer minItems, Integer maxItems){
+    void createFeaturedLayoutAndCheckItems(Integer total, Integer minItems, Integer maxItems) throws PageCompositionException {
         MegalinksMockBuilder min = new MegalinksMockBuilder().defaultLayout();
         MegalinksMockBuilder max = new MegalinksMockBuilder().defaultLayout();
 
@@ -271,8 +273,8 @@ public class MegalinkFactoryTest {
 
         when(linkService.createEnhancedLink(any(),any(), any(), anyBoolean())).thenReturn(Optional.of(new EnhancedLink()));
 
-        Assertions.assertEquals(minItems, ((MultiImageLinksModule) factory.getMegalinkModule(min.build(), Locale.UK)).getFeaturedLinks().size());
-        Assertions.assertEquals(maxItems, ((MultiImageLinksModule) factory.getMegalinkModule(max.build(), Locale.UK)).getFeaturedLinks().size());
+        Assertions.assertEquals(minItems, ((MultiImageLinksModule) mapper.getMegalinkModule(min.build(), Locale.UK)).getFeaturedLinks().size());
+        Assertions.assertEquals(maxItems, ((MultiImageLinksModule) mapper.getMegalinkModule(max.build(), Locale.UK)).getFeaturedLinks().size());
     }
 
 

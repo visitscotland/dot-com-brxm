@@ -612,7 +612,7 @@ public class LinkService {
         if (module == null || module.getHippoBean() == null){
             return "unknown";
         } else {
-            return module.getHippoBean().getPath();
+            return module.getDocumentPath();
         }
     }
 

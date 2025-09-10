@@ -15,7 +15,7 @@ import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.utils.pagebuilder.PageCompostionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.onehippo.taxonomy.api.Category;
@@ -29,9 +29,9 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 
 @Component
-public class MapFactory extends ModuleMapper<MapModule, MapsModule> {
+public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
 
-    private static final Logger logger = LoggerFactory.getLogger(MapFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(MapModuleMapper.class);
 
     static final String BUNDLE_ID = "map";
 
@@ -56,7 +56,7 @@ public class MapFactory extends ModuleMapper<MapModule, MapsModule> {
     private final ImageFactory imageFactory;
     private final LocationLoader locationLoader;
 
-    public MapFactory(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, CMSProperties properties, ImageFactory imageFactory,LocationLoader locationLoader) {
+    public MapModuleMapper(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, CMSProperties properties, ImageFactory imageFactory, LocationLoader locationLoader) {
         this.hippoUtilsService = hippoUtilsService;
         this.mapper = new ObjectMapper();
         this.mapService = mapService;
@@ -73,7 +73,7 @@ public class MapFactory extends ModuleMapper<MapModule, MapsModule> {
     }
 
     @Override
-    MapsModule map(MapModule document, PageCompositionHelper compositionHelper) throws PageCompostionException {
+    MapsModule map(MapModule document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         Page page = compositionHelper.getPage();
         Locale locale = compositionHelper.getLocale();
 

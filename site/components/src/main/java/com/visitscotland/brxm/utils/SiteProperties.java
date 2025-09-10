@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -23,6 +24,9 @@ public class SiteProperties extends Properties {
 
     static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
     static final String GLOBAL_SEARCH_PATH = "global-search.path";
+    static final String CLUDO_CUSTOMER_ID = "cludo.customer-id";
+    static final String CLUDO_ENGINE_ID = "cludo.engine-id";
+    static final String CLUDO_EXPERIENCE_ID = "cludo.experience-id";
 
 
     //Environment
@@ -39,7 +43,6 @@ public class SiteProperties extends Properties {
 
     //Modules References
     private static final String PATH_BANNER = "site.path.banner";
-    static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
     static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
     private static final String PRODUCTS_SEARCH_ENABLED = "feature.products-search.enable";
     private static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
@@ -82,9 +85,22 @@ public class SiteProperties extends Properties {
             return "";
         }
     }
-    public String getGlobalSearchURL() {
-        return readString(GLOBAL_SEARCH_PATH);
+    public Optional<String> getGlobalSearchURL() {
+        return readOptionalString(GLOBAL_SEARCH_PATH);
     }
+
+    public Optional<String> getCludoCustomerId() {
+        return readOptionalString(CLUDO_CUSTOMER_ID);
+    }
+
+    public Optional<String> getCludoEngineId() {
+        return readOptionalString(CLUDO_ENGINE_ID);
+    }
+
+    public Optional<String> getCludoExperienceId() {
+        return readOptionalString(CLUDO_EXPERIENCE_ID);
+    }
+
     public String getChannelOrder(){
         return readString(CHANNEL_ORDER);
     }
@@ -118,9 +134,6 @@ public class SiteProperties extends Properties {
     }
     public String getGtmPreviewQueryString() {
         return readString(GTM_PREVIEW_QUERY_STRING);
-    }
-    public boolean isIknowEnabled() {
-        return readBoolean(ENABLE_IKNOW_MODULE);
     }
 
     public boolean isProductSearchEnabled() {

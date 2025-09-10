@@ -37,10 +37,10 @@ public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModu
     }
 
     public SkiListModule map(SkiCentreList document, PageCompositionHelper compositionHelper){
-        return map(document, compositionHelper.getLocale());
+        return getModule(document, compositionHelper.getLocale());
     }
 
-    public SkiListModule map(SkiCentreList document, Locale locale){
+    public SkiListModule getModule(SkiCentreList document, Locale locale){
         SkiListModule module = new SkiListModule();
         module.setHippoBean(document);
 

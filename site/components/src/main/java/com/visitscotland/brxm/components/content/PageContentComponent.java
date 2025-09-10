@@ -4,6 +4,8 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
+import com.visitscotland.brxm.mapper.MegalinkMapper;
+import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
@@ -38,7 +40,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     //Resource Bundle
     private static final String SOCIAL_SHARE_BUNDLE = "social.share";
-    private static final String VIDEO_BUNDLE_BUNDLE = "video";
+    private static final String VIDEO_BUNDLE = "video";
     private static final String SKIP_TO_BUNDLE = "skip-to";
     private static final String SEARCH_BUNDLE = "search";
     private static final String CMS_MESSAGES_BUNDLE = "cms-messages";
@@ -51,6 +53,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     //Objects injected in the page payload
     public static final String DOCUMENT = "document";
+    public static final String EDIT_MODE = "editMode";
 
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
@@ -67,12 +70,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String GTM = "gtm";
 
     final BlogFactory blogFactory;
-    protected final MegalinkFactory megalinkFactory;
+    protected final MegalinkMapper megalinkMapper;
     private final ImageFactory imageFactory;
     private final LinkService linksService;
     private final SignpostFactory signpostFactory;
     private final ProductSearchWidgetFactory psrFactory;
-    private final PreviewModeFactory previewFactory;
+    private final PreviewWarningMapper previewMapper;
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private final Logger contentLogger;
@@ -81,12 +84,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public PageContentComponent() {
         blogFactory = VsComponentManager.get(BlogFactory.class);
-        megalinkFactory = VsComponentManager.get(MegalinkFactory.class);
+        megalinkMapper = VsComponentManager.get(MegalinkMapper.class);
         imageFactory = VsComponentManager.get(ImageFactory.class);
         signpostFactory = VsComponentManager.get(SignpostFactory.class);
         linksService = VsComponentManager.get(LinkService.class);
         psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
-        previewFactory = VsComponentManager.get(PreviewModeFactory.class);
+        previewMapper = VsComponentManager.get(PreviewWarningMapper.class);
         contentLogger = VsComponentManager.get(ContentLogger.class);
         properties = VsComponentManager.get(SiteProperties.class);
         bundle = VsComponentManager.get(ResourceBundleService.class);
@@ -121,12 +124,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         request.setModel(METADATA_MODEL, metadata.getMetadata());
     }
 
-    private void addPropertyIfPresent(HstRequest request, String property, String attributeId) {
-        properties.getProperty(property, request.getLocale())
-                .ifPresent(value -> request.setModel(attributeId, value));
-    }
-
-
     /**
      * Adds labels that are necessary for type of pages. Please notice that there are two strategies for including properties
      * <br>
@@ -145,7 +142,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         
         addAllLabels(request, SOCIAL_SHARE_BUNDLE);
         addAllLabels(request, SEARCH_BUNDLE);
-        addAllLabels(request, VIDEO_BUNDLE_BUNDLE);
+        addAllLabels(request, VIDEO_BUNDLE);
         addAllLabels(request, SEO_BUNDLE);
         addAllLabels(request, SKIP_TO_BUNDLE);
 
@@ -262,14 +259,15 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         Page page = getDocument(request);
         if (page.getOtherThings() != null) {
-            HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page.getOtherThings(), request.getLocale());
+            HorizontalListLinksModule otyml = megalinkMapper.horizontalListLayout(page.getOtherThings(), request.getLocale());
             if (Contract.isEmpty(otyml.getLinks())) {
                 contentLogger.warn("OTYML at {} contains 0 published items. Skipping module", page.getOtherThings().getPath());
-                request.setModel(OTYML_BUNDLE, previewFactory.createErrorModule(otyml));
+                request.setModel(OTYML_BUNDLE, previewMapper.createErrorModule(otyml));
                 return;
             }
-            if (otyml.getLinks().size() < MegalinkFactory.MIN_ITEMS_CAROUSEL) {
-                contentLogger.warn("OTYML at {} contains only {} published items. Expected a minimum of 5", page.getOtherThings().getPath(), otyml.getLinks().size());
+            if (otyml.getLinks().size() < MegalinkMapper.MIN_ITEMS_CAROUSEL) {
+                contentLogger.warn("OTYML at {} contains only {} published items. Expected a minimum of {}",
+                        page.getOtherThings().getPath(), otyml.getLinks().size(), MegalinkMapper.MIN_ITEMS_CAROUSEL);
             }
             request.setModel(OTYML_BUNDLE, otyml);
         }
@@ -404,16 +402,18 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request
      */
     private void enableGlobalSearch(HstRequest request){
-        addPropertyIfPresent(request, "cludo.customer-id", "cludoCustomerId");
-        addPropertyIfPresent(request, "cludo.engine-id", "cludoEngineId");
-        addPropertyIfPresent(request, "cludo.experience-id", "cludoExperienceId");
-        addPropertyIfPresent(request, "cludo.language", request.getLocale().getLanguage());
-        addPropertyIfPresent(request, "cludo.global-search.url", properties.getGlobalSearchURL());
+        Map<String, String> searchProperties = new HashMap<>();
+        properties.getGlobalSearchURL().ifPresent(v -> searchProperties.put("global-search-url", v));
+        properties.getCludoCustomerId().ifPresent(v -> searchProperties.put("customer-id", v));
+        properties.getCludoEngineId().ifPresent(v -> searchProperties.put("engine-id", v));
+        properties.getCludoExperienceId().ifPresent(v -> searchProperties.put("experience-id", v));
+        searchProperties.put("language", request.getLocale().getLanguage());
 
+        request.setModel("cludo", searchProperties);
     }
 
     boolean isEditMode(HstRequest request) {
-        return Boolean.TRUE.equals(request.getAttribute("editMode"));
+        return Boolean.TRUE.equals(request.getAttribute(EDIT_MODE));
     }
 }
 

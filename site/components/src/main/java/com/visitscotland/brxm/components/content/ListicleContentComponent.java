@@ -15,6 +15,7 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
     private static final Logger logger = LoggerFactory.getLogger(ListicleContentComponent.class);
 
     public static final String LISTICLE_ITEMS = "items";
+    private static final String BUNDLE_ID = "listicle";
 
     private ListicleFactory factory;
 
@@ -36,7 +37,7 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
     }
 
     private void addLabels(HstRequest request){
-        addAllLabels(request, "listicle");
+        addAllLabels(request, BUNDLE_ID);
     }
 
 }
