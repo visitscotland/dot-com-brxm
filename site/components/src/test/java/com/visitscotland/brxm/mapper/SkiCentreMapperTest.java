@@ -7,6 +7,7 @@ import com.visitscotland.brxm.hippobeans.SkiCentre;
 import com.visitscotland.brxm.model.SkiModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
@@ -37,6 +38,9 @@ class SkiCentreMapperTest {
     @Mock
     ContentLogger contentLogger;
 
+    @Mock
+    SiteProperties properties;
+
     @InjectMocks
     SkiCentreMapper skiCentreMapper;
 
@@ -45,7 +49,7 @@ class SkiCentreMapperTest {
     void createModule(){
         SkiCentre document = mock(SkiCentre.class);
 
-        Assertions.assertNotNull(skiCentreMapper.map(document, Locale.UK));
+        Assertions.assertNotNull(skiCentreMapper.getModule(document, Locale.UK));
     }
 
     @DisplayName("VS-4378 - SkiCentre - Create Module with all Fields")
@@ -60,7 +64,7 @@ class SkiCentreMapperTest {
         when(document.getProductId()).thenReturn("NOT-VALID");
         when(document.getPisteMap()).thenReturn("map.pdf");
 
-        SkiModule module = skiCentreMapper.map(document, Locale.UK);
+        SkiModule module = skiCentreMapper.getModule(document, Locale.UK);
 
         Assertions.assertEquals("Title", module.getTitle());
         Assertions.assertEquals("http://www.ski.scot/cairngorm", module.getFeedURL());
@@ -76,7 +80,7 @@ class SkiCentreMapperTest {
         when(document.getProductId()).thenReturn("2165531");
         when(dataService.productCard("2165531", Locale.UK)).thenReturn(new ObjectMapper().readTree(SAMPLE).get("data"));
 
-        SkiModule module = skiCentreMapper.map(document, Locale.UK);
+        SkiModule module = skiCentreMapper.getModule(document, Locale.UK);
 
         Assertions.assertEquals("+44 1479 861261", module.getPhone());
         Assertions.assertTrue(module.getWebsite().toString().contains("https://www.cairngormmountain.co.uk"));
@@ -94,7 +98,7 @@ class SkiCentreMapperTest {
         when(document.getProductId()).thenReturn("NOT-VALID-ID");
         when(document.getPath()).thenReturn("path-to-document");
 
-        SkiModule module = skiCentreMapper.map(document, Locale.UK);
+        SkiModule module = skiCentreMapper.getModule(document, Locale.UK);
 
         Assertions.assertEquals(1, module.getErrorMessages().size());
         Assertions.assertTrue(module.getErrorMessages().get(0).contains("NOT-VALID-ID"));
