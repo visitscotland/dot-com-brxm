@@ -21,6 +21,8 @@ public class SkiModule extends Module<SkiCentre> {
     private FlatLink openingLink;
     private EnhancedLink cmsPage;
 
+    private Integer timeout;
+
     private List<JsonNode> socialChannels;
 
 
@@ -102,5 +104,13 @@ public class SkiModule extends Module<SkiCentre> {
 
     public void setCmsPage(EnhancedLink cmsPage) {
         this.cmsPage = cmsPage;
+    }
+
+    public Integer getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(Integer timeout) {
+        this.timeout = timeout;
     }
 }

@@ -51,7 +51,7 @@ public class FormFactory {
         /** TODO: This property should go away
          * @see MarketoConfiguration.production
          */
-        cfg.setProduction(properties.getFormsMarketoIsProduction());
+        cfg.setProduction(false);
 
         if (bean instanceof FormCompoundMarketo) {
             cfg.setJsonUrl(((FormCompoundMarketo) bean).getJsonUrl());

@@ -8,6 +8,7 @@ import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SkiModule;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.utils.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -24,13 +25,15 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
 
     private final DMSDataService dataService;
     private final ResourceBundleService bundle;
+    private final SiteProperties properties;
 
     private final ContentLogger contentLogger;
 
-    public SkiCentreMapper(DMSDataService dataService, ResourceBundleService bundle, ContentLogger contentLogger) {
+    public SkiCentreMapper(DMSDataService dataService, ResourceBundleService bundle, ContentLogger contentLogger, SiteProperties properties) {
         this.dataService = dataService;
         this.bundle = bundle;
         this.contentLogger = contentLogger;
+        this.properties = properties;
     }
 
     @Override
@@ -40,13 +43,14 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
 
     @Override
     SkiModule map(SkiCentre document, PageCompositionHelper compositionHelper) {
-        return map(document, compositionHelper.getLocale());
+        return getModule(document, compositionHelper.getLocale());
     }
 
-    SkiModule map(SkiCentre document, Locale locale) {
+    SkiModule getModule(SkiCentre document, Locale locale) {
         SkiModule module = new SkiModule();
 
         module.setHippoBean(document);
+        module.setTimeout(properties.getSkiTimeout());
         module.setTitle(document.getTitle());
         module.setIntroduction(document.getCopy());
         module.setFeedURL(document.getFeed());
