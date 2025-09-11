@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -23,7 +24,9 @@ public class SiteProperties extends Properties {
 
     static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
     static final String GLOBAL_SEARCH_PATH = "global-search.path";
-    static final String ENGINE_ID = "global-search.engine-id";
+    static final String CLUDO_CUSTOMER_ID = "cludo.customer-id";
+    static final String CLUDO_ENGINE_ID = "cludo.engine-id";
+    static final String CLUDO_EXPERIENCE_ID = "cludo.experience-id";
 
 
     //Environment
@@ -33,17 +36,17 @@ public class SiteProperties extends Properties {
 
 
     //Page References
-    private static final String PATH_GLOBAL_SEARCH = "site.path.global-search";
     private static final String PATH_SKI_SECTION = "site.path.ski-landing";
     private static final String PATH_CAMPAIGN_SECTION = "site.path.campaigns";
-    private static final String PATH_ABOUT_US = "site.path.about-us";
     private static final String PATH_NEWSLETTER = "site.path.newsletter";
     private static final String PATH_ICENTRE = "site.path.icentre-landing";
 
     //Modules References
     private static final String PATH_BANNER = "site.path.banner";
-    static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
     static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
+    private static final String PRODUCTS_SEARCH_ENABLED = "feature.products-search.enable";
+    private static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
+    private static final String GLOBAL_SEARCH_ENABLED = "feature.global-search.enable";
 
     //GTM Properties
     public static final String GTM_CONTAINER_ID = "gtm.container-id";
@@ -56,12 +59,13 @@ public class SiteProperties extends Properties {
     static final String FORMS_MARKETO_MUNCHKIN = "form.marketo.munchkin";
     static final String FORMS_MARKETO_SCRIPT = "form.marketo.script";
     static final String FORMS_MARKETO_IS_PRODUCTION = "form.is-production";
-    static final String FORM_BREG_LEGAL_BASIS = "form.breg.legal-basis";
+    static final String FORM_BREG_LEGAL_BASIS_TEXT = "form.breg.legal-basis.text";
     static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
+    static final String SKI_TIMEOUT = "ski.timeout";
 
     private final CMSProperties cmsProperties;
-    public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties){
-        super(bundle, utils);
+    public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties, EnvironmentManager envrionmentManager) {
+        super(bundle, utils, envrionmentManager);
         this.cmsProperties = cmsProperties;
     }
 
@@ -82,9 +86,22 @@ public class SiteProperties extends Properties {
             return "";
         }
     }
-    public String getGlobalSearchURL() {
-        return readString(GLOBAL_SEARCH_PATH);
+    public Optional<String> getGlobalSearchURL() {
+        return readOptionalString(GLOBAL_SEARCH_PATH);
     }
+
+    public Optional<String> getCludoCustomerId() {
+        return readOptionalString(CLUDO_CUSTOMER_ID);
+    }
+
+    public Optional<String> getCludoEngineId() {
+        return readOptionalString(CLUDO_ENGINE_ID);
+    }
+
+    public Optional<String> getCludoExperienceId() {
+        return readOptionalString(CLUDO_EXPERIENCE_ID);
+    }
+
     public String getChannelOrder(){
         return readString(CHANNEL_ORDER);
     }
@@ -100,12 +117,7 @@ public class SiteProperties extends Properties {
     public String getCampaignSection() {
         return readString(PATH_CAMPAIGN_SECTION);
     }
-    public String getSiteAboutUs() {
-        return readString(PATH_ABOUT_US);
-    }
-    public String getSiteGlobalSearch() {
-        return readString(PATH_GLOBAL_SEARCH);
-    }
+
     public String getSiteNewsletter() {
         return readString(PATH_NEWSLETTER);
     }
@@ -124,9 +136,19 @@ public class SiteProperties extends Properties {
     public String getGtmPreviewQueryString() {
         return readString(GTM_PREVIEW_QUERY_STRING);
     }
-    public boolean isIknowEnabled() {
-        return readBoolean(ENABLE_IKNOW_MODULE);
+
+    public boolean isProductSearchEnabled() {
+        return readBoolean(PRODUCTS_SEARCH_ENABLED);
     }
+
+    public boolean isTableOfContentsEnabled() {
+        return readBoolean(TABLE_OF_CONTENTS_ENABLED);
+    }
+
+    public boolean isGlobalSearchEnabled() {
+        return readBoolean(GLOBAL_SEARCH_ENABLED);
+    }
+
     public List<String> getInternalSites() {
         String sites = readString(INTERNAL_SITES);
         if (!Contract.isEmpty(sites)){
@@ -136,32 +158,32 @@ public class SiteProperties extends Properties {
         return Collections.emptyList();
     }
 
+    @Deprecated
     public String getFormsMarketoUrl() {
         return readString(FORMS_MARKETO_URL);
     }
 
+    @Deprecated
     public String getFormsRecaptcha() {
         return readString(FORMS_RECAPTCHA);
     }
 
+    @Deprecated
     public String getFormsMarketoMunchkin() {
         return readString(FORMS_MARKETO_MUNCHKIN);
     }
 
+    @Deprecated
     public String getFormsMarketoScript() {
         return readString(FORMS_MARKETO_SCRIPT);
     }
 
-    public Boolean getFormsMarketoIsProduction() {
-        return readBoolean(FORMS_MARKETO_IS_PRODUCTION);
-    }
-
     public String getSiteId() {
-        return readString(SITE_ID);
+        return readOptionalString(SITE_ID).orElse("");
     }
 
-    public String getFormBregLegalBasis() {
-        return readString(FORM_BREG_LEGAL_BASIS);
+    public String getFormBregLegalBasisText() {
+        return readString(FORM_BREG_LEGAL_BASIS_TEXT);
     }
     public Boolean isFormBregLegalBasisEnabled() {
         return readBoolean(FORM_BREG_LEGAL_BASIS_ENABLE);
@@ -176,4 +198,7 @@ public class SiteProperties extends Properties {
         return size > 0 ? size : 10;
     }
 
+    public Integer getSkiTimeout() {
+        return readInteger(SKI_TIMEOUT);
+    }
 }

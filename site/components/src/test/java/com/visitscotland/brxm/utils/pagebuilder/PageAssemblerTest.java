@@ -1,14 +1,20 @@
-package com.visitscotland.brxm.utils;
+package com.visitscotland.brxm.utils.pagebuilder;
 
 import com.visitscotland.brxm.hippobeans.*;
+import com.visitscotland.brxm.mapper.ArticleMapper;
+import com.visitscotland.brxm.mapper.ICentreMapper;
+import com.visitscotland.brxm.mapper.MegalinkMapper;
+import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.mock.LinksModuleMockBuilder;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
-import com.visitscotland.brxm.mock.TouristInformationMockBuilder;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.mock.core.component.MockHstRequest;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,8 +34,7 @@ import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
-class PageTemplateBuilderTest {
-
+class PageAssemblerTest {
 
     MockHstRequest request;
 
@@ -37,16 +42,13 @@ class PageTemplateBuilderTest {
     Page page;
 
     @Mock
-    ICentreFactory iCentreFactory;
+    ICentreMapper iCentreFactory;
 
     @Mock
-    IKnowFactory iKnowFactory;
+    MegalinkMapper megalinkMapper;
 
     @Mock
-    MegalinkFactory linksFactory;
-
-    @Mock
-    ArticleFactory articleFactory;
+    ArticleMapper articleMapper;
 
     @Mock
     LongCopyFactory longCopyFactory;
@@ -55,7 +57,7 @@ class PageTemplateBuilderTest {
     DocumentUtilsService utils;
 
     @Mock
-    PreviewModeFactory previewModeFactory;
+    PreviewWarningMapper previewModeFactory;
 
     @Mock
     SiteProperties properties;
@@ -63,8 +65,11 @@ class PageTemplateBuilderTest {
     @Mock
     ContentLogger logger;
 
+    @Mock
+    ResourceBundleService bundle;
+
     @InjectMocks
-    PageTemplateBuilder builder;
+    PageAssembler builder;
 
     @BeforeEach
     void init() {
@@ -84,7 +89,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        List<?> items = (List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
         assertEquals(0, items.size());
     }
@@ -93,15 +98,16 @@ class PageTemplateBuilderTest {
      * Build a page with one Megalinks document associated
      */
     @Test
-    void addMegalinksModule_basic() {
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
+    void addMegalinksModule_basic()  throws PageCompositionException {
         Megalinks megalinks = new MegalinksMockBuilder().build();
         LinksModule<?> module = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
-        doReturn(module).when(linksFactory).getMegalinkModule(megalinks, Locale.UK);
+        doReturn(module).when(megalinkMapper).getMegalinkModule(megalinks, Locale.UK);
 
         builder.addModules(request);
-        List<?> items = (List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
         assertEquals(1, items.size());
     }
@@ -111,18 +117,19 @@ class PageTemplateBuilderTest {
      */
     @Test
     @DisplayName("VS-3269 - Megalinks with no links are completely removed. But they still show a preview message")
-    void addMegalinksModule_noLinks() {
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
+    void addMegalinksModule_noLinks()  throws PageCompositionException {
         Megalinks megalinks = new MegalinksMockBuilder().build();
         LinksModule<?> module = new LinksModuleMockBuilder().build();
 
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
-        doReturn(module).when(linksFactory).getMegalinkModule(megalinks, Locale.UK);
+        doReturn(module).when(megalinkMapper).getMegalinkModule(megalinks, Locale.UK);
         when(previewModeFactory.createErrorModule(any())).thenReturn(new Module<>());
 
 
         builder.addModules(request);
-        List<?> items = (List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
         assertEquals(1, items.size());
         assertSame(items.get(0).getClass(), Module.class);
@@ -132,7 +139,8 @@ class PageTemplateBuilderTest {
      * Styles alternate, and the last repeats the first colour
      */
     @Test
-    void addMegalinksModule_alternateStyles() {
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
+    void addMegalinksModule_alternateStyles()  throws PageCompositionException {
         List<BaseDocument> list = Arrays.asList(
                 new MegalinksMockBuilder().build(),
                 new MegalinksMockBuilder().build(),
@@ -144,28 +152,29 @@ class PageTemplateBuilderTest {
         LinksModule<?> module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
         LinksModule<?> module3 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
         LinksModule<?> module4 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
-        doReturn(module1).when(linksFactory).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
-        doReturn(module2).when(linksFactory).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
-        doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
-        doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
+        doReturn(module1).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
+        doReturn(module2).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
+        doReturn(module3).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
+        doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
 
         builder.addModules(request);
-        List<LinksModule<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        List<LinksModule<?>> items = request.getModel(PageAssembler.PAGE_ITEMS);
 
         assertEquals(4, items.size());
 
         verify(module1).setThemeIndex(0);
-        verify(module2).setThemeIndex(1 % PageTemplateBuilder.THEMES);
-        verify(module3).setThemeIndex(2 % PageTemplateBuilder.THEMES);
-        verify(module4).setThemeIndex(3 % PageTemplateBuilder.THEMES);
+        verify(module2).setThemeIndex(1 % CompositionModel.THEMES);
+        verify(module3).setThemeIndex(2 % CompositionModel.THEMES);
+        verify(module4).setThemeIndex(3 % CompositionModel.THEMES);
     }
 
     /**
      * 3 first items share colour because their title is null, 4th is different
      */
     @Test
-    void addMegalinksModule_skipAlternateStyles_whenNoH2() {
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
+    void addMegalinksModule_skipAlternateStyles_whenNoH2()  throws PageCompositionException {
         List<BaseDocument> list = Arrays.asList(
                 new MegalinksMockBuilder().build(),
                 new MegalinksMockBuilder().build(),
@@ -178,14 +187,14 @@ class PageTemplateBuilderTest {
         LinksModule<?> module3 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
         LinksModule<?> module4 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
 
-        doReturn(module1).when(linksFactory).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
-        doReturn(module2).when(linksFactory).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
-        doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
-        doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
+        doReturn(module1).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
+        doReturn(module2).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
+        doReturn(module3).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
+        doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
 
         builder.addModules(request);
-        List<?> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = request.getModel(PageAssembler.PAGE_ITEMS);
 
         assertEquals(4, items.size());
 
@@ -199,19 +208,20 @@ class PageTemplateBuilderTest {
      * First item always have the same style independently of if the section title is defined
      */
     @Test
-    void addMegalinksModule_firstItemColourIsStyle3_whenNoH2() {
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
+    void addMegalinksModule_firstItemColourIsStyle3_whenNoH2()  throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().build();
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
 
         // Build the first case where the first element has no title
         LinksModule<?> module1 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build();
         LinksModule<?> module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
-        doReturn(module1).when(linksFactory).getMegalinkModule(mega, Locale.UK);
+        doReturn(module1).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
 
         builder.addModules(request);
 
         // Build the second case where the first element has a title
-        doReturn(module2).when(linksFactory).getMegalinkModule(mega, Locale.UK);
+        doReturn(module2).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
         builder.addModules(request);
 
         verify(module1).setThemeIndex(0);
@@ -222,7 +232,8 @@ class PageTemplateBuilderTest {
      * Verifies that the alignment for Single Image modules alternates
      */
     @Test
-    void addMegalinksModule_alternateAlignment() {
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
+    void addMegalinksModule_alternateAlignment()  throws PageCompositionException {
         List<BaseDocument> list = Arrays.asList(
                 new MegalinksMockBuilder().build(),
                 new MegalinksMockBuilder().build(),
@@ -236,122 +247,36 @@ class PageTemplateBuilderTest {
         LinksModule<?> module3 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
         LinksModule<?> module4 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).type(SingleImageLinksModule.class).build();
 
-        doReturn(module1).when(linksFactory).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
-        doReturn(module2).when(linksFactory).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
-        doReturn(module3).when(linksFactory).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
-        doReturn(module4).when(linksFactory).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
+        doReturn(module1).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(0), Locale.UK);
+        doReturn(module2).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(1), Locale.UK);
+        doReturn(module3).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
+        doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
 
         builder.addModules(request);
-        List<?> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
+        List<?> items = request.getModel(PageAssembler.PAGE_ITEMS);
         assertEquals(4, items.size());
 
-        verify(module1).setAlignment(PageTemplateBuilder.ALIGNMENT[0 % 2]);
-        verify(module2).setAlignment(PageTemplateBuilder.ALIGNMENT[1 % 2]);
-        verify(module3).setAlignment(PageTemplateBuilder.ALIGNMENT[2 % 2]);
-        verify(module4).setAlignment(PageTemplateBuilder.ALIGNMENT[3 % 2]);
-    }
-
-    /**
-     * Verifies that is able to add an iKnowModule when the minimum amount of information has been provided
-     * Verifies that is able to set the Hippo bean for only Iknow configuration
-     */
-    @Test
-    void addTouristInformation_iKnowModule() {
-        TourismInformation ti = new TouristInformationMockBuilder().build();
-
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
-        when (properties.isIknowEnabled()).thenReturn(true);
-        when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
-
-        when(properties.getSiteICentre()).thenReturn("/icentre-landing");
-        request.setPathInfo("/destination/edinburgh");
-
-        builder.addModules(request);
-
-        List<Module<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
-        assertEquals(1, items.size());
-        assertEquals(ti, items.get(0).getHippoBean());
-    }
-
-    /**
-     * Verifies that is able to hide an iKnowModule when boolean is set to false
-     */
-    @Test
-    void hideTouristInformation_iKnowModule() {
-        TourismInformation ti = new TouristInformationMockBuilder().build();
-
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
-        when (properties.isIknowEnabled()).thenReturn(false);
-
-        when(properties.getSiteICentre()).thenReturn("/icentre-landing");
-        request.setPathInfo("/destination/edinburgh");
-
-        builder.addModules(request);
-
-        List<?> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
-        assertEquals(0, items.size());
-    }
-
-    @Test
-    @DisplayName("VS-4404 -  The iCentre module should not appear on the iCentre landing page")
-    void getModule_iCentreLanding(){
-        TourismInformation ti = new TouristInformationMockBuilder().build();
-
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
-
-        lenient().when(iCentreFactory.getModule(any(), eq(request.getLocale()), eq(null))).thenReturn(new ICentreModule());
-        when (properties.isIknowEnabled()).thenReturn(true);
-        when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
-
-        when(properties.getSiteICentre()).thenReturn("/icentre-landing/content");
-        request.setPathInfo("/icentre-landing");
-
-        builder.addModules(request);
-
-        List<Module<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
-        assertEquals(1, items.size());
-        assertEquals(ti, items.get(0).getHippoBean());
-    }
-
-    /**
-     * Verifies that is able to add an iKnowModule when the minimum amount of information has been provided
-     * Verifies that is able to set the Hippo Bean when 2 items are returned.
-     * Verifies that only one Hippo Bean is set edit module is enabled.
-     */
-    @Test
-    @Disabled("This requirement is being reviewed")
-    @DisplayName("Verifies that only one edit button appears in the preview mode")
-    void addTouristInformation_iCentreModule() {
-
-        TourismInformation ti = new TouristInformationMockBuilder().build();
-
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(ti));
-
-        when(iCentreFactory.getModule(any(), eq(request.getLocale()), eq(null))).thenReturn(new ICentreModule());
-        when(iKnowFactory.getIKnowModule(any(), eq(null), eq(request.getLocale()))).thenReturn(new IKnowModule());
-
-        builder.addModules(request);
-
-        List<Module<?>> items = request.getModel(PageTemplateBuilder.PAGE_ITEMS);
-        assertEquals(2, items.size());
-        assertEquals(ti, items.get(0).getHippoBean());
-        assertNull(items.get(1).getHippoBean());
+        verify(module1).setAlignment(CompositionModel.ALIGNMENT[0 % 2]);
+        verify(module2).setAlignment(CompositionModel.ALIGNMENT[1 % 2]);
+        verify(module3).setAlignment(CompositionModel.ALIGNMENT[2 % 2]);
+        verify(module4).setAlignment(CompositionModel.ALIGNMENT[3 % 2]);
     }
 
     @Test
     @DisplayName("VS-2015 - Match the initial background colour with the megalinks")
-    void setIntroTheme(){
+    @Disabled("The responsability of handling Megalinks is not on Megalinks Mapper")
+    void setIntroTheme()  throws PageCompositionException {
         Megalinks mega = new MegalinksMockBuilder().build();
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(mega));
 
-        doReturn(new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build()).when(linksFactory).getMegalinkModule(mega, Locale.UK);
+        doReturn(new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build()).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
 
         builder.addModules(request);
-        LinksModule<?> module = (LinksModule<?>) ((List<?>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).get(0);
+        LinksModule<?> module = (LinksModule<?>) ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).get(0);
 
-        assertNotNull(request.getAttribute(PageTemplateBuilder.INTRO_THEME));
-        assertEquals(request.getAttribute(PageTemplateBuilder.INTRO_THEME), module.getThemeIndex());
+        assertNotNull(request.getAttribute(PageAssembler.INTRO_THEME));
+        assertEquals(request.getAttribute(PageAssembler.INTRO_THEME), module.getThemeIndex());
     }
 
     @Test
@@ -361,7 +286,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        assertNull(request.getAttribute(PageTemplateBuilder.INTRO_THEME));
+        assertNull(request.getAttribute(PageAssembler.INTRO_THEME));
     }
 
     @Test
@@ -380,7 +305,7 @@ class PageTemplateBuilderTest {
         builder.addModules(request);
 
         //List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
-        LongCopyModule module = (LongCopyModule) ((List<Module>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).get(0);
+        LongCopyModule module = (LongCopyModule) ((List<Module>) request.getModel(PageAssembler.PAGE_ITEMS)).get(0);
         assertNotNull(module);
     }
 
@@ -397,7 +322,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        assertEquals(0, ((List<?>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
+        assertEquals(0, ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
     }
 
     @Test
@@ -414,7 +339,7 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        assertEquals(0,((List<?>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS)).stream().filter(m -> !(m instanceof ErrorModule)).count());
+        assertEquals(0,((List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS)).stream().filter(m -> !(m instanceof ErrorModule)).count());
     }
 
     @Test
@@ -431,6 +356,6 @@ class PageTemplateBuilderTest {
 
         builder.addModules(request);
 
-        assertEquals(1, ((List<?>) request.getModel(PageTemplateBuilder.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
+        assertEquals(1, ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
     }
 }

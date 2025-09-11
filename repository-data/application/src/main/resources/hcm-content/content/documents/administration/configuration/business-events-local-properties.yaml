@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 8d478f61-acd2-4e7f-b040-597af695848e
   hippo:name: Local/Feature - Business Events
-  hippo:versionHistory: 87202b5e-c57f-4d79-91dc-f64d8003efbb
+  hippo:versionHistory: deaf3bc2-4893-40b9-950e-0be3ea5ec768
   /business-events-local-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,14 +13,14 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2025-02-15T23:34:00.768Z
+    hippostdpubwf:lastModificationDate: 2025-08-29T16:24:16.020+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '']
     resourcebundle:id: be.local.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
-      site-id]
+      site-id, feature.global-search.enable, feature.products-search.enable, feature.table-of-contents.enable]
     resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
-      be]
+      be, 'false', 'false', 'false']
   /business-events-local-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -30,14 +30,14 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2025-02-15T23:34:18.296Z
+    hippostdpubwf:lastModificationDate: 2025-08-29T16:25:09.123+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '']
     resourcebundle:id: be.local.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
-      site-id]
+      site-id, feature.global-search.enable, feature.products-search.enable, feature.table-of-contents.enable]
     resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
-      be]
+      be, 'false', 'false', 'false']
   /business-events-local-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -47,12 +47,12 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2025-02-15T23:34:18.296Z
+    hippostdpubwf:lastModificationDate: 2025-08-29T16:25:09.123+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-02-15T23:34:34.424Z
-    resourcebundle:descriptions: ['', '', '', '']
+    hippostdpubwf:publicationDate: 2025-08-29T16:25:11.654+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '']
     resourcebundle:id: be.local.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
-      site-id]
+      site-id, feature.global-search.enable, feature.products-search.enable, feature.table-of-contents.enable]
     resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
-      be]
+      be, 'false', 'false', 'false']

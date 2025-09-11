@@ -1,5 +1,6 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
+import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.Quote;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.FlatQuote;
@@ -14,13 +15,13 @@ import java.util.Locale;
 import java.util.Optional;
 
 @Component
-public class QuoteFactory {
+public class QuoteMapper {
 
     private final Logger contentLogger;
     private final ImageFactory imageFactory;
     private final LinkService linkService;
 
-    public QuoteFactory(ImageFactory imageFactory, LinkService linkService, ContentLogger contentLogger){
+    public QuoteMapper(ImageFactory imageFactory, LinkService linkService, ContentLogger contentLogger){
         this.imageFactory = imageFactory;
         this.linkService = linkService;
         this.contentLogger = contentLogger;

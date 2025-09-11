@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.IKnow;
 import com.visitscotland.brxm.model.FlatLink;
@@ -15,16 +15,17 @@ import org.springframework.stereotype.Component;
 
 import java.util.Locale;
 
+@Deprecated(forRemoval = true)
 @Component
-public class IKnowFactory {
+public class IKnowMapper {
 
-    private static final Logger logger = LoggerFactory.getLogger(IKnowFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(IKnowMapper.class);
 
     static final String BUNDLE_ID = "tourism.information";
 
     private final ResourceBundleService bundle;
 
-    public IKnowFactory(ResourceBundleService bundle){
+    public IKnowMapper(ResourceBundleService bundle){
         this.bundle = bundle;
     }
 

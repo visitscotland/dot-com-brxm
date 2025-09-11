@@ -5,13 +5,16 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
+import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.factory.ImageFactory;
+import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.hippobeans.capabilities.UrlLink;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -34,6 +37,9 @@ public class LinkService {
 
     private static final Logger logger = LoggerFactory.getLogger(LinkService.class);
 
+    //TODO: Use entry factory
+    static final String VL_ITINERARY_MAP = "vs-itinerary-transports";
+
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
     private final HippoUtilsService utils;
@@ -45,13 +51,14 @@ public class LinkService {
     private final Logger contentLogger;
     private final AssetLinkFactory assetLinkFactory;
     private final FileMetaDataCalculator fileMetaDataCalculator;
+    private final EntryMapper entryMapper;
 
     @Autowired
     public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils,
                        CMSProperties cmsProperties, SiteProperties siteProperties, ImageFactory imageFactory,
                        DocumentUtilsService documentUtilsService,
                        YoutubeApiService youtubeApiService, ContentLogger contentLogger,
-                       AssetLinkFactory assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator) {
+                       AssetLinkFactory assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator, EntryMapper entryMapper) {
 
         this.dmsData = dmsData;
         this.bundle = bundle;
@@ -64,6 +71,7 @@ public class LinkService {
         this.contentLogger = contentLogger;
         this.assetLinkFactory = assetLinkFactory;
         this.fileMetaDataCalculator = fileMetaDataCalculator;
+        this.entryMapper = entryMapper;
     }
 
     /**
@@ -499,6 +507,7 @@ public class LinkService {
             link.setItineraryDays(documentUtilsService.getSiblingDocuments(page, Day.class, "visitscotland:Day").size());
             if (itinerary.getTransports().length > 0) {
                 link.setItineraryTransport(itinerary.getTransports()[0]);
+                link.setItineraryMainTransport(getItineraryTransport(itinerary.getTransports()[0]));
             }
         }  else if (page instanceof GeneralBSH){
             GeneralBSH generalBSH = (GeneralBSH) page;
@@ -510,6 +519,10 @@ public class LinkService {
         }
 
         return link;
+    }
+
+    private Entry getItineraryTransport(String key) {
+        return entryMapper.getEntry(key, ValueList.VS_ITINERARY_TRANSPORT);
     }
 
     /**
@@ -599,7 +612,7 @@ public class LinkService {
         if (module == null || module.getHippoBean() == null){
             return "unknown";
         } else {
-            return module.getHippoBean().getPath();
+            return module.getDocumentPath();
         }
     }
 

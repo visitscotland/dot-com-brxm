@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.IKnow;
 import com.visitscotland.brxm.model.IKnowModule;
@@ -36,7 +36,7 @@ class IKnowFactoryTest {
     @Mock
     ResourceBundleService bundle;
 
-    IKnowFactory factory;
+    IKnowMapper factory;
 
     TouristInformationMockBuilder mockBuilder;
 
@@ -52,7 +52,7 @@ class IKnowFactoryTest {
 
     @BeforeEach
     void init() {
-        factory = new IKnowFactory(bundle);
+        factory = new IKnowMapper(bundle);
         mockBuilder = new TouristInformationMockBuilder().addIKnow();
 
     }
@@ -63,11 +63,11 @@ class IKnowFactoryTest {
         //Gets a null when there is no location defined
         //Verifies default values
         String location = "Edinburgh";
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID,"iknow.title.default", Locale.UK))
+        when(bundle.getResourceBundle(ICentreMapper.BUNDLE_ID,"iknow.title.default", Locale.UK))
                 .thenReturn("default title");
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID,"iknow.description.default", Locale.UK))
+        when(bundle.getResourceBundle(ICentreMapper.BUNDLE_ID,"iknow.description.default", Locale.UK))
                 .thenReturn("default description");
-        when(bundle.getResourceBundle(ICentreFactory.BUNDLE_ID,"iknow.link.label", Locale.UK))
+        when(bundle.getResourceBundle(ICentreMapper.BUNDLE_ID,"iknow.link.label", Locale.UK))
                 .thenReturn("link text");
 
         IKnowModule module = factory.getIKnowModule(mockBuilder.addIKnowDescription("").build().getIKnow(), location, Locale.UK);

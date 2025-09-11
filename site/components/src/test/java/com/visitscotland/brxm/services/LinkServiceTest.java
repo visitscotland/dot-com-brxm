@@ -6,7 +6,9 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
+import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.factory.ImageFactory;
+import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.mock.SharedLinkMockBuilder;
@@ -14,6 +16,7 @@ import com.visitscotland.brxm.mock.VideoMockBuilder;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.utils.*;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.core.container.ComponentManager;
@@ -74,6 +77,9 @@ class LinkServiceTest {
 
     @Mock
     private YoutubeApiService youtubeApiService;
+
+    @Mock
+    private EntryMapper entryMapper;
 
     @Mock
     ContentLogger logger;
@@ -771,4 +777,18 @@ class LinkServiceTest {
         Assertions.assertEquals("dms-image.jpg", link.getImage().getExternalImage());
     }
 
+    @Test
+    @DisplayName("tests successful retrieval of mapped display text")
+    void When_ValidTransportKeyExists_Expect_EntryWithMappedDisplayText(){
+        Itinerary itinerary = new MegalinksMockBuilder().getItinerary("bus");
+        when(documentUtilsService.getSiblingDocuments(itinerary,Day.class, "visitscotland:Day")).thenReturn(Arrays.asList(mock(Day.class), mock(Day.class)));
+        when(utils.createUrl(itinerary)).thenReturn("URL");
+        when(entryMapper.getEntry("bus", ValueList.VS_ITINERARY_TRANSPORT)).thenReturn(new Entry("bus", "Bus"));
+
+        EnhancedLink enhancedLink = service.createEnhancedLink(itinerary, null, Locale.UK, false).get();
+
+        assertNotNull(enhancedLink.getItineraryMainTransport());
+        assertEquals("bus", enhancedLink.getItineraryMainTransport().getKey());
+        assertEquals("Bus", enhancedLink.getItineraryMainTransport().getDisplayName());
+    }
 }

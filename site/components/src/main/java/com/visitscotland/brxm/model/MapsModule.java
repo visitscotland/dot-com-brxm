@@ -2,9 +2,10 @@ package com.visitscotland.brxm.model;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.visitscotland.brxm.hippobeans.MapModule;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
-public class MapsModule extends Module {
+public class MapsModule extends Module<MapModule> {
     private String id;
     private String title;
     private HippoHtml introduction;

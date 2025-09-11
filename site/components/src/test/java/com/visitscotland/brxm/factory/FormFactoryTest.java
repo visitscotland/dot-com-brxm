@@ -37,7 +37,6 @@ class FormFactoryTest {
         when(properties.getFormsMarketoUrl()).thenReturn("url");
         when(properties.getFormsMarketoMunchkin()).thenReturn("munchkin");
         when(properties.getFormsMarketoScript()).thenReturn("script.js");
-        when(properties.getFormsMarketoIsProduction()).thenReturn(true);
 
         FormModule module = marketoFormFactory.getModule(form);
 

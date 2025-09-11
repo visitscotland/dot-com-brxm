@@ -1,5 +1,6 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
+import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
@@ -9,6 +10,8 @@ import com.visitscotland.brxm.services.AssetLinkFactory;
 import com.visitscotland.brxm.services.FileMetaDataCalculator;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import org.apache.commons.io.FilenameUtils;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
@@ -18,13 +21,10 @@ import org.springframework.stereotype.Component;
 import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Calendar;
+import java.util.*;
 
 @Component
-public class ArticleFactory {
+public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
 
     private static final String STANDARD = "standard";
     private static final String ACCORDION = "accordion";
@@ -32,22 +32,22 @@ public class ArticleFactory {
     private static final String HORIZONTAL_LIST = "horizontal-list";
     private static final String IMAGE_LIST = "image-list";
     private static final String NUMBERED_LIST = "numbered-list";
-    private static final Logger log = LoggerFactory.getLogger(ArticleFactory.class);
+    private static final Logger log = LoggerFactory.getLogger(ArticleMapper.class);
 
     private final ImageFactory imageFactory;
     private final LinkService linkService;
-    private final QuoteFactory quoteEmbedder;
+    private final QuoteMapper quoteEmbedder;
     private final AnchorFormatter anchorFormatter;
     private final FileMetaDataCalculator fileMetaDataCalculator;
     private final AssetLinkFactory assetLinkFactory;
-    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy");
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
 
-    public ArticleFactory(ImageFactory imageFactory,
-                          QuoteFactory quoteEmbedder,
-                          LinkService linkService,
-                          AnchorFormatter anchorFormatter,
-                          FileMetaDataCalculator fileMetaDataCalculator,
-                          AssetLinkFactory assetLinkFactory) {
+    public ArticleMapper(ImageFactory imageFactory,
+                         QuoteMapper quoteEmbedder,
+                         LinkService linkService,
+                         AnchorFormatter anchorFormatter,
+                         FileMetaDataCalculator fileMetaDataCalculator,
+                         AssetLinkFactory assetLinkFactory) {
         this.imageFactory = imageFactory;
         this.quoteEmbedder = quoteEmbedder;
         this.linkService = linkService;
@@ -56,7 +56,17 @@ public class ArticleFactory {
         this.assetLinkFactory = assetLinkFactory;
     }
 
-    public ArticleModule getModule(HstRequest request, Article doc) {
+    @Override
+    void addLabels(PageCompositionHelper compositionHelper) {
+        compositionHelper.addAllSiteLabels("download");
+    }
+
+    @Override
+    ArticleModule map(Article document, PageCompositionHelper compositionHelper) throws PageCompositionException {
+        return getModule(document, compositionHelper.getLocale(), compositionHelper.isEditMode());
+    }
+
+    public ArticleModule getModule(Article doc, Locale locale, boolean editMode) {
         ArticleModule module = new ArticleModule();
 
         module.setTitle(doc.getTitle());
@@ -65,13 +75,13 @@ public class ArticleFactory {
 
         addSpecialFields(doc, module);
 
-        setImage(module, doc, request.getLocale());
+        setImage(module, doc, locale);
 
         module.setAnchor(anchorFormatter.getAnchorOrFallback(doc.getAnchor(), doc::getTitle));
 
-        setSections(module, doc, request.getLocale());
+        setSections(module, doc, locale);
 
-        if (isEditMode(request) && doc instanceof ArticleBSH) {
+        if (editMode && doc instanceof ArticleBSH) {
             // This validation is only required for Edit Mode
             validate(module);
         }
@@ -281,11 +291,6 @@ public class ArticleFactory {
                 return "";
             }
         }
-        return sdf.format(publishDate.getTime());
+        return dateFormat.format(publishDate.getTime());
     }
-
-    boolean isEditMode(HstRequest request) {
-        return Boolean.TRUE.equals(request.getAttribute("editMode"));
-    }
-
 }

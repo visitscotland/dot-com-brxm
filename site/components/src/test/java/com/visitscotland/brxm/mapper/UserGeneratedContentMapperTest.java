@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.Stackla;
 import com.visitscotland.brxm.mock.UserGeneratedContentMockBuilder;
@@ -16,10 +16,10 @@ import static org.mockito.Mockito.*;
 import java.util.Locale;
 
 @ExtendWith(MockitoExtension.class)
-class UserGeneratedContentFactoryTest {
+class UserGeneratedContentMapperTest {
 
     @InjectMocks
-    UserGeneratedContentFactory userGeneratedContentFactory;
+    UserGeneratedContentMapper userGeneratedContentMapper;
 
     @Mock
     ResourceBundleService bundle;
@@ -32,7 +32,7 @@ class UserGeneratedContentFactoryTest {
         Stackla stackla = new UserGeneratedContentMockBuilder().title("title").copy("copy").dataId("id").build();
         when(bundle.getResourceBundle(BUNDLE_ID, "ugc.no-cookies-message", Locale.UK)).thenReturn("no cookies");
         when(bundle.getResourceBundle(BUNDLE_ID, "ugc.no-js-message", Locale.UK)).thenReturn("no js");
-        UserGeneratedContentModule module = userGeneratedContentFactory.getUGCModule(stackla, Locale.UK);
+        UserGeneratedContentModule module = userGeneratedContentMapper.map(stackla, Locale.UK);
         Assertions.assertEquals("title", module.getTitle());
         Assertions.assertEquals("copy", module.getCopy().getContent());
         Assertions.assertEquals("id", module.getStorystreamId());
