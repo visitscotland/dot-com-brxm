@@ -173,7 +173,8 @@ public class MapFactory {
         } else if (destinationPage.getKeys() == null || !Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
             module.setMapType(MapType.CITIES.getMapType());
             geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
-            for (CitiesMapTab prodType : CitiesMapTab.values()) {
+
+          /*  for (CitiesMapTab prodType : CitiesMapTab.values()) {
                 //filters
                 ObjectNode filter = mapService.buildCategoryNode(prodType.getProdTypeId(), bundle.getResourceBundle(MAP, prodType.getLabel(), locale));
 
@@ -191,7 +192,7 @@ public class MapFactory {
                 ArrayNode childrenArray = dmsDataService.getCatGroup(prodType.getProdTypeId(),locale.getLanguage());
                 filter.set("subCategory",childrenArray);
                 keys.add(filter);
-            }
+            }*/
         }else{
             module.setMapType(MapType.REGIONAL.getMapType());
             //for multipolygon regions we need the bounds to get the zoom level.
