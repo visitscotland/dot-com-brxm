@@ -14,10 +14,25 @@ if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop.visitscotland.(com
     env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
     env.VS_RELEASE_SNAPSHOT = "FALSE"
     env.VS_PROXY_SERVER_FQDN = "develop.visitscotland.com"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop.visitscotland.(com|org)(-delivery-api)/develop")) {
+    echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+    thisAgent = "xvcdocker"
+    env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8089"
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
+    env.VS_RELEASE_SNAPSHOT = "FALSE"
+    env.VS_PROXY_SERVER_FQDN = "develop.visitscotland.com"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop-nightly.visitscotland.(com|org)(-mb)?/develop")) {
     echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
     thisAgent = "xvcdocker"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8098"
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
+    env.VS_CONTAINER_PRESERVE = "FALSE"
+    env.VS_PROXY_SERVER_FQDN = "develop-nightly.visitscotland.com"
+    cron_string = "@midnight"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop-nightly.visitscotland.(com|org)(-delivery-api)/develop")) {
+    echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+    thisAgent = "xvcdocker"
+    env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8088"
     env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
     env.VS_CONTAINER_PRESERVE = "FALSE"
     env.VS_PROXY_SERVER_FQDN = "develop-nightly.visitscotland.com"
@@ -34,10 +49,22 @@ if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop.visitscotland.(com
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
     env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
     env.VS_PROXY_SERVER_FQDN = "feature.visitscotland.com"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?feature.visitscotland.(com|org)(-delivery-api)/develop")) {
+    echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+    thisAgent = "xvcdocker"
+    env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8087"
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
+    env.VS_PROXY_SERVER_FQDN = "feature.visitscotland.com"
 } else if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements" && (JOB_NAME ==~ "^(.*/)?feature.visitscotland.(com|org)(-mb)?/ops%2Ffeature-environment(s)?-enhancements")) {
     echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
     thisAgent = "xvcdocker"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8091"
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
+    env.VS_PROXY_SERVER_FQDN = "feature.visitscotland.com"
+} else if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements" && (JOB_NAME ==~ "^(.*/)?feature.visitscotland.(com|org)(-delivery-api)/ops%2Ffeature-environment(s)?-enhancements")) {
+    echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+    thisAgent = "xvcdocker"
+    env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8081"
     env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
     env.VS_PROXY_SERVER_FQDN = "feature.visitscotland.com"
 } else {
