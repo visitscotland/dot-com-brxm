@@ -307,7 +307,7 @@ pipeline {
 					}
 				}
                 publishHTML target: [
-                    allowMissing: false,
+                    allowMissing: true,
                     alwaysLinkToLastBuild: false,
                     keepAll: false,
                     reportDir: env.VS_HTML_PUBLISHER_REPORT_DIR,
