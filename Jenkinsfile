@@ -279,6 +279,15 @@ pipeline {
 						echo "cannot load environment variables, file does not exist"
 					}
 				}
+                publishHTML target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: false,
+                    reportDir: env.VS_HTML_PUBLISHER_REPORT_DIR,
+                    reportFiles: env.VS_HTML_PUBLISHER_REPORT_FILE,
+                    reportName: 'VS Environment Details',
+                    reportTitles: ''
+                ]
 			}
 		} //end stage
 
