@@ -98,7 +98,7 @@ if (!env.VS_BRANCH_PROPERTIES_FILE && !env.CHANGE_BRANCH) {
 echo "==/Setting default environment variables"
 
 echo "== Setting default application variables"
-if (!env.VS_BRXM_DSSR_SITES) { env.VS_BRXM_DSSR_SITES = "feature-businessevents.visitscotland.com feature-support.visitscotland.org" }
+if (!env.VS_BRXM_DSSR_SITES) { env.VS_BRXM_DSSR_SITES = "feature.visitscotland.com feature-businessevents.visitscotland.com feature-support.visitscotland.org" }
 if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
 if (!env.VS_BRXM_BVC_SPA_URL) { env.VS_BRXM_BVC_SPA_URL = "https://feature-businessevents.visitscotland.com" }
 if (!env.VS_BRXM_SVO_SPA_URL) { env.VS_BRXM_SVO_SPA_URL = "https://feature-support.visitscotland.org" }
