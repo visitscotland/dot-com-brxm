@@ -15,11 +15,73 @@
             </noscript>
         <#else>
             <script>
+                // Checks if a given dataLayer event represents either Civic loading or cookie
+                // permissions updating, and fires off events for the component library.
+                const checkEvent = (event) => {
+                    if (event === 'cookie_permission_loaded') {
+                        setTimeout(() => {
+                            window.dispatchEvent(new Event('cookieManagerLoaded'));
+                        });
+                    }
+
+                    if (event === 'cookie_permission_changed') {
+                        setTimeout(() => {
+                            window.dispatchEvent(new Event('cookiesUpdated'));
+                        });
+                    }
+                }
+
+                // To avoid an awkward race condition, we need to check if civic was loaded before we find the
+                // datalayer, as well as listening for it being loaded afterwards.
+                const checkIfCivicLoaded = () => {
+                    for (let x = 0; x < window.dataLayer.length; x++) {
+                        const dataLayerEvent = window.dataLayer[x];
+
+                        const eventString = dataLayerEvent?.value?.event ?? dataLayerEvent?.event ?? '';
+
+                        checkEvent(eventString);
+                    }
+                };
+
+                const attachCivicEvents = (counter = 1) => {
+                    if (counter < 20) {
+                        if (typeof window !== 'undefined' && window.google_tag_manager) {
+                            checkIfCivicLoaded();
+
+                            // GTM can't call browser events directly, so we need to listen for events on the
+                            // datalayer and then latch our code onto those.
+                            const originalDataLayerPush = window.dataLayer.push;
+
+                            window.dataLayer.push = (arg) => {
+                                let res = null;
+
+                                if (arg) {
+                                    res = originalDataLayerPush(arg);
+                                } else {
+                                    return originalDataLayerPush();
+                                }
+
+                                const eventString = arg?.value?.event ?? arg?.event ?? '';
+
+                                checkEvent(eventString);
+
+                                return res;
+                            };
+                        } else {
+                            setTimeout(() => {
+                                attachCivicEvents(counter + 1);
+                            }, 500);
+                        }
+                    }
+                };
+
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '${queryString}';f.parentNode.insertBefore(j,f);
                 })(window,document,'script','dataLayer','${id}');
+
+                attachCivicEvents();
             </script>
         </#if>
     </#if>
@@ -27,7 +89,8 @@
 
     <#if (editMode) >
         <script>
-            window.bypassCookieChecks = true;
+            window.bypassCookiesRequired = true;
+            window.bypassCookiesLoaded = true;
         </script>
     </#if>
 </#macro>
