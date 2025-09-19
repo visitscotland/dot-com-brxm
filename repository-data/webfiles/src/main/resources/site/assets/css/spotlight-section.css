@@ -1,0 +1,8 @@
+/* Temporary fix for lack of whitespace between spotlight and content modules with grey backgrounds. Can be deleted when grey backgrounds have been removed from navigation pages */
+
+[class$="--grey"] + [id^="section-"]:has(.vs-spotlight-section) {
+    margin-top: 5rem;
+}
+[id^="section-"]:has(.vs-spotlight-section) + [id^="section-"]:has(> [class$="--grey"]) {
+    margin-top: 5rem;
+}
