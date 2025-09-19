@@ -1,27 +1,34 @@
 /hst:hst/hst:configurations/visitscotland/hst:workspace/hst:sitemenus/footer/footer.other-sites:
   jcr:primaryType: hst:sitemenuitem
+  jcr:uuid: 56ada9ee-b959-40b6-813c-32a954994555
   hst:repobased: false
   /footer.business-events:
     jcr:primaryType: hst:sitemenuitem
+    jcr:uuid: 54ab55e5-83d6-450b-a55f-1a6ee7413683
     hst:externallink: https://businessevents.visitscotland.com/
     hst:repobased: false
   /footer.business-support-hub:
     jcr:primaryType: hst:sitemenuitem
+    jcr:uuid: d96e5f0d-c2f0-4fa1-a9b0-a60c3645b8dc
     hst:externallink: https://support.visitscotland.org/
     hst:repobased: false
   /footer.travel-trade:
     jcr:primaryType: hst:sitemenuitem
+    jcr:uuid: 58149095-3ec7-4b65-aa57-c16c465f1aa9
     hst:externallink: https://traveltrade.visitscotland.org/
     hst:repobased: false
-  /footer.toolkit:
+  /footer.asset-library:
     jcr:primaryType: hst:sitemenuitem
-    hst:externallink: https://toolkit.visitscotland.org/
+    jcr:uuid: 9dbde697-58a2-4091-bb7d-6290a5ac094d
+    hst:externallink: https://visitscotland.canto.global/v/visitscotlandassetlibrary/
     hst:repobased: false
   /footer.corporate:
     jcr:primaryType: hst:sitemenuitem
+    jcr:uuid: d7e93dfc-a505-48f8-876d-b264f0393c1f
     hst:externallink: https://www.visitscotland.org/
     hst:repobased: false
   /footer.scotland-is-now:
     jcr:primaryType: hst:sitemenuitem
+    jcr:uuid: b5f9d909-2ecb-43d3-bfb8-2f09204e7165
     hst:externallink: https://www.scotland.org/
     hst:repobased: false
