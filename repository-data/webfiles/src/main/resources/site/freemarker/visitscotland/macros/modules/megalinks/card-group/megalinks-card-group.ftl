@@ -11,12 +11,6 @@
 
 <#macro cardGroup item theme>
     <#assign cardsPerRow = (item.layout == 'Grid 4')?then('4', '3') />
-<#include "../../../../../frontend/components/vs-card-group.ftl">
-<#include "../../../../../frontend/components/vs-card.ftl">
-<#include "../../../../../frontend/components/vs-img.ftl">
-<#include "../../../../../frontend/components/vs-heading.ftl">
-<#include "../../../../../frontend/components/vs-link.ftl">
-<#include "../../../../../frontend/components/vs-body.ftl">
    <vs-container>
         <vs-row>
             <vs-col>
