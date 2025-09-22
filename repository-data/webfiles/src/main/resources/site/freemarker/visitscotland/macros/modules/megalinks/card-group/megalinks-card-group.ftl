@@ -5,6 +5,9 @@
 <#include "../../../../../frontend/components/vs-heading.ftl">
 <#include "../../../../../frontend/components/vs-link.ftl">
 <#include "../../../../../frontend/components/vs-body.ftl">
+<#include "../../../../../frontend/components/vs-container.ftl">
+<#include "../../../../../frontend/components/vs-row.ftl">
+<#include "../../../../../frontend/components/vs-col.ftl">
 
 <#macro cardGroup item theme>
     <#assign cardsPerRow = (item.layout == 'Grid 4')?then('4', '3') />
@@ -14,11 +17,7 @@
 <#include "../../../../../frontend/components/vs-heading.ftl">
 <#include "../../../../../frontend/components/vs-link.ftl">
 <#include "../../../../../frontend/components/vs-body.ftl">
-<#include "../../../../../frontend/components/vs-container.ftl">
-<#include "../../../../../frontend/components/vs-row.ftl">
-<#include "../../../../../frontend/components/vs-col.ftl">
-
-    <vs-container>
+   <vs-container>
         <vs-row>
             <vs-col>
                 <vs-card-group scroll-snap cards-per-row="${cardsPerRow}">
