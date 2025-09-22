@@ -11,7 +11,7 @@
 
 <#macro cardGroup item theme>
     <#assign cardsPerRow = (item.layout == 'Grid 4')?then('4', '3') />
-   <vs-container>
+    <vs-container>
         <vs-row>
             <vs-col>
                 <vs-card-group scroll-snap cards-per-row="${cardsPerRow}">
