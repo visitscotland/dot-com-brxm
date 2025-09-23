@@ -26,5 +26,6 @@
 
         <link rel="stylesheet" href="<@hst.webfile path='/assets/css/fouc.css'/>" type="text/css"/>
         <link rel="stylesheet" href="<@hst.webfile path='/assets/css/personalisation.css'/>" type="text/css"/>
+        <link rel="stylesheet" href="<@hst.webfile path='/assets/css/spotlight-section.css'/>" type="text/css"/>
     </#compress>
 </#macro>
