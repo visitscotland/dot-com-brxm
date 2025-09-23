@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.hippobeans.LongCopy;
+import com.visitscotland.brxm.mapper.LongCopyMapper;
 import com.visitscotland.brxm.model.LongCopyModule;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.junit.jupiter.api.Assertions;
@@ -17,7 +18,7 @@ import static org.mockito.Mockito.*;
 class LongCopyTest {
 
     @InjectMocks
-    LongCopyFactory factory;
+    LongCopyMapper factory;
 
     @Test
     @DisplayName("LongCopy - Create a LongCopy module")

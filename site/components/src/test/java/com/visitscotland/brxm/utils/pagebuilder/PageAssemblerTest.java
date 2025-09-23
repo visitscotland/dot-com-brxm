@@ -1,15 +1,11 @@
 package com.visitscotland.brxm.utils.pagebuilder;
 
 import com.visitscotland.brxm.hippobeans.*;
-import com.visitscotland.brxm.mapper.ArticleMapper;
-import com.visitscotland.brxm.mapper.ICentreMapper;
-import com.visitscotland.brxm.mapper.MegalinkMapper;
-import com.visitscotland.brxm.mapper.PreviewWarningMapper;
+import com.visitscotland.brxm.mapper.*;
 import com.visitscotland.brxm.mock.LinksModuleMockBuilder;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.*;
-import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -51,7 +47,7 @@ class PageAssemblerTest {
     ArticleMapper articleMapper;
 
     @Mock
-    LongCopyFactory longCopyFactory;
+    LongCopyMapper longCopyMapper;
 
     @Mock
     DocumentUtilsService utils;
@@ -300,7 +296,7 @@ class PageAssemblerTest {
         request.setModel("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
-        when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
+        when(longCopyMapper.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
 
         builder.addModules(request);
 
@@ -352,7 +348,7 @@ class PageAssemblerTest {
         request.setModel("document", page);
 
         when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
-        when(longCopyFactory.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
+        when(longCopyMapper.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
 
         builder.addModules(request);
 

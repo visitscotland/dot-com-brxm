@@ -51,7 +51,7 @@ public class PageAssembler {
     private final SkiCentreListMapper skiCentreListMapper;
     private final DevModuleMapper devModuleMapper;
 
-    private final LongCopyFactory longCopyFactory;
+    private final LongCopyMapper longCopyMapper;
     private final CannedSearchFactory cannedSearchFactory;
     private final FormFactory formFactory;
     private final SignpostFactory signPostFactory;
@@ -65,7 +65,7 @@ public class PageAssembler {
 
     @Autowired
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
-                         IKnowMapper iKnowMapper, ArticleMapper articleMapper, LongCopyFactory longCopyFactory,
+                         IKnowMapper iKnowMapper, ArticleMapper articleMapper, LongCopyMapper longCopyMapper,
                          UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
                          CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewWarningMapper, FormFactory marketoFormFactory,
                          MapModuleMapper mapModuleMapper, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
@@ -76,7 +76,7 @@ public class PageAssembler {
         this.iCentreMapper = iCentreMapper;
         this.iKnowMapper = iKnowMapper;
         this.articleMapper = articleMapper;
-        this.longCopyFactory = longCopyFactory;
+        this.longCopyMapper = longCopyMapper;
         this.userGeneratedContentMapper = userGeneratedContentMapper;
         this.travelInformationMapper = travelInformationMapper;
         this.cannedSearchFactory = cannedSearchFactory;
@@ -201,7 +201,7 @@ public class PageAssembler {
                 logger.error("Only one instance of Long Module is allowed");
                 compositionHelper.addModule(new ErrorModule(document, "Only one instance of Long Module module is allowed"));
             } else {
-                compositionHelper.addModule(longCopyFactory.getModule(document));
+                compositionHelper.addModule(longCopyMapper.getModule(document));
             }
         } else {
             logger.error("The document type LongCopy is only allowed in Simple Pages");
