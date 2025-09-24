@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.utils.pagebuilder;
 
-import com.visitscotland.brxm.components.content.GeneralContentComponent;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.factory.event.EventsListingFactory;
 import com.visitscotland.brxm.hippobeans.*;
@@ -105,7 +104,11 @@ public class PageAssembler {
                 logger.debug("A {} module was found. Type {}", item.getClass(), item.getPath());
                 addModule(request, page, item);
             } catch (PageCompositionException e){
-                logger.error(e.getMessage());
+                if (e instanceof InvalidContentException){
+                    contentLogger.error(e.getMessage());
+                } else {
+                    logger.error(e.getMessage());
+                }
                 page.addModule(previewWarningMapper.createErrorModule(item, e.getMessage()));
             } catch (RuntimeException e) {
                 // Note: This exception should not happen. We are catching it for the sake of recoverability
@@ -167,9 +170,6 @@ public class PageAssembler {
 
     /**
      * TODO: Marketo need to be retired before re
-     * @param request
-     * @param form
-     * @return
      */
     private FormModule getForm(HstRequest request, BaseDocument form){
 
