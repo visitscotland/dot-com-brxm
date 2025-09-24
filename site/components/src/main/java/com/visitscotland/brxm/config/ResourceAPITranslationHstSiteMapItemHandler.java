@@ -32,7 +32,7 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
      */
     @Override
     public ResolvedSiteMapItem process(final ResolvedSiteMapItem resolvedSiteMapItem, final HttpServletRequest httpServletRequest, final HttpServletResponse httpServletResponse) throws HstSiteMapItemHandlerException {
-        if (!isPageNotFound(resolvedSiteMapItem) || !isEnglishSite(resolvedSiteMapItem)){
+        if (isEnglishSite(resolvedSiteMapItem) || !isPageNotFound(resolvedSiteMapItem)){
             return resolvedSiteMapItem;
         }
         try {
@@ -51,8 +51,15 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
         return resolvedSiteMapItem;
     }
 
+    /**
+     * Checks if the sitemap item is in the english site mount
+     */
     private boolean isEnglishSite(ResolvedSiteMapItem resolvedSiteMapItem) {
-        return resolvedSiteMapItem.getResolvedMount().getResolvedMountPath().equals(ENGLISH_ROOT_PATH);
+        if (resolvedSiteMapItem == null || resolvedSiteMapItem.getResolvedMount() == null) {
+             return false;
+        }
+        String mountPath = resolvedSiteMapItem.getResolvedMount().getResolvedMountPath();
+        return ENGLISH_ROOT_PATH.equals(mountPath);
     }
     /**
      * Alters the context of the request to check if the page would be available in the main site mount
@@ -60,11 +67,12 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
     private boolean isPageNotFound(ResolvedMount mount, ResolvedSiteMapItem siteMapItem) {
         HstMutableRequestContext requestContext = (HstMutableRequestContext) RequestContextProvider.get();
         ResolvedMount originalMount = requestContext.getResolvedMount();
-        requestContext.setResolvedMount(mount);
-        boolean isNotFound = isPageNotFound(siteMapItem);
-        requestContext.setResolvedMount(originalMount);
-
-        return isNotFound;
+        try {
+            requestContext.setResolvedMount(mount);
+            return isPageNotFound(siteMapItem);
+        } finally {
+            requestContext.setResolvedMount(originalMount);
+        }
     }
 
     private boolean isPageNotFound(ResolvedSiteMapItem resolvedSiteMapItem) {
@@ -83,8 +91,12 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
     }
 
     @Override
-    public void init(ServletContext servletContext, SiteMapItemHandlerConfiguration siteMapItemHandlerConfiguration) {}
+    public void init(ServletContext servletContext, SiteMapItemHandlerConfiguration siteMapItemHandlerConfiguration) {
+        logger.debug("Initialising ResourceAPITranslationHstSiteMapItemHandler");
+    }
 
     @Override
-    public void destroy() {}
+    public void destroy() {
+        logger.debug("Destroying ResourceAPITranslationHstSiteMapItemHandler");
+    }
 }
