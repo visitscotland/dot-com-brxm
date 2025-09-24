@@ -4,13 +4,11 @@ import com.visitscotland.brxm.components.content.GeneralContentComponent;
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.LongCopy;
 import com.visitscotland.brxm.hippobeans.Page;
-import com.visitscotland.brxm.model.ErrorModule;
 import com.visitscotland.brxm.model.LongCopyModule;
 import com.visitscotland.brxm.utils.pagebuilder.InvalidContentException;
 import com.visitscotland.brxm.utils.pagebuilder.PageAssembler;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
-import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -29,7 +27,7 @@ public class LongCopyMapper extends ModuleMapper<LongCopy, LongCopyModule> {
 
     @Override
     LongCopyModule map(LongCopy document, PageCompositionHelper compositionHelper) throws PageCompositionException {
-        validate(compositionHelper);
+        validate(document, compositionHelper);
         return getModule(document);
     }
 
@@ -45,14 +43,14 @@ public class LongCopyMapper extends ModuleMapper<LongCopy, LongCopyModule> {
      * @param compositionHelper
      * @throws PageCompositionException
      */
-    private void validate(PageCompositionHelper compositionHelper) throws PageCompositionException {
+    private void validate(LongCopy document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         Page page = compositionHelper.getPage();
         if (page instanceof General && ((General) page).getTheme().equals(GeneralContentComponent.SIMPLE)){
             if (compositionHelper.getModules().stream().anyMatch(LongCopyModule.class::isInstance)){
-                throw new InvalidContentException("Only one instance of Long Module module is allowed");
+                throw new InvalidContentException(document.getPath(), "Only one instance of Long Module module is allowed");
             }
         } else {
-            throw new InvalidContentException("The document type LongCopy is not allowed in this type of page. Path " + page.getPath());
+            throw new InvalidContentException(document.getPath(), "The document type LongCopy is not allowed in this type of page. Path " + page.getPath());
         }
     }
 }

@@ -43,8 +43,8 @@ public class SpotlightMapper extends ModuleMapper<CTABanner, SignpostModule> {
         FlatLink cta = linkService.createSimpleLink(linkable, module, null);
 
         if (Contract.isNull(cta.getLink())) {
-            throw new InvalidContentException(String.format(
-                    "The link for the CTA banner %s is not available. The module has been hidden", ctaBanner.getPath()));
+            throw new InvalidContentException(ctaBanner.getPath(),
+                    "The link for the CTA banner is not available. The module has been hidden");
         }
 
         if (!Contract.isEmpty(ctaBanner.getCtaLink().getLabel())) {
