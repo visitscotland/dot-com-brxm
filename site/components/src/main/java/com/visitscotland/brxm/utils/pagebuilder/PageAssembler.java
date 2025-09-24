@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.utils.pagebuilder;
 
 import com.visitscotland.brxm.factory.*;
-import com.visitscotland.brxm.factory.event.EventsListingFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.*;
 import com.visitscotland.brxm.model.*;
@@ -54,7 +53,7 @@ public class PageAssembler {
     private final CannedSearchFactory cannedSearchFactory;
     private final FormFactory formFactory;
     private final SignpostFactory signPostFactory;
-    private final EventsListingFactory eventsListingFactory;
+    private final EventsListingMapper eventsListingMapper;
 
     private final SiteProperties properties;
 
@@ -69,7 +68,7 @@ public class PageAssembler {
                          CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewWarningMapper, FormFactory marketoFormFactory,
                          MapModuleMapper mapModuleMapper, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
-                         SignpostFactory signPostFactory, EventsListingFactory eventsListingFactory) {
+                         SignpostFactory signPostFactory, EventsListingMapper eventsListingFactory) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
         this.iCentreMapper = iCentreMapper;
@@ -89,7 +88,7 @@ public class PageAssembler {
         this.bundle = bundle;
         this.contentLogger = contentLogger;
         this.signPostFactory = signPostFactory;
-        this.eventsListingFactory = eventsListingFactory;
+        this.eventsListingMapper = eventsListingFactory;
     }
 
     private Page getDocument(HstRequest request) {
@@ -155,17 +154,10 @@ public class PageAssembler {
         } else if (item instanceof CTABanner){
             compositionHelper.addModule(signPostFactory.createModule((CTABanner) item));
         } else if (item instanceof EventsListing){
-            compositionHelper.addModule(getEventListingModule(request, (EventsListing) item));
+            eventsListingMapper.include((EventsListing) item, compositionHelper);
         } else {
             throw new PageCompositionException(item.getPath(), String.format("Unrecognized Module Type: %s", item.getClass()));
         }
-    }
-
-    private EventsLingsModule  getEventListingModule(HstRequest request,EventsListing document) {
-        addAllLabels(request,"events-listings-module");
-        addAllSiteLabels(request, "essentials.pagination");
-
-        return eventsListingFactory.createModule(document);
     }
 
     /**

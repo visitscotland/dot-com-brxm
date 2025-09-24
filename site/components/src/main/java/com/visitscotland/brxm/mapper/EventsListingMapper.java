@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory.event;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.EventsListing;
 import com.visitscotland.brxm.model.EventsLingsModule;
@@ -8,17 +8,20 @@ import com.visitscotland.brxm.model.event.EventsListingTab;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.CMSProperties;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.stream.Collectors;
 
 import static com.visitscotland.brxm.event.EventSearchParameters.*;
 
 @Component
-public class EventsListingFactory {
+public class EventsListingMapper extends ModuleMapper<EventsListing, EventsLingsModule> {
 
     //Endpoints
     private final static String BASE_ENDPOINT_TRAINING = "/api/bsh/events-search/training";
@@ -54,7 +57,7 @@ public class EventsListingFactory {
     private final CMSProperties cmsProperties;
 
 
-    public EventsListingFactory(HippoUtilsService hippoUtilsService, ResourceBundleService bundle,
+    public EventsListingMapper(HippoUtilsService hippoUtilsService, ResourceBundleService bundle,
             CMSProperties cmsProperties) {
         this.hippoUtilsService = hippoUtilsService;
         this.bundle = bundle;
@@ -195,5 +198,16 @@ public class EventsListingFactory {
     private String getLabel(String key) {
         //TODO: Should we use RequestContextProvider.get().getPreferredLocale() ?
         return bundle.getResourceBundle(BUNDLE, key, Locale.UK);
+    }
+
+    @Override
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        compositionHelper.addAllSiteLabels("events-listings-module");
+        compositionHelper.addAllSiteLabels("essentials.pagination");
+    }
+
+    @Override
+    EventsLingsModule map(EventsListing document, PageCompositionHelper compositionHelper) throws PageCompositionException {
+        return createModule(document);
     }
 }
