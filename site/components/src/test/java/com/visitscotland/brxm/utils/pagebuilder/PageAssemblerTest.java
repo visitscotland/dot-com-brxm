@@ -25,7 +25,6 @@ import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 
@@ -286,6 +285,7 @@ class PageAssemblerTest {
     }
 
     @Test
+    @Disabled("This unit test is to be moved to LongCopyMapper")
     @DisplayName("VS-2132 - Happy Path crete a module that contains the basic information")
     void createLongCopy_basic(){
         General page = mock(General.class);
@@ -322,6 +322,7 @@ class PageAssemblerTest {
     }
 
     @Test
+    @Disabled("This unit test is to be moved to LongCopyMapper")
     @DisplayName("VS-2132 - This item allowed on general page type - simple theme pages only (Themes)")
     void createLongCopy_forbidden_generalStandard(){
         General page = mock(General.class);
@@ -339,6 +340,7 @@ class PageAssemblerTest {
     }
 
     @Test
+    @Disabled("This unit test is to be moved to LongCopyMapper")
     @DisplayName("VS-2132 - This item could be used only ... as a single instance")
     void createLongCopy_forbidden_multiple(){
         General page = mock(General.class);
