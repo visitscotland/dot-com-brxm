@@ -16,6 +16,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Deprecated
 public class TranslationHstSiteMapItemHandler implements HstSiteMapItemHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(TranslationHstSiteMapItemHandler.class);
