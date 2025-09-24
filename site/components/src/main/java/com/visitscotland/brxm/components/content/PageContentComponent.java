@@ -2,6 +2,7 @@ package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.*;
+import com.visitscotland.brxm.factory.NewsletterFactory;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.mapper.MegalinkMapper;
@@ -73,7 +74,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     protected final MegalinkMapper megalinkMapper;
     private final ImageFactory imageFactory;
     private final LinkService linksService;
-    private final SignpostFactory signpostFactory;
+    private final NewsletterFactory newsletterFactory;
     private final ProductSearchWidgetFactory psrFactory;
     private final PreviewWarningMapper previewMapper;
     private final ResourceBundleService bundle;
@@ -86,7 +87,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         blogFactory = VsComponentManager.get(BlogFactory.class);
         megalinkMapper = VsComponentManager.get(MegalinkMapper.class);
         imageFactory = VsComponentManager.get(ImageFactory.class);
-        signpostFactory = VsComponentManager.get(SignpostFactory.class);
+        newsletterFactory = VsComponentManager.get(NewsletterFactory.class);
         linksService = VsComponentManager.get(LinkService.class);
         psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
         previewMapper = VsComponentManager.get(PreviewWarningMapper.class);
@@ -318,9 +319,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
             Optional<SignpostModule> signpost;
             if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
-                signpost = signpostFactory.createSnowAlertsModule(request.getLocale());
+                signpost = newsletterFactory.createSnowAlertsModule(request.getLocale());
             } else {
-                signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
+                signpost = newsletterFactory.createNewsletterSignpostModule(request.getLocale());
             }
 
             if (signpost.isPresent()) {

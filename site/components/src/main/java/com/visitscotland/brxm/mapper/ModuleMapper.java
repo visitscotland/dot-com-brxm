@@ -17,7 +17,7 @@ import java.util.MissingResourceException;
  * @param <H> The HippoBean type handled by this mapper
  * @param <M> The Module type produced by this mapper
  */
-abstract class ModuleMapper<H extends BaseDocument, M extends Module<H>> {
+abstract class ModuleMapper<H extends BaseDocument, M extends Module<?>> {
 
     private static final Logger logger = LoggerFactory.getLogger(ModuleMapper.class);
 

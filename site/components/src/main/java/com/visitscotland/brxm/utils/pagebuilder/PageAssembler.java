@@ -52,7 +52,7 @@ public class PageAssembler {
     private final LongCopyMapper longCopyMapper;
     private final CannedSearchFactory cannedSearchFactory;
     private final FormFactory formFactory;
-    private final SignpostFactory signPostFactory;
+    private final SpotlightMapper spotlightMapper;
     private final EventsListingMapper eventsListingMapper;
 
     private final SiteProperties properties;
@@ -68,7 +68,7 @@ public class PageAssembler {
                          CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewWarningMapper, FormFactory marketoFormFactory,
                          MapModuleMapper mapModuleMapper, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
-                         SignpostFactory signPostFactory, EventsListingMapper eventsListingFactory) {
+                         SpotlightMapper spotlightMapper, EventsListingMapper eventsListingFactory) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
         this.iCentreMapper = iCentreMapper;
@@ -87,7 +87,7 @@ public class PageAssembler {
         this.properties = properties;
         this.bundle = bundle;
         this.contentLogger = contentLogger;
-        this.signPostFactory = signPostFactory;
+        this.spotlightMapper = spotlightMapper;
         this.eventsListingMapper = eventsListingFactory;
     }
 
@@ -152,7 +152,7 @@ public class PageAssembler {
         } else if (item instanceof DevModule){
             devModuleMapper.include((DevModule) item, compositionHelper);
         } else if (item instanceof CTABanner){
-            compositionHelper.addModule(signPostFactory.createModule((CTABanner) item));
+            spotlightMapper.include((CTABanner) item, compositionHelper);
         } else if (item instanceof EventsListing){
             eventsListingMapper.include((EventsListing) item, compositionHelper);
         } else {

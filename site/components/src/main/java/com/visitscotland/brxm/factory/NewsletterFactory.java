@@ -23,29 +23,20 @@ import java.util.Locale;
 import java.util.Optional;
 
 @Component
-public class SignpostFactory {
+public class NewsletterFactory {
 
     private static final String BUNDLE_ID = "newsletter-signpost";
 
-    private final Logger contentLogger;
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private final HippoUtilsService hippoUtilsService;
-    private final LinkService linkService;
-    private final AnchorFormatter anchorFormatter;
 
-    public SignpostFactory(ResourceBundleService bundle,
-                           SiteProperties properties,
-                           HippoUtilsService hippoUtilsService,
-                           LinkService linkService,
-                           AnchorFormatter anchorFormatter,
-                           ContentLogger contentLogger) {
+    public NewsletterFactory(ResourceBundleService bundle,
+                             SiteProperties properties,
+                             HippoUtilsService hippoUtilsService) {
         this.bundle = bundle;
         this.properties = properties;
         this.hippoUtilsService = hippoUtilsService;
-        this.linkService = linkService;
-        this.anchorFormatter = anchorFormatter;
-        this.contentLogger = contentLogger;
     }
 
     public Optional<SignpostModule> createNewsletterSignpostModule(Locale locale) {
@@ -85,35 +76,5 @@ public class SignpostFactory {
         signpostModule.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(BUNDLE_ID, prefix + ".copy", locale)));
 
         return Optional.of(signpostModule);
-    }
-
-    public Module<?> createModule(CTABanner ctaBanner) {
-        SignpostModule module = new SignpostModule();
-        Linkable linkable = (Linkable) ctaBanner.getCtaLink().getLink();
-        FlatLink cta = linkService.createSimpleLink(linkable, module, null);
-
-        if (Contract.isNull(cta.getLink())) {
-            contentLogger.warn(String.format(
-                    "The link for the CTA banner %s is not available. The module has been hidden", ctaBanner.getPath()));
-            return new ErrorModule(ctaBanner,
-                    "The link for the CTA banner is not available. The module has been hidden");
-        }
-
-        if (!Contract.isEmpty(ctaBanner.getCtaLink().getLabel())) {
-            cta.setLabel(ctaBanner.getCtaLink().getLabel());
-        }
-
-        FlatImage image = new FlatImage();
-        image.setCmsImage(ctaBanner.getImage());
-
-        module.setCta(cta);
-        module.setImage(image);
-        module.setTitle(ctaBanner.getTitle());
-        module.setCopy(ctaBanner.getIntroduction());
-        module.setHippoBean(ctaBanner);
-        module.setNested(Boolean.TRUE.equals(ctaBanner.getNested()));
-        module.setAnchor(anchorFormatter.getAnchorOrFallback(ctaBanner.getAnchor(), ctaBanner::getTitle));
-
-        return module;
     }
 }
