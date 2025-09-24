@@ -50,7 +50,8 @@ public class PageAssembler {
     private final DevModuleMapper devModuleMapper;
 
     private final LongCopyMapper longCopyMapper;
-    private final CannedSearchFactory cannedSearchFactory;
+    private final CannedSearchMapper cannedSearchFactory;
+    private final CannedSearchDMSMapper cannedSearchDmsFactory;
     private final FormMapper formMapper;
     private final SpotlightMapper spotlightMapper;
     private final EventsListingMapper eventsListingMapper;
@@ -65,10 +66,10 @@ public class PageAssembler {
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
                          IKnowMapper iKnowMapper, ArticleMapper articleMapper, LongCopyMapper longCopyMapper,
                          UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
-                         CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewWarningMapper, FormMapper marketoFormMapper,
+                         CannedSearchMapper cannedSearchFactory, PreviewWarningMapper previewWarningMapper, FormMapper marketoFormMapper,
                          MapModuleMapper mapModuleMapper, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
-                         SpotlightMapper spotlightMapper, EventsListingMapper eventsListingFactory) {
+                         SpotlightMapper spotlightMapper, EventsListingMapper eventsListingFactory, CannedSearchDMSMapper cannedSearchDMSFactory) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
         this.iCentreMapper = iCentreMapper;
@@ -89,6 +90,7 @@ public class PageAssembler {
         this.contentLogger = contentLogger;
         this.spotlightMapper = spotlightMapper;
         this.eventsListingMapper = eventsListingFactory;
+        this.cannedSearchDmsFactory = cannedSearchDMSFactory;
     }
 
     private Page getDocument(HstRequest request) {
@@ -140,9 +142,9 @@ public class PageAssembler {
         } else if (item instanceof TravelInformation) {
             travelInformationMapper.include((TravelInformation) item, compositionHelper);
         } else if (item instanceof CannedSearch) {
-            compositionHelper.addModule(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
+            cannedSearchDmsFactory.include((CannedSearch) item, compositionHelper);
         } else if (item instanceof CannedSearchTours) {
-            compositionHelper.addModule(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
+            cannedSearchFactory.include((CannedSearchTours) item, compositionHelper);
         } else if (item instanceof MarketoForm) {
             throw new PageCompositionException(item.getPath(), "Marketo Forms are not currently supported");
         } else if (item instanceof Form) {
@@ -221,23 +223,5 @@ public class PageAssembler {
         if(firstModule.isPresent() && firstModule.get() instanceof LinksModule){
             request.setModel(INTRO_THEME, ((LinksModule<?>) firstModule.get()).getThemeIndex());
         }
-    }
-
-    private Map<String, Map<String, String>> labels(HstRequest request) {
-        if (request.getModel(LABELS) == null) {
-            Map<String, Map<String, String>> labels = new HashMap<>();
-            request.setModel(LABELS, labels);
-            return labels;
-        }
-
-        return request.getModel(LABELS);
-    }
-
-    private void addAllLabels(HstRequest request, String bundleName) {
-        labels(request).put(bundleName, bundle.getAllLabels(bundleName, request.getLocale()));
-    }
-
-    private void addAllSiteLabels(HstRequest request, String bundleName) {
-        labels(request).put(bundleName, bundle.getAllLabels(bundleName, request.getLocale()));
     }
 }

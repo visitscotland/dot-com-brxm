@@ -5,6 +5,8 @@ import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.hippobeans.*;
+import com.visitscotland.brxm.mapper.CannedSearchDMSMapper;
+import com.visitscotland.brxm.mapper.CannedSearchMapper;
 import com.visitscotland.brxm.mock.CannedSearchMockBuilder;
 import com.visitscotland.brxm.mock.CannedSearchToursMockBuilder;
 import com.visitscotland.brxm.model.*;
@@ -12,11 +14,10 @@ import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.pagebuilder.InvalidContentException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import org.hippoecm.hst.core.container.ComponentManager;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Answers;
 import org.mockito.InjectMocks;
@@ -29,7 +30,7 @@ import java.util.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class CannedSearchFactoryTest {
+class CannedSearchMapperTest {
 
     @Mock
     LinkService linkService;
@@ -47,7 +48,10 @@ class CannedSearchFactoryTest {
     ContentLogger logger;
 
     @InjectMocks
-    CannedSearchFactory factory;
+    CannedSearchMapper mapper;
+
+    @InjectMocks
+    CannedSearchDMSMapper dmsMapper;
 
     private static final String BUNDLE_ID = "canned-search";
     private static final String PSR_URL = "canned-search";
@@ -76,7 +80,7 @@ class CannedSearchFactoryTest {
         when(linkService.createFindOutMoreLink(any(), any(), any())).thenReturn(flatLink);
         when(dmsData.cannedSearchHasResults(any())).thenReturn(true);
 
-        CannedSearchModule module = factory.getCannedSearchModule(cannedSearch, Locale.UK);
+        CannedSearchModule module = dmsMapper.getCannedSearchModule(cannedSearch, Locale.UK);
 
         Assertions.assertEquals("default cta", module.getViewAllLink().getLabel());
         Assertions.assertNull(module.getCredit());
@@ -95,7 +99,7 @@ class CannedSearchFactoryTest {
         when(linkService.createFindOutMoreLink(any(), any(), any())).thenReturn(flatLink);
         when(dmsData.cannedSearchHasResults(any())).thenReturn(false);
 
-        CannedSearchModule module = factory.getCannedSearchModule(cannedSearch, Locale.UK);
+        CannedSearchModule module = dmsMapper.getCannedSearchModule(cannedSearch, Locale.UK);
 
         Assertions.assertTrue(module.getErrorMessages().size()>0);
     }
@@ -109,7 +113,7 @@ class CannedSearchFactoryTest {
 
         when(linkService.createFindOutMoreLink(any(), any(), any())).thenReturn(flatLink);
 
-        CannedSearchModule module = factory.getCannedSearchModule(cannedSearch, Locale.UK);
+        CannedSearchModule module = dmsMapper.getCannedSearchModule(cannedSearch, Locale.UK);
 
         Assertions.assertEquals("View all castles", module.getViewAllLink().getLabel());
         Assertions.assertEquals(PSR_URL, module.getCannedSearchEndpoint());
@@ -129,7 +133,7 @@ class CannedSearchFactoryTest {
 
         when((linkService).createFindOutMoreLink(any(), any(), any())).thenReturn(flatLink);
 
-        CannedSearchModule module = factory.getCannedSearchModule(cannedSearch, Locale.UK);
+        CannedSearchModule module = dmsMapper.getCannedSearchModule(cannedSearch, Locale.UK);
 
         Assertions.assertEquals("default cta", module.getViewAllLink().getLabel());
         Assertions.assertEquals("credit", module.getCredit());
@@ -138,7 +142,7 @@ class CannedSearchFactoryTest {
 
     @DisplayName("Canned search tours")
     @Test
-    void cannedSearchTours() {
+    void cannedSearchTours() throws PageCompositionException {
         CannedSearchTours tours = new CannedSearchToursMockBuilder()
                 .toursSearch("https://visitscotland.com?prodtypes=tour&origins%5B%5D=edinburgh&when=february&source=tms")
                 .title("title").copy("copy").viewAllCta("viewAllCta").build();
@@ -146,7 +150,7 @@ class CannedSearchFactoryTest {
         when(linkService.createExternalLink("https://visitscotland.com?prodtypes=tour&origins%5B%5D=edinburgh&when=february&source=tms",null)).thenReturn(new FlatLink());
         when(properties.getDmsDataPublicHost()).thenReturn("http://dms-host");
 
-        CannedSearchModule module = factory.getCannedSearchToursModule(tours, Locale.UK);
+        CannedSearchModule module = mapper.getCannedSearchToursModule(tours, Locale.UK);
 
         String expectedDmsUrl = "http://dms-host" + DMSConstants.VS_DMS_CANNED_SEARCH_TOURS + "?prodtypes=tour&origins%5B%5D=edinburgh&when=february&source=tms&locale=en-GB&limit=24";
         Assertions.assertEquals("title", module.getTitle());
@@ -157,7 +161,7 @@ class CannedSearchFactoryTest {
 
     @DisplayName("When no CTA override label chosen for tours, then default used instead")
     @Test
-    void cannedSearchTorus_defaultCtaLabel() {
+    void cannedSearchTorus_defaultCtaLabel() throws PageCompositionException {
         when(bundle.getResourceBundle(BUNDLE_ID, "canned-search.listview", Locale.UK))
                 .thenReturn("default cta");
 
@@ -168,17 +172,17 @@ class CannedSearchFactoryTest {
         when(linkService.createExternalLink(any(),any())).thenReturn(new FlatLink());
         when(properties.getDmsDataPublicHost()).thenReturn("http://dms-host");
 
-        CannedSearchModule module = factory.getCannedSearchToursModule(tours, Locale.UK);
+        CannedSearchModule module = mapper.getCannedSearchToursModule(tours, Locale.UK);
 
         Assertions.assertEquals("default cta", module.getViewAllLink().getLabel());
     }
 
-    @DisplayName("If invalid tours search url provided, then null returned")
+    @DisplayName("If invalid tours search url provided and error happens")
     @Test
-    void cannedSearchTours_badToursSearchUrl() {
+    void cannedSearchTours_badToursSearchUrl() throws PageCompositionException {
         CannedSearchTours tours = new CannedSearchToursMockBuilder()
                 .toursSearch("invalid url").build();
-        Assertions.assertNull(factory.getCannedSearchToursModule(tours, Locale.UK));
+        Assertions.assertThrows(InvalidContentException.class, () -> mapper.getCannedSearchToursModule(tours, Locale.UK));
     }
 
 }
