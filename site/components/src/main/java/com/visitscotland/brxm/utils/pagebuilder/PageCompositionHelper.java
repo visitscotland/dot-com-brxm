@@ -82,6 +82,10 @@ public class PageCompositionHelper {
         return request.getModel(LABELS);
     }
 
+    public void addRequestModel(String key, Object value) {
+        request.setModel(key, value);
+    }
+
     public String calculateAlignment(){
         return model.calculateAlignment();
     }

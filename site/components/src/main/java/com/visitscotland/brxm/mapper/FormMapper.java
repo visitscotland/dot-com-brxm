@@ -1,29 +1,35 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.FormModule;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.form.BregConfiguration;
 import com.visitscotland.brxm.model.form.CRMConfiguration;
 import com.visitscotland.brxm.model.form.FeplConfiguration;
 import com.visitscotland.brxm.model.form.MarketoConfiguration;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.SiteProperties;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.MissingResourceException;
 
 @Component
-public class FormFactory {
+public class FormMapper extends ModuleMapper<Form, FormModule>{
 
     private final SiteProperties properties;
 
 
     private final ContentLogger contentLogger;
 
-    public FormFactory(SiteProperties properties, ContentLogger contentLogger) {
+    public FormMapper(SiteProperties properties, ContentLogger contentLogger) {
         this.properties = properties;
         this.contentLogger = contentLogger;
     }
@@ -131,4 +137,22 @@ public class FormFactory {
         return module;
     }
 
+    @Override
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        compositionHelper.addAllSiteLabels("forms");
+        compositionHelper.addGlobalLabel("cfg.form.json.countries");
+
+        Map<String, String> formLabels = new HashMap<>();
+
+        //The following files are required independent of the Form Framework
+        formLabels.put("cfg.form.json.countries", properties.getProperty("form.json.countries").orElse(""));
+        formLabels.put("cfg.form.json.messages", properties.getProperty("form.json.messages").orElse(""));
+
+        compositionHelper.addRequestModel("form-config",formLabels);
+    }
+
+    @Override
+    FormModule map(Form document, PageCompositionHelper compositionHelper) throws PageCompositionException {
+        return getModule(document);
+    }
 }

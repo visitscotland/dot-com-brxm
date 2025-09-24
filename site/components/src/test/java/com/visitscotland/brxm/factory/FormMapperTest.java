@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.hippobeans.MarketoForm;
+import com.visitscotland.brxm.mapper.FormMapper;
 import com.visitscotland.brxm.mock.MarketoFormMockBuilder;
 import com.visitscotland.brxm.model.FormModule;
 import com.visitscotland.brxm.model.form.MarketoConfiguration;
@@ -19,13 +20,13 @@ import static org.mockito.Mockito.when;
 
 
 @ExtendWith(MockitoExtension.class)
-class FormFactoryTest {
+class FormMapperTest {
 
     @Mock
     SiteProperties properties;
 
     @InjectMocks
-    FormFactory marketoFormFactory;
+    FormMapper marketoFormMapper;
 
     @Test
     @DisplayName("VS-3358 - Marketo form")
@@ -38,7 +39,7 @@ class FormFactoryTest {
         when(properties.getFormsMarketoMunchkin()).thenReturn("munchkin");
         when(properties.getFormsMarketoScript()).thenReturn("script.js");
 
-        FormModule module = marketoFormFactory.getModule(form);
+        FormModule module = marketoFormMapper.getModule(form);
 
         assertEquals("title", module.getTitle());
         assertEquals("config", module.getJsonUrl());

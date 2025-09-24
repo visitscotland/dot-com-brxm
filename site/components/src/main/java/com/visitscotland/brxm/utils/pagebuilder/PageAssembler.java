@@ -51,7 +51,7 @@ public class PageAssembler {
 
     private final LongCopyMapper longCopyMapper;
     private final CannedSearchFactory cannedSearchFactory;
-    private final FormFactory formFactory;
+    private final FormMapper formMapper;
     private final SpotlightMapper spotlightMapper;
     private final EventsListingMapper eventsListingMapper;
 
@@ -65,7 +65,7 @@ public class PageAssembler {
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
                          IKnowMapper iKnowMapper, ArticleMapper articleMapper, LongCopyMapper longCopyMapper,
                          UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
-                         CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewWarningMapper, FormFactory marketoFormFactory,
+                         CannedSearchFactory cannedSearchFactory, PreviewWarningMapper previewWarningMapper, FormMapper marketoFormMapper,
                          MapModuleMapper mapModuleMapper, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
                          DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
                          SpotlightMapper spotlightMapper, EventsListingMapper eventsListingFactory) {
@@ -79,7 +79,7 @@ public class PageAssembler {
         this.travelInformationMapper = travelInformationMapper;
         this.cannedSearchFactory = cannedSearchFactory;
         this.previewWarningMapper = previewWarningMapper;
-        this.formFactory = marketoFormFactory;
+        this.formMapper = marketoFormMapper;
         this.mapModuleMapper = mapModuleMapper;
         this.devModuleMapper = devModuleMapper;
         this.skiCentreListMapper = skiCentreListMapper;
@@ -143,8 +143,10 @@ public class PageAssembler {
             compositionHelper.addModule(cannedSearchFactory.getCannedSearchModule((CannedSearch) item, request.getLocale()));
         } else if (item instanceof CannedSearchTours) {
             compositionHelper.addModule(cannedSearchFactory.getCannedSearchToursModule((CannedSearchTours) item, request.getLocale()));
-        } else if (item instanceof MarketoForm || item instanceof Form) {
-            compositionHelper.addModule(getForm(request, item));
+        } else if (item instanceof MarketoForm) {
+            throw new PageCompositionException(item.getPath(), "Marketo Forms are not currently supported");
+        } else if (item instanceof Form) {
+            formMapper.include((Form) item, compositionHelper);
         } else if (item instanceof SkiCentre){
             skiCentreMapper.include((SkiCentre) item, compositionHelper);
         } else if (item instanceof SkiCentreList){
@@ -158,28 +160,6 @@ public class PageAssembler {
         } else {
             throw new PageCompositionException(item.getPath(), String.format("Unrecognized Module Type: %s", item.getClass()));
         }
-    }
-
-    /**
-     * TODO: Marketo need to be retired before re
-     */
-    private FormModule getForm(HstRequest request, BaseDocument form){
-
-        addAllLabels(request, "forms");
-        Map<String, String> formLabels = labels(request).get("forms");
-
-        //The following files are required independent of the Form Framework
-        formLabels.put("cfg.form.json.countries", properties.getProperty("form.json.countries").orElse(""));
-        formLabels.put("cfg.form.json.messages", properties.getProperty("form.json.messages").orElse(""));
-
-        if (form instanceof MarketoForm) {
-            return formFactory.getModule((MarketoForm) form);
-        } else if (form instanceof Form) {
-            return formFactory.getModule((Form) form);
-        } else if (form != null) {
-            logger.error("Form Class not recognized {}, path = {}", form.getClass(), form.getPath());
-        }
-        return null;
     }
 
     /**
