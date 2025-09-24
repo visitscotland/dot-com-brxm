@@ -6,7 +6,7 @@ import com.visitscotland.brxm.factory.NewsletterFactory;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.mapper.ImageMapper;
-import com.visitscotland.brxm.mapper.MegalinkMapper;
+import com.visitscotland.brxm.mapper.module.MegalinkMapper;
 import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.FlatImage;

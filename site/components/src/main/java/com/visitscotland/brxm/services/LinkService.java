@@ -49,7 +49,7 @@ public class LinkService {
     private final DocumentUtilsService documentUtilsService;
     private final YoutubeApiService youtubeApiService;
     private final Logger contentLogger;
-    private final AssetLinkFactory assetLinkFactory;
+    private final AssetLinkService assetLinkFactory;
     private final FileMetaDataCalculator fileMetaDataCalculator;
     private final EntryMapper entryMapper;
 
@@ -58,7 +58,7 @@ public class LinkService {
                        CMSProperties cmsProperties, SiteProperties siteProperties, ImageMapper imageFactory,
                        DocumentUtilsService documentUtilsService,
                        YoutubeApiService youtubeApiService, ContentLogger contentLogger,
-                       AssetLinkFactory assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator, EntryMapper entryMapper) {
+                       AssetLinkService assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator, EntryMapper entryMapper) {
 
         this.dmsData = dmsData;
         this.bundle = bundle;

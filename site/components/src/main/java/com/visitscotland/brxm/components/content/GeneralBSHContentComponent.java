@@ -5,7 +5,7 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.GeneralBSH;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
-import com.visitscotland.brxm.utils.pagebuilder.PageAssembler;
+import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
