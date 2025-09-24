@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.mapper;
 
-import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.model.FlatLink;
@@ -50,7 +49,7 @@ public class MegalinkMapperTest {
     LinkService linkService;
 
     @Mock
-    ImageFactory imageFactory;
+    ImageMapper imageFactory;
 
     @Mock
     ContentLogger logger;

@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.IknowCommunity;
 import com.visitscotland.brxm.model.FlatLink;
@@ -18,16 +18,17 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Component
-public class IKnowCommunityFactory {
+@Deprecated(forRemoval = true)
+public class IKnowCommunityMapper {
 
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private static final String BUNDLE_ID = "iknow-community";
     private static final String TAGS_BUNDLE_ID = "iknow-community-tags";
-    private static final Logger logger = LoggerFactory.getLogger(IKnowCommunityFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(IKnowCommunityMapper.class);
 
 
-    public IKnowCommunityFactory(ResourceBundleService bundle, SiteProperties properties){
+    public IKnowCommunityMapper(ResourceBundleService bundle, SiteProperties properties){
         this.bundle = bundle;
         this.properties = properties;
     }

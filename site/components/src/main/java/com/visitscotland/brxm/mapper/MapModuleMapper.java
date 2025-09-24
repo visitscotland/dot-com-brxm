@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.*;
 import com.visitscotland.brxm.dms.model.LocationObject;
-import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.services.MapService;
@@ -53,10 +52,10 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
     private final DMSDataService dmsDataService;
     private final ResourceBundleService bundle;
     private final CMSProperties properties;
-    private final ImageFactory imageFactory;
+    private final ImageMapper imageFactory;
     private final LocationLoader locationLoader;
 
-    public MapModuleMapper(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, CMSProperties properties, ImageFactory imageFactory, LocationLoader locationLoader) {
+    public MapModuleMapper(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, CMSProperties properties, ImageMapper imageFactory, LocationLoader locationLoader) {
         this.hippoUtilsService = hippoUtilsService;
         this.mapper = new ObjectMapper();
         this.mapService = mapService;

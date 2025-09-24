@@ -1,11 +1,11 @@
 package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.hippobeans.Banner;
+import com.visitscotland.brxm.mapper.BannerMapper;
 import com.visitscotland.brxm.mock.BannerMockBuilder;
 import com.visitscotland.brxm.model.BannerModule;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.services.LinkService;
-import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.SiteProperties;
@@ -19,12 +19,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
-import java.util.Locale;
-
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class BannerFactoryTest {
+class BannerMapperTest {
 
     @Mock
     LinkService linkService;
@@ -39,7 +37,7 @@ class BannerFactoryTest {
     ContentLogger logger;
 
     @InjectMocks
-    BannerFactory factory;
+    BannerMapper factory;
 
     @DisplayName("Create banner module")
     @Test

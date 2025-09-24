@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.mapper;
 
-import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.CMSLink;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Quote;
@@ -27,7 +26,7 @@ import static org.mockito.Mockito.*;
 class QuoteMapperTest {
 
     @Mock
-    ImageFactory imageFactory;
+    ImageMapper imageFactory;
 
     @Mock
     LinkService linkService;

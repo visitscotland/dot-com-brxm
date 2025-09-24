@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.mapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.ICentre;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.TourismInformation;
@@ -44,14 +43,14 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
     private final QuoteMapper quoteEmbedder;
-    private final ImageFactory imageFactory;
+    private final ImageMapper imageFactory;
     private final CMSProperties cmsProperties;
     private final SiteProperties siteProperties;
     private final HippoUtilsService hippoUtilsService;
 
     @Autowired
     public ICentreMapper(DMSDataService dmsData, ResourceBundleService bundle, QuoteMapper quoteEmbedder,
-                         ImageFactory imageFactory, CMSProperties cmsProperties, SiteProperties siteProperties,
+                         ImageMapper imageFactory, CMSProperties cmsProperties, SiteProperties siteProperties,
                          HippoUtilsService hippoUtilsService) {
         this.dmsData = dmsData;
         this.bundle = bundle;

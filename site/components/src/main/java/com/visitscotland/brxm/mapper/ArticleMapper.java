@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.mapper;
 
-import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
@@ -13,7 +12,6 @@ import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.utils.pagebuilder.PageCompositionException;
 import org.apache.commons.io.FilenameUtils;
-import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -34,7 +32,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
     private static final String NUMBERED_LIST = "numbered-list";
     private static final Logger log = LoggerFactory.getLogger(ArticleMapper.class);
 
-    private final ImageFactory imageFactory;
+    private final ImageMapper imageFactory;
     private final LinkService linkService;
     private final QuoteMapper quoteEmbedder;
     private final AnchorFormatter anchorFormatter;
@@ -42,7 +40,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
     private final AssetLinkFactory assetLinkFactory;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
 
-    public ArticleMapper(ImageFactory imageFactory,
+    public ArticleMapper(ImageMapper imageFactory,
                          QuoteMapper quoteEmbedder,
                          LinkService linkService,
                          AnchorFormatter anchorFormatter,

@@ -7,7 +7,7 @@ import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.mapper.EntryMapper;
-import com.visitscotland.brxm.factory.ImageFactory;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
@@ -73,7 +73,7 @@ class LinkServiceTest {
     private DocumentUtilsService documentUtilsService;
 
     @Mock
-    private ImageFactory imageFactory;
+    private ImageMapper imageFactory;
 
     @Mock
     private YoutubeApiService youtubeApiService;

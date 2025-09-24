@@ -8,6 +8,7 @@ import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.ImageData;
 import com.visitscotland.brxm.hippobeans.InstagramImage;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
@@ -37,7 +38,7 @@ import static org.mockito.Mockito.*;
 class ImageFactoryTest {
 
     @InjectMocks
-    ImageFactory imageFactory;
+    ImageMapper imageFactory;
 
     @Mock
     LocationLoader locationLoader;
@@ -233,7 +234,7 @@ class ImageFactoryTest {
         when(placeholder.getDescription()).thenReturn("Description");
         when(placeholder.getAltText()).thenReturn("Alt-text");
 
-        when(bundle.getResourceBundle(ImageFactory.GLOBAL_BUNDLE, "placeholder-image", Locale.UK)).thenReturn("image");
+        when(bundle.getResourceBundle(ImageMapper.GLOBAL_BUNDLE, "placeholder-image", Locale.UK)).thenReturn("image");
         when(hippoUtils.getDocumentFromNode("image")).thenReturn(placeholder);
 
         return placeholder;

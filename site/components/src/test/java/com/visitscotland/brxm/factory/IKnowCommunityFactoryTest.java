@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.hippobeans.IknowCommunity;
+import com.visitscotland.brxm.mapper.IKnowCommunityMapper;
 import com.visitscotland.brxm.mock.IKnowCommunityMockBuilder;
 import com.visitscotland.brxm.model.IKnowCommunityModule;
 import com.visitscotland.brxm.model.LinkType;
@@ -30,7 +31,7 @@ class IKnowCommunityFactoryTest {
     SiteProperties properties;
 
     @InjectMocks
-    IKnowCommunityFactory factory;
+    IKnowCommunityMapper factory;
 
     private static final String BUNDLE_ID = "iknow-community";
     private static final String TAG_BUNDLE_KEY = "iknow-community-tags";

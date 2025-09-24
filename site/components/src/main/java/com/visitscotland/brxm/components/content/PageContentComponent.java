@@ -5,6 +5,7 @@ import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.factory.NewsletterFactory;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.mapper.MegalinkMapper;
 import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.model.FlatBlog;
@@ -72,7 +73,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     final BlogFactory blogFactory;
     protected final MegalinkMapper megalinkMapper;
-    private final ImageFactory imageFactory;
+    private final ImageMapper imageFactory;
     private final LinkService linksService;
     private final NewsletterFactory newsletterFactory;
     private final ProductSearchWidgetFactory psrFactory;
@@ -86,7 +87,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public PageContentComponent() {
         blogFactory = VsComponentManager.get(BlogFactory.class);
         megalinkMapper = VsComponentManager.get(MegalinkMapper.class);
-        imageFactory = VsComponentManager.get(ImageFactory.class);
+        imageFactory = VsComponentManager.get(ImageMapper.class);
         newsletterFactory = VsComponentManager.get(NewsletterFactory.class);
         linksService = VsComponentManager.get(LinkService.class);
         psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);

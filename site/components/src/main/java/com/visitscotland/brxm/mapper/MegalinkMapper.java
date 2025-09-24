@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.mapper;
 
-import com.visitscotland.brxm.factory.ImageFactory;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.Module;
@@ -59,13 +58,13 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
     private final LinkService linkService;
     private final ResourceBundleService bundle;
-    private final ImageFactory imageFactory;
+    private final ImageMapper imageFactory;
     private final Logger contentLogger;
     private final AnchorFormatter anchorFormatter;
 
     public MegalinkMapper(LinkService linkService,
                           ResourceBundleService bundle,
-                          ImageFactory imageFactory,
+                          ImageMapper imageFactory,
                           ContentLogger contentLogger,
                           AnchorFormatter anchorFormatter) {
         this.linkService = linkService;

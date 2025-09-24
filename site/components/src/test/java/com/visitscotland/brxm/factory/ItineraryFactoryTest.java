@@ -11,6 +11,7 @@ import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Itinerary;
 import com.visitscotland.brxm.mapper.EntryMapper;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.mock.ItineraryDayMockBuilder;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.Entry;
@@ -54,7 +55,7 @@ class ItineraryFactoryTest {
     @Mock
     DMSDataService dmsData;
     @Mock
-    ImageFactory imageFactory;
+    ImageMapper imageFactory;
     @Mock
     DMSUtils utils;
     @Mock

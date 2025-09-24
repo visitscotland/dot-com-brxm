@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.visitscotland.brxm.hippobeans.Banner;
 import com.visitscotland.brxm.model.BannerModule;
@@ -24,16 +24,16 @@ import java.util.Locale;
 import java.util.NoSuchElementException;
 
 @Component
-public class BannerFactory {
+public class BannerMapper {
 
     private final LinkService linkService;
     private final HippoUtilsService hippoUtilsService;
     private final ResourceBundleService bundle;
-    private static final Logger logger = LoggerFactory.getLogger(BannerFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(BannerMapper.class);
     private final Logger contentLogger;
     private final SiteProperties siteProperties;
 
-    public BannerFactory(LinkService linkService, HippoUtilsService hippoUtilsService, ResourceBundleService bundle, ContentLogger contentLogger, SiteProperties siteProperties) {
+    public BannerMapper(LinkService linkService, HippoUtilsService hippoUtilsService, ResourceBundleService bundle, ContentLogger contentLogger, SiteProperties siteProperties) {
         this.linkService = linkService;
         this.hippoUtilsService = hippoUtilsService;
         this.bundle = bundle;

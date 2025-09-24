@@ -7,13 +7,12 @@ import com.visitscotland.brxm.hippobeans.Quote;
 import com.visitscotland.brxm.hippobeans.Video;
 import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.mapper.ArticleMapper;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.mapper.QuoteMapper;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
-import org.hippoecm.hst.core.component.HstRequest;
-import org.hippoecm.hst.mock.core.component.MockHstRequest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,7 +32,7 @@ class ArticleMapperTest {
     ArticleMapper factory;
 
     @Mock
-    ImageFactory imageFactory;
+    ImageMapper imageFactory;
 
     @Mock
     LinkService linkService;

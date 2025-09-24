@@ -6,7 +6,7 @@ import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.mapper.EntryMapper;
-import com.visitscotland.brxm.factory.ImageFactory;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
@@ -45,7 +45,7 @@ public class LinkService {
     private final HippoUtilsService utils;
     private final CMSProperties cmsProperties;
     private final SiteProperties siteProperties;
-    private final ImageFactory imageFactory;
+    private final ImageMapper imageFactory;
     private final DocumentUtilsService documentUtilsService;
     private final YoutubeApiService youtubeApiService;
     private final Logger contentLogger;
@@ -55,7 +55,7 @@ public class LinkService {
 
     @Autowired
     public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils,
-                       CMSProperties cmsProperties, SiteProperties siteProperties, ImageFactory imageFactory,
+                       CMSProperties cmsProperties, SiteProperties siteProperties, ImageMapper imageFactory,
                        DocumentUtilsService documentUtilsService,
                        YoutubeApiService youtubeApiService, ContentLogger contentLogger,
                        AssetLinkFactory assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator, EntryMapper entryMapper) {

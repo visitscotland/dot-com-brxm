@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.LocationLoader;
 import com.visitscotland.brxm.dms.model.LocationObject;
-import com.visitscotland.brxm.factory.ImageFactory;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.utils.ContentLogger;
@@ -46,13 +46,13 @@ public class MapService {
     private final ObjectMapper mapper;
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
-    private final ImageFactory imageFactory;
+    private final ImageMapper imageFactory;
     private final LinkService linkService;
     private final LocationLoader locationLoader;
     private final HippoUtilsService hippoUtilsService;
 
     @Autowired
-    public MapService(DMSDataService dmsData, ResourceBundleService bundle,ImageFactory imageFactory, LinkService linkService, ObjectMapper mapper, LocationLoader locationLoader, HippoUtilsService hippoUtilsService, ContentLogger contentLogger) {
+    public MapService(DMSDataService dmsData, ResourceBundleService bundle, ImageMapper imageFactory, LinkService linkService, ObjectMapper mapper, LocationLoader locationLoader, HippoUtilsService hippoUtilsService, ContentLogger contentLogger) {
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.locationLoader = locationLoader;

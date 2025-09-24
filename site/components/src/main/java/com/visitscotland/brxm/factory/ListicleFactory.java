@@ -3,6 +3,7 @@ package com.visitscotland.brxm.factory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ListicleModule;
@@ -33,11 +34,11 @@ public class ListicleFactory {
 
     private final LinkService linksService;
     private final DMSDataService dmsData;
-    private final ImageFactory imageFactory;
+    private final ImageMapper imageFactory;
     private final DMSUtils dmsUtils;
     private final DocumentUtilsService documentUtils;
 
-    public ListicleFactory(LinkService linksService, DMSDataService dmsData, ImageFactory imageFactory, DMSUtils dmsUtils,
+    public ListicleFactory(LinkService linksService, DMSDataService dmsData, ImageMapper imageFactory, DMSUtils dmsUtils,
                            DocumentUtilsService documentUtils, ContentLogger contentLogger) {
         this.linksService = linksService;
         this.dmsData = dmsData;

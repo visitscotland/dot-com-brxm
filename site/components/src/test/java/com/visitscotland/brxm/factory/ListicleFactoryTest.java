@@ -2,7 +2,7 @@ package com.visitscotland.brxm.factory;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.hippobeans.*;
-import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
@@ -16,7 +16,6 @@ import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.VsException;
 import com.visitscotland.dataobjects.DataType;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Answers;
@@ -39,7 +38,7 @@ class ListicleFactoryTest {
     @Mock
     DMSDataService dmsData;
     @Mock
-    ImageFactory imageFactory;
+    ImageMapper imageFactory;
     @Mock
     DMSUtils dmsUtils;
     @Mock

@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,9 +27,9 @@ import java.util.Locale;
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
 @Component
-public class ImageFactory {
+public class ImageMapper {
 
-    private static final Logger logger = LoggerFactory.getLogger(ImageFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(ImageMapper.class);
 
 
     static final String GLOBAL_BUNDLE = "essentials.global";
@@ -42,8 +42,8 @@ public class ImageFactory {
     private final Logger contentLogger;
 
     @Autowired
-    public ImageFactory(LocationLoader locationLoader, CommonUtilsService utils, CMSProperties properties, HippoUtilsService hippoUtils, ResourceBundleService bundle,
-                        ContentLogger contentLogger) {
+    public ImageMapper(LocationLoader locationLoader, CommonUtilsService utils, CMSProperties properties, HippoUtilsService hippoUtils, ResourceBundleService bundle,
+                       ContentLogger contentLogger) {
         this.locationLoader = locationLoader;
         this.utils = utils;
         this.properties = properties;

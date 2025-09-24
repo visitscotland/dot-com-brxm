@@ -7,6 +7,7 @@ import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.EntryMapper;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.megalinks.Entry;
@@ -35,14 +36,14 @@ public class ItineraryFactory {
 
     private final ResourceBundleService bundle;
     private final DMSDataService dmsData;
-    private final ImageFactory imageFactory;
+    private final ImageMapper imageFactory;
     private final DMSUtils utils;
     private final EntryMapper entryMapper;
     private final DocumentUtilsService documentUtils;
     private final LinkService linkService;
     private final Logger contentLogger;
 
-    public ItineraryFactory(ResourceBundleService bundle, DMSDataService dmsData, ImageFactory imageFactory,
+    public ItineraryFactory(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageFactory,
                             DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
                             ContentLogger contentLogger, EntryMapper entryMapper) {
         this.bundle = bundle;
