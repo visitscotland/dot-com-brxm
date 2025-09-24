@@ -130,7 +130,7 @@ public class PageAssembler {
         } else if (item instanceof Article){
             articleMapper.include((Article) item, compositionHelper);
         } else if (item instanceof LongCopy){
-            processLongCopy(request, compositionHelper, (LongCopy) item);
+            longCopyMapper.include((LongCopy) item, compositionHelper);
         } else if (item instanceof MapModule) {
             mapModuleMapper.include((MapModule) item, compositionHelper);
         } else if (item instanceof Stackla) {
@@ -188,26 +188,6 @@ public class PageAssembler {
             logger.error("Form Class not recognized {}, path = {}", form.getClass(), form.getPath());
         }
         return null;
-    }
-
-    /**
-     * Convert a LongCopy into a LongCopy module and adds it to the list of modules
-     * Note: Consider to create a factory if the creation of the Module requires more logic.
-     */
-    private void processLongCopy(HstRequest request, PageCompositionHelper compositionHelper, LongCopy document) {
-        Page page = getDocument(request);
-        if (page instanceof General && ((General) page).getTheme().equals(GeneralContentComponent.SIMPLE)){
-            if (compositionHelper.getModules().stream().anyMatch(LongCopyModule.class::isInstance)){
-                logger.error("Only one instance of Long Module is allowed");
-                compositionHelper.addModule(new ErrorModule(document, "Only one instance of Long Module module is allowed"));
-            } else {
-                compositionHelper.addModule(longCopyMapper.getModule(document));
-            }
-        } else {
-            logger.error("The document type LongCopy is only allowed in Simple Pages");
-            contentLogger.error("The document type LongCopy is not allowed in this page. Path {}", page.getPath());
-            compositionHelper.addModule(new ErrorModule(document, "The document type Long Copy is only allowed in Simple Pages"));
-        }
     }
 
     /**

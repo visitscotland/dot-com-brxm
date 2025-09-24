@@ -58,7 +58,7 @@ public class PageCompositionHelper {
         }
     }
 
-    List<Module<?>> getModules(){
+    public List<Module<?>> getModules(){
         return Collections.unmodifiableList(model.getModules());
     }
 
