@@ -120,7 +120,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()));
         request.setModel("cludoEngineId", properties.getProperty("cludo.engine-id", request.getLocale()));
         request.setModel("cludoExperienceId", properties.getProperty("cludo.experience-id", request.getLocale()));
-        request.setModel("cludoAPI", properties.getProperty("cludo.api", request.getLocale()));
 
     }
 
@@ -151,6 +150,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if ("root".equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId())
                 || request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
             labels(request).put(SEARCH_EVENTS_FILTERS, bundle.getAllLabels(SEARCH_EVENTS_FILTERS, request.getLocale()));
+            request.setModel("cludoAPI", properties.getProperty("cludo.api", request.getLocale()));
+            request.setModel("eventsAPI", properties.getProperty("events.endpoint", request.getLocale()));
         }
 
         if (isEditMode(request)) {
