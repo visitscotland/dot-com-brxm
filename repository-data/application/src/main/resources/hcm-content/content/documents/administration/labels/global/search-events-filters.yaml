@@ -1,0 +1,49 @@
+/content/documents/administration/labels/global/search-events-filters:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 03839326-82c1-46df-832c-a6867a2af15f
+  hippo:name: Search Events filters
+  /search-events-filters[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 0b3af1b7-6a93-46f5-a5b9-fb6ef73c5724
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-09-26T11:00:11.330+01:00
+    hippostdpubwf:lastModificationDate: 2025-09-26T11:00:11.332+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: search-events-filters
+    resourcebundle:keys: [books, clubs, comedy, dance, days out, festival, film, family,
+      lgbt, music, sport, theatre]
+    resourcebundle:messages: [Books, Clubs, Comedy, Dance, Days Out, Festivals, Film,
+      Family, LGBTQIA+, Music, Sport, Theatre]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '']
+  /search-events-filters[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 081eb651-df15-4c34-a192-68da4189b02a
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-09-26T11:00:11.330+01:00
+    hippostdpubwf:lastModificationDate: 2025-09-26T11:06:50.793+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: search-events-filters
+    resourcebundle:keys: [books, clubs, comedy, dance, days out, festival, film, family,
+      lgbt, music, sport, theatre]
+    resourcebundle:messages: [Books, Clubs, Comedy, Dance, Days Out, Festivals, Film,
+      Family, LGBTQIA+, Music, Sport, Theatre]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '']
