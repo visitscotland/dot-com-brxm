@@ -36,9 +36,13 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
             return resolvedSiteMapItem;
         }
         try {
+            String path = resolvedSiteMapItem.getPathInfo();
+            if (path.isEmpty() || path.charAt(0) != '/'){
+                path = "/" + path;
+            }
             var resolvedVirtualHost = getResolvedVirtualHost(httpServletRequest);
             var englishMount = resolvedVirtualHost.matchMount(ENGLISH_ROOT_PATH);
-            var englishSiteMapItem = englishMount.matchSiteMapItem(resolvedSiteMapItem.getPathInfo());
+            var englishSiteMapItem = englishMount.matchSiteMapItem(path);
 
             if (!isPageNotFound(englishMount, englishSiteMapItem)) {
                 // English content does exist - use translated mount with an english sitemap
