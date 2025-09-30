@@ -18,7 +18,7 @@ import java.util.MissingResourceException;
 @Component
 public class LongCopyMapper extends ModuleMapper<LongCopy, LongCopyModule> {
 
-    private static final Logger logger = LoggerFactory.getLogger(PageAssembler.class);
+    private static final Logger logger = LoggerFactory.getLogger(LongCopyMapper.class);
 
     @Override
     void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
