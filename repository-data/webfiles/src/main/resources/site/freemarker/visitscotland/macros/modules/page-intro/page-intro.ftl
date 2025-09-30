@@ -157,7 +157,7 @@
                     <template v-slot:vs-intro-lower>
                         <vs-container >
                             <vs-row>
-                                <vs-col cols="12" xxl="6">
+                                <vs-col cols="12" xxl="6" offset-lg="1">
                                     <vs-description-list class="mb-150">
                                         <vs-description-list-item title>
                                             ${label("itinerary", "highlights")}
