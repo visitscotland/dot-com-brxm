@@ -157,14 +157,14 @@
                     <template v-slot:vs-intro-lower>
                         <vs-container >
                             <vs-row>
-                                <vs-col cols="12" lg="5" xl="6" offset-lg="1">
+                                <vs-col cols="12" xxl="6">
                                     <vs-description-list class="mb-150">
                                         <vs-description-list-item title>
                                             ${label("itinerary", "highlights")}
                                         </vs-description-list-item>
 
                                         <#list itinerary.document.highlights as highlight>
-                                            <vs-description-list-item>
+                                            <vs-description-list-item class="<#if highlight?is_first>mt-050</#if>">
                                                 ${highlight}
                                             </vs-description-list-item>
                                         </#list>
@@ -175,8 +175,8 @@
                                             ${label("itinerary", "areas-covered")}
                                         </vs-description-list-item>
 
-                                        <#list  itinerary.document.areas as area>
-                                            <vs-description-list-item>
+                                        <#list itinerary.document.areas as area>
+                                            <vs-description-list-item class="<#if area?is_first>mt-050</#if>">
                                                 ${label("areas", "${area}")}
                                             </vs-description-list-item>
                                         </#list>
