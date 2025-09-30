@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.mapper.module;
 
+import com.visitscotland.brxm.hippobeans.CMSLink;
 import com.visitscotland.brxm.hippobeans.CTABanner;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.FlatImage;
@@ -37,15 +38,10 @@ public class SpotlightMapper extends ModuleMapper<CTABanner, SignpostModule> {
         return createModule(document);
     }
 
-    public SignpostModule createModule(CTABanner ctaBanner) throws InvalidContentException{
+    public SignpostModule createModule(CTABanner ctaBanner) throws PageCompositionException {
         SignpostModule module = new SignpostModule();
-        Linkable linkable = (Linkable) ctaBanner.getCtaLink().getLink();
+        Linkable linkable = getLinkable(ctaBanner);
         FlatLink cta = linkService.createSimpleLink(linkable, module, null);
-
-        if (Contract.isNull(cta.getLink())) {
-            throw new InvalidContentException(ctaBanner.getPath(),
-                    "The link for the CTA banner is not available. The module has been hidden");
-        }
 
         if (!Contract.isEmpty(ctaBanner.getCtaLink().getLabel())) {
             cta.setLabel(ctaBanner.getCtaLink().getLabel());
@@ -63,5 +59,25 @@ public class SpotlightMapper extends ModuleMapper<CTABanner, SignpostModule> {
         module.setAnchor(anchorFormatter.getAnchorOrFallback(ctaBanner.getAnchor(), ctaBanner::getTitle));
 
         return module;
+    }
+
+    /**
+     * Validates the link from the CTA banner and returns the linkable object.
+     * 
+     * @param ctaBanner the CTA banner containing the link to validate
+     * @return the validated Linkable object from the CTA banner
+     * @throws PageCompositionException if the link is null, invalid, or not a Linkable type
+     */
+    private Linkable getLinkable(CTABanner ctaBanner) throws PageCompositionException {
+        if (ctaBanner.getCtaLink() == null || ctaBanner.getCtaLink().getLink() == null) {
+            throw new InvalidContentException(ctaBanner.getPath(),
+                    "The CTA banner does not have a valid link configuration. The module has been hidden");
+        }
+
+        if (!(ctaBanner.getCtaLink().getLink() instanceof Linkable)) {
+            throw new InvalidContentException(ctaBanner.getPath(),
+                    "The link for the CTA banner is not a valid Linkable type. The module has been hidden");
+        }
+        return (Linkable) ctaBanner.getCtaLink().getLink();
     }
 }
