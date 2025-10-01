@@ -55,7 +55,7 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
-      general/navigation/banner/content, '', '', '', 'http://3.10.24.15:8080/', $CLUDO_API]
+      general/navigation/banner/content, '', '', '', 'http://3.10.24.15:8080/events/search', $CLUDO_API]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
@@ -121,7 +121,7 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
-      general/navigation/banner/content, '', '', '', 'http://3.10.24.15:8080/', $CLUDO_API]
+      general/navigation/banner/content, '', '', '', 'http://3.10.24.15:8080/events/search', $CLUDO_API]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
@@ -188,7 +188,7 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
-      general/navigation/banner/content, '', '', '', 'http://3.10.24.15:8080/', $CLUDO_API]
+      general/navigation/banner/content, '', '', '', 'http://3.10.24.15:8080/events/search', $CLUDO_API]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']

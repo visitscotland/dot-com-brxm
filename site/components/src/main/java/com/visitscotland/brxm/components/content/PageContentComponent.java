@@ -120,6 +120,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()));
         request.setModel("cludoEngineId", properties.getProperty("cludo.engine-id", request.getLocale()));
         request.setModel("cludoExperienceId", properties.getProperty("cludo.experience-id", request.getLocale()));
+        request.setModel("globalSearchURL", properties.getSiteGlobalSearch());
 
     }
 
