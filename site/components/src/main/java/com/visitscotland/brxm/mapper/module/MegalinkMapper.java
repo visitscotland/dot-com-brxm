@@ -59,18 +59,18 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
     private final LinkService linkService;
     private final ResourceBundleService bundle;
-    private final ImageMapper imageFactory;
+    private final ImageMapper imageMapper;
     private final Logger contentLogger;
     private final AnchorFormatter anchorFormatter;
 
     public MegalinkMapper(LinkService linkService,
                           ResourceBundleService bundle,
-                          ImageMapper imageFactory,
+                          ImageMapper imageMapper,
                           ContentLogger contentLogger,
                           AnchorFormatter anchorFormatter) {
         this.linkService = linkService;
         this.bundle = bundle;
-        this.imageFactory = imageFactory;
+        this.imageMapper = imageMapper;
         this.contentLogger = contentLogger;
         this.anchorFormatter = anchorFormatter;
     }
@@ -231,7 +231,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
         sil.setInnerTitle(doc.getSingleImageModule().getTitle());
         sil.setInnerIntroduction(doc.getSingleImageModule().getIntroduction());
-        sil.setImage(imageFactory.createImage(doc.getSingleImageModule().getImage(), sil, locale));
+        sil.setImage(imageMapper.createImage(doc.getSingleImageModule().getImage(), sil, locale));
         if (doc.getSingleImageModule().getImage() == null) {
             sil.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the single image document '%s' at: %s", sil.getTitle(), doc.getDisplayName(), doc.getPath()));
         }

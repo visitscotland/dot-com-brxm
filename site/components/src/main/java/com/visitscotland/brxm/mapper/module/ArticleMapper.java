@@ -34,7 +34,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
     private static final String NUMBERED_LIST = "numbered-list";
     private static final Logger log = LoggerFactory.getLogger(ArticleMapper.class);
 
-    private final ImageMapper imageFactory;
+    private final ImageMapper imageMapper;
     private final LinkService linkService;
     private final QuoteMapper quoteEmbedder;
     private final AnchorFormatter anchorFormatter;
@@ -42,13 +42,13 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
     private final AssetLinkService assetLinkFactory;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
 
-    public ArticleMapper(ImageMapper imageFactory,
+    public ArticleMapper(ImageMapper imageMapper,
                          QuoteMapper quoteEmbedder,
                          LinkService linkService,
                          AnchorFormatter anchorFormatter,
                          FileMetaDataCalculator fileMetaDataCalculator,
                          AssetLinkService assetLinkFactory) {
-        this.imageFactory = imageFactory;
+        this.imageMapper = imageMapper;
         this.quoteEmbedder = quoteEmbedder;
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
@@ -107,7 +107,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
                     module.setVideo(linkService.createVideo(videoLink.getVideoLink(), module, locale));
                 }
             }else {
-                module.setImage(imageFactory.getImage(doc.getMediaItem(), module, locale));
+                module.setImage(imageMapper.getImage(doc.getMediaItem(), module, locale));
             }
         }
     }
@@ -123,7 +123,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
                 if (paragraph.getMediaItem() instanceof VideoLink) {
                     section.setVideo(linkService.createVideo(((VideoLink)paragraph.getMediaItem()).getVideoLink(), module, locale));
                 } else {
-                    section.setImage(imageFactory.getImage(paragraph.getMediaItem(), module, locale));
+                    section.setImage(imageMapper.getImage(paragraph.getMediaItem(), module, locale));
                 }
             }
 

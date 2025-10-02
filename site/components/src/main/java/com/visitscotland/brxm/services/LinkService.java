@@ -45,7 +45,7 @@ public class LinkService {
     private final HippoUtilsService utils;
     private final CMSProperties cmsProperties;
     private final SiteProperties siteProperties;
-    private final ImageMapper imageFactory;
+    private final ImageMapper imageMapper;
     private final DocumentUtilsService documentUtilsService;
     private final YoutubeApiService youtubeApiService;
     private final Logger contentLogger;
@@ -55,7 +55,7 @@ public class LinkService {
 
     @Autowired
     public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils,
-                       CMSProperties cmsProperties, SiteProperties siteProperties, ImageMapper imageFactory,
+                       CMSProperties cmsProperties, SiteProperties siteProperties, ImageMapper imageMapper,
                        DocumentUtilsService documentUtilsService,
                        YoutubeApiService youtubeApiService, ContentLogger contentLogger,
                        AssetLinkService assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator, EntryMapper entryMapper) {
@@ -65,7 +65,7 @@ public class LinkService {
         this.utils = utils;
         this.cmsProperties = cmsProperties;
         this.siteProperties = siteProperties;
-        this.imageFactory = imageFactory;
+        this.imageMapper = imageMapper;
         this.documentUtilsService = documentUtilsService;
         this.youtubeApiService = youtubeApiService;
         this.contentLogger = contentLogger;
@@ -500,7 +500,7 @@ public class LinkService {
         if (page.getImage() == null){
             module.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the page '%s' at: %s",  page.getTitle(), page.getDisplayName(), page.getPath()));
         }
-        link.setImage(imageFactory.createImage(page.getImage(), module, locale));
+        link.setImage(imageMapper.createImage(page.getImage(), module, locale));
 
         if (page instanceof Itinerary) {
             Itinerary itinerary = (Itinerary) page;
@@ -559,9 +559,9 @@ public class LinkService {
         }
 
         if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
-            link.setImage(imageFactory.createImage(product, module, locale));
+            link.setImage(imageMapper.createImage(product, module, locale));
         } else {
-            link.setImage(imageFactory.createImage(sharedLink.getImage(), module, locale));
+            link.setImage(imageMapper.createImage(sharedLink.getImage(), module, locale));
         }
 
         if (sharedLink.getLinkType() instanceof ExternalDocument || sharedLink.getLinkType() instanceof FileLink) {
@@ -675,7 +675,7 @@ public class LinkService {
      */
     public EnhancedLink createVideo(Video video, Module<?> module, Locale locale) {
         EnhancedLink videoLink = new EnhancedLink();
-        videoLink.setImage(imageFactory.createImage(video.getImage(), module, locale));
+        videoLink.setImage(imageMapper.createImage(video.getImage(), module, locale));
         videoLink.setLabel(video.getTitle());
         videoLink.setTeaser(video.getTeaser());
         videoLink.setLink(video.getUrl());

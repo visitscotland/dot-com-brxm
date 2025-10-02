@@ -72,7 +72,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     final BlogFactory blogFactory;
     protected final MegalinkMapper megalinkMapper;
-    private final ImageMapper imageFactory;
+    private final ImageMapper imageMapper;
     private final LinkService linksService;
     private final NewsletterFactory newsletterFactory;
     private final ProductSearchWidgetFactory psrFactory;
@@ -86,7 +86,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public PageContentComponent() {
         blogFactory = VsComponentManager.get(BlogFactory.class);
         megalinkMapper = VsComponentManager.get(MegalinkMapper.class);
-        imageFactory = VsComponentManager.get(ImageMapper.class);
+        imageMapper = VsComponentManager.get(ImageMapper.class);
         newsletterFactory = VsComponentManager.get(NewsletterFactory.class);
         linksService = VsComponentManager.get(LinkService.class);
         psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
@@ -229,7 +229,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private void addHeroImage(HstRequest request) {
         Module<T> introModule = new Module<>();
 
-        FlatImage heroImage = imageFactory.createImage(getDocument(request).getHeroImage(), introModule, request.getLocale());
+        FlatImage heroImage = imageMapper.createImage(getDocument(request).getHeroImage(), introModule, request.getLocale());
         if (getDocument(request).getHeroImage() == null) {
             String message = String.format("The image selected for '%s' is not available, please select a valid image for '%s' at: %s ",
                     getDocument(request).getTitle(), getDocument(request).getDisplayName(), getDocument(request).getPath());

@@ -46,17 +46,19 @@ public class MapService {
     private final ObjectMapper mapper;
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
-    private final ImageMapper imageFactory;
+    private final ImageMapper imageMapper;
     private final LinkService linkService;
     private final LocationLoader locationLoader;
     private final HippoUtilsService hippoUtilsService;
 
     @Autowired
-    public MapService(DMSDataService dmsData, ResourceBundleService bundle, ImageMapper imageFactory, LinkService linkService, ObjectMapper mapper, LocationLoader locationLoader, HippoUtilsService hippoUtilsService, ContentLogger contentLogger) {
+    public MapService(DMSDataService dmsData, ResourceBundleService bundle, ImageMapper imageMapper,
+                      LinkService linkService, ObjectMapper mapper, LocationLoader locationLoader,
+                      HippoUtilsService hippoUtilsService, ContentLogger contentLogger) {
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.locationLoader = locationLoader;
-        this.imageFactory = imageFactory;
+        this.imageMapper = imageMapper;
         this.linkService = linkService;
         this.mapper = mapper;
         this.hippoUtilsService = hippoUtilsService;
@@ -160,7 +162,7 @@ public class MapService {
             Double longitude = null;
             FlatLink flatLink = null;
             HippoBean item = stop.getStopItem();
-            FlatImage image = imageFactory.createImage(stop.getImage(), module, locale);
+            FlatImage image = imageMapper.createImage(stop.getImage(), module, locale);
             if (item instanceof DMSLink) {
                 JsonNode dmsNode = dmsData.productCard(((DMSLink) item).getProduct(), locale);
                 if (!Contract.isNull(dmsNode)) {
@@ -168,7 +170,7 @@ public class MapService {
                     flatLink = linkService.createDmsLink(locale,(DMSLink) item, dmsNode);
                     flatLink.setLabel(bundle.getResourceBundle(MAP, DISCOVER, locale));
                     if (Contract.isNull(stop.getImage()) && dmsNode.has(IMAGE)) {
-                        image = imageFactory.createImage(dmsNode, module, locale);
+                        image = imageMapper.createImage(dmsNode, module, locale);
                     }
                     if (dmsNode.has(LATITUDE) && dmsNode.has(LONGITUDE)) {
                         latitude = dmsNode.get(LATITUDE).asDouble();
@@ -227,7 +229,7 @@ public class MapService {
         FlatLink flatLink = linkService.createSimpleLink(page, module, locale);
         flatLink.setLabel(bundle.getResourceBundle(MAP, DISCOVER, locale));
         ObjectNode properties = getPropertyNode(page.getTitle(), page.getTeaser(),
-                imageFactory.createImage(page.getImage(), module, locale), category,
+                imageMapper.createImage(page.getImage(), module, locale), category,
                 flatLink, page.getCanonicalUUID());
         if (page instanceof Destination){
             Destination destination = (Destination) page;

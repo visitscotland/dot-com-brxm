@@ -36,19 +36,19 @@ public class ItineraryFactory {
 
     private final ResourceBundleService bundle;
     private final DMSDataService dmsData;
-    private final ImageMapper imageFactory;
+    private final ImageMapper imageMapper;
     private final DMSUtils utils;
     private final EntryMapper entryMapper;
     private final DocumentUtilsService documentUtils;
     private final LinkService linkService;
     private final Logger contentLogger;
 
-    public ItineraryFactory(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageFactory,
+    public ItineraryFactory(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
                             DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
                             ContentLogger contentLogger, EntryMapper entryMapper) {
         this.bundle = bundle;
         this.dmsData = dmsData;
-        this.imageFactory = imageFactory;
+        this.imageMapper = imageMapper;
         this.utils = utils;
         this.documentUtils = documentUtils;
         this.linkService = linkService;
@@ -158,7 +158,7 @@ public class ItineraryFactory {
         module.setIndex(index);
 
         if (stop.getImage() != null) {
-            module.setImage(imageFactory.createImage(stop.getImage(), module, locale));
+            module.setImage(imageMapper.createImage(stop.getImage(), module, locale));
         }
 
         if (stop.getStopItem() instanceof DMSLink) {
@@ -244,7 +244,7 @@ public class ItineraryFactory {
         module.setFacilities(utils.getKeyFacilities(product));
 
         if (module.getImage() == null && product.has(IMAGE)) {
-            module.setImage(imageFactory.createImage(product, module, locale));
+            module.setImage(imageMapper.createImage(product, module, locale));
         }
 
         if (product.has(ADDRESS)) {

@@ -34,15 +34,15 @@ public class ListicleFactory {
 
     private final LinkService linksService;
     private final DMSDataService dmsData;
-    private final ImageMapper imageFactory;
+    private final ImageMapper imageMapper;
     private final DMSUtils dmsUtils;
     private final DocumentUtilsService documentUtils;
 
-    public ListicleFactory(LinkService linksService, DMSDataService dmsData, ImageMapper imageFactory, DMSUtils dmsUtils,
+    public ListicleFactory(LinkService linksService, DMSDataService dmsData, ImageMapper imageMapper, DMSUtils dmsUtils,
                            DocumentUtilsService documentUtils, ContentLogger contentLogger) {
         this.linksService = linksService;
         this.dmsData = dmsData;
-        this.imageFactory = imageFactory;
+        this.imageMapper = imageMapper;
         this.dmsUtils = dmsUtils;
         this.documentUtils = documentUtils;
         this.contentLogger = contentLogger;
@@ -71,7 +71,7 @@ public class ListicleFactory {
 
         //Set the image
         if (listicleItem.getListicleItemImage() != null) {
-            module.setImage(imageFactory.getImage(listicleItem.getListicleItemImage(), module, locale));
+            module.setImage(imageMapper.getImage(listicleItem.getListicleItemImage(), module, locale));
         }
 
         //Set the main product
@@ -179,7 +179,7 @@ public class ListicleFactory {
             contentLogger.warn(message);
         } else {
             if (item.getImage() == null) {
-                item.setImage(imageFactory.createImage(product, item, locale));
+                item.setImage(imageMapper.createImage(product, item, locale));
             } else if (item.getImage().getCoordinates() == null && product.has(LATITUDE)) {
                 Coordinates coordinates = new Coordinates(product.get(LATITUDE).asDouble(), product.get(LONGITUDE).asDouble());
                 item.getImage().setCoordinates(coordinates);

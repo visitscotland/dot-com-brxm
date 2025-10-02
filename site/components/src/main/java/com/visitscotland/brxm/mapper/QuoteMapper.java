@@ -17,11 +17,11 @@ import java.util.Optional;
 public class QuoteMapper {
 
     private final Logger contentLogger;
-    private final ImageMapper imageFactory;
+    private final ImageMapper imageMapper;
     private final LinkService linkService;
 
-    public QuoteMapper(ImageMapper imageFactory, LinkService linkService, ContentLogger contentLogger){
-        this.imageFactory = imageFactory;
+    public QuoteMapper(ImageMapper imageMapper, LinkService linkService, ContentLogger contentLogger){
+        this.imageMapper = imageMapper;
         this.linkService = linkService;
         this.contentLogger = contentLogger;
     }
@@ -33,7 +33,7 @@ public class QuoteMapper {
         quote.setAuthorTitle(doc.getRole());
 
         if (doc.getImage() != null) {
-            quote.setImage(imageFactory.createImage(doc.getImage(), module, locale));
+            quote.setImage(imageMapper.createImage(doc.getImage(), module, locale));
         }
 
 

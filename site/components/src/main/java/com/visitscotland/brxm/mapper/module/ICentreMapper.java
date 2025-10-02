@@ -45,19 +45,19 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
     private final QuoteMapper quoteEmbedder;
-    private final ImageMapper imageFactory;
+    private final ImageMapper imageMapper;
     private final CMSProperties cmsProperties;
     private final SiteProperties siteProperties;
     private final HippoUtilsService hippoUtilsService;
 
     @Autowired
     public ICentreMapper(DMSDataService dmsData, ResourceBundleService bundle, QuoteMapper quoteEmbedder,
-                         ImageMapper imageFactory, CMSProperties cmsProperties, SiteProperties siteProperties,
+                         ImageMapper imageMapper, CMSProperties cmsProperties, SiteProperties siteProperties,
                          HippoUtilsService hippoUtilsService) {
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.quoteEmbedder = quoteEmbedder;
-        this.imageFactory = imageFactory;
+        this.imageMapper = imageMapper;
         this.cmsProperties = cmsProperties;
         this.siteProperties = siteProperties;
         this.hippoUtilsService = hippoUtilsService;
@@ -104,12 +104,12 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
 
         //Populate Image
         if (doc.getImage() != null) {
-            var image = imageFactory.createImage(doc.getImage(), module, locale);
+            var image = imageMapper.createImage(doc.getImage(), module, locale);
             if (image == null) {
                 //Default the Image if it hasn't been set
                 module.setImage(getDefaultImage(module, locale));
             } else {
-                module.setImage(imageFactory.createImage(doc.getImage(), module, locale));
+                module.setImage(imageMapper.createImage(doc.getImage(), module, locale));
             }
         }
 
@@ -128,7 +128,7 @@ public class ICentreMapper extends ModuleMapper<TourismInformation, ICentreModul
                 throw new PageCompositionException(module.getDocumentPath(), "The default image has not being defined");
             }
             Image defaultImage = hippoUtilsService.getDocumentFromNode(defaultPath);
-            return imageFactory.createImage(defaultImage, module, locale);
+            return imageMapper.createImage(defaultImage, module, locale);
         } catch (QueryException | ObjectBeanManagerException | RepositoryException e) {
             throw new PageCompositionException(module.getDocumentPath(), "The location for the  default iCentre image is not valid", e);
         }

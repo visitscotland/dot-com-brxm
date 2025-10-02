@@ -53,17 +53,17 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
     private final DMSDataService dmsDataService;
     private final ResourceBundleService bundle;
     private final CMSProperties properties;
-    private final ImageMapper imageFactory;
+    private final ImageMapper imageMapper;
     private final LocationLoader locationLoader;
 
-    public MapModuleMapper(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, CMSProperties properties, ImageMapper imageFactory, LocationLoader locationLoader) {
+    public MapModuleMapper(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, CMSProperties properties, ImageMapper imageMapper, LocationLoader locationLoader) {
         this.hippoUtilsService = hippoUtilsService;
         this.mapper = new ObjectMapper();
         this.mapService = mapService;
         this.dmsDataService = dmsDataService;
         this.bundle = bundle;
         this.properties = properties;
-        this.imageFactory = imageFactory;
+        this.imageMapper = imageMapper;
         this.locationLoader = locationLoader;
     }
 
@@ -235,7 +235,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         JsonNode dmsResponseData =  dmsDataService.cannedSearch(dmsQuery.buildCannedSearchInternal());
         if (dmsResponseData != null && !dmsResponseData.isEmpty()) {
             for (JsonNode jsonNode : dmsResponseData) {
-                FlatImage image = imageFactory.createImage(jsonNode, module,locale);
+                FlatImage image = imageMapper.createImage(jsonNode, module,locale);
                 FlatLink link = new FlatLink(bundle.getResourceBundle(MAP, DISCOVER, locale), jsonNode.get("productLink").get("link").asText(), LinkType.INTERNAL);
                 ObjectNode data = mapper.createObjectNode();
                 String name = jsonNode.has(NAME) ? jsonNode.get(NAME).asText() : null;

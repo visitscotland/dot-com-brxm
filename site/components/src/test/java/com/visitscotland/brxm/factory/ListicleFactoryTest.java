@@ -38,7 +38,7 @@ class ListicleFactoryTest {
     @Mock
     DMSDataService dmsData;
     @Mock
-    ImageMapper imageFactory;
+    ImageMapper imageMapper;
     @Mock
     DMSUtils dmsUtils;
     @Mock
@@ -97,7 +97,7 @@ class ListicleFactoryTest {
         link.setLink("www.google.com");
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(imageFactory.getImage(eq(item.getListicleItemImage()), any(), any())).thenReturn(moduleImage);
+        when(imageMapper.getImage(eq(item.getListicleItemImage()), any(), any())).thenReturn(moduleImage);
         when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(Optional.of(link));
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
@@ -117,7 +117,7 @@ class ListicleFactoryTest {
         link.setLink("www.google.com");
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(imageFactory.getImage(eq(item.getListicleItemImage()), any(), any())).thenReturn(moduleImage);
+        when(imageMapper.getImage(eq(item.getListicleItemImage()), any(), any())).thenReturn(moduleImage);
         when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(Optional.of(link));
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
@@ -176,7 +176,7 @@ class ListicleFactoryTest {
         when(node.has(LATITUDE)).thenReturn(false);
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(imageFactory.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
+        when(imageMapper.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
         when(dmsData.productCard("1234", Locale.UK)).thenReturn(node);
         when(linksService.createDmsLink(any(), any(), any())).thenReturn(link);
         when(dmsUtils.getKeyFacilities(node)).thenReturn(facilities);
@@ -203,7 +203,7 @@ class ListicleFactoryTest {
         FlatImage moduleImage = new FlatImage();
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(imageFactory.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
+        when(imageMapper.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
         when(linksService.createFindOutMoreLink(any(), any(), any())).thenReturn(link);
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
@@ -225,7 +225,7 @@ class ListicleFactoryTest {
         FlatImage moduleImage = new FlatImage();
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(imageFactory.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
+        when(imageMapper.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
         when(linksService.createFindOutMoreLink(any(), any(), any())).thenReturn(link);
 
 
@@ -249,7 +249,7 @@ class ListicleFactoryTest {
         FlatImage moduleImage = new FlatImage();
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(imageFactory.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
+        when(imageMapper.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
         when(linksService.createFindOutMoreLink(any(), any(), any())).thenReturn(link);
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
@@ -272,7 +272,7 @@ class ListicleFactoryTest {
         FlatImage moduleImage = new FlatImage();
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(imageFactory.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
+        when(imageMapper.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
         when(linksService.createFindOutMoreLink(any(), any(), any())).thenReturn(link);
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
@@ -294,7 +294,7 @@ class ListicleFactoryTest {
         JsonNode node = mock(JsonNode.class, withSettings().defaultAnswer(Answers.RETURNS_DEEP_STUBS));
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(imageFactory.createImage(any(JsonNode.class), any(), any())).thenReturn(dmsImage);
+        when(imageMapper.createImage(any(JsonNode.class), any(), any())).thenReturn(dmsImage);
         when(dmsData.productCard("1234", Locale.UK)).thenReturn(node);
 
         ListicleModule module = factory.generateItems(Locale.UK, page).get(0);
@@ -316,7 +316,7 @@ class ListicleFactoryTest {
         when(node.get(LONGITUDE).asDouble()).thenReturn(-2.1);
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(imageFactory.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
+        when(imageMapper.getImage(any(Image.class), any(), any())).thenReturn(moduleImage);
         when(dmsData.productCard("1234", Locale.UK)).thenReturn(node);
 
         ListicleModule module = factory.generateItems(Locale.UK, page).get(0);
@@ -385,7 +385,7 @@ class ListicleFactoryTest {
         FlatImage moduleImage = new FlatImage();
 
         when(documentUtils.getAllowedDocuments(page, ListicleItem.class)).thenReturn(Collections.singletonList(item));
-        when(imageFactory.getImage(eq(item.getListicleItemImage()), any(), any())).thenReturn(moduleImage);
+        when(imageMapper.getImage(eq(item.getListicleItemImage()), any(), any())).thenReturn(moduleImage);
         when(linksService.createEnhancedLink(any(), any(), any(),anyBoolean())).thenReturn(Optional.empty());
 
         List<ListicleModule> items = factory.generateItems(Locale.UK, page);
