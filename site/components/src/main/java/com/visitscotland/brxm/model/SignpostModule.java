@@ -1,8 +1,10 @@
 package com.visitscotland.brxm.model;
 
+import com.visitscotland.brxm.hippobeans.CTABanner;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
-public class SignpostModule extends Module {
+//TODO to be renamed to Spotlight module
+public class SignpostModule extends Module<CTABanner> {
 
     private String title;
     private boolean nested;
