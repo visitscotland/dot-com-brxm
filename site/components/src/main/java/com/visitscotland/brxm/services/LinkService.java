@@ -49,7 +49,7 @@ public class LinkService {
     private final DocumentUtilsService documentUtilsService;
     private final YoutubeApiService youtubeApiService;
     private final Logger contentLogger;
-    private final AssetLinkService assetLinkFactory;
+    private final AssetLinkService assetLinkService;
     private final FileMetaDataCalculator fileMetaDataCalculator;
     private final EntryMapper entryMapper;
 
@@ -58,7 +58,7 @@ public class LinkService {
                        CMSProperties cmsProperties, SiteProperties siteProperties, ImageMapper imageMapper,
                        DocumentUtilsService documentUtilsService,
                        YoutubeApiService youtubeApiService, ContentLogger contentLogger,
-                       AssetLinkService assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator, EntryMapper entryMapper) {
+                       AssetLinkService assetLinkService, FileMetaDataCalculator fileMetaDataCalculator, EntryMapper entryMapper) {
 
         this.dmsData = dmsData;
         this.bundle = bundle;
@@ -69,7 +69,7 @@ public class LinkService {
         this.documentUtilsService = documentUtilsService;
         this.youtubeApiService = youtubeApiService;
         this.contentLogger = contentLogger;
-        this.assetLinkFactory = assetLinkFactory;
+        this.assetLinkService = assetLinkService;
         this.fileMetaDataCalculator = fileMetaDataCalculator;
         this.entryMapper = entryMapper;
     }
@@ -538,7 +538,7 @@ public class LinkService {
         JsonNode product = getNodeFromSharedLink(sharedLink, module, locale);
 
         if (sharedLink.getLinkType() instanceof Asset){
-            link = assetLinkFactory.create(sharedLink, locale);
+            link = assetLinkService.create(sharedLink, locale);
         } else {
             link = new EnhancedLink();
             link.setTeaser(sharedLink.getTeaser());

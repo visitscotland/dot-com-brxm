@@ -91,13 +91,6 @@ public class CannedSearchMapper extends ModuleMapper<CannedSearchTours, CannedSe
         return module;
     }
 
-    /**
-     * Fetches a new Product Search Object
-     */
-    private ProductSearchBuilder productSearch(){
-        return VsComponentManager.get(ProductSearchBuilder.class);
-    }
-
     @Override
     void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
 

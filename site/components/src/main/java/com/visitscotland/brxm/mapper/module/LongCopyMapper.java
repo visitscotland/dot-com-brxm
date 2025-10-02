@@ -45,7 +45,7 @@ public class LongCopyMapper extends ModuleMapper<LongCopy, LongCopyModule> {
      */
     private void validate(LongCopy document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         Page page = compositionHelper.getPage();
-        if (page instanceof General && ((General) page).getTheme().equals(GeneralContentComponent.SIMPLE)){
+        if (page instanceof General && GeneralContentComponent.SIMPLE.equals(((General) page).getTheme())){
             if (compositionHelper.getModules().stream().anyMatch(LongCopyModule.class::isInstance)){
                 throw new InvalidContentException(document.getPath(), "Only one instance of Long Copy module is allowed");
             }

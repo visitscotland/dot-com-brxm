@@ -16,12 +16,12 @@ import java.util.Collections;
 )
 public class MainMenuComponent extends MenuComponent {
 
-    private final BannerMapper bannerFactory;
+    private final BannerMapper bannerMapper;
     private final DocumentUtilsService utils;
     private final CMSProperties properties;
 
     public MainMenuComponent() {
-        bannerFactory = VsComponentManager.get(BannerMapper.class);
+        bannerMapper = VsComponentManager.get(BannerMapper.class);
         utils = VsComponentManager.get(DocumentUtilsService.class);
         properties = VsComponentManager.get(CMSProperties.class);
     }
@@ -34,7 +34,7 @@ public class MainMenuComponent extends MenuComponent {
         } else {
             request.setModel(LOCALIZED_URLS, utils.getLocalizedURLs(request));
         }
-        request.setModel("banner", bannerFactory.getBannerModule(request));
+        request.setModel("banner", bannerMapper.getBannerModule(request));
     }
 
 }
