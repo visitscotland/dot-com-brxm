@@ -31,7 +31,7 @@ class ArticleMapperTest {
     ArticleMapper factory;
 
     @Mock
-    ImageMapper imageFactory;
+    ImageMapper imageMapper;
 
     @Mock
     LinkService linkService;
@@ -56,7 +56,7 @@ class ArticleMapperTest {
 
         ArticleModule module = factory.getModule(article, null, false);
 
-        verify(imageFactory, only()).getImage(any(Image.class), any(), any());
+        verify(imageMapper, only()).getImage(any(Image.class), any(), any());
         verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
         assertEquals("Title", module.getTitle());
         assertEquals(DUMMY_ANCHOR, module.getAnchor());
@@ -103,7 +103,7 @@ class ArticleMapperTest {
 
         ArticleModule module = factory.getModule(article, null, false);
 
-        verify(imageFactory, times(2)).getImage(any(Image.class), any(), any());
+        verify(imageMapper, times(2)).getImage(any(Image.class), any(), any());
         verify(embedder, times(2)).getQuote(any(Quote.class), any(), any());
         verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
         assertEquals(2, module.getSections().size());

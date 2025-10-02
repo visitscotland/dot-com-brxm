@@ -55,7 +55,7 @@ class ItineraryFactoryTest {
     @Mock
     DMSDataService dmsData;
     @Mock
-    ImageMapper imageFactory;
+    ImageMapper imageMapper;
     @Mock
     DMSUtils utils;
     @Mock
@@ -198,7 +198,7 @@ class ItineraryFactoryTest {
         assertEquals("https://mock.visitscotland.com/info/fake-product-p123", module.getCtaLink().getLink());
         assertEquals("Find out more", module.getCtaLink().getLabel());
         assertEquals("Edinburgh", module.getSubTitle());
-        verify(imageFactory).createImage(any(JsonNode.class), any(), any());
+        verify(imageMapper).createImage(any(JsonNode.class), any(), any());
     }
 
     @Test
@@ -216,7 +216,7 @@ class ItineraryFactoryTest {
 
         when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
         when(dmsData.productCard("123", Locale.UK)).thenReturn(node);
-        when(imageFactory.createImage(any(Image.class), any(), any())).thenReturn(image);
+        when(imageMapper.createImage(any(Image.class), any(), any())).thenReturn(image);
 
 
         ItineraryStopModule module = getSingleStop(factory.buildItinerary(itinerary, Locale.UK));

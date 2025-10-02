@@ -46,10 +46,9 @@ public class PageAssembler {
     private final SkiCentreMapper skiCentreMapper;
     private final SkiCentreListMapper skiCentreListMapper;
     private final DevModuleMapper devModuleMapper;
-
     private final LongCopyMapper longCopyMapper;
-    private final CannedSearchMapper cannedSearchFactory;
-    private final CannedSearchDMSMapper cannedSearchDmsFactory;
+    private final CannedSearchMapper cannedSearchMapper;
+    private final CannedSearchDMSMapper cannedSearchDMSMapper;
     private final FormMapper formMapper;
     private final SpotlightMapper spotlightMapper;
     private final EventsListingMapper eventsListingMapper;
@@ -59,36 +58,37 @@ public class PageAssembler {
     private final ResourceBundleService bundle;
     private final Logger contentLogger;
 
-
     @Autowired
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
-                         IKnowMapper iKnowMapper, ArticleMapper articleMapper, LongCopyMapper longCopyMapper,
-                         UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper,
-                         CannedSearchMapper cannedSearchFactory, PreviewWarningMapper previewWarningMapper, FormMapper marketoFormMapper,
-                         MapModuleMapper mapModuleMapper, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper, SiteProperties properties,
-                         DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
-                         SpotlightMapper spotlightMapper, EventsListingMapper eventsListingFactory, CannedSearchDMSMapper cannedSearchDMSFactory) {
+                         IKnowMapper iKnowMapper, ArticleMapper articleMapper,
+                         UserGeneratedContentMapper userGeneratedContentMapper,
+                         TravelInformationMapper travelInformationMapper, PreviewWarningMapper previewWarningMapper,
+                         MapModuleMapper mapModuleMapper, SkiCentreMapper skiCentreMapper, SkiCentreListMapper
+                                 skiCentreListMapper, DevModuleMapper devModuleMapper, LongCopyMapper longCopyMapper,
+                         CannedSearchMapper cannedSearchMapper, CannedSearchDMSMapper cannedSearchDMSMapper,
+                         FormMapper formMapper, SpotlightMapper spotlightMapper, EventsListingMapper eventsListingMapper,
+                         SiteProperties properties, ResourceBundleService bundle, Logger contentLogger) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
         this.iCentreMapper = iCentreMapper;
         this.iKnowMapper = iKnowMapper;
         this.articleMapper = articleMapper;
-        this.longCopyMapper = longCopyMapper;
         this.userGeneratedContentMapper = userGeneratedContentMapper;
         this.travelInformationMapper = travelInformationMapper;
-        this.cannedSearchFactory = cannedSearchFactory;
         this.previewWarningMapper = previewWarningMapper;
-        this.formMapper = marketoFormMapper;
         this.mapModuleMapper = mapModuleMapper;
-        this.devModuleMapper = devModuleMapper;
-        this.skiCentreListMapper = skiCentreListMapper;
         this.skiCentreMapper = skiCentreMapper;
+        this.skiCentreListMapper = skiCentreListMapper;
+        this.devModuleMapper = devModuleMapper;
+        this.longCopyMapper = longCopyMapper;
+        this.cannedSearchMapper = cannedSearchMapper;
+        this.cannedSearchDMSMapper = cannedSearchDMSMapper;
+        this.formMapper = formMapper;
+        this.spotlightMapper = spotlightMapper;
+        this.eventsListingMapper = eventsListingMapper;
         this.properties = properties;
         this.bundle = bundle;
         this.contentLogger = contentLogger;
-        this.spotlightMapper = spotlightMapper;
-        this.eventsListingMapper = eventsListingFactory;
-        this.cannedSearchDmsFactory = cannedSearchDMSFactory;
     }
 
     private Page getDocument(HstRequest request) {
@@ -140,9 +140,9 @@ public class PageAssembler {
         } else if (item instanceof TravelInformation) {
             travelInformationMapper.include((TravelInformation) item, compositionHelper);
         } else if (item instanceof CannedSearch) {
-            cannedSearchDmsFactory.include((CannedSearch) item, compositionHelper);
+            cannedSearchDMSMapper.include((CannedSearch) item, compositionHelper);
         } else if (item instanceof CannedSearchTours) {
-            cannedSearchFactory.include((CannedSearchTours) item, compositionHelper);
+            cannedSearchMapper.include((CannedSearchTours) item, compositionHelper);
         } else if (item instanceof MarketoForm) {
             throw new PageCompositionException(item.getPath(), "Marketo Forms are not currently supported");
         } else if (item instanceof Form) {

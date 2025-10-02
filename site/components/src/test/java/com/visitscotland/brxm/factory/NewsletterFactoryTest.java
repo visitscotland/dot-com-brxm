@@ -34,13 +34,7 @@ class NewsletterFactoryTest {
     HippoUtilsService utils;
     @Mock
     SiteProperties properties;
-    @Mock
-    LinkService linkService;
-    @Mock
-    AnchorFormatter anchorFormatter;
-    @Mock
-    ContentLogger contentLogger;
-
+    
     @InjectMocks
     NewsletterFactory newsletterFactory;
 

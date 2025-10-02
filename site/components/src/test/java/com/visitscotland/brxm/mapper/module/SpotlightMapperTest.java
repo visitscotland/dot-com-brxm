@@ -4,7 +4,7 @@ import com.visitscotland.brxm.hippobeans.CTABanner;
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.SharedLink;
 import com.visitscotland.brxm.model.*;
-import com.visitscotland.brxm.model.Module;
+import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -44,7 +44,7 @@ class SpotlightMapperTest {
     SpotlightMapper spotlightMapper;
 
     @Test
-    @DisplayName("Should return ErrorModule when CTA link is not available")
+    @DisplayName("Should throw InvalidContentException when CTA link is not available")
     void when_ctaLinkIsNull_then_ErrorModuleIsReturned(){
         CTABanner ctaBanner = mock(CTABanner.class, RETURNS_DEEP_STUBS);
         FlatLink cta = new FlatLink(); // no link set
@@ -59,7 +59,7 @@ class SpotlightMapperTest {
 
     @Test
     @DisplayName("Should set label when label is not empty")
-    void when_overrideLabelIsProvided_then_thatLabelShouldBeUsed() throws InvalidContentException {
+    void when_overrideLabelIsProvided_then_thatLabelShouldBeUsed() throws PageCompositionException {
         CTABanner ctaBanner = mock(CTABanner.class, RETURNS_DEEP_STUBS);
         SharedLink linkable = mock(SharedLink.class);
 
@@ -71,7 +71,7 @@ class SpotlightMapperTest {
 
         when(ctaBanner.getCtaLink().getLabel()).thenReturn("Read More");
 
-        Module<?> result = spotlightMapper.createModule(ctaBanner);
+        SignpostModule result = spotlightMapper.createModule(ctaBanner);
         Assertions.assertInstanceOf(SignpostModule.class, result);
 
         Assertions.assertEquals("Read More", ((SignpostModule) result).getCta().getLabel());
@@ -79,7 +79,7 @@ class SpotlightMapperTest {
 
     @Test
     @DisplayName("Should set image using CTA banner image")
-    void when_imageIsProvided_then_thatImageShouldBeUsed() throws InvalidContentException {
+    void when_imageIsProvided_then_thatImageShouldBeUsed() throws PageCompositionException {
         CTABanner ctaBanner = mock(CTABanner.class, RETURNS_DEEP_STUBS);
         SharedLink linkable = mock(SharedLink.class);
 
@@ -92,7 +92,7 @@ class SpotlightMapperTest {
 
         when(ctaBanner.getImage()).thenReturn(mock(Image.class));
 
-        Module<?> result = spotlightMapper.createModule(ctaBanner);
+        SignpostModule result = spotlightMapper.createModule(ctaBanner);
         Assertions.assertInstanceOf(SignpostModule.class, result);
         SignpostModule signpostModule = (SignpostModule) result;
 

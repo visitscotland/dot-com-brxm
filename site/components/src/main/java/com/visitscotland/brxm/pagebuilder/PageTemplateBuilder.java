@@ -15,15 +15,7 @@ import org.slf4j.Logger;
 @Deprecated(forRemoval = true, since = "2.10.2")
 public final class PageTemplateBuilder extends PageAssembler {
 
-    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreFactory,
-                               IKnowMapper iKnowFactory, ArticleMapper articleMapper, LongCopyMapper longCopyMapper,
-                               UserGeneratedContentMapper userGeneratedContentFactory, TravelInformationMapper travelInformationMapper,
-                               CannedSearchMapper cannedSearchFactory, PreviewWarningMapper previewFactory, FormMapper marketoFormMapper,
-                               MapModuleMapper mapModuleMapper, SkiCentreListMapper skiCentreListMapper, SkiCentreMapper skiCentreMapper,
-                               SiteProperties properties, DevModuleMapper devModuleMapper, ResourceBundleService bundle, Logger contentLogger,
-                               SpotlightMapper signPostFactory, EventsListingMapper eventsListingFactory) {
-        super(documentUtils, megalinkMapper, iCentreFactory, iKnowFactory, articleMapper, longCopyMapper, userGeneratedContentFactory,
-                travelInformationMapper, cannedSearchFactory, previewFactory, marketoFormMapper, mapModuleMapper, skiCentreListMapper,
-                skiCentreMapper, properties, devModuleMapper, bundle, contentLogger, signPostFactory, eventsListingFactory, null);
+    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper, IKnowMapper iKnowMapper, ArticleMapper articleMapper, UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper, PreviewWarningMapper previewWarningMapper, MapModuleMapper mapModuleMapper, SkiCentreMapper skiCentreMapper, SkiCentreListMapper skiCentreListMapper, DevModuleMapper devModuleMapper, LongCopyMapper longCopyMapper, CannedSearchMapper cannedSearchMapper, CannedSearchDMSMapper cannedSearchDMSMapper, FormMapper formMapper, SpotlightMapper spotlightMapper, EventsListingMapper eventsListingMapper, SiteProperties properties, ResourceBundleService bundle, Logger contentLogger) {
+        super(documentUtils, megalinkMapper, iCentreMapper, iKnowMapper, articleMapper, userGeneratedContentMapper, travelInformationMapper, previewWarningMapper, mapModuleMapper, skiCentreMapper, skiCentreListMapper, devModuleMapper, longCopyMapper, cannedSearchMapper, cannedSearchDMSMapper, formMapper, spotlightMapper, eventsListingMapper, properties, bundle, contentLogger);
     }
 }

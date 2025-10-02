@@ -37,7 +37,7 @@ import static org.mockito.Mockito.*;
 class ImageFactoryTest {
 
     @InjectMocks
-    ImageMapper imageFactory;
+    ImageMapper imageMapper;
 
     @Mock
     LocationLoader locationLoader;
@@ -75,7 +75,7 @@ class ImageFactoryTest {
         when(utils.requestUrl(any())).thenReturn(INSTAGRAM_OBJECT);
         when(locationLoader.getLocation("hl", Locale.UK)).thenReturn(location);
 
-        FlatImage image = imageFactory.getImage(insta, null, Locale.UK);
+        FlatImage image = imageMapper.getImage(insta, null, Locale.UK);
 
         Assertions.assertNotNull(image);
         Assertions.assertEquals("http://instagram/visitscotland", image.getExternalImage());
@@ -95,7 +95,7 @@ class ImageFactoryTest {
 
         when(utils.requestUrl(any())).thenReturn("{}");
 
-        assertEquals(placeholder, imageFactory.getImage(image, module, Locale.UK).getCmsImage());
+        assertEquals(placeholder, imageMapper.getImage(image, module, Locale.UK).getCmsImage());
         assertEquals(1, module.getErrorMessages().size());
 
     }
@@ -112,7 +112,7 @@ class ImageFactoryTest {
         when(cmsImage.getLocation()).thenReturn("hl");
         when(locationLoader.getLocation("hl", Locale.UK)).thenReturn(location);
 
-        FlatImage image = imageFactory.getImage(cmsImage, module, Locale.UK);
+        FlatImage image = imageMapper.getImage(cmsImage, module, Locale.UK);
 
         assertEquals(cmsImage, image.getCmsImage());
         assertEquals("Alt Text", image.getAltText());
@@ -134,17 +134,17 @@ class ImageFactoryTest {
         when(data.getCaption()).thenReturn("French-d");
 
         //English locale
-        FlatImage english = imageFactory.getImage(cmsImage, module, Locale.ENGLISH);
+        FlatImage english = imageMapper.getImage(cmsImage, module, Locale.ENGLISH);
         assertEquals("English-at", english.getAltText());
         assertEquals("English-d", english.getDescription());
 
         //Other Existing locale
-        FlatImage french = imageFactory.createImage(cmsImage, module, Locale.FRENCH);
+        FlatImage french = imageMapper.createImage(cmsImage, module, Locale.FRENCH);
         assertEquals("French-at", french.getAltText());
         assertEquals("French-d", french.getDescription());
 
         //A non-existing locale
-        FlatImage chinese = imageFactory.createImage(cmsImage, module, Locale.CHINESE);
+        FlatImage chinese = imageMapper.createImage(cmsImage, module, Locale.CHINESE);
         assertEquals("English-at", chinese.getAltText());
         assertEquals("English-d", chinese.getDescription());
     }
@@ -159,7 +159,7 @@ class ImageFactoryTest {
         when(data.getAltText()).thenReturn("");
         when(data.getCaption()).thenReturn(null);
 
-        FlatImage image = imageFactory.getImage(cmsImage, module, Locale.FRENCH);
+        FlatImage image = imageMapper.getImage(cmsImage, module, Locale.FRENCH);
 
         verify(cmsImage, times(1)).getAltText();
         verify(cmsImage, times(1)).getDescription();
@@ -185,7 +185,7 @@ class ImageFactoryTest {
         Module module = new Module();
         JsonNode dmsProduct = new ObjectMapper().readTree(DMS_OBJECT);
 
-        FlatImage image = imageFactory.createImage(dmsProduct, module, Locale.UK);
+        FlatImage image = imageMapper.createImage(dmsProduct, module, Locale.UK);
 
         Assertions.assertEquals("http://www.visitscoland.com/VSHQ.jpeg", image.getExternalImage());
         Assertions.assertEquals("A guy", image.getCredit());
@@ -207,7 +207,7 @@ class ImageFactoryTest {
         Module module = new Module();
         JsonNode dmsProduct = new ObjectMapper().readTree(DMS_OBJECT);
 
-        FlatImage image = imageFactory.createImage(dmsProduct, module, Locale.UK);
+        FlatImage image = imageMapper.createImage(dmsProduct, module, Locale.UK);
 
         Assertions.assertEquals("VisitScotland HeadQuarters", image.getDescription());
         Assertions.assertEquals("VisitScotland HeadQuarters", image.getAltText());
@@ -222,8 +222,8 @@ class ImageFactoryTest {
         Module module = new Module();
         Image placeholder = mockPlaceholder();
 
-        assertEquals(placeholder, imageFactory.createImage( new ObjectMapper().readTree("{}"), module, Locale.UK).getCmsImage());
-        assertEquals(placeholder, imageFactory.createImage( new ObjectMapper().readTree(DMS_OBJECT), module, Locale.UK).getCmsImage());
+        assertEquals(placeholder, imageMapper.createImage( new ObjectMapper().readTree("{}"), module, Locale.UK).getCmsImage());
+        assertEquals(placeholder, imageMapper.createImage( new ObjectMapper().readTree(DMS_OBJECT), module, Locale.UK).getCmsImage());
         assertEquals(2, module.getErrorMessages().size());
     }
 

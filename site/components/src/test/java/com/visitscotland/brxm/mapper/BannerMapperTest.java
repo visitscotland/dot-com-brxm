@@ -36,7 +36,7 @@ class BannerMapperTest {
     ContentLogger logger;
 
     @InjectMocks
-    BannerMapper factory;
+    BannerMapper mapper;
 
     @DisplayName("Create banner module")
     @Test
@@ -48,7 +48,7 @@ class BannerMapperTest {
         when(siteProperties.getSiteBanner()).thenReturn("banner");
         when(hippoUtilsService.getDocumentFromContent("banner")).thenReturn(bannerBean);
         when(linkService.createFindOutMoreLink(any(), any(), any())).thenReturn(mockLink);
-        BannerModule banner = factory.getBannerModule(request);
+        BannerModule banner = mapper.getBannerModule(request);
 
         Assertions.assertEquals("copy", banner.getCopy().getContent());
         Assertions.assertNotNull(banner.getCtaLink());
@@ -60,7 +60,7 @@ class BannerMapperTest {
         HstRequest request = mock(HstRequest.class);
         when(siteProperties.getSiteBanner()).thenReturn("banner");
         when(hippoUtilsService.getDocumentFromContent("banner")).thenReturn(null);
-        Assertions.assertNull(factory.getBannerModule(request));
+        Assertions.assertNull(mapper.getBannerModule(request));
     }
 
     @DisplayName("VS-3221 - If link is not published, then don't create banner")
@@ -72,7 +72,7 @@ class BannerMapperTest {
         when(hippoUtilsService.getDocumentFromContent("banner")).thenReturn(bannerBean);
         when(siteProperties.getSiteBanner()).thenReturn("banner");
 
-        BannerModule banner = factory.getBannerModule(request);
+        BannerModule banner = mapper.getBannerModule(request);
 
         Assertions.assertNull(banner.getCtaLink());
         Assertions.assertNull(banner.getCopy());

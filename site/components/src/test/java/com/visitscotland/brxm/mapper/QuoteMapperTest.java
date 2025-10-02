@@ -26,7 +26,7 @@ import static org.mockito.Mockito.*;
 class QuoteMapperTest {
 
     @Mock
-    ImageMapper imageFactory;
+    ImageMapper imageMapper;
 
     @Mock
     LinkService linkService;
@@ -62,7 +62,7 @@ class QuoteMapperTest {
         FlatQuote flat = mapper.getQuote(quote, null, Locale.UK);
 
         verify(linkService).createEnhancedLink(link, null, Locale.UK, false);
-        verify(imageFactory).createImage(image, null, Locale.UK);
+        verify(imageMapper).createImage(image, null, Locale.UK);
         Assertions.assertEquals("Author", flat.getAuthorName());
         Assertions.assertEquals("Role", flat.getAuthorTitle());
         Assertions.assertNotNull(flat.getQuote());

@@ -50,7 +50,7 @@ public class MegalinkMapperTest {
     LinkService linkService;
 
     @Mock
-    ImageMapper imageFactory;
+    ImageMapper imageMapper;
 
     @Mock
     ContentLogger logger;

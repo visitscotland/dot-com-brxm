@@ -11,9 +11,6 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
-import com.visitscotland.brxm.pagebuilder.CompositionModel;
-import com.visitscotland.brxm.pagebuilder.PageAssembler;
-import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
@@ -44,7 +41,7 @@ class PageAssemblerTest {
     Page page;
 
     @Mock
-    ICentreMapper iCentreFactory;
+    ICentreMapper iCentreMapper;
 
     @Mock
     MegalinkMapper megalinkMapper;
@@ -293,7 +290,7 @@ class PageAssemblerTest {
 
     @Test
     @Disabled("This unit test is to be moved to LongCopyMapper")
-    @DisplayName("VS-2132 - Happy Path crete a module that contains the basic information")
+    @DisplayName("VS-2132 - Happy Path create a module that contains the basic information")
     void createLongCopy_basic(){
         General page = mock(General.class);
         LongCopy longCopy = mock(LongCopy.class);

@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 class LongCopyTest {
 
     @InjectMocks
-    LongCopyMapper factory;
+    LongCopyMapper mapper;
 
     @Test
     @DisplayName("LongCopy - Create a LongCopy module")
@@ -26,7 +26,7 @@ class LongCopyTest {
         HippoHtml html = mock(HippoHtml.class);
         when(document.getCopy()).thenReturn(html);
 
-        LongCopyModule module = factory.getModule(document);
+        LongCopyModule module = mapper.getModule(document);
 
         Assertions.assertEquals(html, module.getCopy());
     }

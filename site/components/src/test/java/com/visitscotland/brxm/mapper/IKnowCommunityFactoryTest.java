@@ -30,7 +30,7 @@ class IKnowCommunityFactoryTest {
     SiteProperties properties;
 
     @InjectMocks
-    IKnowCommunityMapper factory;
+    IKnowCommunityMapper mapper;
 
     private static final String BUNDLE_ID = "iknow-community";
     private static final String TAG_BUNDLE_KEY = "iknow-community-tags";
@@ -44,7 +44,7 @@ class IKnowCommunityFactoryTest {
                 .thenReturn("default copy");
         IknowCommunity iknowCommunity = new IKnowCommunityMockBuilder().copy("").tags(Collections.emptyList()).build();
 
-        IKnowCommunityModule module = factory.getIKnowCommunityModule(iknowCommunity, Locale.UK);
+        IKnowCommunityModule module = mapper.getIKnowCommunityModule(iknowCommunity, Locale.UK);
 
         Assertions.assertEquals("default title", module.getTitle());
         Assertions.assertEquals("default copy", module.getCopy().getContent());
@@ -57,7 +57,7 @@ class IKnowCommunityFactoryTest {
         IknowCommunity iknowCommunity = new IKnowCommunityMockBuilder()
                 .title("title").copy("copy").tags(Collections.emptyList()).build();
 
-        IKnowCommunityModule module = factory.getIKnowCommunityModule(iknowCommunity, Locale.UK);
+        IKnowCommunityModule module = mapper.getIKnowCommunityModule(iknowCommunity, Locale.UK);
 
         Assertions.assertEquals("title", module.getTitle());
         Assertions.assertEquals("copy", module.getCopy().getContent());
@@ -79,7 +79,7 @@ class IKnowCommunityFactoryTest {
         doReturn("Second Label").when(bundle).getResourceBundle(TAG_BUNDLE_KEY, "second", Locale.UK);
         IknowCommunity iknowCommunity = new IKnowCommunityMockBuilder().tags(Arrays.asList("first", "second")).build();
 
-        IKnowCommunityModule module = factory.getIKnowCommunityModule(iknowCommunity, Locale.UK);
+        IKnowCommunityModule module = mapper.getIKnowCommunityModule(iknowCommunity, Locale.UK);
 
         Assertions.assertEquals(2, module.getTags().size());
         // These also assert that ordering is maintained
@@ -104,7 +104,7 @@ class IKnowCommunityFactoryTest {
         doReturn(null).when(bundle).getResourceBundle(TAG_BUNDLE_KEY, "third", Locale.UK);
         IknowCommunity iknowCommunity = new IKnowCommunityMockBuilder().tags(Collections.singletonList("third")).build();
 
-        IKnowCommunityModule module = factory.getIKnowCommunityModule(iknowCommunity, Locale.UK);
+        IKnowCommunityModule module = mapper.getIKnowCommunityModule(iknowCommunity, Locale.UK);
 
         Assertions.assertEquals(1, module.getTags().size());
         Assertions.assertEquals("domain/subdomain/third", module.getTags().get(0).getLink());
@@ -121,7 +121,7 @@ class IKnowCommunityFactoryTest {
         when(bundle.getResourceBundle(BUNDLE_ID, "iknow-community.link.label", Locale.UK)).thenReturn("label");
 
         IknowCommunity iknowCommunity = new IKnowCommunityMockBuilder().tags(Collections.emptyList()).build();
-        IKnowCommunityModule module = factory.getIKnowCommunityModule(iknowCommunity, Locale.UK);
+        IKnowCommunityModule module = mapper.getIKnowCommunityModule(iknowCommunity, Locale.UK);
 
         Assertions.assertEquals("url", module.getLink().getLink());
         Assertions.assertEquals("label", module.getLink().getLabel());

@@ -175,7 +175,7 @@ class CannedSearchMapperTest {
         Assertions.assertEquals("default cta", module.getViewAllLink().getLabel());
     }
 
-    @DisplayName("If invalid tours search url provided and error happens")
+    @DisplayName("f an invalid tours search URL is provided then throw InvalidContentException")
     @Test
     void cannedSearchTours_badToursSearchUrl() throws PageCompositionException {
         CannedSearchTours tours = new CannedSearchToursMockBuilder()
