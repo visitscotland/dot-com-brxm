@@ -26827,7 +26827,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: cd7afd33-fb48-41e4-ab9c-275744e249e5
         hippo:name: Events Search
-        hippo:versionHistory: a72ac737-c81c-4b96-a4f1-06e8eec4520b
+        hippo:versionHistory: 2627c63e-b69a-4134-99c3-c6b5794fbe19
         /events-search[1]:
           jcr:primaryType: visitscotland:EventsListing
           jcr:mixinTypes: ['mix:referenceable']
@@ -26837,11 +26837,12 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-02-03T11:19:43.762Z
-          hippostdpubwf:lastModificationDate: 2025-02-03T11:19:43.762Z
+          hippostdpubwf:lastModificationDate: 2025-10-06T14:26:20.559+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: d9bfcd56-ca47-4438-a9e3-9f10f60f657d
           hippotranslation:locale: en
           visitscotland:industryTitle: Industry Events
+          visitscotland:submitUrl: https://api.visitscotland.com/test/submit/ssg/obs/submit
           visitscotland:tradeTitle: Travel Trade Events
           visitscotland:trainingTitle: Training Events
           /visitscotland:trainingCopy:
@@ -26864,11 +26865,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-02-03T11:19:43.762Z
-          hippostdpubwf:lastModificationDate: 2025-02-03T11:22:38.991Z
+          hippostdpubwf:lastModificationDate: 2025-10-06T14:27:22.165+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: d9bfcd56-ca47-4438-a9e3-9f10f60f657d
           hippotranslation:locale: en
           visitscotland:industryTitle: Industry Events
+          visitscotland:submitUrl: https://api.visitscotland.com/test/submit/ssg/obs/submit
           visitscotland:tradeTitle: Travel Trade Events
           visitscotland:trainingTitle: Training Events
           /visitscotland:trainingCopy:
@@ -26891,12 +26893,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-02-03T11:19:43.762Z
-          hippostdpubwf:lastModificationDate: 2025-02-03T11:22:38.991Z
+          hippostdpubwf:lastModificationDate: 2025-10-06T14:27:22.165+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-02-03T11:22:48.570Z
+          hippostdpubwf:publicationDate: 2025-10-06T14:27:27.259+01:00
           hippotranslation:id: d9bfcd56-ca47-4438-a9e3-9f10f60f657d
           hippotranslation:locale: en
           visitscotland:industryTitle: Industry Events
+          visitscotland:submitUrl: https://api.visitscotland.com/test/submit/ssg/obs/submit
           visitscotland:tradeTitle: Travel Trade Events
           visitscotland:trainingTitle: Training Events
           /visitscotland:trainingCopy:
