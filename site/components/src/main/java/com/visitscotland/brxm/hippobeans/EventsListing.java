@@ -36,4 +36,9 @@ public class EventsListing extends BaseDocument {
     public HippoHtml getTradeCopy() {
         return getHippoHtml("visitscotland:tradeCopy");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:submitUrl")
+    public String getSubmitUrl() {
+        return getSingleProperty("visitscotland:submitUrl");
+    }
 }

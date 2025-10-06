@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 6c4952a0-b660-4398-89e9-b671f70e97d0
+          jcr:uuid: c7f8e81f-125d-4ca9-9eac-3c595c8eef75
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -70,6 +70,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             hipposysedit:validators: [required]
+          /submitUrl:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:submitUrl
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -84,9 +93,10 @@ definitions:
           visitscotland:trainingTitle: ''
           visitscotland:industryTitle: ''
           visitscotland:tradeTitle: ''
-          jcr:uuid: 01eccc5f-230e-4f5e-8e47-a5fc00bf5868
+          jcr:uuid: 4fc031eb-e099-4b3a-85f6-fabfb3b9110a
           hippostdpubwf:lastModificationDate: 2025-01-24T10:51:26.973Z
           hippostdpubwf:creationDate: 2025-01-24T10:51:26.974Z
+          visitscotland:submitUrl: ''
           /visitscotland:trainingCopy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -187,3 +197,12 @@ definitions:
               ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
                 [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
                 , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+          /submitUrl:
+            jcr:primaryType: frontend:plugin
+            caption: Submit URL
+            field: submitUrl
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
