@@ -11,6 +11,14 @@
             ${module.image.externalImage}
         </#assign>
     </#if>
+    <#assign description>
+        <#--
+        Data comes from CTA as stringified HTML 
+        Remove tags so it can be passed to spotlight-section as plaintext
+        -->
+        ${module.copy.content?replace("<[^>]+>", "", "r")}
+    </#assign>
+
     <vs-container>
     <vs-row>
         <vs-col>
@@ -19,7 +27,7 @@
         image-src="${image}"
         cta-link="${module.cta.link}"
         cta-text="${module.cta.label}"
-        description='${module.copy.content?replace("<[^>]+>", "", "r")}'
+        description="${description}"
     />
     </col>
     </row>

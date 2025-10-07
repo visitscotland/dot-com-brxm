@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: b3808f93-2c66-4d9d-8d19-14f37c7f2e89
   hippo:name: Newsletter Signpost
-  hippo:versionHistory: cccc4f57-db1e-4dd6-b6a2-9ee418ee0a1e
+  hippo:versionHistory: 5ce6bb25-f07c-42c9-98e0-4823a9ed462c
   /newsletter-signpost[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,8 +13,8 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
-    hippostdpubwf:lastModificationDate: 2024-11-15T17:10:58.895+01:00
-    hippostdpubwf:lastModifiedBy: elena.pederiva
+    hippostdpubwf:lastModificationDate: 2025-09-22T10:50:26.889+01:00
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', This label is not in use at the moment, '',
       '', '', '', '', '', '', '']
     resourcebundle:id: newsletter-signpost
@@ -48,8 +48,8 @@
       Darme de alta, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
       assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_fr: [Devenez membre de notre clan en vous inscrivant à
-        votre Newsletter, 'https://www.visitscotland.com/fr-fr/newsletter/', S’abonner
-        à la newsletter, 'Laissez-vous inspirer par l’Écosse directement dans votre
+        votre Newsletter, 'https://www.visitscotland.com/fr-fr/newsletter/', S’inscrire
+        à notre newsletter, 'Laissez-vous inspirer par l’Écosse directement dans votre
         boîte mail. Ne manquez pas les conseils de nos experts en Écosse sur les idées
         d’excursions, les attractions uniques et les perles rares prisées des locaux.',
       assets/images/illustrations/newsletter.svg, Abonnement à la Newsletter et aux
@@ -83,8 +83,8 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
-    hippostdpubwf:lastModificationDate: 2024-11-15T17:11:19.496+01:00
-    hippostdpubwf:lastModifiedBy: elena.pederiva
+    hippostdpubwf:lastModificationDate: 2025-09-22T10:51:07.139+01:00
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', This label is not in use at the moment, '',
       '', '', '', '', '', '', '']
     resourcebundle:id: newsletter-signpost
@@ -118,8 +118,8 @@
       Darme de alta, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
       assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_fr: [Devenez membre de notre clan en vous inscrivant à
-        votre Newsletter, 'https://www.visitscotland.com/fr-fr/newsletter/', S’abonner
-        à la newsletter, 'Laissez-vous inspirer par l’Écosse directement dans votre
+        votre Newsletter, 'https://www.visitscotland.com/fr-fr/newsletter/', S’inscrire
+        à notre newsletter, 'Laissez-vous inspirer par l’Écosse directement dans votre
         boîte mail. Ne manquez pas les conseils de nos experts en Écosse sur les idées
         d’excursions, les attractions uniques et les perles rares prisées des locaux.',
       assets/images/illustrations/newsletter.svg, Abonnement à la Newsletter et aux
@@ -153,9 +153,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
-    hippostdpubwf:lastModificationDate: 2024-11-15T17:11:19.496+01:00
-    hippostdpubwf:lastModifiedBy: elena.pederiva
-    hippostdpubwf:publicationDate: 2024-11-15T17:11:21.405+01:00
+    hippostdpubwf:lastModificationDate: 2025-09-22T10:51:07.139+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2025-09-22T10:51:09.421+01:00
     resourcebundle:descriptions: ['', This label is not in use at the moment, '',
       '', '', '', '', '', '', '']
     resourcebundle:id: newsletter-signpost
@@ -189,8 +189,8 @@
       Darme de alta, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
       assets/images/illustrations/ski-newletter.svg]
     resourcebundle:messages_fr: [Devenez membre de notre clan en vous inscrivant à
-        votre Newsletter, 'https://www.visitscotland.com/fr-fr/newsletter/', S’abonner
-        à la newsletter, 'Laissez-vous inspirer par l’Écosse directement dans votre
+        votre Newsletter, 'https://www.visitscotland.com/fr-fr/newsletter/', S’inscrire
+        à notre newsletter, 'Laissez-vous inspirer par l’Écosse directement dans votre
         boîte mail. Ne manquez pas les conseils de nos experts en Écosse sur les idées
         d’excursions, les attractions uniques et les perles rares prisées des locaux.',
       assets/images/illustrations/newsletter.svg, Abonnement à la Newsletter et aux
