@@ -52,6 +52,10 @@ public enum Language {
         }
     }
 
+    public String getResourceAPIPath() {
+        return getPathVariable() + "/resourceapi";
+    }
+
     public String getDmsPrefix(){
         return cmsMount.substring(1);
     }
