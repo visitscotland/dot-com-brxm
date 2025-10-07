@@ -45,8 +45,9 @@
                 <#-- if there's a second featured link -->
                 <#if item.featuredLinks?? && item.featuredLinks?size gt 1>
                     <@multiImageFeatured  lastFeatured='true' feature=item.featuredLinks[1] theme=theme />
+
                     <#if item.featuredLinks[1].youtubeId??>
-                        <@videoModal video=item/>
+                        <@videoModal video=item.featuredLinks[1]/>
                     </#if>
                 </#if>
             </vs-row>
