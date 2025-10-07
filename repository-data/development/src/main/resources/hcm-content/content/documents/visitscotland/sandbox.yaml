@@ -8418,9 +8418,9 @@
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: ae73b73c-a080-4f54-a858-33e9bf73655c
             hippo:availability: []
-            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-24T12:36:38.073+01:00
             hippostdpubwf:lastModificationDate: 2025-07-23T09:56:27.645+01:00
