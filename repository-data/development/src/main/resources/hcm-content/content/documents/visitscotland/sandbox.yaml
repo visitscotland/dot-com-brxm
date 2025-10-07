@@ -8418,7 +8418,6 @@
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: ae73b73c-a080-4f54-a858-33e9bf73655c
             hippo:availability: []
-            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin

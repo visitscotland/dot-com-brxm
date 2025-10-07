@@ -18,6 +18,7 @@ definitions:
             hst:homepage: root
             hst:locale: en_GB
             hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland
+            visitscotland:siteProperties: vs.site.config
             /it-it:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
