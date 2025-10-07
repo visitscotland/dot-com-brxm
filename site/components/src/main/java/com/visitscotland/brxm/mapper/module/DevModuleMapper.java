@@ -18,6 +18,7 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
 
     private static final String OBS_BUNDLE = "online-booking-system-comparator";
     private static final String OBS_MODULE = "online-booking-system";
+    private static final String CARBON_CALCULATOR = "carbon-calculator";
     private static final String FORMS_BUNDLE = "forms";
 
     private final ComparatorMapper comparisonMapper;
@@ -40,13 +41,16 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
         }
 
         try {
-            if (document.getBespoken().equals(OBS_MODULE)) {
+            if (OBS_MODULE.equals(document.getBespoken())) {
                 var module = comparisonMapper.map(document);
                 compositionHelper.addAllSiteLabels(OBS_BUNDLE);
                 compositionHelper.addAllSiteLabels(FORMS_BUNDLE);
 
                 return module;
+            } else if (CARBON_CALCULATOR.equals(document.getBespoken())) {
+                compositionHelper.addAllSiteLabels(CARBON_CALCULATOR);
             }
+
         } catch (VsContractException | BrxmWrapperException e) {
             throw new PageCompositionException(document.getPath(), "The bespoken Dev module could not be generated", e);
         }

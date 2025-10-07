@@ -8125,7 +8125,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: cf34e42c-25ef-4165-a180-a1871cfc33cd
         hippo:name: Calculator
-        hippo:versionHistory: ede21e18-3b9b-436e-99c3-39c375ce332b
+        hippo:versionHistory: 12e9362e-7bb7-4326-bedf-1d92f26b0bf0
         /calculator[1]:
           jcr:primaryType: visitscotland:DevModule
           jcr:mixinTypes: ['mix:referenceable']
@@ -8135,14 +8135,14 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2023-08-17T12:56:22.998+01:00
-          hippostdpubwf:lastModificationDate: 2023-08-17T12:56:22.998+01:00
+          hippostdpubwf:lastModificationDate: 2025-10-07T15:55:33.220+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: bd1ae9d4-862d-4b61-a68f-fc695c60dc4b
           hippotranslation:locale: en
           visitscotland:footerContributions: []
-          visitscotland:freemarkerId: Carbon Calculator
           visitscotland:headContributions: []
-          visitscotland:html: ''
+          visitscotland:html: "<vs-carbon-calculator\r\n       :labels-map= '${request.label.carbon-calculator}'\r\
+            \n       language= '${language}'        >\r\n</vs-carbon-calculator>"
           visitscotland:notes: ''
         /calculator[2]:
           jcr:primaryType: visitscotland:DevModule
@@ -8153,14 +8153,14 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2023-08-17T12:56:22.998+01:00
-          hippostdpubwf:lastModificationDate: 2023-08-17T12:56:28.688+01:00
+          hippostdpubwf:lastModificationDate: 2025-10-07T15:57:44.652+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: bd1ae9d4-862d-4b61-a68f-fc695c60dc4b
           hippotranslation:locale: en
           visitscotland:footerContributions: []
-          visitscotland:freemarkerId: Carbon Calculator
           visitscotland:headContributions: []
-          visitscotland:html: ''
+          visitscotland:html: "<vs-carbon-calculator\r\n       :labels-map= '${request.label.carbon-calculator}'\r\
+            \n       language= '${language}'        >\r\n</vs-carbon-calculator>"
           visitscotland:notes: ''
         /calculator[3]:
           jcr:primaryType: visitscotland:DevModule
@@ -8171,15 +8171,15 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2023-08-17T12:56:22.998+01:00
-          hippostdpubwf:lastModificationDate: 2023-08-17T12:56:28.688+01:00
+          hippostdpubwf:lastModificationDate: 2025-10-07T15:57:44.652+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2023-08-17T12:56:31.746+01:00
+          hippostdpubwf:publicationDate: 2025-10-07T15:57:48.511+01:00
           hippotranslation:id: bd1ae9d4-862d-4b61-a68f-fc695c60dc4b
           hippotranslation:locale: en
           visitscotland:footerContributions: []
-          visitscotland:freemarkerId: Carbon Calculator
           visitscotland:headContributions: []
-          visitscotland:html: ''
+          visitscotland:html: "<vs-carbon-calculator\r\n       :labels-map= '${request.label.carbon-calculator}'\r\
+            \n       language= '${language}'        >\r\n</vs-carbon-calculator>"
           visitscotland:notes: ''
   /pages:
     jcr:primaryType: hippostd:folder
