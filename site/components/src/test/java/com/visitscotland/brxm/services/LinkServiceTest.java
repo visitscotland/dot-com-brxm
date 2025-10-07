@@ -7,7 +7,7 @@ import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.mapper.EntryMapper;
-import com.visitscotland.brxm.factory.ImageFactory;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
@@ -73,7 +73,7 @@ class LinkServiceTest {
     private DocumentUtilsService documentUtilsService;
 
     @Mock
-    private ImageFactory imageFactory;
+    private ImageMapper imageMapper;
 
     @Mock
     private YoutubeApiService youtubeApiService;
@@ -515,7 +515,7 @@ class LinkServiceTest {
         Module<?> module = new Module<>();
 
         SharedLink dmsLink = new SharedLinkMockBuilder().dmsLink(dmsData, node).build();
-        when(imageFactory.createImage(node, module, Locale.UK)).thenReturn(new FlatImage());
+        when(imageMapper.createImage(node, module, Locale.UK)).thenReturn(new FlatImage());
 
         EnhancedLink link = service.createEnhancedLink(dmsLink, module,Locale.UK,false).get();
 
@@ -739,7 +739,7 @@ class LinkServiceTest {
 
         when(sharedLink.getImage()).thenReturn(image);
         when(image.getPath()).thenReturn("path/to/image");
-        when(imageFactory.createImage(image, null, Locale.UK)).thenReturn(flatImage);
+        when(imageMapper.createImage(image, null, Locale.UK)).thenReturn(flatImage);
 
         when(sharedLink.getLinkType()).thenReturn(dmsLink);
         when(dmsLink.getProduct()).thenReturn("123");
@@ -768,7 +768,7 @@ class LinkServiceTest {
         when(sharedLink.getLinkType()).thenReturn(dmsLink);
         when(dmsLink.getProduct()).thenReturn("123");
         when(dmsData.productCard("123", Locale.UK)).thenReturn(product);
-        when(imageFactory.createImage(product, null, Locale.UK)).thenReturn(flatImage);
+        when(imageMapper.createImage(product, null, Locale.UK)).thenReturn(flatImage);
 
         when(product.has(DMSConstants.DMSProduct.IMAGE)).thenReturn(true);
 

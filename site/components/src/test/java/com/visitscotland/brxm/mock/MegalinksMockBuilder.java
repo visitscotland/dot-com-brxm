@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.mock;
 
-import com.visitscotland.brxm.mapper.MegalinkMapper;
-import com.visitscotland.brxm.mapper.MegalinkMapperTest;
+import com.visitscotland.brxm.mapper.module.MegalinkMapper;
+import com.visitscotland.brxm.mapper.module.MegalinkMapperTest;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import org.hippoecm.hst.content.beans.standard.HippoBean;

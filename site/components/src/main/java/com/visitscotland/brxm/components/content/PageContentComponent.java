@@ -4,7 +4,8 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.*;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
-import com.visitscotland.brxm.mapper.MegalinkMapper;
+import com.visitscotland.brxm.mapper.ImageMapper;
+import com.visitscotland.brxm.mapper.module.MegalinkMapper;
 import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.FlatImage;
@@ -71,9 +72,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     final BlogFactory blogFactory;
     protected final MegalinkMapper megalinkMapper;
-    private final ImageFactory imageFactory;
+    private final ImageMapper imageMapper;
     private final LinkService linksService;
-    private final SignpostFactory signpostFactory;
+    private final NewsletterFactory newsletterFactory;
     private final ProductSearchWidgetFactory psrFactory;
     private final PreviewWarningMapper previewMapper;
     private final ResourceBundleService bundle;
@@ -85,8 +86,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public PageContentComponent() {
         blogFactory = VsComponentManager.get(BlogFactory.class);
         megalinkMapper = VsComponentManager.get(MegalinkMapper.class);
-        imageFactory = VsComponentManager.get(ImageFactory.class);
-        signpostFactory = VsComponentManager.get(SignpostFactory.class);
+        imageMapper = VsComponentManager.get(ImageMapper.class);
+        newsletterFactory = VsComponentManager.get(NewsletterFactory.class);
         linksService = VsComponentManager.get(LinkService.class);
         psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
         previewMapper = VsComponentManager.get(PreviewWarningMapper.class);
@@ -228,7 +229,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private void addHeroImage(HstRequest request) {
         Module<T> introModule = new Module<>();
 
-        FlatImage heroImage = imageFactory.createImage(getDocument(request).getHeroImage(), introModule, request.getLocale());
+        FlatImage heroImage = imageMapper.createImage(getDocument(request).getHeroImage(), introModule, request.getLocale());
         if (getDocument(request).getHeroImage() == null) {
             String message = String.format("The image selected for '%s' is not available, please select a valid image for '%s' at: %s ",
                     getDocument(request).getTitle(), getDocument(request).getDisplayName(), getDocument(request).getPath());
@@ -318,9 +319,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
             Optional<SignpostModule> signpost;
             if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
-                signpost = signpostFactory.createSnowAlertsModule(request.getLocale());
+                signpost = newsletterFactory.createSnowAlertsModule(request.getLocale());
             } else {
-                signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
+                signpost = newsletterFactory.createNewsletterSignpostModule(request.getLocale());
             }
 
             if (signpost.isPresent()) {

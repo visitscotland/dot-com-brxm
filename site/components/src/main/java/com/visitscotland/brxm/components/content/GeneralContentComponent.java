@@ -3,7 +3,7 @@ package com.visitscotland.brxm.components.content;
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
 import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.utils.pagebuilder.PageAssembler;
+import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
