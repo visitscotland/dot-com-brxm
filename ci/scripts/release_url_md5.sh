@@ -8,7 +8,7 @@ set -Eeuo pipefail
 # Inputs (from Jenkins env or defaults)
 : "${GIT_COMMIT:?GIT_COMMIT is required}"
 LOG_FILE="${1:-${GIT_COMMIT}.log}"
-OUT_PROPS="${2:-release_env.properties}"
+OUT_PROPS="${2:-ci/properties/release_env.properties}"
 
 # Zero/initialize outputs
 VS_RELEASE_PACKAGE_WORKSPACE_MD5=""
