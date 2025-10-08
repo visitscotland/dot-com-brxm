@@ -10,12 +10,12 @@
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: cafcb863-9c1f-4d5f-81d9-c652dc023fcd
     hippo:availability: []
+    hippostd:holder: admin
     hippostd:retainable: false
     hippostd:state: draft
-    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-10-07T09:21:21.066+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-06T15:21:18.557+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
