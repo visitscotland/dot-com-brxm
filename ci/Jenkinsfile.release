@@ -466,95 +466,123 @@ pipeline {
             }
         }
 
-        stage('Release Package URL, MD5') {
+//        stage('Release Package URL, MD5') {
+//            steps {
+//                script {
+//                    // calculate the MD5 checksum of the distribution package (workspace file)
+//                    VS_RELEASE_PACKAGE_WORKSPACE_MD5 = sh(
+//                            script: "md5sum target/*distr*.tar.gz | cut -d ' ' -f1",
+//                            returnStdout: true
+//                    ).trim()
+//                    // locating the log file with he nexus distribution related content
+//                    echo "log content: ${GIT_COMMIT}.log"
+//                    def logContent = "${GIT_COMMIT}.log"
+//                    // check if the git commit log file exists (if not, it means that release file wasn't uploaded to the Nexus)
+//                    if (fileExists(logContent)) {
+//                        def matchingLine = ''
+//                        // store the log content in a lines array
+//                        def lines = readFile(logContent).split('\n')
+//                        // build number, produced by maven build upon successful nexus upload
+//                        def mvnProducedBuildNumber = ''
+//                        // outcome of the pipeline, for email purposes (email title)
+//                        VS_PIPELINE_OUTCOME_EMAIL = 'SUCCESS'
+//
+//                        // start reading the log as an array, line by line
+//                        for (line in lines) {
+//                            // Use a regular expression to match the URL pattern
+//                            if (line ==~ /.*https:\/\/.*distr.*\.tar\.gz/) {
+//                                if (matchingLine)
+//                                    continue // skip additional captures of the regex pattern
+//                                matchingLine = line
+//                                echo "Found a match: ${matchingLine}"
+////                  break // exit after finding first match
+//                            }
+//                            // todo: we need to check if there was a failure in the upload process
+//                            // check for failure here
+//                            if (line =~ /(?i)\[ERROR]|\[FAILURE]|\[FAILED]|\[EXCEPTION]/) {
+//                                // append each error line detected in the log, to the global variable associated with the email process
+//                                VS_ERROR_LINES_EMAIL += "${line}<br/>"
+//                                if (VS_PIPELINE_OUTCOME_EMAIL == 'SUCCESS') { // only write in this variable once
+//                                    VS_PIPELINE_OUTCOME_EMAIL = 'ERROR'
+//                                }
+//                            }
+//                        }
+//                        if (matchingLine != '') {
+//                            // begin the construction of the publicly accessible URL
+//                            int startIndex = matchingLine.indexOf('https://')
+//                            // Find the index of the first space after the start index or use string length if no space is found
+//                            int endIndex = matchingLine.indexOf(' ', startIndex)
+//                            if (endIndex == -1) { // If no space is found, use the length of the logLine
+//                                endIndex = matchingLine.length()
+//                            }
+//
+//                            // Extract the URL using the determined indices
+//                            def extractedUrl = matchingLine.substring(startIndex, endIndex)
+//                            echo "Extracted Nexus URL: ${extractedUrl}"
+//
+//                            // Replace ':443' with '' (basically, remove ':443')
+//                            VS_RELEASE_PACKAGE_NEXUS_URL = extractedUrl.replace(':443', '')
+//                            // Replace 'service/local' with 'content'
+//                            VS_RELEASE_PACKAGE_NEXUS_URL = VS_RELEASE_PACKAGE_NEXUS_URL.replace('service/local/staging/deployByRepositoryId', 'content/repositories')
+//                            // final Nexus URL (should be publicly accessible)
+//                            echo "Modified, Public Nexus URL: ${VS_RELEASE_PACKAGE_NEXUS_URL}"
+//
+//                            // test if the URL is valid, using curl's output
+//                            def distroPackageResponseCode = sh(script: "curl -o /dev/null --silent --head --write-out '%{http_code}' ${VS_RELEASE_PACKAGE_NEXUS_URL}", returnStdout: true).trim()
+//                            if (distroPackageResponseCode == '200') {
+//                                echo "Distribution's URL in the Nexus is valid. File exists."
+//                                // since the file exists, notify the email recipients of its actual name in the Nexus
+//
+//                                // Store the part of the URL after the last '/' in the global variable (to be used in the email)
+//                                VS_RELEASE_CANDIDATE_NEXUS_FILENAME = VS_RELEASE_PACKAGE_NEXUS_URL.substring(VS_RELEASE_PACKAGE_NEXUS_URL.lastIndexOf('/') + 1)
+//                                echo "Release filename in the Nexus: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
+//                            } else {
+//                                echo "Distribution's URL in the Nexus is invalid (maybe a rule error?). Response code: ${distroPackageResponseCode}"
+//                            }
+//                        }
+//                    } else { // log file wasn't created (did you try to upload a SNAPSHOT release to the nexus?)
+//                        echo "Release file hasn't been uploaded to the Nexus (was it a SNAPSHOT maybe?)"
+//                    }
+//                }
+//            }
+//            post {
+//                success {
+//                    script {
+//                        echo "Stage, successfully executed"
+//                    }
+//                }
+//                failure {
+//                    script {
+//                        echo "Stage failed"
+//                    }
+//                }
+//            }
+//        }
+
+        stage('Release Package URL, MD5 (ext)') {
             steps {
+                sh '''
+                  chmod +x scripts/release_url_md5.sh
+                  # args: LOG_FILE (default: ${GIT_COMMIT}.log), OUT_PROPS
+                  scripts/release_url_md5.sh "${GIT_COMMIT}.log" "ci/properties/release_env.properties"
+                '''
+
+                // Read outputs back in
                 script {
-                    // calculate the MD5 checksum of the distribution package (workspace file)
-                    VS_RELEASE_PACKAGE_WORKSPACE_MD5 = sh(
-                            script: "md5sum target/*distr*.tar.gz | cut -d ' ' -f1",
-                            returnStdout: true
-                    ).trim()
-                    // locating the log file with he nexus distribution related content
-                    echo "log content: ${GIT_COMMIT}.log"
-                    def logContent = "${GIT_COMMIT}.log"
-                    // check if the git commit log file exists (if not, it means that release file wasn't uploaded to the Nexus)
-                    if (fileExists(logContent)) {
-                        def matchingLine = ''
-                        // store the log content in a lines array
-                        def lines = readFile(logContent).split('\n')
-                        // build number, produced by maven build upon successful nexus upload
-                        def mvnProducedBuildNumber = ''
-                        // outcome of the pipeline, for email purposes (email title)
-                        VS_PIPELINE_OUTCOME_EMAIL = 'SUCCESS'
-
-                        // start reading the log as an array, line by line
-                        for (line in lines) {
-                            // Use a regular expression to match the URL pattern
-                            if (line ==~ /.*https:\/\/.*distr.*\.tar\.gz/) {
-                                if (matchingLine)
-                                    continue // skip additional captures of the regex pattern
-                                matchingLine = line
-                                echo "Found a match: ${matchingLine}"
-//                  break // exit after finding first match
-                            }
-                            // todo: we need to check if there was a failure in the upload process
-                            // check for failure here
-                            if (line =~ /(?i)\[ERROR]|\[FAILURE]|\[FAILED]|\[EXCEPTION]/) {
-                                // append each error line detected in the log, to the global variable associated with the email process
-                                VS_ERROR_LINES_EMAIL += "${line}<br/>"
-                                if (VS_PIPELINE_OUTCOME_EMAIL == 'SUCCESS') { // only write in this variable once
-                                    VS_PIPELINE_OUTCOME_EMAIL = 'ERROR'
-                                }
-                            }
-                        }
-                        if (matchingLine != '') {
-                            // begin the construction of the publicly accessible URL
-                            int startIndex = matchingLine.indexOf('https://')
-                            // Find the index of the first space after the start index or use string length if no space is found
-                            int endIndex = matchingLine.indexOf(' ', startIndex)
-                            if (endIndex == -1) { // If no space is found, use the length of the logLine
-                                endIndex = matchingLine.length()
-                            }
-
-                            // Extract the URL using the determined indices
-                            def extractedUrl = matchingLine.substring(startIndex, endIndex)
-                            echo "Extracted Nexus URL: ${extractedUrl}"
-
-                            // Replace ':443' with '' (basically, remove ':443')
-                            VS_RELEASE_PACKAGE_NEXUS_URL = extractedUrl.replace(':443', '')
-                            // Replace 'service/local' with 'content'
-                            VS_RELEASE_PACKAGE_NEXUS_URL = VS_RELEASE_PACKAGE_NEXUS_URL.replace('service/local/staging/deployByRepositoryId', 'content/repositories')
-                            // final Nexus URL (should be publicly accessible)
-                            echo "Modified, Public Nexus URL: ${VS_RELEASE_PACKAGE_NEXUS_URL}"
-
-                            // test if the URL is valid, using curl's output
-                            def distroPackageResponseCode = sh(script: "curl -o /dev/null --silent --head --write-out '%{http_code}' ${VS_RELEASE_PACKAGE_NEXUS_URL}", returnStdout: true).trim()
-                            if (distroPackageResponseCode == '200') {
-                                echo "Distribution's URL in the Nexus is valid. File exists."
-                                // since the file exists, notify the email recipients of its actual name in the Nexus
-
-                                // Store the part of the URL after the last '/' in the global variable (to be used in the email)
-                                VS_RELEASE_CANDIDATE_NEXUS_FILENAME = VS_RELEASE_PACKAGE_NEXUS_URL.substring(VS_RELEASE_PACKAGE_NEXUS_URL.lastIndexOf('/') + 1)
-                                echo "Release filename in the Nexus: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
-                            } else {
-                                echo "Distribution's URL in the Nexus is invalid (maybe a rule error?). Response code: ${distroPackageResponseCode}"
-                            }
-                        }
-                    } else { // log file wasn't created (did you try to upload a SNAPSHOT release to the nexus?)
-                        echo "Release file hasn't been uploaded to the Nexus (was it a SNAPSHOT maybe?)"
-                    }
+                    def props = readProperties file: 'ci/properties/release_env.properties'
+                    // Make them visible to later stages:
+                    props.each { k, v -> env[k] = v ?: '' }
+                    echo "Public Nexus URL: ${env.VS_RELEASE_PACKAGE_NEXUS_URL}"
+                    echo "MD5: ${env.VS_RELEASE_PACKAGE_WORKSPACE_MD5}"
+                    echo "Release filename: ${env.VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
+                    echo "Outcome for email: ${env.VS_PIPELINE_OUTCOME_EMAIL}"
                 }
             }
             post {
-                success {
-                    script {
-                        echo "Stage, successfully executed"
-                    }
-                }
-                failure {
-                    script {
-                        echo "Stage failed"
-                    }
+                success { echo 'Stage, successfully executed' }
+                failure { echo 'Stage failed' }
+                always {
+                    archiveArtifacts artifacts: 'ci/properties/release_env.properties', onlyIfSuccessful: false
                 }
             }
         }
