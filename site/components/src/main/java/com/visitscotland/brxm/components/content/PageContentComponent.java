@@ -49,6 +49,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
+    public static final String SEARCH_RESULTS_URL = "searchResultsUrl";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
     public static final String SITE_ID = "site-id";
@@ -378,6 +379,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         if (Contract.isEmpty(properties.getSiteId())) {
             addProductSearchWidget(request);
+            request.setModel(SEARCH_RESULTS_URL, properties.getSiteGlobalSearch());
         } else {
             prefix = properties.getSiteId() +".";
             request.setModel(SITE_ID, properties.getSiteId());
