@@ -562,9 +562,9 @@ pipeline {
         stage('Release Package URL, MD5 (ext)') {
             steps {
                 sh '''
-                  chmod +x scripts/release_url_md5.sh
+                  chmod +x ci/scripts/release_url_md5.sh
                   # args: LOG_FILE (default: ${GIT_COMMIT}.log), OUT_PROPS
-                  scripts/release_url_md5.sh "${GIT_COMMIT}.log" "ci/properties/release_env.properties"
+                  ci/scripts/release_url_md5.sh "${GIT_COMMIT}.log" "ci/properties/release_env.properties"
                 '''
 
                 // Read outputs back in
