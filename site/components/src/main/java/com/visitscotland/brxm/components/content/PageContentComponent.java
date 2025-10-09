@@ -149,16 +149,22 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         labels(request).put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
         labels(request).put(SEO, bundle.getAllSiteLabels(SEO, request.getLocale()));
         labels(request).put(SKIP_TO, bundle.getAllLabels(SKIP_TO, request.getLocale()));
-        if ("root".equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId())
-                || request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
+        if (isHomepage(request) || request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
             labels(request).put(SEARCH_EVENTS_FILTERS, bundle.getAllLabels(SEARCH_EVENTS_FILTERS, request.getLocale()));
             request.setModel("cludoAPI", properties.getProperty("cludo.api", request.getLocale()));
             request.setModel("eventsAPI", properties.getProperty("events.endpoint", request.getLocale()));
+            if (isHomepage(request)) {
+                request.setModel("searchWidget", true);
+            }
         }
 
         if (isEditMode(request)) {
             labels(request).put(CMS_MESSAGES, bundle.getAllLabels(CMS_MESSAGES, request.getLocale()));
         }
+    }
+
+    private boolean isHomepage (HstRequest request){
+        return "root".equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
     }
 
     /**
