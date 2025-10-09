@@ -8,7 +8,7 @@
 <#-- @ftlvariable name="itinerary" type="com.visitscotland.brxm.model.ItineraryPage" -->
 <#-- @ftlvariable name="introTheme" type="int" -->
 
-<#macro heroSection content heroDetails="" itinerary="" lightBackground=false author="" fullScreenMobile=false isListicle=false>
+<#macro heroSection content heroDetails="" itinerary="" lightBackground=false author="" fullScreenMobile=false isListicle=false withImage=true>
     <@previewWarning editMode content alerts!"" />
     
     <#if content.heroImage??>
@@ -29,7 +29,7 @@
         <vs-hero-section
             heading="${content.title}"
             lede="${content.teaser}"
-            img-src="${heroSrc}"
+            <#if withImage>img-src="${heroSrc}"</#if>
             video-src="${heroVideo.link}"
             video-btn-text="${videoPlay}"
         />

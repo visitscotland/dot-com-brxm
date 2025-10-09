@@ -1,40 +1,60 @@
 <#include "../../../../include/imports.ftl">
 <#include "../../../../frontend/components/vs-container.ftl">
-<#include "../../../../frontend/components/vs-row.ftl">
-<#include "../../../../frontend/components/vs-col.ftl">
-<#include "../../../../frontend/components/vs-embed-wrapper.ftl">
+<#include "../../../../frontend/components/vs-federated-search.ftl">
 
 <#macro searchResults>
-    <div id="cludo-search-results" class="cludo-search-results">
-        <div class="cludo-search-results__layout mb-300 mb-md-500">
-            <vs-embed-wrapper 
-                no-cookies-required
-                no-cookie-text="You need cookies enabled to view this content"
-                error-text = "${label('essentials.global', 'third-party-error')}"
-                no-js-text="${label('search', 'no-js')}"
-            >
-                <template v-slot:embed-widget>
-                    <div class="row">
-                        <div class="col-12 col-lg-10 offset-lg-1 mb-100 mb-lg-200">
-                            <div class="cludo-search-results__search-result-count search-result-count" role="status"></div>
-                            <div class="cludo-search-results__did-you-mean search-did-you-mean" role="Complementary"></div>
-                            <div class="cludo-search-results__facets search-filters" aria-controls="search-results"></div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-10 offset-lg-1" role="main">
-                            <div class="cludo-search-results__results-wrapper">
-                                <div class="cludo-search-results__results search-results" role="region" id="search-results" aria-live="polite"></div>
-                            </div>
-                        </div>
-                    </div>
-                </template>
-            </vs-embed-wrapper>
-        </div>
-    </div>
 
-    <@hst.headContribution category="htmlHeadStyles">
-        <link rel="stylesheet" href="<@hst.webfile path='/frontend/styles/third-party/_cludo-search-results.css'/>" type="text/css"/>
-    </@hst.headContribution>
+    <#assign searchEventFilters =  ResourceBundle.getAllLabels("search-events-filters", locale) />
+
+    <vs-container>
+        <vs-federated-search
+            cludo-api-key="${label('default.site.config', 'cludo.api')}"
+            :cludo-customer-id="${label('default.site.config', 'cludo.customer-id')}"
+            :cludo-engine-id="${label('default.site.config', 'cludo.engine-id')}"
+            events-api="${label('default.site.config', 'events.endpoint')}"
+            :sub-filters="[
+                <#list searchEventFilters?keys?sort as key>
+                    { Key: '${key}', Label: '${escapeJSON(searchEventFilters[key], false)}'},
+                </#list>
+            ]"
+            :pagination-labels="{
+                nextButtonLabel: '${label('essentials.pagination', 'page.next')}',
+                previousButtonLabel: '${label('essentials.pagination', 'page.previous')}',
+                pageLabel: '${label('essentials.pagination', 'page.page')}',
+                ofLabel: '${label('essentials.pagination', 'page.of')}',
+            }"
+            :search-labels="{
+                refine: '${label('search', 'refine')}',
+                search: '${label('search', 'search')}',
+                searchLabel: '${label('search', 'search-label')}',
+                searchResults: '${label('search', 'search.results')}',
+                resultsFirst: '${label('search', 'results.first-sentence')}',
+                resultsSecond: '${label('search', 'results.second-sentence')}',
+                noJs:  '${label('search', 'no-js')}',
+            }"
+            :sort-labels="{
+                dateFrom: '${label('search', 'date.from')}',
+                dateTo: '${label('search', 'date.to')}',
+                sort: '${label('search', 'sort')}',
+                sortOptions: [
+                    {
+                        key: 'dateAsc',
+                        label: '${label('search', 'sort.dateAsc')}',
+                    },
+                    {
+                        key: 'priceAsc',
+                        label: '${label('search', 'sort.priceAsc')}',
+                    },
+                ]
+            }"
+            :error-messages="{
+                noResults: 'no-results',
+                incorrectDateOrder: '${label('search', 'error.date')}',
+                cludoError: '${label('search', 'error.cludo')}',
+                eventError: '${label('search', 'error.events')}',
+            }"
+            from-text="${label('search', 'price.from')}"
+        ></vs-federated-search>
+    </vs-container>
+
 </#macro>
-
-

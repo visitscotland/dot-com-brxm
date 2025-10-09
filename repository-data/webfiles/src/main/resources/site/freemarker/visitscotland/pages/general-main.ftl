@@ -43,7 +43,11 @@
         <@pageIntro content=document lightBackground=true />
 		<@introImage mainImage=heroImage />
 	<#elseif inspirationTemplate>
-		<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") fullScreenMobile=true />
+		<#if searchResultsPage??>
+			<@heroSection content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") withImage=false />
+		<#else>
+			<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") fullScreenMobile=true />
+		</#if>
 	<#else>
         <@pageIntro content=document lightBackground=true />
     </#if>
