@@ -42,8 +42,6 @@ def VS_PIPELINE_OUTCOME_EMAIL = ''
 def VS_RELEASE_CANDIDATE_NEXUS_FILENAME = ''
 // detect the release version to be added in the email info
 def VS_RELEASE_VERSION_DETECTED_FOR_EMAIL = ''
-// key:value pairs map for use across stages
-def BUILD_VARS = [:]
 
 if (BRANCH_NAME == "develop" && (JOB_NAME == "develop.visitscotland.com/develop" || JOB_NAME == "develop.visitscotland.com-mb/develop")) {
     //thisAgent = "op-dev-xvcdocker-01"
@@ -572,24 +570,15 @@ pipeline {
                 // Read outputs back in
                 script {
                     def props = readProperties file: 'ci/properties/release_env.properties'
-                    BUILD_VARS.putAll(props)
+                    VS_RELEASE_PACKAGE_NEXUS_URL      = props.VS_RELEASE_PACKAGE_NEXUS_URL ?: ''
+                    VS_RELEASE_PACKAGE_WORKSPACE_MD5  = props.VS_RELEASE_PACKAGE_WORKSPACE_MD5 ?: ''
+                    VS_RELEASE_CANDIDATE_NEXUS_FILENAME = props.VS_RELEASE_CANDIDATE_NEXUS_FILENAME ?: ''
+                    VS_PIPELINE_OUTCOME_EMAIL         = props.VS_PIPELINE_OUTCOME_EMAIL ?: ''
 
-                    echo "Public Nexus URL: ${BUILD_VARS.VS_RELEASE_PACKAGE_NEXUS_URL}"
-                    echo "MD5: ${BUILD_VARS.VS_RELEASE_PACKAGE_WORKSPACE_MD5}"
-                    echo "Release filename: ${BUILD_VARS.VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
-                    echo "Outcome for email: ${BUILD_VARS.VS_PIPELINE_OUTCOME_EMAIL}"
-
-                    // for testing purposes:
-                    VS_RELEASE_PACKAGE_NEXUS_URL = BUILD_VARS.VS_RELEASE_PACKAGE_NEXUS_URL
-                    VS_RELEASE_PACKAGE_WORKSPACE_MD5 = BUILD_VARS.VS_RELEASE_PACKAGE_WORKSPACE_MD5
-                    VS_RELEASE_CANDIDATE_NEXUS_FILENAME = BUILD_VARS.VS_RELEASE_CANDIDATE_NEXUS_FILENAME
-                    VS_PIPELINE_OUTCOME_EMAIL = BUILD_VARS.VS_PIPELINE_OUTCOME_EMAIL
-
-                    echo "Public Nexus URL: ${VS_RELEASE_PACKAGE_NEXUS_URL}"
+                    echo "URL: ${VS_RELEASE_PACKAGE_NEXUS_URL}"
                     echo "MD5: ${VS_RELEASE_PACKAGE_WORKSPACE_MD5}"
-                    echo "Release filename: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
-                    echo "Outcome for email: ${VS_PIPELINE_OUTCOME_EMAIL}"
-
+                    echo "Filename: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
+                    echo "Outcome: ${VS_PIPELINE_OUTCOME_EMAIL}"
                 }
             }
             post {
