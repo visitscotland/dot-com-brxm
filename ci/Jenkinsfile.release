@@ -571,7 +571,10 @@ pipeline {
                 script {
                     def props = readProperties file: 'ci/properties/release_env.properties'
                     // Make them visible to later stages:
-                    props.each { k, v -> env[k] = v ?: '' }
+                    props.each { k, v ->
+                        env."${k}" = (v ?: '')
+                    }
+
                     echo "Public Nexus URL: ${env.VS_RELEASE_PACKAGE_NEXUS_URL}"
                     echo "MD5: ${env.VS_RELEASE_PACKAGE_WORKSPACE_MD5}"
                     echo "Release filename: ${env.VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
