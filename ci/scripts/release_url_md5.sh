@@ -19,7 +19,7 @@ VS_PIPELINE_OUTCOME_EMAIL="SUCCESS"
 
 # md5 of the distribution package
 # Supports both GNU (md5sum) and macOS/BSD (md5 -r)
-if compgen -G "../../target/*distr*.tar.gz" > /dev/null; then
+if compgen -G "$WORKSPACE/target/*distr*.tar.gz" > /dev/null; then
   if command -v md5sum >/dev/null 2>&1; then
     VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5sum target/*distr*.tar.gz | head -n1 | cut -d ' ' -f1 || true)"
   elif command -v md5 >/dev/null 2>&1; then
@@ -28,7 +28,7 @@ if compgen -G "../../target/*distr*.tar.gz" > /dev/null; then
     echo "WARN: Neither md5sum nor md5 found; skipping MD5" >&2
   fi
 else
-  echo "WARN: No target/*distr*.tar.gz files found; skipping MD5" >&2
+  echo "WARN: No $WORKSPACE/target/*distr*.tar.gz files found; skipping MD5" >&2
 fi
 
 if [[ -f "${LOG_FILE}" ]]; then
