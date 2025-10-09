@@ -13,14 +13,15 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2025-10-09T09:15:16.207+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-09T09:43:51.248+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:id: search
     resourcebundle:keys: [clear-form, close-form, search, search-label, no-js, sort,
       refine, date.from, date.to, sort.dateAsc, sort.priceAsc, search.results, price.from,
-      no-results, error.date, error.cludo, error.events, add.term]
+      no-results, error.date, error.cludo, error.events, add.term, results.first-sentence,
+      results.second-sentence]
     resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
         looking for?', JavaScript needs to be enabled to see search result. You can
         turn this on in your browser settings., Sort by, Refine your search, From,
@@ -28,27 +29,28 @@
       'The start date is after the end date, please change this and try again', 'There
         was a problem retrieving the search results, please try again later', 'There
         was a problem retrieving the event results, please try again later', Enter
-        a search term or select a filter.]
+        a search term or select a filter., Showing, results]
     resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
         Sie?', 'JavaScript muss aktiviert sein, um Suchergebnisse anzuzeigen. Sie
         können es in Ihren Browser-Einstellungen aktivieren.', '', '', '', '', '',
-      '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
       Buscar, '¿Qué estás buscando?', JavaScript debe estar habilitado para mostrar
         los resultados de la búsqueda. Puedes activarlo en la configuración de tu
-        navegador., '', '', '', '', '', '', '', '', '', '', '', '', '']
+        navegador., '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
       Rechercher, 'Que recherchez-vous ?', JavaScript doit être activé afin d’afficher
         les résultats de la recherche. Vous pouvez l’activer dans les paramètres de
-        votre navigateur., '', '', '', '', '', '', '', '', '', '', '', '', '']
+        votre navigateur., '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?', Per visualizzare i risultati della ricerca è necessario
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., '', '', '', '',
-      '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '']
   /search[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -58,14 +60,15 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2025-10-09T09:21:57.508+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-09T09:46:43.138+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:id: search
     resourcebundle:keys: [clear-form, close-form, search, search-label, no-js, sort,
       refine, date.from, date.to, sort.dateAsc, sort.priceAsc, search.results, price.from,
-      no-results, error.date, error.cludo, error.events, add.term]
+      no-results, error.date, error.cludo, error.events, add.term, results.first-sentence,
+      results.second-sentence]
     resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
         looking for?', JavaScript needs to be enabled to see search result. You can
         turn this on in your browser settings., Sort by, Refine your search, From,
@@ -73,27 +76,28 @@
       'The start date is after the end date, please change this and try again', 'There
         was a problem retrieving the search results, please try again later', 'There
         was a problem retrieving the event results, please try again later', Enter
-        a search term or select a filter.]
+        a search term or select a filter., Showing, results]
     resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
         Sie?', 'JavaScript muss aktiviert sein, um Suchergebnisse anzuzeigen. Sie
         können es in Ihren Browser-Einstellungen aktivieren.', '', '', '', '', '',
-      '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
       Buscar, '¿Qué estás buscando?', JavaScript debe estar habilitado para mostrar
         los resultados de la búsqueda. Puedes activarlo en la configuración de tu
-        navegador., '', '', '', '', '', '', '', '', '', '', '', '', '']
+        navegador., '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
       Rechercher, 'Que recherchez-vous ?', JavaScript doit être activé afin d’afficher
         les résultats de la recherche. Vous pouvez l’activer dans les paramètres de
-        votre navigateur., '', '', '', '', '', '', '', '', '', '', '', '', '']
+        votre navigateur., '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?', Per visualizzare i risultati della ricerca è necessario
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., '', '', '', '',
-      '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '']
   /search[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -103,15 +107,16 @@
     hippostd:state: published
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2025-10-09T09:21:57.508+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-09T09:46:43.138+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-10-09T09:22:01.392+01:00
+    hippostdpubwf:publicationDate: 2025-10-09T09:46:48.470+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '']
     resourcebundle:id: search
     resourcebundle:keys: [clear-form, close-form, search, search-label, no-js, sort,
       refine, date.from, date.to, sort.dateAsc, sort.priceAsc, search.results, price.from,
-      no-results, error.date, error.cludo, error.events, add.term]
+      no-results, error.date, error.cludo, error.events, add.term, results.first-sentence,
+      results.second-sentence]
     resourcebundle:messages: [Clear form, Close search form, Search, 'What are you
         looking for?', JavaScript needs to be enabled to see search result. You can
         turn this on in your browser settings., Sort by, Refine your search, From,
@@ -119,24 +124,25 @@
       'The start date is after the end date, please change this and try again', 'There
         was a problem retrieving the search results, please try again later', 'There
         was a problem retrieving the event results, please try again later', Enter
-        a search term or select a filter.]
+        a search term or select a filter., Showing, results]
     resourcebundle:messages_de: [Suche löschen, Suche schließen, Suchen, 'Wonach suchen
         Sie?', 'JavaScript muss aktiviert sein, um Suchergebnisse anzuzeigen. Sie
         können es in Ihren Browser-Einstellungen aktivieren.', '', '', '', '', '',
-      '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
       Buscar, '¿Qué estás buscando?', JavaScript debe estar habilitado para mostrar
         los resultados de la búsqueda. Puedes activarlo en la configuración de tu
-        navegador., '', '', '', '', '', '', '', '', '', '', '', '', '']
+        navegador., '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: [Effacer la recherche, Fermer la barre de recherche,
       Rechercher, 'Que recherchez-vous ?', JavaScript doit être activé afin d’afficher
         les résultats de la recherche. Vous pouvez l’activer dans les paramètres de
-        votre navigateur., '', '', '', '', '', '', '', '', '', '', '', '', '']
+        votre navigateur., '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?', Per visualizzare i risultati della ricerca è necessario
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., '', '', '', '',
-      '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '']
