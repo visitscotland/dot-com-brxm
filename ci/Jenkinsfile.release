@@ -570,10 +570,10 @@ pipeline {
                 // Read outputs back in
                 script {
                     def props = readProperties file: 'ci/properties/release_env.properties'
-                    VS_RELEASE_PACKAGE_NEXUS_URL      = props.VS_RELEASE_PACKAGE_NEXUS_URL ?: ''
-                    VS_RELEASE_PACKAGE_WORKSPACE_MD5  = props.VS_RELEASE_PACKAGE_WORKSPACE_MD5 ?: ''
+                    VS_RELEASE_PACKAGE_NEXUS_URL        = props.VS_RELEASE_PACKAGE_NEXUS_URL ?: ''
+                    VS_RELEASE_PACKAGE_WORKSPACE_MD5    = props.VS_RELEASE_PACKAGE_WORKSPACE_MD5 ?: ''
                     VS_RELEASE_CANDIDATE_NEXUS_FILENAME = props.VS_RELEASE_CANDIDATE_NEXUS_FILENAME ?: ''
-                    VS_PIPELINE_OUTCOME_EMAIL         = props.VS_PIPELINE_OUTCOME_EMAIL ?: ''
+                    VS_PIPELINE_OUTCOME_EMAIL           = props.VS_PIPELINE_OUTCOME_EMAIL ?: ''
 
                     echo "URL: ${VS_RELEASE_PACKAGE_NEXUS_URL}"
                     echo "MD5: ${VS_RELEASE_PACKAGE_WORKSPACE_MD5}"
