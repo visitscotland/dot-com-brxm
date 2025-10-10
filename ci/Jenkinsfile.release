@@ -620,57 +620,81 @@ pipeline {
 //      }
 //    }
 
-        stage('Release Package Build-Number') {
+//        stage('Release Package Build-Number') {
+//            steps {
+//                script {
+//                    // should there be a site .war file with a manifest.mf in it, extract the build number from it
+//                    def siteWarFilePath = 'site/webapp/target/site.war'
+//                    def siteWarManifestFile = 'META-INF/MANIFEST.MF'
+//                    // enter block if the war file exists
+//                    if (fileExists(siteWarFilePath)) {
+//                        // Check if the MANIFEST.MF exists inside the WAR file
+//                        def manifestFileExists = sh(
+//                                script: "unzip -l ${siteWarFilePath} | grep -q ${siteWarManifestFile}",
+//                                returnStatus: true
+//                        ) == 0
+//                        // if the manifest file exists, enter the Build-Number search block
+//                        if (manifestFileExists) {
+//                            // Check if the Build-Number entry exists within the MANIFEST.MF
+//                            def siteWarBuildNumberExists = sh(
+//                                    script: """
+//                  unzip -p ${siteWarFilePath} ${siteWarManifestFile} | grep -q "Build-Number"
+//              """,
+//                                    returnStatus: true
+//                            ) == 0
+//                            if (siteWarBuildNumberExists) {
+//                                VS_SITE_WAR_BUILD_NUMBER = sh(
+//                                        script: """
+//                    unzip -p ${siteWarFilePath} ${siteWarManifestFile} | grep "Build-Number" | awk '{print \$2}'
+//                """,
+//                                        returnStdout: true
+//                                ).trim()
+//                            } else {
+//                                echo "site war Build Number entry does not exist within manifest file: ${siteWarManifestFile}"
+//                            }
+//                        } else {
+//                            echo "Couldn't find/access manifest file: ${siteWarManifestFile} within ${siteWarFilePath}"
+//                        }
+//                    } else {
+//                        echo "Couldn't find/access site's .war file: ${siteWarFilePath}"
+//                    }
+//                    echo "site .war Build-Number: ${VS_SITE_WAR_BUILD_NUMBER}"
+//                }
+//            }
+//            post {
+//                success {
+//                    script {
+//                        echo "Stage, successfully executed"
+//                    }
+//                }
+//                failure {
+//                    script {
+//                        echo "Stage failed"
+//                    }
+//                }
+//            }
+//        }
+
+        stage('Release Package Build-Number (ext)') {
             steps {
+                sh '''
+                  # args: SITE_WAR, MANIFEST_PATH, OUT_PROPS
+                  ci/scripts/extract_site_war_build_number.sh \
+                    "site/webapp/target/site.war" \
+                    "META-INF/MANIFEST.MF" \
+                    "ci/properties/release_env.properties"
+                '''
                 script {
-                    // should there be a site .war file with a manifest.mf in it, extract the build number from it
-                    def siteWarFilePath = 'site/webapp/target/site.war'
-                    def siteWarManifestFile = 'META-INF/MANIFEST.MF'
-                    // enter block if the war file exists
-                    if (fileExists(siteWarFilePath)) {
-                        // Check if the MANIFEST.MF exists inside the WAR file
-                        def manifestFileExists = sh(
-                                script: "unzip -l ${siteWarFilePath} | grep -q ${siteWarManifestFile}",
-                                returnStatus: true
-                        ) == 0
-                        // if the manifest file exists, enter the Build-Number search block
-                        if (manifestFileExists) {
-                            // Check if the Build-Number entry exists within the MANIFEST.MF
-                            def siteWarBuildNumberExists = sh(
-                                    script: """
-                  unzip -p ${siteWarFilePath} ${siteWarManifestFile} | grep -q "Build-Number"
-              """,
-                                    returnStatus: true
-                            ) == 0
-                            if (siteWarBuildNumberExists) {
-                                VS_SITE_WAR_BUILD_NUMBER = sh(
-                                        script: """
-                    unzip -p ${siteWarFilePath} ${siteWarManifestFile} | grep "Build-Number" | awk '{print \$2}'
-                """,
-                                        returnStdout: true
-                                ).trim()
-                            } else {
-                                echo "site war Build Number entry does not exist within manifest file: ${siteWarManifestFile}"
-                            }
-                        } else {
-                            echo "Couldn't find/access manifest file: ${siteWarManifestFile} within ${siteWarFilePath}"
-                        }
-                    } else {
-                        echo "Couldn't find/access site's .war file: ${siteWarFilePath}"
-                    }
+                    def props = readProperties file: 'ci/properties/release_env.properties'
+                    VS_SITE_WAR_BUILD_NUMBER = props.VS_SITE_WAR_BUILD_NUMBER ?: ''
                     echo "site .war Build-Number: ${VS_SITE_WAR_BUILD_NUMBER}"
                 }
             }
             post {
-                success {
-                    script {
-                        echo "Stage, successfully executed"
-                    }
-                }
-                failure {
-                    script {
-                        echo "Stage failed"
-                    }
+                success { echo 'Stage, successfully executed' }
+                failure { echo 'Stage failed' }
+                always {
+                    archiveArtifacts artifacts: 'ci/properties/release_env.properties', onlyIfSuccessful: false
                 }
             }
         }
