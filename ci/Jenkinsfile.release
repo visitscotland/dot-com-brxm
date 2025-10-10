@@ -679,7 +679,7 @@ pipeline {
             steps {
                 sh '''
                   # args: SITE_WAR, MANIFEST_PATH, OUT_PROPS
-                  ci/scripts/extract_site_war_build_number.sh \
+                  ci/scripts/release_build_number.sh \
                     "site/webapp/target/site.war" \
                     "META-INF/MANIFEST.MF" \
                     "ci/properties/release_env.properties"
