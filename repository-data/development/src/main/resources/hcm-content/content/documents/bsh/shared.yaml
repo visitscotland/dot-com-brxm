@@ -42,3 +42,35 @@
     hippostd:foldertype: [new-translated-folder-videos, new-video]
     hippotranslation:id: 02e5955a-f111-4fcf-a58a-9d2a55e71b3e
     hippotranslation:locale: en
+  /comparator:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 461ecdab-614d-4e7e-b2c7-a0ff609b4d62
+    hippo:name: Comparison Tool
+    hippostd:foldertype: []
+    hippotranslation:id: 8c18cc4a-f303-4e28-bfd1-f26f2496bafa
+    hippotranslation:locale: en
+    /online-booking-provider:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: cda5e233-8f51-408e-9c7f-f336b0c5c5e7
+      hippo:name: Online Booking Provider
+      hippostd:foldertype: []
+      hippotranslation:id: 132e3b11-af4c-4e31-97da-a83e978ba223
+      hippotranslation:locale: en
+      /feature:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 4fd32cb6-7a0b-4be0-aab1-68a583c65f07
+        hippo:name: Feature
+        hippostd:foldertype: [new-bsh-comparator-feature]
+        hippotranslation:id: 26540c55-d78c-417b-b2d5-4d7f0192aa00
+        hippotranslation:locale: en
+      /system:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 968249c1-afa1-4815-a249-60a7848ba74a
+        hippo:name: Provider
+        hippostd:foldertype: [new-bsh-comparator-system]
+        hippotranslation:id: fefb0366-8046-420f-ae5c-b37674cd4507
+        hippotranslation:locale: en

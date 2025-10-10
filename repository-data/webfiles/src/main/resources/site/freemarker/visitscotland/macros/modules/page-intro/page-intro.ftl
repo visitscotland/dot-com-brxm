@@ -20,14 +20,14 @@
 <#include "../../../../frontend/components/vs-description-list-item.ftl">
 <#include "../../../../frontend/components/vs-alert.ftl">
 <#include "../../../../frontend/components/vs-tag-manager-wrapper.ftl">
-<#include "../../../../frontend/components/vs-blog-details.ftl">
+<#include "../../../../frontend/components/vs-article-details.ftl">
 
 <#-- @ftlvariable name="content" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#-- @ftlvariable name="heroDetails" type="com.visitscotland.brxm.model.FlatImage" -->
 <#-- @ftlvariable name="itinerary" type="com.visitscotland.brxm.model.ItineraryPage" -->
 <#-- @ftlvariable name="introTheme" type="int" -->
 
-<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false author="" fullScreenMobile=false>
+<#macro pageIntro content heroDetails="" itinerary="" lightBackground=false author="" fullScreenMobile=false isListicle=false>
     <@previewWarning editMode content alerts!"" />
     <#if lightBackground>
         <#assign themeName = themeCalculator(1)>
@@ -77,9 +77,9 @@
                                     cols="10"
                                     offset="1"
                                 >
-                                    <vs-rich-text-wrapper>
+                                    <vs-body>
                                         <p>${heroVideo.teaser}</p>
-                                    </vs-rich-text-wrapper>
+                                    </vs-body>
                                 </vs-col>
                         </@modal>
 
@@ -118,13 +118,13 @@
 
             <#if author?? && author?has_content>
                 <template
-                    v-slot:vs-blog-data
+                    v-slot:vs-article-data
                 >
-                    <vs-blog-details
-                        blog-author="<#if author.authorName?has_content>${author.authorName}</#if>"
-                        blog-publish-date="${author.publishDate}"
-                        blog-read-time="${author.readingTime}"
-                    ></vs-blog-details>
+                    <vs-article-details
+                        article-author="<#if author.authorName?has_content>${author.authorName}</#if>"
+                        article-publish-date="${author.publishDate}"
+                        article-read-time="${author.readingTime}"
+                    ></vs-article-details>
                 </template>
             </#if>
 
@@ -135,6 +135,9 @@
             <#if !searchResultsPage??>
                 <template v-slot:vs-intro-content>
                     <@hst.html hippohtml=content.introduction/>
+                    <#if isListicle>
+                        <p class="mt-200">${label("listicle", "listicle.disclaimer")}</p>
+                    </#if>
                 </template>
             </#if>
 
@@ -154,14 +157,14 @@
                     <template v-slot:vs-intro-lower>
                         <vs-container >
                             <vs-row>
-                                <vs-col cols="12" lg="5" xl="6" offset-lg="1">
+                                <vs-col cols="12" xxl="6" offset-lg="1">
                                     <vs-description-list class="mb-150">
                                         <vs-description-list-item title>
                                             ${label("itinerary", "highlights")}
                                         </vs-description-list-item>
 
                                         <#list itinerary.document.highlights as highlight>
-                                            <vs-description-list-item>
+                                            <vs-description-list-item class="<#if highlight?is_first>mt-050</#if>">
                                                 ${highlight}
                                             </vs-description-list-item>
                                         </#list>
@@ -172,8 +175,8 @@
                                             ${label("itinerary", "areas-covered")}
                                         </vs-description-list-item>
 
-                                        <#list  itinerary.document.areas as area>
-                                            <vs-description-list-item>
+                                        <#list itinerary.document.areas as area>
+                                            <vs-description-list-item class="<#if area?is_first>mt-050</#if>">
                                                 ${label("areas", "${area}")}
                                             </vs-description-list-item>
                                         </#list>

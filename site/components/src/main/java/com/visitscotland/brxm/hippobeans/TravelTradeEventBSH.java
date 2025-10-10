@@ -27,9 +27,4 @@ public class TravelTradeEventBSH extends EventBSH {
     public String getTimezone() {
         return getSingleProperty("visitscotland:timezone");
     }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:price")
-    public Price getPrice() {
-        return getBean("visitscotland:price", Price.class);
-    }
 }

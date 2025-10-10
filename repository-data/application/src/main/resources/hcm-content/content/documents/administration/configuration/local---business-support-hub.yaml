@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: c1ca6026-0585-466d-a72b-c4202da2bf95
   hippo:name: Local/Feature - Business Support Hub
-  hippo:versionHistory: 8286a1fe-d0d2-4863-a039-c3cb2504111c
+  hippo:versionHistory: 0177460b-44db-4d12-8b4f-89fbc70d908d
   /local---business-support-hub[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -13,14 +13,16 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2025-01-27T12:39:48.252Z
+    hippostdpubwf:lastModificationDate: 2025-05-12T11:26:48.710+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.local.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
-      site-id, links.download.extensions, global-search.path]
-    resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
-      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results]
+      site-id, links.download.extensions, global-search.path, events-listings.page-size,
+      form.breg.legal-basis.enable, cludo.customer-id, cludo.engine-id, cludo.experience-id]
+    resourcebundle:messages: ['false', GTM-MHCC4QZR, '&gtm_auth=WNBB45OrGGCHWFJ_L3bmSA&gtm_preview=env-1',
+      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '8', 'false',
+      '623', '14100', not-defined]
   /local---business-support-hub[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -30,14 +32,16 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2025-01-27T12:39:20.295Z
+    hippostdpubwf:lastModificationDate: 2025-05-12T11:25:27.376+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.local.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
-      site-id, links.download.extensions, global-search.path]
-    resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
-      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results]
+      site-id, links.download.extensions, global-search.path, events-listings.page-size,
+      form.breg.legal-basis.enable, cludo.customer-id, cludo.engine-id, cludo.experience-id]
+    resourcebundle:messages: ['false', GTM-MHCC4QZR, '&gtm_auth=WNBB45OrGGCHWFJ_L3bmSA&gtm_preview=env-1',
+      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '8', 'false',
+      '623', '14100', not-defined]
   /local---business-support-hub[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -47,12 +51,14 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2025-01-27T12:39:48.252Z
+    hippostdpubwf:lastModificationDate: 2025-05-12T11:26:48.710+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-01-27T12:39:52.133Z
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2025-05-12T11:26:53.997+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: bsh.local.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
-      site-id, links.download.extensions, global-search.path]
-    resourcebundle:messages: ['false', GTM-T7G4TNR, '&gtm_auth=PCWhL-3fHI0sM_2ztUYr6g&gtm_preview=env-126&gtm_cookies_win=x',
-      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results]
+      site-id, links.download.extensions, global-search.path, events-listings.page-size,
+      form.breg.legal-basis.enable, cludo.customer-id, cludo.engine-id, cludo.experience-id]
+    resourcebundle:messages: ['false', GTM-MHCC4QZR, '&gtm_auth=WNBB45OrGGCHWFJ_L3bmSA&gtm_preview=env-1',
+      bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '8', 'false',
+      '623', '14100', not-defined]

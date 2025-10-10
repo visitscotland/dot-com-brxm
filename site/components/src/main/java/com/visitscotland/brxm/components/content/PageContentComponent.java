@@ -45,6 +45,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
+    public static final String VIDEO_HEADER = "videoHeader";
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
@@ -115,6 +116,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
             request.setModel(SEARCH_RESULTS, true);
         }
+        //TODO: These properties are Optional for each site. This needs to be refactored after VS-343 is completed
+        request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()));
+        request.setModel("cludoEngineId", properties.getProperty("cludo.engine-id", request.getLocale()));
+        request.setModel("cludoExperienceId", properties.getProperty("cludo.experience-id", request.getLocale()));
     }
 
     /**
@@ -132,11 +137,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final String SKIP_TO = "skip-to";
         final String SEARCH_BUNDLE = "search";
         final String CMS_MESSAGES = "cms-messages";
+        final String SEO = "seo";
 
         labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, getGlobalLabels(request.getLocale()));
         labels(request).put(SOCIAL_SHARE_BUNDLE, bundle.getAllLabels(SOCIAL_SHARE_BUNDLE, request.getLocale()));
         labels(request).put(SEARCH_BUNDLE, bundle.getAllLabels(SEARCH_BUNDLE, request.getLocale()));
         labels(request).put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
+        labels(request).put(SEO, bundle.getAllSiteLabels(SEO, request.getLocale()));
         labels(request).put(SKIP_TO, bundle.getAllLabels(SKIP_TO, request.getLocale()));
 
         if (isEditMode(request)) {
@@ -173,10 +180,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGlobalLabel(globalLabels, "default.alt-text", locale);
         addGlobalLabel(globalLabels, "image.title", locale);
         addGlobalLabel(globalLabels, "image.no.credit", locale);
+        addGlobalLabel(globalLabels, "image.toggle.text", locale);
         addGlobalLabel(globalLabels, "home", locale);
         addGlobalLabel(globalLabels, "page.next", locale);
         addGlobalLabel(globalLabels, "page.previous", locale);
         addGlobalLabel(globalLabels, "back-to-top", locale);
+        addGlobalLabel(globalLabels, "last-update", locale);
 
         return globalLabels;
     }
@@ -211,6 +220,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         VideoLink videoDocument = getDocument(request).getHeroVideo();
         if (videoDocument != null && videoDocument.getVideoLink() != null) {
             EnhancedLink video = linksService.createVideo(videoDocument.getVideoLink(), introModule, request.getLocale());
+            if (Contract.isEmpty((video.getYoutubeId()))) {
+                request.setModel(VIDEO_HEADER, true);
+            }
             request.setModel(HERO_VIDEO, video);
         }
 
@@ -283,7 +295,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
         if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
-            SignpostModule signpost;
+            Optional<SignpostModule> signpost;
             if (!Contract.isEmpty(properties.getSiteId())){
                 signpost = signpostFactory.createDeliveryAPIModule(request.getLocale());
             } else if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
@@ -291,8 +303,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             } else {
                 signpost = signpostFactory.createNewsletterSignpostModule(request.getLocale());
             }
-            if (signpost != null) {
-                request.setModel(NEWSLETTER_SIGNPOST, signpost);
+
+            if (signpost.isPresent()) {
+                request.setModel(NEWSLETTER_SIGNPOST, signpost.get());
             }
         }
     }

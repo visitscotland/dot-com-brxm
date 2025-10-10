@@ -11,12 +11,12 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 647c01c0-6166-4195-a67d-1bcfdd3c9edc
+          jcr:uuid: a54d399e-6965-40d9-9ffb-0626b421b659
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:EventBSH', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          hipposysedit:validators: ['visitscotland:event-location-validator', 'visitscotland:event-date-validator',
-            'visitscotland:event-deadline-validator']
+          hipposysedit:validators: ['visitscotland:event-location-validator', 'visitscotland:event-deadline-validator',
+            'visitscotland:price-validator']
           /international:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -72,10 +72,12 @@ definitions:
           visitscotland:international: false
           visitscotland:email: ''
           visitscotland:deadline: 0001-01-01T12:00:00Z
-          jcr:uuid: 68d916cd-6b52-4ba7-b379-210b504b2e6c
+          jcr:uuid: bc3ac1af-8ba4-45e2-8f9b-08c2b0321f13
           hippostdpubwf:lastModificationDate: 2025-01-14T14:40:47.007Z
           hippostdpubwf:creationDate: 2025-01-14T14:40:47.007Z
           visitscotland:timezone: GMT
+          visitscotland:vat: false
+          visitscotland:currency: GBP
           /visitscotland:summary:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -218,15 +220,6 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /price:
-            jcr:primaryType: frontend:plugin
-            caption: Price
-            field: price
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /online:
             jcr:primaryType: frontend:plugin
             caption: Online
@@ -242,5 +235,33 @@ definitions:
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /price:
+            jcr:primaryType: frontend:plugin
+            caption: Event Price
+            field: price
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /currency:
+            jcr:primaryType: frontend:plugin
+            caption: Currency
+            field: currency
+            hint: Enter a valid ISO-4217 currency code, e.g. GBP, USD, AUD.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '3'
+              size: '3'
+          /vat:
+            jcr:primaryType: frontend:plugin
+            caption: +VAT
+            field: vat
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

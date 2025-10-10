@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;

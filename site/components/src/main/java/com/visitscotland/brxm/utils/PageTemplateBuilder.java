@@ -120,7 +120,7 @@ public class PageTemplateBuilder {
         setIntroTheme(request, page.modules);
 
         if (page.modules.isEmpty() && Boolean.FALSE.equals(getDocument(request).getSeoNoIndex())){
-            logger.warn("The page {} does not have any modules published", request.getRequestURI());
+            contentLogger.warn("The page {} does not have any modules published", request.getRequestURI());
         }
 
         request.setModel(PAGE_ITEMS, page.modules);
@@ -133,6 +133,8 @@ public class PageTemplateBuilder {
             processTouristInformation(request,page, (TourismInformation) item, location);
         } else if (item instanceof Article){
             page.modules.add(articleFactory.getModule(request, (Article) item));
+            //TODO allow labels to be used from Factories
+            addAllLabels(request, "download");
         } else if (item instanceof LongCopy){
             processLongCopy(request, page, (LongCopy) item);
         } else if (item instanceof MapModule) {
@@ -152,14 +154,21 @@ public class PageTemplateBuilder {
         } else if (item instanceof SkiCentreList){
             page.modules.add(skiFactory.createSkyListModule((SkiCentreList) item, request.getLocale()));
         } else if (item instanceof DevModule){
-            page.modules.add(devModuleFactory.getModule((DevModule) item));
+            page.modules.add(devModuleFactory.getModule((DevModule) item, labels(request), request.getLocale()));
         } else if (item instanceof CTABanner){
             page.modules.add(signPostFactory.createModule((CTABanner) item));
         } else if (item instanceof EventsListing){
-            page.modules.add(eventsListingFactory.createModule((EventsListing) item));
+            page.modules.add(getEventListingModule(request, (EventsListing) item));
         } else {
             logger.warn("Unrecognized Module Type: {}", item.getClass());
         }
+    }
+
+    private EventsLingsModule  getEventListingModule(HstRequest request,EventsListing document) {
+        addAllLabels(request,"events-listings-module");
+        addAllSiteLabels(request, "essentials.pagination");
+
+        return eventsListingFactory.createModule(document);
     }
 
     private FormModule getForm(HstRequest request, BaseDocument form){
@@ -316,6 +325,10 @@ public class PageTemplateBuilder {
 
     private void addAllLabels(HstRequest request, String bundleName) {
         labels(request).put(bundleName, bundle.getAllLabels(bundleName, request.getLocale()));
+    }
+
+    private void addAllSiteLabels(HstRequest request, String bundleName) {
+        labels(request).put(bundleName, bundle.getAllSiteLabels(bundleName, request.getLocale()));
     }
 
     /**

@@ -61,6 +61,9 @@ class LinkServiceTest {
     private CommonUtilsService commonUtils;
 
     @Mock
+    private FileMetaDataCalculator fileMetaDataCalculator;
+
+    @Mock
     private SiteProperties siteProperties;
 
     @Mock
@@ -434,8 +437,8 @@ class LinkServiceTest {
         final String url= "https://www.visitscotland.com/ebrochures/en/what-to-see-and-do/perthshireanddundee.pdf";
         final String category= "see-do";
         SharedLink externalDocument = new SharedLinkMockBuilder().externalDocument("title",url,category).build();
+        when(fileMetaDataCalculator.getDisplayText(anyString(), any())).thenReturn(Optional.of("PDF 15.5MB"));
 
-        when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn("PDF 15.5MB");
         EnhancedLink enhancedLink = service.createEnhancedLink(externalDocument,null, Locale.UK, true).get();
 
         assertEquals("title | PDF 15.5MB", enhancedLink.getLabel());
@@ -449,12 +452,13 @@ class LinkServiceTest {
         final String url = "https://www.visitscotland.com/ebrochures/en/what-to-see-and-do/perthshireanddundee.pdf";
         final Module<?> module = new Module<>();
 
+        when(fileMetaDataCalculator.getDisplayText(anyString(), any())).thenReturn(Optional.empty());
+
         EnhancedLink enhancedLink = service.createEnhancedLink(
                 new SharedLinkMockBuilder().externalDocument("title",url,"see-do").build(), module,
                 Locale.UK, true).get();
 
         assertEquals("title", enhancedLink.getLabel());
-        assertTrue(module.getErrorMessages().contains("The Link to the External document might be broken"));
     }
 
     @Test
@@ -475,8 +479,8 @@ class LinkServiceTest {
     void createEnhancedLink_externalDocument() {
         final String url= "https://www.visitscotland.com/ebrochures/en/what-to-see-and-do/perthshireanddundee.pdf";
         SharedLink externalDocument = new SharedLinkMockBuilder().externalDocument("title",url,  null).build();
+        when(fileMetaDataCalculator.getDisplayText(anyString(), any())).thenReturn(Optional.of("PDF 15.5MB"));
 
-        when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn("PDF 15.5MB");
         EnhancedLink enhancedLink = service.createEnhancedLink(externalDocument, null, Locale.UK, false).get();
 
         assertEquals("title | PDF 15.5MB", enhancedLink.getLabel());
@@ -535,8 +539,8 @@ class LinkServiceTest {
     @DisplayName("getDownloadText returns the label with the size")
     void getDownloadText() {
 
-        when(commonUtils.getExternalDocumentSize(any(), any())).thenReturn("PDF 15.5MB");
         when(utils.getRequestLocale()).thenReturn(Locale.CANADA);
+        when(fileMetaDataCalculator.getDisplayText(anyString(), any())).thenReturn(Optional.of("PDF 15.5MB"));
 
         assertEquals(" | PDF 15.5MB", service.getDownloadText("http://www.visitscotlan.com/pdf"));
     }
@@ -572,6 +576,24 @@ class LinkServiceTest {
         assertEquals("/unit-test/", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/unit-test/",null, null).getLink());
         assertEquals("/info/accommodation/unit-test/", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/info/accommodation/unit-test/",null, null).getLink());
         assertEquals("/fr-fr/unit-test/", service.createExternalLink(Locale.FRANCE, "https://www.visitscotland.com/unit-test/",null, null).getLink());
+    }
+
+    @Test
+    @DisplayName("BSHUB-622 - When the URL has anchor links, the anchor should be part of the link")
+    void createExternalLink_relativeUrlsAnchorlinks(){
+        when(siteProperties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
+        when(siteProperties.getConvertToRelative()).thenReturn("www.visitscotland.com");
+
+        assertEquals("/unit-test#anchorlink", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/unit-test#anchorlink",null, null).getLink());
+    }
+
+    @Test
+    @DisplayName("BSHUB-622 - When the URL has query parameters, the query parameters should be part of the link")
+    void createExternalLink_relativeUrlsParameters(){
+        when(siteProperties.getInternalSites()).thenReturn(Collections.singletonList("www.visitscotland.com"));
+        when(siteProperties.getConvertToRelative()).thenReturn("www.visitscotland.com");
+
+        assertEquals("/unit-test?type=accom", service.createExternalLink(Locale.UK, "https://www.visitscotland.com/unit-test?type=accom",null, null).getLink());
     }
 
     @ParameterizedTest
@@ -627,7 +649,6 @@ class LinkServiceTest {
         assertEquals("title", link.getLabel());
     }
 
-    //TODO
     @Test
     @DisplayName(("VS-2949 - Create video link to be used by Freemarker"))
     void createVideo(){

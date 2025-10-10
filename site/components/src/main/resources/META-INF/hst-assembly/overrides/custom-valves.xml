@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="customLocalizationValve" class="com.visitscotland.brxm.config.MountLocalizationValve">
+    <bean id="customLocalizationValve" class="com.visitscotland.brxm.valve.MountLocalizationValve">
         <property name="valveName" value="customLocalizationValve"/>
         <property name="afterValves" value="localizationValve"/>
         <property name="beforeValves" value="actionValve"/>
@@ -25,7 +25,7 @@
         </property>
     </bean>
 
-    <bean id="environmentContextValve" class="com.visitscotland.brxm.config.VSEnvironmentContextValve">
+    <bean id="environmentContextValve" class="com.visitscotland.brxm.valve.VSEnvironmentContextValve">
         <property name="valveName" value="environmentContextValve"/>
         <property name="afterValves" value="securityValve" />
         <property name="beforeValves" value="pageCachingValve" />

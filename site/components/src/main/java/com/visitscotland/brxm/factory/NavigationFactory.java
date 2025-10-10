@@ -15,7 +15,7 @@ import com.visitscotland.brxm.model.navigation.NavigationWidget;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;

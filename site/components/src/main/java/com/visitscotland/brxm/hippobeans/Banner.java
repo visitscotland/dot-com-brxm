@@ -6,9 +6,6 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import java.util.Calendar;
 
-/** 
- * TODO: Beanwriter: Failed to create getter for node type: hippo:compound
- */
 @HippoEssentialsGenerated(internalName = "visitscotland:Banner")
 @Node(jcrType = "visitscotland:Banner")
 public class Banner extends BaseDocument {

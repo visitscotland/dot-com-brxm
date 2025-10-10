@@ -6,14 +6,12 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:ArticleSection")
 @Node(jcrType = "visitscotland:ArticleSection")
 public class ArticleSection extends HippoCompound {
-
     public static final String COPY = "visitscotland:copy";
     public static final String MEDIA = "visitscotland:media";
 
@@ -30,15 +28,14 @@ public class ArticleSection extends HippoCompound {
     @HippoEssentialsGenerated(internalName = "visitscotland:media", allowModifications = false)
     public List<HippoBean> getMedia() {
         return getChildBeansByName(MEDIA, HippoBean.class).stream().map(hippoBean -> {
-                    if (hippoBean instanceof HippoMirror) {
-                        return ((HippoMirror) hippoBean).getReferencedBean();
-                    }
-                    return hippoBean;
-                }
-        ).collect(Collectors.toList());
+            if (hippoBean instanceof HippoMirror) {
+                return ((HippoMirror) hippoBean).getReferencedBean();
+            }
+            return hippoBean;
+        }).collect(Collectors.toList());
     }
 
-    public HippoBean getMediaItem(){
+    public HippoBean getMediaItem() {
         return getOnlyChild(getMedia());
     }
 
@@ -50,5 +47,10 @@ public class ArticleSection extends HippoCompound {
         } else {
             return children.get(0);
         }
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:cmsLink")
+    public CMSLink getCmsLink() {
+        return getBean("visitscotland:cmsLink", CMSLink.class);
     }
 }

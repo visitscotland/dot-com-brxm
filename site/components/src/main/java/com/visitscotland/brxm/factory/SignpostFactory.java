@@ -5,23 +5,29 @@ import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.SignpostModule;
+import com.visitscotland.brxm.model.ErrorModule;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.HippoHtmlWrapper;
-import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
+import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.Optional;
 
 @Component
 public class SignpostFactory {
 
     private static final String BUNDLE_ID = "newsletter-signpost";
 
+    private final Logger contentLogger;
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private final HippoUtilsService hippoUtilsService;
@@ -32,46 +38,71 @@ public class SignpostFactory {
                            SiteProperties properties,
                            HippoUtilsService hippoUtilsService,
                            LinkService linkService,
-                           AnchorFormatter anchorFormatter) {
+                           AnchorFormatter anchorFormatter,
+                           ContentLogger contentLogger) {
         this.bundle = bundle;
         this.properties = properties;
         this.hippoUtilsService = hippoUtilsService;
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
+        this.contentLogger = contentLogger;
     }
 
-    public SignpostModule createNewsletterSignpostModule(Locale locale) {
+    public Optional<SignpostModule> createNewsletterSignpostModule(Locale locale) {
         String newsletterUrl = hippoUtilsService.createUrlFromNode(properties.getSiteNewsletter(), true);
         if (!Contract.isNull(newsletterUrl)) {
-            SignpostModule signpostModule = createSignPostModule(BUNDLE_ID, "newsletter", locale);
-            if (signpostModule != null) {
-                signpostModule.getCta().setLink(newsletterUrl);
+            Optional<SignpostModule> signpostModule = createSignPostModule(BUNDLE_ID, "newsletter", locale);
+            if (signpostModule.isPresent()) {
+                signpostModule.get().getCta().setLink(newsletterUrl);
                 return signpostModule;
             }
         }
 
-        return null;
+        return Optional.empty();
     }
 
 
-    public SignpostModule createSnowAlertsModule(Locale locale) {
+    public Optional<SignpostModule> createSnowAlertsModule(Locale locale) {
         return createSignPostModule(BUNDLE_ID, "snow-alerts", locale);
     }
 
-    public SignpostModule createDeliveryAPIModule(Locale locale) {
+    public Optional<SignpostModule> createDeliveryAPIModule(Locale locale) {
         return createSignPostModule(properties.getSiteId() +"." + BUNDLE_ID, "newsletter", locale);
     }
 
-    public SignpostModule createModule (CTABanner ctaBanner){
+    private Optional<SignpostModule> createSignPostModule(String bundleName, String prefix, Locale locale) {
+        SignpostModule signpostModule = new SignpostModule();
+        FlatLink cta = new FlatLink(bundle.getResourceBundle(bundleName, prefix + ".cta.text", locale),
+                bundle.getResourceBundle(bundleName, prefix + ".cta.link", locale), LinkType.INTERNAL);
+
+        if (Contract.isNull(cta.getLink())) {
+            return Optional.empty();
+        }
+
+        FlatImage image = new FlatImage();
+        image.setExternalImage(bundle.getResourceBundle(bundleName, prefix + ".image", locale));
+        signpostModule.setCta(cta);
+        signpostModule.setImage(image);
+        signpostModule.setTitle(bundle.getResourceBundle(bundleName, prefix + ".title", locale));
+        signpostModule.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(bundleName, prefix + ".copy", locale)));
+
+        return Optional.of(signpostModule);
+    }
+
+    public Module<?> createModule(CTABanner ctaBanner) {
         SignpostModule module = new SignpostModule();
         Linkable linkable = (Linkable) ctaBanner.getCtaLink().getLink();
         FlatLink cta = linkService.createSimpleLink(linkable, module, null);
-        if (!Contract.isEmpty(ctaBanner.getCtaLink().getLabel())) {
-            cta.setLabel(ctaBanner.getCtaLink().getLabel());
-        }
 
         if (Contract.isNull(cta.getLink())) {
-            return null;
+            contentLogger.warn(String.format(
+                    "The link for the CTA banner %s is not available. The module has been hidden", ctaBanner.getPath()));
+            return new ErrorModule(ctaBanner,
+                    "The link for the CTA banner is not available. The module has been hidden");
+        }
+
+        if (!Contract.isEmpty(ctaBanner.getCtaLink().getLabel())) {
+            cta.setLabel(ctaBanner.getCtaLink().getLabel());
         }
 
         FlatImage image = new FlatImage();
@@ -86,24 +117,5 @@ public class SignpostFactory {
         module.setAnchor(anchorFormatter.getAnchorOrFallback(ctaBanner.getAnchor(), ctaBanner::getTitle));
 
         return module;
-    }
-
-    private SignpostModule createSignPostModule(String bundleName, String prefix, Locale locale) {
-        SignpostModule signpostModule = new SignpostModule();
-        FlatLink cta = new FlatLink(bundle.getResourceBundle(bundleName, prefix + ".cta.text", locale),
-                bundle.getResourceBundle(bundleName, prefix + ".cta.link", locale), LinkType.INTERNAL);
-
-        if (Contract.isNull(cta.getLink())) {
-            return null;
-        }
-
-        FlatImage image = new FlatImage();
-        image.setExternalImage(bundle.getResourceBundle(bundleName, prefix + ".image", locale));
-        signpostModule.setCta(cta);
-        signpostModule.setImage(image);
-        signpostModule.setTitle(bundle.getResourceBundle(bundleName, prefix + ".title", locale));
-        signpostModule.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(bundleName, prefix + ".copy", locale)));
-
-        return signpostModule;
     }
 }

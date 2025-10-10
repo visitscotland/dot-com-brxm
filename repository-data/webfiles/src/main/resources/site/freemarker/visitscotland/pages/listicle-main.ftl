@@ -5,7 +5,7 @@
     <#include "../../frontend/components/vs-row.ftl">
     <#include "../../frontend/components/vs-col.ftl">
     <#include "../../frontend/components/vs-heading.ftl">
-    <#include "../../frontend/components/vs-rich-text-wrapper.ftl">
+    <#include "../../frontend/components/vs-body.ftl">
     <#include "../../frontend/components/vs-listicle-item.ftl">
     <#include "../../frontend/components/vs-panel.ftl">
     <#include "../macros/modules/page-intro/social-share.ftl">
@@ -26,7 +26,7 @@
 <div class="has-edit-button">
     <@hst.manageContent hippobean=document/>
 
-    <@pageIntro content=document author=author/>
+    <@pageIntro content=document author=author isListicle=true/>
 
     <vs-container class="mt-150">
         <vs-row>
@@ -63,9 +63,9 @@
                             </template>
                         </#if>
 
-                        <vs-rich-text-wrapper variant="lead">
+                        <vs-body variant="lead">
                             <@hst.html hippohtml=document.listicleClosing.copy/>
-                        </vs-rich-text-wrapper>
+                        </vs-body>
                     </vs-panel>
                 </vs-col>
             </vs-row>

@@ -3,7 +3,7 @@ package com.visitscotland.brxm.menu;
 import com.visitscotland.brxm.components.content.ContentComponent;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.translation.plugin.JcrDocument;
-import com.visitscotland.brxm.utils.HippoUtilsService;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;

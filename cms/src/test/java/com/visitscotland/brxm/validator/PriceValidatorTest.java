@@ -19,8 +19,6 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Property;
 import javax.jcr.Node;
 
-import java.util.Optional;
-
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.mock;
@@ -30,7 +28,7 @@ import static org.mockito.Mockito.eq;
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class PriceValidatorTest {
-    private static final String PRICE_JCR_PROPERTY_NAME = "visitscotland:amount";
+    private static final String PRICE_JCR_PROPERTY_NAME = "visitscotland:price";
     private static final String EXCEPTION_TRANSLATION_VARIATION = "exception";
     private static final double NEGATIVE_DOUBLE_VALUE = -17.99D;
     private static final double POSITIVE_DOUBLE_VALUE = 17.99D;
@@ -54,7 +52,7 @@ class PriceValidatorTest {
         when(node.getProperty(PRICE_JCR_PROPERTY_NAME)).thenReturn(property);
         when(property.getDouble()).thenReturn(value);
 
-        final Optional<Violation> result = priceValidator.validate(validationContext, node);
+        final var result = priceValidator.validate(validationContext, node);
 
         Assertions.assertTrue(result.isEmpty());
 
@@ -70,7 +68,7 @@ class PriceValidatorTest {
         when(property.getDouble()).thenReturn(NEGATIVE_DOUBLE_VALUE);
         when(validationContext.createViolation()).thenReturn(mock(Violation.class));
 
-        final Optional<Violation> result = priceValidator.validate(validationContext, node);
+        final var result = priceValidator.validate(validationContext, node);
 
         Assertions.assertTrue(result.isPresent());
 
@@ -85,7 +83,7 @@ class PriceValidatorTest {
         when(node.getProperty(PRICE_JCR_PROPERTY_NAME)).thenThrow(repositoryException);
         when(validationContext.createViolation(EXCEPTION_TRANSLATION_VARIATION)).thenReturn(mock(Violation.class));
 
-        final Optional<Violation> result = priceValidator.validate(validationContext, node);
+        final var result = priceValidator.validate(validationContext, node);
 
         Assertions.assertTrue(result.isPresent());
 
@@ -93,14 +91,13 @@ class PriceValidatorTest {
     }
 
     @Test
-    void validate_PriceNodeHasPricePropertyReturnsFalse_OptionalOfViolation() throws RepositoryException {
+    void validate_PriceNodeHasPropertyForPriceReturnsFalse_OptionalEmpty() throws RepositoryException {
         when(node.hasProperty(PRICE_JCR_PROPERTY_NAME)).thenReturn(false);
-        when(validationContext.createViolation()).thenReturn(mock(Violation.class));
 
-        final Optional<Violation> result = priceValidator.validate(validationContext, node);
+        final var result = priceValidator.validate(validationContext, node);
 
-        Assertions.assertTrue(result.isPresent());
+        Assertions.assertTrue(result.isEmpty());
 
-        verify(validationContext, times(1)).createViolation();
+        verify(node, times(1)).hasProperty(eq(PRICE_JCR_PROPERTY_NAME));
     }
 }
