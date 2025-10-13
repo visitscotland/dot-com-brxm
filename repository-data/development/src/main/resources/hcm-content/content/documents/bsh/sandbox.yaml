@@ -14061,7 +14061,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: f0da3dbe-a148-4ed3-b150-77ed8e1fcdfb
         hippo:name: Dev - Input Form
-        hippo:versionHistory: 14f4de3e-b775-40a9-a368-54c42e7ea889
+        hippo:versionHistory: 9b5cc76c-bb22-467d-98aa-e16386e5b996
         /dev---input-form[1]:
           jcr:primaryType: visitscotland:DevModule
           jcr:mixinTypes: ['mix:referenceable']
@@ -14071,7 +14071,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-07-21T10:31:47.720+01:00
-          hippostdpubwf:lastModificationDate: 2025-07-30T17:01:33.775+01:00
+          hippostdpubwf:lastModificationDate: 2025-10-13T11:39:58.387+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 8cb141ff-a516-4a81-82fa-37ab138a26ae
           hippotranslation:locale: en
@@ -14080,6 +14080,14 @@
           visitscotland:headContributions: []
           visitscotland:html: ''
           visitscotland:notes: ''
+          /visitscotland:properties[1]:
+            jcr:primaryType: selection:listitem
+            selection:key: submitURL
+            selection:label: https://api.visitscotland.com/test/submit/ssg/obs/submit
+          /visitscotland:properties[2]:
+            jcr:primaryType: selection:listitem
+            selection:key: testProperty
+            selection:label: Test
         /dev---input-form[2]:
           jcr:primaryType: visitscotland:DevModule
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -14089,7 +14097,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-07-21T10:31:47.720+01:00
-          hippostdpubwf:lastModificationDate: 2025-07-30T17:01:33.719+01:00
+          hippostdpubwf:lastModificationDate: 2025-10-13T11:40:16.656+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 8cb141ff-a516-4a81-82fa-37ab138a26ae
           hippotranslation:locale: en
@@ -14098,6 +14106,14 @@
           visitscotland:headContributions: []
           visitscotland:html: ''
           visitscotland:notes: ''
+          /visitscotland:properties[1]:
+            jcr:primaryType: selection:listitem
+            selection:key: submitURL
+            selection:label: https://api.visitscotland.com/test/submit/ssg/obs/submit
+          /visitscotland:properties[2]:
+            jcr:primaryType: selection:listitem
+            selection:key: testProperty
+            selection:label: Test
         /dev---input-form[3]:
           jcr:primaryType: visitscotland:DevModule
           jcr:mixinTypes: ['mix:referenceable']
@@ -14107,9 +14123,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-07-21T10:31:47.720+01:00
-          hippostdpubwf:lastModificationDate: 2025-07-30T17:01:33.719+01:00
+          hippostdpubwf:lastModificationDate: 2025-10-13T11:40:16.656+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-07-30T17:01:38.124+01:00
+          hippostdpubwf:publicationDate: 2025-10-13T11:40:19.836+01:00
           hippotranslation:id: 8cb141ff-a516-4a81-82fa-37ab138a26ae
           hippotranslation:locale: en
           visitscotland:bespoken: online-booking-system
@@ -14117,6 +14133,14 @@
           visitscotland:headContributions: []
           visitscotland:html: ''
           visitscotland:notes: ''
+          /visitscotland:properties[1]:
+            jcr:primaryType: selection:listitem
+            selection:key: submitURL
+            selection:label: https://api.visitscotland.com/test/submit/ssg/obs/submit
+          /visitscotland:properties[2]:
+            jcr:primaryType: selection:listitem
+            selection:key: testProperty
+            selection:label: Test
       /disclaimer:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
