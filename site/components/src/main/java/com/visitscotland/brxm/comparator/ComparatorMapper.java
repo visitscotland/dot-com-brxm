@@ -7,6 +7,7 @@ import com.visitscotland.brxm.hippobeans.ComparatorFeature;
 import com.visitscotland.brxm.hippobeans.ComparatorSystem;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.services.HippoUtilsService;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.onehippo.forge.selection.hst.contentbean.ValueListItem;
@@ -30,6 +31,8 @@ public class ComparatorMapper {
     private static final Logger logger = LoggerFactory.getLogger(ComparatorMapper.class);
     public static final String BSH_OBS_FEATURES = "bsh-obs-features";
     public static final String BSH_OBS_GROUPS = "bsh-obs-groups";
+
+
 
     private final HippoQueryService queryService;
     private final HippoUtilsService hippoUtilsService;
@@ -57,19 +60,27 @@ public class ComparatorMapper {
         return module;
     }
 
+    /**
+     *  This was a productionized PoC. In future Implementations it's better just to return the properties
+     *
+     *  TODO: The front-end should consume properties instead of submitUrl
+     *  TODO: Remove submitUrl property from ComparatorModule
+     *
+     * @deprecated productionized PoC. Remove method once the front-end is consuming properties
+     */
+    @Deprecated(forRemoval = true)
     private String getSubmitURL(List<ValueListItem> properties) {
         String submitURL = "";
         if (properties != null) {
             for (ValueListItem item: properties) {
-                //TODO: This was a productionized PoC. In future Implementations it's better just to return the properties
-                if (item.getKey().equals("submitUrl")) {
+                if ("submitUrl".equals(item.getKey())) {
                     submitURL = item.getLabel();
                     break;
                 }
             }
         }
 
-        if (submitURL.isEmpty()) {
+        if (Contract.isEmpty(submitURL)) {
             logger.error("No submit URL was provided for the Online Booking Provider");
         }
 
