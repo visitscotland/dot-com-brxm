@@ -3,13 +3,13 @@ package com.visitscotland.brxm.comparator;
 import com.visitscotland.brxm.comparator.model.ComparatorModule;
 import com.visitscotland.brxm.comparator.model.Feature;
 import com.visitscotland.brxm.comparator.model.Provider;
-import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.ComparatorFeature;
 import com.visitscotland.brxm.hippobeans.ComparatorSystem;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
+import org.onehippo.forge.selection.hst.contentbean.ValueListItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -32,9 +32,11 @@ public class ComparatorMapper {
     public static final String BSH_OBS_GROUPS = "bsh-obs-groups";
 
     private final HippoQueryService queryService;
+    private final HippoUtilsService hippoUtilsService;
 
-    public ComparatorMapper(HippoQueryService queryService) {
+    public ComparatorMapper(HippoQueryService queryService, HippoUtilsService hippoUtilsService) {
         this.queryService = queryService;
+        this.hippoUtilsService = hippoUtilsService;
     }
 
     /**
@@ -49,7 +51,29 @@ public class ComparatorMapper {
         ComparatorModule module = new ComparatorModule(document);
         module.setFeatures(getFeatures());
         module.setProviders(getProviders());
+        module.setProperties(document.getBespokenProperties());
+        module.setSubmitUrl(getSubmitURL(document.getBespokenProperties()));
+
         return module;
+    }
+
+    private String getSubmitURL(List<ValueListItem> properties) {
+        String submitURL = "";
+        if (properties != null) {
+            for (ValueListItem item: properties) {
+                //TODO: This was a productionized PoC. In future Implementations it's better just to return the properties
+                if (item.getKey().equals("submitUrl")) {
+                    submitURL = item.getLabel();
+                    break;
+                }
+            }
+        }
+
+        if (submitURL.isEmpty()) {
+            logger.error("No submit URL was provided for the Online Booking Provider");
+        }
+
+        return submitURL;
     }
 
     /**
@@ -88,8 +112,7 @@ public class ComparatorMapper {
      */
     List<Feature> getFeatures() throws BrxmWrapperException, VsContractException {
         List<Feature> entries = new ArrayList<>();
-        Map<String, String> valueList = VsComponentManager.get(
-                HippoUtilsService.class).getValueMap(BSH_OBS_FEATURES);
+        Map<String, String> valueList = hippoUtilsService.getValueMap(BSH_OBS_FEATURES);
         Map<String, Feature> features = getFeaturesMap();
 
         for (Map.Entry<String, String> entry : valueList.entrySet()) {
@@ -114,11 +137,8 @@ public class ComparatorMapper {
     Map<String, Feature> getFeaturesMap() throws BrxmWrapperException, VsContractException {
         Map<String, Feature> map = new HashMap<>();
 
-        Map<String, String> featureList = VsComponentManager.get(
-                HippoUtilsService.class).getValueMap(BSH_OBS_FEATURES);
-
-        Map<String, String> groupList = VsComponentManager.get(
-                HippoUtilsService.class).getValueMap(BSH_OBS_GROUPS);
+        Map<String, String> featureList = hippoUtilsService.getValueMap(BSH_OBS_FEATURES);
+        Map<String, String> groupList = hippoUtilsService.getValueMap(BSH_OBS_GROUPS);
 
         try {
             HippoBeanIterator iterator = queryService.findAll(ComparatorFeature.class);
