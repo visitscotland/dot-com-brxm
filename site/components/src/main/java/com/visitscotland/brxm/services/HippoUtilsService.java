@@ -2,6 +2,7 @@ package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.brxm.services.hst.LocalizedHstLink;
 import com.visitscotland.brxm.utils.NonTestable;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -19,7 +20,6 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedMount;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.hst.core.request.ResolvedVirtualHost;
-import org.hippoecm.hst.platform.linking.HstLinkImpl;
 import org.hippoecm.hst.site.HstServices;
 import org.hippoecm.hst.util.PathUtils;
 import org.jetbrains.annotations.NotNull;
@@ -82,11 +82,8 @@ public class HippoUtilsService {
             Mount requestMount = requestContext.getResolvedMount().getMount();
 
             HstLink link = requestContext.getHstLinkCreator().create(localize ? getLocalizedDocument(document) : document, requestContext);
-            // Ensure links always link to the current mount
-            // If the document does not exist on the current mount, HstLinkCreatorImpl will fall back to the english mount
-            // However we want to link to the current mount, and let the translation fallback handle resolution of the english document
             if (localize && link.getMount() != requestMount && !Locale.UK.toString().equals(requestMount.getLocale())) {
-                link = new HstLinkImpl(link.getPath(), requestMount);
+                link = new LocalizedHstLink(link.getPath(), requestMount);
             }
             return link.toUrlForm(requestContext, FULLY_QUALIFIED);
         }
