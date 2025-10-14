@@ -330,7 +330,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * Add the configuration related to the Product Search Widget for the page
      */
     private void addProductSearchWidget(HstRequest request) {
-        if (!request.getPathInfo().contains(properties.getSiteSkiSection()) && !request.getPathInfo().contains(properties.getCampaignSection())) {
+        if (!request.getPathInfo().contains(properties.getSiteSkiSection()) && !request.getPathInfo().contains(properties.getSiteGlobalSearch())
+                && !request.getPathInfo().contains(properties.getCampaignSection())) {
             request.setModel(PSR_WIDGET, psrFactory.getWidget(request));
         }
     }
