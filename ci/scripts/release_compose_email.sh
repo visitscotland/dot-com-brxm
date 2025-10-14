@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-echo "From within the external shell script"
-echo "VS_SSR_ARCHIVED_PACKAGE_URL=${VS_SSR_ARCHIVED_PACKAGE_URL}"
-echo "VS_SSR_ARCHIVED_PACKAGE_MD5=${VS_SSR_ARCHIVED_PACKAGE_MD5}"
-
 POM="${1:-pom.xml}"
 OUT_PROPS="${2:-ci/properties/release_env.properties}"
 

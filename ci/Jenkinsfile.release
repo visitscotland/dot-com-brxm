@@ -781,13 +781,7 @@ pipeline {
 
         stage('Compose Email (ext)') {
             steps {
-                echo "Prior to calling the external shell script (groovy output to follow)"
-                echo "VS_SSR_ARCHIVED_PACKAGE_URL=${VS_SSR_ARCHIVED_PACKAGE_URL}"
-                echo "VS_SSR_ARCHIVED_PACKAGE_MD5=${VS_SSR_ARCHIVED_PACKAGE_MD5}"
                 sh '''
-                echo "Prior to calling the external shell script (shell script output to follow)"
-                echo "VS_SSR_ARCHIVED_PACKAGE_URL=${VS_SSR_ARCHIVED_PACKAGE_URL}"
-                echo "VS_SSR_ARCHIVED_PACKAGE_MD5=${VS_SSR_ARCHIVED_PACKAGE_MD5}"
                   # pom.xml + PROPS path (props must already exist)
                   bash ci/scripts/release_compose_email.sh "pom.xml" "ci/properties/release_env.properties"
                 '''
@@ -795,10 +789,6 @@ pipeline {
                     def props = readProperties file: 'ci/properties/release_env.properties'
                     VS_EMAIL_SUBJECT   = props.VS_EMAIL_SUBJECT ?: ''
                     VS_EMAIL_HTML_FILE = props.VS_EMAIL_HTML_FILE ?: ''
-
-                    echo "After having called the external shell script (groovy output to follow)"
-                    echo "VS_SSR_ARCHIVED_PACKAGE_URL=${VS_SSR_ARCHIVED_PACKAGE_URL}"
-                    echo "VS_SSR_ARCHIVED_PACKAGE_MD5=${VS_SSR_ARCHIVED_PACKAGE_MD5}"
 
                     def body = readFile(VS_EMAIL_HTML_FILE)
 
