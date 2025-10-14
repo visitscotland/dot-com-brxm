@@ -728,7 +728,6 @@ pipeline {
         stage('Release Package URL, MD5 (ext)') {
             steps {
                 sh '''
-                  chmod +x ci/scripts/release_url_md5.sh
                   # args: LOG_FILE (default: ${GIT_COMMIT}.log), OUT_PROPS
                   ci/scripts/release_url_md5.sh "${GIT_COMMIT}.log" "ci/properties/release_env.properties"
                 '''
@@ -759,7 +758,6 @@ pipeline {
         stage('Release Package Build-Number (ext)') {
             steps {
                 sh '''
-                  chmod +x ci/scripts/release_build_number.sh
                   # args: SITE_WAR, MANIFEST_PATH, OUT_PROPS
                   ci/scripts/release_build_number.sh \
                     "site/webapp/target/site.war" \
@@ -784,7 +782,6 @@ pipeline {
         stage('Compose Email (ext)') {
             steps {
                 sh '''
-                  chmod +x ci/scripts/release_compose_email.sh
                   # pom.xml + PROPS path (props must already exist)
                   bash ci/scripts/release_compose_email.sh "pom.xml" "ci/properties/release_env.properties"
                 '''
