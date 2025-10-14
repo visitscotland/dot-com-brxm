@@ -49,6 +49,7 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
                 return module;
             } else if (CARBON_CALCULATOR.equals(document.getBespoken())) {
                 compositionHelper.addAllSiteLabels(CARBON_CALCULATOR);
+                return new SimpleDevModule(document, document.getBespoken());
             }
 
         } catch (VsContractException | BrxmWrapperException e) {
