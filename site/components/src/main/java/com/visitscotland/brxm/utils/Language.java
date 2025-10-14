@@ -52,6 +52,12 @@ public enum Language {
         }
     }
 
+    /**
+     * Returns the resource API path for this language, combining the path variable with the resource API suffix.
+     * For English, returns "/resourceapi". For other languages, returns "/{lang-tag}/resourceapi".
+     *
+     * @return the resource API path including language prefix
+     */
     public String getResourceAPIPath() {
         return getPathVariable() + "/resourceapi";
     }

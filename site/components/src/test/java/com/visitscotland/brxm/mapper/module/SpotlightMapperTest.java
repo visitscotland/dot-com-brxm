@@ -47,11 +47,6 @@ class SpotlightMapperTest {
     @DisplayName("Should throw InvalidContentException when CTA link is not available")
     void when_ctaLinkIsNull_then_ErrorModuleIsReturned(){
         CTABanner ctaBanner = mock(CTABanner.class, RETURNS_DEEP_STUBS);
-        FlatLink cta = new FlatLink(); // no link set
-
-        when(ctaBanner.getCtaLink().getLink()).thenReturn(mock(SharedLink.class));
-        when(ctaBanner.getPath()).thenReturn("path");
-        when(linkService.createSimpleLink(any(), any(), any())).thenReturn(cta);
 
         Assertions.assertThrows(InvalidContentException.class, () ->spotlightMapper.createModule(ctaBanner));
     }
