@@ -25,6 +25,7 @@ if [[ -f "$SITE_WAR" ]]; then
   # Check if the MANIFEST.MF exists inside the WAR file
   if unzip -l "$SITE_WAR" | grep -q "$MANIFEST_PATH"; then
     # Check if the Build-Number entry exists within the MANIFEST.MF
+    # Extract (stream) that file’s contents and read lines from it
     if unzip -p "$SITE_WAR" "$MANIFEST_PATH" | grep -qE '^Build-Number(:|\s)'; then
       # extract the actual build number
       # old version: unzip -p ${siteWarFilePath} ${siteWarManifestFile} | grep "Build-Number" | awk '{print \$2}'
