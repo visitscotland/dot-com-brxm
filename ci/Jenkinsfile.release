@@ -451,6 +451,9 @@ pipeline {
                         // https://jenkinssb.visitscotland.com/job/release.automation/job/release%252F2.0.32/2/artifact/target/vs-ssr-package.tar.gz
                         VS_SSR_ARCHIVED_PACKAGE_URL = "${env.JENKINS_URL}job/${env.VS_JOB_NAME_NO_DIR}/job/${env.JOB_BASE_NAME}/${env.BUILD_NUMBER}/artifact/${VS_SSR_PACKAGE_PATH}"
                         echo "Here's the archived SSR package's URL: ${VS_SSR_ARCHIVED_PACKAGE_URL}"
+                        echo "env.JOB_NAME=${env.JOB_NAME}"
+                        echo "env.VS_JOB_NAME_WITH_JOB_IN_PATH=${env.VS_JOB_NAME_WITH_JOB_IN_PATH}"
+                        echo "env.VS_JOB_NAME_NO_DIR=${env.VS_JOB_NAME_NO_DIR}"
 
                         // Calculate the SSR's MD5, SHA1, SHA256 checksums.
                         // The output is piped to cut to extract just the checksum portion (first field, or "f1")
