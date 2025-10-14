@@ -19,16 +19,28 @@ VS_PIPELINE_OUTCOME_EMAIL="SUCCESS"
 
 # md5 of the distribution package
 # Supports both GNU (md5sum) and macOS/BSD (md5 -r)
-if compgen -G "$WORKSPACE/target/*distr*.tar.gz" > /dev/null; then
-  if command -v md5sum >/dev/null 2>&1; then
-    VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5sum target/*distr*.tar.gz | head -n1 | cut -d ' ' -f1 || true)"
-  elif command -v md5 >/dev/null 2>&1; then
-    VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5 -r target/*distr*.tar.gz | head -n1 | awk '{print $1}' || true)"
-  else
-    echo "WARN: Neither md5sum nor md5 found; skipping MD5" >&2
-  fi
+
+# Fail if not exactly one matching distribution
+files=( "$WORKSPACE"/target/*distr*.tar.gz )
+if [[ ${#files[@]} -eq 0 ]]; then
+  echo "ERROR: No distribution package found under $WORKSPACE/target/"
+  exit 1
+elif [[ ${#files[@]} -gt 1 ]]; then
+  echo "ERROR: Multiple distribution packages found:"
+  printf '  %s\n' "${files[@]}"
+  exit 1
+fi
+# At this point, we know there is just one matching file present
+DISTRO_FILE="${files[0]}"
+echo "Using distribution file: $DISTRO_FILE"
+
+# Proceed with the calculation of MD5 checksum (md5sum/md5 command for both Linux and MacOS/BSD)
+if command -v md5sum >/dev/null 2>&1; then
+  VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5sum target/*distr*.tar.gz | head -n1 | cut -d ' ' -f1 || true)"
+elif command -v md5 >/dev/null 2>&1; then
+  VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5 -r target/*distr*.tar.gz | head -n1 | awk '{print $1}' || true)"
 else
-  echo "WARN: No $WORKSPACE/target/*distr*.tar.gz files found; skipping MD5" >&2
+  echo "WARN: Neither md5sum nor md5 found; skipping MD5" >&2
 fi
 
 if [[ -f "${LOG_FILE}" ]]; then
