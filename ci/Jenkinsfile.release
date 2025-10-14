@@ -781,10 +781,16 @@ pipeline {
 
         stage('Compose Email (ext)') {
             steps {
-                sh '''
-                  # pom.xml + PROPS path (props must already exist)
-                  bash ci/scripts/release_compose_email.sh "pom.xml" "ci/properties/release_env.properties"
-                '''
+                // call the external email composition script, but it needs to be aware of the groovy context for SSR
+                withEnv([
+                    "VS_SSR_ARCHIVED_PACKAGE_URL=${VS_SSR_ARCHIVED_PACKAGE_URL}",
+                    "VS_SSR_ARCHIVED_PACKAGE_MD5=${VS_SSR_ARCHIVED_PACKAGE_MD5}"
+                ]) {
+                    sh '''
+                      # pom.xml + PROPS path (props must already exist)
+                      bash ci/scripts/release_compose_email.sh "pom.xml" "ci/properties/release_env.properties"
+                    '''
+                }
                 script {
                     def props = readProperties file: 'ci/properties/release_env.properties'
                     VS_EMAIL_SUBJECT   = props.VS_EMAIL_SUBJECT ?: ''
