@@ -106,7 +106,7 @@ public class DMSProxy {
             HttpURLConnection dmsConnection = openConnection(properties.getDmsDataHost() + path);
             dmsConnection.setConnectTimeout(properties.getDmsTimeout());
             dmsConnection.setReadTimeout(properties.getDmsTimeout());
-            dmsConnection.setRequestProperty(HEADER, properties.getDmsToken());
+            properties.getDmsToken().ifPresent((token) -> dmsConnection.setRequestProperty(HEADER, token));
             dmsConnection.setRequestMethod("GET");
 
             int code = dmsConnection.getResponseCode();

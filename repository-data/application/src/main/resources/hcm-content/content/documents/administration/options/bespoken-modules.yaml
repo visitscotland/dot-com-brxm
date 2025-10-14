@@ -18,3 +18,7 @@
       jcr:primaryType: selection:listitem
       selection:key: event-listing
       selection:label: Events Listings
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: carbon-calculator
+      selection:label: Carbon Calculator

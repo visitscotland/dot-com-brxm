@@ -5,13 +5,16 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
-import com.visitscotland.brxm.factory.ImageFactory;
+import com.visitscotland.brxm.mapper.EntryMapper;
+import com.visitscotland.brxm.mapper.ImageMapper;
+import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.hippobeans.capabilities.UrlLink;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -34,36 +37,41 @@ public class LinkService {
 
     private static final Logger logger = LoggerFactory.getLogger(LinkService.class);
 
+    //TODO: Use entry factory
+    static final String VL_ITINERARY_MAP = "vs-itinerary-transports";
+
     private final DMSDataService dmsData;
     private final ResourceBundleService bundle;
     private final HippoUtilsService utils;
     private final CMSProperties cmsProperties;
     private final SiteProperties siteProperties;
-    private final ImageFactory imageFactory;
+    private final ImageMapper imageMapper;
     private final DocumentUtilsService documentUtilsService;
     private final YoutubeApiService youtubeApiService;
     private final Logger contentLogger;
-    private final AssetLinkFactory assetLinkFactory;
+    private final AssetLinkService assetLinkService;
     private final FileMetaDataCalculator fileMetaDataCalculator;
+    private final EntryMapper entryMapper;
 
     @Autowired
     public LinkService(DMSDataService dmsData, ResourceBundleService bundle, HippoUtilsService utils,
-                       CMSProperties cmsProperties, SiteProperties siteProperties, ImageFactory imageFactory,
+                       CMSProperties cmsProperties, SiteProperties siteProperties, ImageMapper imageMapper,
                        DocumentUtilsService documentUtilsService,
                        YoutubeApiService youtubeApiService, ContentLogger contentLogger,
-                       AssetLinkFactory assetLinkFactory, FileMetaDataCalculator fileMetaDataCalculator) {
+                       AssetLinkService assetLinkService, FileMetaDataCalculator fileMetaDataCalculator, EntryMapper entryMapper) {
 
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.utils = utils;
         this.cmsProperties = cmsProperties;
         this.siteProperties = siteProperties;
-        this.imageFactory = imageFactory;
+        this.imageMapper = imageMapper;
         this.documentUtilsService = documentUtilsService;
         this.youtubeApiService = youtubeApiService;
         this.contentLogger = contentLogger;
-        this.assetLinkFactory = assetLinkFactory;
+        this.assetLinkService = assetLinkService;
         this.fileMetaDataCalculator = fileMetaDataCalculator;
+        this.entryMapper = entryMapper;
     }
 
     /**
@@ -492,13 +500,14 @@ public class LinkService {
         if (page.getImage() == null){
             module.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the page '%s' at: %s",  page.getTitle(), page.getDisplayName(), page.getPath()));
         }
-        link.setImage(imageFactory.createImage(page.getImage(), module, locale));
+        link.setImage(imageMapper.createImage(page.getImage(), module, locale));
 
         if (page instanceof Itinerary) {
             Itinerary itinerary = (Itinerary) page;
             link.setItineraryDays(documentUtilsService.getSiblingDocuments(page, Day.class, "visitscotland:Day").size());
             if (itinerary.getTransports().length > 0) {
                 link.setItineraryTransport(itinerary.getTransports()[0]);
+                link.setItineraryMainTransport(getItineraryTransport(itinerary.getTransports()[0]));
             }
         }  else if (page instanceof GeneralBSH){
             GeneralBSH generalBSH = (GeneralBSH) page;
@@ -510,6 +519,10 @@ public class LinkService {
         }
 
         return link;
+    }
+
+    private Entry getItineraryTransport(String key) {
+        return entryMapper.getEntry(key, ValueList.VS_ITINERARY_TRANSPORT);
     }
 
     /**
@@ -525,7 +538,7 @@ public class LinkService {
         JsonNode product = getNodeFromSharedLink(sharedLink, module, locale);
 
         if (sharedLink.getLinkType() instanceof Asset){
-            link = assetLinkFactory.create(sharedLink, locale);
+            link = assetLinkService.create(sharedLink, locale);
         } else {
             link = new EnhancedLink();
             link.setTeaser(sharedLink.getTeaser());
@@ -546,9 +559,9 @@ public class LinkService {
         }
 
         if (product != null && !hasOverrideImage(sharedLink) && product.has(DMSConstants.DMSProduct.IMAGE)) {
-            link.setImage(imageFactory.createImage(product, module, locale));
+            link.setImage(imageMapper.createImage(product, module, locale));
         } else {
-            link.setImage(imageFactory.createImage(sharedLink.getImage(), module, locale));
+            link.setImage(imageMapper.createImage(sharedLink.getImage(), module, locale));
         }
 
         if (sharedLink.getLinkType() instanceof ExternalDocument || sharedLink.getLinkType() instanceof FileLink) {
@@ -599,7 +612,7 @@ public class LinkService {
         if (module == null || module.getHippoBean() == null){
             return "unknown";
         } else {
-            return module.getHippoBean().getPath();
+            return module.getDocumentPath();
         }
     }
 
@@ -662,7 +675,7 @@ public class LinkService {
      */
     public EnhancedLink createVideo(Video video, Module<?> module, Locale locale) {
         EnhancedLink videoLink = new EnhancedLink();
-        videoLink.setImage(imageFactory.createImage(video.getImage(), module, locale));
+        videoLink.setImage(imageMapper.createImage(video.getImage(), module, locale));
         videoLink.setLabel(video.getTitle());
         videoLink.setTeaser(video.getTeaser());
         videoLink.setLink(video.getUrl());

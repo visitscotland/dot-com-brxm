@@ -3,7 +3,7 @@ package com.visitscotland.brxm.components.content;
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
 import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.utils.PageTemplateBuilder;
+import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -21,11 +21,11 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
     public static final String INSPIRATION = "Inspiration";
     static final String ERROR_CODE = "errorCode";
 
-    private PageTemplateBuilder builder;
+    private final PageAssembler builder;
 
     public GeneralContentComponent(){
         logger.debug("GeneralContentComponent initialized");
-        this.builder = VsComponentManager.get(PageTemplateBuilder.class);
+        this.builder = VsComponentManager.get(PageAssembler.class);
     }
 
     @Override

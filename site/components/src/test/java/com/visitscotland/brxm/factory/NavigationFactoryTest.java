@@ -82,7 +82,7 @@ class NavigationFactoryTest {
         hstMenuItem = newMockBuilder().name("home").build();
         addMenuToRequest(hstMenuItem);
 
-        when(bundle.getResourceBundle(BUNDLE_ID, "home", LOCALE, true)).thenReturn("Home Page");
+        when(bundle.getResourceBundle(BUNDLE_ID, "home", LOCALE)).thenReturn("Home Page");
 
         RootMenuItem menu = factory.buildMenu(request,BUNDLE_ID, null, false);
 
@@ -210,7 +210,7 @@ class NavigationFactoryTest {
     }
 
     private void mockLabels(String nodeId, String title, String cta){
-        when(bundle.getResourceBundle(BUNDLE_ID, nodeId, LOCALE, true)).thenReturn(title);
+        when(bundle.getResourceBundle(BUNDLE_ID, nodeId, LOCALE)).thenReturn(title);
         if (cta == null) {
             when(bundle.existsResourceBundleKey(BUNDLE_ID, nodeId + ".cta", LOCALE)).thenReturn(false);
         } else {

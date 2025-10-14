@@ -3,19 +3,15 @@ package com.visitscotland.brxm.components.content;
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.GeneralBSH;
-import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
-import com.visitscotland.brxm.utils.PageTemplateBuilder;
+import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 @ParametersInfo(type = GeneralPageComponentInfo.class)
 public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH> {
@@ -26,11 +22,11 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
     private static final String READ_DATA = "readData";
 
 
-    private final PageTemplateBuilder builder;
+    private final PageAssembler builder;
 
     public GeneralBSHContentComponent(){
         logger.debug("GeneralBSHContentComponent initialized");
-        this.builder = VsComponentManager.get(PageTemplateBuilder.class);
+        this.builder = VsComponentManager.get(PageAssembler.class);
     }
 
     @Override
@@ -47,7 +43,7 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
     protected void addOTYML(HstRequest request) {
         GeneralBSH page = getDocument(request);
         if (!Contract.isEmpty(page.getLinks())) {
-            HorizontalListLinksModule otyml = megalinkFactory.horizontalListLayout(page, request.getLocale());
+            HorizontalListLinksModule otyml = megalinkMapper.horizontalListLayout(page, request.getLocale());
             request.setModel(OTYML_BUNDLE, otyml);
         }
     }

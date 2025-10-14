@@ -10,10 +10,19 @@ public class UserGeneratedContentModule extends Module<Stackla> {
     private String storystreamId;
     private String noCookiesMessage;
     private String noJsMessage;
+
+    /**
+     * @deprecated Kept for compatibility with freemarker. To be
+     */
+    @Deprecated(forRemoval = true)
     public void setNoCookiesMessage(String noCookiesMessage) {
         this.noCookiesMessage = noCookiesMessage;
     }
 
+    /**
+     * @deprecated Kept for compatibility with freemarker. Labels should be used when no logic is used
+     */
+    @Deprecated(forRemoval = true)
     public void setNoJsMessage(String noJsMessage) {
         this.noJsMessage = noJsMessage;
     }

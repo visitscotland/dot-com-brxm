@@ -13,6 +13,7 @@ definitions:
         visitscotland:cmsProperties: cms.local.config
         hst:responseheaders: ['Access-Control-Allow-Origin: *']
         hst:pagemodelapi: resourceapi
+        visitscotland:siteProperties: vs.site.config
         /de-de:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:mount
@@ -54,20 +55,6 @@ definitions:
           hst:ismapped: false
           hst:namedpipeline: JaxrsRestPlainPipeline
           hst:types: [rest]
-        /business-events:
-          .meta:residual-child-node-category: content
-          jcr:primaryType: hst:mount
-          hst:locale: en_GB
-          hst:mountpoint: /hst:visitscotland/hst:sites/business-events-freemarker
-          visitscotland:site: business-events
-          hst:pagemodelapi: resourceapi
-        /bsh:
-          .meta:residual-child-node-category: content
-          jcr:primaryType: hst:mount
-          hst:locale: en_GB
-          hst:mountpoint: /hst:visitscotland/hst:sites/bsh-freemarker
-          hst:pagemodelapi: resourceapi
-          visitscotland:site: bsh
         /bsh-api:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:mount
