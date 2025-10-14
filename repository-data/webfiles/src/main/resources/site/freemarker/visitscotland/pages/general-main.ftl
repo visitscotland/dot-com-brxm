@@ -52,7 +52,7 @@
         <@pageIntro content=document lightBackground=true />
     </#if>
 
-	<#if psrWidget?? && psrWidget.position = "Top">
+	<#if psrWidget?? && psrWidget.position == "Top">
 		<@productSearchWidget psrWidget/>
 	</#if>
 
@@ -76,7 +76,7 @@
 
     <@socialShare nojs=true/>
 
-	<#if psrWidget?? && psrWidget.position = "Bottom">
+	<#if psrWidget?? && psrWidget.position == "Bottom">
 		<@productSearchWidget psrWidget/>
 	</#if>
 
