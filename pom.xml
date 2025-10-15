@@ -347,22 +347,22 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
       </plugin>
-      <!-- Improved version: write the build number to a file for convenience -->
+      <!-- write ${project.buildNo} to target/build-number.txt right after it's created -->
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
         <executions>
           <execution>
             <id>write-build-number-file</id>
-            <phase>prepare-package</phase>
+            <!-- guarantees this runs after buildnumber:create-timestamp bound to validate, so the property already exists -->
+            <phase>initialize</phase>
+            <goals><goal>run</goal></goals>
             <configuration>
               <target>
-                <mkdir dir="${project.build.directory}" />
-                <echo file="${project.build.directory}/build-number.txt" message="${project.buildNo}" />
+                <mkdir dir="${project.build.directory}"/>
+                <echo file="${project.build.directory}/build-number.txt"
+                      message="${project.buildNo}"/>
               </target>
             </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
           </execution>
         </executions>
       </plugin>
