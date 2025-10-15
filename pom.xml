@@ -335,33 +335,6 @@
             </archive>
           </configuration>
         </plugin>
-
-        <!-- Also emit a plain text file with the same Build-Number: ${project.buildNo} -->
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.3.1</version>
-          <executions>
-            <execution>
-              <id>write-build-number-file</id>
-              <phase>prepare-package</phase>
-              <goals>
-                <goal>copy-resources</goal>
-              </goals>
-              <configuration>
-                <outputDirectory>${project.build.directory}</outputDirectory>
-                <resources>
-                  <resource>
-                    <directory>${basedir}/src/build-meta</directory>
-                    <filtering>true</filtering>
-                    <includes>
-                      <include>build-number.txt</include>
-                    </includes>
-                  </resource>
-                </resources>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -374,8 +347,24 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
       </plugin>
+      <!-- Improved version: write the build number to a file for convenience -->
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>write-build-number-file</id>
+            <phase>prepare-package</phase>
+            <configuration>
+              <target>
+                <mkdir dir="${project.build.directory}" />
+                <echo file="${project.build.directory}/build-number.txt" message="${project.buildNo}" />
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
