@@ -335,6 +335,33 @@
             </archive>
           </configuration>
         </plugin>
+
+        <!-- Also emit a plain text file with the same Build-Number: ${project.buildNo} -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.3.1</version>
+          <executions>
+            <execution>
+              <id>write-build-number-file</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>copy-resources</goal>
+              </goals>
+              <configuration>
+                <outputDirectory>${project.build.directory}</outputDirectory>
+                <resources>
+                  <resource>
+                    <directory>${basedir}/src/build-meta</directory>
+                    <filtering>true</filtering>
+                    <includes>
+                      <include>build-number.txt</include>
+                    </includes>
+                  </resource>
+                </resources>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
 
