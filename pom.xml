@@ -34,11 +34,6 @@
     <easymock.version>5.4.0</easymock.version>
     <mockito.version>5.2.0</mockito.version>
     <assertj.version>3.26.3</assertj.version>
-
-    <!-- one canonical build number, same for all modules -->
-    <maven.build.timestamp.format>yyMMddHHmmss</maven.build.timestamp.format>
-    <buildNumber>${maven.build.timestamp}</buildNumber>
-    <project.buildNo>${maven.build.timestamp}</project.buildNo>
   </properties>
 
   <organization>
