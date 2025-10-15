@@ -357,7 +357,8 @@
         <executions>
           <execution>
             <id>write-build-number-file</id>
-            <phase>initialize</phase>
+            <phase>validate</phase>
+            <inherited>false</inherited> <!-- runs once in this module only -->
             <goals><goal>run</goal></goals>
             <configuration>
               <target>
