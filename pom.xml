@@ -298,6 +298,28 @@
 <!--            </archive>-->
 <!--          </configuration>-->
 <!--        </plugin>-->
+
+        <!-- This entry prevents the following error: -->
+        <!-- [ERROR] Failed to execute goal org.codehaus.mojo:buildnumber-maven-plugin:1.4:create (default) on project dot-com-brxm: Cannot get the revision information from the scm repository : -->
+        <!-- [ERROR] Exception while executing SCM command. Error while executing command. Error while executing process. Cannot run program "git" (in directory "/var/lib/jenkins/workspace/_jenkins-stages-to-shell-scripts"): error=2, No such file or directory -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>buildnumber-maven-plugin</artifactId>
+          <version>${maven.plugin.buildnumber.version}</version>
+          <executions>
+            <!-- Disable any inherited SCM-based buildnumber execution -->
+            <execution>
+              <id>default</id>
+              <phase>validate</phase>
+              <goals>
+                <goal>create</goal>
+              </goals>
+              <configuration>
+                <skip>true</skip>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
 
