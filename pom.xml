@@ -35,6 +35,9 @@
     <mockito.version>5.2.0</mockito.version>
     <assertj.version>3.26.3</assertj.version>
 
+    <!-- Maintaining consistency across modules' build numbers -->
+    <buildNumber>${canonicalBuildNumber}</buildNumber>
+    <project.buildNo>${canonicalBuildNumber}</project.buildNo>
   </properties>
 
   <organization>
@@ -279,22 +282,22 @@
         </plugin>
 
         <!-- Adds the entries to the Manifest Files -->
-        <plugin>
-          <artifactId>maven-war-plugin</artifactId>
-          <version>${maven.plugin.war.version}</version>
-          <configuration>
-            <archive>
-              <manifest>
-                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              </manifest>
-              <manifestEntries>
-                <Build-Number>${project.buildNo}</Build-Number>
-                <Build-Date>${maven.build.timestamp}</Build-Date>
-                <Hippo-Release-Version>${hippo.release.version}</Hippo-Release-Version>
-              </manifestEntries>
-            </archive>
-          </configuration>
-        </plugin>
+<!--        <plugin>-->
+<!--          <artifactId>maven-war-plugin</artifactId>-->
+<!--          <version>${maven.plugin.war.version}</version>-->
+<!--          <configuration>-->
+<!--            <archive>-->
+<!--              <manifest>-->
+<!--                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
+<!--              </manifest>-->
+<!--              <manifestEntries>-->
+<!--                <Build-Number>${project.buildNo}</Build-Number>-->
+<!--                <Build-Date>${maven.build.timestamp}</Build-Date>-->
+<!--                <Hippo-Release-Version>${hippo.release.version}</Hippo-Release-Version>-->
+<!--              </manifestEntries>-->
+<!--            </archive>-->
+<!--          </configuration>-->
+<!--        </plugin>-->
       </plugins>
     </pluginManagement>
 
@@ -307,9 +310,62 @@
       <!--        <groupId>org.codehaus.mojo</groupId>-->
       <!--        <artifactId>buildnumber-maven-plugin</artifactId>-->
       <!--      </plugin>-->
-      <!-- write ${project.buildNo} to target/build-number.txt right after it's created -->
+      <!-- 1. Create ONE canonical timestamp early -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>${maven.plugin.buildnumber.version}</version>
+        <executions>
+          <execution>
+            <id>create-canonical-buildnumber</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>create-timestamp</goal>
+            </goals>
+            <configuration>
+              <timestampFormat>yyMMddHHmmss</timestampFormat>
+              <timestampPropertyName>canonicalBuildNumber</timestampPropertyName>
+              <timezone>UTC</timezone>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- 2. Immediately persist it to a txt file (so scripts can read it) -->
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>write-build-number-file</id>
+            <phase>initialize</phase>
+            <inherited>false</inherited> <!-- runs once in this module only -->
+            <goals><goal>run</goal></goals>
+            <configuration>
+              <target>
+                <mkdir dir="${project.build.directory}"/>
+                <echo file="${project.build.directory}/build-number.txt"
+                      message="${canonicalBuildNumber}"/>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- 3. Point WAR manifests at the same canonical value -->
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>${maven.plugin.war.version}</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            </manifest>
+            <manifestEntries>
+              <Build-Number>${canonicalBuildNumber}</Build-Number>
+              <Build-Date>${canonicalBuildNumber}</Build-Date>
+              <Hippo-Release-Version>${hippo.release.version}</Hippo-Release-Version>
+            </manifestEntries>
+          </archive>
+        </configuration>
       </plugin>
     </plugins>
   </build>
