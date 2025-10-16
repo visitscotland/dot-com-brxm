@@ -283,6 +283,23 @@
             </execution>
           </executions>
         </plugin>
+        <!-- should apply to all WAR modules (even if not specifically declared -->
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>${maven.plugin.war.version}</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+              <manifestEntries>
+                <Build-Number>${canonicalBuildNumber}</Build-Number>
+                <Build-Date>${canonicalBuildNumber}</Build-Date>
+                <Hippo-Release-Version>${hippo.release.version}</Hippo-Release-Version>
+              </manifestEntries>
+            </archive>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
 
