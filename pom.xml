@@ -325,25 +325,32 @@
           <execution>
             <id>write-build-number-file</id>
             <phase>initialize</phase>
-            <inherited>false</inherited> <!-- runs just once in the root module -->
+            <inherited>false</inherited> <!-- runs just once in the root module (children don't inherit execution) -->
             <goals><goal>run</goal></goals>
             <configuration>
               <target>
                 <!-- The build-number.txt will be treated as a singleton entity, created once -->
-                <!-- Only do this in the execution root -->
+                <!-- Root-only execution -->
                 <condition property="isExecutionRoot">
                   <equals arg1="${project.basedir}" arg2="${session.executionRootDirectory}" />
                 </condition>
-                <!-- write to a non-cleaned, repo-local dir -->
+                <!-- Persist the build number outside target/ dir (to avoid having it cleaned) -->
                 <mkdir dir="${session.executionRootDirectory}/.build-meta"/>
-                <!-- Only create the file if it doesn't already exist -->
-                <condition property="buildNumberFileExists">
-                  <available file="${session.executionRootDirectory}/.build-meta/build-number.txt" />
+                <!-- Decide if we should write (root AND file missing) -->
+                <condition property="writeBuildNumber">
+                  <and>
+                    <isset property="isExecutionRoot"/>
+                    <not>
+                      <available file="${session.executionRootDirectory}/.build-meta/build-number.txt"/>
+                    </not>
+                  </and>
                 </condition>
-                <echo message="Writing build-number.txt (root project only)..."
-                      unless="buildNumberFileExists"
+                <!-- Write exactly once -->
+                <echo if="writeBuildNumber"
                       file="${session.executionRootDirectory}/.build-meta/build-number.txt"
                       message="${canonicalBuildNumber}"/>
+                <!-- Display a message as well -->
+                <echo if="writeBuildNumber" message="Maven's issued canonicalBuildNumber: ${canonicalBuildNumber}"/>
               </target>
             </configuration>
           </execution>
