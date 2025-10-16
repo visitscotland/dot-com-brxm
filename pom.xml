@@ -363,19 +363,17 @@
             <id>detect-buildnumber-write-conditions</id>
             <phase>initialize</phase>
             <inherited>false</inherited> <!-- run once at the root module only -->
-            <configuration>
-              <exportAntProperties>true</exportAntProperties>
-              <target name="detect">
-                <!-- Are we at the execution root? -->
-                <condition property="isExecutionRoot">
-                  <equals arg1="${project.basedir}" arg2="${session.executionRootDirectory}"/>
-                </condition>
+            <exportAntProperties>true</exportAntProperties>
+            <target name="prep">
+            <!-- Bridge Maven expression to an Ant property -->
+            <property name="execRoot" value="${session.executionRootDirectory}"/>
 
-                <!-- Has the file already been written this Maven run? -->
-                <available file="${session.executionRootDirectory}/.build-meta/build-number.txt"
-                           property="buildNumberFileExists"/>
-              </target>
-            </configuration>
+            <!-- See if the file already exists -->
+            <available file="${execRoot}/.build-meta/build-number.txt"
+                       property="buildNumberFileExists"/>
+
+            <!-- optional debug -->
+            <echo message="[build-info] execRoot=${execRoot}, buildNumberFileExists=${buildNumberFileExists}"/>
             <goals><goal>run</goal></goals>
           </execution>
           <!-- 2nd execution only runs at the execution and skips if the file already exists -->
@@ -384,12 +382,16 @@
             <phase>initialize</phase>
             <inherited>false</inherited>
             <configuration>
-              <target name="write" if="isExecutionRoot" unless="buildNumberFileExists">
-                <mkdir dir="${session.executionRootDirectory}/.build-meta"/>
-                <echo file="${session.executionRootDirectory}/.build-meta/build-number.txt"
+              <target name="write" unless="buildNumberFileExists">
+                <!-- Re-establish the bridge (executions are separate) -->
+                <property name="execRoot" value="${session.executionRootDirectory}"/>
+
+                <mkdir dir="${execRoot}/.build-meta"/>
+                <echo file="${execRoot}/.build-meta/build-number.txt"
                       message="${canonicalBuildNumber}"/>
-                <!-- optional: a visible message -->
-                <echo message="[build-info] Wrote canonicalBuildNumber ${canonicalBuildNumber} to .build-meta/build-number.txt"/>
+
+                <!-- optional debug -->
+                <echo message="[build-info] Wrote canonicalBuildNumber ${canonicalBuildNumber} to ${execRoot}/.build-meta/build-number.txt"/>
               </target>
             </configuration>
             <goals><goal>run</goal></goals>
