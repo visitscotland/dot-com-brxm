@@ -322,39 +322,77 @@
         <artifactId>maven-antrun-plugin</artifactId>
         <version>3.0.0</version>
         <executions>
+<!--          <execution>-->
+<!--            <id>write-build-number-file</id>-->
+<!--            <phase>initialize</phase>-->
+<!--            <inherited>false</inherited> &lt;!&ndash; runs just once in the root module (children don't inherit execution) &ndash;&gt;-->
+<!--            <goals><goal>run</goal></goals>-->
+<!--            <configuration>-->
+<!--              <target>-->
+<!--                &lt;!&ndash; The build-number.txt will be treated as a singleton entity, created once &ndash;&gt;-->
+<!--                &lt;!&ndash; Root-only execution &ndash;&gt;-->
+<!--                <condition property="isExecutionRoot">-->
+<!--                  <equals arg1="${project.basedir}" arg2="${session.executionRootDirectory}" />-->
+<!--                </condition>-->
+<!--                &lt;!&ndash; Persist the build number outside target/ dir (to avoid having it cleaned) &ndash;&gt;-->
+<!--                <mkdir dir="${session.executionRootDirectory}/.build-meta"/>-->
+<!--                &lt;!&ndash; Decide if we should write (root AND file missing) &ndash;&gt;-->
+<!--                <condition property="writeBuildNumber">-->
+<!--                  <and>-->
+<!--                    <isset property="isExecutionRoot"/>-->
+<!--                    <not>-->
+<!--                      <available file="${session.executionRootDirectory}/.build-meta/build-number.txt"/>-->
+<!--                    </not>-->
+<!--                  </and>-->
+<!--                </condition>-->
+<!--                &lt;!&ndash; Write exactly once &ndash;&gt;-->
+<!--                <echo if="writeBuildNumber"-->
+<!--                      file="${session.executionRootDirectory}/.build-meta/build-number.txt"-->
+<!--                      message="${canonicalBuildNumber}"/>-->
+<!--                &lt;!&ndash; Log the same value to console &ndash;&gt;-->
+<!--                <echo if="writeBuildNumber">-->
+<!--                  [build-info] Maven’s issued canonicalBuildNumber: ${canonicalBuildNumber}-->
+<!--                </echo>-->
+<!--              </target>-->
+<!--            </configuration>-->
+<!--          </execution>-->
+          <!-- The build-number.txt will be treated as a singleton entity, created once -->
+          <!-- (it needs to take place in two steps) -->
+          <!-- 1st execution detects if we are in the root execution (top module) and sets the buildNumberFileExists flag -->
           <execution>
-            <id>write-build-number-file</id>
+            <id>detect-buildnumber-write-conditions</id>
             <phase>initialize</phase>
-            <inherited>false</inherited> <!-- runs just once in the root module (children don't inherit execution) -->
-            <goals><goal>run</goal></goals>
+            <inherited>false</inherited> <!-- run once at the root module only -->
             <configuration>
-              <target>
-                <!-- The build-number.txt will be treated as a singleton entity, created once -->
-                <!-- Root-only execution -->
+              <exportAntProperties>true</exportAntProperties>
+              <target name="detect">
+                <!-- Are we at the execution root? -->
                 <condition property="isExecutionRoot">
-                  <equals arg1="${project.basedir}" arg2="${session.executionRootDirectory}" />
+                  <equals arg1="${project.basedir}" arg2="${session.executionRootDirectory}"/>
                 </condition>
-                <!-- Persist the build number outside target/ dir (to avoid having it cleaned) -->
-                <mkdir dir="${session.executionRootDirectory}/.build-meta"/>
-                <!-- Decide if we should write (root AND file missing) -->
-                <condition property="writeBuildNumber">
-                  <and>
-                    <isset property="isExecutionRoot"/>
-                    <not>
-                      <available file="${session.executionRootDirectory}/.build-meta/build-number.txt"/>
-                    </not>
-                  </and>
-                </condition>
-                <!-- Write exactly once -->
-                <echo if="writeBuildNumber"
-                      file="${session.executionRootDirectory}/.build-meta/build-number.txt"
-                      message="${canonicalBuildNumber}"/>
-                <!-- Log the same value to console -->
-                <echo if="writeBuildNumber">
-                  [build-info] Maven’s issued canonicalBuildNumber: ${canonicalBuildNumber}
-                </echo>
+
+                <!-- Has the file already been written this Maven run? -->
+                <available file="${session.executionRootDirectory}/.build-meta/build-number.txt"
+                           property="buildNumberFileExists"/>
               </target>
             </configuration>
+            <goals><goal>run</goal></goals>
+          </execution>
+          <!-- 2nd execution only runs at the execution and skips if the file already exists -->
+          <execution>
+            <id>write-build-number-file-once</id>
+            <phase>initialize</phase>
+            <inherited>false</inherited>
+            <configuration>
+              <target name="write" if="isExecutionRoot" unless="buildNumberFileExists">
+                <mkdir dir="${session.executionRootDirectory}/.build-meta"/>
+                <echo file="${session.executionRootDirectory}/.build-meta/build-number.txt"
+                      message="${canonicalBuildNumber}"/>
+                <!-- optional: a visible message -->
+                <echo message="[build-info] Wrote canonicalBuildNumber ${canonicalBuildNumber} to .build-meta/build-number.txt"/>
+              </target>
+            </configuration>
+            <goals><goal>run</goal></goals>
           </execution>
         </executions>
       </plugin>
