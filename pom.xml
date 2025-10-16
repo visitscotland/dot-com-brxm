@@ -349,8 +349,10 @@
                 <echo if="writeBuildNumber"
                       file="${session.executionRootDirectory}/.build-meta/build-number.txt"
                       message="${canonicalBuildNumber}"/>
-                <!-- Display a message as well -->
-                <echo if="writeBuildNumber" message="Maven's issued canonicalBuildNumber: ${canonicalBuildNumber}"/>
+                <!-- Log the same value to console -->
+                <echo if="writeBuildNumber">
+                  [build-info] Maven’s issued canonicalBuildNumber: ${canonicalBuildNumber}
+                </echo>
               </target>
             </configuration>
           </execution>
