@@ -363,17 +363,20 @@
             <id>detect-buildnumber-write-conditions</id>
             <phase>initialize</phase>
             <inherited>false</inherited> <!-- run once at the root module only -->
-            <exportAntProperties>true</exportAntProperties>
-            <target name="prep">
-            <!-- Bridge Maven expression to an Ant property -->
-            <property name="execRoot" value="${session.executionRootDirectory}"/>
+            <configuration>
+              <exportAntProperties>true</exportAntProperties>
+              <target name="prep">
+                <!-- Bridge Maven expression to an Ant property -->
+                <property name="execRoot" value="${session.executionRootDirectory}"/>
 
-            <!-- See if the file already exists -->
-            <available file="${execRoot}/.build-meta/build-number.txt"
-                       property="buildNumberFileExists"/>
+                <!-- See if the file already exists -->
+                <available file="${execRoot}/.build-meta/build-number.txt"
+                           property="buildNumberFileExists"/>
 
-            <!-- optional debug -->
-            <echo message="[build-info] execRoot=${execRoot}, buildNumberFileExists=${buildNumberFileExists}"/>
+                <!-- optional debug -->
+                <echo message="[build-info] execRoot=${execRoot}, buildNumberFileExists=${buildNumberFileExists}"/>
+              </target>
+            </configuration>
             <goals><goal>run</goal></goals>
           </execution>
           <!-- 2nd execution only runs at the execution and skips if the file already exists -->
