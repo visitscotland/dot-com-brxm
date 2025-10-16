@@ -325,12 +325,24 @@
           <execution>
             <id>write-build-number-file</id>
             <phase>initialize</phase>
-            <inherited>false</inherited> <!-- runs once in this module only -->
+            <inherited>false</inherited> <!-- runs just once in the root module -->
             <goals><goal>run</goal></goals>
             <configuration>
               <target>
-                <mkdir dir="${project.build.directory}"/>
-                <echo file="${project.build.directory}/build-number.txt"
+                <!-- The build-number.txt will be treated as a singleton entity, created once -->
+                <!-- Only do this in the execution root -->
+                <condition property="isExecutionRoot">
+                  <equals arg1="${project.basedir}" arg2="${session.executionRootDirectory}" />
+                </condition>
+                <!-- write to a non-cleaned, repo-local dir -->
+                <mkdir dir="${session.executionRootDirectory}/.build-meta"/>
+                <!-- Only create the file if it doesn't already exist -->
+                <condition property="buildNumberFileExists">
+                  <available file="${session.executionRootDirectory}/.build-meta/build-number.txt" />
+                </condition>
+                <echo message="Writing build-number.txt (root project only)..."
+                      unless="buildNumberFileExists"
+                      file="${session.executionRootDirectory}/.build-meta/build-number.txt"
                       message="${canonicalBuildNumber}"/>
               </target>
             </configuration>
