@@ -385,6 +385,7 @@
               <name>isoBuildDate</name>
               <pattern>yyyy-MM-dd'T'HH:mm:ss'Z'</pattern>
               <timeZone>UTC</timeZone>
+              <locale>en_US</locale><!-- eliminates the [WARNING] when executed in CI pipeline -->
             </configuration>
           </execution>
         </executions>
