@@ -350,9 +350,11 @@
           <execution>
             <id>write-build-number-file-once</id>
             <phase>initialize</phase>
-            <inherited>false</inherited>
+            <inherited>false</inherited> <!-- run only in the root project -->
+            <goals><goal>run</goal></goals>
             <configuration>
-              <target name="write" unless="buildNumberFileExists">
+<!--              <target name="write" unless="buildNumberFileExists">-->
+              <target name="write"> <!-- write to this file in every mvn run -->
                 <!-- Re-establish the bridge (executions are separate) -->
                 <property name="execRoot" value="${project.basedir}"/>
                 <!-- or: <property name="execRoot" value="${maven.multiModuleProjectDirectory}"/> -->
@@ -365,7 +367,6 @@
                 <echo message="[build-info] Wrote canonicalBuildNumber ${canonicalBuildNumber} to ${execRoot}/.build-meta/build-number.txt"/>
               </target>
             </configuration>
-            <goals><goal>run</goal></goals>
           </execution>
         </executions>
       </plugin>
