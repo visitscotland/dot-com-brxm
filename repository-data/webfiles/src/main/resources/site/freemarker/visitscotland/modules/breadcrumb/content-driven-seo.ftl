@@ -86,4 +86,18 @@
             <meta property="twitter:image" content="${ogImage}" />
         </@hst.headContribution>
     </#if>
+    <#if document.location??>
+        <@hst.headContribution category="opengraph">
+            <meta property="search:category" content="destination" />
+        </@hst.headContribution>
+    <#elseif document.distance??>
+        <@hst.headContribution category="opengraph">
+            <meta property="search:category" content="itinerary" />
+        </@hst.headContribution>
+      <#else>
+            <@hst.headContribution category="opengraph">
+            <meta property="search:category" content="article" />
+        </@hst.headContribution>
+    </#if>
+    </#if>
 </#if>
