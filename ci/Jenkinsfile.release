@@ -187,6 +187,8 @@ pipeline {
                   echo; echo "running stage $STAGE_NAME on $HOSTNAME"
                   export HOME=$WORKSPACE
                   export MAVEN_OPTS="-Duser.home=$HOME"
+                  # Reset the cached build-number.txt file so this pipeline run writes it exactly once
+                  rm -f "$WORKSPACE/.build-meta/build-number.txt" || true
                   #mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false
                   mvn --batch-mode versions:use-releases
                   # unsetting BRANCH_NAME variable as the Java build uses its presence to determine whether or not to add the development banner
