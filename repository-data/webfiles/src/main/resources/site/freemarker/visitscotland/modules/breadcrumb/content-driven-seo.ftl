@@ -94,7 +94,7 @@
         <@hst.headContribution category="opengraph">
             <meta name="search:category" content="itinerary" />
         </@hst.headContribution>
-      <#else>
+    <#else>
         <@hst.headContribution category="opengraph">
             <meta name="search:category" content="article" />
         </@hst.headContribution>

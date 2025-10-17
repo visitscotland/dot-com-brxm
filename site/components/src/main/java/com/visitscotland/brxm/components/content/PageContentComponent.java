@@ -139,6 +139,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final String VIDEO_BUNDLE = "video";
         final String SKIP_TO = "skip-to";
         final String SEARCH_BUNDLE = "search";
+        final String SEARCH_EVENTS_CATEGORIES = "content.categories";
         final String SEARCH_EVENTS_FILTERS = "search-events-filters";
         final String CMS_MESSAGES = "cms-messages";
         final String SEO = "seo";
@@ -155,6 +156,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel("eventsAPI", properties.getProperty("events.endpoint", request.getLocale()));
             if (isHomepage(request)) {
                 request.setModel("searchWidget", true);
+            }else{
+                labels(request).put(SEARCH_EVENTS_CATEGORIES, bundle.getAllLabels(SEARCH_EVENTS_FILTERS, request.getLocale()));
             }
         }
 

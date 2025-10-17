@@ -1,0 +1,67 @@
+/content/documents/administration/labels/global/search-content-categories:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 0a8bb8f5-c92d-4c7e-a550-c3d5d04089cf
+  hippo:name: Search content categories
+  hippo:versionHistory: 374bdde9-3b63-4305-a63f-324b16340a00
+  /search-content-categories[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: aa166229-77e9-46b9-8a5d-01662b8d223f
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-17T13:28:50.411+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-17T13:28:50.412+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:id: content.categories
+    resourcebundle:keys: [article, destination, itinerary, event, tours, support]
+    resourcebundle:messages: [Article, Destination, Itinerary, Events, Tour, Support]
+    resourcebundle:messages_de: ['', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '']
+  /search-content-categories[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 7d90e807-cc16-4b77-bcef-bb3189014ea7
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-17T13:28:50.411+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-17T13:31:28.467+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:id: content.categories
+    resourcebundle:keys: [article, destination, itinerary, event, tours, support]
+    resourcebundle:messages: [Article, Destination, Itinerary, Events, Tour, Support]
+    resourcebundle:messages_de: ['', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '']
+  /search-content-categories[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 79c0e99a-d041-4245-a1eb-a20fb1b03f49
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-17T13:28:50.411+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-17T13:31:28.467+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2025-10-17T13:31:31.613+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:id: content.categories
+    resourcebundle:keys: [article, destination, itinerary, event, tours, support]
+    resourcebundle:messages: [Article, Destination, Itinerary, Events, Tour, Support]
+    resourcebundle:messages_de: ['', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '']
