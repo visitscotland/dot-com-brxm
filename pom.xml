@@ -337,10 +337,9 @@
                 <!-- or: <property name="execRoot" value="${maven.multiModuleProjectDirectory}"/> -->
 
                 <!-- See if the file already exists -->
-                <available file="${execRoot}/.build-meta/build-number.txt"
-                           property="buildNumberFileExists"/>
+                <available file="${execRoot}/.build-meta/build-number.txt" property="buildNumberFileExists"/>
 
-                <!-- optional debug -->
+                <!-- optional debug, appears as [WARNING], add unless="maven.debug" to supress -->
                 <echo message="[build-info] execRoot=${execRoot}, buildNumberFileExists=${buildNumberFileExists}"/>
               </target>
             </configuration>
@@ -359,10 +358,9 @@
                 <!-- or: <property name="execRoot" value="${maven.multiModuleProjectDirectory}"/> -->
 
                 <mkdir dir="${execRoot}/.build-meta"/>
-                <echo file="${execRoot}/.build-meta/build-number.txt"
-                      message="${canonicalBuildNumber}"/>
+                <echo file="${execRoot}/.build-meta/build-number.txt" message="${canonicalBuildNumber}"/>
 
-                <!-- optional debug -->
+                <!-- optional debug, appears as [WARNING], add unless="maven.debug" to supress -->
                 <echo message="[build-info] Wrote canonicalBuildNumber ${canonicalBuildNumber} to ${execRoot}/.build-meta/build-number.txt"/>
               </target>
             </configuration>
