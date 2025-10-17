@@ -88,15 +88,15 @@
     </#if>
     <#if document.location??>
         <@hst.headContribution category="opengraph">
-            <meta property="search:category" content="destination" />
+            <meta name="search:category" content="destination" />
         </@hst.headContribution>
     <#elseif document.distance??>
         <@hst.headContribution category="opengraph">
-            <meta property="search:category" content="itinerary" />
+            <meta name="search:category" content="itinerary" />
         </@hst.headContribution>
       <#else>
-            <@hst.headContribution category="opengraph">
-            <meta property="search:category" content="article" />
+        <@hst.headContribution category="opengraph">
+            <meta name="search:category" content="article" />
         </@hst.headContribution>
     </#if>
     </#if>
