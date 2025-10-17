@@ -187,10 +187,6 @@ pipeline {
                   echo; echo "running stage $STAGE_NAME on $HOSTNAME"
                   export HOME=$WORKSPACE
                   export MAVEN_OPTS="-Duser.home=$HOME"
-                  #echo "== setting essential git variables =="
-                  #git config --global user.name "${GIT_COMMITER_NAME}"
-                  #git config --global user.email "${GIT_COMMITER_EMAIL}"
-                  #echo; echo "= GIT CONFIG AFTER CONFIG ="; git config -l; echo
                   #mvn versions:use-releases scm:checkin -Dmessage="Updated snapshot dependencies to release versions" -DpushChanges=false
                   mvn --batch-mode versions:use-releases
                   # unsetting BRANCH_NAME variable as the Java build uses its presence to determine whether or not to add the development banner
