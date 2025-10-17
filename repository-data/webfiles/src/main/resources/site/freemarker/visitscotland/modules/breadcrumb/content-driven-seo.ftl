@@ -99,5 +99,4 @@
             <meta name="search:category" content="article" />
         </@hst.headContribution>
     </#if>
-    </#if>
 </#if>
