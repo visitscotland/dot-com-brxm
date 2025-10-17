@@ -353,8 +353,7 @@
             <inherited>false</inherited> <!-- run only in the root project -->
             <goals><goal>run</goal></goals>
             <configuration>
-<!--              <target name="write" unless="buildNumberFileExists">-->
-              <target name="write"> <!-- write to this file in every mvn run -->
+              <target name="write" unless="buildNumberFileExists">
                 <!-- Re-establish the bridge (executions are separate) -->
                 <property name="execRoot" value="${project.basedir}"/>
                 <!-- or: <property name="execRoot" value="${maven.multiModuleProjectDirectory}"/> -->
