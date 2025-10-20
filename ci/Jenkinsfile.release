@@ -755,11 +755,8 @@ pipeline {
         stage('Release Package Build-Number (ext)') {
             steps {
                 sh '''
-                  # args: SITE_WAR, MANIFEST_PATH, OUT_PROPS
-                  ci/scripts/release_build_number.sh \
-                    "site/webapp/target/site.war" \
-                    "META-INF/MANIFEST.MF" \
-                    "ci/properties/release_env.properties"
+                  # args: path to build-number txt, OUT_PROPS
+                  ci/scripts/release_build_number.sh ".build-meta/build-number.txt" "ci/properties/release_env.properties"
                 '''
                 script {
                     def props = readProperties file: 'ci/properties/release_env.properties'
