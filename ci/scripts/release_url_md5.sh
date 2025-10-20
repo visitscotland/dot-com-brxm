@@ -36,9 +36,9 @@ echo "Using distribution file: $DISTRO_FILE"
 
 # Proceed with the calculation of MD5 checksum (md5sum/md5 command for both Linux and MacOS/BSD)
 if command -v md5sum >/dev/null 2>&1; then
-  VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5sum target/*distr*.tar.gz | head -n1 | cut -d ' ' -f1 || true)"
+  VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5sum "${DISTRO_FILE}" | cut -d ' ' -f1 || true)"
 elif command -v md5 >/dev/null 2>&1; then
-  VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5 -r target/*distr*.tar.gz | head -n1 | awk '{print $1}' || true)"
+  VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5 -r "${DISTRO_FILE}" | awk '{print $1}' || true)"
 else
   echo "WARN: Neither md5sum nor md5 found; skipping MD5" >&2
 fi
