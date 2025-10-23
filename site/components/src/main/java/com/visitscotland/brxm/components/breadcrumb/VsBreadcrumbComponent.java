@@ -27,10 +27,10 @@ public class VsBreadcrumbComponent extends CommonComponent {
     final String REQUESTED_URI = "requestedURI";
     final String IS_HOME = "isHome";
     final String BREADCRUMB = "breadcrumb";
-    final String SEARCH_CATEGORY = "searchCategory";
     final String DOCUMENT = "document";
     final String ORDERED_TRANSLATIONS = "orderedTranslations";
-     final String CONTENT_CATEGORIES_OPTIONS = "content-categories-options";
+    final String CONTENT_CATEGORIES_OPTIONS = "content-categories-options";
+    final String SEARCH_CATEGORY = "searchCategory";
 
     private VsBreadCrumbProvider breadcrumbProvider;
     private HippoUtilsService hippoUtilsService;
