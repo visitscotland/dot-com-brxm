@@ -20863,6 +20863,29 @@
               /visitscotland:links[4]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: feec2d62-687a-47a6-a12d-177d48176891
+        /cludo:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 27d3df94-2ffa-4694-a961-1e911d595448
+          hippo:name: Cludo?
+          /cludo:
+            jcr:primaryType: visitscotland:DevModule
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 25137981-e1e6-4d39-a1c7-791e23b50e7e
+            hippo:availability: []
+            hippostd:holder: admin
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-10-22T09:44:18.250+01:00
+            hippostdpubwf:lastModificationDate: 2025-10-22T09:44:18.250+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: c3696220-4022-45c9-a009-5dbb87b1fcfd
+            hippotranslation:locale: en
+            visitscotland:bespoken: ''
+            visitscotland:footerContributions: []
+            visitscotland:headContributions: []
+            visitscotland:html: ''
+            visitscotland:notes: ''
         /scotland-at-night:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -20874,16 +20897,20 @@
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 3888b80d-173b-431b-92d8-0f792c74ad84
             hippo:availability: []
+            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-10-21T15:37:28.063+01:00
-            hippostdpubwf:lastModificationDate: 2025-10-22T09:22:36.021+01:00
+            hippostdpubwf:lastModificationDate: 2025-10-22T10:43:04.705+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 6021e118-8b41-475c-babf-dd35c7e7298d
             hippotranslation:locale: en
-            visitscotland:anchor: The anchor in probably not required
+            visitscotland:anchor: anchor Id
             visitscotland:copy: Ready to experience the magic of Scotland after dark?
+              Watch the star-filled skies light up iconic landscapes and ancient sites.
+              From the Isle of Coll to Galloway, discover the best dark sky spots
+            visitscotland:test: Ready to experience the magic of Scotland after dark?
               Watch the star-filled skies light up iconic landscapes and ancient sites.
               From the Isle of Coll to Galloway, discover the best dark sky spots
             visitscotland:title: Scotland at night
@@ -20899,6 +20926,9 @@
               /visitscotland:link:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: feec2d62-687a-47a6-a12d-177d48176891
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
           /scotland-at-night[2]:
             jcr:primaryType: visitscotland:Spotlight
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -20962,23 +20992,68 @@
                 hippo:docbase: feec2d62-687a-47a6-a12d-177d48176891
         /uncover-scotlands-regions:
           jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 11bac9f3-f4c2-4f39-9d1c-dac0ced4c752
           hippo:name: Uncover Scotland's regions
-          /uncover-scotlands-regions:
+          hippo:versionHistory: 8fa571f3-c5ac-424c-bb6d-4417aa2dc6f6
+          /uncover-scotlands-regions[1]:
             jcr:primaryType: visitscotland:MapModule
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
             jcr:uuid: ec69f2b4-032d-4ca2-af8a-794a9c73c2a2
             hippo:availability: []
-            hippostd:holder: admin
-            hippostd:retainable: true
+            hippostd:retainable: false
             hippostd:state: draft
             hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-10-22T09:25:04.968+01:00
             hippostdpubwf:lastModificationDate: 2025-10-22T09:25:04.968+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippotaxonomy:keys: [regions, destinations]
+            hippotaxonomy:keys: [destinations]
+            hippotranslation:id: 205827b7-6077-4211-862e-b78a76dd5076
+            hippotranslation:locale: en
+            visitscotland:mapType: ''
+            visitscotland:tabTitle: ''
+            visitscotland:title: Uncover Scotland's regions
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>From the rugged coastlines...</p>
+          /uncover-scotlands-regions[2]:
+            jcr:primaryType: visitscotland:MapModule
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+            jcr:uuid: 313a54be-cb3e-41f9-b625-186e24edd932
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-10-22T09:25:04.968+01:00
+            hippostdpubwf:lastModificationDate: 2025-10-22T09:43:00.887+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotaxonomy:keys: [destinations]
+            hippotranslation:id: 205827b7-6077-4211-862e-b78a76dd5076
+            hippotranslation:locale: en
+            visitscotland:mapType: ''
+            visitscotland:tabTitle: ''
+            visitscotland:title: Uncover Scotland's regions
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>From the rugged coastlines...</p>
+          /uncover-scotlands-regions[3]:
+            jcr:primaryType: visitscotland:MapModule
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+            jcr:uuid: d6555fd7-c26a-4b06-9b2c-cb3573484373
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-10-22T09:25:04.968+01:00
+            hippostdpubwf:lastModificationDate: 2025-10-22T09:43:00.887+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-10-22T09:43:07.284+01:00
+            hippotaxonomy:keys: [destinations]
             hippotranslation:id: 205827b7-6077-4211-862e-b78a76dd5076
             hippotranslation:locale: en
             visitscotland:mapType: ''
@@ -20999,15 +21074,16 @@
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 15ac65d3-b93e-4453-a703-37a6a34abaf7
             hippo:availability: []
+            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-10-22T09:27:24.715+01:00
-            hippostdpubwf:lastModificationDate: 2025-10-22T09:28:38.720+01:00
+            hippostdpubwf:lastModificationDate: 2025-10-22T10:04:26.368+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 2fcec07a-f1a6-4cbc-8922-7a9dfb516b21
             hippotranslation:locale: en
-            visitscotland:layout: Grid
+            visitscotland:layout: List
             visitscotland:teaserVisible: true
             visitscotland:title: Top tips....
             visitscotland:translation: ''
@@ -21141,11 +21217,12 @@
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: d8794912-757f-458d-a471-a758bf9b096e
             hippo:availability: []
+            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-10-21T15:39:39.744+01:00
-            hippostdpubwf:lastModificationDate: 2025-10-21T15:40:23.952+01:00
+            hippostdpubwf:lastModificationDate: 2025-10-22T10:27:02.580+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 6cb07a81-df29-4f80-a0fc-0cc6f1ca645e
             hippotranslation:locale: en
@@ -21214,6 +21291,22 @@
                 /visitscotland:link:
                   jcr:primaryType: hippo:mirror
                   hippo:docbase: feec2d62-687a-47a6-a12d-177d48176891
+            /visitscotland:items[5]:
+              jcr:primaryType: visitscotland:SpotlightCompoundOptionB
+              visitscotland:copy: ''
+              visitscotland:title: ''
+              /visitscotland:image:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:link:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: ''
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           /whatever-the-season[2]:
             jcr:primaryType: visitscotland:SpotlightOptionB
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -21578,7 +21671,7 @@
             jcr:primaryType: visitscotland:CannedSearch
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: d5984a3b-132d-4545-b9b2-f120de2ee691
-            hippo:availability: [live]
+            hippo:availability: []
             hippostd:retainable: false
             hippostd:state: published
             hippostdpubwf:createdBy: admin
