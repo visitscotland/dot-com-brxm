@@ -1,0 +1,76 @@
+/content/documents/administration/labels/global/search-filters:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 240d2342-a355-4a85-a9ff-8182d9f66780
+  hippo:name: Search filters
+  hippo:versionHistory: 63af1aec-df3a-40c0-8eaf-785387a7eb05
+  /search-filters[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 56a4e947-4a63-4d8a-ab8e-807edbd6869c
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-23T15:39:04.905+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-23T15:46:57.525+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: search-categories
+    resourcebundle:keys: [accommodation, events, tours, culture-history, family-friendly,
+      food-drink, active-adventure, city-break, travel-information, nature-outdoors]
+    resourcebundle:messages: [Accommodation, Events & Festivals, Tours, Culture &
+        History, Family Friendly, Food & Drink, Active & Adventure, City Break, Travel
+        Information, Nature & Outdoors]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '']
+  /search-filters[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: b6dd9b66-a01b-44af-b314-08e2e88612f5
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-23T15:39:04.905+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-23T15:47:40.659+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: search-categories
+    resourcebundle:keys: [accommodation, events, tours, culture-history, family-friendly,
+      food-drink, active-adventure, city-break, travel-information, nature-outdoors]
+    resourcebundle:messages: [Accommodation, Events & Festivals, Tours, Culture &
+        History, Family Friendly, Food & Drink, Active & Adventure, City Break, Travel
+        Information, Nature & Outdoors]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '']
+  /search-filters[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: b58c14df-5ec1-4faa-838d-8f939761d77b
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-23T15:39:04.905+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-23T15:47:40.659+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2025-10-23T15:47:42.801+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: search-categories
+    resourcebundle:keys: [accommodation, events, tours, culture-history, family-friendly,
+      food-drink, active-adventure, city-break, travel-information, nature-outdoors]
+    resourcebundle:messages: [Accommodation, Events & Festivals, Tours, Culture &
+        History, Family Friendly, Food & Drink, Active & Adventure, City Break, Travel
+        Information, Nature & Outdoors]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '']

@@ -141,6 +141,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final String SEARCH_BUNDLE = "search";
         final String SEARCH_EVENTS_CATEGORIES = "content.categories";
         final String SEARCH_EVENTS_FILTERS = "search-events-filters";
+        final String SEARCH_FILTERS = "search-categories";
         final String CMS_MESSAGES = "cms-messages";
         final String SEO = "seo";
 
@@ -152,6 +153,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         labels(request).put(SKIP_TO, bundle.getAllLabels(SKIP_TO, request.getLocale()));
         if (isHomepage(request) || request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
             labels(request).put(SEARCH_EVENTS_FILTERS, bundle.getAllLabels(SEARCH_EVENTS_FILTERS, request.getLocale()));
+            labels(request).put(SEARCH_FILTERS, bundle.getAllLabels(SEARCH_FILTERS, request.getLocale()));
             request.setModel("cludoAPI", properties.getProperty("cludo.api", request.getLocale()));
             request.setModel("eventsAPI", properties.getProperty("events.endpoint", request.getLocale()));
             if (isHomepage(request)) {
