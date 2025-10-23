@@ -9,6 +9,7 @@
 
 <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#-- @ftlvariable name="orderedTranslations" type="java.util.List<com.visitscotland.brxm.hippobeans.BaseDocument>" -->
+#<#-- @ftlvariable name="searchCategory" type="com.visitscotland.brxm.hippobeans.Megalinks" -->
 
 <#if document??>
     <#-- NO INDEX -->
@@ -84,6 +85,22 @@
     <#if document.heroImage??>
         <@hst.headContribution category="opengraph">
             <meta property="twitter:image" content="${ogImage}" />
+        </@hst.headContribution>
+    </#if>
+    <@hst.headContribution category="opengraph">
+        <meta name="search:category" content="${searchCategory}"  />
+    </@hst.headContribution>
+    <#if document.location??>
+        <@hst.headContribution category="opengraph">
+            <meta name="search:contentType" content="destination" />
+        </@hst.headContribution>
+    <#elseif document.distance??>
+        <@hst.headContribution category="opengraph">
+            <meta name="search:contentType" content="itinerary" />
+        </@hst.headContribution>
+    <#else>
+        <@hst.headContribution category="opengraph">
+            <meta name="search:contentType" content="article" />
         </@hst.headContribution>
     </#if>
 </#if>

@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletContext;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class VsBreadcrumbComponent extends CommonComponent {
@@ -26,8 +27,10 @@ public class VsBreadcrumbComponent extends CommonComponent {
     final String REQUESTED_URI = "requestedURI";
     final String IS_HOME = "isHome";
     final String BREADCRUMB = "breadcrumb";
+    final String SEARCH_CATEGORY = "searchCategory";
     final String DOCUMENT = "document";
     final String ORDERED_TRANSLATIONS = "orderedTranslations";
+     final String CONTENT_CATEGORIES_OPTIONS = "content-categories-options";
 
     private VsBreadCrumbProvider breadcrumbProvider;
     private HippoUtilsService hippoUtilsService;
@@ -42,6 +45,8 @@ public class VsBreadcrumbComponent extends CommonComponent {
         request.setModel(IS_HOME, "root".equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId()));
         //Breadcrumb Items list
         request.setModel(BREADCRUMB, this.breadcrumbProvider.getBreadcrumb(request));
+        //Search category for Cludo site search
+        request.setModel(SEARCH_CATEGORY, getCategoryFromUrl(request));
         //Main document for the page
         setDocument(request, response);
     }
@@ -64,6 +69,18 @@ public class VsBreadcrumbComponent extends CommonComponent {
         this.breadcrumbProvider = new VsBreadCrumbProvider(this);
         this.hippoUtilsService = VsComponentManager.get(HippoUtilsService.class);
         this.documentUtils = VsComponentManager.get(DocumentUtilsService.class);
+    }
+
+    /**
+     * Returns the category that best matches the given URL.
+     */
+    private String getCategoryFromUrl(HstRequest request) {
+        for (Map.Entry<String, String> entry : hippoUtilsService.getValueMap(CONTENT_CATEGORIES_OPTIONS).entrySet()) {
+            if (request.getPathInfo().contains(entry.getKey())) {
+                return entry.getValue();
+            }
+        }
+        return "other";
     }
 
 }
