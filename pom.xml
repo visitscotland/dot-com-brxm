@@ -369,7 +369,7 @@
           <execution>
             <id>write-build-number-to-target</id>
             <!-- Only generate a buildnumber during mvn clean phase -->
-            <phase>pre-clean</phase>
+            <phase>post-clean</phase>
             <inherited>false</inherited>
             <goals><goal>run</goal></goals>
             <configuration>
