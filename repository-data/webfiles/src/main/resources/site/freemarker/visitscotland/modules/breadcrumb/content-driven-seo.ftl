@@ -9,7 +9,6 @@
 
 <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.Page" -->
 <#-- @ftlvariable name="orderedTranslations" type="java.util.List<com.visitscotland.brxm.hippobeans.BaseDocument>" -->
-#<#-- @ftlvariable name="searchCategory" type="com.visitscotland.brxm.hippobeans.Megalinks" -->
 
 <#if document??>
     <#-- NO INDEX -->
