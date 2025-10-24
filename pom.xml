@@ -335,8 +335,6 @@
                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
               </manifest>
               <manifestEntries>
-<!--                <Build-Number>${project.buildNo}</Build-Number>-->
-<!--                <Build-Date>${maven.build.timestamp}</Build-Date>-->
                 <Build-Number>${canonicalBuildNumber}</Build-Number>
                 <Build-Date>${isoBuildDate}</Build-Date>
                 <Hippo-Release-Version>${hippo.release.version}</Hippo-Release-Version>
