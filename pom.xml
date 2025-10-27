@@ -283,7 +283,8 @@
             </execution>
           </executions>
         </plugin>
-        <!-- should apply to all WAR modules (even if not specifically declared -->
+        <!-- Adds the entries to the Manifest Files -->
+        <!-- should apply to all WAR modules (even if not specifically declared) -->
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
           <version>${maven.plugin.war.version}</version>
@@ -312,7 +313,8 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
         <version>${maven.plugin.buildnumber.version}</version>
-        <!-- Neutralizing any inherited executions (e.g., a 'create' bound in a parent) -->
+        <!-- Neutralising any inherited executions from parent. Build-number generation is now delegated to
+             Maven's native timestamp (see canonicalBuildNumber property) to ensure single source of truth. -->
         <configuration>
           <skip>true</skip>
         </configuration>
@@ -322,46 +324,17 @@
         <artifactId>maven-antrun-plugin</artifactId>
         <version>3.0.0</version>
         <executions>
-          <!-- The build-number.txt will be treated as a singleton entity, created once -->
-          <!-- (it needs to take place in two steps) -->
-          <!-- 1st execution detects if we are in the root execution (top module) and sets the buildNumberFileExists flag -->
           <execution>
-            <id>detect-buildnumber-write-conditions</id>
-            <phase>initialize</phase>
-            <inherited>false</inherited> <!-- run once at the root module only -->
-            <configuration>
-              <exportAntProperties>true</exportAntProperties>
-              <target name="prep">
-                <!-- Bridge Maven expression to an Ant property -->
-                <property name="execRoot" value="${project.basedir}"/>
-                <!-- or: <property name="execRoot" value="${maven.multiModuleProjectDirectory}"/> -->
-
-                <!-- See if the file already exists -->
-                <available file="${execRoot}/.build-meta/build-number.txt" property="buildNumberFileExists"/>
-
-                <!-- optional debug, appears as [WARNING] -->
-                <echo message="[build-info] execRoot=${execRoot}, buildNumberFileExists=${buildNumberFileExists}"/>
-              </target>
-            </configuration>
+            <id>write-build-number-to-target</id>
+            <!-- Only generate a buildnumber during mvn clean phase -->
+            <phase>pre-clean</phase>
             <goals><goal>run</goal></goals>
-          </execution>
-          <!-- 2nd execution only runs at the execution and skips if the file already exists -->
-          <execution>
-            <id>write-build-number-file-once</id>
-            <phase>initialize</phase>
-            <inherited>false</inherited> <!-- run only in the root project -->
-            <goals><goal>run</goal></goals>
+            <inherited>false</inherited>
             <configuration>
-              <target name="write" unless="buildNumberFileExists">
-                <!-- Re-establish the bridge (executions are separate) -->
-                <property name="execRoot" value="${project.basedir}"/>
-                <!-- or: <property name="execRoot" value="${maven.multiModuleProjectDirectory}"/> -->
-
-                <mkdir dir="${execRoot}/.build-meta"/>
-                <echo file="${execRoot}/.build-meta/build-number.txt" message="${canonicalBuildNumber}"/>
-
-                <!-- optional debug, appears as [WARNING] -->
-                <echo message="[build-info] Wrote canonicalBuildNumber ${canonicalBuildNumber} to ${execRoot}/.build-meta/build-number.txt"/>
+              <target>
+                <echo file="${project.basedir}/build-number.txt"
+                      message="${canonicalBuildNumber}"/>
+                <echo message="[build-info] Wrote canonicalBuildNumber ${canonicalBuildNumber} to ${project.basedir}/build-number.txt"/>
               </target>
             </configuration>
           </execution>
