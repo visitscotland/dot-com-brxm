@@ -1,15 +1,13 @@
 package com.visitscotland.brxm.utils.pagebuilder;
 
-import com.visitscotland.brxm.hippobeans.MegalinkItem;
-import com.visitscotland.brxm.hippobeans.Megalinks;
-import com.visitscotland.brxm.hippobeans.PageLinksSectionCompound;
-import com.visitscotland.brxm.hippobeans.VideoLink;
+import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.CardGroupModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
 import com.visitscotland.brxm.services.LinkService;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
@@ -36,9 +34,6 @@ public class CategoryCardsMapper {
 
     /**
      * TODO HstRequest won't be necessary after version 3.0.0. Adapt solution to the new implementation
-     * @param request
-     * @param section
-     * @return
      */
     public LinksModule<EnhancedLink> getCategoryCards(HstRequest request, PageLinksSectionCompound section) {
         CardGroupModule module = new CardGroupModule();
@@ -75,8 +70,11 @@ public class CategoryCardsMapper {
 
         if (item instanceof Linkable) {
             link = linkService.createEnhancedLink((Linkable) item, module, locale, addCategory);
-        } else if (item instanceof VideoLink) {
-            link = linkService.createEnhancedLink(((VideoLink) item).getVideoLink(), module, locale, addCategory);
+            if (link.isPresent() && item instanceof Page) {
+                if (!Contract.isEmpty(((Page) item).getBreadcrumb())){
+                    link.get().setLabel(((Page) item).getBreadcrumb());
+                }
+            }
         } else {
             if (item != null) {
                 addError(module, "One of the links cannot be recognized and will not be included in the page.");
@@ -87,7 +85,7 @@ public class CategoryCardsMapper {
             return null;
         }
 
-        if (!link.isPresent()) {
+        if (link.isEmpty()) {
             contentLogger.warn("The module {} might be linking an unpublished document", item.getPath());
             return null;
         }
