@@ -490,12 +490,21 @@ pipeline {
                 script {
                     // Read the results
                     def r = readJSON file: 'artifacts/results.json'
-                    def recipients = r.email.recipients as List  // safe cast to Groovy List so that .join can be used
+
+                    // Force JSONArray → Groovy List conversion
+                    def recipients = []
+                    r.email.recipients.each { recipients << it.toString() }
+
+                    // If the JSON file is formatted as a string instead of an array ("a@x.com, b@y.com")
+                    // or a nested object ([{ "email": "a@x.com"}]), we’ll get invalid recipient addresses
+                    if (!(r.email.recipients instanceof List)) {
+                        error "Expected r.email.recipients to be a JSON array, got ${r.email.recipients.getClass()}"
+                    }
 
                     emailext(
                             subject: r.email.subject,
                             body: readFile(r.email.htmlFile),
-                            to: recipients.join(', '), // can be used because of Groovy List safe casting earlier
+                            to: recipients.join(', '), // can be used because of JSONArray → Groovy List conversion
                             mimeType: 'text/html'
                     )
                 }
