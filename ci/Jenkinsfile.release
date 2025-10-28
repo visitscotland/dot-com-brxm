@@ -465,93 +465,132 @@ pipeline {
             }
         }
 
-        stage('Release Package URL, MD5 (ext)') {
+        stage('Release & Email (single-call)') {
             steps {
-                sh '''
-                  # args: LOG_FILE (default: ${GIT_COMMIT}.log), OUT_PROPS
-                  ci/scripts/release_url_md5.sh "${GIT_COMMIT}.log" "ci/properties/release_env.properties"
-                '''
-
-                // Read outputs back in
-                script {
-                    def props = readProperties file: 'ci/properties/release_env.properties'
-                    VS_RELEASE_PACKAGE_NEXUS_URL        = props.VS_RELEASE_PACKAGE_NEXUS_URL ?: ''
-                    VS_RELEASE_PACKAGE_WORKSPACE_MD5    = props.VS_RELEASE_PACKAGE_WORKSPACE_MD5 ?: ''
-                    VS_RELEASE_CANDIDATE_NEXUS_FILENAME = props.VS_RELEASE_CANDIDATE_NEXUS_FILENAME ?: ''
-                    VS_PIPELINE_OUTCOME_EMAIL           = props.VS_PIPELINE_OUTCOME_EMAIL ?: ''
-
-                    echo "URL: ${VS_RELEASE_PACKAGE_NEXUS_URL}"
-                    echo "MD5: ${VS_RELEASE_PACKAGE_WORKSPACE_MD5}"
-                    echo "Filename: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
-                    echo "Outcome: ${VS_PIPELINE_OUTCOME_EMAIL}"
-                }
-            }
-            post {
-                success { echo 'Stage "Release Package URL, MD5 (ext)", successfully executed' }
-                failure { echo 'Stage "Release Package URL, MD5 (ext)", failed' }
-                always {
-                    archiveArtifacts artifacts: 'ci/properties/release_env.properties', onlyIfSuccessful: false
-                }
-            }
-        }
-
-        stage('Release Package Build-Number (ext)') {
-            steps {
-                sh '''
-                  # args: path to build-number txt, OUT_PROPS
-                  ci/scripts/release_build_number.sh "build-number.txt" "ci/properties/release_env.properties"
-                '''
-                script {
-                    def props = readProperties file: 'ci/properties/release_env.properties'
-                    VS_SITE_WAR_BUILD_NUMBER = props.VS_SITE_WAR_BUILD_NUMBER ?: ''
-                    echo "site .war Build-Number: ${VS_SITE_WAR_BUILD_NUMBER}"
-                }
-            }
-            post {
-                success { echo 'Stage "Release Package Build-Number (ext)", successfully executed' }
-                failure { echo 'Stage "Release Package Build-Number (ext)" failed' }
-                always {
-                    archiveArtifacts artifacts: 'ci/properties/release_env.properties', onlyIfSuccessful: false
-                }
-            }
-        }
-
-        stage('Compose Email (ext)') {
-            steps {
-                // call the external email composition script, but it needs to be aware of the groovy context for SSR
                 withEnv([
-                    "VS_SSR_ARCHIVED_PACKAGE_URL=${VS_SSR_ARCHIVED_PACKAGE_URL}",
-                    "VS_SSR_ARCHIVED_PACKAGE_MD5=${VS_SSR_ARCHIVED_PACKAGE_MD5}"
+                        // pass through the SSR + recipient context your old stage relied on
+                        "VS_SSR_ARCHIVED_PACKAGE_URL=${env.VS_SSR_ARCHIVED_PACKAGE_URL ?: ''}",
+                        "VS_SSR_ARCHIVED_PACKAGE_MD5=${env.VS_SSR_ARCHIVED_PACKAGE_MD5 ?: ''}",
+                        "VS_SSR_PACKAGE_NAME=${env.VS_SSR_PACKAGE_NAME ?: ''}",
+                        "MAIL_TO_NET=${env.MAIL_TO_NET ?: ''}",
+                        "VS_COMMIT_AUTHOR=${env.VS_COMMIT_AUTHOR ?: ''}",
+                        "CC_DEV_LIST=${env.CC_DEV_LIST ?: ''}"
                 ]) {
                     sh '''
-                      # pom.xml + PROPS path (props must already exist)
-                      bash ci/scripts/release_compose_email.sh "pom.xml" "ci/properties/release_env.properties"
-                    '''
+                        bash ci/scripts/release_combined_stages.sh \
+                          "pom.xml" \
+                          "build-number.txt" \
+                          "artifacts" \
+                          "${GIT_COMMIT}.log" \
+                          "ci/properties/release_env.properties"
+                      '''
                 }
-                script {
-                    def props = readProperties file: 'ci/properties/release_env.properties'
-                    VS_EMAIL_SUBJECT   = props.VS_EMAIL_SUBJECT ?: ''
-                    VS_EMAIL_HTML_FILE = props.VS_EMAIL_HTML_FILE ?: ''
 
-                    def body = readFile(VS_EMAIL_HTML_FILE)
+                // Read the results
+                def r = readJSON file: 'artifacts/results.json'
 
-                    // calling emailext() to send out the email
-                    emailext(
-                            subject: VS_EMAIL_SUBJECT,
-                            body: body,
-                            to: "${MAIL_TO_NET}, ${VS_COMMIT_AUTHOR}, ${CC_DEV_LIST}",
-                            mimeType: 'text/html'
-                    )
-                }
+                // Send the email
+                emailext(
+                        subject: r.email.subject,
+                        body: readFile(r.email.htmlFile),
+                        to: r.email.recipients.join(', '),
+                        mimeType: 'text/html'
+                )
             }
             post {
-                success { echo 'Stage "Compose Email (ext)", successfully executed' }
-                failure { echo 'Stage "Compose Email (ext)" failed' }
                 always {
-                    archiveArtifacts artifacts: 'ci/properties/release_env.properties, ci/properties/email.html', onlyIfSuccessful: false
+                    archiveArtifacts artifacts: 'artifacts/**, ci/properties/release_env.properties', onlyIfSuccessful: false
                 }
             }
         }
+
+//        stage('Release Package URL, MD5 (ext)') {
+//            steps {
+//                sh '''
+//                  # args: LOG_FILE (default: ${GIT_COMMIT}.log), OUT_PROPS
+//                  ci/scripts/release_url_md5.sh "${GIT_COMMIT}.log" "ci/properties/release_env.properties"
+//                '''
+//
+//                // Read outputs back in
+//                script {
+//                    def props = readProperties file: 'ci/properties/release_env.properties'
+//                    VS_RELEASE_PACKAGE_NEXUS_URL        = props.VS_RELEASE_PACKAGE_NEXUS_URL ?: ''
+//                    VS_RELEASE_PACKAGE_WORKSPACE_MD5    = props.VS_RELEASE_PACKAGE_WORKSPACE_MD5 ?: ''
+//                    VS_RELEASE_CANDIDATE_NEXUS_FILENAME = props.VS_RELEASE_CANDIDATE_NEXUS_FILENAME ?: ''
+//                    VS_PIPELINE_OUTCOME_EMAIL           = props.VS_PIPELINE_OUTCOME_EMAIL ?: ''
+//
+//                    echo "URL: ${VS_RELEASE_PACKAGE_NEXUS_URL}"
+//                    echo "MD5: ${VS_RELEASE_PACKAGE_WORKSPACE_MD5}"
+//                    echo "Filename: ${VS_RELEASE_CANDIDATE_NEXUS_FILENAME}"
+//                    echo "Outcome: ${VS_PIPELINE_OUTCOME_EMAIL}"
+//                }
+//            }
+//            post {
+//                success { echo 'Stage "Release Package URL, MD5 (ext)", successfully executed' }
+//                failure { echo 'Stage "Release Package URL, MD5 (ext)", failed' }
+//                always {
+//                    archiveArtifacts artifacts: 'ci/properties/release_env.properties', onlyIfSuccessful: false
+//                }
+//            }
+//        }
+//
+//        stage('Release Package Build-Number (ext)') {
+//            steps {
+//                sh '''
+//                  # args: path to build-number txt, OUT_PROPS
+//                  ci/scripts/release_build_number.sh "build-number.txt" "ci/properties/release_env.properties"
+//                '''
+//                script {
+//                    def props = readProperties file: 'ci/properties/release_env.properties'
+//                    VS_SITE_WAR_BUILD_NUMBER = props.VS_SITE_WAR_BUILD_NUMBER ?: ''
+//                    echo "site .war Build-Number: ${VS_SITE_WAR_BUILD_NUMBER}"
+//                }
+//            }
+//            post {
+//                success { echo 'Stage "Release Package Build-Number (ext)", successfully executed' }
+//                failure { echo 'Stage "Release Package Build-Number (ext)" failed' }
+//                always {
+//                    archiveArtifacts artifacts: 'ci/properties/release_env.properties', onlyIfSuccessful: false
+//                }
+//            }
+//        }
+//
+//        stage('Compose Email (ext)') {
+//            steps {
+//                // call the external email composition script, but it needs to be aware of the groovy context for SSR
+//                withEnv([
+//                    "VS_SSR_ARCHIVED_PACKAGE_URL=${VS_SSR_ARCHIVED_PACKAGE_URL}",
+//                    "VS_SSR_ARCHIVED_PACKAGE_MD5=${VS_SSR_ARCHIVED_PACKAGE_MD5}"
+//                ]) {
+//                    sh '''
+//                      # pom.xml + PROPS path (props must already exist)
+//                      bash ci/scripts/release_compose_email.sh "pom.xml" "ci/properties/release_env.properties"
+//                    '''
+//                }
+//                script {
+//                    def props = readProperties file: 'ci/properties/release_env.properties'
+//                    VS_EMAIL_SUBJECT   = props.VS_EMAIL_SUBJECT ?: ''
+//                    VS_EMAIL_HTML_FILE = props.VS_EMAIL_HTML_FILE ?: ''
+//
+//                    def body = readFile(VS_EMAIL_HTML_FILE)
+//
+//                    // calling emailext() to send out the email
+//                    emailext(
+//                            subject: VS_EMAIL_SUBJECT,
+//                            body: body,
+//                            to: "${MAIL_TO_NET}, ${VS_COMMIT_AUTHOR}, ${CC_DEV_LIST}",
+//                            mimeType: 'text/html'
+//                    )
+//                }
+//            }
+//            post {
+//                success { echo 'Stage "Compose Email (ext)", successfully executed' }
+//                failure { echo 'Stage "Compose Email (ext)" failed' }
+//                always {
+//                    archiveArtifacts artifacts: 'ci/properties/release_env.properties, ci/properties/email.html', onlyIfSuccessful: false
+//                }
+//            }
+//        }
     }
 
     post{
