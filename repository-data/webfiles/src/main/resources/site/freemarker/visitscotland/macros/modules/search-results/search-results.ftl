@@ -1,20 +1,27 @@
 <#include "../../../../include/imports.ftl">
+<#include "../../macros/shared/module-builder.ftl">
 <#include "../../../../frontend/components/vs-container.ftl">
 <#include "../../../../frontend/components/vs-federated-search.ftl">
 
-<#macro searchResults>
+<#macro searchResults pageItems>
 
     <#assign searchEventFilters =  ResourceBundle.getAllLabels("search-events-filters", locale) />
+    <#assign searchCategories =  ResourceBundle.getAllLabels("search-categories", locale) />
 
     <vs-container>
         <vs-federated-search
             cludo-api-key="${label('default.site.config', 'cludo.api')}"
-            :cludo-customer-id="${label('default.site.config', 'cludo.customer-id')}"
-            :cludo-engine-id="${label('default.site.config', 'cludo.engine-id')}"
+            :cludo-customer-id="${cludoCustomerId}"
+            :cludo-engine-id="${cludoEngineId}"
             events-api="${label('default.site.config', 'events.endpoint')}"
             :sub-filters="[
                 <#list searchEventFilters?keys?sort as key>
                     { Key: '${key}', Label: '${escapeJSON(searchEventFilters[key], false)}'},
+                </#list>
+            ]"
+            :cludo-categories="[
+                <#list searchCategories?keys?sort as key>
+                    { Key: '${key}', Label: '${escapeJSON(searchCategories[key], false)}'},
                 </#list>
             ]"
             :pagination-labels="{
@@ -54,7 +61,13 @@
                 eventError: '${label('search', 'error.events')}',
             }"
             from-text="${label('search', 'price.from')}"
-        ></vs-federated-search>
+        >
+            <#list pageItems as module>
+                <template v-slot:federated-search__spotlight-${module.hippoBean.name}>
+                    <@moduleBuilder module=module />
+                </template>
+            </#list>
+        </vs-federated-search>
     </vs-container>
 
 </#macro>
