@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 0a8bb8f5-c92d-4c7e-a550-c3d5d04089cf
   hippo:name: Search content categories
-  hippo:versionHistory: 374bdde9-3b63-4305-a63f-324b16340a00
+  hippo:versionHistory: 5d9b5589-431e-4e69-8fbd-dea9e2f1ff2b
   /search-content-categories[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,17 +13,19 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-10-17T13:28:50.411+01:00
-    hippostdpubwf:lastModificationDate: 2025-10-17T13:28:50.412+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-28T13:16:01.906Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: content.categories
-    resourcebundle:keys: [article, destination, itinerary, event, tours, support]
-    resourcebundle:messages: [Article, Destination, Itinerary, Events, Tour, Support]
-    resourcebundle:messages_de: ['', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '']
+    resourcebundle:keys: [article, destination, itinerary, event, tours, support,
+      accommodation, travel, about]
+    resourcebundle:messages: [Article, Destination, Itinerary, Events, Tour, Support,
+      Accommodation, Travel, About us]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
   /search-content-categories[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -33,17 +35,19 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-10-17T13:28:50.411+01:00
-    hippostdpubwf:lastModificationDate: 2025-10-17T13:31:28.467+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-28T13:16:41.752Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: content.categories
-    resourcebundle:keys: [article, destination, itinerary, event, tours, support]
-    resourcebundle:messages: [Article, Destination, Itinerary, Events, Tour, Support]
-    resourcebundle:messages_de: ['', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '']
+    resourcebundle:keys: [article, destination, itinerary, event, tours, support,
+      accommodation, travel, about]
+    resourcebundle:messages: [Article, Destination, Itinerary, Events, Tour, Support,
+      Accommodation, Travel, About us]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
   /search-content-categories[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -53,15 +57,17 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-10-17T13:28:50.411+01:00
-    hippostdpubwf:lastModificationDate: 2025-10-17T13:31:28.467+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-28T13:16:41.752Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-10-17T13:31:31.613+01:00
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2025-10-28T13:16:44.032Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: content.categories
-    resourcebundle:keys: [article, destination, itinerary, event, tours, support]
-    resourcebundle:messages: [Article, Destination, Itinerary, Events, Tour, Support]
-    resourcebundle:messages_de: ['', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '']
+    resourcebundle:keys: [article, destination, itinerary, event, tours, support,
+      accommodation, travel, about]
+    resourcebundle:messages: [Article, Destination, Itinerary, Events, Tour, Support,
+      Accommodation, Travel, About us]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
