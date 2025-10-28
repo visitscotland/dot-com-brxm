@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c0032512-8ae5-4275-8209-75df1555cbc9
+          jcr:uuid: e79bb133-32d8-44bd-bca8-7025c61d0a15
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -41,6 +41,7 @@ definitions:
             hipposysedit:path: visitscotland:categoryLinks
             hipposysedit:primary: false
             hipposysedit:type: visitscotland:PageLinksSectionCompound
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -58,7 +59,7 @@ definitions:
           visitscotland:title: ''
           visitscotland:seoTitle: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 68f2a8dc-f66c-4199-aea6-d91d92fa3cda
+          jcr:uuid: da144661-9fcd-44a9-85a1-be9ed5f2bdfb
           hippostdpubwf:lastModificationDate: 2020-09-25T13:13:22.744+01:00
           hippostdpubwf:creationDate: 2020-09-25T13:13:22.744+01:00
           visitscotland:theme: Standard
@@ -74,12 +75,6 @@ definitions:
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-          /visitscotland:categoryLinks:
-            jcr:primaryType: visitscotland:PageLinksSectionCompound
-            visitscotland:title: ''
-            /visitscotland:copy:
-              jcr:primaryType: hippostd:html
-              hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -211,6 +206,7 @@ definitions:
             field: categoryLinks
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /newsletter:
