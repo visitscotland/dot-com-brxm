@@ -10,10 +10,10 @@
 
     <vs-container>
         <vs-federated-search
-            cludo-api-key="${label('default.site.config', 'cludo.api')}"
+            cludo-api-key="${cludoAPI}"
             :cludo-customer-id="${cludoCustomerId}"
             :cludo-engine-id="${cludoEngineId}"
-            events-api="${label('default.site.config', 'events.endpoint')}"
+            events-api="${eventsAPI}"
             :sub-filters="[
                 <#list searchEventFilters?keys?sort as key>
                     { Key: '${key}', Label: '${escapeJSON(searchEventFilters[key], false)}'},
