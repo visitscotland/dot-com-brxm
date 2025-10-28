@@ -754,7 +754,7 @@ pipeline {
             steps {
                 sh '''
                   # args: path to build-number txt, OUT_PROPS
-                  ci/scripts/release_build_number.sh ".build-meta/build-number.txt" "ci/properties/release_env.properties"
+                  ci/scripts/release_build_number.sh "build-number.txt" "ci/properties/release_env.properties"
                 '''
                 script {
                     def props = readProperties file: 'ci/properties/release_env.properties'
