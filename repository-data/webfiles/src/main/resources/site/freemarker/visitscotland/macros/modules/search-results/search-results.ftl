@@ -11,8 +11,8 @@
     <vs-container>
         <vs-federated-search
             cludo-api-key="${label('default.site.config', 'cludo.api')}"
-            :cludo-customer-id="${label('default.site.config', 'cludo.customer-id')}"
-            :cludo-engine-id="${label('default.site.config', 'cludo.engine-id')}"
+            :cludo-customer-id="${cludoCustomerId}"
+            :cludo-engine-id="${cludoEngineId}"
             events-api="${label('default.site.config', 'events.endpoint')}"
             :sub-filters="[
                 <#list searchEventFilters?keys?sort as key>
