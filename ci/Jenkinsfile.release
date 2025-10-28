@@ -490,12 +490,12 @@ pipeline {
                 script {
                     // Read the results
                     def r = readJSON file: 'artifacts/results.json'
+                    def recipients = r.email.recipients as List  // safe cast to Groovy List so that .join can be used
 
-                    // Send the email
                     emailext(
                             subject: r.email.subject,
                             body: readFile(r.email.htmlFile),
-                            to: r.email.recipients.join(', '),
+                            to: recipients.join(', '), // can be used because of Groovy List safe casting earlier
                             mimeType: 'text/html'
                     )
                 }
