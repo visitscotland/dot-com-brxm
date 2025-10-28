@@ -6,7 +6,7 @@
 set -Eeuo pipefail
 
 # Inputs
-BUILD_NUMBER_FILE="${1:-.build-meta/build-number.txt}"
+BUILD_NUMBER_FILE="${1:-.build-number.txt}"
 OUT_PROPS="${2:-ci/properties/release_env.properties}"
 
 # validate env properties file presence
