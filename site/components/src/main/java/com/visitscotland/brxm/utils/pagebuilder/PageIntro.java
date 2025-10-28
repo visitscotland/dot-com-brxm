@@ -2,25 +2,17 @@ package com.visitscotland.brxm.utils.pagebuilder;
 
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
 
-public class PageIntro {
+public class PageIntro extends Module<Page> {
 
-    Page page;
     LinksModule<EnhancedLink> categoryCards;
 
     public PageIntro(General page, LinksModule<EnhancedLink> categoryCards) {
-        this.page = page;
+        setHippoBean(page);
         this.categoryCards = categoryCards;
-    }
-
-    public Page getPage() {
-        return page;
-    }
-
-    public void setPage(Page page) {
-        this.page = page;
     }
 
     public LinksModule<EnhancedLink> getCategoryCards() {
