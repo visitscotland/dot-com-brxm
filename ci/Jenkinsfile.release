@@ -486,16 +486,19 @@ pipeline {
                       '''
                 }
 
-                // Read the results
-                def r = readJSON file: 'artifacts/results.json'
+                // Wrap all Groovy logic in a script block
+                script {
+                    // Read the results
+                    def r = readJSON file: 'artifacts/results.json'
 
-                // Send the email
-                emailext(
-                        subject: r.email.subject,
-                        body: readFile(r.email.htmlFile),
-                        to: r.email.recipients.join(', '),
-                        mimeType: 'text/html'
-                )
+                    // Send the email
+                    emailext(
+                            subject: r.email.subject,
+                            body: readFile(r.email.htmlFile),
+                            to: r.email.recipients.join(', '),
+                            mimeType: 'text/html'
+                    )
+                }
             }
             post {
                 always {
