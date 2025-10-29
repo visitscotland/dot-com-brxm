@@ -10,7 +10,7 @@ public class PageIntro extends Module<Page> {
 
     LinksModule<EnhancedLink> categoryCards;
 
-    public PageIntro(General page, LinksModule<EnhancedLink> categoryCards) {
+    public PageIntro(Page page, LinksModule<EnhancedLink> categoryCards) {
         setHippoBean(page);
         this.categoryCards = categoryCards;
     }
