@@ -98,20 +98,4 @@
             <meta name="search:contentType" content="${searchContentType}"  />
         </@hst.headContribution>
     </#if>
-
-  <#--
-    <#if document.location??>
-
-        <@hst.headContribution category="opengraph">
-            <meta name="search:contentType" content="destination" />
-        </@hst.headContribution>
-    <#elseif document.distance??>
-        <@hst.headContribution category="opengraph">
-            <meta name="search:contentType" content="itinerary" />
-        </@hst.headContribution>
-    <#else>
-        <@hst.headContribution category="opengraph">
-            <meta name="search:contentType" content="article" />
-        </@hst.headContribution>
-    </#if>-->
 </#if>
