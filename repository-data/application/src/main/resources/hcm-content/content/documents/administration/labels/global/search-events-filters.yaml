@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 03839326-82c1-46df-832c-a6867a2af15f
   hippo:name: Search Events filters
-  hippo:versionHistory: 52090f97-8d4e-4a09-8fdf-878b7df49c47
+  hippo:versionHistory: ab43b464-e6d6-404c-a86b-15f859b950fe
   /search-events-filters[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,20 +13,27 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-09-26T11:00:11.330+01:00
-    hippostdpubwf:lastModificationDate: 2025-09-26T13:15:27.035+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-29T12:57:11.567Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: search-events-filters
     resourcebundle:keys: [books, clubs, comedy, dance, days out, festival, film, lgbt,
-      music, sport, theatre, kids, visual art]
+      music, sport, theatre, kids, visual art, others]
     resourcebundle:messages: [Books, Clubs, Comedy, Dance, Days Out, Festivals, Film,
-      LGBTQIA+, Music, Sport, Theatre, Family, Visual arts]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '']
+      LGBTQIA+, Music, Sport, Theatre, Family, Visual arts, JUan luis test]
+    resourcebundle:messages_de: [Bücher, Clubs, Comedy, Tanz, Tagesausflüge, Festivals,
+      Film, LGBT, Musik, Sport, Theater, Familie, Bildende Kunst, Johannes Ludwig
+        Test]
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:messages_fr: [Livres, Clubs, Comédie, Danse, Sorties, Festivals,
+      Cinéma, LGBT+, Musique, Sport, Théâtre, Famille, Arts visuels, Jean-Louis Test]
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:messages_nl: [Boeken, Clubs, Comedy, Dans, Dagjes uit, Festivals,
+      Film, LHBTI+, Muziek, Sport, Theater, Familie, Beeldende kunst, Johannes-Lodewijk
+        Test]
   /search-events-filters[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -36,20 +43,27 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-09-26T11:00:11.330+01:00
-    hippostdpubwf:lastModificationDate: 2025-09-26T13:16:08.351+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-29T12:56:39.187Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: search-events-filters
     resourcebundle:keys: [books, clubs, comedy, dance, days out, festival, film, lgbt,
-      music, sport, theatre, kids, visual art]
+      music, sport, theatre, kids, visual art, others]
     resourcebundle:messages: [Books, Clubs, Comedy, Dance, Days Out, Festivals, Film,
-      LGBTQIA+, Music, Sport, Theatre, Family, Visual arts]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '']
+      LGBTQIA+, Music, Sport, Theatre, Family, Visual arts, JUan luis test]
+    resourcebundle:messages_de: [Bücher, Clubs, Comedy, Tanz, Tagesausflüge, Festivals,
+      Film, LGBT, Musik, Sport, Theater, Familie, Bildende Kunst, Johannes Ludwig
+        Test]
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:messages_fr: [Livres, Clubs, Comédie, Danse, Sorties, Festivals,
+      Cinéma, LGBT+, Musique, Sport, Théâtre, Famille, Arts visuels, Jean-Louis Test]
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:messages_nl: [Boeken, Clubs, Comedy, Dans, Dagjes uit, Festivals,
+      Film, LHBTI+, Muziek, Sport, Theater, Familie, Beeldende kunst, Johannes-Lodewijk
+        Test]
   /search-events-filters[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -59,18 +73,25 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-09-26T11:00:11.330+01:00
-    hippostdpubwf:lastModificationDate: 2025-09-26T13:16:08.351+01:00
+    hippostdpubwf:lastModificationDate: 2025-10-29T12:56:39.187Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-09-26T13:16:10.841+01:00
+    hippostdpubwf:publicationDate: 2025-10-29T12:56:40.396Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+      '', '']
     resourcebundle:id: search-events-filters
     resourcebundle:keys: [books, clubs, comedy, dance, days out, festival, film, lgbt,
-      music, sport, theatre, kids, visual art]
+      music, sport, theatre, kids, visual art, others]
     resourcebundle:messages: [Books, Clubs, Comedy, Dance, Days Out, Festivals, Film,
-      LGBTQIA+, Music, Sport, Theatre, Family, Visual arts]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '']
+      LGBTQIA+, Music, Sport, Theatre, Family, Visual arts, JUan luis test]
+    resourcebundle:messages_de: [Bücher, Clubs, Comedy, Tanz, Tagesausflüge, Festivals,
+      Film, LGBT, Musik, Sport, Theater, Familie, Bildende Kunst, Johannes Ludwig
+        Test]
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:messages_fr: [Livres, Clubs, Comédie, Danse, Sorties, Festivals,
+      Cinéma, LGBT+, Musique, Sport, Théâtre, Famille, Arts visuels, Jean-Louis Test]
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:messages_nl: [Boeken, Clubs, Comedy, Dans, Dagjes uit, Festivals,
+      Film, LHBTI+, Muziek, Sport, Theater, Familie, Beeldende kunst, Johannes-Lodewijk
+        Test]
