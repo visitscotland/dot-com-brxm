@@ -55,7 +55,7 @@
                 ]
             }"
             :error-messages="{
-                noResults: 'no-results',
+                noResults: '${label('search', 'no-results')}',
                 incorrectDateOrder: '${label('search', 'error.date')}',
                 cludoError: '${label('search', 'error.cludo')}',
                 eventError: '${label('search', 'error.events')}',
