@@ -98,4 +98,5 @@
             <meta name="search:contentType" content="${searchContentType}"  />
         </@hst.headContribution>
     </#if>
+
 </#if>
