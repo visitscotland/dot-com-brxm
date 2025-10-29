@@ -39,7 +39,14 @@ public class CategoryCardsMapper {
         CardGroupModule module = new CardGroupModule();
         module.setTitle(section.getTitle());
         module.setIntroduction(section.getCopy());
-        convertToEnhancedLinks(module, section.getLinks(), request.getLocale(), false);
+        module.setLinks(convertToEnhancedLinks(module, section.getLinks(), request.getLocale(), false));
+
+        if (module.getLinks().isEmpty()) {
+            contentLogger.warn(
+                    "The category Cards Section has been hidden because there were not available links. Path = {}",
+                    section.getPath());
+            return null;
+        }
 
         return module;
     }
@@ -80,7 +87,7 @@ public class CategoryCardsMapper {
                 addError(module, "One of the links cannot be recognized and will not be included in the page.");
                 contentLogger.warn("The module {} is pointing to a module of type {} which cannot be rendered as a page", item.getPath(), item.getClass().getSimpleName());
             } else {
-                contentLogger.warn("One of the links seems contain no link");
+                contentLogger.warn("One of the links seems to contain no link");
             }
             return null;
         }
