@@ -5,6 +5,8 @@
     <#include "../macros/modules/page-intro/intro-image.ftl">
     <#include "../macros/modules/product-search/psr-module.ftl">
     <#include "../macros/modules/signpost/signpost.ftl">
+	<#include "../macros/modules/section-header/section-header.ftl">
+	<#include "../macros/modules/category-grid/category-grid.ftl">
     <#include "../macros/shared/module-builder.ftl">
     <#include "../macros/modules/search-results/search-results.ftl">
     <#include "../../frontend/components/vs-container.ftl">
@@ -25,7 +27,33 @@
     <#assign standardTemplate = (document.theme == "Standard") />
     <#assign simpleTemplate = (document.theme == "Simple") />
 	<#assign inspirationTemplate = (document.theme == "Inspiration") />
-
+	<#assign cardList=[
+        {
+            "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/11/30/family-outside-the-va-dundee?size=lg",
+            "title": "Attractions",
+            "link": "#"
+        },
+        {
+            "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/11/05/creel-seafood?size=md",
+            "title": "Food & drink",
+            "link": "#"
+        },
+        {
+            "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/05/02/ballastbank-troon-header.jpg?size=md",
+            "title": "Landscapes & nature",
+            "link": "#"
+        },
+        {
+            "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/09/06/the-royal-edinburgh-military-tattoo?size=md",
+            "title": "Events",
+            "link": "#"
+        }
+    ]>
+    <#assign sectionHeaderData = {
+        "heading": "Explore the lochs and mountains of Scotland",
+        "lede": "<p>Northwest Sutherland is a stunning landscape of perfect sandy beaches and sweeping moorland studded with glittering lochans, overlooked by some of Scotland's most remarkable mountains, individual peaks each with great character.</p>",
+        "anchorId": "anchor-id"
+    }>
 </#compress>
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
@@ -47,7 +75,10 @@
 	<#else>
         <@pageIntro content=document lightBackground=true />
     </#if>
-
+	<#if pageIntroData?? && pageIntroData.categoryCards?? >
+		<@sectionHeader sectionHeaderData />
+		<@categoryGrid cardListOverlay=cardList />
+	</#if>
 	<#if psrWidget?? && psrWidget.position = "Top">
 		<@productSearchWidget psrWidget/>
 	</#if>
