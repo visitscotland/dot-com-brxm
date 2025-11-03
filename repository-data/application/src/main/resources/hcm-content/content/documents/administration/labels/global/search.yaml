@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 767ac847-a632-4058-80eb-226bc9ed0f2f
   hippo:name: Search
-  hippo:versionHistory: c175bd96-a34e-473f-ae0a-2febbff90573
+  hippo:versionHistory: 84c549bb-3756-498b-8974-1ea02675b8da
   /search[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,7 +13,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2025-10-30T14:45:32.709Z
+    hippostdpubwf:lastModificationDate: 2025-11-03T10:54:26.408Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '']
@@ -79,13 +79,13 @@
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
       Ordina per, Affina la tua ricerca, Da, A, Data, Prezzo, Risultati della ricerca,
       Da, Non ci sono risultati. Prova di nuovo., La data di inizio è dopo la data
-        di fine. Modificala e riprova., C'è stato un problema durante il recupero
-        dei risultati della ricerca. Prova più tardi., C'è stato un problema mentre
-        cercavamo gli eventi. Prova più tardi., Inserisci una parola chiave o scegli
-        un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche in Scozia,
-      'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova esattamente
-        quello che cerchi: dalle escursioni panoramiche e le accoglienti case vacanza
-        agli eventi e alle esperienze culturali.']
+        di fine. Modificala e riprova., Si è verificato un problema nel recupero dei
+        risultati della ricerca. Riprova più tardi., Si è verificato un problema durante
+        la ricerca degli eventi. Riprova più tardi., Inserisci una parola chiave o
+        scegli un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche
+        in Scozia, 'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova
+        esattamente quello che cerchi: dalle escursioni panoramiche e le accoglienti
+        case vacanza agli eventi e alle esperienze culturali.']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., Sorteren op,
@@ -107,7 +107,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2025-10-30T15:00:40.239Z
+    hippostdpubwf:lastModificationDate: 2025-11-03T10:54:59.881Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '']
@@ -173,13 +173,13 @@
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
       Ordina per, Affina la tua ricerca, Da, A, Data, Prezzo, Risultati della ricerca,
       Da, Non ci sono risultati. Prova di nuovo., La data di inizio è dopo la data
-        di fine. Modificala e riprova., C'è stato un problema durante il recupero
-        dei risultati della ricerca. Prova più tardi., C'è stato un problema mentre
-        cercavamo gli eventi. Prova più tardi., Inserisci una parola chiave o scegli
-        un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche in Scozia,
-      'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova esattamente
-        quello che cerchi: dalle escursioni panoramiche e le accoglienti case vacanza
-        agli eventi e alle esperienze culturali.']
+        di fine. Modificala e riprova., Si è verificato un problema nel recupero dei
+        risultati della ricerca. Riprova più tardi., Si è verificato un problema durante
+        la ricerca degli eventi. Riprova più tardi., Inserisci una parola chiave o
+        scegli un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche
+        in Scozia, 'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova
+        esattamente quello che cerchi: dalle escursioni panoramiche e le accoglienti
+        case vacanza agli eventi e alle esperienze culturali.']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., Sorteren op,
@@ -201,9 +201,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2025-10-30T15:00:40.239Z
+    hippostdpubwf:lastModificationDate: 2025-11-03T10:54:59.881Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-10-30T15:19:09.188Z
+    hippostdpubwf:publicationDate: 2025-11-03T10:55:03.670Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: search
@@ -268,13 +268,13 @@
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
       Ordina per, Affina la tua ricerca, Da, A, Data, Prezzo, Risultati della ricerca,
       Da, Non ci sono risultati. Prova di nuovo., La data di inizio è dopo la data
-        di fine. Modificala e riprova., C'è stato un problema durante il recupero
-        dei risultati della ricerca. Prova più tardi., C'è stato un problema mentre
-        cercavamo gli eventi. Prova più tardi., Inserisci una parola chiave o scegli
-        un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche in Scozia,
-      'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova esattamente
-        quello che cerchi: dalle escursioni panoramiche e le accoglienti case vacanza
-        agli eventi e alle esperienze culturali.']
+        di fine. Modificala e riprova., Si è verificato un problema nel recupero dei
+        risultati della ricerca. Riprova più tardi., Si è verificato un problema durante
+        la ricerca degli eventi. Riprova più tardi., Inserisci una parola chiave o
+        scegli un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche
+        in Scozia, 'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova
+        esattamente quello che cerchi: dalle escursioni panoramiche e le accoglienti
+        case vacanza agli eventi e alle esperienze culturali.']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., Sorteren op,
