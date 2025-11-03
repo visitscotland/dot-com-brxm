@@ -7,6 +7,7 @@
 
     <#assign searchEventFilters =  ResourceBundle.getAllLabels("search-events-filters", locale) />
     <#assign searchCategories =  ResourceBundle.getAllLabels("search-categories", locale) />
+    <#assign searchContentCategories =  ResourceBundle.getAllLabels("content.categories", locale) />
 
     <vs-container>
         <vs-federated-search
@@ -24,6 +25,11 @@
                     { Key: '${key}', Label: '${escapeJSON(searchCategories[key], false)}'},
                 </#list>
             ]"
+            :card-category-labels="{
+                <#list searchContentCategories?keys?sort as key>
+                    ${key}: '${escapeJSON(searchContentCategories[key], false)}',
+                </#list>
+            }"
             :pagination-labels="{
                 nextButtonLabel: '${label('essentials.pagination', 'page.next')}',
                 previousButtonLabel: '${label('essentials.pagination', 'page.previous')}',
@@ -55,7 +61,7 @@
                 ]
             }"
             :error-messages="{
-                noResults: 'no-results',
+                noResults: '${label('search', 'no-results')}',
                 incorrectDateOrder: '${label('search', 'error.date')}',
                 cludoError: '${label('search', 'error.cludo')}',
                 eventError: '${label('search', 'error.events')}',
