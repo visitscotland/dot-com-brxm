@@ -13,7 +13,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2025-10-29T12:52:22.033Z
+    hippostdpubwf:lastModificationDate: 2025-10-30T14:45:32.709Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '']
@@ -49,8 +49,17 @@
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
       Buscar, '¿Qué estás buscando?', JavaScript debe estar habilitado para mostrar
         los resultados de la búsqueda. Puedes activarlo en la configuración de tu
-        navegador., '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+        navegador., Ordenar por, Refina tu búsqueda, Desde, Hasta, Fecha, Precio,
+      Resultados de la búsqueda, Desde, 'No existen resultados. Por favor, inténtalo
+        de nuevo.', La fecha de inicio es posterior a la fecha de finalización. Modifica
+        las fechas e inténtalo de nuevo., Se ha producido un problema al recuperar
+        los resultados de la búsqueda. Inténtalo de nuevo más tarde., Se ha producido
+        un problema al recuperar los resultados del evento. Inténtalo de nuevo más
+        tarde., Introduce un término de búsqueda o selecciona un filtro, Mostrando,
+      resultados, Descubre experiencias únicas en Escocia, 'Descubre joyas ocultas,
+        planifica tu viaje perfecto o encuentra exactamente lo que necesitas: desde
+        pintorescas rutas de senderismo y acogedoras cabañas hasta eventos y experiencias
+        culturales.']
     resourcebundle:messages_fr: [Effacer la recherche, Fermer le formulaire de recherche,
       Rechercher, 'Que recherchez-vous ?', JavaScript doit être activé afin d’afficher
         les résultats de la recherche. Vous pouvez l’activer dans les paramètres de
@@ -68,20 +77,27 @@
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?', Per visualizzare i risultati della ricerca è necessario
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
-      '', '', '', '', '', '', Zoekresultaten, '', '', '', '', '', '', '', '', '',
-      '']
+      Ordina per, Affina la tua ricerca, Da, A, Data, Prezzo, Risultati della ricerca,
+      Da, Non ci sono risultati. Prova di nuovo., La data di inizio è dopo la data
+        di fine. Modificala e riprova., C'è stato un problema durante il recupero
+        dei risultati della ricerca. Prova più tardi., C'è stato un problema mentre
+        cercavamo gli eventi. Prova più tardi., Inserisci una parola chiave o scegli
+        un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche in Scozia,
+      'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova esattamente
+        quello che cerchi: dalle escursioni panoramiche e le accoglienti case vacanza
+        agli eventi e alle esperienze culturali.']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., Sorteren op,
-      Verfijn je zoekopdracht, Van, Tot, Datum, Prijs, '', Van, Er zijn geen zoekresultaten.
-        Probeer het nog eens., 'De begindatum is na de einddatum, pas dit aan en probeer
-        het nog eens.', Er is iets misgegaan bij het verzamelen van de zoekresultaten.
-        Probeer het later nog eens., Er is iets misgegaan bij het verzamelen van de
-        evenementresultaten. Probeer het later nog eens., Typ een zoekterm in of kies
-        een filter, Er worden, resultaten getoond, Ontdek unieke ervaringen in Schotland,
-      'Ontdek verborgen pareltjes, plan je perfecte reis of vind precies wat je zoekt
-        – van mooie wandelingen en gezellige huisjes tot evenementen en culturele
-        ervaringen.']
+      Verfijn je zoekopdracht, Van, Tot, Datum, Prijs, Zoekresultaten, Van, Er zijn
+        geen zoekresultaten. Probeer het nog eens., 'De begindatum is na de einddatum,
+        pas dit aan en probeer het nog eens.', Er is iets misgegaan bij het verzamelen
+        van de zoekresultaten. Probeer het later nog eens., Er is iets misgegaan bij
+        het verzamelen van de evenementresultaten. Probeer het later nog eens., Typ
+        een zoekterm in of kies een filter, Er worden, resultaten getoond, Ontdek
+        unieke ervaringen in Schotland, 'Ontdek verborgen pareltjes, plan je perfecte
+        reis of vind precies wat je zoekt – van mooie wandelingen en gezellige huisjes
+        tot evenementen en culturele ervaringen.']
   /search[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -91,7 +107,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2025-10-29T12:53:16.931Z
+    hippostdpubwf:lastModificationDate: 2025-10-30T15:00:40.239Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '']
@@ -127,8 +143,17 @@
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
       Buscar, '¿Qué estás buscando?', JavaScript debe estar habilitado para mostrar
         los resultados de la búsqueda. Puedes activarlo en la configuración de tu
-        navegador., '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+        navegador., Ordenar por, Refina tu búsqueda, Desde, Hasta, Fecha, Precio,
+      Resultados de la búsqueda, Desde, 'No existen resultados. Por favor, inténtalo
+        de nuevo.', La fecha de inicio es posterior a la fecha de finalización. Modifica
+        las fechas e inténtalo de nuevo., Se ha producido un problema al recuperar
+        los resultados de la búsqueda. Inténtalo de nuevo más tarde., Se ha producido
+        un problema al recuperar los resultados del evento. Inténtalo de nuevo más
+        tarde., Introduce un término de búsqueda o selecciona un filtro, Mostrando,
+      resultados, Descubre experiencias únicas en Escocia, 'Descubre joyas ocultas,
+        planifica tu viaje perfecto o encuentra exactamente lo que necesitas: desde
+        pintorescas rutas de senderismo y acogedoras cabañas hasta eventos y experiencias
+        culturales.']
     resourcebundle:messages_fr: [Effacer la recherche, Fermer le formulaire de recherche,
       Rechercher, 'Que recherchez-vous ?', JavaScript doit être activé afin d’afficher
         les résultats de la recherche. Vous pouvez l’activer dans les paramètres de
@@ -146,20 +171,27 @@
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?', Per visualizzare i risultati della ricerca è necessario
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
-      '', '', '', '', '', '', Zoekresultaten, '', '', '', '', '', '', '', '', '',
-      '']
+      Ordina per, Affina la tua ricerca, Da, A, Data, Prezzo, Risultati della ricerca,
+      Da, Non ci sono risultati. Prova di nuovo., La data di inizio è dopo la data
+        di fine. Modificala e riprova., C'è stato un problema durante il recupero
+        dei risultati della ricerca. Prova più tardi., C'è stato un problema mentre
+        cercavamo gli eventi. Prova più tardi., Inserisci una parola chiave o scegli
+        un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche in Scozia,
+      'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova esattamente
+        quello che cerchi: dalle escursioni panoramiche e le accoglienti case vacanza
+        agli eventi e alle esperienze culturali.']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., Sorteren op,
-      Verfijn je zoekopdracht, Van, Tot, Datum, Prijs, '', Van, Er zijn geen zoekresultaten.
-        Probeer het nog eens., 'De begindatum is na de einddatum, pas dit aan en probeer
-        het nog eens.', Er is iets misgegaan bij het verzamelen van de zoekresultaten.
-        Probeer het later nog eens., Er is iets misgegaan bij het verzamelen van de
-        evenementresultaten. Probeer het later nog eens., Typ een zoekterm in of kies
-        een filter, Er worden, resultaten getoond, Ontdek unieke ervaringen in Schotland,
-      'Ontdek verborgen pareltjes, plan je perfecte reis of vind precies wat je zoekt
-        – van mooie wandelingen en gezellige huisjes tot evenementen en culturele
-        ervaringen.']
+      Verfijn je zoekopdracht, Van, Tot, Datum, Prijs, Zoekresultaten, Van, Er zijn
+        geen zoekresultaten. Probeer het nog eens., 'De begindatum is na de einddatum,
+        pas dit aan en probeer het nog eens.', Er is iets misgegaan bij het verzamelen
+        van de zoekresultaten. Probeer het later nog eens., Er is iets misgegaan bij
+        het verzamelen van de evenementresultaten. Probeer het later nog eens., Typ
+        een zoekterm in of kies een filter, Er worden, resultaten getoond, Ontdek
+        unieke ervaringen in Schotland, 'Ontdek verborgen pareltjes, plan je perfecte
+        reis of vind precies wat je zoekt – van mooie wandelingen en gezellige huisjes
+        tot evenementen en culturele ervaringen.']
   /search[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -169,9 +201,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2025-10-29T12:53:16.931Z
+    hippostdpubwf:lastModificationDate: 2025-10-30T15:00:40.239Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-10-29T12:53:18.567Z
+    hippostdpubwf:publicationDate: 2025-10-30T15:19:09.188Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: search
@@ -206,8 +238,17 @@
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
       Buscar, '¿Qué estás buscando?', JavaScript debe estar habilitado para mostrar
         los resultados de la búsqueda. Puedes activarlo en la configuración de tu
-        navegador., '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+        navegador., Ordenar por, Refina tu búsqueda, Desde, Hasta, Fecha, Precio,
+      Resultados de la búsqueda, Desde, 'No existen resultados. Por favor, inténtalo
+        de nuevo.', La fecha de inicio es posterior a la fecha de finalización. Modifica
+        las fechas e inténtalo de nuevo., Se ha producido un problema al recuperar
+        los resultados de la búsqueda. Inténtalo de nuevo más tarde., Se ha producido
+        un problema al recuperar los resultados del evento. Inténtalo de nuevo más
+        tarde., Introduce un término de búsqueda o selecciona un filtro, Mostrando,
+      resultados, Descubre experiencias únicas en Escocia, 'Descubre joyas ocultas,
+        planifica tu viaje perfecto o encuentra exactamente lo que necesitas: desde
+        pintorescas rutas de senderismo y acogedoras cabañas hasta eventos y experiencias
+        culturales.']
     resourcebundle:messages_fr: [Effacer la recherche, Fermer le formulaire de recherche,
       Rechercher, 'Que recherchez-vous ?', JavaScript doit être activé afin d’afficher
         les résultats de la recherche. Vous pouvez l’activer dans les paramètres de
@@ -225,17 +266,24 @@
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?', Per visualizzare i risultati della ricerca è necessario
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
-      '', '', '', '', '', '', Zoekresultaten, '', '', '', '', '', '', '', '', '',
-      '']
+      Ordina per, Affina la tua ricerca, Da, A, Data, Prezzo, Risultati della ricerca,
+      Da, Non ci sono risultati. Prova di nuovo., La data di inizio è dopo la data
+        di fine. Modificala e riprova., C'è stato un problema durante il recupero
+        dei risultati della ricerca. Prova più tardi., C'è stato un problema mentre
+        cercavamo gli eventi. Prova più tardi., Inserisci una parola chiave o scegli
+        un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche in Scozia,
+      'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova esattamente
+        quello che cerchi: dalle escursioni panoramiche e le accoglienti case vacanza
+        agli eventi e alle esperienze culturali.']
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., Sorteren op,
-      Verfijn je zoekopdracht, Van, Tot, Datum, Prijs, '', Van, Er zijn geen zoekresultaten.
-        Probeer het nog eens., 'De begindatum is na de einddatum, pas dit aan en probeer
-        het nog eens.', Er is iets misgegaan bij het verzamelen van de zoekresultaten.
-        Probeer het later nog eens., Er is iets misgegaan bij het verzamelen van de
-        evenementresultaten. Probeer het later nog eens., Typ een zoekterm in of kies
-        een filter, Er worden, resultaten getoond, Ontdek unieke ervaringen in Schotland,
-      'Ontdek verborgen pareltjes, plan je perfecte reis of vind precies wat je zoekt
-        – van mooie wandelingen en gezellige huisjes tot evenementen en culturele
-        ervaringen.']
+      Verfijn je zoekopdracht, Van, Tot, Datum, Prijs, Zoekresultaten, Van, Er zijn
+        geen zoekresultaten. Probeer het nog eens., 'De begindatum is na de einddatum,
+        pas dit aan en probeer het nog eens.', Er is iets misgegaan bij het verzamelen
+        van de zoekresultaten. Probeer het later nog eens., Er is iets misgegaan bij
+        het verzamelen van de evenementresultaten. Probeer het later nog eens., Typ
+        een zoekterm in of kies een filter, Er worden, resultaten getoond, Ontdek
+        unieke ervaringen in Schotland, 'Ontdek verborgen pareltjes, plan je perfecte
+        reis of vind precies wat je zoekt – van mooie wandelingen en gezellige huisjes
+        tot evenementen en culturele ervaringen.']
