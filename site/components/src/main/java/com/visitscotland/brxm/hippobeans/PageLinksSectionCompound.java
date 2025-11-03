@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.hippobeans;
 
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
@@ -24,8 +25,7 @@ public class PageLinksSectionCompound extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:links", allowModifications = false)
-    public List<MegalinkItem> getLinks() {
-        return getChildBeansByName("visitscotland:links",
-                MegalinkItem.class);
+    public List<HippoBean> getLinks() {
+        return getLinkedBeans("visitscotland:links", HippoBean.class);
     }
 }

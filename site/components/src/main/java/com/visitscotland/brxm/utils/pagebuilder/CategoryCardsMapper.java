@@ -53,18 +53,17 @@ public class CategoryCardsMapper {
 
 
     /**
-     * This code has been duplicated from MegalinkFactory. It should be refactored to avoid duplication.
+     * This code has been copied from MegalinkFactory. It should be refactored to avoid duplication.
      * TODO: This issue should be fixed in version 3.0.0
      * @deprecated
      */
     @Deprecated(since = "3.0.0", forRemoval = true)
-    List<EnhancedLink> convertToEnhancedLinks(Module<Megalinks> module, List<MegalinkItem> items, Locale locale, boolean addCategory) {
+    List<EnhancedLink> convertToEnhancedLinks(Module<Megalinks> module, List<HippoBean> items, Locale locale, boolean addCategory) {
         List<EnhancedLink> links = new ArrayList<>();
-        for (MegalinkItem item : items) {
-            EnhancedLink link = convertToEnhancedLink(module, item.getLinkItem(), locale, addCategory);
+        for (HippoBean item : items) {
+            EnhancedLink link = convertToEnhancedLink(module, item, locale, addCategory);
 
             if (link != null) {
-                link.setFeatured(item.getFeature());
                 links.add(link);
             }
         }
