@@ -48,16 +48,16 @@
         <@pageIntro content=document lightBackground=true />
     </#if>
 
-	<#if pageIntroData?? && pageIntroData.categoryCards??>
+	<#if pageIntroData?? && pageIntroData.categorySection??>
 		<!-- TODO: Create a category cards FTL -->
 		<!-- NOTE: This must not be merged into develop -->
 		CATEGORY CARDS Module
 		<ul>
-			<li>links - ${pageIntroData.categoryCards.links?size}</li>
-			<li>title - ${pageIntroData.categoryCards.title}</li>
-			<li>copy -  <@hst.html hippohtml=pageIntroData.categoryCards.introduction/></li>
+			<li>links - ${pageIntroData.categorySection.links?size}</li>
+			<li>title - ${pageIntroData.categorySection.title}</li>
+			<li>copy -  <@hst.html hippohtml=pageIntroData.categorySection.introduction/></li>
 		</ul>
-		<#list pageIntroData.categoryCards.links as card>
+		<#list pageIntroData.categorySection.links as card>
 			<br> ${card.label} - ${card.image.cmsImage}
 		</#list>
 	</#if>

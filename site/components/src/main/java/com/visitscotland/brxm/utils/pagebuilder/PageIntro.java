@@ -8,18 +8,18 @@ import com.visitscotland.brxm.model.megalinks.LinksModule;
 
 public class PageIntro extends Module<Page> {
 
-    LinksModule<EnhancedLink> categoryCards;
+    LinksModule<EnhancedLink> categorySection;
 
-    public PageIntro(Page page, LinksModule<EnhancedLink> categoryCards) {
+    public PageIntro(Page page, LinksModule<EnhancedLink> categorySection) {
         setHippoBean(page);
-        this.categoryCards = categoryCards;
+        this.categorySection = categorySection;
     }
 
-    public LinksModule<EnhancedLink> getCategoryCards() {
-        return categoryCards;
+    public LinksModule<EnhancedLink> getCategorySection() {
+        return categorySection;
     }
 
-    public void setCategoryCards(LinksModule<EnhancedLink> categoryCards) {
-        this.categoryCards = categoryCards;
+    public void setCategorySection(LinksModule<EnhancedLink> categorySection) {
+        this.categorySection = categorySection;
     }
 }
