@@ -5,8 +5,7 @@
     <#include "../macros/modules/page-intro/intro-image.ftl">
     <#include "../macros/modules/product-search/psr-module.ftl">
     <#include "../macros/modules/signpost/signpost.ftl">
-	<#include "../macros/modules/section-header/section-header.ftl">
-	<#include "../macros/modules/category-grid/category-grid.ftl">
+	<#include "../macros/modules/category-section/category-section.ftl">
     <#include "../macros/shared/module-builder.ftl">
     <#include "../macros/modules/search-results/search-results.ftl">
     <#include "../../frontend/components/vs-container.ftl">
@@ -75,10 +74,28 @@
 	<#else>
         <@pageIntro content=document lightBackground=true />
     </#if>
-	<#if pageIntroData?? && pageIntroData.categoryCards?? >
+
+	<#--  <#if pageIntroData?? && pageIntroData.categoryCards?? >
 		<@sectionHeader sectionHeaderData />
 		<@categoryGrid cardListOverlay=cardList />
+	</#if>  -->
+
+
+	<#if pageIntroData?? && pageIntroData.categorySection??>
+		<@categorySection data=pageIntroData.categorySection />
+		<!-- TODO: Create a category cards FTL -->
+		<!-- NOTE: This must not be merged into develop -->
+		CATEGORY CARDS Module
+		<ul>
+			<li>links - ${pageIntroData.categorySection.links?size}</li>
+			<li>title - ${pageIntroData.categorySection.title}</li>
+			<li>copy -  <@hst.html hippohtml=pageIntroData.categorySection.introduction/></li>
+		</ul>
+		<#list pageIntroData.categorySection.links as card>
+			<br> ${card.label} - ${card.image.cmsImage}
+		</#list>
 	</#if>
+
 	<#if psrWidget?? && psrWidget.position = "Top">
 		<@productSearchWidget psrWidget/>
 	</#if>

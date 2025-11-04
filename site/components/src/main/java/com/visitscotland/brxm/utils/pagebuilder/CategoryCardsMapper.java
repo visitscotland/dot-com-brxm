@@ -39,25 +39,31 @@ public class CategoryCardsMapper {
         CardGroupModule module = new CardGroupModule();
         module.setTitle(section.getTitle());
         module.setIntroduction(section.getCopy());
-        convertToEnhancedLinks(module, section.getLinks(), request.getLocale(), false);
+        module.setLinks(convertToEnhancedLinks(module, section.getLinks(), request.getLocale(), false));
+
+        if (module.getLinks().isEmpty()) {
+            contentLogger.warn(
+                    "The category Cards Section has been hidden because there were not available links. Path = {}",
+                    section.getPath());
+            return null;
+        }
 
         return module;
     }
 
 
     /**
-     * This code has been duplicated from MegalinkFactory. It should be refactored to avoid duplication.
+     * This code has been copied from MegalinkFactory. It should be refactored to avoid duplication.
      * TODO: This issue should be fixed in version 3.0.0
      * @deprecated
      */
     @Deprecated(since = "3.0.0", forRemoval = true)
-    List<EnhancedLink> convertToEnhancedLinks(Module<Megalinks> module, List<MegalinkItem> items, Locale locale, boolean addCategory) {
+    List<EnhancedLink> convertToEnhancedLinks(Module<Megalinks> module, List<HippoBean> items, Locale locale, boolean addCategory) {
         List<EnhancedLink> links = new ArrayList<>();
-        for (MegalinkItem item : items) {
-            EnhancedLink link = convertToEnhancedLink(module, item.getLinkItem(), locale, addCategory);
+        for (HippoBean item : items) {
+            EnhancedLink link = convertToEnhancedLink(module, item, locale, addCategory);
 
             if (link != null) {
-                link.setFeatured(item.getFeature());
                 links.add(link);
             }
         }
@@ -80,7 +86,7 @@ public class CategoryCardsMapper {
                 addError(module, "One of the links cannot be recognized and will not be included in the page.");
                 contentLogger.warn("The module {} is pointing to a module of type {} which cannot be rendered as a page", item.getPath(), item.getClass().getSimpleName());
             } else {
-                contentLogger.warn("One of the links seems contain no link");
+                contentLogger.warn("One of the links seems to contain no link");
             }
             return null;
         }
