@@ -11,9 +11,10 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-10-23T15:39:04.905+01:00
-    hippostdpubwf:lastModificationDate: 2025-10-29T12:54:19.057Z
+    hippostdpubwf:lastModificationDate: 2025-10-31T12:36:00.573Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: search-categories
@@ -26,11 +27,15 @@
     resourcebundle:messages_de: [Unterkünfte, Veranstaltungen & Festivals, Touren,
       Kultur & Geschichte, Familie, Essen & Trinken, Abenteuer, Städtetrip, Reiseinformationen,
       Natur & Outdoor, Wellness, Weitere]
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: [Alojamiento, Eventos y festivales, Excursiones, Cultura
+        e historia, Familia, Gastronomía, Aventura, Escapada urbana, Información de
+        viaje, Naturaleza y actividades al aire libre, Bienestar, Otros]
     resourcebundle:messages_fr: [Hébergements, Événements & Festivals, Excursions,
       Culture & Histoire, Famille, Gastronomie, Aventure, City trip, Infos de voyage,
       Nature & Activités en extérieur, Bien-être, Autre]
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: [Alloggi, Eventi e festival, Tour, Cultura e storia,
+      Famiglia, Cibo e bevande, Avventura, Vacanza in città, Informazioni di viaggio,
+      Natura e attività all'aperto, Benessere, Altro]
     resourcebundle:messages_nl: [Accommodatie, Evenementen & Festivals, Tours, Cultuur
         & Geschiedenis, Familie, Eten & Drinken, Avontuur, Stedentrip, Reisinformatie,
       Natuur & Outdoor, Wellness, Andere]
@@ -43,7 +48,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-10-23T15:39:04.905+01:00
-    hippostdpubwf:lastModificationDate: 2025-10-29T10:59:02.067Z
+    hippostdpubwf:lastModificationDate: 2025-10-30T15:18:21.874Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: search-categories
@@ -56,11 +61,15 @@
     resourcebundle:messages_de: [Unterkünfte, Veranstaltungen & Festivals, Touren,
       Kultur & Geschichte, Familie, Essen & Trinken, Abenteuer, Städtetrip, Reiseinformationen,
       Natur & Outdoor, Wellness, Weitere]
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: [Alojamiento, Eventos y festivales, Excursiones, Cultura
+        e historia, Familia, Gastronomía, Aventura, Escapada urbana, Información de
+        viaje, Naturaleza y actividades al aire libre, Bienestar, Otros]
     resourcebundle:messages_fr: [Hébergements, Événements & Festivals, Excursions,
       Culture & Histoire, Famille, Gastronomie, Aventure, City trip, Infos de voyage,
       Nature & Activités en extérieur, Bien-être, Autre]
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: [Alloggi, Eventi e festival, Tour, Cultura e storia,
+      Famiglia, Cibo e bevande, Avventura, Vacanza in città, Informazioni di viaggio,
+      Natura e attività all'aperto, Benessere, Altro]
     resourcebundle:messages_nl: [Accommodatie, Evenementen & Festivals, Tours, Cultuur
         & Geschiedenis, Familie, Eten & Drinken, Avontuur, Stedentrip, Reisinformatie,
       Natuur & Outdoor, Wellness, Andere]
@@ -73,9 +82,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-10-23T15:39:04.905+01:00
-    hippostdpubwf:lastModificationDate: 2025-10-29T10:59:02.067Z
+    hippostdpubwf:lastModificationDate: 2025-10-30T15:18:21.874Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-10-29T10:59:08.350Z
+    hippostdpubwf:publicationDate: 2025-10-30T15:18:25.713Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: search-categories
     resourcebundle:keys: [accommodation, events, tours, culture-history, family-friendly,
@@ -87,11 +96,15 @@
     resourcebundle:messages_de: [Unterkünfte, Veranstaltungen & Festivals, Touren,
       Kultur & Geschichte, Familie, Essen & Trinken, Abenteuer, Städtetrip, Reiseinformationen,
       Natur & Outdoor, Wellness, Weitere]
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_es: [Alojamiento, Eventos y festivales, Excursiones, Cultura
+        e historia, Familia, Gastronomía, Aventura, Escapada urbana, Información de
+        viaje, Naturaleza y actividades al aire libre, Bienestar, Otros]
     resourcebundle:messages_fr: [Hébergements, Événements & Festivals, Excursions,
       Culture & Histoire, Famille, Gastronomie, Aventure, City trip, Infos de voyage,
       Nature & Activités en extérieur, Bien-être, Autre]
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:messages_it: [Alloggi, Eventi e festival, Tour, Cultura e storia,
+      Famiglia, Cibo e bevande, Avventura, Vacanza in città, Informazioni di viaggio,
+      Natura e attività all'aperto, Benessere, Altro]
     resourcebundle:messages_nl: [Accommodatie, Evenementen & Festivals, Tours, Cultuur
         & Geschiedenis, Familie, Eten & Drinken, Avontuur, Stedentrip, Reisinformatie,
       Natuur & Outdoor, Wellness, Andere]
