@@ -73,6 +73,7 @@
     <dependency>
       <groupId>org.onehippo.cms7.hst.components</groupId>
       <artifactId>hst-platform</artifactId>
+      <scope>provided</scope>
     </dependency>
 
   </dependencies>
