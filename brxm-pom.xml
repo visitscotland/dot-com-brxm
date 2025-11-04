@@ -355,6 +355,55 @@
         <docker.brxm.copy.dev.libs.cmd>#</docker.brxm.copy.dev.libs.cmd>
       </properties>
     </profile>
+
+    <!--
+      This plugin configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.
+      The m2e.version property is automatically set by Eclipse’s Maven integration.
+      So, this profile only activates inside Eclipse, meaning:
+        - CLI or Jenkins builds won’t even see this plugin (no warnings, no missing POM noise).
+        - Eclipse users still get proper lifecycle-mapping metadata for m2e without needing to alter anything manually.
+
+      ref: https://stackoverflow.com/questions/7905501/get-rid-of-pom-not-found-warning-for-org-eclipse-m2elifecycle-mapping
+    -->
+    <profile>
+      <id>only-eclipse</id>
+      <activation>
+        <!-- This activates automatically when Maven runs inside Eclipse (m2e sets this property) -->
+        <property>
+          <name>m2e.version</name>
+        </property>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.eclipse.m2e</groupId>
+              <artifactId>lifecycle-mapping</artifactId>
+              <version>1.0.0</version>
+              <configuration>
+                <lifecycleMappingMetadata>
+                  <pluginExecutions>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <goals>
+                          <goal>regex-property</goal>
+                        </goals>
+                        <versionRange>[0.0,)</versionRange>
+                      </pluginExecutionFilter>
+                      <action>
+                        <ignore/>
+                      </action>
+                    </pluginExecution>
+                  </pluginExecutions>
+                </lifecycleMappingMetadata>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
   </profiles>
 
 </project>
