@@ -119,5 +119,6 @@ action-lists:
     /content/documents/administration/configuration/default-site-properties: reload
 - 2.11.4:
     /content/documents/administration/options/content-categories: reload
-- 2.11.6:
+- 2.11.10:
     /content/documents/administration/configuration/default-site-properties: reload
+    /content/documents/administration/labels/global/search: reload

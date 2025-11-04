@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ea5611a6-5160-4713-86e9-52334587567c
   hippo:name: Default - Site Properties
-  hippo:versionHistory: 5bd2dd3f-5c8a-4361-a4b0-2776518c91de
+  hippo:versionHistory: 02c194ab-d56a-403b-aac6-6b9502bf0cbb
   /default-site-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-10-28T15:21:53.118Z
+    hippostdpubwf:lastModificationDate: 2025-11-04T09:55:27.497Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -54,7 +54,7 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
-      general/navigation/banner/content, '', '', 'https://api.visitscotland.com/data/products/events/search',
+      general/navigation/banner/content, '', '', 'https://api.visitscotland.com/dev/data/products/events/search',
       $CLUDO_API]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '',
@@ -78,10 +78,9 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
-    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-10-28T15:22:06.544Z
+    hippostdpubwf:lastModificationDate: 2025-11-04T09:55:08.515Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -121,7 +120,7 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
-      general/navigation/banner/content, '', '', 'https://api.visitscotland.com/data/products/events/search',
+      general/navigation/banner/content, '', '', 'https://api.visitscotland.com/dev/data/products/events/search',
       $CLUDO_API]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '',
@@ -147,9 +146,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-10-28T15:21:53.118Z
+    hippostdpubwf:lastModificationDate: 2025-11-04T09:55:27.497Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-10-28T15:22:00.772Z
+    hippostdpubwf:publicationDate: 2025-11-04T09:55:30.737Z
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -188,7 +187,7 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
-      general/navigation/banner/content, '', '', 'https://api.visitscotland.com/data/products/events/search',
+      general/navigation/banner/content, '', '', 'https://api.visitscotland.com/dev/data/products/events/search',
       $CLUDO_API]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '',
