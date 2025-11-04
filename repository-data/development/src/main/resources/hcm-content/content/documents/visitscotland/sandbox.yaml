@@ -31922,12 +31922,11 @@
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 5dfe7054-b641-4719-8f93-118330fe986e
             hippo:availability: []
-            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-10-27T11:58:21.786Z
-            hippostdpubwf:lastModificationDate: 2025-10-28T11:41:29.991Z
+            hippostdpubwf:lastModificationDate: 2025-10-30T10:19:28.679Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: ee252bf7-9703-459b-9749-94369a616211
             hippotranslation:locale: en
@@ -31971,6 +31970,9 @@
               /visitscotland:links[3]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
+              /visitscotland:links[4]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
             /visitscotland:heroVideo:
               jcr:primaryType: visitscotland:VideoLink
               /visitscotland:videoLink:
@@ -31985,7 +31987,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-10-27T11:58:21.786Z
-            hippostdpubwf:lastModificationDate: 2025-10-28T11:40:50.788Z
+            hippostdpubwf:lastModificationDate: 2025-10-30T10:19:47.582Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: ee252bf7-9703-459b-9749-94369a616211
             hippotranslation:locale: en
@@ -32029,6 +32031,9 @@
               /visitscotland:links[3]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
+              /visitscotland:links[4]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
             /visitscotland:heroVideo:
               jcr:primaryType: visitscotland:VideoLink
               /visitscotland:videoLink:
@@ -32043,9 +32048,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2025-10-27T11:58:21.786Z
-            hippostdpubwf:lastModificationDate: 2025-10-28T11:40:50.788Z
+            hippostdpubwf:lastModificationDate: 2025-10-30T10:19:47.582Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-10-28T11:40:54.850Z
+            hippostdpubwf:publicationDate: 2025-10-30T10:19:50.912Z
             hippotranslation:id: ee252bf7-9703-459b-9749-94369a616211
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
@@ -32088,6 +32093,9 @@
               /visitscotland:links[3]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
+              /visitscotland:links[4]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
             /visitscotland:heroVideo:
               jcr:primaryType: visitscotland:VideoLink
               /visitscotland:videoLink:
