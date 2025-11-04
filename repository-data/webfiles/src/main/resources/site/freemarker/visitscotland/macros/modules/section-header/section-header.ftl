@@ -1,14 +1,12 @@
 <#include "../../../../include/imports.ftl">
 <#include "../../../../frontend/components/vs-section-header.ftl">
 
-<#macro sectionHeader data >
+<#macro sectionHeader heading lede >
     <vs-section-header
-        class="mt-175 mt-md-500"
-        heading="${data.heading}"
-        lede="${data.lede}"
+        heading="${heading}"
     />
         <template v-slot:section-header-lede>
-           ${data.lede}
+           <@hst.html hippohtml=lede />
         </template>
     </vs-section-header>
 </#macro>

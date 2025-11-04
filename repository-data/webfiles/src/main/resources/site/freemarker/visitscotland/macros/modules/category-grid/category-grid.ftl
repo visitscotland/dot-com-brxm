@@ -9,15 +9,19 @@
 <#include "../../../../frontend/components/vs-heading.ftl">
 <#include "../../../../frontend/components/vs-heading.ftl">
 
-<#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.CategoryGrid" -->
-<#macro categoryGrid cardListOverlay>
+<#macro categoryGrid links>
 <vs-container class="mt-075 mt-lg-200">
     <vs-row>
         <vs-col>
             <vs-card-group scroll-snap="always">
-                <#list cardListOverlay as card>
+                <#list links as card>
+                    <#if card.image.cmsImage??>
+                        <#assign image>
+                            <@hst.link hippobean=card.image.cmsImage.original/>
+                        </#assign>
+                    </#if>  
                 <vs-card 
-                    key="'category-card-list-' + ${card_index}"
+                    key="'category-card-list-' + ${card?index}"
                     card-style="overlay"
                 >
                     <template v-slot:vs-card-footer>
@@ -28,18 +32,18 @@
                                     heading-style="heading-m"
                                 >
                                     <vs-link
-                                        href="${link}"
+                                        href="${card.link}"
                                         class="stretched-link text-decoration-none"
                                         variant="on-dark"
                                     >
-                                        ${card.title}
+                                        ${card.label}
                                     </vs-link>
                                 </vs-heading>
                             </div>
                         </template>
                     <template v-slot:vs-card-image>
                         <vs-img 
-                            src="${card.image}"
+                            src="${image}"
                             class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                         />
                     </template>

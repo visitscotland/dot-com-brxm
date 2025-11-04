@@ -26,33 +26,6 @@
     <#assign standardTemplate = (document.theme == "Standard") />
     <#assign simpleTemplate = (document.theme == "Simple") />
 	<#assign inspirationTemplate = (document.theme == "Inspiration") />
-	<#assign cardList=[
-        {
-            "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/11/30/family-outside-the-va-dundee?size=lg",
-            "title": "Attractions",
-            "link": "#"
-        },
-        {
-            "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/11/05/creel-seafood?size=md",
-            "title": "Food & drink",
-            "link": "#"
-        },
-        {
-            "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/05/02/ballastbank-troon-header.jpg?size=md",
-            "title": "Landscapes & nature",
-            "link": "#"
-        },
-        {
-            "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/09/06/the-royal-edinburgh-military-tattoo?size=md",
-            "title": "Events",
-            "link": "#"
-        }
-    ]>
-    <#assign sectionHeaderData = {
-        "heading": "Explore the lochs and mountains of Scotland",
-        "lede": "<p>Northwest Sutherland is a stunning landscape of perfect sandy beaches and sweeping moorland studded with glittering lochans, overlooked by some of Scotland's most remarkable mountains, individual peaks each with great character.</p>",
-        "anchorId": "anchor-id"
-    }>
 </#compress>
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
@@ -75,25 +48,10 @@
         <@pageIntro content=document lightBackground=true />
     </#if>
 
-	<#--  <#if pageIntroData?? && pageIntroData.categoryCards?? >
-		<@sectionHeader sectionHeaderData />
-		<@categoryGrid cardListOverlay=cardList />
-	</#if>  -->
-
-
 	<#if pageIntroData?? && pageIntroData.categorySection??>
-		<@categorySection data=pageIntroData.categorySection />
-		<!-- TODO: Create a category cards FTL -->
-		<!-- NOTE: This must not be merged into develop -->
-		CATEGORY CARDS Module
-		<ul>
-			<li>links - ${pageIntroData.categorySection.links?size}</li>
-			<li>title - ${pageIntroData.categorySection.title}</li>
-			<li>copy -  <@hst.html hippohtml=pageIntroData.categorySection.introduction/></li>
-		</ul>
-		<#list pageIntroData.categorySection.links as card>
-			<br> ${card.label} - ${card.image.cmsImage}
-		</#list>
+		<div class="mt-175 mt-md-500">
+			<@categorySection data=pageIntroData.categorySection />
+		</div>
 	</#if>
 
 	<#if psrWidget?? && psrWidget.position = "Top">
