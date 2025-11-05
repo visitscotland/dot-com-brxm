@@ -141,8 +141,10 @@ else
   # Concept: should there be a site .war file with a manifest.mf in it, extract the build number from it
   # enter block if the war file exists
   if [[ -f "$SITE_WAR" ]]; then
-    # In the testing phase, it has been revealed that race conditions take place. Applying countermeasures:
-    # anti-race: wait for WAR to be stable (it is not actively being written, waits up to ~2s)
+    # Concept:
+    #   In the testing phase, it has been revealed that race conditions take place. Applying countermeasures:
+    # Solution
+    #   anti-race: wait for WAR to be stable (it is not actively being written, waits up to ~2s)
     for i in {1..10}; do
       s1=$(stat -c%s "$SITE_WAR" 2>/dev/null || echo 0)
       sleep 0.2
@@ -151,7 +153,15 @@ else
       echo "INFO: $SITE_WAR is not finalised yet (attempt #$i)"
     done
 
-    # --- anti-race: ensure MANIFEST.MF is visible inside the WAR (waits up to ~2s) ---
+    # Concept: Race conditions while writing and reading the MANIFEST.MF file within the war
+    #   WAR files (ZIP format) are written in stages by Maven’s maven-war-plugin:
+    #   1. It writes intermediate entries (class files, JSPs, web.xml, etc.)
+    #   2. It finalises the archive directory and writes META-INF/MANIFEST.MF last
+    #   3. It closes and flushes the central directory.
+    #   When the script checks the WAR right between steps 2 and 3, we are getting:
+    #   unzip -l site/webapp/target/site.war | grep -q META-INF/MANIFEST.MF → not found
+    # Solution:
+    #   anti-race: ensure MANIFEST.MF is visible inside the WAR (waits up to ~2s)
     for i in {1..10}; do
       if unzip -l "$SITE_WAR" | grep -qF "$MANIFEST_PATH"; then
         break
