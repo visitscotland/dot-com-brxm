@@ -20,7 +20,7 @@
                         </#assign>
                     </#if>  
                 <vs-card 
-                    key="'category-card-list-' + ${card?index}"
+                    key="category-card-list-${card?index}"
                     card-style="overlay"
                 >
                     <template v-slot:vs-card-footer>
