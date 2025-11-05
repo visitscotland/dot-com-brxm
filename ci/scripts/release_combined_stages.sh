@@ -16,9 +16,8 @@ LOG_FILE="${4:-${GIT_COMMIT:?GIT_COMMIT is required}.log}"
 PROPS_PATH="${5:-ci/properties/release_env.properties}"
 
 # Inputs
-SITE_WAR="${1:-site/webapp/target/site.war}"
-MANIFEST_PATH="${2:-META-INF/MANIFEST.MF}"
-OUT_PROPS="${3:-ci/properties/release_env.properties}"
+SITE_WAR="${6:-site/webapp/target/site.war}"
+MANIFEST_PATH="${7:-META-INF/MANIFEST.MF}"
 
 # ---- Preconditions / setup ----
 : "${WORKSPACE:?WORKSPACE is required}"
