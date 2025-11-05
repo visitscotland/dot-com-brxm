@@ -5,6 +5,7 @@
     <#include "../macros/modules/page-intro/intro-image.ftl">
     <#include "../macros/modules/product-search/psr-module.ftl">
     <#include "../macros/modules/signpost/signpost.ftl">
+	<#include "../macros/modules/category-section/category-section.ftl">
     <#include "../macros/shared/module-builder.ftl">
     <#include "../macros/modules/search-results/search-results.ftl">
     <#include "../../frontend/components/vs-container.ftl">
@@ -25,7 +26,6 @@
     <#assign standardTemplate = (document.theme == "Standard") />
     <#assign simpleTemplate = (document.theme == "Simple") />
 	<#assign inspirationTemplate = (document.theme == "Inspiration") />
-
 </#compress>
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
@@ -47,6 +47,12 @@
 	<#else>
         <@pageIntro content=document lightBackground=true />
     </#if>
+
+	<#if pageIntroData?? && pageIntroData.categorySection??>
+		<div class="mt-175 mt-md-500">
+			<@categorySection data=pageIntroData.categorySection />
+		</div>
+	</#if>
 
 	<#if psrWidget?? && psrWidget.position = "Top">
 		<@productSearchWidget psrWidget/>
