@@ -2,6 +2,7 @@
 <#include "../../../../frontend/components/vs-spotlight-section.ftl">
 
 <#macro spotlightSection module>
+    <#assign compact=true>
      <#if module.image.cmsImage??>
         <#assign image>
             <@hst.link hippobean=module.image.cmsImage.original/>
@@ -25,6 +26,7 @@
     <vs-spotlight-section
         heading="${module.title}"
         image-src="${image}"
+        compact="${compact}"
         cta-link="${module.cta.link}"
         cta-text="${module.cta.label}"
         description="${description}"
