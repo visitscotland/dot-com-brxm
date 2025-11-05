@@ -122,3 +122,6 @@ action-lists:
 - 2.11.10:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/labels/global/search: reload
+- 2.11.11:
+      /content/documents/administration/labels/global/search-filters: reload
+      /content/documents/administration/labels/global/search-events-filters: reload
