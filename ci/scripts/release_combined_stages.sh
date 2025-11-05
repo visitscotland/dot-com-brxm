@@ -142,14 +142,22 @@ else
   # enter block if the war file exists
   if [[ -f "$SITE_WAR" ]]; then
     # In the testing phase, it has been revealed that race conditions take place. Applying countermeasures:
-    # tiny anti-race: wait for WAR to be stable (it is not actively being written)
-    # --- tiny anti-race: wait for WAR to be present and stable ---
+    # anti-race: wait for WAR to be stable (it is not actively being written, waits up to ~2s)
     for i in {1..10}; do
       s1=$(stat -c%s "$SITE_WAR" 2>/dev/null || echo 0)
       sleep 0.2
       s2=$(stat -c%s "$SITE_WAR" 2>/dev/null || echo 0)
       (( s1 == s2 && s1 > 0 )) && break
       echo "INFO: $SITE_WAR is not finalised yet (attempt #$i)"
+    done
+
+    # --- anti-race: ensure MANIFEST.MF is visible inside the WAR (waits up to ~2s) ---
+    for i in {1..10}; do
+      if unzip -l "$SITE_WAR" | grep -qF "$MANIFEST_PATH"; then
+        break
+      fi
+      echo "INFO: MANIFEST.MF not yet visible inside WAR (attempt #$i)"
+      sleep 0.2
     done
 
     # Check if the MANIFEST.MF exists inside the WAR file
