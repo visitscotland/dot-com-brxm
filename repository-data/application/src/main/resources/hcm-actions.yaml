@@ -117,7 +117,7 @@ action-lists:
     /content/documents/administration/bsh-labels/modules/events-listings-module: reload
 - 2.9.1:
     /content/documents/administration/configuration/default-site-properties: reload
-- 2.9.2:
+- 2.9.3:
       /content/documents/administration/labels/modules/map: reload
 
 
