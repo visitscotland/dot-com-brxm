@@ -7,7 +7,6 @@
 <#include "../../../../frontend/components/vs-card.ftl">
 <#include "../../../../frontend/components/vs-link.ftl">
 <#include "../../../../frontend/components/vs-heading.ftl">
-<#include "../../../../frontend/components/vs-heading.ftl">
 
 <#macro categoryGrid links>
 <vs-container class="mt-075 mt-lg-200">
