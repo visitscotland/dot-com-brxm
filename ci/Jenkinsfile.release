@@ -469,12 +469,16 @@ pipeline {
         stage('Release & Email (single-call)') {
             steps {
                 sh '''
+                    # forcing the deletion of build-number.txt for now, so that the MANIFEST.MF search is triggered
+                    rm -f build-number.txt
                     bash ci/scripts/release_combined_stages.sh \
                       "pom.xml" \
                       "build-number.txt" \
                       "artifacts" \
                       "${GIT_COMMIT}.log" \
-                      "ci/properties/release_env.properties"
+                      "ci/properties/release_env.properties" \
+                      "site/webapp/target/site.war" \
+                      "META-INF/MANIFEST.MF"
                   '''
 
                 // Wrap all Groovy logic in a script block
