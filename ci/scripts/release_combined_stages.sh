@@ -154,7 +154,11 @@ else
         # Uses only awk → simpler error handling and no pipe to grep
         # exit stops processing once it finds a match — faster and avoids duplicates
         # The "$VAR" quoting avoids word-splitting and globbing bugs
-        VS_SITE_WAR_BUILD_NUMBER="$(unzip -p "$SITE_WAR" "$MANIFEST_PATH" | awk -F'[: ]+' '/^Build-Number(:| ){1}/{print $2; exit}')"
+        # Sanitisation: manifest entry is piped to tr -d '\r[:space:]' which eliminates a carriage return, or \n, etc.
+        VS_SITE_WAR_BUILD_NUMBER="$(unzip -p "$SITE_WAR" "$MANIFEST_PATH" \
+        | awk -F'[: ]+' '/^Build-Number(:| ){1}/{print $2; exit}' \
+        | tr -d '\r[:space:]')"
+        echo "INFO: Build number extracted from within .war's manifest.mf entry: $VS_SITE_WAR_BUILD_NUMBER"
       else
         echo "INFO: Build-Number entry not found in ${MANIFEST_PATH}" >&2
       fi
