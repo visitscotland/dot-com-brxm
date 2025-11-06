@@ -470,7 +470,6 @@ pipeline {
             steps {
                 sh '''
                     # forcing the deletion of build-number.txt for now, so that the MANIFEST.MF search is triggered
-                    rm -f build-number.txt
                     bash ci/scripts/release_combined_stages.sh \
                       "pom.xml" \
                       "build-number.txt" \
