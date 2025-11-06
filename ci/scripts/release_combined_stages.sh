@@ -142,32 +142,33 @@ else
   # enter block if the war file exists
   if [[ -f "$SITE_WAR" ]]; then
     # Concept:
-    #   In the testing phase, it has been revealed that race conditions take place
-    # Solution
-    #   anti-race: wait for WAR to be stable (it is not actively being written, waits up to ~2s)
+    #   In the testing phase, it has been revealed that race conditions take place, when it comes to the creation
+    #   of the .war file. It might exist, but actively being written on while the script tries to extract the
+    #   build-number. Also, even if the .war is stable, MANIFEST.MF might still be in the process of being finalised.
+    #     --------------------------------------------------------------------------------
+    #     WAR files (ZIP format) are written in stages by Maven’s maven-war-plugin:
+    #       1. It writes intermediate entries (class files, JSPs, web.xml, etc.)
+    #       2. It finalises the archive directory and writes META-INF/MANIFEST.MF last
+    #       3. It closes and flushes the central directory.
+    #     When the script checks the WAR right between steps 2 and 3, we are getting:
+    #     unzip -l site/webapp/target/site.war | grep -q META-INF/MANIFEST.MF → not found
+    #     --------------------------------------------------------------------------------
+    # Solution:
+    #   Implemented counter-measures for the aforementioned race conditions by waiting for .war
+    #   to be stable, as well as for MANIFEST.MF within it to be finalised (waits up to ~2s)
     for i in {1..10}; do
       s1=$(stat -c%s "$SITE_WAR" 2>/dev/null || echo 0)
       sleep 0.2
       s2=$(stat -c%s "$SITE_WAR" 2>/dev/null || echo 0)
-      (( s1 == s2 && s1 > 0 )) && break
-      echo "INFO: $SITE_WAR is not finalised yet (attempt #$i)"
-    done
-
-    # Concept: Race conditions while writing and reading the MANIFEST.MF file within the war
-    #   WAR files (ZIP format) are written in stages by Maven’s maven-war-plugin:
-    #   1. It writes intermediate entries (class files, JSPs, web.xml, etc.)
-    #   2. It finalises the archive directory and writes META-INF/MANIFEST.MF last
-    #   3. It closes and flushes the central directory.
-    #   When the script checks the WAR right between steps 2 and 3, we are getting:
-    #   unzip -l site/webapp/target/site.war | grep -q META-INF/MANIFEST.MF → not found
-    # Solution:
-    #   anti-race: ensure MANIFEST.MF is visible inside the WAR (waits up to ~2s)
-    for i in {1..10}; do
-      if unzip -l "$SITE_WAR" | grep -qF "$MANIFEST_PATH"; then
-        break
+      if (( s1 == s2 && s1 > 0 )); then
+        if unzip -l "$SITE_WAR" | grep -qF "$MANIFEST_PATH"; then
+          break
+        else
+          echo "INFO: MANIFEST.MF not yet visible inside $SITE_WAR (counter-measure for race conditions attempt #$i)"
+        fi
+      else
+        echo "INFO: $SITE_WAR is not finalised/stable yet (counter-measure for race conditions attempt #$i)"
       fi
-      echo "INFO: MANIFEST.MF not yet visible inside WAR (attempt #$i)"
-      sleep 0.2
     done
 
     # Check if the MANIFEST.MF exists inside the WAR file
