@@ -142,7 +142,7 @@ else
   # enter block if the war file exists
   if [[ -f "$SITE_WAR" ]]; then
     # Concept:
-    #   In the testing phase, it has been revealed that race conditions take place. Applying countermeasures:
+    #   In the testing phase, it has been revealed that race conditions take place
     # Solution
     #   anti-race: wait for WAR to be stable (it is not actively being written, waits up to ~2s)
     for i in {1..10}; do
