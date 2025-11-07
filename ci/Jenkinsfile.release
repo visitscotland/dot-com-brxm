@@ -468,7 +468,12 @@ pipeline {
 
         stage('Release & Email (single-call)') {
             steps {
-                sh '''
+                // bash execution needs to be aware of the groovy environmental variables
+                withEnv([
+                    "MAIL_TO_NET=${MAIL_TO_NET}",
+                    "CC_DEV_LIST=${CC_DEV_LIST}"
+                ]) {
+                    sh '''
                     # forcing the deletion of build-number.txt for now, so that the MANIFEST.MF search is triggered
                     bash ci/scripts/release_combined_stages.sh \
                       "pom.xml" \
@@ -479,7 +484,7 @@ pipeline {
                       "site/webapp/target/site.war" \
                       "META-INF/MANIFEST.MF"
                   '''
-
+                }
                 // Wrap all Groovy logic in a script block
                 script {
                     // Read the results
