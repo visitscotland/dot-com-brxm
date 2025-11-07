@@ -14,8 +14,6 @@ BUILD_NUMBER_FILE="${2:-.build-meta/build-number.txt}"
 OUT_DIR="${3:-artifacts}"
 LOG_FILE="${4:-${GIT_COMMIT:?GIT_COMMIT is required}.log}"
 PROPS_PATH="${5:-ci/properties/release_env.properties}"
-
-# Inputs
 SITE_WAR="${6:-site/webapp/target/site.war}"
 MANIFEST_PATH="${7:-META-INF/MANIFEST.MF}"
 
@@ -272,7 +270,8 @@ TABLE1
 TABLE2
 } > "$EMAIL_HTML_FILE"
 
-# ---- 7) Recipients (from Jenkins env, like your old Groovy) ----
+# ---- 7) Recipients (from Jenkins env, Groovy lists) ----
+echo "MAIL_TO_NET=$MAIL_TO_NET, VS_COMMIT_AUTHOR=$VS_COMMIT_AUTHOR, CC_DEV_LIST=$CC_DEV_LIST"
 RECIPIENTS_ARRAY="$(comma_split_to_json_array "${MAIL_TO_NET:-}, ${VS_COMMIT_AUTHOR:-}, ${CC_DEV_LIST:-}")"
 
 # ---- 8) Write legacy .properties (for any other consumers) ----
