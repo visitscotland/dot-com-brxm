@@ -4473,6 +4473,619 @@
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: ''
               visitscotland:link: https://www.visitouterhebrides.co.uk/see-and-do/nature/photography-trail
+        /11-off-the-beaten-track-holiday-destinations:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 2963a96a-d83d-44d9-9b6a-5e7567c6942c
+          hippo:name: 11 off-the-beaten-track holiday destinations
+          hippo:versionHistory: 7e79b543-bba2-4095-bfce-d7cea17454b5
+          /11-off-the-beaten-track-holiday-destinations[1]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: a4e28f9b-d203-42c8-b44b-26b66aa64fb0
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:36:30.808Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 47ff27f1-1b6b-4cdb-aed9-4db5546ff88a
+            hippotranslation:locale: en
+            visitscotland:teaser: Escape the tourist trails with out best off-the-beaten-track
+              holiday ideas...
+            visitscotland:title: 11 off-the-beaten-track holiday destinations
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /11-off-the-beaten-track-holiday-destinations[2]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: da4a9b57-269d-415b-b1ff-9cdb276a77d2
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:36:30.741Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 47ff27f1-1b6b-4cdb-aed9-4db5546ff88a
+            hippotranslation:locale: en
+            visitscotland:teaser: Escape the tourist trails with out best off-the-beaten-track
+              holiday ideas...
+            visitscotland:title: 11 off-the-beaten-track holiday destinations
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /11-off-the-beaten-track-holiday-destinations[3]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: dee41031-aaf7-49a9-9eb8-18ddbaea587d
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:36:30.741Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-11-05T15:41:01.494Z
+            hippotranslation:id: 47ff27f1-1b6b-4cdb-aed9-4db5546ff88a
+            hippotranslation:locale: en
+            visitscotland:teaser: Escape the tourist trails with out best off-the-beaten-track
+              holiday ideas...
+            visitscotland:title: 11 off-the-beaten-track holiday destinations
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+        /walking-in-scotland:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: d2581821-2589-429e-b662-9a4751344599
+          hippo:name: Walking in Scotland
+          hippo:versionHistory: b2aca782-a4ed-4cac-bfc5-4f67cb4b465a
+          /walking-in-scotland[1]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: da4f195c-034d-4a19-91f6-43ac4bcfa61b
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:38:24.778Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b656d6e5-57a5-428f-8385-9121a995f875
+            hippotranslation:locale: en
+            visitscotland:teaser: Walking in Scotland means mighty mountains to conquer...
+            visitscotland:title: Walking in Scotland
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /walking-in-scotland[2]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 7d0f514e-d504-4e00-9131-0b5aef099d98
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:38:19.635Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b656d6e5-57a5-428f-8385-9121a995f875
+            hippotranslation:locale: en
+            visitscotland:teaser: Walking in Scotland means mighty mountains to conquer...
+            visitscotland:title: Walking in Scotland
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /walking-in-scotland[3]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 3dfe2cee-ae3a-49ad-9657-0d179e85908e
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:38:24.778Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-11-05T15:41:01.812Z
+            hippotranslation:id: b656d6e5-57a5-428f-8385-9121a995f875
+            hippotranslation:locale: en
+            visitscotland:teaser: Walking in Scotland means mighty mountains to conquer...
+            visitscotland:title: Walking in Scotland
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+        /family-holidays-in-scotland:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 11275368-5a88-4c94-aa02-8862f013a56d
+          hippo:name: Family holidays in Scotland
+          hippo:versionHistory: e67238ef-9dbf-4508-a009-a813d6755e9c
+          /family-holidays-in-scotland[1]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 71a0667b-9c02-48f5-9e41-70cc7ee8e238
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:38:14.405Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 22102ee0-13cf-400c-9702-a367724b8379
+            hippotranslation:locale: en
+            visitscotland:teaser: You’ll wish your family holiday in Scotland could
+              last forever.
+            visitscotland:title: Family holidays in Scotland
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /family-holidays-in-scotland[2]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 89d983bb-63ff-4a92-bb86-45a8243ccbf6
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:37:58.986Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 22102ee0-13cf-400c-9702-a367724b8379
+            hippotranslation:locale: en
+            visitscotland:teaser: You’ll wish your family holiday in Scotland could
+              last forever.
+            visitscotland:title: Family holidays in Scotland
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /family-holidays-in-scotland[3]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: dca8ffa1-3eed-4c8a-86f7-417535d3451f
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:38:14.405Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-11-05T15:41:01.158Z
+            hippotranslation:id: 22102ee0-13cf-400c-9702-a367724b8379
+            hippotranslation:locale: en
+            visitscotland:teaser: You’ll wish your family holiday in Scotland could
+              last forever.
+            visitscotland:title: Family holidays in Scotland
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+        /your-ultimate-guide-to-cycling-in-scotland:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: f6c0a405-f6f7-4417-a772-908fff9f8f1f
+          hippo:name: Your ultimate guide to cycling in Scotland
+          hippo:versionHistory: 54c734e4-5662-4c45-9c4f-3c5cdc374d9b
+          /your-ultimate-guide-to-cycling-in-scotland[1]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 73b55314-033b-48a1-8f32-9f2684c7ea92
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:39:10.797Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b9d038d5-331a-41a3-8746-dcb8be52ee09
+            hippotranslation:locale: en
+            visitscotland:teaser: Planning a cycling trip? Here’s your ultimate guide
+              to cycling in...
+            visitscotland:title: Your ultimate guide to cycling in Scotland
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /your-ultimate-guide-to-cycling-in-scotland[2]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 90656238-3f94-4f4d-808a-12c0a55bc194
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:38:38.662Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b9d038d5-331a-41a3-8746-dcb8be52ee09
+            hippotranslation:locale: en
+            visitscotland:teaser: Planning a cycling trip? Here’s your ultimate guide
+              to cycling in...
+            visitscotland:title: Your ultimate guide to cycling in Scotland
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /your-ultimate-guide-to-cycling-in-scotland[3]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 4fca15c9-eb20-4ce3-b9f0-fd91e57cd193
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:39:10.797Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-11-05T15:41:01.382Z
+            hippotranslation:id: b9d038d5-331a-41a3-8746-dcb8be52ee09
+            hippotranslation:locale: en
+            visitscotland:teaser: Planning a cycling trip? Here’s your ultimate guide
+              to cycling in...
+            visitscotland:title: Your ultimate guide to cycling in Scotland
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+        /7-easy-hill-walks-with-amazing-views:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 76debf05-1550-4d92-b891-2008bf629f76
+          hippo:name: 7 Easy hill walks with amazing views
+          hippo:versionHistory: 207bf51d-8f05-4dcc-a27a-a1e3f3f18288
+          /7-easy-hill-walks-with-amazing-views[1]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: fbec741c-357f-4a7d-b56f-deb61181f630
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:39:40.745Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 4cac2520-1197-4c27-934a-046036fb52a4
+            hippotranslation:locale: en
+            visitscotland:teaser: Escape the tourist trails with out best off-the-beaten-track
+              holiday ideas...
+            visitscotland:title: 7 Easy hill walks with amazing views
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /7-easy-hill-walks-with-amazing-views[2]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: ffacf17a-2616-4fca-9768-0f7c27e8a005
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:39:29.762Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 4cac2520-1197-4c27-934a-046036fb52a4
+            hippotranslation:locale: en
+            visitscotland:teaser: Escape the tourist trails with out best off-the-beaten-track
+              holiday ideas...
+            visitscotland:title: 7 Easy hill walks with amazing views
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /7-easy-hill-walks-with-amazing-views[3]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 7a77cab7-b06b-4e19-b2d4-3db477fa2516
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:39:40.745Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-11-05T15:41:01.614Z
+            hippotranslation:id: 4cac2520-1197-4c27-934a-046036fb52a4
+            hippotranslation:locale: en
+            visitscotland:teaser: Escape the tourist trails with out best off-the-beaten-track
+              holiday ideas...
+            visitscotland:title: 7 Easy hill walks with amazing views
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+        /ghosts-in-scotland-fact-or-fiction:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 42066c47-1241-42dd-baad-5fa48903f5dc
+          hippo:name: 'Ghosts in Scotland: fact or fiction?'
+          hippo:versionHistory: 02cb5bb1-facc-4135-84e2-f7d5609f7f36
+          /ghosts-in-scotland-fact-or-fiction[1]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 75ec92e9-7261-434f-87fa-c623c92b02dd
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:40:07.177Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: f866a9c2-dae9-4beb-a0da-f3898df37220
+            hippotranslation:locale: en
+            visitscotland:teaser: You’ll wish your family holiday in Scotland could
+              last forever.
+            visitscotland:title: 'Ghosts in Scotland: fact or fiction?'
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /ghosts-in-scotland-fact-or-fiction[2]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 1f2bda9d-f9d2-4ae5-a890-a8069e7df4dc
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:39:55.878Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: f866a9c2-dae9-4beb-a0da-f3898df37220
+            hippotranslation:locale: en
+            visitscotland:teaser: You’ll wish your family holiday in Scotland could
+              last forever.
+            visitscotland:title: 'Ghosts in Scotland: fact or fiction?'
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /ghosts-in-scotland-fact-or-fiction[3]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: ad08f564-5b60-4aae-a347-cddf41623a15
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:40:07.177Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-11-05T15:41:01.729Z
+            hippotranslation:id: f866a9c2-dae9-4beb-a0da-f3898df37220
+            hippotranslation:locale: en
+            visitscotland:teaser: You’ll wish your family holiday in Scotland could
+              last forever.
+            visitscotland:title: 'Ghosts in Scotland: fact or fiction?'
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+        /9-farm-shops--foodie-experiences-to-enjoy-in-autumn:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 2af2903c-c551-4a1b-9dde-fa666d4c836d
+          hippo:name: 9 Farm shops & foodie experiences to enjoy in autumn
+          hippo:versionHistory: be6719db-2e4c-45c6-b21d-b4738240d287
+          /9-farm-shops--foodie-experiences-to-enjoy-in-autumn[1]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 110cebf3-21cb-4b7b-98aa-9730cc1ca45e
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:40:34.171Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 22fec5c0-ee71-41ea-9762-9e7c05bee0e1
+            hippotranslation:locale: en
+            visitscotland:teaser: Planning a cycling trip? Here’s your ultimate guide
+              to cycling in...
+            visitscotland:title: 9 Farm shops & foodie experiences to enjoy in autumn
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /9-farm-shops--foodie-experiences-to-enjoy-in-autumn[2]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: f169321d-4028-4619-945d-08c86612886c
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:40:22.449Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 22fec5c0-ee71-41ea-9762-9e7c05bee0e1
+            hippotranslation:locale: en
+            visitscotland:teaser: Planning a cycling trip? Here’s your ultimate guide
+              to cycling in...
+            visitscotland:title: 9 Farm shops & foodie experiences to enjoy in autumn
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
+          /9-farm-shops--foodie-experiences-to-enjoy-in-autumn[3]:
+            jcr:primaryType: visitscotland:SharedLink
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 31e5a89c-5051-406a-a0cd-ffb91a2f6cd8
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:35:17.272Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:40:34.171Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-11-05T15:41:01.282Z
+            hippotranslation:id: 22fec5c0-ee71-41ea-9762-9e7c05bee0e1
+            hippotranslation:locale: en
+            visitscotland:teaser: Planning a cycling trip? Here’s your ultimate guide
+              to cycling in...
+            visitscotland:title: 9 Farm shops & foodie experiences to enjoy in autumn
+            visitscotland:translation: ''
+            /visitscotland:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:linkTypes:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com
       /dms:
         jcr:primaryType: hippostd:folder
         jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
@@ -8418,7 +9031,6 @@
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: ae73b73c-a080-4f54-a858-33e9bf73655c
             hippo:availability: []
-            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
@@ -35259,31 +35871,34 @@
         hippotranslation:locale: en
         /content:
           jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: ff270071-6ca8-4d54-8c09-b7acbfa03a02
           hippo:name: Megalinks link list example
+          hippo:versionHistory: 6bb2d27d-3827-4de0-9b4b-49685ca6b1c6
           /content[1]:
             jcr:primaryType: visitscotland:General
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 6ab0afa0-244b-4340-ac10-5df995fe6678
             hippo:availability: []
+            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:14:12.547+01:00
-            hippostdpubwf:lastModificationDate: 2021-06-25T14:52:53.217+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-07T11:18:15.770Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 8562d8d6-08a8-4afe-b148-fddc2b29e2fa
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
             visitscotland:newsletter: true
+            visitscotland:pswPosition: Default
             visitscotland:seoDescription: Meta description
             visitscotland:seoNoIndex: false
             visitscotland:seoTitle: Meta title
-            visitscotland:teaser: The link list is a more compact way of showing a
-              number of links, along with their teaser text.
-            visitscotland:theme: Standard
-            visitscotland:title: Megalinks link list
+            visitscotland:teaser: This is the Card Group layout of Megalinks
+            visitscotland:theme: Top-Level
+            visitscotland:title: Megalinks Card Group
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -35293,10 +35908,11 @@
               hippo:values: []
             /visitscotland:introduction:
               jcr:primaryType: hippostd:html
-              hippostd:content: |-
-                <p>The link list is a more compact way of showing a number of links.</p>
-
-                <p>Teaser text can be turned on or off. Quisque quam nulla, volutpat eu ligula at, dictum bibendum metus. Nullam sodales accumsan urna vitae ultrices. Nullam at facilisis erat, non posuere leo.&nbsp;</p>
+              hippostd:content: <p>Category cards are used to highlight and link to
+                key categories of content. They are visually immersive, making them
+                useful for establishing hierarchy and drawing attention, especially
+                in navigation contexts. Category cards are most often displayed in
+                a carousel at the top of a navigation page.</p>
           /content[2]:
             jcr:primaryType: visitscotland:General
             jcr:mixinTypes: ['mix:versionable']
@@ -35306,19 +35922,20 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:14:12.547+01:00
-            hippostdpubwf:lastModificationDate: 2021-05-25T09:18:56.492+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:53:48.675Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 8562d8d6-08a8-4afe-b148-fddc2b29e2fa
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
             visitscotland:newsletter: true
+            visitscotland:pswPosition: Default
             visitscotland:seoDescription: Meta description
             visitscotland:seoNoIndex: false
             visitscotland:seoTitle: Meta title
-            visitscotland:teaser: The link list is a more compact way of showing a
-              number of links, along with their teaser text.
-            visitscotland:theme: Standard
-            visitscotland:title: Megalinks link list
+            visitscotland:teaser: This is the Card Group layout of Megalinks
+            visitscotland:theme: Top-Level
+            visitscotland:title: Megalinks Card Group
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -35328,10 +35945,11 @@
               hippo:values: []
             /visitscotland:introduction:
               jcr:primaryType: hippostd:html
-              hippostd:content: |-
-                <p>The link list is a more compact way of showing a number of links.</p>
-
-                <p>Teaser text can be turned on or off. Quisque quam nulla, volutpat eu ligula at, dictum bibendum metus. Nullam sodales accumsan urna vitae ultrices. Nullam at facilisis erat, non posuere leo.&nbsp;</p>
+              hippostd:content: <p>Category cards are used to highlight and link to
+                key categories of content. They are visually immersive, making them
+                useful for establishing hierarchy and drawing attention, especially
+                in navigation contexts. Category cards are most often displayed in
+                a carousel at the top of a navigation page.</p>
           /content[3]:
             jcr:primaryType: visitscotland:General
             jcr:mixinTypes: ['mix:referenceable']
@@ -35341,20 +35959,21 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:14:12.547+01:00
-            hippostdpubwf:lastModificationDate: 2021-05-25T09:18:56.492+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:53:48.675Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2021-05-25T09:18:58.461+01:00
+            hippostdpubwf:publicationDate: 2025-11-05T15:53:51.937Z
             hippotranslation:id: 8562d8d6-08a8-4afe-b148-fddc2b29e2fa
             hippotranslation:locale: en
             visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
             visitscotland:newsletter: true
+            visitscotland:pswPosition: Default
             visitscotland:seoDescription: Meta description
             visitscotland:seoNoIndex: false
             visitscotland:seoTitle: Meta title
-            visitscotland:teaser: The link list is a more compact way of showing a
-              number of links, along with their teaser text.
-            visitscotland:theme: Standard
-            visitscotland:title: Megalinks link list
+            visitscotland:teaser: This is the Card Group layout of Megalinks
+            visitscotland:theme: Top-Level
+            visitscotland:title: Megalinks Card Group
             visitscotland:translation: ''
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -35364,134 +35983,405 @@
               hippo:values: []
             /visitscotland:introduction:
               jcr:primaryType: hippostd:html
-              hippostd:content: |-
-                <p>The link list is a more compact way of showing a number of links.</p>
-
-                <p>Teaser text can be turned on or off. Quisque quam nulla, volutpat eu ligula at, dictum bibendum metus. Nullam sodales accumsan urna vitae ultrices. Nullam at facilisis erat, non posuere leo.&nbsp;</p>
-        /links-list-example-copy:
+              hippostd:content: <p>Category cards are used to highlight and link to
+                key categories of content. They are visually immersive, making them
+                useful for establishing hierarchy and drawing attention, especially
+                in navigation contexts. Category cards are most often displayed in
+                a carousel at the top of a navigation page.</p>
+        /top-tips:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-          jcr:uuid: e9004d7f-78ce-48e6-9e3a-4d94c09fe69f
-          hippo:name: Links List example (copy)
-          hippo:versionHistory: c5059145-c4d5-4b11-ae74-05620f8e8c49
-          /links-list-example-copy[1]:
+          jcr:uuid: d9c0d12c-7f2f-46af-baed-00519690d25d
+          hippo:name: Top tips...
+          hippo:versionHistory: eabda059-4f3b-47d4-823c-113dcc1f0b46
+          /top-tips[1]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:versionable']
-            jcr:uuid: aeed6bbf-d694-4e4a-8917-c1632331b35f
+            jcr:uuid: fce73701-f042-4b97-ad0a-8a228d24e456
             hippo:availability: [preview]
             hippostd:retainable: false
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-08-22T17:48:27.226+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:43:21.761Z
             hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 51fead90-e4d7-4915-aaa0-52a6fc04c32f
+            hippotranslation:id: 0013b57c-6cd3-4675-81bf-c5437f671fd5
             hippotranslation:locale: en
             visitscotland:grid: Grid 3
-            visitscotland:layout: Grid 4
+            visitscotland:layout: Grid
             visitscotland:teaserVisible: true
-            visitscotland:title: An example of a links list
+            visitscotland:title: Top tips...
             visitscotland:translation: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
+                hippo:docbase: 2963a96a-d83d-44d9-9b6a-5e7567c6942c
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Explore ideas on short family strolls, more challenging
+                hill walks, and discover many excellent routes and trails that suit
+                a variety of interests and levels of fitness.</p>
             /visitscotland:megalinkItems[2]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+                hippo:docbase: d2581821-2589-429e-b662-9a4751344599
             /visitscotland:megalinkItems[3]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
+                hippo:docbase: 11275368-5a88-4c94-aa02-8862f013a56d
             /visitscotland:megalinkItems[4]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
-            /visitscotland:megalinkItems[5]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: visitscotland:VideoLink
-                /visitscotland:videoLink:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
-          /links-list-example-copy[2]:
+                hippo:docbase: f6c0a405-f6f7-4417-a772-908fff9f8f1f
+          /top-tips[2]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 49095b65-4a3d-47f6-b18d-efd67c1f6a2c
+            jcr:uuid: 83e5e10e-d530-4608-befa-396754941a7f
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-08-22T17:48:23.529+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-06T10:48:37.641Z
             hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 51fead90-e4d7-4915-aaa0-52a6fc04c32f
+            hippotranslation:id: 0013b57c-6cd3-4675-81bf-c5437f671fd5
             hippotranslation:locale: en
             visitscotland:grid: Grid 3
-            visitscotland:layout: Grid 4
+            visitscotland:layout: Grid
             visitscotland:teaserVisible: true
-            visitscotland:title: An example of a links list
+            visitscotland:title: Top tips...
             visitscotland:translation: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
+                hippo:docbase: 2963a96a-d83d-44d9-9b6a-5e7567c6942c
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Explore ideas on short family strolls, more challenging
+                hill walks, and discover many excellent routes and trails that suit
+                a variety of interests and levels of fitness.</p>
             /visitscotland:megalinkItems[2]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+                hippo:docbase: d2581821-2589-429e-b662-9a4751344599
             /visitscotland:megalinkItems[3]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
+                hippo:docbase: 11275368-5a88-4c94-aa02-8862f013a56d
             /visitscotland:megalinkItems[4]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
-            /visitscotland:megalinkItems[5]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: visitscotland:VideoLink
-                /visitscotland:videoLink:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
-          /links-list-example-copy[3]:
+                hippo:docbase: f6c0a405-f6f7-4417-a772-908fff9f8f1f
+          /top-tips[3]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 43e77c22-86b0-439c-984e-a7c0c9a03b36
+            jcr:uuid: 47b55a61-b5b9-4041-b80b-2dd238c852e8
             hippo:availability: [live]
             hippostd:retainable: false
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-08-22T17:48:27.226+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:43:21.761Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-08-22T17:48:29.657+01:00
-            hippotranslation:id: 51fead90-e4d7-4915-aaa0-52a6fc04c32f
+            hippostdpubwf:publicationDate: 2025-11-05T15:47:06.067Z
+            hippotranslation:id: 0013b57c-6cd3-4675-81bf-c5437f671fd5
             hippotranslation:locale: en
             visitscotland:grid: Grid 3
-            visitscotland:layout: Grid 4
+            visitscotland:layout: Grid
             visitscotland:teaserVisible: true
-            visitscotland:title: An example of a links list
+            visitscotland:title: Top tips...
+            visitscotland:translation: ''
+            /visitscotland:megalinkItems[1]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 2963a96a-d83d-44d9-9b6a-5e7567c6942c
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Explore ideas on short family strolls, more challenging
+                hill walks, and discover many excellent routes and trails that suit
+                a variety of interests and levels of fitness.</p>
+            /visitscotland:megalinkItems[2]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: d2581821-2589-429e-b662-9a4751344599
+            /visitscotland:megalinkItems[3]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 11275368-5a88-4c94-aa02-8862f013a56d
+            /visitscotland:megalinkItems[4]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: f6c0a405-f6f7-4417-a772-908fff9f8f1f
+        /not-sure-where-to-start:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: b669f653-ec13-40c5-bcc1-e954a6693201
+          hippo:name: Not sure where to start?
+          hippo:versionHistory: 14a8afee-1d1e-4f4d-bbf5-35ae7441bdf8
+          /not-sure-where-to-start[1]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: cb306c3a-749e-4ffc-9efa-7492b74c9186
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:47:12.653Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 7dabff51-97ab-4983-9f72-00b37b6f2fa9
+            hippotranslation:locale: en
+            visitscotland:grid: Grid 3
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: Not sure where to start?
+            visitscotland:translation: ''
+            /visitscotland:megalinkItems[1]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 76debf05-1550-4d92-b891-2008bf629f76
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Step into a land steeped in history and legend,
+                explore our dramatic landscapes and uncover our ancient Celtic roots.
+                Vast lochs, glens and Munros – easily accessible from our vibrant
+                cities and towns – make Scotland the perfect place to lose yourself.</p>
+            /visitscotland:megalinkItems[2]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 42066c47-1241-42dd-baad-5fa48903f5dc
+            /visitscotland:megalinkItems[3]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: f6c0a405-f6f7-4417-a772-908fff9f8f1f
+          /not-sure-where-to-start[2]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 72eea5da-8f85-4b59-b74d-4054203d1a27
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:47:32.930Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 7dabff51-97ab-4983-9f72-00b37b6f2fa9
+            hippotranslation:locale: en
+            visitscotland:grid: Grid 3
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: Not sure where to start?
+            visitscotland:translation: ''
+            /visitscotland:megalinkItems[1]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 76debf05-1550-4d92-b891-2008bf629f76
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Step into a land steeped in history and legend,
+                explore our dramatic landscapes and uncover our ancient Celtic roots.
+                Vast lochs, glens and Munros – easily accessible from our vibrant
+                cities and towns – make Scotland the perfect place to lose yourself.</p>
+            /visitscotland:megalinkItems[2]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 42066c47-1241-42dd-baad-5fa48903f5dc
+            /visitscotland:megalinkItems[3]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: f6c0a405-f6f7-4417-a772-908fff9f8f1f
+          /not-sure-where-to-start[3]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 147c2736-4b57-4410-b3ed-cf4fc6ebf663
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:47:12.653Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-11-05T15:47:17.274Z
+            hippotranslation:id: 7dabff51-97ab-4983-9f72-00b37b6f2fa9
+            hippotranslation:locale: en
+            visitscotland:grid: Grid 3
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: Not sure where to start?
+            visitscotland:translation: ''
+            /visitscotland:megalinkItems[1]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 76debf05-1550-4d92-b891-2008bf629f76
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Step into a land steeped in history and legend,
+                explore our dramatic landscapes and uncover our ancient Celtic roots.
+                Vast lochs, glens and Munros – easily accessible from our vibrant
+                cities and towns – make Scotland the perfect place to lose yourself.</p>
+            /visitscotland:megalinkItems[2]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 42066c47-1241-42dd-baad-5fa48903f5dc
+            /visitscotland:megalinkItems[3]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: f6c0a405-f6f7-4417-a772-908fff9f8f1f
+        /no-links:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 475ecb40-1d57-4761-ae09-87900a8f0272
+          hippo:name: No links
+          hippo:versionHistory: 6e6a6b79-befb-4bd3-b08c-e3f1bfa1c801
+          /no-links[1]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: b3efea73-4ffe-4e4c-8204-2dd5f24069f4
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:48:05.920Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:48:05.920Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: dcf7ff6f-5e5f-4f8a-9484-98e77bf9ddae
+            hippotranslation:locale: en
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: This module should not appear
+            visitscotland:translation: ''
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This module doesn't have any valid link so it should
+                not appear on the page</p>
+            /visitscotland:megalinkItems:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 81285a29-8d31-4395-a3b5-474aef17d3fe
+          /no-links[2]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 4042ea72-78b6-4cc9-a2d0-57a54dbd6293
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:48:05.920Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:01.752Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: dcf7ff6f-5e5f-4f8a-9484-98e77bf9ddae
+            hippotranslation:locale: en
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: This module should not appear
+            visitscotland:translation: ''
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This module doesn't have any valid link so it should
+                not appear on the page</p>
+            /visitscotland:megalinkItems:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 81285a29-8d31-4395-a3b5-474aef17d3fe
+          /no-links[3]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 76de4382-ecde-440f-80b4-3fa07dae79c6
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:48:05.920Z
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:01.752Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-11-05T15:49:08.579Z
+            hippotranslation:id: dcf7ff6f-5e5f-4f8a-9484-98e77bf9ddae
+            hippotranslation:locale: en
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: This module should not appear
+            visitscotland:translation: ''
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This module doesn't have any valid link so it should
+                not appear on the page</p>
+            /visitscotland:megalinkItems:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 81285a29-8d31-4395-a3b5-474aef17d3fe
+        /card-grid-above-5-elements:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 9f456024-8124-4464-9a18-fb40db0ff03e
+          hippo:name: Card Grid Above 5 elements
+          hippo:versionHistory: d569fea4-6582-43a9-ac40-e024c73ff26a
+          /card-grid-above-5-elements[1]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 3c4e9606-3849-47c7-83a8-0f933615fa73
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:20.220Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 80bd5274-ed24-48e0-a72e-caee287ee4e0
+            hippotranslation:locale: en
+            visitscotland:grid: Grid 3
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: Card Grid Layout with too many Elements
             visitscotland:translation: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
@@ -35525,13 +36415,126 @@
                 /visitscotland:videoLink:
                   jcr:primaryType: hippo:mirror
                   hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
-        /links-list-example-copy-2:
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>If the card grid has too many elements, it should
+                be converted into a list layout</p>
+          /card-grid-above-5-elements[2]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 151c8dae-ce50-44ef-806b-8fcb2f9f5b41
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:15.872Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 80bd5274-ed24-48e0-a72e-caee287ee4e0
+            hippotranslation:locale: en
+            visitscotland:grid: Grid 3
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: Card Grid Layout with too many Elements
+            visitscotland:translation: ''
+            /visitscotland:megalinkItems[1]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
+            /visitscotland:megalinkItems[2]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+            /visitscotland:megalinkItems[3]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
+            /visitscotland:megalinkItems[4]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
+            /visitscotland:megalinkItems[5]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>If the card grid has too many elements, it should
+                be converted into a list layout</p>
+          /card-grid-above-5-elements[3]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 6089d97a-7f30-4cd7-8a18-685467d32a32
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:20.220Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-11-05T15:49:23.887Z
+            hippotranslation:id: 80bd5274-ed24-48e0-a72e-caee287ee4e0
+            hippotranslation:locale: en
+            visitscotland:grid: Grid 3
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: Card Grid Layout with too many Elements
+            visitscotland:translation: ''
+            /visitscotland:megalinkItems[1]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
+            /visitscotland:megalinkItems[2]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+            /visitscotland:megalinkItems[3]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
+            /visitscotland:megalinkItems[4]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
+            /visitscotland:megalinkItems[5]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>If the card grid has too many elements, it should
+                be converted into a list layout</p>
+        /card-grid-3:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: cf2969db-5270-4cdf-b0dc-d883eae043a0
-          hippo:name: Links List example (copy 2)
-          hippo:versionHistory: ecd8a59d-7a3f-4d4f-a585-46f7d1450aa1
-          /links-list-example-copy-2[1]:
+          hippo:name: Card Grid 3 (Deprecated)
+          hippo:versionHistory: 23ea9c2c-a69a-4467-b0d6-475c8994574e
+          /card-grid-3[1]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:versionable']
             jcr:uuid: fa075318-4cf7-4524-b115-170545c7fa0a
@@ -35540,14 +36543,14 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-08-22T17:47:37.132+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:52.964Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 3f40a071-75ef-4c17-9527-398b35fbb50e
             hippotranslation:locale: en
             visitscotland:grid: Grid 3
-            visitscotland:layout: List
+            visitscotland:layout: Grid 3
             visitscotland:teaserVisible: true
-            visitscotland:title: An example of a links list
+            visitscotland:title: Card Grid 3 Layout
             visitscotland:translation: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
@@ -35581,7 +36584,7 @@
                 /visitscotland:videoLink:
                   jcr:primaryType: hippo:mirror
                   hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
-          /links-list-example-copy-2[2]:
+          /card-grid-3[2]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: ebfa68f8-4ba2-49e5-9e53-3a478df0cf94
@@ -35590,14 +36593,14 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-08-22T17:47:46.197+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:45.589Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 3f40a071-75ef-4c17-9527-398b35fbb50e
             hippotranslation:locale: en
             visitscotland:grid: Grid 3
-            visitscotland:layout: List
+            visitscotland:layout: Grid 3
             visitscotland:teaserVisible: true
-            visitscotland:title: An example of a links list
+            visitscotland:title: Card Grid 3 Layout
             visitscotland:translation: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
@@ -35631,7 +36634,7 @@
                 /visitscotland:videoLink:
                   jcr:primaryType: hippo:mirror
                   hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
-          /links-list-example-copy-2[3]:
+          /card-grid-3[3]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: c65fa21a-d2fc-4fa2-a981-93b100760cff
@@ -35640,15 +36643,172 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-08-22T17:47:37.132+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:52.964Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-08-22T17:48:21.391+01:00
+            hippostdpubwf:publicationDate: 2025-11-05T15:49:55.170Z
             hippotranslation:id: 3f40a071-75ef-4c17-9527-398b35fbb50e
             hippotranslation:locale: en
             visitscotland:grid: Grid 3
-            visitscotland:layout: List
+            visitscotland:layout: Grid 3
             visitscotland:teaserVisible: true
-            visitscotland:title: An example of a links list
+            visitscotland:title: Card Grid 3 Layout
+            visitscotland:translation: ''
+            /visitscotland:megalinkItems[1]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
+            /visitscotland:megalinkItems[2]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+            /visitscotland:megalinkItems[3]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
+            /visitscotland:megalinkItems[4]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
+            /visitscotland:megalinkItems[5]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
+        /card-grid-4:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: e9004d7f-78ce-48e6-9e3a-4d94c09fe69f
+          hippo:name: Card Grid 4 (Deprecated)
+          hippo:versionHistory: 98c902cb-0f88-4306-bd63-b3c3caa232ac
+          /card-grid-4[1]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: aeed6bbf-d694-4e4a-8917-c1632331b35f
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:39.966Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 51fead90-e4d7-4915-aaa0-52a6fc04c32f
+            hippotranslation:locale: en
+            visitscotland:grid: Grid 3
+            visitscotland:layout: Grid 4
+            visitscotland:teaserVisible: true
+            visitscotland:title: Card Grid 4 Layout
+            visitscotland:translation: ''
+            /visitscotland:megalinkItems[1]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
+            /visitscotland:megalinkItems[2]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+            /visitscotland:megalinkItems[3]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
+            /visitscotland:megalinkItems[4]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
+            /visitscotland:megalinkItems[5]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
+          /card-grid-4[2]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 49095b65-4a3d-47f6-b18d-efd67c1f6a2c
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:26.728Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 51fead90-e4d7-4915-aaa0-52a6fc04c32f
+            hippotranslation:locale: en
+            visitscotland:grid: Grid 3
+            visitscotland:layout: Grid 4
+            visitscotland:teaserVisible: true
+            visitscotland:title: Card Grid 4 Layout
+            visitscotland:translation: ''
+            /visitscotland:megalinkItems[1]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
+            /visitscotland:megalinkItems[2]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+            /visitscotland:megalinkItems[3]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
+            /visitscotland:megalinkItems[4]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
+            /visitscotland:megalinkItems[5]:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
+          /card-grid-4[3]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 43e77c22-86b0-439c-984e-a7c0c9a03b36
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
+            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:39.966Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-11-05T15:49:42.896Z
+            hippotranslation:id: 51fead90-e4d7-4915-aaa0-52a6fc04c32f
+            hippotranslation:locale: en
+            visitscotland:grid: Grid 3
+            visitscotland:layout: Grid 4
+            visitscotland:teaserVisible: true
+            visitscotland:title: Card Grid 4 Layout
             visitscotland:translation: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
