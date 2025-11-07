@@ -14,7 +14,8 @@
         <vs-col>
             <vs-card-group scroll-snap="always">
                 <#list links as card>
-                    <#if card.image.cmsImage??>
+                    <#assign image = "">
+                    <#if card.image?? && card.image.cmsImage??>
                         <#assign image>
                             <@hst.link hippobean=card.image.cmsImage.original/>
                         </#assign>
@@ -40,12 +41,14 @@
                                 </vs-heading>
                             </div>
                         </template>
+                    <#if image?has_content>
                     <template v-slot:vs-card-image>
                         <vs-img 
                             src="${image}"
                             class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                         />
                     </template>
+                    </#if>
                </vs-card>
                 </#list>
             </vs-card-group>
