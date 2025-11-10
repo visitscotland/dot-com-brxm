@@ -20,16 +20,19 @@
     </#assign>
 
     <vs-container>
-    <vs-row>
-        <vs-col>
-    <vs-spotlight-section
-        heading="${module.title}"
-        image-src="${image}"
-        cta-link="${module.cta.link}"
-        cta-text="${module.cta.label}"
-        description="${description}"
-    />
-    </col>
-    </row>
+        <vs-row>
+            <vs-col>
+                <vs-spotlight-section
+                    heading="${module.title}"
+                    image-src="${image}"
+                    cta-link="${module.cta.link}"
+                    cta-text="${module.cta.label}"
+                    description="${description}"
+                    <#if module.layout?? && module.layout == "compact">
+                    compact
+                    </#if>
+                />
+            </col>
+        </row>
     </vs-container>
 </#macro>
