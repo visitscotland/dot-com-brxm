@@ -49,7 +49,7 @@
     </#if>
 
 	<#if pageIntroData?? && pageIntroData.categorySection??>
-		<div class="mt-175 mt-md-500">
+		<div class="mt-175 mt-md-500 mb-175 mb-md-500">
 			<@categorySection data=pageIntroData.categorySection />
 		</div>
 	</#if>
