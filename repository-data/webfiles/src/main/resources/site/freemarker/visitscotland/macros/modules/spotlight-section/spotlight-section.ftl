@@ -32,7 +32,7 @@
                     compact
                     </#if>
                 />
-            </col>
-        </row>
+            </vs-col>
+        </vs-row>
     </vs-container>
 </#macro>
