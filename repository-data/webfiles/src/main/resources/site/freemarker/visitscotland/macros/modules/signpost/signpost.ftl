@@ -7,7 +7,7 @@
         <@hst.webfile path='${module.image.externalImage}'/>
     </#assign>
 
-    </br>
-    <@spotlightSection module.title image module.cta.link module.cta.label module.copy true/>
-    </br>
+    <div class="mt-175 mt-md-500 mb-175 mb-md-500">
+        <@spotlightSection module.title image module.cta.link module.cta.label module.copy true/>
+    </div>
 </#macro>
