@@ -3,8 +3,6 @@ package com.visitscotland.brxm.hippobeans;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
-import com.visitscotland.brxm.hippobeans.Image;
-import com.visitscotland.brxm.hippobeans.CMSLink;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:Spotlight")
 @Node(jcrType = "visitscotland:Spotlight")
@@ -37,5 +35,10 @@ public class Spotlight extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:translation")
     public String getTranslation() {
         return getSingleProperty("visitscotland:translation");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:layout")
+    public String getLayout() {
+        return getSingleProperty("visitscotland:layout");
     }
 }

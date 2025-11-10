@@ -52,6 +52,7 @@ public class SpotlightFactory {
         module.setImage(image);
         module.setTitle(spotlight.getTitle());
         module.setCopy(spotlight.getCopy());
+        module.setLayout(spotlight.getLayout());
         module.setHippoBean(spotlight);
         module.setAnchor(anchorFormatter.getAnchorOrFallback(spotlight.getAnchor(), spotlight::getTitle));
 

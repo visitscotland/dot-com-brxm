@@ -9,6 +9,7 @@ public class SpotlightModule extends Module<Spotlight> {
         private HippoHtml copy;
         private FlatLink cta;
         private FlatImage image;
+        private String layout;
 
         public String getTitle() {
             return title;
@@ -42,6 +43,13 @@ public class SpotlightModule extends Module<Spotlight> {
             this.image = image;
         }
 
+        public String getLayout() {
+            return layout;
+        }
+
+        public void setLayout(String layout) {
+            this.layout = layout;
+        }
 
 }
 

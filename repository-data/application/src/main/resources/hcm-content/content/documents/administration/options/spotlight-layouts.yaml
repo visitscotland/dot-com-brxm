@@ -1,0 +1,20 @@
+/content/documents/administration/options/spotlight-layouts:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 2b028c30-e091-46ca-9a99-1f20e9aad2bc
+  hippo:name: Spotlight Layouts
+  /spotlight-layouts:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 47788c1e-b057-4981-9266-7d265004f5f1
+    hippo:availability: [live, preview]
+    hippotranslation:id: 58e57d0d-dbb5-43e7-93c1-addac3cc799c
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: default
+      selection:label: Default
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: compact
+      selection:label: Compact

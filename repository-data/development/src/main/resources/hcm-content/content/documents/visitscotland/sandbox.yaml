@@ -40181,10 +40181,11 @@
       hippotranslation:locale: en
       /content:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: fc240d0c-cadc-4f04-a5c7-734393ce50b2
         hippo:name: content
-        /content:
+        hippo:versionHistory: a94deef9-7c3d-4ad3-831e-097903432738
+        /content[1]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:versionable']
           jcr:uuid: 8840657b-0b9d-4775-ae0f-63150e884c27
@@ -40242,6 +40243,227 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 191da414-2b36-40eb-85bc-0a1730f5a5da
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 471ed770-2838-4fd7-bee1-472e8551f0a3
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2020-11-27T12:36:37.172Z
+          hippostdpubwf:lastModificationDate: 2025-11-03T13:49:17.023Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 73af9830-d7fe-4158-b74e-3f533370ee24
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:newsletter: true
+          visitscotland:seoDescription: We are committed to continuing to improve
+            our environmental performance
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Long Copy
+          visitscotland:teaser: Use the long copy module to display a lot of text
+            e.g. policy pages
+          visitscotland:theme: Simple
+          visitscotland:title: Long Copy
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>We are committed to continuing to improve our environmental
+              performance, minimising our environmental impact and making resource
+              efficiency a core requirement of all our operations. We will seek to
+              promote good practice by others.</p>
+          /visitscotland:otherThings:
+            jcr:primaryType: visitscotland:OTYML
+            visitscotland:title: ''
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:links[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8b4a3c11-8b84-4aa0-bccf-f407d18c1c44
+            /visitscotland:links[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: be4580f8-d75e-4271-b7cc-8b51bf06ee15
+            /visitscotland:links[3]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8e942b8d-2945-4c08-a5f7-436516425c05
+            /visitscotland:links[4]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 12769b1b-a558-47da-93e3-77e399eee614
+            /visitscotland:links[5]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 191da414-2b36-40eb-85bc-0a1730f5a5da
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 2f084530-27c0-47fa-aad9-612d66bccebb
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2020-11-27T12:36:37.172Z
+          hippostdpubwf:lastModificationDate: 2022-08-23T13:02:57.767+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-10-28T16:18:37.278Z
+          hippotranslation:id: 73af9830-d7fe-4158-b74e-3f533370ee24
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:newsletter: true
+          visitscotland:seoDescription: We are committed to continuing to improve
+            our environmental performance
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Long Copy
+          visitscotland:teaser: Use the long copy module to display a lot of text
+            e.g. policy pages
+          visitscotland:theme: Simple
+          visitscotland:title: Long Copy
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>We are committed to continuing to improve our environmental
+              performance, minimising our environmental impact and making resource
+              efficiency a core requirement of all our operations. We will seek to
+              promote good practice by others.</p>
+          /visitscotland:otherThings:
+            jcr:primaryType: visitscotland:OTYML
+            visitscotland:title: ''
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:links[1]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8b4a3c11-8b84-4aa0-bccf-f407d18c1c44
+            /visitscotland:links[2]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: be4580f8-d75e-4271-b7cc-8b51bf06ee15
+            /visitscotland:links[3]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 8e942b8d-2945-4c08-a5f7-436516425c05
+            /visitscotland:links[4]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 12769b1b-a558-47da-93e3-77e399eee614
+            /visitscotland:links[5]:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 191da414-2b36-40eb-85bc-0a1730f5a5da
+      /spotlight-test:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: eb3876cb-2b18-4de6-b9a3-ae3221583ae1
+        hippo:versionHistory: 8ccd0fe0-b8d3-4092-bccf-ca98ca3dc9ff
+        /spotlight-test[1]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b4c4ad80-581e-4cae-b790-954d2bcb0710
+          hippo:availability: []
+          hippostd:holder: admin
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2025-11-06T10:15:13.265Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 7c060e78-53d4-44af-b7a8-faf68f5cc340
+          hippotranslation:locale: en
+          visitscotland:anchor: hdhdsjsjs
+          visitscotland:layout: compact
+          visitscotland:title: title2test
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p><em>copy</em> test</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /spotlight-test[2]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: a9bd0259-bc32-4031-98d5-20c9d64ffb64
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2025-11-05T14:45:55.839Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 7c060e78-53d4-44af-b7a8-faf68f5cc340
+          hippotranslation:locale: en
+          visitscotland:anchor: hdhdsjsjs
+          visitscotland:layout: compact
+          visitscotland:title: title2test
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p><em>copy</em> test</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /spotlight-test[3]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 802e740c-8cd5-49b4-befc-9fbcab3a65ba
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2025-11-05T14:45:55.839Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-11-05T14:46:01.648Z
+          hippotranslation:id: 7c060e78-53d4-44af-b7a8-faf68f5cc340
+          hippotranslation:locale: en
+          visitscotland:anchor: hdhdsjsjs
+          visitscotland:layout: compact
+          visitscotland:title: title2test
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p><em>copy</em> test</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
   /features:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
