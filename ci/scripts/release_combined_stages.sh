@@ -347,6 +347,15 @@ JSON
 # =====================================================================
 # Main dispatcher
 # =====================================================================
+# Loop over every argument passed to the script.
+# If any argument starts with --mode=,
+# extract whatever comes after = and store it in MODE.
+for arg in "$@"; do
+  case "$arg" in
+    --mode=*) MODE="${arg#*=}" ;;
+  esac
+done
+
 main() {
   case "$MODE" in
     all) step_1_find_distro; step_2_parse_log; step_3_extract_build_number; step_4_parse_pom; step_5_compose_email; step_6_write_outputs ;;
@@ -356,8 +365,9 @@ main() {
     step4) step_4_parse_pom ;;
     step5) step_5_compose_email ;;
     step6) step_6_write_outputs ;;
-    *) echo "Usage: $0 [POM] [BUILD_NUMBER_FILE] [OUT_DIR] [LOG_FILE] [PROPS_PATH] [SITE_WAR] [MANIFEST_PATH] [MODE]" >&2
-       echo "Modes: all, step1, step2, step3, step4, step5, step6"
+    *) echo "Usage: $0 [POM] [BUILD_NUMBER_FILE] [OUT_DIR] [LOG_FILE] [PROPS_PATH] [SITE_WAR] [MANIFEST_PATH] [MODE|--mode=MODE]" >&2
+       echo "  MODE can be: all, step1, step2, step3, step4, step5, step6"
+       echo "  You can specify it either as a positional argument or with --mode=stepX (flag form)"
        exit 1 ;;
   esac
 }
