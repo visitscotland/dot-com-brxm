@@ -2,6 +2,8 @@ package com.visitscotland.brxm.utils.pagebuilder;
 
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.model.megalinks.LinksModule;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +17,12 @@ public class GeneralPageAdapter implements PageAdapter<General> {
     }
 
     public PageIntro getPageIntro(HstRequest request, General page) {
-        return new PageIntro(page, categoryCardsMapper.getCategoryCards(request, page.getCategoryLinks()));
+        LinksModule<EnhancedLink> categorySection = null;
+        if (page.getCategoryLinks() != null){
+            categorySection = categoryCardsMapper.getCategoryCards(request, page.getCategoryLinks());
+        }
+
+        return new PageIntro(page, categorySection);
     }
 
     @Override
