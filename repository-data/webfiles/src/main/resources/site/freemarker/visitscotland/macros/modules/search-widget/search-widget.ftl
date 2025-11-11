@@ -2,15 +2,15 @@
 <#include "../../../../frontend/components/vs-container.ftl">
 <#include "../../../../frontend/components/vs-fed-search-input.ftl">
 
-<#macro searchWidget>
+<#macro siteSearchWidget>
 
     <#assign searchCategories =  ResourceBundle.getAllLabels("search-categories", locale) />
 
     <vs-container>
         <vs-fed-search-input
-            cludo-api-key="${label('default.site.config', 'cludo.api')}"
-            :cludo-customer-id="${label('default.site.config', 'cludo.customer-id')}"
-            :cludo-engine-id="${label('default.site.config', 'cludo.engine-id')}"
+            cludo-api-key="${cludoAPI}"
+            :cludo-customer-id="${cludoCustomerId}"
+            :cludo-engine-id="${cludoEngineId}"
             :filters="[
                 <#list searchCategories?keys?sort as key>
                     { Key: '${key}', Label: '${escapeJSON(searchCategories[key], false)}'},

@@ -159,9 +159,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel("eventsAPI", properties.getProperty("events.endpoint", request.getLocale()));
             if (isHomepage(request)) {
                 request.setModel(SEARCH_WIDGET, true);
-            }else{
-                request.setModel(SEARCH_WIDGET, false);
-                labels(request).put(SEARCH_EVENTS_CATEGORIES, bundle.getAllLabels(SEARCH_EVENTS_FILTERS, request.getLocale()));
             }
         }
 
