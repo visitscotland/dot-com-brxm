@@ -29,6 +29,7 @@ public class Banner extends BaseDocument {
         return getSingleProperty("visitscotland:translationPriority");
     }
 
+    @HippoEssentialsGenerated(internalName = "visitscotland:ctaLink", allowModifications = false)
     public HippoBean getCtaLink() {
         return getBean("visitscotland:ctaLink");
     }
