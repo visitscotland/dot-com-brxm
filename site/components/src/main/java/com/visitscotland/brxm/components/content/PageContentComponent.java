@@ -48,6 +48,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String VIDEO_HEADER = "videoHeader";
     public static final String PSR_WIDGET = "psrWidget";
 
+    public static final String SEARCH_WIDGET = "searchWidget";
     public static final String SEARCH_RESULTS = "searchResultsPage";
     public static final String SEARCH_RESULTS_URL = "searchResultsUrl";
     public static final String METADATA_MODEL = "metadata";
@@ -157,8 +158,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel("cludoAPI", properties.getProperty("cludo.api", request.getLocale()));
             request.setModel("eventsAPI", properties.getProperty("events.endpoint", request.getLocale()));
             if (isHomepage(request)) {
-                request.setModel("searchWidget", true);
+                request.setModel(SEARCH_WIDGET, true);
             }else{
+                request.setModel(SEARCH_WIDGET, false);
                 labels(request).put(SEARCH_EVENTS_CATEGORIES, bundle.getAllLabels(SEARCH_EVENTS_FILTERS, request.getLocale()));
             }
         }
