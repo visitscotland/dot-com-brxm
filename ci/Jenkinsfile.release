@@ -483,7 +483,7 @@ pipeline {
                       "ci/properties/release_env.properties" \
                       "site/webapp/target/site.war" \
                       "META-INF/MANIFEST.MF" \
-                      "all"
+                      "--mode=all"
                   '''
                 }
                 // Wrap all Groovy logic in a script block
