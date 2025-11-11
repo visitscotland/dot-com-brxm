@@ -482,7 +482,8 @@ pipeline {
                       "${GIT_COMMIT}.log" \
                       "ci/properties/release_env.properties" \
                       "site/webapp/target/site.war" \
-                      "META-INF/MANIFEST.MF"
+                      "META-INF/MANIFEST.MF" \
+                      "all"
                   '''
                 }
                 // Wrap all Groovy logic in a script block
