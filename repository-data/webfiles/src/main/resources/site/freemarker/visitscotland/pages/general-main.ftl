@@ -60,7 +60,7 @@
 	</#if>
 
 	<#--  Add widget here on homepage  -->
-	<#if searchWidget??>
+	<#if searchWidget?? && searchWidget>
 		<div class="mt-175 mt-md-500 mb-175 mb-md-500">
 			<@searchWidget />
 		</div>
