@@ -15,14 +15,14 @@
             :cludo-customer-id="${cludoCustomerId}"
             :cludo-engine-id="${cludoEngineId}"
             events-api="${eventsAPI}"
+            :filters="[
+                <#list searchCategories?keys?sort as key>
+                    { Key: '${key}', Label: '${escapeJSON(searchCategories[key], false)}'},
+                </#list>
+            ]"
             :sub-filters="[
                 <#list searchEventFilters?keys?sort as key>
                     { Key: '${key}', Label: '${escapeJSON(searchEventFilters[key], false)}'},
-                </#list>
-            ]"
-            :cludo-categories="[
-                <#list searchCategories?keys?sort as key>
-                    { Key: '${key}', Label: '${escapeJSON(searchCategories[key], false)}'},
                 </#list>
             ]"
             :card-category-labels="{

@@ -16,6 +16,7 @@
     <#include "../macros/modules/page-intro/page-intro.ftl">
     <#include "../macros/modules/page-intro/hero-section.ftl">
     <#include "../macros/global/otyml.ftl">
+	<#include "../macros/modules/search-widget/search-widget.ftl">
 
     <#-- Implicit Request Objects -->
     <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.General" -->
@@ -52,6 +53,13 @@
         <@pageIntro content=document lightBackground=true />
     </#if>
 
+	<#--  Add widget here on homepage  -->
+	<#if searchWidget??>
+		<div class="mt-175 mt-md-500 mb-175 mb-md-500">
+			<@searchWidget />
+		</div>
+	</#if>
+
 	<#if psrWidget?? && psrWidget.position = "Top">
 		<@productSearchWidget psrWidget/>
 	</#if>
@@ -60,8 +68,7 @@
 		<vs-html-error status-code="${errorCode}"></vs-html-error>
 	</#if>
 
-
-    <#if searchResultsPage??>
+	<#if searchResultsPage??>
         <@searchResults pageItems />
 	<#else>
 		<#--TODO Control abput colours, change style="background-color:${style}  -->
