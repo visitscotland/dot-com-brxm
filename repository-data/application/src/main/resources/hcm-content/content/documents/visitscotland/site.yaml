@@ -11,7 +11,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: c0e6cfc5-53fa-4a5f-89dd-9b23624d08a4
     hippo:name: Home Page
-    hippo:versionHistory: 155e7fce-2080-4b4b-97cd-f75a75c12af3
+    hippo:versionHistory: 1152b024-a720-4ead-8ba7-bbbbd9fa6830
     /content[1]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -21,7 +21,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2025-06-17T10:51:56.453+01:00
+      hippostdpubwf:lastModificationDate: 2025-11-11T15:22:15.913Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
       hippotranslation:locale: en
@@ -62,6 +62,21 @@
         /visitscotland:videoLink:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
+      /visitscotland:categoryLinks:
+        jcr:primaryType: visitscotland:PageLinksSectionCompound
+        visitscotland:title: Inspiration for your trip
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Step into l...</p>
+        /visitscotland:links[1]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /visitscotland:links[2]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: feec2d62-687a-47a6-a12d-177d48176891
+        /visitscotland:links[3]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cbc8477d-1deb-4153-b663-12212905b472
     /content[2]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -71,7 +86,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2025-06-17T14:11:00.535+01:00
+      hippostdpubwf:lastModificationDate: 2025-11-11T15:32:37.595Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
       hippotranslation:locale: en
@@ -112,6 +127,21 @@
         /visitscotland:videoLink:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
+      /visitscotland:categoryLinks:
+        jcr:primaryType: visitscotland:PageLinksSectionCompound
+        visitscotland:title: Inspiration for your trip
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Step into l...</p>
+        /visitscotland:links[1]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /visitscotland:links[2]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: feec2d62-687a-47a6-a12d-177d48176891
+        /visitscotland:links[3]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cbc8477d-1deb-4153-b663-12212905b472
     /content[3]:
       jcr:primaryType: visitscotland:General
       jcr:mixinTypes: ['mix:referenceable']
@@ -121,9 +151,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-06-29T15:19:57.775+01:00
-      hippostdpubwf:lastModificationDate: 2025-06-17T14:11:00.535+01:00
+      hippostdpubwf:lastModificationDate: 2025-11-11T15:32:37.595Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-06-17T14:11:03.697+01:00
+      hippostdpubwf:publicationDate: 2025-11-11T15:32:53.555Z
       hippotranslation:id: aa69f65e-dcae-46ea-b584-32fc6418ff21
       hippotranslation:locale: en
       visitscotland:breadcrumb: ''
@@ -163,6 +193,21 @@
         /visitscotland:videoLink:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
+      /visitscotland:categoryLinks:
+        jcr:primaryType: visitscotland:PageLinksSectionCompound
+        visitscotland:title: Inspiration for your trip
+        /visitscotland:copy:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Step into l...</p>
+        /visitscotland:links[1]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /visitscotland:links[2]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: feec2d62-687a-47a6-a12d-177d48176891
+        /visitscotland:links[3]:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cbc8477d-1deb-4153-b663-12212905b472
   /site-search-results:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']

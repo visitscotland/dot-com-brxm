@@ -5,7 +5,6 @@
     <#include "../macros/modules/page-intro/intro-image.ftl">
     <#include "../macros/modules/product-search/psr-module.ftl">
     <#include "../macros/modules/signpost/signpost.ftl">
-	<#include "../macros/modules/category-section/category-section.ftl">
     <#include "../macros/shared/module-builder.ftl">
     <#include "../macros/modules/search-results/search-results.ftl">
     <#include "../../frontend/components/vs-container.ftl">
@@ -17,6 +16,7 @@
     <#include "../macros/modules/page-intro/page-intro.ftl">
     <#include "../macros/modules/page-intro/hero-section.ftl">
     <#include "../macros/global/otyml.ftl">
+	<#include "../macros/modules/search-widget/search-widget.ftl">
 
     <#-- Implicit Request Objects -->
     <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.General" -->
@@ -26,6 +26,7 @@
     <#assign standardTemplate = (document.theme == "Standard") />
     <#assign simpleTemplate = (document.theme == "Simple") />
 	<#assign inspirationTemplate = (document.theme == "Inspiration") />
+
 </#compress>
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
@@ -58,6 +59,13 @@
 		</div>
 	</#if>
 
+	<#--  Add widget here on homepage  -->
+	<#if searchWidget??>
+		<div class="mt-175 mt-md-500 mb-175 mb-md-500">
+			<@searchWidget />
+		</div>
+	</#if>
+
 	<#if psrWidget?? && psrWidget.position = "Top">
 		<@productSearchWidget psrWidget/>
 	</#if>
@@ -66,8 +74,7 @@
 		<vs-html-error status-code="${errorCode}"></vs-html-error>
 	</#if>
 
-
-    <#if searchResultsPage??>
+	<#if searchResultsPage??>
         <@searchResults pageItems />
 	<#else>
 		<#--TODO Control abput colours, change style="background-color:${style}  -->
