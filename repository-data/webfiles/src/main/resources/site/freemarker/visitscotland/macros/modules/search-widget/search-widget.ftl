@@ -26,7 +26,7 @@
                 resultsSecond: '${label('search', 'results.second-sentence')}',
                 noJs: '${label('search', 'no-js')}',
             }"
-            search-url="<@hst.link path="${property('global-search.path', locale)}" />"
+            search-url="<@hst.link fullyQualified=fullyQualifiedURLs siteMapItemRefId='search-page'/>"
         >
         </vs-fed-search-input>
     </vs-container>
