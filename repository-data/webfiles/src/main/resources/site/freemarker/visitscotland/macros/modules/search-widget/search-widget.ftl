@@ -2,11 +2,18 @@
 <#include "hst:hst/macros.ftl">
 <#include "../../../../frontend/components/vs-container.ftl">
 <#include "../../../../frontend/components/vs-fed-search-input.ftl">
+<#include "../section-header/section-header.ftl">
+
 <#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
 <#macro siteSearchWidget>
 
     <#assign searchCategories =  ResourceBundle.getAllLabels("search-categories", locale) />
+    <#assign widgetHeading = label('search', 'search.widget-title') />
+    <#assign widgetLede = label('search', 'search.widget-label') />
+    
     <vs-container>
+        <@sectionHeader heading=widgetHeading lede=widgetLede />
+
         <vs-fed-search-input
             cludo-api-key="${cludoAPI}"
             :cludo-customer-id="${cludoCustomerId}"

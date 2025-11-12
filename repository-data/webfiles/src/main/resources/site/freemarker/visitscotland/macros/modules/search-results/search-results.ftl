@@ -20,7 +20,7 @@
                     { Key: '${key}', Label: '${escapeJSON(searchEventFilters[key], false)}'},
                 </#list>
             ]"
-            :cludo-categories="[
+            :filters="[
                 <#list searchCategories?keys?sort as key>
                     { Key: '${key}', Label: '${escapeJSON(searchCategories[key], false)}'},
                 </#list>

@@ -6,7 +6,11 @@
         heading="${heading}"
     >
         <template v-slot:section-header-lede>
+        <#if lede?is_string>
+            ${lede}
+        <#else>
             <@hst.html hippohtml=lede />
+        </#if>
         </template>
     </vs-section-header>
 </#macro>
