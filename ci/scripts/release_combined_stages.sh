@@ -347,9 +347,9 @@ JSON
     echo "VS_EMAIL_HTML_FILE=${EMAIL_HTML_FILE}"
   } >> "$PROPS_PATH"
 
-  echo "            Wrote: $RESULTS_JSON"
-  echo "            Wrote: $PROPS_PATH"
-  echo "            Wrote: $EMAIL_HTML_FILE"
+  echo "            (debugging) Wrote: $RESULTS_JSON"
+  echo "            (debugging) Wrote: $PROPS_PATH"
+  echo "            (debugging) Wrote: $EMAIL_HTML_FILE"
 }
 
 # =====================================================================
