@@ -164,24 +164,32 @@ step_3_extract_build_number() {
       #     --------------------------------------------------------------------------------
       # Solution:
       #   Implemented counter-measures for the aforementioned race conditions by waiting for .war
-      #   to be stable, as well as for MANIFEST.MF within it to be finalised (waits up to ~2s)
-      for i in {1..10}; do
+      #   to be stable, as well as for MANIFEST.MF within it to be finalised (waits up to ~4s)
+      manifest_found=false
+      MAX_RETRIES="${MAX_RETRIES:-10}"
+      SLEEP_INTERVAL="${SLEEP_INTERVAL:-0.2}"
+      for ((i=1; i<=MAX_RETRIES; i++)); do
+        msg="(counter-measure for race conditions attempt #$i)"
         s1=$(stat -c%s "$SITE_WAR" 2>/dev/null || echo 0)
-        sleep 0.2
+        sleep "$SLEEP_INTERVAL"
         s2=$(stat -c%s "$SITE_WAR" 2>/dev/null || echo 0)
+
         if (( s1 == s2 && s1 > 0 )); then
-          if unzip -l "$SITE_WAR" | grep -qF "$MANIFEST_PATH"; then
+          if unzip -l "$SITE_WAR" 2>/dev/null | grep -qF "$MANIFEST_PATH"; then
+            echo "INFO: MANIFEST.MF found inside $SITE_WAR $msg after $i attempt(s)"
+            manifest_found=true
             break
           else
-            echo "INFO: MANIFEST.MF not yet visible inside $SITE_WAR (counter-measure for race conditions attempt #$i)"
+            echo "INFO: MANIFEST.MF not yet visible inside $SITE_WAR $msg"
           fi
         else
-          echo "INFO: $SITE_WAR is not finalised/stable yet (counter-measure for race conditions attempt #$i)"
+          echo "INFO: $SITE_WAR is not finalised/stable yet $msg"
         fi
+        sleep sleep "$SLEEP_INTERVAL"  # allow time between retries
       done
 
-      # Check if the MANIFEST.MF exists inside the WAR file
-      if unzip -l "$SITE_WAR" | grep -qF "$MANIFEST_PATH"; then
+      # Check if the MANIFEST.MF exists inside the WAR file (replaced with the boolean check to save resources)
+      if $manifest_found; then
         # Check if the Build-Number entry exists within the MANIFEST.MF
         # Extract (stream) that file’s contents and read lines from it
         if unzip -p "$SITE_WAR" "$MANIFEST_PATH" | grep -qE '^Build-Number(:|\s)'; then
