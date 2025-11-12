@@ -87,7 +87,11 @@
         <#elseif module.getType()== "SimpleDevModule">
             <@includeOnce "../modules/dev-module/dev-module.ftl" />
             <@devModule module/>
-        <#elseif module.getType()== "SignpostModule" || module.getType()== "SpotlightModule">
+        <#elseif module.getType()== "SpotlightModule">
+            <@includeOnce "../modules/featured-content/featured-content.ftl" />
+            <@featuredContent module/>
+        <#elseif module.getType()== "SignpostModule">
+            <#-- TODO: This block should be removed by VS-825 -->
             <@includeOnce "../modules/featured-content/featured-content.ftl" />
             <@featuredContent module/>
         <#else >
