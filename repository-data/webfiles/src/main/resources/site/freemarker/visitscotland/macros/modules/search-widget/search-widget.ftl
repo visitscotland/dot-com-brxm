@@ -1,5 +1,4 @@
 <#include "../../../../include/imports.ftl">
-<#include "hst:hst/macros.ftl">
 <#include "../../../../frontend/components/vs-container.ftl">
 <#include "../../../../frontend/components/vs-fed-search-input.ftl">
 <#include "../section-header/section-header.ftl">

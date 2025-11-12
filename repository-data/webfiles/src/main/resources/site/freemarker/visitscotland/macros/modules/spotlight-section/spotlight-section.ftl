@@ -2,7 +2,6 @@
 <#include "../../../../frontend/components/vs-spotlight-section.ftl">
 
 <#macro spotlightSection module>
-    <#assign compact=true>
      <#if module.image.cmsImage??>
         <#assign image>
             <@hst.link hippobean=module.image.cmsImage.original/>
@@ -21,17 +20,19 @@
     </#assign>
 
     <vs-container>
-    <vs-row>
-        <vs-col>
-    <vs-spotlight-section
-        heading="${module.title}"
-        image-src="${image}"
-        compact="${compact}"
-        cta-link="${module.cta.link}"
-        cta-text="${module.cta.label}"
-        description="${description}"
-    />
-    </col>
-    </row>
+        <vs-row>
+            <vs-col>
+                <vs-spotlight-section
+                    heading="${module.title}"
+                    image-src="${image}"
+                    cta-link="${module.cta.link}"
+                    cta-text="${module.cta.label}"
+                    description="${description}"
+                    <#if module.layout?? && module.layout == "compact">
+                    compact
+                    </#if>
+                />
+            </vs-col>
+        </vs-row>
     </vs-container>
 </#macro>

@@ -102,7 +102,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGtmConfiguration(request);
         addLabels(request);
         addSiteSpecificConfiguration(request);
-        setSearchPageLink(request);
     }
 
     /**
@@ -162,6 +161,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel("eventsAPI", properties.getProperty("events.endpoint", request.getLocale()));
             if (isHomepage(request)) {
                 request.setModel(SEARCH_WIDGET, true);
+                setSearchPageLink(request);
             }
         }
 
@@ -430,6 +430,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (link != null) {
             // Convert the link to a URL and make it available to the template
             String searchUrl = link.toUrlForm(requestContext, false);
+            request.setAttribute("searchLink", searchUrl);
             request.setModel("searchLink", searchUrl);
         } else {
             logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration.");
