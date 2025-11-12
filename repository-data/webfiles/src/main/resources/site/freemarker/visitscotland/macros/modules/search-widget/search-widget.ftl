@@ -1,11 +1,11 @@
 <#include "../../../../include/imports.ftl">
+<#include "hst:hst/macros.ftl">
 <#include "../../../../frontend/components/vs-container.ftl">
 <#include "../../../../frontend/components/vs-fed-search-input.ftl">
-
+<#-- @ftlvariable name="hstRequestContext" type="org.hippoecm.hst.core.request.HstRequestContext" -->
 <#macro siteSearchWidget>
 
     <#assign searchCategories =  ResourceBundle.getAllLabels("search-categories", locale) />
-
     <vs-container>
         <vs-fed-search-input
             cludo-api-key="${cludoAPI}"
@@ -26,7 +26,7 @@
                 resultsSecond: '${label('search', 'results.second-sentence')}',
                 noJs: '${label('search', 'no-js')}',
             }"
-            search-url="<@hst.link fullyQualified=fullyQualifiedURLs siteMapItemRefId='search-page'/>"
+            search-url="${searchLink!}"
         >
         </vs-fed-search-input>
     </vs-container>

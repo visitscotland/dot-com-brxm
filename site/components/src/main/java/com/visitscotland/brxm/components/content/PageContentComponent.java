@@ -18,6 +18,8 @@ import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.linking.HstLink;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -100,6 +102,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGtmConfiguration(request);
         addLabels(request);
         addSiteSpecificConfiguration(request);
+        setSearchPageLink(request);
     }
 
     /**
@@ -404,5 +407,32 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     boolean isEditMode(HstRequest request) {
         return Boolean.TRUE.equals(request.getAttribute("editMode"));
+    }
+
+    /**
+     * Creates and exposes a locale-aware search page link in the HST request context.
+     *
+     * This method generates an HstLink for the sitemap item with refId "search-page"
+     * and stores it as a request attribute named "searchLink"
+     *
+     * Use this to ensure the search URL is correctly resolved for the current
+     * locale and mount, avoiding hardcoded or relative paths in templates
+     *
+     * @param request the current HstRequest
+     */
+    private void setSearchPageLink(final HstRequest request) {
+        HstRequestContext requestContext = request.getRequestContext();
+
+        // Create a link to the sitemap item with refId "search-page"
+        HstLink link = requestContext.getHstLinkCreator()
+                .createByRefId("search-page", requestContext.getResolvedMount().getMount());
+
+        if (link != null) {
+            // Convert the link to a URL and make it available to the template
+            String searchUrl = link.toUrlForm(requestContext, false);
+            request.setModel("searchLink", searchUrl);
+        } else {
+            logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration.");
+        }
     }
 }
