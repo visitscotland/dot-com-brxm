@@ -1,20 +1,24 @@
 <#include "../../../../../include/imports.ftl">
+<#include "../../../../../frontend/components/vs-container.ftl">
+<#include "../../../../../frontend/components/vs-row.ftl">
+<#include "../../../../../frontend/components/vs-col.ftl">
 <#include "../../../../../frontend/components/vs-card-group.ftl">
 <#include "../../../../../frontend/components/vs-card.ftl">
 <#include "../../../../../frontend/components/vs-img.ftl">
 <#include "../../../../../frontend/components/vs-heading.ftl">
 <#include "../../../../../frontend/components/vs-link.ftl">
 <#include "../../../../../frontend/components/vs-body.ftl">
-<#include "../../../../../frontend/components/vs-container.ftl">
-<#include "../../../../../frontend/components/vs-row.ftl">
-<#include "../../../../../frontend/components/vs-col.ftl">
+<#include "../../../../../frontend/components/vs-section-header.ftl">
 
-<#macro cardGroup item theme>
+<#macro splitLinkGrid item>
     <#assign cardsPerRow = (item.layout == 'Grid 4')?then('4', '3') />
     <vs-container>
         <vs-row>
             <vs-col>
-                <vs-card-group scroll-snap cards-per-row="${cardsPerRow}">
+                <vs-card-group 
+                    cards-per-row="${cardsPerRow}"
+                    scroll-snap
+                >
                     <#list item.links as listItem>
                         <#if listItem.image.cmsImage??>
                             <#assign image>

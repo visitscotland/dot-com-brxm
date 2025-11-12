@@ -37,8 +37,10 @@
             </#list>
         </div>
         <#elseif moduleType == "CardGroupModule">
-            <@includeOnce "../modules/megalinks/cardgroup.ftl" />
-            <@cardgroup item=module type=module.getType() theme=themeName />
+            <@includeOnce "../modules/megalinks/grid/megalinks-card-grid.ftl" />
+            <div class="mt-500">
+                <@megalinksCardGrid item=module />
+            </div>
         <#elseif moduleType == "megalinks">
             <@includeOnce "../modules/megalinks/megalinks.ftl" />
             <#-- all Megalinks modules except HorizontalListLinksModule -->
