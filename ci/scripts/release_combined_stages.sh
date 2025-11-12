@@ -185,7 +185,7 @@ step_3_extract_build_number() {
         else
           echo "INFO: $SITE_WAR is not finalised/stable yet $msg"
         fi
-        sleep sleep "$SLEEP_INTERVAL"  # allow time between retries
+        sleep "$SLEEP_INTERVAL"  # allow time between retries
       done
 
       # Check if the MANIFEST.MF exists inside the WAR file (replaced with the boolean check to save resources)
