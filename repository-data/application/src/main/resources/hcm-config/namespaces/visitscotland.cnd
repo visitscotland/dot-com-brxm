@@ -179,6 +179,9 @@
 [visitscotland:OTYML] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:PageLinksSectionCompound] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:Personalization] > hippo:compound, hippostd:relaxed
   orderable
 

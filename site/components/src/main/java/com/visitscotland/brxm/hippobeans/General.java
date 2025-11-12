@@ -2,6 +2,7 @@ package com.visitscotland.brxm.hippobeans;
 
 import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import com.visitscotland.brxm.hippobeans.PageLinksSectionCompound;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:General")
 @Node(jcrType = "visitscotland:General")
@@ -13,14 +14,11 @@ public class General extends Page {
 
     @Override
     public String[] getChildJcrTypes() {
-        return new String[] { "visitscotland:Megalinks",
-                "visitscotland:TourismInformation", "visitscotland:LongCopy",
-                "visitscotland:Article", "visitscotland:Stackla",
-                "visitscotland:CannedSearchTours", "visitscotland:Form",
-                "visitscotland:CannedSearch", "visitscotland:MapModule",
-                "visitscotland:DevModule", "visitscotland:MarketoForm",
-                "visitscotland:SkiCentre", "visitscotland:SkiCentreList",
-                "visitscotland:CTABanner", "visitscotland:Spotlight"};
+        return new String[] { "visitscotland:Megalinks", "visitscotland:TourismInformation", "visitscotland:LongCopy",
+                "visitscotland:Article", "visitscotland:Stackla", "visitscotland:CannedSearchTours",
+                "visitscotland:Form", "visitscotland:CannedSearch", "visitscotland:MapModule",
+                "visitscotland:DevModule", "visitscotland:MarketoForm", "visitscotland:SkiCentre",
+                "visitscotland:SkiCentreList", "visitscotland:CTABanner", "visitscotland:Spotlight"};
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:otherThings")
@@ -51,5 +49,10 @@ public class General extends Page {
     @HippoEssentialsGenerated(internalName = "visitscotland:pswPosition")
     public String getPswPosition() {
         return getSingleProperty("visitscotland:pswPosition");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:categoryLinks")
+    public PageLinksSectionCompound getCategoryLinks() {
+        return getBean("visitscotland:categoryLinks", PageLinksSectionCompound.class);
     }
 }
