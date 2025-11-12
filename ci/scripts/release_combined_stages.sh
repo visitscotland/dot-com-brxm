@@ -176,14 +176,14 @@ step_3_extract_build_number() {
 
         if (( s1 == s2 && s1 > 0 )); then
           if unzip -l "$SITE_WAR" 2>/dev/null | grep -qF "$MANIFEST_PATH"; then
-            echo "[INFO] MANIFEST.MF found inside $SITE_WAR after $i attempt(s)"
+            echo "            [INFO] MANIFEST.MF found inside $SITE_WAR after $i attempt(s)"
             manifest_found=true
             break
           else
-            echo "[WAIT #$i] MANIFEST.MF not yet visible inside $SITE_WAR $msg"
+            echo "            [WAIT #$i] MANIFEST.MF not yet visible inside $SITE_WAR $msg"
           fi
         else
-          echo "[WAIT #$i] $SITE_WAR is not finalised/stable yet $msg"
+          echo "            [WAIT #$i] $SITE_WAR is not finalised/stable yet $msg"
         fi
         sleep "$SLEEP_INTERVAL"  # allow time between retries
       done
@@ -205,15 +205,15 @@ step_3_extract_build_number() {
           VS_SITE_WAR_BUILD_NUMBER="$(unzip -p "$SITE_WAR" "$MANIFEST_PATH" \
           | awk -F'[: ]+' '/^Build-Number(:| ){1}/{print $2; exit}' \
           | tr -d '\r[:space:]')"
-          echo "[INFO] Build number extracted from within .war's manifest.mf entry: $VS_SITE_WAR_BUILD_NUMBER"
+          echo "            [INFO] Build number extracted from within .war's manifest.mf entry: $VS_SITE_WAR_BUILD_NUMBER"
         else
-          echo "[WARN] Build-Number entry not found in ${MANIFEST_PATH}" >&2
+          echo "            [WARN] Build-Number entry not found in ${MANIFEST_PATH}" >&2
         fi
       else
-        echo "[WARN] MANIFEST ${MANIFEST_PATH} not found in ${SITE_WAR} after waiting; skipping." >&2
+        echo "            [WARN] MANIFEST ${MANIFEST_PATH} not found in ${SITE_WAR} after waiting; skipping." >&2
       fi
     else
-      echo "[WARN] WAR not found: ${SITE_WAR}" >&2
+      echo "            [WARN] WAR not found: ${SITE_WAR}" >&2
     fi
   fi
 }
