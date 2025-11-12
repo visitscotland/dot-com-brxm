@@ -299,7 +299,7 @@ TABLE2
 # =====================================================================
 step_6_write_outputs() {
   echo "==> Step 6: Writing outputs..."
-  echo "MAIL_TO_NET=$MAIL_TO_NET, VS_COMMIT_AUTHOR=$VS_COMMIT_AUTHOR, CC_DEV_LIST=$CC_DEV_LIST"
+  echo "            (debugging) MAIL_TO_NET=$MAIL_TO_NET, VS_COMMIT_AUTHOR=$VS_COMMIT_AUTHOR, CC_DEV_LIST=$CC_DEV_LIST"
   RECIPIENTS_ARRAY="$(comma_split_to_json_array "${MAIL_TO_NET:-}, ${VS_COMMIT_AUTHOR:-}, ${CC_DEV_LIST:-}")"
   RESULTS_JSON="$OUT_DIR/results.json"
   cat > "$RESULTS_JSON" <<JSON
