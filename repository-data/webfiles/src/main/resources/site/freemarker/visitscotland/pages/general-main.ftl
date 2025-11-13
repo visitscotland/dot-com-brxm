@@ -17,6 +17,7 @@
     <#include "../macros/modules/page-intro/hero-section.ftl">
     <#include "../macros/global/otyml.ftl">
 	<#include "../macros/modules/search-widget/search-widget.ftl">
+	<#include "../macros/modules/category-section/category-section.ftl">
 
     <#-- Implicit Request Objects -->
     <#-- @ftlvariable name="document" type="com.visitscotland.brxm.hippobeans.General" -->
