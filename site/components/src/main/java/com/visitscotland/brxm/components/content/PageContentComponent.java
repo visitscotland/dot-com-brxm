@@ -160,7 +160,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel("cludoAPI", properties.getProperty("cludo.api", request.getLocale()));
             request.setModel("eventsAPI", properties.getProperty("events.endpoint", request.getLocale()));
             if (isHomepage(request)) {
-                request.setModel(SEARCH_WIDGET, true);
+                request.setModel(SEARCH_WIDGET, properties.getProperty("search-widget.enabled", request.getLocale()));
                 setSearchPageLink(request);
             }
         }
@@ -430,7 +430,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (link != null) {
             // Convert the link to a URL and make it available to the template
             String searchUrl = link.toUrlForm(requestContext, false);
-            request.setAttribute("searchLink", searchUrl);
             request.setModel("searchLink", searchUrl);
         } else {
             logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration.");
