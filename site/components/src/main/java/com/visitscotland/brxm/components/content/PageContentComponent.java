@@ -18,6 +18,8 @@ import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.linking.HstLink;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,7 +50,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String VIDEO_HEADER = "videoHeader";
     public static final String PSR_WIDGET = "psrWidget";
 
+    public static final String SEARCH_WIDGET = "searchWidget";
     public static final String SEARCH_RESULTS = "searchResultsPage";
+    public static final String SEARCH_RESULTS_URL = "searchResultsUrl";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
     public static final String SITE_ID = "site-id";
@@ -63,6 +67,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private final Logger contentLogger;
+
 
     private final MetadataFactory metadata;
 
@@ -95,7 +100,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addFlags(request);
         addBlog(request);
         addGtmConfiguration(request);
-
         addLabels(request);
         addSiteSpecificConfiguration(request);
     }
@@ -120,6 +124,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()));
         request.setModel("cludoEngineId", properties.getProperty("cludo.engine-id", request.getLocale()));
         request.setModel("cludoExperienceId", properties.getProperty("cludo.experience-id", request.getLocale()));
+        request.setModel("globalSearchURL", properties.getSiteGlobalSearch());
+
     }
 
     /**
@@ -136,6 +142,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final String VIDEO_BUNDLE = "video";
         final String SKIP_TO = "skip-to";
         final String SEARCH_BUNDLE = "search";
+        final String SEARCH_EVENTS_CATEGORIES = "content.categories";
+        final String SEARCH_EVENTS_FILTERS = "search-events-filters";
+        final String SEARCH_FILTERS = "search-categories";
         final String CMS_MESSAGES = "cms-messages";
         final String SEO = "seo";
 
@@ -145,10 +154,23 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         labels(request).put(VIDEO_BUNDLE, bundle.getAllLabels(VIDEO_BUNDLE, request.getLocale()));
         labels(request).put(SEO, bundle.getAllSiteLabels(SEO, request.getLocale()));
         labels(request).put(SKIP_TO, bundle.getAllLabels(SKIP_TO, request.getLocale()));
+        if (isHomepage(request) || request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
+            labels(request).put(SEARCH_EVENTS_FILTERS, bundle.getAllLabels(SEARCH_EVENTS_FILTERS, request.getLocale()));
+            labels(request).put(SEARCH_FILTERS, bundle.getAllLabels(SEARCH_FILTERS, request.getLocale()));
+            request.setModel("eventsAPI", properties.getProperty("events.endpoint", request.getLocale()));
+            if (isHomepage(request)) {
+                request.setModel(SEARCH_WIDGET, properties.getProperty("search-widget.enabled", request.getLocale()));
+                setSearchPageLink(request);
+            }
+        }
 
         if (isEditMode(request)) {
             labels(request).put(CMS_MESSAGES, bundle.getAllLabels(CMS_MESSAGES, request.getLocale()));
         }
+    }
+
+    private boolean isHomepage (HstRequest request){
+        return "root".equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
     }
 
     /**
@@ -314,7 +336,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * Add the configuration related to the Product Search Widget for the page
      */
     private void addProductSearchWidget(HstRequest request) {
-        if (!request.getPathInfo().contains(properties.getSiteSkiSection()) && !request.getPathInfo().contains(properties.getCampaignSection())) {
+        if (!request.getPathInfo().contains(properties.getSiteSkiSection()) && !request.getPathInfo().contains(properties.getSiteGlobalSearch())
+                && !request.getPathInfo().contains(properties.getCampaignSection())) {
             request.setModel(PSR_WIDGET, psrFactory.getWidget(request));
         }
     }
@@ -369,6 +392,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         if (Contract.isEmpty(properties.getSiteId())) {
             addProductSearchWidget(request);
+            request.setModel(SEARCH_RESULTS_URL, properties.getSiteGlobalSearch());
         } else {
             prefix = properties.getSiteId() +".";
             request.setModel(SITE_ID, properties.getSiteId());
@@ -382,5 +406,32 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     boolean isEditMode(HstRequest request) {
         return Boolean.TRUE.equals(request.getAttribute("editMode"));
+    }
+
+    /**
+     * Creates and exposes a locale-aware search page link in the HST request context.
+     *
+     * This method generates an HstLink for the sitemap item with refId "search-page"
+     * and stores it as a request attribute named "searchLink"
+     *
+     * Use this to ensure the search URL is correctly resolved for the current
+     * locale and mount, avoiding hardcoded or relative paths in templates
+     *
+     * @param request the current HstRequest
+     */
+    private void setSearchPageLink(final HstRequest request) {
+        HstRequestContext requestContext = request.getRequestContext();
+
+        // Create a link to the sitemap item with refId "search-page"
+        HstLink link = requestContext.getHstLinkCreator()
+                .createByRefId("search-page", requestContext.getResolvedMount().getMount());
+
+        if (link != null) {
+            // Convert the link to a URL and make it available to the template
+            String searchUrl = link.toUrlForm(requestContext, false);
+            request.setModel("searchLink", searchUrl);
+        } else {
+            logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration.");
+        }
     }
 }

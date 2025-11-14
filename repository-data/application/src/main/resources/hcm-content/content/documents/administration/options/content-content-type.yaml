@@ -1,0 +1,36 @@
+/content/documents/administration/options/content-content-type:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 7db3d66d-0e56-4c2d-ab23-5d946555982d
+  hippo:name: Content - Content type
+  /content-content-type:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: f9719f8f-4b01-4ba8-b6bb-a201b44e924d
+    hippo:availability: [live, preview]
+    hippotranslation:id: 03905cf5-ff4f-4497-9a63-0ebbc74c3639
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: /policies
+      selection:label: about
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: /travel-planning
+      selection:label: travel
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: /accommodation
+      selection:label: accommodation
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: /contact-us
+      selection:label: about
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: /about
+      selection:label: about
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: /newsletter
+      selection:label: about

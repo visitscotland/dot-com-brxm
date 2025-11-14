@@ -23,7 +23,6 @@ public class SiteProperties extends Properties {
 
     static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
     static final String GLOBAL_SEARCH_PATH = "global-search.path";
-    static final String ENGINE_ID = "global-search.engine-id";
 
 
     //Environment
@@ -44,6 +43,8 @@ public class SiteProperties extends Properties {
     private static final String PATH_BANNER = "site.path.banner";
     static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
     static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
+    static final String CLUDO_API = "cludo.api";
+    static final String EVENTS_ENDPOINT = "events.endpoint";
 
     static final String GOOGLE_MAPS_API_KEY = "google.maps-api-key";
 
@@ -145,6 +146,14 @@ public class SiteProperties extends Properties {
 
     public String getFormsMarketoUrl() {
         return readString(FORMS_MARKETO_URL);
+    }
+
+    public String getEventsEndpoint() {
+        return readString(EVENTS_ENDPOINT);
+    }
+
+    public String getCludoApi() {
+        return readString(CLUDO_API);
     }
 
     public String getFormsRecaptcha() {

@@ -2,6 +2,8 @@ package com.visitscotland.brxm.components.breadcrumb;
 
 
 import com.visitscotland.brxm.hippobeans.BaseDocument;
+import com.visitscotland.brxm.hippobeans.Destination;
+import com.visitscotland.brxm.hippobeans.Itinerary;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.services.DocumentUtilsService;
@@ -16,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletContext;
+import javax.swing.text.StringContent;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -30,7 +33,10 @@ public class VsBreadcrumbComponent extends CommonComponent {
     final String DOCUMENT = "document";
     final String ORDERED_TRANSLATIONS = "orderedTranslations";
     final String CONTENT_CATEGORIES_OPTIONS = "content-categories-options";
+    final String CONTENT_TYPE_OPTIONS = "content-content-type";
     final String SEARCH_CATEGORY = "searchCategory";
+    final String SEARCH_CONTENT_TYPE = "searchContentType";
+    final String OTHER_VALUE = "other";
 
     private VsBreadCrumbProvider breadcrumbProvider;
     private HippoUtilsService hippoUtilsService;
@@ -46,7 +52,7 @@ public class VsBreadcrumbComponent extends CommonComponent {
         //Breadcrumb Items list
         request.setModel(BREADCRUMB, this.breadcrumbProvider.getBreadcrumb(request));
         //Search category for Cludo site search
-        request.setModel(SEARCH_CATEGORY, getCategoryFromUrl(request));
+        request.setModel(SEARCH_CATEGORY, getValueFromValueListAndUrl(request, CONTENT_CATEGORIES_OPTIONS));
         //Main document for the page
         setDocument(request, response);
     }
@@ -58,6 +64,18 @@ public class VsBreadcrumbComponent extends CommonComponent {
             // Translations ordered by SEO order
             List<BaseDocument> availableTranslations = ((Page) document.get()).getAvailableTranslations(BaseDocument.class).getTranslations();
             request.setModel(ORDERED_TRANSLATIONS, documentUtils.sortTranslationsForSeo(availableTranslations));
+            String contentType = getValueFromValueListAndUrl(request, CONTENT_TYPE_OPTIONS);
+            if (contentType.equals(OTHER_VALUE)){
+                if (document.get() instanceof Destination) {
+                    contentType = "destination";
+                } else if (document.get() instanceof Itinerary){
+                    contentType = "itinerary";
+                } else {
+                    contentType = "article";
+                }
+            }
+            //Search contentType for Cludo site search
+            request.setModel(SEARCH_CONTENT_TYPE, contentType);
         } else {
             logger.debug("{} page not found - redirecting to 404 page", request.getRequestURI());
             this.pageNotFound(response);
@@ -74,13 +92,13 @@ public class VsBreadcrumbComponent extends CommonComponent {
     /**
      * Returns the category that best matches the given URL.
      */
-    private String getCategoryFromUrl(HstRequest request) {
-        for (Map.Entry<String, String> entry : hippoUtilsService.getValueMap(CONTENT_CATEGORIES_OPTIONS).entrySet()) {
+    private String getValueFromValueListAndUrl(HstRequest request, String valueListPath) {
+        for (Map.Entry<String, String> entry : hippoUtilsService.getValueMap(valueListPath).entrySet()) {
             if (request.getPathInfo().contains(entry.getKey())) {
                 return entry.getValue();
             }
         }
-        return "other";
+        return OTHER_VALUE;
     }
 
 }
