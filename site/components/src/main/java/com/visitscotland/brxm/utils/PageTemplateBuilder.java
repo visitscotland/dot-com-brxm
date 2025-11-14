@@ -31,6 +31,7 @@ public class PageTemplateBuilder {
     //Static Constant
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
+    static final String MAPS_API = "mapsAPI";
 
     static final String DEFAULT = "default";
 
@@ -140,7 +141,9 @@ public class PageTemplateBuilder {
         } else if (item instanceof LongCopy){
             processLongCopy(request, page, (LongCopy) item);
         } else if (item instanceof MapModule) {
+            //TODO property should be added in factory/mapper
             page.modules.add(mapFactory.getModule(request, (MapModule) item, getDocument(request)));
+            request.setModel(MAPS_API ,properties.getGoogleMapsApi());
         } else if (item instanceof Stackla) {
             page.modules.add(userGeneratedContentFactory.getUGCModule((Stackla) item, request.getLocale()));
         } else if (item instanceof TravelInformation) {
