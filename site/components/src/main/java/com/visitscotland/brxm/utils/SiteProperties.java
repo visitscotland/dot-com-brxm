@@ -47,7 +47,7 @@ public class SiteProperties extends Properties {
 
     static final String GOOGLE_MAPS_API_KEY = "google.maps-api-key";
 
-    //GTM Propertie
+    //GTM Properties
 
     public static final String GTM_CONTAINER_ID = "gtm.container-id";
     public static final String GTM_IS_PRODUCTION = "gtm.is-production";
