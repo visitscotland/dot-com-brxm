@@ -23,7 +23,6 @@ public class SiteProperties extends Properties {
 
     static final String CHANNEL_ORDER = "seo.alternate-link-locale-order";
     static final String GLOBAL_SEARCH_PATH = "global-search.path";
-    static final String ENGINE_ID = "global-search.engine-id";
 
 
     //Environment
