@@ -1,14 +1,14 @@
-<#include "../../../../../include/imports.ftl">
-<#include "../../../../../frontend/components/vs-container.ftl">
-<#include "../../../../../frontend/components/vs-row.ftl">
-<#include "../../../../../frontend/components/vs-col.ftl">
-<#include "../../../../../frontend/components/vs-card-group.ftl">
-<#include "../../../../../frontend/components/vs-card.ftl">
-<#include "../../../../../frontend/components/vs-img.ftl">
-<#include "../../../../../frontend/components/vs-heading.ftl">
-<#include "../../../../../frontend/components/vs-link.ftl">
-<#include "../../../../../frontend/components/vs-body.ftl">
-<#include "../../../../../frontend/components/vs-section-header.ftl">
+<#include "../../../../include/imports.ftl">
+<#include "../../../../frontend/components/vs-container.ftl">
+<#include "../../../../frontend/components/vs-row.ftl">
+<#include "../../../../frontend/components/vs-col.ftl">
+<#include "../../../../frontend/components/vs-card-group.ftl">
+<#include "../../../../frontend/components/vs-card.ftl">
+<#include "../../../../frontend/components/vs-img.ftl">
+<#include "../../../../frontend/components/vs-heading.ftl">
+<#include "../../../../frontend/components/vs-link.ftl">
+<#include "../../../../frontend/components/vs-body.ftl">
+<#include "../../../../frontend/components/vs-section-header.ftl">
 
 <#macro splitLinkGrid item>
     <#assign cardsPerRow = (item.layout == 'Grid 4')?then('4', '3') />
