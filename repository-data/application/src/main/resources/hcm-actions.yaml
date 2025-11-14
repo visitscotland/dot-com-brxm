@@ -123,7 +123,7 @@ action-lists:
     /content/taxonomies/Visitscotland-categories: reload
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/labels/modules/newsletter-signpost: reload
-- 2.13.2:
+- 2.13.3:
     /content/documents/administration/options/content-categories: reload
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/labels/global/search: reload
