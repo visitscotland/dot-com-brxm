@@ -25,12 +25,10 @@ public class SiteProperties extends Properties {
     static final String GLOBAL_SEARCH_PATH = "global-search.path";
     static final String ENGINE_ID = "global-search.engine-id";
 
-
     //Environment
     static final String INTERNAL_SITES = "links.internal-sites";
     static final String CONVERT_TO_RELATIVE = "links.convert-to-relative";
     static final String DOWNLOAD_EXTENSIONS = "links.download.extensions";
-
 
     //Page References
     private static final String PATH_GLOBAL_SEARCH = "site.path.global-search";

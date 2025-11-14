@@ -1,7 +1,10 @@
 package com.visitscotland.brxm.hippobeans;
 
-import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
+import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import org.onehippo.forge.selection.hst.contentbean.ValueListItem;
+
+import java.util.List;
 
 /** 
  * TODO: Beanwriter: Failed to create getter for node type: selection:listitem
@@ -38,4 +41,11 @@ public class DevModule extends BaseDocument {
     public String getBespoken() {
         return getSingleProperty("visitscotland:bespoken");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:properties", allowModifications = false)
+    public List<ValueListItem> getBespokenProperties() {
+        return getChildBeansByName("visitscotland:properties");
+    }
+
+
 }
