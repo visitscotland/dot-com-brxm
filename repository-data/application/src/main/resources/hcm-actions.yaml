@@ -119,5 +119,6 @@ action-lists:
     /content/documents/administration/configuration/default-site-properties: reload
 - 2.9.3:
     /content/documents/administration/labels/modules/map: reload
-- 2.13.0:
+- 2.13.1:
     /content/taxonomies/Visitscotland-categories: reload
+    /content/documents/administration/configuration/default-site-properties: reload
