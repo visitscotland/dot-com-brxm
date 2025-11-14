@@ -11,7 +11,7 @@
 
     <vs-container>
         <vs-federated-search
-            cludo-api-key="${cludoAPI}"
+            cludo-api-key="${cludoExperienceId}"
             :cludo-customer-id="${cludoCustomerId}"
             :cludo-engine-id="${cludoEngineId}"
             events-api="${eventsAPI}"

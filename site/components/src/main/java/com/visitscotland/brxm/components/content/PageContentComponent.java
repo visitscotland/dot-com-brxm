@@ -157,7 +157,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (isHomepage(request) || request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
             labels(request).put(SEARCH_EVENTS_FILTERS, bundle.getAllLabels(SEARCH_EVENTS_FILTERS, request.getLocale()));
             labels(request).put(SEARCH_FILTERS, bundle.getAllLabels(SEARCH_FILTERS, request.getLocale()));
-            request.setModel("cludoAPI", properties.getProperty("cludo.api", request.getLocale()));
             request.setModel("eventsAPI", properties.getProperty("events.endpoint", request.getLocale()));
             if (isHomepage(request)) {
                 request.setModel(SEARCH_WIDGET, properties.getProperty("search-widget.enabled", request.getLocale()));

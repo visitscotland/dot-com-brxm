@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ea5611a6-5160-4713-86e9-52334587567c
   hippo:name: Default - Site Properties
-  hippo:versionHistory: 3b89efbf-e46b-4797-8684-c13d49cef23e
+  hippo:versionHistory: e1896459-a538-4c2a-a006-0477adbde9f7
   /default-site-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-11-14T12:11:32.291Z
+    hippostdpubwf:lastModificationDate: 2025-11-14T12:51:58.475Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -31,7 +31,8 @@
         \ : //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
         Recaptcha Key for Forms, '', Marketo Script required for the form to work,
       '', '', '', '', '', This property is used to set up the Cludo Chatbox functionality,
-      This property is used to set up the Cludo Chatbox functionality, '', '']
+      This property is used to set up the Cludo Chatbox functionality, '', '', '',
+      '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, og.site-name, og.twitter.site,
@@ -43,7 +44,7 @@
       form.maketo.instance-url, form.recaptcha-key, form.marketo.scripts, form.marketo.script,
       links.download.extensions, events-listings.page-size, getFormBregLegalBasis,
       form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.experience-id,
-      map.google-api-key, cludo.engine-id]
+      map.google-api-key, cludo.engine-id, events.endpoint, search-widget.enabled]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
@@ -55,22 +56,22 @@
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
       general/navigation/banner/content, '', '', AIzaSyAVCyqirI1432Qo4TrDJz26_OVi4BYRsNE,
-      '12809']
+      '12809', 'https://api.visitscotland.com/dev/data/products/events/search', 'true']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /de-de/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12812']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12812', '', 'true']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /es-es/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12814']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12814', '', 'true']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /fr-fr/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12811']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12811', '', 'true']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /it-it/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12813']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12813', '', 'true']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /nl-nl/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12810']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12810', '', 'true']
   /default-site-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -80,7 +81,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-11-14T12:10:59.009Z
+    hippostdpubwf:lastModificationDate: 2025-11-14T12:50:55.964Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -97,7 +98,8 @@
         \ : //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
         Recaptcha Key for Forms, '', Marketo Script required for the form to work,
       '', '', '', '', '', This property is used to set up the Cludo Chatbox functionality,
-      This property is used to set up the Cludo Chatbox functionality, '', '']
+      This property is used to set up the Cludo Chatbox functionality, '', '', '',
+      '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, og.site-name, og.twitter.site,
@@ -109,7 +111,7 @@
       form.maketo.instance-url, form.recaptcha-key, form.marketo.scripts, form.marketo.script,
       links.download.extensions, events-listings.page-size, getFormBregLegalBasis,
       form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.experience-id,
-      map.google-api-key, cludo.engine-id]
+      map.google-api-key, cludo.engine-id, events.endpoint, search-widget.enabled]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
@@ -121,22 +123,22 @@
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
       general/navigation/banner/content, '', '', AIzaSyAVCyqirI1432Qo4TrDJz26_OVi4BYRsNE,
-      '12809']
+      '12809', 'https://api.visitscotland.com/dev/data/products/events/search', 'true']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /de-de/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12812']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12812', '', 'true']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /es-es/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12814']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12814', '', 'true']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /fr-fr/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12811']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12811', '', 'true']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /it-it/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12813']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12813', '', 'true']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /nl-nl/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12810']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12810', '', 'true']
   /default-site-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -146,9 +148,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-11-14T12:11:32.291Z
+    hippostdpubwf:lastModificationDate: 2025-11-14T12:51:58.475Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-11-14T12:11:37.772Z
+    hippostdpubwf:publicationDate: 2025-11-14T12:52:04.077Z
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -164,7 +166,8 @@
         \ : //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
         Recaptcha Key for Forms, '', Marketo Script required for the form to work,
       '', '', '', '', '', This property is used to set up the Cludo Chatbox functionality,
-      This property is used to set up the Cludo Chatbox functionality, '', '']
+      This property is used to set up the Cludo Chatbox functionality, '', '', '',
+      '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, og.site-name, og.twitter.site,
@@ -176,7 +179,7 @@
       form.maketo.instance-url, form.recaptcha-key, form.marketo.scripts, form.marketo.script,
       links.download.extensions, events-listings.page-size, getFormBregLegalBasis,
       form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.experience-id,
-      map.google-api-key, cludo.engine-id]
+      map.google-api-key, cludo.engine-id, events.endpoint, search-widget.enabled]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
@@ -188,19 +191,19 @@
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
       general/navigation/banner/content, '', '', AIzaSyAVCyqirI1432Qo4TrDJz26_OVi4BYRsNE,
-      '12809']
+      '12809', 'https://api.visitscotland.com/dev/data/products/events/search', 'true']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /de-de/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12812']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12812', '', 'true']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /es-es/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12814']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12814', '', 'true']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /fr-fr/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12811']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12811', '', 'true']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /it-it/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12813']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12813', '', 'true']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
       '', /nl-nl/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12810']
+      '', '', '', '', '', '', '', '', '', '', '', '', '12810', '', 'true']
