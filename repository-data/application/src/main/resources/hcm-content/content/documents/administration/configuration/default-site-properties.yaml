@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-11-14T11:47:01.825Z
+    hippostdpubwf:lastModificationDate: 2025-11-14T09:42:21.093Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -23,7 +23,7 @@
       '', Container ID from Google Tag Manager, "GTM Query Parameter for the environment.\
         \ \r\n\r\nTypically production wouldn't have any query parameters while rest\
         \ of the environment would use a test container with query parameters", '',
-      Cludo search relative path, '', '', '', '', '', '', '', '', 'JSON file with
+      Cludo search relative path, '', '', '', '', '', '', '', '', '', 'JSON file with
         the list of Countries including the United Kingdom countries: Scotland, England,
         Wales & Northern Ireland', Static file with all validation messages translated
         into different languages, "Marketo Configuration \r\n\r\n\r\nMunchkin Id for\
@@ -31,46 +31,46 @@
         \ : //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
         Recaptcha Key for Forms, '', Marketo Script required for the form to work,
       '', '', '', '', '', This property is used to set up the Cludo Chatbox functionality,
-      This property is used to set up the Cludo Chatbox functionality, '', '']
+      This property is used to set up the Cludo Chatbox functionality, This property
+        is used to set up the Cludo Chatbox functionality, '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, og.site-name, og.twitter.site,
       seo.alternate-link-locale-order, seo.title-suffix, seo.og.site-name, seo.og.twitter.site,
       gtm.is-production, gtm.container-id, gtm.preview-query-string, form.is-production,
-      global-search.path, ski.timeout, site.path.global-search, site.path.ski-landing,
-      site.path.about-us, site.path.icentre-landing, site.path.newsletter, site.path.campaigns,
-      iknow-module.enabled, form.json.countries, form.json.messages, form.marketo.munchkin,
-      form.maketo.instance-url, form.recaptcha-key, form.marketo.scripts, form.marketo.script,
-      links.download.extensions, events-listings.page-size, getFormBregLegalBasis,
-      form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.experience-id,
-      map.google-api-key, cludo.engine-id]
+      global-search.path, global-search.engine-id, ski.timeout, site.path.global-search,
+      site.path.ski-landing, site.path.about-us, site.path.icentre-landing, site.path.newsletter,
+      site.path.campaigns, iknow-module.enabled, form.json.countries, form.json.messages,
+      form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key, form.marketo.scripts,
+      form.marketo.script, links.download.extensions, events-listings.page-size, getFormBregLegalBasis,
+      form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.engine-id,
+      cludo.experience-id, map.google-api-key]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      'false', /site-search-results, '30000', /site-search-results, /test/examples/snow-sports,
+      'false', /site-search-results, '12809', '30000', /site-search-results, /test/examples/snow-sports,
       /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns, 'false', 'https://static.visitscotland.com/forms/common/countries.json',
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
-      general/navigation/banner/content, '', '', AIzaSyAVCyqirI1432Qo4TrDJz26_OVi4BYRsNE,
-      '12809']
+      general/navigation/banner/content, '', '', '', AIzaSyAVCyqirI1432Qo4TrDJz26_OVi4BYRsNE]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /de-de/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12812']
+      '', /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /es-es/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12814']
+      '', /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /fr-fr/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12811']
+      '', /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /it-it/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12813']
+      '', /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /nl-nl/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12810']
+      '', /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-site-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -80,7 +80,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-11-14T11:46:20.945Z
+    hippostdpubwf:lastModificationDate: 2025-11-14T09:42:11.758Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -89,7 +89,7 @@
       '', Container ID from Google Tag Manager, "GTM Query Parameter for the environment.\
         \ \r\n\r\nTypically production wouldn't have any query parameters while rest\
         \ of the environment would use a test container with query parameters", '',
-      Cludo search relative path, '', '', '', '', '', '', '', '', 'JSON file with
+      Cludo search relative path, '', '', '', '', '', '', '', '', '', 'JSON file with
         the list of Countries including the United Kingdom countries: Scotland, England,
         Wales & Northern Ireland', Static file with all validation messages translated
         into different languages, "Marketo Configuration \r\n\r\n\r\nMunchkin Id for\
@@ -97,46 +97,46 @@
         \ : //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
         Recaptcha Key for Forms, '', Marketo Script required for the form to work,
       '', '', '', '', '', This property is used to set up the Cludo Chatbox functionality,
-      This property is used to set up the Cludo Chatbox functionality, '', '']
+      This property is used to set up the Cludo Chatbox functionality, This property
+        is used to set up the Cludo Chatbox functionality, '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, og.site-name, og.twitter.site,
       seo.alternate-link-locale-order, seo.title-suffix, seo.og.site-name, seo.og.twitter.site,
       gtm.is-production, gtm.container-id, gtm.preview-query-string, form.is-production,
-      global-search.path, ski.timeout, site.path.global-search, site.path.ski-landing,
-      site.path.about-us, site.path.icentre-landing, site.path.newsletter, site.path.campaigns,
-      iknow-module.enabled, form.json.countries, form.json.messages, form.marketo.munchkin,
-      form.maketo.instance-url, form.recaptcha-key, form.marketo.scripts, form.marketo.script,
-      links.download.extensions, events-listings.page-size, getFormBregLegalBasis,
-      form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.experience-id,
-      map.google-api-key, cludo.engine-id]
+      global-search.path, global-search.engine-id, ski.timeout, site.path.global-search,
+      site.path.ski-landing, site.path.about-us, site.path.icentre-landing, site.path.newsletter,
+      site.path.campaigns, iknow-module.enabled, form.json.countries, form.json.messages,
+      form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key, form.marketo.scripts,
+      form.marketo.script, links.download.extensions, events-listings.page-size, getFormBregLegalBasis,
+      form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.engine-id,
+      cludo.experience-id, map.google-api-key]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      'false', /site-search-results, '30000', /site-search-results, /test/examples/snow-sports,
+      'false', /site-search-results, '12809', '30000', /site-search-results, /test/examples/snow-sports,
       /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns, 'false', 'https://static.visitscotland.com/forms/common/countries.json',
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
-      general/navigation/banner/content, '', '', AIzaSyAVCyqirI1432Qo4TrDJz26_OVi4BYRsNE,
-      '12809']
+      general/navigation/banner/content, '', '', '', AIzaSyAVCyqirI1432Qo4TrDJz26_OVi4BYRsNE]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /de-de/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12812']
+      '', /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /es-es/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12814']
+      '', /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /fr-fr/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12811']
+      '', /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /it-it/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12813']
+      '', /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /nl-nl/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12810']
+      '', /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-site-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -146,9 +146,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-11-14T11:47:01.825Z
+    hippostdpubwf:lastModificationDate: 2025-11-14T09:42:21.093Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-11-14T11:47:04.521Z
+    hippostdpubwf:publicationDate: 2025-11-14T09:42:24.216Z
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -156,7 +156,7 @@
       '', Container ID from Google Tag Manager, "GTM Query Parameter for the environment.\
         \ \r\n\r\nTypically production wouldn't have any query parameters while rest\
         \ of the environment would use a test container with query parameters", '',
-      Cludo search relative path, '', '', '', '', '', '', '', '', 'JSON file with
+      Cludo search relative path, '', '', '', '', '', '', '', '', '', 'JSON file with
         the list of Countries including the United Kingdom countries: Scotland, England,
         Wales & Northern Ireland', Static file with all validation messages translated
         into different languages, "Marketo Configuration \r\n\r\n\r\nMunchkin Id for\
@@ -164,43 +164,43 @@
         \ : //e.visitscotland.com\r\nURL for Test: //830-QYE-256.mktoweb.com", Public
         Recaptcha Key for Forms, '', Marketo Script required for the form to work,
       '', '', '', '', '', This property is used to set up the Cludo Chatbox functionality,
-      This property is used to set up the Cludo Chatbox functionality, '', '']
+      This property is used to set up the Cludo Chatbox functionality, This property
+        is used to set up the Cludo Chatbox functionality, '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, og.site-name, og.twitter.site,
       seo.alternate-link-locale-order, seo.title-suffix, seo.og.site-name, seo.og.twitter.site,
       gtm.is-production, gtm.container-id, gtm.preview-query-string, form.is-production,
-      global-search.path, ski.timeout, site.path.global-search, site.path.ski-landing,
-      site.path.about-us, site.path.icentre-landing, site.path.newsletter, site.path.campaigns,
-      iknow-module.enabled, form.json.countries, form.json.messages, form.marketo.munchkin,
-      form.maketo.instance-url, form.recaptcha-key, form.marketo.scripts, form.marketo.script,
-      links.download.extensions, events-listings.page-size, getFormBregLegalBasis,
-      form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.experience-id,
-      map.google-api-key, cludo.engine-id]
+      global-search.path, global-search.engine-id, ski.timeout, site.path.global-search,
+      site.path.ski-landing, site.path.about-us, site.path.icentre-landing, site.path.newsletter,
+      site.path.campaigns, iknow-module.enabled, form.json.countries, form.json.messages,
+      form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key, form.marketo.scripts,
+      form.marketo.script, links.download.extensions, events-listings.page-size, getFormBregLegalBasis,
+      form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.engine-id,
+      cludo.experience-id, map.google-api-key]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, VisitScotland, '@VisitScotland', 'en,fr,de,nl,it,es',
       '| VisitScotland', VisitScotland, '@VisitScotland', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
-      'false', /site-search-results, '30000', /site-search-results, /test/examples/snow-sports,
+      'false', /site-search-results, '12809', '30000', /site-search-results, /test/examples/snow-sports,
       /test/examples/about-us, /test/examples/icentres/content, /test/modules/form/content,
       /test/examples/campaigns, 'false', 'https://static.visitscotland.com/forms/common/countries.json',
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', Consent, 'true',
-      general/navigation/banner/content, '', '', AIzaSyAVCyqirI1432Qo4TrDJz26_OVi4BYRsNE,
-      '12809']
+      general/navigation/banner/content, '', '', '', AIzaSyAVCyqirI1432Qo4TrDJz26_OVi4BYRsNE]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /de-de/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12812']
+      '', /de-de/site-search-results, '12812', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /es-es/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12814']
+      '', /es-es/site-search-results, '12814', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /fr-fr/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12811']
+      '', /fr-fr/site-search-results, '12811', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /it-it/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12813']
+      '', /it-it/site-search-results, '12813', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', /nl-nl/site-search-results, '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '12810']
+      '', /nl-nl/site-search-results, '12810', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']

@@ -46,7 +46,10 @@ public class SiteProperties extends Properties {
     static final String CLUDO_API = "cludo.api";
     static final String EVENTS_ENDPOINT = "events.endpoint";
 
+    static final String GOOGLE_MAPS_API_KEY = "google.maps-api-key";
+
     //GTM Properties
+
     public static final String GTM_CONTAINER_ID = "gtm.container-id";
     public static final String GTM_IS_PRODUCTION = "gtm.is-production";
     public static final String GTM_PREVIEW_QUERY_STRING = "gtm.preview-query-string";
@@ -107,6 +110,10 @@ public class SiteProperties extends Properties {
     public String getSiteGlobalSearch() {
         return readString(PATH_GLOBAL_SEARCH);
     }
+    public String getGoogleMapsApi() {
+        return readString(GOOGLE_MAPS_API_KEY);
+    }
+
     public String getSiteNewsletter() {
         return readString(PATH_NEWSLETTER);
     }

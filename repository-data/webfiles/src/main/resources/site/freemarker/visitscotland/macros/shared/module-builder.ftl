@@ -89,12 +89,13 @@
         <#elseif module.getType()== "SimpleDevModule">
             <@includeOnce "../modules/dev-module/dev-module.ftl" />
             <@devModule module/>
-        <#elseif module.getType()== "SignpostModule">
-            <@includeOnce "../modules/spotlight-section/spotlight-section.ftl" />
-            <@spotlightSection module/>
         <#elseif module.getType()== "SpotlightModule">
-            <@includeOnce "../modules/spotlight-section/spotlight-section.ftl" />
-            <@spotlightSection module/>
+            <@includeOnce "../modules/featured-content/featured-content.ftl" />
+            <@featuredContent module/>
+        <#elseif module.getType()== "SignpostModule">
+            <#-- TODO: This block should be removed by VS-825 -->
+            <@includeOnce "../modules/featured-content/featured-content.ftl" />
+            <@featuredContent module/>
         <#else >
             <@includeOnce "../global/preview-warning.ftl" />
             <@previewWarning editMode module module.errorMessages true />

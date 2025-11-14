@@ -3,7 +3,7 @@
   /Visitscotland-categories:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo']
-    hippo:versionHistory: 69ada3e4-008a-4fc9-9482-3e6a3a85273a
+    hippo:versionHistory: 5ec4b2fd-6c00-4127-810b-781931eabcf2
     /Visitscotland-categories[1]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
@@ -14,9 +14,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2023-08-11T11:10:44.858+01:00
+      hippostdpubwf:lastModificationDate: 2025-11-12T14:59:24.582Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2023-08-11T11:15:40.453+01:00
+      hippostdpubwf:publicationDate: 2025-11-12T15:02:00.572Z
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
         jcr:primaryType: hippotaxonomy:category
@@ -136,19 +136,11 @@
       /outlander:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: outlander
-        /hippotaxonomy:categoryinfos:
-          jcr:primaryType: hippotaxonomy:categoryinfos
-          /en:
-            jcr:primaryType: hippotaxonomy:categoryinfo
-            hippotaxonomy:name: Outlander
+        locale.en.name: Outlander
         /outlander-category:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: outlander-category
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Outlander Category
+          locale.en.name: Outlander Category
           /outlander-castle:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-castle
@@ -237,6 +229,205 @@
               /en:
                 jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Outlander Season 4
+      /main-map:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: main-map
+        locale.en.name: Main map
+        /accommodation:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: accommodation
+          locale.de.name: Unterkünfte
+          locale.en.name: Accommodation
+          locale.es.name: Alojamiento
+          locale.fr.name: Hébergements
+          locale.it.name: Alloggi
+          locale.nl.name: Accommodatie
+          /self-catering:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: self-catering
+            locale.de.name: Ferienhäuser & Ferienwohnungen
+            locale.en.name: Self Catering
+            locale.es.name: Alojamiento con cocina
+            locale.fr.name: Locations de vacances
+            locale.it.name: Appartamenti indipendenti
+            locale.nl.name: Vakantiehuizen & Vakantiewoningen
+          /bed-and-breakfast:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: bed-breakfast
+            locale.de.name: Bed & Breakfast
+            locale.en.name: Bed and Breakfast
+            locale.es.name: Bed & Breakfast
+            locale.fr.name: Bed & Breakfast
+            locale.it.name: Bed and Breakfast
+            locale.nl.name: Bed & Breakfast
+          /caravan---camping:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: caravan-camping
+            locale.de.name: Wohnmobil & Camping
+            locale.en.name: Caravan & Camping
+            locale.es.name: Caravanas y acampada
+            locale.fr.name: Campings et caravanes
+            locale.it.name: Campeggi e caravan
+            locale.nl.name: Caravan & Kamperen
+          /hotel:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: hotel
+            locale.de.name: Hotels
+            locale.en.name: Hotel
+            locale.es.name: Hoteles
+            locale.fr.name: Hôtels
+            locale.nl.name: Hotel
+          /farmstay:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: farmstay
+            locale.de.name: Urlaub auf dem Bauernhof
+            locale.en.name: Farmstay
+            locale.es.name: Estancias en granjas
+            locale.fr.name: Gîtes à la ferme
+            locale.it.name: Agriturismi
+            locale.nl.name: Vakantie op de boerderij
+        /food---drink:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: food-drink
+          locale.de.name: Essen & Trinken
+          locale.en.name: Food & Drink
+          locale.es.name: Gastronomía
+          locale.fr.name: Restauration & gastronomie
+          locale.it.name: Cibo e bevande
+          locale.nl.name: Eten & Drinken
+          /restaurants:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: restaurants
+            locale.en.name: Restaurants
+            locale.es.name: Restaurantes
+            locale.it.name: Ristoranti
+            locale.nl.name: Restaurants
+          /cafes:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: cafes
+            locale.de.name: Cafés
+            locale.en.name: Cafes
+            locale.es.name: Cafeterías
+            locale.fr.name: Cafés
+            locale.it.name: Caffetterie
+            locale.nl.name: Cafés
+          /bars---pubs:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: bars-pubs
+            locale.de.name: Bars & Pubs
+            locale.en.name: Bars & Pubs
+            locale.es.name: Bares y pubs
+            locale.fr.name: Bars et pubs
+            locale.it.name: Bar e pub
+            locale.nl.name: Bars & Pubs
+        /things-to-do:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: things-to-do
+          locale.de.name: Aktivitäten & Sehenswürdigkeiten
+          locale.en.name: Things to do
+          locale.es.name: Cosas que hacer
+          locale.fr.name: Activités et attractions
+          locale.it.name: Cose da fare
+          locale.nl.name: Activiteiten & Bezienswaardigheden
+          /nature---outdoors:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: nature-outdoors
+            locale.de.name: Natur & Outdoor
+            locale.en.name: Nature & Outdoors
+            locale.es.name: Naturaleza y actividades al aire libre
+            locale.fr.name: Nature et activités en extérieur
+            locale.it.name: Natura e attività all'aperto
+            locale.nl.name: Natuur & Outdoor
+          /culture---history:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: culture-history
+            locale.de.name: Kultur & Geschichte
+            locale.en.name: Culture & History
+            locale.es.name: Cultura e historia
+            locale.fr.name: Culture et histoire
+            locale.it.name: Cultura e storia
+            locale.nl.name: Cultuur & Geschiedenis
+          /entertainment:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: entertainment
+            locale.de.name: Unterhaltung
+            locale.en.name: Entertainment
+            locale.es.name: Entretenimiento
+            locale.fr.name: Divertissement
+            locale.it.name: Intrattenimento
+            locale.nl.name: Amusement
+          /active---adventure:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: active-adventure
+            locale.de.name: Aktiv & Abenteuer
+            locale.en.name: Active & Adventure
+            locale.es.name: Actividades y aventura
+            locale.fr.name: Sports et aventure
+            locale.it.name: Sport e avventura
+            locale.nl.name: Actief & Avontuur
+          /shopping:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: shopping
+            locale.de.name: Shopping
+            locale.en.name: Shopping
+            locale.es.name: Compras
+            locale.fr.name: Shopping
+            locale.it.name: Shopping
+            locale.nl.name: Winkelen
+          /health---wellness:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: health-wellness
+            locale.de.name: Gesundheit & Wellness
+            locale.en.name: Health & Wellness
+            locale.es.name: Salud y bienestar
+            locale.fr.name: Santé et bien-être
+            locale.it.name: Salute e benessere
+            locale.nl.name: Gezondheid & Wellness
+          /tours:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: tours
+            locale.de.name: Touren
+            locale.en.name: Tours
+            locale.es.name: Excursiones
+            locale.fr.name: Excursions
+            locale.it.name: Tour
+            locale.nl.name: Tours
+        /travel-information:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: travel-information
+          locale.de.name: Reiseinformationen
+          locale.en.name: Travel Information
+          locale.es.name: Información de viaje
+          locale.fr.name: Informations de voyage
+          locale.it.name: Informazioni di viaggio
+          locale.nl.name: Reisinformatie
+          /transport:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: transport
+            locale.de.name: Verkehr
+            locale.en.name: Transport
+            locale.es.name: Transportes
+            locale.fr.name: Transports
+            locale.it.name: Transporti
+            locale.nl.name: Vervoer
+          /charging-points:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: charging-points
+            locale.de.name: Ladestationen
+            locale.en.name: Charging Points
+            locale.es.name: Puntos de carga
+            locale.fr.name: Points de recharge
+            locale.it.name: Punti di ricarica
+            locale.nl.name: Oplaadpunten
+          /facilities:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: facilities
+            locale.de.name: Ausstattung
+            locale.en.name: Facilities
+            locale.es.name: Instalaciones
+            locale.fr.name: Infrastructures
+            locale.it.name: Infrastrutture
+            locale.nl.name: Faciliteiten
     /Visitscotland-categories[2]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable', 'mix:versionable']
@@ -246,7 +437,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2023-08-11T11:10:44.858+01:00
+      hippostdpubwf:lastModificationDate: 2025-11-12T14:59:24.582Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -367,19 +558,11 @@
       /outlander:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: outlander
-        /hippotaxonomy:categoryinfos:
-          jcr:primaryType: hippotaxonomy:categoryinfos
-          /en:
-            jcr:primaryType: hippotaxonomy:categoryinfo
-            hippotaxonomy:name: Outlander
+        locale.en.name: Outlander
         /outlander-category:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: outlander-category
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Outlander Category
+          locale.en.name: Outlander Category
           /outlander-castle:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-castle
@@ -468,6 +651,205 @@
               /en:
                 jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Outlander Season 4
+      /main-map:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: main-map
+        locale.en.name: Main map
+        /accommodation:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: accommodation
+          locale.de.name: Unterkünfte
+          locale.en.name: Accommodation
+          locale.es.name: Alojamiento
+          locale.fr.name: Hébergements
+          locale.it.name: Alloggi
+          locale.nl.name: Accommodatie
+          /self-catering:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: self-catering
+            locale.de.name: Ferienhäuser & Ferienwohnungen
+            locale.en.name: Self Catering
+            locale.es.name: Alojamiento con cocina
+            locale.fr.name: Locations de vacances
+            locale.it.name: Appartamenti indipendenti
+            locale.nl.name: Vakantiehuizen & Vakantiewoningen
+          /bed-and-breakfast:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: bed-breakfast
+            locale.de.name: Bed & Breakfast
+            locale.en.name: Bed and Breakfast
+            locale.es.name: Bed & Breakfast
+            locale.fr.name: Bed & Breakfast
+            locale.it.name: Bed and Breakfast
+            locale.nl.name: Bed & Breakfast
+          /caravan---camping:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: caravan-camping
+            locale.de.name: Wohnmobil & Camping
+            locale.en.name: Caravan & Camping
+            locale.es.name: Caravanas y acampada
+            locale.fr.name: Campings et caravanes
+            locale.it.name: Campeggi e caravan
+            locale.nl.name: Caravan & Kamperen
+          /hotel:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: hotel
+            locale.de.name: Hotels
+            locale.en.name: Hotel
+            locale.es.name: Hoteles
+            locale.fr.name: Hôtels
+            locale.nl.name: Hotel
+          /farmstay:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: farmstay
+            locale.de.name: Urlaub auf dem Bauernhof
+            locale.en.name: Farmstay
+            locale.es.name: Estancias en granjas
+            locale.fr.name: Gîtes à la ferme
+            locale.it.name: Agriturismi
+            locale.nl.name: Vakantie op de boerderij
+        /food---drink:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: food-drink
+          locale.de.name: Essen & Trinken
+          locale.en.name: Food & Drink
+          locale.es.name: Gastronomía
+          locale.fr.name: Restauration & gastronomie
+          locale.it.name: Cibo e bevande
+          locale.nl.name: Eten & Drinken
+          /restaurants:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: restaurants
+            locale.en.name: Restaurants
+            locale.es.name: Restaurantes
+            locale.it.name: Ristoranti
+            locale.nl.name: Restaurants
+          /cafes:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: cafes
+            locale.de.name: Cafés
+            locale.en.name: Cafes
+            locale.es.name: Cafeterías
+            locale.fr.name: Cafés
+            locale.it.name: Caffetterie
+            locale.nl.name: Cafés
+          /bars---pubs:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: bars-pubs
+            locale.de.name: Bars & Pubs
+            locale.en.name: Bars & Pubs
+            locale.es.name: Bares y pubs
+            locale.fr.name: Bars et pubs
+            locale.it.name: Bar e pub
+            locale.nl.name: Bars & Pubs
+        /things-to-do:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: things-to-do
+          locale.de.name: Aktivitäten & Sehenswürdigkeiten
+          locale.en.name: Things to do
+          locale.es.name: Cosas que hacer
+          locale.fr.name: Activités et attractions
+          locale.it.name: Cose da fare
+          locale.nl.name: Activiteiten & Bezienswaardigheden
+          /nature---outdoors:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: nature-outdoors
+            locale.de.name: Natur & Outdoor
+            locale.en.name: Nature & Outdoors
+            locale.es.name: Naturaleza y actividades al aire libre
+            locale.fr.name: Nature et activités en extérieur
+            locale.it.name: Natura e attività all'aperto
+            locale.nl.name: Natuur & Outdoor
+          /culture---history:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: culture-history
+            locale.de.name: Kultur & Geschichte
+            locale.en.name: Culture & History
+            locale.es.name: Cultura e historia
+            locale.fr.name: Culture et histoire
+            locale.it.name: Cultura e storia
+            locale.nl.name: Cultuur & Geschiedenis
+          /entertainment:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: entertainment
+            locale.de.name: Unterhaltung
+            locale.en.name: Entertainment
+            locale.es.name: Entretenimiento
+            locale.fr.name: Divertissement
+            locale.it.name: Intrattenimento
+            locale.nl.name: Amusement
+          /active---adventure:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: active-adventure
+            locale.de.name: Aktiv & Abenteuer
+            locale.en.name: Active & Adventure
+            locale.es.name: Actividades y aventura
+            locale.fr.name: Sports et aventure
+            locale.it.name: Sport e avventura
+            locale.nl.name: Actief & Avontuur
+          /shopping:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: shopping
+            locale.de.name: Shopping
+            locale.en.name: Shopping
+            locale.es.name: Compras
+            locale.fr.name: Shopping
+            locale.it.name: Shopping
+            locale.nl.name: Winkelen
+          /health---wellness:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: health-wellness
+            locale.de.name: Gesundheit & Wellness
+            locale.en.name: Health & Wellness
+            locale.es.name: Salud y bienestar
+            locale.fr.name: Santé et bien-être
+            locale.it.name: Salute e benessere
+            locale.nl.name: Gezondheid & Wellness
+          /tours:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: tours
+            locale.de.name: Touren
+            locale.en.name: Tours
+            locale.es.name: Excursiones
+            locale.fr.name: Excursions
+            locale.it.name: Tour
+            locale.nl.name: Tours
+        /travel-information:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: travel-information
+          locale.de.name: Reiseinformationen
+          locale.en.name: Travel Information
+          locale.es.name: Información de viaje
+          locale.fr.name: Informations de voyage
+          locale.it.name: Informazioni di viaggio
+          locale.nl.name: Reisinformatie
+          /transport:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: transport
+            locale.de.name: Verkehr
+            locale.en.name: Transport
+            locale.es.name: Transportes
+            locale.fr.name: Transports
+            locale.it.name: Transporti
+            locale.nl.name: Vervoer
+          /charging-points:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: charging-points
+            locale.de.name: Ladestationen
+            locale.en.name: Charging Points
+            locale.es.name: Puntos de carga
+            locale.fr.name: Points de recharge
+            locale.it.name: Punti di ricarica
+            locale.nl.name: Oplaadpunten
+          /facilities:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: facilities
+            locale.de.name: Ausstattung
+            locale.en.name: Facilities
+            locale.es.name: Instalaciones
+            locale.fr.name: Infrastructures
+            locale.it.name: Infrastrutture
+            locale.nl.name: Faciliteiten
     /Visitscotland-categories[3]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
@@ -477,7 +859,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2023-08-11T13:36:11.325+01:00
+      hippostdpubwf:lastModificationDate: 2025-11-12T14:59:25.366Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -598,19 +980,11 @@
       /outlander:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: outlander
-        /hippotaxonomy:categoryinfos:
-          jcr:primaryType: hippotaxonomy:categoryinfos
-          /en:
-            jcr:primaryType: hippotaxonomy:categoryinfo
-            hippotaxonomy:name: Outlander
+        locale.en.name: Outlander
         /outlander-category:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: outlander-category
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Outlander Category
+          locale.en.name: Outlander Category
           /outlander-castle:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-castle
@@ -699,6 +1073,205 @@
               /en:
                 jcr:primaryType: hippotaxonomy:categoryinfo
                 hippotaxonomy:name: Outlander Season 4
+      /main-map:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: main-map
+        locale.en.name: Main map
+        /accommodation:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: accommodation
+          locale.de.name: Unterkünfte
+          locale.en.name: Accommodation
+          locale.es.name: Alojamiento
+          locale.fr.name: Hébergements
+          locale.it.name: Alloggi
+          locale.nl.name: Accommodatie
+          /self-catering:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: self-catering
+            locale.de.name: Ferienhäuser & Ferienwohnungen
+            locale.en.name: Self Catering
+            locale.es.name: Alojamiento con cocina
+            locale.fr.name: Locations de vacances
+            locale.it.name: Appartamenti indipendenti
+            locale.nl.name: Vakantiehuizen & Vakantiewoningen
+          /bed-and-breakfast:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: bed-breakfast
+            locale.de.name: Bed & Breakfast
+            locale.en.name: Bed and Breakfast
+            locale.es.name: Bed & Breakfast
+            locale.fr.name: Bed & Breakfast
+            locale.it.name: Bed and Breakfast
+            locale.nl.name: Bed & Breakfast
+          /caravan---camping:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: caravan-camping
+            locale.de.name: Wohnmobil & Camping
+            locale.en.name: Caravan & Camping
+            locale.es.name: Caravanas y acampada
+            locale.fr.name: Campings et caravanes
+            locale.it.name: Campeggi e caravan
+            locale.nl.name: Caravan & Kamperen
+          /hotel:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: hotel
+            locale.de.name: Hotels
+            locale.en.name: Hotel
+            locale.es.name: Hoteles
+            locale.fr.name: Hôtels
+            locale.nl.name: Hotel
+          /farmstay:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: farmstay
+            locale.de.name: Urlaub auf dem Bauernhof
+            locale.en.name: Farmstay
+            locale.es.name: Estancias en granjas
+            locale.fr.name: Gîtes à la ferme
+            locale.it.name: Agriturismi
+            locale.nl.name: Vakantie op de boerderij
+        /food---drink:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: food-drink
+          locale.de.name: Essen & Trinken
+          locale.en.name: Food & Drink
+          locale.es.name: Gastronomía
+          locale.fr.name: Restauration & gastronomie
+          locale.it.name: Cibo e bevande
+          locale.nl.name: Eten & Drinken
+          /restaurants:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: restaurants
+            locale.en.name: Restaurants
+            locale.es.name: Restaurantes
+            locale.it.name: Ristoranti
+            locale.nl.name: Restaurants
+          /cafes:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: cafes
+            locale.de.name: Cafés
+            locale.en.name: Cafes
+            locale.es.name: Cafeterías
+            locale.fr.name: Cafés
+            locale.it.name: Caffetterie
+            locale.nl.name: Cafés
+          /bars---pubs:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: bars-pubs
+            locale.de.name: Bars & Pubs
+            locale.en.name: Bars & Pubs
+            locale.es.name: Bares y pubs
+            locale.fr.name: Bars et pubs
+            locale.it.name: Bar e pub
+            locale.nl.name: Bars & Pubs
+        /things-to-do:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: things-to-do
+          locale.de.name: Aktivitäten & Sehenswürdigkeiten
+          locale.en.name: Things to do
+          locale.es.name: Cosas que hacer
+          locale.fr.name: Activités et attractions
+          locale.it.name: Cose da fare
+          locale.nl.name: Activiteiten & Bezienswaardigheden
+          /nature---outdoors:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: nature-outdoors
+            locale.de.name: Natur & Outdoor
+            locale.en.name: Nature & Outdoors
+            locale.es.name: Naturaleza y actividades al aire libre
+            locale.fr.name: Nature et activités en extérieur
+            locale.it.name: Natura e attività all'aperto
+            locale.nl.name: Natuur & Outdoor
+          /culture---history:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: culture-history
+            locale.de.name: Kultur & Geschichte
+            locale.en.name: Culture & History
+            locale.es.name: Cultura e historia
+            locale.fr.name: Culture et histoire
+            locale.it.name: Cultura e storia
+            locale.nl.name: Cultuur & Geschiedenis
+          /entertainment:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: entertainment
+            locale.de.name: Unterhaltung
+            locale.en.name: Entertainment
+            locale.es.name: Entretenimiento
+            locale.fr.name: Divertissement
+            locale.it.name: Intrattenimento
+            locale.nl.name: Amusement
+          /active---adventure:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: active-adventure
+            locale.de.name: Aktiv & Abenteuer
+            locale.en.name: Active & Adventure
+            locale.es.name: Actividades y aventura
+            locale.fr.name: Sports et aventure
+            locale.it.name: Sport e avventura
+            locale.nl.name: Actief & Avontuur
+          /shopping:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: shopping
+            locale.de.name: Shopping
+            locale.en.name: Shopping
+            locale.es.name: Compras
+            locale.fr.name: Shopping
+            locale.it.name: Shopping
+            locale.nl.name: Winkelen
+          /health---wellness:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: health-wellness
+            locale.de.name: Gesundheit & Wellness
+            locale.en.name: Health & Wellness
+            locale.es.name: Salud y bienestar
+            locale.fr.name: Santé et bien-être
+            locale.it.name: Salute e benessere
+            locale.nl.name: Gezondheid & Wellness
+          /tours:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: tours
+            locale.de.name: Touren
+            locale.en.name: Tours
+            locale.es.name: Excursiones
+            locale.fr.name: Excursions
+            locale.it.name: Tour
+            locale.nl.name: Tours
+        /travel-information:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: travel-information
+          locale.de.name: Reiseinformationen
+          locale.en.name: Travel Information
+          locale.es.name: Información de viaje
+          locale.fr.name: Informations de voyage
+          locale.it.name: Informazioni di viaggio
+          locale.nl.name: Reisinformatie
+          /transport:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: transport
+            locale.de.name: Verkehr
+            locale.en.name: Transport
+            locale.es.name: Transportes
+            locale.fr.name: Transports
+            locale.it.name: Transporti
+            locale.nl.name: Vervoer
+          /charging-points:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: charging-points
+            locale.de.name: Ladestationen
+            locale.en.name: Charging Points
+            locale.es.name: Puntos de carga
+            locale.fr.name: Points de recharge
+            locale.it.name: Punti di ricarica
+            locale.nl.name: Oplaadpunten
+          /facilities:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: facilities
+            locale.de.name: Ausstattung
+            locale.en.name: Facilities
+            locale.es.name: Instalaciones
+            locale.fr.name: Infrastructures
+            locale.it.name: Infrastrutture
+            locale.nl.name: Faciliteiten
   /BSH-sectors:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo']
