@@ -51,10 +51,10 @@
 [visitscotland:CannedSearchTours] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
-[visitscotland:ComparatorSystem] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+[visitscotland:ComparatorFeature] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
   orderable
 
-[visitscotland:ComparatorFeature] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+[visitscotland:ComparatorSystem] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
   orderable
 
 [visitscotland:Coordinates] > hippo:compound, hippostd:relaxed
@@ -179,6 +179,9 @@
 [visitscotland:OTYML] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:PageLinksSectionCompound] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:Personalization] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -213,6 +216,9 @@
   orderable
 
 [visitscotland:SpecialLinkCoordinates] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:Spotlight] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
   orderable
 
 [visitscotland:Stackla] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable

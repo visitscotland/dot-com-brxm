@@ -61,6 +61,7 @@ public class PageTemplateBuilder {
     private final SkiFactory skiFactory;
     private final DevModuleFactory devModuleFactory;
     private final EventsListingFactory eventsListingFactory;
+    private final SpotlightFactory spotlightFactory;
     private final SiteProperties properties;
 
     private final ResourceBundleService bundle;
@@ -74,7 +75,7 @@ public class PageTemplateBuilder {
                                CannedSearchFactory cannedSearchFactory, PreviewModeFactory previewFactory, FormFactory marketoFormFactory,
                                MapFactory mapFactory, SkiFactory skiFactory, SiteProperties properties,
                                DevModuleFactory devModuleFactory, ResourceBundleService bundle, Logger contentLogger,
-                               SignpostFactory signPostFactory, EventsListingFactory eventsListingFactory) {
+                               SignpostFactory signPostFactory, SpotlightFactory spotlightFactory, EventsListingFactory eventsListingFactory) {
         this.documentUtils = documentUtils;
         this.linksFactory = linksFactory;
         this.iCentreFactory = iCentreFactory;
@@ -93,6 +94,7 @@ public class PageTemplateBuilder {
         this.bundle = bundle;
         this.contentLogger = contentLogger;
         this.signPostFactory = signPostFactory;
+        this.spotlightFactory = spotlightFactory;
         this.eventsListingFactory = eventsListingFactory;
     }
 
@@ -160,7 +162,10 @@ public class PageTemplateBuilder {
             page.modules.add(devModuleFactory.getModule((DevModule) item, labels(request), request.getLocale()));
         } else if (item instanceof CTABanner){
             page.modules.add(signPostFactory.createModule((CTABanner) item));
-        } else if (item instanceof EventsListing){
+        } else if (item instanceof Spotlight){
+            page.modules.add(spotlightFactory.createModule((Spotlight) item, request.getLocale()));
+        }
+        else if (item instanceof EventsListing){
             page.modules.add(getEventListingModule(request, (EventsListing) item));
         } else {
             logger.warn("Unrecognized Module Type: {}", item.getClass());
