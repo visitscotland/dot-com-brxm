@@ -14,7 +14,7 @@
         <@sectionHeader heading=widgetHeading lede=widgetLede />
 
         <vs-fed-search-input
-            cludo-api-key="${cludoAPI}"
+            cludo-api-key="${cludoExperienceId}"
             :cludo-customer-id="${cludoCustomerId}"
             :cludo-engine-id="${cludoEngineId}"
             :filters="[
