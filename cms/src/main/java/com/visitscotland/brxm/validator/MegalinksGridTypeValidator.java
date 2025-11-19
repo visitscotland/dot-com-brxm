@@ -69,29 +69,44 @@ public class MegalinksGridTypeValidator implements Validator<Node> {
         }
     }
 
-    // normal grid links - can hold up to 4
-    private Optional<Violation> validateGrid(final ValidationContext context, final Node node) throws RepositoryException {
+    /**
+     * normal grid links - can hold up to 4
+     */
+    private Optional<Violation> validateGrid(final ValidationContext context, final Node node) {
 
-        final Long nodeCount = node.getNodes().getSize();
-        if (nodeCount == null || nodeCount < 1 ) {
-            return Optional.of(context.createViolation(EMPTY_LINKS));
-        } else if (nodeCount > 4) {
-            return Optional.of(context.createViolation(NUMBER_OF_LINKS));
+        try {
+            final Long nodeCount = node.getNodes().getSize();
+            if (nodeCount == null || nodeCount < 1 ) {
+                return Optional.of(context.createViolation(EMPTY_LINKS));
+            } else if (nodeCount > 4) {
+                return Optional.of(context.createViolation(NUMBER_OF_LINKS));
+            }
+            return Optional.empty();
+        } catch (RepositoryException exception) {
+            exceptionLogger(exception);
+            return Optional.of(context.createViolation(EXCEPTION));
         }
-        return Optional.empty();
-
     }
 
-    // to be removed when grid 3 and 4 is deprecated
-    private Optional<Violation> validateGrid34(final ValidationContext context, final Node node) throws RepositoryException {
+    /**
+     * to be removed when grid 3 and 4 is deprecated -
+     * this ensures that no less than 3 or more than 4 links are in use
+     */
+    private Optional<Violation> validateGrid34(final ValidationContext context, final Node node) {
 
-        final Long nodeCount = node.getNodes().getSize();
-        if (nodeCount == null || nodeCount < 1 ) {
-            return Optional.of(context.createViolation(EMPTY_LINKS));
-        } else if (nodeCount < 3 || nodeCount > 4) {
-            return Optional.of(context.createViolation(NUMBER_OF_LINKS_34));
+        try {
+            final Long nodeCount = node.getNodes().getSize();
+            if (nodeCount == null || nodeCount < 1 ) {
+                return Optional.of(context.createViolation(EMPTY_LINKS));
+            } else if (nodeCount < 3 || nodeCount > 4) {
+                return Optional.of(context.createViolation(NUMBER_OF_LINKS_34));
+            }
+            return Optional.empty();
+        } catch (RepositoryException exception) {
+            exceptionLogger(exception);
+            return Optional.of(context.createViolation(EXCEPTION));
         }
-        return Optional.empty();
+
     }
 
     private void exceptionLogger(Exception exception) {
