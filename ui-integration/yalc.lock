@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "@visitscotland/component-library": {
+      "signature": "845a6f3356b7e4ebc4e3c39ddfd30ca5",
+      "file": true,
+      "replaced": "^5.15.1"
+    }
+  }
+}

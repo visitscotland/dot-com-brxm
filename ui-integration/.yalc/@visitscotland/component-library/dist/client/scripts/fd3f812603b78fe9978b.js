@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_visitscotland_component_library=self.webpackChunk_visitscotland_component_library||[]).push([[6262],{66262:function(n,t){t.A=(n,t)=>{const c=n.__vccOpts||n;for(const[n,s]of t)c[n]=s;return c}}}]);

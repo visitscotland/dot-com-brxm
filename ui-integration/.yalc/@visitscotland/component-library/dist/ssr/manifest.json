@@ -1,0 +1,26 @@
+{
+  "VsSSR": {
+    "headingFonts": [
+      "eveleth-clean-regular.woff",
+      "eveleth-clean-regular.woff2",
+      "eveleth-clean-thin.woff",
+      "eveleth-clean-thin.woff2"
+    ],
+    "bodyFonts": [
+      "source-sans-pro-bold.woff",
+      "source-sans-pro-bold.woff2",
+      "source-sans-pro-light.woff",
+      "source-sans-pro-light.woff2",
+      "source-sans-pro-regular.woff",
+      "source-sans-pro-regular.woff2",
+      "source-sans-pro-semibold.woff",
+      "source-sans-pro-semibold.woff2"
+    ],
+    "scripts": [
+      "index.js"
+    ],
+    "styles": [
+      "styles/d0b72d092bb0bdc0eb6b.css"
+    ]
+  }
+}
