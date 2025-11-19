@@ -39,6 +39,7 @@ public class SiteProperties extends Properties {
     private static final String PATH_ABOUT_US = "site.path.about-us";
     private static final String PATH_NEWSLETTER = "site.path.newsletter";
     private static final String PATH_ICENTRE = "site.path.icentre-landing";
+    private static final String PATH_MAP = "site.path.map";
 
     //Modules References
     private static final String PATH_BANNER = "site.path.banner";
@@ -118,6 +119,9 @@ public class SiteProperties extends Properties {
     }
     public String getSiteICentre() {
         return readString(PATH_ICENTRE);
+    }
+    public String getSiteMap() {
+        return readString(PATH_MAP);
     }
     public String getSiteBanner() {
         return readString(PATH_BANNER);
