@@ -49,6 +49,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
+    public static final String MAP_PAGE = "mainMapPage";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
     public static final String SITE_ID = "site-id";
@@ -115,6 +116,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private void addFlags(HstRequest request) {
         if (request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
             request.setModel(SEARCH_RESULTS, true);
+        }
+        if (request.getPathInfo().contains(properties.getSiteMap())) {
+            request.setModel(MAP_PAGE, true);
         }
         //TODO: These properties are Optional for each site. This needs to be refactored after VS-343 is completed
         request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()));
