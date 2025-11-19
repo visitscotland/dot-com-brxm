@@ -122,3 +122,4 @@ action-lists:
 - 2.13.0:
     /content/taxonomies/Visitscotland-categories: reload
     /content/documents/administration/configuration/default-site-properties: reload
+    /content/documents/administration/labels/modules/newsletter-signpost: reload
