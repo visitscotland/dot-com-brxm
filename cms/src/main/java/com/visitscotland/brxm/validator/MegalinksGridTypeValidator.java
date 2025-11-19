@@ -20,6 +20,7 @@ public class MegalinksGridTypeValidator implements Validator<Node> {
     private SessionFactory sessionFactory;
 
     private static final String LAYOUT_PROPERTY = "visitscotland:layout";
+    private static final String MEGALINK_ITEMS_PROPERTY = "visitscotland:megalinkItems";
 
     private static final String GRID = "Grid";
     private static final String GRID_3 = "Grid 3";
@@ -75,7 +76,7 @@ public class MegalinksGridTypeValidator implements Validator<Node> {
     private Optional<Violation> validateGrid(final ValidationContext context, final Node node) {
 
         try {
-            final long nodeCount = node.getNodes("visitscotland:megalinkItems").getSize();
+            final long nodeCount = node.getNodes(MEGALINK_ITEMS_PROPERTY).getSize();
             if (nodeCount < 1 ) {
                 return Optional.of(context.createViolation(EMPTY_LINKS));
             } else if (nodeCount > 4) {
@@ -95,7 +96,7 @@ public class MegalinksGridTypeValidator implements Validator<Node> {
     private Optional<Violation> validateGrid34(final ValidationContext context, final Node node) {
 
         try {
-            final long nodeCount = node.getNodes("visitscotland:megalinkItems").getSize();
+            final long nodeCount = node.getNodes(MEGALINK_ITEMS_PROPERTY).getSize();
             if (nodeCount < 1 ) {
                 return Optional.of(context.createViolation(EMPTY_LINKS));
             } else if (nodeCount < 3 || nodeCount > 4) {
