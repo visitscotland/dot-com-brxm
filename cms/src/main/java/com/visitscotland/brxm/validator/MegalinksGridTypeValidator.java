@@ -75,8 +75,8 @@ public class MegalinksGridTypeValidator implements Validator<Node> {
     private Optional<Violation> validateGrid(final ValidationContext context, final Node node) {
 
         try {
-            final Long nodeCount = node.getNodes().getSize();
-            if (nodeCount == null || nodeCount < 1 ) {
+            final long nodeCount = node.getNodes("visitscotland:megalinkItems").getSize();
+            if (nodeCount < 1 ) {
                 return Optional.of(context.createViolation(EMPTY_LINKS));
             } else if (nodeCount > 4) {
                 return Optional.of(context.createViolation(NUMBER_OF_LINKS));
@@ -95,8 +95,8 @@ public class MegalinksGridTypeValidator implements Validator<Node> {
     private Optional<Violation> validateGrid34(final ValidationContext context, final Node node) {
 
         try {
-            final Long nodeCount = node.getNodes().getSize();
-            if (nodeCount == null || nodeCount < 1 ) {
+            final long nodeCount = node.getNodes("visitscotland:megalinkItems").getSize();
+            if (nodeCount < 1 ) {
                 return Optional.of(context.createViolation(EMPTY_LINKS));
             } else if (nodeCount < 3 || nodeCount > 4) {
                 return Optional.of(context.createViolation(NUMBER_OF_LINKS_34));
