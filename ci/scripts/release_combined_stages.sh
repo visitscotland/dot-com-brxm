@@ -147,34 +147,34 @@ step_3_extract_build_number() {
     # capture the output of the command inside the parentheses and store it into the VS_SITE_WAR_BUILD_NUMBER variable
     VS_SITE_WAR_BUILD_NUMBER="$(tr -d '[:space:]' < "$BUILD_NUMBER_FILE")"
     if [[ -z "$VS_SITE_WAR_BUILD_NUMBER" ]]; then
-        echo "INFO: $BUILD_NUMBER_FILE is empty, assigning it the value: 'UNKNOWN'" >&2
+        echo "            INFO: $BUILD_NUMBER_FILE is empty, assigning it the value: 'UNKNOWN'" >&2
         VS_SITE_WAR_BUILD_NUMBER="UNKNOWN"
     else
-      echo "INFO: Build number extracted from $BUILD_NUMBER_FILE: $VS_SITE_WAR_BUILD_NUMBER"
+      echo "            INFO: Build number extracted from $BUILD_NUMBER_FILE: $VS_SITE_WAR_BUILD_NUMBER"
       return
     fi
   fi
-  echo "INFO: Build number file not found in: $BUILD_NUMBER_FILE, widening the search..." >&2
-  echo "INFO: Falling back to MANIFEST.MF inside distribution tarball"
+  echo "            INFO: Build number file not found in: $BUILD_NUMBER_FILE, widening the search..." >&2
+  echo "            INFO: Falling back to MANIFEST.MF inside distribution tarball"
   # build-number.txt doesn't exist on its own, extract the build-number from within the release package files
 
   # Fallback for DISTRO_FILE
   if [[ -z "${DISTRO_FILE:-}" || ! -f "$DISTRO_FILE" ]]; then
-    echo "WARN: DISTRO_FILE not set in previous step, or missing; attempting fallback search..."
+    echo "            WARN: DISTRO_FILE not set in previous step, or missing; attempting fallback search..."
     distro_file=$(find target -maxdepth 1 -type f -name '*distribution*.tar.gz' -print -quit 2>/dev/null || true)
     if [[ -n "$distro_file" && -f "$distro_file" ]]; then
       DISTRO_FILE="$distro_file"
-      echo "INFO: Fallback found distribution tarball: $DISTRO_FILE"
+      echo "            INFO: Fallback found distribution tarball: $DISTRO_FILE"
     else
-      echo "ERROR: No distribution tarball found under target/ (fallback failed)" >&2
+      echo "            ERROR: No distribution tarball found under target/ (fallback failed)" >&2
       exit 1
     fi
   fi
-  echo "Using distribution tarball $DISTRO_FILE"
+  echo "            INFO: Using distribution tarball $DISTRO_FILE"
 
   # Create throwaway temp dir for .war extraction
   tmpdir="$(mktemp -d "${TMPDIR:-/tmp}/distwar.XXXXXXXX")" || {
-    echo "WARN: Failed to create temp directory for WAR extraction" >&2
+    echo "            WARN: Failed to create temp directory for WAR extraction" >&2
     return
   }
   # Make sure we clean up this temp dir in normal exit path of this function
@@ -183,13 +183,13 @@ step_3_extract_build_number() {
   war_path="$tmpdir/$war_rel_path"
   # Extract ONLY webapps/site.war from the tarball
   if ! tar -xzf "$DISTRO_FILE" -C "$tmpdir" "$war_rel_path" 2>/dev/null; then
-    echo "WARN: Failed to extract $war_rel_path from $DISTRO_FILE" >&2
+    echo "            WARN: Failed to extract $war_rel_path from $DISTRO_FILE" >&2
     rm -rf "$tmpdir"
     return
   fi
 
   if [[ ! -f "$war_path" ]]; then
-    echo "WARN: Extracted WAR not found at $war_path" >&2
+    echo "            WARN: Extracted WAR not found at $war_path" >&2
     rm -rf "$tmpdir"
     return
   fi
@@ -198,7 +198,7 @@ step_3_extract_build_number() {
   manifest_contents="$(unzip -p "$war_path" META-INF/MANIFEST.MF 2>/dev/null || true)"
 
   if [[ -z "$manifest_contents" ]]; then
-    echo "WARN: Could not read META-INF/MANIFEST.MF from $war_path" >&2
+    echo "            WARN: Could not read META-INF/MANIFEST.MF from $war_path" >&2
     rm -rf "$tmpdir"
     return
   fi
@@ -210,13 +210,13 @@ step_3_extract_build_number() {
   )"
 
   if [[ -n "$VS_SITE_WAR_BUILD_NUMBER" ]]; then
-    echo "INFO: Build number extracted from tarball .war MANIFEST: $VS_SITE_WAR_BUILD_NUMBER"
+    echo "            INFO: Build number extracted from tarball .war MANIFEST: $VS_SITE_WAR_BUILD_NUMBER"
   else
-    echo "WARN: No Build-Number entry found in WAR MANIFEST" >&2
+    echo "            WARN: No Build-Number entry found in WAR MANIFEST" >&2
   fi
 
   rm -rf "$tmpdir"
-  echo "INFO: $tmpdir has been removed"
+  echo "            INFO: $tmpdir has been removed"
 }
 
 # =====================================================================
