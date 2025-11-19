@@ -18,6 +18,13 @@ SITE_WAR="${6:-site/webapp/target/site.war}"
 MANIFEST_PATH="${7:-META-INF/MANIFEST.MF}"
 MODE="${8:-all}"  # can be: all, step1, step2, step3, etc.
 
+# ---- Shared variables ----
+DISTRO_FILE=""
+VS_RELEASE_PACKAGE_WORKSPACE_MD5=""
+VS_PIPELINE_OUTCOME_EMAIL=""
+VS_ERROR_LINES_EMAIL=""
+VS_SITE_WAR_BUILD_NUMBER=""
+
 # ---- Preconditions / setup ----
 WORKSPACE="${WORKSPACE:-$(pwd)}"
 mkdir -p "$OUT_DIR" "$(dirname "$PROPS_PATH")"
@@ -142,80 +149,74 @@ step_3_extract_build_number() {
     if [[ -z "$VS_SITE_WAR_BUILD_NUMBER" ]]; then
         echo "INFO: $BUILD_NUMBER_FILE is empty, assigning it the value: 'UNKNOWN'" >&2
         VS_SITE_WAR_BUILD_NUMBER="UNKNOWN"
-    fi
-  else
-    echo "INFO: Build number file not found: $BUILD_NUMBER_FILE" >&2
-    # build-number.txt doesn't exist on its own, extract the build-number from within the release package files
-    echo "INFO: Extracting Build number from the MANIFEST.MF file within $SITE_WAR instead"
-    # Concept: should there be a site .war file with a manifest.mf in it, extract the build number from it
-    # enter block if the war file exists
-    if [[ -f "$SITE_WAR" ]]; then
-      # Concept:
-      #   In the testing phase, it has been revealed that race conditions take place, when it comes to the creation
-      #   of the .war file. It might exist, but actively being written on while the script tries to extract the
-      #   build-number. Also, even if the .war is stable, MANIFEST.MF might still be in the process of being finalised.
-      #     --------------------------------------------------------------------------------
-      #     WAR files (ZIP format) are written in stages by Maven’s maven-war-plugin:
-      #       1. It writes intermediate entries (class files, JSPs, web.xml, etc.)
-      #       2. It finalises the archive directory and writes META-INF/MANIFEST.MF last
-      #       3. It closes and flushes the central directory.
-      #     When the script checks the WAR right between steps 2 and 3, we are getting:
-      #     unzip -l site/webapp/target/site.war | grep -q META-INF/MANIFEST.MF → not found
-      #     --------------------------------------------------------------------------------
-      # Solution:
-      #   Implemented counter-measures for the aforementioned race conditions by waiting for .war
-      #   to be stable, as well as for MANIFEST.MF within it to be finalised (waits up to ~4s)
-      manifest_found=false
-      msg="(counter-measure for race conditions)"
-      MAX_RETRIES="${MAX_RETRIES:-10}"
-      SLEEP_INTERVAL="${SLEEP_INTERVAL:-0.2}"
-      for ((i=1; i<=MAX_RETRIES; i++)); do
-        s1=$(stat -c%s "$SITE_WAR" 2>/dev/null || echo 0)
-        sleep "$SLEEP_INTERVAL"
-        s2=$(stat -c%s "$SITE_WAR" 2>/dev/null || echo 0)
-
-        if (( s1 == s2 && s1 > 0 )); then
-          if unzip -l "$SITE_WAR" 2>/dev/null | grep -qF "$MANIFEST_PATH"; then
-            echo "            [INFO] MANIFEST.MF found inside $SITE_WAR after $i attempt(s)"
-            manifest_found=true
-            break
-          else
-            echo "            [WAIT #$i] MANIFEST.MF not yet visible inside $SITE_WAR $msg"
-          fi
-        else
-          echo "            [WAIT #$i] $SITE_WAR is not finalised/stable yet $msg"
-        fi
-        sleep "$SLEEP_INTERVAL"  # allow time between retries
-      done
-
-      # Check if the MANIFEST.MF exists inside the WAR file (replaced with the boolean check to save resources)
-      if $manifest_found; then
-        # Check if the Build-Number entry exists within the MANIFEST.MF
-        # Extract (stream) that file’s contents and read lines from it
-        if unzip -p "$SITE_WAR" "$MANIFEST_PATH" | grep -qE '^Build-Number(:|\s)'; then
-          # extract the actual build number
-          # old version: unzip -p ${siteWarFilePath} ${siteWarManifestFile} | grep "Build-Number" | awk '{print \$2}'
-          # new version's benefits:
-          # ^Build-Number ensures we only match the actual manifest key, not incidental text
-          # -F'[: ]+' treats colon or spaces as valid separators (Build-Number 123 or Build-Number: 123)
-          # Uses only awk → simpler error handling and no pipe to grep
-          # exit stops processing once it finds a match — faster and avoids duplicates
-          # The "$VAR" quoting avoids word-splitting and globbing bugs
-          # Sanitisation: manifest entry is piped to tr -d '\r[:space:]' which eliminates a carriage return, or \n, etc.
-          VS_SITE_WAR_BUILD_NUMBER="$(unzip -p "$SITE_WAR" "$MANIFEST_PATH" \
-          | awk -F'[: ]+' '/^Build-Number(:| ){1}/{print $2; exit}' \
-          | tr -d '\r[:space:]')"
-          echo "            [INFO] Build number extracted from within .war's manifest.mf entry: $VS_SITE_WAR_BUILD_NUMBER"
-        else
-          echo "            [WARN] Build-Number entry not found in ${MANIFEST_PATH}" >&2
-        fi
-      else
-        echo "            [WARN] MANIFEST ${MANIFEST_PATH} not found in ${SITE_WAR} after waiting; skipping." >&2
-      fi
     else
-      echo "            [WARN] WAR not found: ${SITE_WAR}" >&2
+      echo "INFO: Build number extracted from $BUILD_NUMBER_FILE: $VS_SITE_WAR_BUILD_NUMBER"
+      return
     fi
   fi
+  echo "INFO: Build number file not found in: $BUILD_NUMBER_FILE, widening the search..." >&2
+  echo "INFO: Falling back to MANIFEST.MF inside distribution tarball"
+  # build-number.txt doesn't exist on its own, extract the build-number from within the release package files
+
+  # Fallback for DISTRO_FILE
+  if [[ -z "${DISTRO_FILE:-}" || ! -f "$DISTRO_FILE" ]]; then
+    echo "WARN: DISTRO_FILE not set in previous step, or missing; attempting fallback search..."
+    distro_file=$(find target -maxdepth 1 -type f -name '*distribution*.tar.gz' -print -quit 2>/dev/null || true)
+    if [[ -n "$distro_file" && -f "$distro_file" ]]; then
+      DISTRO_FILE="$distro_file"
+      echo "INFO: Fallback found distribution tarball: $DISTRO_FILE"
+    else
+      echo "ERROR: No distribution tarball found under target/ (fallback failed)" >&2
+      exit 1
+    fi
+  fi
+  echo "Using distribution tarball $DISTRO_FILE"
+
+  # Create throwaway temp dir for .war extraction
+  tmpdir="$(mktemp -d "${TMPDIR:-/tmp}/distwar.XXXXXXXX")" || {
+    echo "WARN: Failed to create temp directory for WAR extraction" >&2
+    return
+  }
+  # Make sure we clean up this temp dir in normal exit path of this function
+  # (no trap here to avoid messing with global traps; worst case: orphaned dir)
+  war_rel_path="webapps/site.war"
+  war_path="$tmpdir/$war_rel_path"
+  # Extract ONLY webapps/site.war from the tarball
+  if ! tar -xzf "$DISTRO_FILE" -C "$tmpdir" "$war_rel_path" 2>/dev/null; then
+    echo "WARN: Failed to extract $war_rel_path from $DISTRO_FILE" >&2
+    rm -rf "$tmpdir"
+    return
+  fi
+
+  if [[ ! -f "$war_path" ]]; then
+    echo "WARN: Extracted WAR not found at $war_path" >&2
+    rm -rf "$tmpdir"
+    return
+  fi
+
+  # Read MANIFEST.MF from the extracted WAR
+  manifest_contents="$(unzip -p "$war_path" META-INF/MANIFEST.MF 2>/dev/null || true)"
+
+  if [[ -z "$manifest_contents" ]]; then
+    echo "WARN: Could not read META-INF/MANIFEST.MF from $war_path" >&2
+    rm -rf "$tmpdir"
+    return
+  fi
+
+  VS_SITE_WAR_BUILD_NUMBER="$(
+    printf '%s\n' "$manifest_contents" \
+      | awk -F'[: ]+' '/^Build-Number/{print $2; exit}' \
+      | tr -d '\r[:space:]'
+  )"
+
+  if [[ -n "$VS_SITE_WAR_BUILD_NUMBER" ]]; then
+    echo "INFO: Build number extracted from tarball .war MANIFEST: $VS_SITE_WAR_BUILD_NUMBER"
+  else
+    echo "WARN: No Build-Number entry found in WAR MANIFEST" >&2
+  fi
+
+  rm -rf "$tmpdir"
+  echo "INFO: $tempdir has been removed"
 }
 
 # =====================================================================
