@@ -216,7 +216,7 @@ step_3_extract_build_number() {
   fi
 
   rm -rf "$tmpdir"
-  echo "INFO: $tempdir has been removed"
+  echo "INFO: $tmpdir has been removed"
 }
 
 # =====================================================================
