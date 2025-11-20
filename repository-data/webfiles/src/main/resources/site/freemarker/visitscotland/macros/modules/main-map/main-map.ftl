@@ -4,7 +4,7 @@
 <#macro mainMap module>
 <div>
     <vs-main-map
-        apiKey = "API Key"
+        apiKey = "${mapsAPI}"
         :center = "{
             lat: 56.490153,
             lng: 4.10959,
@@ -13,7 +13,8 @@
         :radius = "5000"
         noJsMessage = "${label('map', 'map.no-js')}"
         noCookiesMessage = "${label('map', 'map.cookies-message')}"
-        cookieBtnText = 'Manage cookies'
+        cookieBtnText = "${label('global', 'cookie.link-message')}"
+        :categories="${escapeJSON(module.filters,true)}"
         :labels = "{
             heading: '${module.tabTitle}',
             closeSidebarBtn: '${label('map', 'map.close-panel')}',
@@ -25,5 +26,5 @@
             openSidebarButton: '${label('map', 'map.open-panel')}',
         }"
     />
-    </div>
+</div>
 </#macro>
