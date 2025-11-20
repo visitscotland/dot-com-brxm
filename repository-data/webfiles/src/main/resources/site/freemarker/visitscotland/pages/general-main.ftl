@@ -30,7 +30,7 @@
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
 
-    <#if false>
+    <#if !mainMapPage??>
         <#if author??>
             <@pageIntro content=document lightBackground=true author=author />
             <@introImage mainImage=heroImage />
@@ -74,7 +74,7 @@
 		</#if>
 	</#list>
 
-    <#if false>
+    <#if !mainMapPage??>
         <#if searchResultsPage??>
             <@searchResults />
         </#if>
