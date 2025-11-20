@@ -18,6 +18,7 @@ node_modules/
 
 #Any component library changes imported from Yalc
 ui-integration/.yalc/
+ui-integration/yalc.lock
 
 #BloomReach CMS Related files
 essentials/overlays/
