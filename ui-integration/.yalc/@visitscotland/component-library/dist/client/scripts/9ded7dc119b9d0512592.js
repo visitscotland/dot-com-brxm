@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_visitscotland_component_library=self.webpackChunk_visitscotland_component_library||[]).push([[7957],{57957:function(n,t){t.A=function(){return document.getElementsByClassName("no-js").length>0}}}]);
