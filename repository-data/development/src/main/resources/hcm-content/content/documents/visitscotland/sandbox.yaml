@@ -4294,7 +4294,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 191da414-2b36-40eb-85bc-0a1730f5a5da
           hippo:name: www.visitscotland.com - Lewis and Harris
-          hippo:versionHistory: 3a86f6c4-449d-42e8-801d-7c3c3f2867a0
+          hippo:versionHistory: 82f25b07-eb6d-45c4-ad4d-03552005667a
           /www.visitscotland.com---lewis-and-harris[1]:
             jcr:primaryType: visitscotland:SharedLink
             jcr:mixinTypes: ['mix:versionable']
@@ -4353,14 +4353,14 @@
             jcr:primaryType: visitscotland:SharedLink
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: dd929a67-e6ee-4f46-b5a7-280b91b0de97
-            hippo:availability: []
+            hippo:availability: [live]
             hippostd:retainable: false
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-07-10T13:34:45.173+01:00
             hippostdpubwf:lastModificationDate: 2021-06-24T14:58:10.611+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2021-06-24T14:58:12.414+01:00
+            hippostdpubwf:publicationDate: 2025-11-20T11:18:20.311Z
             hippotranslation:id: 4ca683a5-e68a-47f6-b65a-481061871a0d
             hippotranslation:locale: en
             visitscotland:teaser: Off the west coast of Scotland, the Isle of Lewis
