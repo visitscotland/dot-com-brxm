@@ -6,18 +6,18 @@
 
     <div>
         <vs-main-map
-            apiKey = "${mapsAPI}"
+            api-key = "${mapsAPI}"
             :center = "{
                 lat: 56.490153,
                 lng: 4.10959,
             }"
             :zoom = "6"
             :radius = "5000"
-            noJsMessage = "${label('map', 'map.no-js')}"
-            noCookiesMessage = "${label('map', 'map.cookies-message')}"
-            cookieBtnText = "${label('essentials.global', 'cookie.link-message')}"
-            :categoryLabels="${escapeJSON(module.filters,true)}"
-            categoriesLocation="https://static.visitscotland.com/maps-resources/main-map/map-categories.json"
+            no-js-message = "${label('map', 'map.no-js')}"
+            no-cookies-message = "${label('map', 'map.cookies-message')}"
+            cookie-btn-text = "${label('essentials.global', 'cookie.link-message')}"
+            :category-labels="${escapeJSON(module.filters,true)}"
+            categories-location="https://static.visitscotland.com/maps-resources/main-map/map-categories.json"
             :labels = "{
                 heading: '${module.tabTitle}',
                 closeSidebarBtn: '${label('map', 'map.close-panel')}',
@@ -28,7 +28,7 @@
                 searchResults: '${label('map', 'map.places')}',
                 openSidebarButton: '${label('map', 'map.open-panel')}',
             }"
-            languageCode="${language}"
+            language-code="${language}"
         />
     </div>
 </#macro>
