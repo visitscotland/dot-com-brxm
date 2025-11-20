@@ -28,7 +28,7 @@
                 searchResults: '${label('map', 'map.places')}',
                 openSidebarButton: '${label('map', 'map.open-panel')}',
             }"
-            language="${language}"
+            languageCode="${language}"
         />
     </div>
 </#macro>
