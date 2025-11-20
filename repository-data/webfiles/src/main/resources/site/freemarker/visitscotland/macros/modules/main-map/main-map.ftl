@@ -16,7 +16,8 @@
             noJsMessage = "${label('map', 'map.no-js')}"
             noCookiesMessage = "${label('map', 'map.cookies-message')}"
             cookieBtnText = "${label('essentials.global', 'cookie.link-message')}"
-            :categories="${escapeJSON(module.filters,true)}"
+            :categoryLabels="${escapeJSON(module.filters,true)}"
+            categoriesLocation="https://static.visitscotland.com/maps-resources/main-map/map-categories.json"
             :labels = "{
                 heading: '${module.tabTitle}',
                 closeSidebarBtn: '${label('map', 'map.close-panel')}',
