@@ -37,7 +37,7 @@
 		<#if heroVideo?? && !heroVideo.youtubeId??>
 			<@heroSection content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
 		<#else>
-			<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
+			<@heroSection content=document heroDetails=heroImage />
 		</#if>
 	<#elseif standardTemplate>
         <@pageIntro content=document lightBackground=true />
