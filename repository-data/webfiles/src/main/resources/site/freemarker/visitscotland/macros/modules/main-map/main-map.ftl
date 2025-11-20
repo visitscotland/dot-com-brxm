@@ -1,0 +1,29 @@
+<#include "../../../../include/imports.ftl">
+<#include "../../../../frontend/components/vs-main-map.ftl">
+
+<#macro mainMap module>
+<div>
+    <vs-main-map
+        apiKey = "API Key"
+        :center = "{
+            lat: 56.490153,
+            lng: 4.10959,
+        }"
+        :zoom = "6"
+        :radius = "5000"
+        noJsMessage = "${label('map', 'map.no-js')}"
+        noCookiesMessage = "${label('map', 'map.cookies-message')}"
+        cookieBtnText = 'Manage cookies'
+        :labels = "{
+            heading: '${module.tabTitle}',
+            closeSidebarBtn: '${label('map', 'map.close-panel')}',
+            inputPlaceholder: '${label('map', 'map.placeholder')}',
+            searchButton: '${label('map', 'map.search')}',
+            clearMap: '${label('map', 'map.clear')}',
+            subFilterHeader: '${label('map', 'map.sub-filter')}',
+            searchResults: '${label('map', 'map.places')}',
+            openSidebarButton: '${label('map', 'map.open-panel')}',
+        }"
+    />
+    </div>
+</#macro>
