@@ -5,3 +5,7 @@
 .vs-mega-nav-static-link {
     transform: translateY(2px);
 }
+
+.vs-mega-nav-static-link--full-width {
+    transform: translateY(0);
+}

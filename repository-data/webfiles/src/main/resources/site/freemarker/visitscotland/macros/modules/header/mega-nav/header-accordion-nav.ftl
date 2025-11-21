@@ -9,7 +9,11 @@
     <vs-accordion>
         <#list menu.siteMenuItems as item>
              <#if (!item.childMenuItems?has_content)>
-                <vs-mega-nav-static-link href="${getUrl(item)}">
+                <vs-mega-nav-static-link
+                    href="${getUrl(item)}"
+                    :is-full-width="true"
+                    class="vs-mega-nav-mobile"
+                >
                     ${item.title}
                 </vs-mega-nav-static-link>
             <#else>
