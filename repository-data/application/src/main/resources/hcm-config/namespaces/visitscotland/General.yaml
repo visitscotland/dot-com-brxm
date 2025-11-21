@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 94d63177-a78b-4f3b-b676-4c5b0ecef3b1
+          jcr:uuid: e79bb133-32d8-44bd-bca8-7025c61d0a15
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -33,6 +33,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators: [required]
+          /categoryLinks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:categoryLinks
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:PageLinksSectionCompound
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -50,7 +59,7 @@ definitions:
           visitscotland:title: ''
           visitscotland:seoTitle: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 44f04547-a2c1-435e-8886-ea30b4658083
+          jcr:uuid: da144661-9fcd-44a9-85a1-be9ed5f2bdfb
           hippostdpubwf:lastModificationDate: 2020-09-25T13:13:22.744+01:00
           hippostdpubwf:creationDate: 2020-09-25T13:13:22.744+01:00
           visitscotland:theme: Standard
@@ -191,13 +200,13 @@ definitions:
                 ''general_intro:./vs_styles.js'',toolbarGroups: [{name: ''basicstyles''},{name:
                 ''styles''},{name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
                 ] , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
-          /otherThings:
+          /categoryLinks:
             jcr:primaryType: frontend:plugin
-            caption: Other things you might like
-            field: otherThings
-            hint: ''
+            caption: Category Cards Section
+            field: categoryLinks
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /newsletter:
@@ -209,16 +218,15 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /translation:
+          /otherThings:
             jcr:primaryType: frontend:plugin
-            caption: Translation
-            field: openuistring
+            caption: Other things you might like
+            field: otherThings
             hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ui.extension: translationDiff
           /blog:
             jcr:primaryType: frontend:plugin
             caption: Blog
@@ -238,3 +246,13 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: Default,Top,Bottom,Hidden
+          /translation:
+            jcr:primaryType: frontend:plugin
+            caption: Translation
+            field: openuistring
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ui.extension: translationDiff
