@@ -67,7 +67,7 @@
             <@includeOnce "../modules/travel-information/travel-information.ftl" />
             <@travelInformation module/>
         <#elseif moduleType == "MapsModule">
-            <#if module.googleMap??>
+            <#if module.googleMap?? && module.googleMap>
                 <@includeOnce "../modules/main-map/main-map.ftl" />
                 <@mainMap module/>
             <#else>
