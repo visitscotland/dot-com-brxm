@@ -25,13 +25,14 @@
 
     <div class="has-edit-button">
         <#assign videoPlay = label('video', 'video.play-btn') />
-
         <vs-hero-section
             heading="${content.title}"
             lede="${content.teaser}"
             img-src="${heroSrc}"
             video-src="${heroVideo.link}"
             video-btn-text="${videoPlay}"
+            img-caption="${heroDetails.description}"
+            img-credit="${heroDetails.credit}"
         />
     </div>
 </#macro>
