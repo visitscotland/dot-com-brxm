@@ -31,8 +31,15 @@
             img-src="${heroSrc}"
             video-src="${heroVideo.link}"
             video-btn-text="${videoPlay}"
+            <#if heroDetails.description?? && heroDetails.description?has_content>
             img-caption="${heroDetails.description}"
+            </#if>
+            <#if heroDetails.credit?? && heroDetails.credit?has_content>
             img-credit="${heroDetails.credit}"
+            </#if>
+            <#if heroDetails.altText?? && heroDetails.altText?has_content>
+            img-alt="${heroDetails.altText}"
+            </#if>
         />
     </div>
 </#macro>
