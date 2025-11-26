@@ -1,13 +1,12 @@
 /content/documents/administration/labels/modules/map:
   jcr:primaryType: hippo:handle
-  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: ac89a8cf-a2c8-4cd6-bf14-91afb3d68e3e
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: c443083d-2924-408b-85a5-0a08f3ac0bae
   hippo:name: Map
-  hippo:versionHistory: 05329509-69e7-41a9-95ef-d1e049385848
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 90019e06-1c38-4a8a-bb1f-8864b87dc97e
+    jcr:uuid: 98b032e0-bd2a-47ed-b815-0193714e2100
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
@@ -104,7 +103,7 @@
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 3a26f6ea-a52e-465e-b9c4-052603ed8185
+    jcr:uuid: 6e396065-9cd1-412a-8a2a-9045ed038270
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
@@ -201,7 +200,7 @@
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 37b341ab-b63d-4e18-9ad4-3d541d473f22
+    jcr:uuid: 09616f3c-8b62-4611-a521-e843d63ae204
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
