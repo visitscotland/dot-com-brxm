@@ -20,35 +20,42 @@ public class GoogleMapsService {
 
     // regex to extract coordinates from url using @ coordinates
     private static final String URL_REGEX =
-            "(?i)https://www\\.google\\.com/maps/place/[^/]*/@(-?\\d{1,3}\\.\\d{1,20}),(-?\\d{1,3}\\.\\d{1,10}),.*";
+            "(?i)https://www\\.google\\.com/maps/place/[^/]*/@(-?\\d{1,3}\\.\\d{1,20}),(-?\\d{1,3}\\.\\d{1,20}),.*";
 
     private static final Pattern URL_PATTERN = Pattern.compile(URL_REGEX);
 
+    /**
+     * takes a list of google place urls, extracts the coordinates and returns a google directions url
+     */
     public String getDirectionsUrl(final List<String> urls) {
 
-        StringBuilder sb1 = new StringBuilder();
-        if (urls.isEmpty()) {
+        StringBuilder urlBuilder = new StringBuilder();
+        if (urls == null || urls.isEmpty()) {
             return null;
         }
         try {
             for (final String url : urls) {
+                if (url == null) {
+                    logger.warn("Null URL encountered, skipping...");
+                    continue;
+                }
                 final Matcher urlMatcher = URL_PATTERN.matcher(url);
                 if (urlMatcher.matches()) {
-                    sb1.append("/").append(urlMatcher.group(1)).append(",").append(urlMatcher.group(2));
+                    urlBuilder.append("/").append(urlMatcher.group(1)).append(",").append(urlMatcher.group(2));
                 } else {
-                    // bad url provided
                     logger.error("url format not recognized. url: {}", url);
                 }
             }
-            if (sb1.length() > 1) {
-                sb1.insert(0, DIRECTIONS_URL);
-                sb1.append("/");
+            if (urlBuilder.length() > 1) {
+                urlBuilder.insert(0, DIRECTIONS_URL);
+                urlBuilder.append("/");
             } else {
                 return null;
             }
         } catch (NullPointerException exception) { // improve exception handling
             logger.error("An error occurred: ", exception);
+            return null;
         }
-        return sb1.toString();
+        return urlBuilder.toString();
     }
 }

@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.services;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -21,13 +20,6 @@ class GoogleMapsServiceTest {
         urlsToTest = new ArrayList<>();
         googleMapsService = new GoogleMapsService();
     }
-
-    @AfterEach
-    void shutdown() {
-        urlsToTest.clear();
-        googleMapsService = null;
-    }
-
 
     @Test
     @DisplayName("VS-966 - Parse valid URLs")
