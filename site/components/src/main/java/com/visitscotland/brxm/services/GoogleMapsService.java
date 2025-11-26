@@ -46,7 +46,7 @@ public class GoogleMapsService {
                     logger.error("url format not recognized. url: {}", url);
                 }
             }
-            if (urlBuilder.length() > 1) {
+            if (urlBuilder.length() > 0) {
                 urlBuilder.insert(0, DIRECTIONS_URL);
                 urlBuilder.append("/");
             } else {
