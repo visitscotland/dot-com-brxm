@@ -286,15 +286,6 @@
             locale.fr.name: Gîtes à la ferme
             locale.it.name: Agriturismi
             locale.nl.name: Vakantie op de boerderij
-          /hostel-old:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: hostel
-            locale.de.name: Hostel
-            locale.en.name: Hostel
-            locale.es.name: Hostal
-            locale.fr.name: Auberge de jeunesse
-            locale.it.name: Ostello
-            locale.nl.name: Hostel
           /hostel:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: hostel
