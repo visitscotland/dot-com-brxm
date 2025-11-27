@@ -33,29 +33,25 @@ public class GoogleMapsService {
         if (urls == null || urls.isEmpty()) {
             return null;
         }
-        try {
-            for (final String url : urls) {
-                if (url == null) {
-                    logger.warn("Null URL encountered, skipping...");
-                    continue;
-                }
-                final Matcher urlMatcher = URL_PATTERN.matcher(url);
-                if (urlMatcher.matches()) {
-                    urlBuilder.append("/").append(urlMatcher.group(1)).append(",").append(urlMatcher.group(2));
-                } else {
-                    logger.error("url format not recognized. url: {}", url);
-                }
+
+        for (final String url : urls) {
+            if (url == null) {
+                logger.warn("Null URL encountered, skipping...");
+                continue;
             }
-            if (urlBuilder.length() > 0) {
-                urlBuilder.insert(0, DIRECTIONS_URL);
-                urlBuilder.append("/");
+            final Matcher urlMatcher = URL_PATTERN.matcher(url);
+            if (urlMatcher.matches()) {
+                urlBuilder.append("/").append(urlMatcher.group(1)).append(",").append(urlMatcher.group(2));
             } else {
-                return null;
+                logger.warn("url format not recognized. url: {}", url);
             }
-        } catch (NullPointerException exception) { // improve exception handling
-            logger.error("An error occurred: ", exception);
+        }
+        if (urlBuilder.length() > 0) {
+            urlBuilder.insert(0, DIRECTIONS_URL);
+            urlBuilder.append("/");
+            return urlBuilder.toString();
+        } else {
             return null;
         }
-        return urlBuilder.toString();
     }
 }
