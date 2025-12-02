@@ -66,6 +66,9 @@
 [visitscotland:Day] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
+[visitscotland:DayNew] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
 [visitscotland:Page] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
@@ -257,6 +260,9 @@
 [visitscotland:contentdocument] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
+[visitscotland:dayNewExplore] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:default] > hippogallery:imageset, hippogallery:relaxed
 
 [visitscotland:hosts]
@@ -265,5 +271,8 @@
   - visitscotland:siteProperties (string)
 
 [visitscotland:imageData] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:stopNew] > hippo:compound, hippostd:relaxed
   orderable
 
