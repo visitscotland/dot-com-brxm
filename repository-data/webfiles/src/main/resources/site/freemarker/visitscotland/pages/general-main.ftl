@@ -39,7 +39,17 @@
 		<#if heroVideo?? && !heroVideo.youtubeId??>
 			<@heroSection content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
 		<#else>
-			<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
+		<vs-container class="mt-075 mt-lg-200">
+				<vs-row>
+					<vs-col
+						cols="10"
+						lg="8"
+					>
+					<@hst.include ref="breadcrumb"/>
+					</vs-col>
+				</vs-row>
+			</vs-container>
+			<@heroSection content=document heroDetails=heroImage />
 		</#if>
 	<#elseif standardTemplate>
         <@pageIntro content=document lightBackground=true />
