@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.pagebuilder;
 
+import com.visitscotland.brxm.mapper.module.SpotlightMapper;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.*;
 import com.visitscotland.brxm.mapper.module.*;
@@ -9,7 +10,6 @@ import com.visitscotland.brxm.model.megalinks.LinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
@@ -50,10 +50,9 @@ public class PageAssembler {
     private final CannedSearchMapper cannedSearchMapper;
     private final CannedSearchDMSMapper cannedSearchDMSMapper;
     private final FormMapper formMapper;
-    private final SpotlightMapper spotlightMapper;
+    private final CTABannerMapper ctaBannerMapper;
     private final EventsListingMapper eventsListingMapper;
-
-    private final SiteProperties properties;
+    private final SpotlightMapper spotlightMapper;
 
     private final ResourceBundleService bundle;
     private final Logger contentLogger;
@@ -64,10 +63,11 @@ public class PageAssembler {
                          UserGeneratedContentMapper userGeneratedContentMapper,
                          TravelInformationMapper travelInformationMapper, PreviewWarningMapper previewWarningMapper,
                          MapModuleMapper mapModuleMapper, SkiCentreMapper skiCentreMapper, SkiCentreListMapper
-                                 skiCentreListMapper, DevModuleMapper devModuleMapper, LongCopyMapper longCopyMapper,
+                         skiCentreListMapper, DevModuleMapper devModuleMapper, LongCopyMapper longCopyMapper,
                          CannedSearchMapper cannedSearchMapper, CannedSearchDMSMapper cannedSearchDMSMapper,
-                         FormMapper formMapper, SpotlightMapper spotlightMapper, EventsListingMapper eventsListingMapper,
-                         SiteProperties properties, ResourceBundleService bundle, Logger contentLogger) {
+                         FormMapper formMapper, CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper,
+                         ResourceBundleService bundle, Logger contentLogger,
+                         SpotlightMapper spotlightMapper) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
         this.iCentreMapper = iCentreMapper;
@@ -84,11 +84,11 @@ public class PageAssembler {
         this.cannedSearchMapper = cannedSearchMapper;
         this.cannedSearchDMSMapper = cannedSearchDMSMapper;
         this.formMapper = formMapper;
-        this.spotlightMapper = spotlightMapper;
+        this.ctaBannerMapper = ctaBannerMapper;
         this.eventsListingMapper = eventsListingMapper;
-        this.properties = properties;
         this.bundle = bundle;
         this.contentLogger = contentLogger;
+        this.spotlightMapper = spotlightMapper;
     }
 
     private Page getDocument(HstRequest request) {
@@ -154,7 +154,9 @@ public class PageAssembler {
         } else if (item instanceof DevModule){
             devModuleMapper.include((DevModule) item, compositionHelper);
         } else if (item instanceof CTABanner){
-            spotlightMapper.include((CTABanner) item, compositionHelper);
+            ctaBannerMapper.include((CTABanner) item, compositionHelper);
+        } else if (item instanceof Spotlight){
+            spotlightMapper.include((Spotlight) item, compositionHelper);
         } else if (item instanceof EventsListing){
             eventsListingMapper.include((EventsListing) item, compositionHelper);
         } else {

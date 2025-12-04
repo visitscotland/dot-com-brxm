@@ -1,9 +1,13 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper.module;
 
 import com.visitscotland.brxm.hippobeans.Spotlight;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
-import com.visitscotland.brxm.model.*;
-import com.visitscotland.brxm.model.Module;
+import com.visitscotland.brxm.model.FlatImage;
+import com.visitscotland.brxm.model.FlatLink;
+import com.visitscotland.brxm.model.SpotlightModule;
+import com.visitscotland.brxm.pagebuilder.InvalidContentException;
+import com.visitscotland.brxm.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.utils.ContentLogger;
@@ -12,15 +16,16 @@ import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.MissingResourceException;
 
 @Component
-public class SpotlightFactory {
+public class SpotlightMapper extends ModuleMapper<Spotlight, SpotlightModule>{
 
     private final Logger contentLogger;
     private final LinkService linkService;
     private final AnchorFormatter anchorFormatter;
 
-    public SpotlightFactory(LinkService linkService,
+    public SpotlightMapper(LinkService linkService,
                            AnchorFormatter anchorFormatter,
                            ContentLogger contentLogger) {
         this.linkService = linkService;
@@ -28,16 +33,18 @@ public class SpotlightFactory {
         this.contentLogger = contentLogger;
     }
 
+    @Override
+    SpotlightModule map(Spotlight document, PageCompositionHelper compositionHelper) throws PageCompositionException {
+        return createModule(document, compositionHelper.getLocale());
+    }
 
-    public Module<?> createModule(Spotlight spotlight, Locale locale) {
+    public SpotlightModule createModule(Spotlight spotlight, Locale locale) throws InvalidContentException {
         SpotlightModule module = new SpotlightModule();
         Linkable linkable = (Linkable) spotlight.getCtaLink().getLink();
         FlatLink cta = linkService.createSimpleLink(linkable, module, locale);
 
         if (Contract.isNull(cta.getLink())) {
-            contentLogger.warn(String.format(
-                    "The link for the Spotlight %s is not available. The module has been hidden", spotlight.getPath()));
-            return new ErrorModule(spotlight,
+            throw new InvalidContentException(spotlight.getPath(),
                     "The link for the Spotlight is not available. The module has been hidden");
         }
 
@@ -57,5 +64,10 @@ public class SpotlightFactory {
         module.setAnchor(anchorFormatter.getAnchorOrFallback(spotlight.getAnchor(), spotlight::getTitle));
 
         return module;
+    }
+
+    @Override
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        // No labels needed for Spotlight
     }
 }

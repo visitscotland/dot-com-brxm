@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PageIntroService {
+public class PageIntroAssembler {
 
-    private static final Logger logger = LoggerFactory.getLogger(PageIntroService.class);
+    private static final Logger logger = LoggerFactory.getLogger(PageIntroAssembler.class);
 
     private final List<PageAdapter<?>> adapters;
 
-    public PageIntroService(List<PageAdapter<?>> adapters) {
+    public PageIntroAssembler(List<PageAdapter<?>> adapters) {
         logger.debug("Adapters found: {}", adapters.size());
         this.adapters = adapters;
     }

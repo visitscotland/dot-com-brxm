@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.mapper.module;
 
-import com.visitscotland.brxm.hippobeans.CMSLink;
 import com.visitscotland.brxm.hippobeans.CTABanner;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.FlatImage;
@@ -17,12 +16,12 @@ import org.springframework.stereotype.Component;
 import java.util.MissingResourceException;
 
 @Component
-public class SpotlightMapper extends ModuleMapper<CTABanner, SignpostModule> {
+public class CTABannerMapper extends ModuleMapper<CTABanner, SignpostModule> {
 
     private final LinkService linkService;
     private final AnchorFormatter anchorFormatter;
 
-    public SpotlightMapper(LinkService linkService,
+    public CTABannerMapper(LinkService linkService,
                            AnchorFormatter anchorFormatter) {
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
@@ -30,7 +29,7 @@ public class SpotlightMapper extends ModuleMapper<CTABanner, SignpostModule> {
 
     @Override
     void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
-
+        //No labels needed for CTABanner
     }
 
     @Override

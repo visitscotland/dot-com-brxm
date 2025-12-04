@@ -4,7 +4,7 @@ import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInf
 import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
-import com.visitscotland.brxm.utils.pagebuilder.PageIntroService;
+import com.visitscotland.brxm.utils.pagebuilder.PageIntroAssembler;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -23,12 +23,12 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
     static final String ERROR_CODE = "errorCode";
 
     private final PageAssembler builder;
-    private PageIntroService pageIntroService;
+    private PageIntroAssembler pageIntroAssembler;
 
     public GeneralContentComponent(){
         logger.debug("GeneralContentComponent initialized");
         this.builder = VsComponentManager.get(PageAssembler.class);
-        this.pageIntroService = VsComponentManager.get(PageIntroService.class);
+        this.pageIntroAssembler = VsComponentManager.get(PageIntroAssembler.class);
     }
 
     @Override
@@ -46,6 +46,6 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
 
     private void addNavigationCards(HstRequest request){
         //TODO: This model can be renamed to pageIntro after FreeMarker is retired
-        request.setModel("pageIntroData", pageIntroService.from(request, request.getModel("document")));
+        request.setModel("pageIntroData", pageIntroAssembler.from(request, request.getModel("document")));
     }
 }
