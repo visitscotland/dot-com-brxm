@@ -2,7 +2,6 @@ package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
-import com.visitscotland.brxm.model.ErrorModule;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.utils.AnchorFormatter;
@@ -21,6 +20,7 @@ import java.util.stream.Collectors;
 @Component
 public class MegalinkFactory {
 
+    // TODO - remove grid 3 and 4 - this has been left for now in case any are still in use
     public enum MegalinkLayout {
         HORIZONTAL_LINKS("Horizontal Links"),
         LIST_LAYOUT("List"),
