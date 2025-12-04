@@ -680,13 +680,13 @@ public class LinkService {
         videoLink.setTeaser(video.getTeaser());
         videoLink.setLink(video.getUrl());
         videoLink.setCta(bundle.getVideoCtaLabel(video.getLabel(), locale));
-        videoLink.setYoutubeId(getYoutubeId(video.getUrl()));
         videoLink.setType(LinkType.VIDEO);
-        Optional<YoutubeVideo> videoInfo = youtubeApiService.getVideoInfo(videoLink.getYoutubeId());
-        // If the upload date can not be obtained from YouTube, set the published date to today to prevent a malformed
-        // schema
-        if (videoInfo.isPresent()) {
-            videoLink.setPublishedDate(videoInfo.get().getPublishDate());
+
+        if (isYoutubeUrl(video.getUrl())) {
+            String youtubeId = getYoutubeId(video.getUrl());
+            videoLink.setYoutubeId(youtubeId);
+            Optional<YoutubeVideo> videoInfo = youtubeApiService.getVideoInfo(youtubeId);
+            videoLink.setPublishedDate(videoInfo.map(YoutubeVideo::getPublishDate).orElse(new Date()));
         } else {
             videoLink.setPublishedDate(new Date());
         }
@@ -699,6 +699,12 @@ public class LinkService {
             logger.warn("The Youtube ID could not be calculated from the URL {}", url);
         }
         return id;
+    }
+
+    private boolean isYoutubeUrl(String url) {
+        return url != null && (
+                url.toLowerCase().contains("youtube")
+        );
     }
 
 
