@@ -34,7 +34,6 @@
 		<@pageIntro content=document lightBackground=true author=author />
 		<@introImage mainImage=heroImage />
 	<#elseif topLevelTemplate>
-<#--		Property = ${property("feature.hero-section.enable")}-->
 		<#if heroVideo?? && !heroVideo.youtubeId??>
 			<@heroSection content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
 		<#elseif (heroVideo?? && heroVideo.youtubeId??) || !property("feature.hero-section.enable")?boolean>
