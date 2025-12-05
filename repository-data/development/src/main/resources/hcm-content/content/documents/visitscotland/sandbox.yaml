@@ -52614,7 +52614,7 @@
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 499a384f-a141-4c6d-860a-89408748cdcd
-      hippo:versionHistory: 6dea4e15-ca55-4767-9c25-f997e39028c2
+      hippo:versionHistory: c4247a3a-61c8-4242-a828-336284fb5874
       /main-map[1]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -52624,11 +52624,12 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-19T15:58:42.916Z
+        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:54.194Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys: [main-map]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
+        visitscotland:isGoogleMap: true
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
@@ -52642,11 +52643,12 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-19T15:59:25.096Z
+        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:59.816Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys: [main-map]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
+        visitscotland:isGoogleMap: true
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
@@ -52660,12 +52662,13 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-19T15:59:25.096Z
+        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:59.816Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-11-19T15:59:29.285Z
+        hippostdpubwf:publicationDate: 2025-11-28T12:22:02.037Z
         hippotaxonomy:keys: [main-map]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
+        visitscotland:isGoogleMap: true
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
