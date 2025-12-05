@@ -7,6 +7,7 @@
     <div>
         <vs-main-map
             api-key = "${mapsAPI}"
+            map-id = "80fe83bd0f6b4f3f24adc270"
             :center = "{
                 lat: 56.490153,
                 lng: 4.10959,
