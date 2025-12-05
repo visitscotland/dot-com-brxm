@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: c443083d-2924-408b-85a5-0a08f3ac0bae
   hippo:name: Map
-  hippo:versionHistory: 92de78f1-7587-4438-910e-8adb5b38505c
+  hippo:versionHistory: 1730a412-5aaa-4646-a544-097c6ff715bd
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,7 +13,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2025-12-05T08:40:36.083Z
+    hippostdpubwf:lastModificationDate: 2025-12-05T13:59:11.072Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -52,7 +52,8 @@
       Sie können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
-      Verfeinern Sie Ihre Ergebnisse, '']
+      Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
+        Sie die Karte, um weitere Orte zu entdecken.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
@@ -64,7 +65,8 @@
         resultados, por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte',
       'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías, Escribe tu palabra
         clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
-        para mostrar este mapa, Refinar resultados de búsqueda, '']
+        para mostrar este mapa, Refinar resultados de búsqueda, No hemos encontrado
+        nada aquí. Intenta alejar el zoom para explorar más ubicaciones.]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -77,7 +79,8 @@
         un filtre.', 'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous
         ne pouvez pas zoomer davantage', Explorez, '', Entrez un mot-clé, Rechercher,
       Afficher les résultats pour, Les cookies doivent être activés pour afficher
-        cette carte, Affiner vos résultats de recherche, '']
+        cette carte, Affiner vos résultats de recherche, Nous n’avons rien trouvé
+        ici. Essayez de dézoomer pour explorer plus d’emplacements.]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
@@ -90,7 +93,8 @@
         filtro/i.', 'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti,
         non è più possibile ingrandire', Esplora, '', Digita la tua parola chiave,
       Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
-        questa mappa, Affina i tuoi risultati, '']
+        questa mappa, Affina i tuoi risultati, Non siamo riusciti a trovare nulla
+        qui. Prova a diminuire lo zoom per esplorare altre località.]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
@@ -101,7 +105,8 @@
         pas filter(s) toe', '', 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas,
         je kunt niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek,
       '', Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn cookies nodig om
-        deze kaart te tonen, Verfijn je zoekresultaten, '']
+        deze kaart te tonen, Verfijn je zoekresultaten, Er zijn helaas geen resultaten
+        gevonden. Zoom uit om meerdere locaties te ontdekken.]
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -111,7 +116,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2025-12-05T08:40:55.177Z
+    hippostdpubwf:lastModificationDate: 2025-12-05T14:01:08.102Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -150,7 +155,8 @@
       Sie können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
-      Verfeinern Sie Ihre Ergebnisse, '']
+      Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
+        Sie die Karte, um weitere Orte zu entdecken.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
@@ -162,7 +168,8 @@
         resultados, por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte',
       'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías, Escribe tu palabra
         clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
-        para mostrar este mapa, Refinar resultados de búsqueda, '']
+        para mostrar este mapa, Refinar resultados de búsqueda, No hemos encontrado
+        nada aquí. Intenta alejar el zoom para explorar más ubicaciones.]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -175,7 +182,8 @@
         un filtre.', 'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous
         ne pouvez pas zoomer davantage', Explorez, '', Entrez un mot-clé, Rechercher,
       Afficher les résultats pour, Les cookies doivent être activés pour afficher
-        cette carte, Affiner vos résultats de recherche, '']
+        cette carte, Affiner vos résultats de recherche, Nous n’avons rien trouvé
+        ici. Essayez de dézoomer pour explorer plus d’emplacements.]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
@@ -188,7 +196,8 @@
         filtro/i.', 'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti,
         non è più possibile ingrandire', Esplora, '', Digita la tua parola chiave,
       Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
-        questa mappa, Affina i tuoi risultati, '']
+        questa mappa, Affina i tuoi risultati, Non siamo riusciti a trovare nulla
+        qui. Prova a diminuire lo zoom per esplorare altre località.]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
@@ -199,7 +208,8 @@
         pas filter(s) toe', '', 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas,
         je kunt niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek,
       '', Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn cookies nodig om
-        deze kaart te tonen, Verfijn je zoekresultaten, '']
+        deze kaart te tonen, Verfijn je zoekresultaten, Er zijn helaas geen resultaten
+        gevonden. Zoom uit om meerdere locaties te ontdekken.]
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -209,9 +219,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2025-12-05T08:40:55.177Z
+    hippostdpubwf:lastModificationDate: 2025-12-05T14:01:08.102Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-12-05T08:40:58.572Z
+    hippostdpubwf:publicationDate: 2025-12-05T14:01:10.939Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '']
@@ -249,7 +259,8 @@
       Sie können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
-      Verfeinern Sie Ihre Ergebnisse, '']
+      Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
+        Sie die Karte, um weitere Orte zu entdecken.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
@@ -261,7 +272,8 @@
         resultados, por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte',
       'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías, Escribe tu palabra
         clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
-        para mostrar este mapa, Refinar resultados de búsqueda, '']
+        para mostrar este mapa, Refinar resultados de búsqueda, No hemos encontrado
+        nada aquí. Intenta alejar el zoom para explorar más ubicaciones.]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -274,7 +286,8 @@
         un filtre.', 'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous
         ne pouvez pas zoomer davantage', Explorez, '', Entrez un mot-clé, Rechercher,
       Afficher les résultats pour, Les cookies doivent être activés pour afficher
-        cette carte, Affiner vos résultats de recherche, '']
+        cette carte, Affiner vos résultats de recherche, Nous n’avons rien trouvé
+        ici. Essayez de dézoomer pour explorer plus d’emplacements.]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
@@ -287,7 +300,8 @@
         filtro/i.', 'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti,
         non è più possibile ingrandire', Esplora, '', Digita la tua parola chiave,
       Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
-        questa mappa, Affina i tuoi risultati, '']
+        questa mappa, Affina i tuoi risultati, Non siamo riusciti a trovare nulla
+        qui. Prova a diminuire lo zoom per esplorare altre località.]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
@@ -298,4 +312,5 @@
         pas filter(s) toe', '', 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas,
         je kunt niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek,
       '', Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn cookies nodig om
-        deze kaart te tonen, Verfijn je zoekresultaten, '']
+        deze kaart te tonen, Verfijn je zoekresultaten, Er zijn helaas geen resultaten
+        gevonden. Zoom uit om meerdere locaties te ontdekken.]
