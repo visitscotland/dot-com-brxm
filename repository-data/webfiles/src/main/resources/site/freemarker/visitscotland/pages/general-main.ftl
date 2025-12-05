@@ -36,8 +36,10 @@
 	<#elseif topLevelTemplate>
 		<#if heroVideo?? && !heroVideo.youtubeId??>
 			<@heroSection content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
+		<#elseif (heroVideo?? && !heroVideo.youtubeId??) || property("feature.hero-section.enable")?boolean>
+			<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
 		<#else>
-		<vs-container class="mt-075 mt-lg-200">
+			<vs-container class="mt-075 mt-lg-200">
 				<vs-row>
 					<vs-col
 						cols="10"
