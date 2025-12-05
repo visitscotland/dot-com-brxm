@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
 @Component
 public class SiteProperties extends Properties {
 
+    private final CMSProperties cmsProperties;
+
     static final String DEFAULT_CONFIG = "default.site.config";
     static final String OVERRIDE_PROPERTY = "visitscotland:siteProperties";
 
@@ -59,7 +61,13 @@ public class SiteProperties extends Properties {
     static final String FORM_BREG_LEGAL_BASIS = "form.breg.legal-basis";
     static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
 
-    private final CMSProperties cmsProperties;
+    //Feature switch
+    static final String FEATURE_HERO_SECTION = "feature.hero-section.enable";
+
+    public Boolean getFeatureHeroSection() {
+        return readBoolean(FEATURE_HERO_SECTION);
+    }
+
     public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties){
         super(bundle, utils);
         this.cmsProperties = cmsProperties;
@@ -175,5 +183,4 @@ public class SiteProperties extends Properties {
         int size = readInteger(EVENTS_LISTINGS_PAGE_SIZE);
         return size > 0 ? size : 10;
     }
-
 }
