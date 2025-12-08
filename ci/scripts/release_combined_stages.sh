@@ -63,30 +63,53 @@ comma_split_to_json_array() {
 # Step 1 - Find distribution tarball + MD5
 # =====================================================================
 step_1_find_distro() {
-  echo "==> Step 1: Finding distribution tarball..."
-  shopt -s nullglob
-  mapfile -t files < <(printf '%s\n' "$WORKSPACE"/target/*distr*.tar.gz)
+  echo "==> Step 1: Finding distribution artifact (tar.gz or war, excluding SSR)..."
+
+  local files=()
+
+  # Iterate over everything under target/
+  for f in "$WORKSPACE"/target/*; do
+    [[ -f "$f" ]] || continue   # skip directories etc.
+
+    local filename="${f##*/}"
+    local lower="${filename,,}"   # lowercase for SSR check
+
+    # 1) Reject SSR in any casing
+    [[ $lower == *ssr* ]] && continue
+
+    # 2) Accept ONLY .tar.gz or .war
+    if [[ $filename == *.tar.gz || $filename == *.war ]]; then
+      files+=("$f")
+    fi
+  done
+
+  # 3) Handle results
   if (( ${#files[@]} == 0 )); then
-    echo "ERROR: No distribution package found under $WORKSPACE/target/" >&2
+    echo "            ERROR: No suitable distribution (.tar.gz or .war, excluding SSR) found under $WORKSPACE/target/" >&2
     VS_PIPELINE_OUTCOME_EMAIL="ERROR"
-    VS_ERROR_LINES_EMAIL="No distribution package found under $WORKSPACE/target/<br/>"
-  elif (( ${#files[@]} > 1 )); then
-    echo "ERROR: Multiple distribution packages found:" >&2
-    printf '  %s\n' "${files[@]}" >&2
-    VS_PIPELINE_OUTCOME_EMAIL="ERROR"
-    VS_ERROR_LINES_EMAIL="Multiple distribution packages found in $WORKSPACE/target/<br/>"
-  else
-    DISTRO_FILE="${files[0]}"
+    VS_ERROR_LINES_EMAIL="No suitable distribution found in target/<br/>"
+    return 1
   fi
 
+  if (( ${#files[@]} > 1 )); then
+    echo "            WARN: Multiple matching artifacts found — using the first." >&2
+    printf '        %s\n' "${files[@]}" >&2
+  fi
+
+  # Filtered list is already sorted lexicographically by Bash → deterministic
+  DISTRO_FILE="${files[0]}"
+
+  echo "            INFO: Selected distribution artifact: $DISTRO_FILE"
+
+  # Compute MD5 if possible
   VS_RELEASE_PACKAGE_WORKSPACE_MD5=""
-  if [[ -n "${DISTRO_FILE:-}" && -f "$DISTRO_FILE" ]]; then
+  if [[ -f "$DISTRO_FILE" ]]; then
     if command -v md5sum >/dev/null 2>&1; then
       VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5sum "$DISTRO_FILE" | awk '{print $1}')"
     elif command -v md5 >/dev/null 2>&1; then
       VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5 -r "$DISTRO_FILE" | awk '{print $1}')"
     else
-      echo "WARN: Neither md5sum nor md5 found; skipping MD5" >&2
+      echo "            WARN: Neither md5sum nor md5 found; skipping MD5" >&2
     fi
   fi
 }
@@ -109,7 +132,8 @@ step_2_parse_log() {
         VS_ERROR_LINES_EMAIL+="${esc}<br/>"
         [[ "$VS_PIPELINE_OUTCOME_EMAIL" == "SUCCESS" ]] && VS_PIPELINE_OUTCOME_EMAIL="ERROR"
       fi
-      if [[ -z "$MATCHING_LINE" && "$line" =~ https://.*distr.*\.tar\.gz ]]; then
+      # detect any maven artifact, that has been deployed to the Nexus
+      if [[ -z "$MATCHING_LINE" && "$line" =~ https://.*\.(tar\.gz|war) ]]; then
         MATCHING_LINE="$line"
       fi
     done < "$LOG_FILE"
@@ -122,13 +146,13 @@ step_2_parse_log() {
       if [[ "$http_code" == "200" ]]; then
         VS_RELEASE_CANDIDATE_NEXUS_FILENAME="${VS_RELEASE_PACKAGE_NEXUS_URL##*/}"
       else
-        echo "WARN: Nexus URL invalid. HTTP ${http_code} -> ${VS_RELEASE_PACKAGE_NEXUS_URL}" >&2
+        echo "            WARN: Nexus URL invalid. HTTP ${http_code} -> ${VS_RELEASE_PACKAGE_NEXUS_URL}" >&2
       fi
     else
-      echo "INFO: No distribution URL found in ${LOG_FILE}" >&2
+      echo "            INFO: No distribution URL found in ${LOG_FILE}" >&2
     fi
   else
-    echo "INFO: Log file not found: ${LOG_FILE}" >&2
+    echo "            INFO: Log file not found: ${LOG_FILE}" >&2
     VS_ERROR_LINES_EMAIL+="Log file not found: ${LOG_FILE}<br/>"
     VS_PIPELINE_OUTCOME_EMAIL="ERROR"
   fi
@@ -140,6 +164,7 @@ step_2_parse_log() {
 step_3_extract_build_number() {
   echo "==> Step 3: Extracting build number..."
   VS_SITE_WAR_BUILD_NUMBER=""
+
   # Read build number from the canonical file if present
   if [[ -f "$BUILD_NUMBER_FILE" ]]; then
     # remove every whitespace character from the input stream (which is the build-number.txt file)
@@ -154,55 +179,92 @@ step_3_extract_build_number() {
       return
     fi
   fi
+
   echo "            INFO: Build number file not found in: $BUILD_NUMBER_FILE, widening the search..." >&2
-  echo "            INFO: Falling back to MANIFEST.MF inside distribution tarball"
-  # build-number.txt doesn't exist on its own, extract the build-number from within the release package files
+  echo "            INFO: Falling back to MANIFEST.MF inside distribution artifact"
 
   # Fallback for DISTRO_FILE
   if [[ -z "${DISTRO_FILE:-}" || ! -f "$DISTRO_FILE" ]]; then
     echo "            WARN: DISTRO_FILE not set in previous step, or missing; attempting fallback search..."
-    distro_file=$(find target -maxdepth 1 -type f -name '*distribution*.tar.gz' -print -quit 2>/dev/null || true)
+    distro_file=$(find target -maxdepth 1 -type f \( -name '*.tar.gz' -o -name '*.war' \) ! -iname '*ssr*' -print -quit 2>/dev/null || true)
     if [[ -n "$distro_file" && -f "$distro_file" ]]; then
       DISTRO_FILE="$distro_file"
-      echo "            INFO: Fallback found distribution tarball: $DISTRO_FILE"
+      echo "            INFO: Fallback found distribution artifact: $DISTRO_FILE"
     else
-      echo "            ERROR: No distribution tarball found under target/ (fallback failed)" >&2
+      echo "            ERROR: No distribution artifact found under target/ (fallback failed)" >&2
       exit 1
     fi
   fi
-  echo "            INFO: Using distribution tarball $DISTRO_FILE"
 
-  # Create throwaway temp dir for .war extraction
-  tmpdir="$(mktemp -d "${TMPDIR:-/tmp}/distwar.XXXXXXXX")" || {
-    echo "            WARN: Failed to create temp directory for WAR extraction" >&2
-    return
-  }
-  # Make sure we clean up this temp dir in normal exit path of this function
-  # (no trap here to avoid messing with global traps; worst case: orphaned dir)
-  war_rel_path="webapps/site.war"
-  war_path="$tmpdir/$war_rel_path"
-  # Extract ONLY webapps/site.war from the tarball
-  if ! tar -xzf "$DISTRO_FILE" -C "$tmpdir" "$war_rel_path" 2>/dev/null; then
-    echo "            WARN: Failed to extract $war_rel_path from $DISTRO_FILE" >&2
+  echo "            INFO: Using distribution artifact $DISTRO_FILE"
+
+  # ----------------------------------------------------------------------
+  # NEW: If distribution file IS a WAR (vs-dms-products case)
+  # ----------------------------------------------------------------------
+  if [[ "$DISTRO_FILE" == *.war ]]; then
+    echo "            INFO: Distribution is a WAR; extracting MANIFEST.MF directly"
+
+    manifest_contents="$(unzip -p "$DISTRO_FILE" META-INF/MANIFEST.MF 2>/dev/null || true)"
+
+    if [[ -z "$manifest_contents" ]]; then
+      echo "            WARN: Could not read META-INF/MANIFEST.MF from $DISTRO_FILE" >&2
+      return
+    fi
+
+  # ----------------------------------------------------------------------
+  # Existing logic: distribution is TAR.GZ with embedded WAR (dot-com / dot-org)
+  # ----------------------------------------------------------------------
+  else
+
+    # Create throwaway temp dir for .war extraction
+    tmpdir="$(mktemp -d "${TMPDIR:-/tmp}/distwar.XXXXXXXX")" || {
+      echo "            WARN: Failed to create temp directory for WAR extraction" >&2
+      return
+    }
+
+    # Make sure we clean up this temp dir in normal exit path of this function
+    # (no trap here to avoid messing with global traps; worst case: orphaned dir)
+
+    # Locate site.war inside tarball
+    war_rel_path="$(tar -tzf "$DISTRO_FILE" | grep -m1 'webapps/site\.war$' || true)"
+
+    if [[ -z "$war_rel_path" ]]; then
+      echo "            WARN: site.war not found inside $DISTRO_FILE" >&2
+      rm -rf "$tmpdir"
+      return
+    fi
+
+    war_path="$tmpdir/$war_rel_path"
+
+    # Extract ONLY webapps/site.war from the tarball
+    if ! tar -xzf "$DISTRO_FILE" -C "$tmpdir" "$war_rel_path" 2>/dev/null; then
+      echo "            WARN: Failed to extract $war_rel_path from $DISTRO_FILE" >&2
+      rm -rf "$tmpdir"
+      return
+    fi
+
+    if [[ ! -f "$war_path" ]]; then
+      echo "            WARN: Extracted WAR not found at $war_path" >&2
+      rm -rf "$tmpdir"
+      return
+    fi
+
+    # Read MANIFEST.MF from the extracted WAR
+    manifest_contents="$(unzip -p "$war_path" META-INF/MANIFEST.MF 2>/dev/null || true)"
+
+    if [[ -z "$manifest_contents" ]]; then
+      echo "            WARN: Could not read META-INF/MANIFEST.MF from $war_path" >&2
+      rm -rf "$tmpdir"
+      return
+    fi
+
     rm -rf "$tmpdir"
-    return
+    echo "            INFO: $tmpdir has been removed"
   fi
 
-  if [[ ! -f "$war_path" ]]; then
-    echo "            WARN: Extracted WAR not found at $war_path" >&2
-    rm -rf "$tmpdir"
-    return
-  fi
-
-  # Read MANIFEST.MF from the extracted WAR
-  manifest_contents="$(unzip -p "$war_path" META-INF/MANIFEST.MF 2>/dev/null || true)"
-
-  if [[ -z "$manifest_contents" ]]; then
-    echo "            WARN: Could not read META-INF/MANIFEST.MF from $war_path" >&2
-    rm -rf "$tmpdir"
-    return
-  fi
-
+  # ----------------------------------------------------------------------
+  # Common extraction logic (applies to BOTH WAR and TAR cases)
+  # ----------------------------------------------------------------------
   VS_SITE_WAR_BUILD_NUMBER="$(
     printf '%s\n' "$manifest_contents" \
       | awk -F'[: ]+' '/^Build-Number/{print $2; exit}' \
@@ -210,13 +272,10 @@ step_3_extract_build_number() {
   )"
 
   if [[ -n "$VS_SITE_WAR_BUILD_NUMBER" ]]; then
-    echo "            INFO: Build number extracted from tarball .war MANIFEST: $VS_SITE_WAR_BUILD_NUMBER"
+    echo "            INFO: Build number extracted from MANIFEST.MF: $VS_SITE_WAR_BUILD_NUMBER"
   else
-    echo "            WARN: No Build-Number entry found in WAR MANIFEST" >&2
+    echo "            WARN: No Build-Number entry found in MANIFEST.MF" >&2
   fi
-
-  rm -rf "$tmpdir"
-  echo "            INFO: $tmpdir has been removed"
 }
 
 # =====================================================================
@@ -282,16 +341,20 @@ HTML_HEAD
 TABLE1
       fi
 
-      cat <<TABLE2
+      if [[ -n "${VS_SSR_ARCHIVED_PACKAGE_URL:-}" ]]; then
+        cat <<TABLE2
 <h2>SSR Package (in Jenkins)</h2>
 <table>
   <tr><th>URL (hyperlink)</th><td><a href="$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")">$(json_escape "${VS_SSR_PACKAGE_NAME:-}")</a></td></tr>
   <tr><th>URL (clean link)</th><td><code>$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")</code></td></tr>
   <tr><th>MD5 Checksum</th><td><code>$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")</code></td></tr>
 </table>
+TABLE2
+      fi
+      cat <<TABLE3
 <p>For more information, see the <a href="$(json_escape "${BUILD_URL:-#}")/consoleFull">Jenkins build log</a>.</p>
 </body></html>
-TABLE2
+TABLE3
     } > "$EMAIL_HTML_FILE"
 }
 
