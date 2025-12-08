@@ -20,12 +20,13 @@ import java.util.stream.Collectors;
 @Component
 public class MegalinkFactory {
 
-    // TODO - remove grid 3 and 4 - this has been left for now in case any are still in use
     public enum MegalinkLayout {
         HORIZONTAL_LINKS("Horizontal Links"),
         LIST_LAYOUT("List"),
         DEFAULT("Default"),
-        GRID("Grid");
+        GRID("Grid"),
+        GRID_3("Grid 3"),
+        GRID_4("Grid 4");
 
         private static final Map<String, MegalinkLayout> BY_VALUE =
                 Arrays.stream(values()).collect(Collectors.toMap(MegalinkLayout::getValue, e -> e));
@@ -42,6 +43,10 @@ public class MegalinkFactory {
 
         public static Optional<MegalinkLayout> fromValue(String value) { return Optional.ofNullable(BY_VALUE.get(value)); }
 
+        @Deprecated(since = "2.12.0")
+        public static boolean isCardGroup(MegalinkLayout layout) {
+            return GRID_3 == layout || GRID_4 == layout || GRID == layout ;
+        }
     }
 
     private static final Logger logger = LoggerFactory.getLogger(MegalinkFactory.class);
@@ -77,19 +82,48 @@ public class MegalinkFactory {
             //TODO throw Exception to be captured by TemplateBuilder creating an ErrorModule. Note some
         }
 
-        if (layout == MegalinkLayout.HORIZONTAL_LINKS) {
+        if (MegalinkLayout.isCardGroup(layout)) {
+            return getCardGroupModule(doc, locale, layout);
+        } else if (layout == MegalinkLayout.HORIZONTAL_LINKS) {
             if (doc.getMegalinkItems().size() >= MIN_ITEMS_CAROUSEL) {
                 return horizontalListLayout(doc, locale);
             } else {
                 return listLayout(doc, locale);
             }
-        } else if (layout == MegalinkLayout.GRID || layout == MegalinkLayout.LIST_LAYOUT || doc.getMegalinkItems().size() > MAX_ITEMS) {
+        } else if (layout == MegalinkLayout.LIST_LAYOUT || doc.getMegalinkItems().size() > MAX_ITEMS) {
             return listLayout(doc, locale);
         } else if (doc.getSingleImageModule() != null) {
             return singleImageLayout(doc, locale);
         }
 
         return multiImageLayout(doc, locale);
+    }
+
+    public LinksModule<EnhancedLink> getCardGroupModule(Megalinks doc, Locale locale, MegalinkLayout layout) {
+
+        if (layout != MegalinkLayout.GRID) {
+            //TODO: This if block can be removed after version 2.12.0
+            return buildCardGroupModule(doc, locale, MegalinkLayout.fromValue(doc.getLayout()).orElseThrow());
+        } else if (doc.getMegalinkItems().size() > 4) {
+            return listLayout(doc, locale);
+        } else if (doc.getMegalinkItems().size() == 4) {
+            return buildCardGroupModule(doc, locale, MegalinkLayout.GRID_4);
+        } else {
+            CardGroupModule module = buildCardGroupModule(doc, locale, MegalinkLayout.GRID_3);
+            if (doc.getMegalinkItems().size() < 3) {
+                contentLogger.warn("The Megalinks document located at {} has less than 3 items", doc.getPath());
+            }
+            return module;
+        }
+    }
+
+    public CardGroupModule buildCardGroupModule(Megalinks doc, Locale locale, MegalinkLayout layout) {
+        CardGroupModule module = new CardGroupModule();
+        populateCommonFields(module, doc, locale);
+        module.setLayout(layout.getValue());
+
+        module.setLinks(convertToEnhancedLinks(module, doc.getMegalinkItems(), locale, false));
+        return module;
     }
 
     /**
