@@ -126,5 +126,3 @@ action-lists:
 - 2.14.0:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/visitscotland/test: reload
-- 2.14.0.1:
-    /content/documents/administration/labels/modules/map: reload
