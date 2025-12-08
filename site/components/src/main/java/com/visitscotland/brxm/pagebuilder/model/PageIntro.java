@@ -1,6 +1,5 @@
-package com.visitscotland.brxm.utils.pagebuilder;
+package com.visitscotland.brxm.pagebuilder.model;
 
-import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;

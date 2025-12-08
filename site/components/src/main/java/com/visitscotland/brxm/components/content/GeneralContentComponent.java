@@ -4,7 +4,8 @@ import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInf
 import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
-import com.visitscotland.brxm.utils.pagebuilder.PageIntroAssembler;
+import com.visitscotland.brxm.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -23,7 +24,7 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
     static final String ERROR_CODE = "errorCode";
 
     private final PageAssembler builder;
-    private PageIntroAssembler pageIntroAssembler;
+    private final PageIntroAssembler pageIntroAssembler;
 
     public GeneralContentComponent(){
         logger.debug("GeneralContentComponent initialized");
@@ -44,8 +45,13 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
         builder.addModules(request);
     }
 
+
+
     private void addNavigationCards(HstRequest request){
-        //TODO: This model can be renamed to pageIntro after FreeMarker is retired
-        request.setModel("pageIntroData", pageIntroAssembler.from(request, request.getModel("document")));
+        try {
+            request.setModel("pageIntro", pageIntroAssembler.from(request.getLocale(), getDocument(request)));
+        } catch (PageCompositionException e) {
+            logger.error("The pageIntro object could not be calculated for this page", e);
+        }
     }
 }
