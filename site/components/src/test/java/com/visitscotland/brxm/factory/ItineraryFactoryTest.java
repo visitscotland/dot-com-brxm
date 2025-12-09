@@ -3,8 +3,10 @@ package com.visitscotland.brxm.factory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.DMSUtils;
+import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.DMSLink;
 import com.visitscotland.brxm.hippobeans.Day;
@@ -20,12 +22,15 @@ import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
+import org.hippoecm.hst.core.container.ComponentManager;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Answers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -44,12 +49,8 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class ItineraryFactoryTest {
 
-    @InjectMocks
-    ItineraryFactory factory;
-
     @Mock
     Itinerary itinerary;
-
     @Mock
     ResourceBundleService bundle;
     @Mock
@@ -67,6 +68,24 @@ class ItineraryFactoryTest {
     @Mock
     ContentLogger logger;
 
+    @Mock(answer = Answers.RETURNS_SELF)
+    private ProductSearchBuilder builder;
+
+    @InjectMocks
+    ItineraryFactory factory;
+
+
+
+    @BeforeEach
+    void setUp() {
+        initProductSearchBuilder();
+    }
+
+    private void initProductSearchBuilder() {
+        ComponentManager context = mock(ComponentManager.class, withSettings().lenient());
+        when(context.getComponent(ProductSearchBuilder.class)).thenReturn(builder);
+        VsComponentManager.setComponentManager(context);
+    }
 
     @Test
     @DisplayName("Create an itinerary page")
