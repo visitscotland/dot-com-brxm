@@ -6,12 +6,14 @@ import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.*;
+import com.visitscotland.brxm.services.EnhancedLinkService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -31,6 +33,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
+
 
 
 @ExtendWith(MockitoExtension.class)
@@ -55,12 +58,18 @@ public class MegalinkMapperTest {
     @Mock
     ContentLogger logger;
 
-    @InjectMocks
+    EnhancedLinkService enhancedLinkService = new EnhancedLinkService(linkService, logger);
+
+
     MegalinkMapper mapper;
 
     @BeforeEach
-    public void beforeEach() {
+    void beforeEach() {
         when(linkService.getPlainLink(any(), any(HippoCompound.class), any())).thenReturn(PLAIN_LINK);
+
+        // Mockito does not guarantee creation order, so sometimes it creates MegalinkMapper first.
+        enhancedLinkService = new EnhancedLinkService(linkService, logger);
+        mapper = new MegalinkMapper(linkService, resourceBundleService, imageMapper, logger, null, enhancedLinkService);
     }
 
 
@@ -127,7 +136,7 @@ public class MegalinkMapperTest {
         List<MegalinkItem> items = new MegalinksMockBuilder().addPageLink().addSharedLink().build().getMegalinkItems();
         when(linkService.createEnhancedLink(any(),any(), any(), anyBoolean())).thenReturn(Optional.of(new EnhancedLink()));
 
-        assertEquals(2, mapper.convertToEnhancedLinks(null, items, Locale.UK, false).size());
+        assertEquals(2, enhancedLinkService.convert(null, items, Locale.UK, false).size());
     }
 
     @Test
@@ -137,7 +146,7 @@ public class MegalinkMapperTest {
         List<MegalinkItem> items =  new MegalinksMockBuilder().addLink(null).addLink(mock(MegalinkItem.class)).build().getMegalinkItems();
         Module<Megalinks> module = new Module<>();
 
-        assertEquals(0, mapper.convertToEnhancedLinks(module, items, Locale.UK, false).size());
+        assertEquals(0, enhancedLinkService.convert(module, items, Locale.UK, false).size());
 
         verify(linkService, never()).createEnhancedLink(any(),any(), any(), anyBoolean());
         assertEquals(1, module.getErrorMessages().size());
@@ -154,7 +163,7 @@ public class MegalinkMapperTest {
         when(unpublishedVideo.getPath()).thenReturn("path-to-document");
         when(linkService.createEnhancedLink(null, module, Locale.UK, false)).thenReturn(Optional.empty());
 
-        assertEquals(0, mapper.convertToEnhancedLinks(module, items, Locale.UK, false).size());
+        assertEquals(0, enhancedLinkService.convert(module, items, Locale.UK, false).size());
     }
 
 
@@ -210,7 +219,7 @@ public class MegalinkMapperTest {
 
         when (resourceBundleService.getResourceBundle("otyml", "otyml.title.default", Locale.UK )).thenReturn("otyml");
 
-        HorizontalListLinksModule module= mapper.horizontalListLayout(otyml,Locale.UK);
+        HorizontalListLinksModule module = mapper.horizontalListLayout(otyml,Locale.UK);
         assertEquals("otyml", module.getTitle());
     }
 
