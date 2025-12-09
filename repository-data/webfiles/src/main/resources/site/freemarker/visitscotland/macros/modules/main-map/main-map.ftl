@@ -8,7 +8,7 @@
         <vs-main-map
             api-key = "${mapsAPI}"
             map-id = "b55b94a250e70307420a5743"
-            :map-type-vector = "false"
+            :map-type-vector = "true"
             :center = "{
                 lat: 56.490153,
                 lng: 4.10959,
