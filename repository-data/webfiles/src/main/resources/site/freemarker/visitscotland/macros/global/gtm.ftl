@@ -67,26 +67,6 @@
 
                                 return originalDataLayerPush.apply(window.dataLayer, [arg]);
                             };
-
-                            // After Cookie Control has fully initialized
-                            // Check if structuredClone is polyfilled (core-js adds specific behaviors)
-                            const isPolyfilled = !window.structuredClone.toString().includes('[native code]');
-
-                            if (isPolyfilled && 'structuredClone' in window) {
-                                // Create a wrapper that uses native for ArrayBuffer operations
-                                const polyfill = window.structuredClone;
-
-                                // In modern browsers, we can get native from iframe
-                                const iframe = document.createElement('iframe');
-                                iframe.style.display = 'none';
-                                document.body.appendChild(iframe);
-                                const nativeClone = iframe.contentWindow.structuredClone;
-                                document.body.removeChild(iframe);
-
-                                if (nativeClone) {
-                                window.structuredClone = nativeClone;
-                                }
-                            };
                         } else {
                             setTimeout(() => {
                                 attachCivicEvents(counter + 1);
