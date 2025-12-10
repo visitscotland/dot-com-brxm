@@ -76,6 +76,7 @@ public class MapFactory {
         module.setTitle(mapModuleDocument.getTitle());
         module.setIntroduction(mapModuleDocument.getCopy());
         module.setTabTitle(mapModuleDocument.getTabTitle());
+        module.setGoogleMap(mapModuleDocument.getIsGoogleMap());
 
         ObjectNode featureCollectionGeoJson = mapper.createObjectNode();
         featureCollectionGeoJson.put(TYPE, "FeatureCollection");

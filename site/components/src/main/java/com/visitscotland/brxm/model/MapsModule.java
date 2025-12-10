@@ -14,6 +14,7 @@ public class MapsModule extends Module {
     private ArrayNode filters;
     private ObjectNode geoJson;
     private ObjectNode mapPosition;
+    private Boolean isGoogleMap;
 
     public String getId() {
         return id;
@@ -85,5 +86,13 @@ public class MapsModule extends Module {
 
     public void setMapType(String mapType) {
         this.mapType = mapType;
+    }
+
+    public Boolean getGoogleMap() {
+        return isGoogleMap;
+    }
+
+    public void setGoogleMap(Boolean googleMap) {
+        isGoogleMap = googleMap;
     }
 }
