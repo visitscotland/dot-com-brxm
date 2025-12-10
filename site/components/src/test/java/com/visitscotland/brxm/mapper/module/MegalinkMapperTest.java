@@ -13,7 +13,6 @@ import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -58,7 +57,7 @@ public class MegalinkMapperTest {
     @Mock
     ContentLogger logger;
 
-    EnhancedLinkService enhancedLinkService = new EnhancedLinkService(linkService, logger);
+    EnhancedLinkService enhancedLinkService;
 
 
     MegalinkMapper mapper;
