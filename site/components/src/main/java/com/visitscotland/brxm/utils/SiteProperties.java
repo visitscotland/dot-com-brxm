@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
 @Component
 public class SiteProperties extends Properties {
 
+    private final CMSProperties cmsProperties;
+
     static final String DEFAULT_CONFIG = "default.site.config";
     static final String OVERRIDE_PROPERTY = "visitscotland:siteProperties";
 
@@ -40,6 +42,7 @@ public class SiteProperties extends Properties {
     private static final String PATH_CAMPAIGN_SECTION = "site.path.campaigns";
     private static final String PATH_NEWSLETTER = "site.path.newsletter";
     private static final String PATH_ICENTRE = "site.path.icentre-landing";
+    private static final String PATH_MAP = "site.path.map";
 
     //Modules References
     private static final String PATH_BANNER = "site.path.banner";
@@ -66,7 +69,13 @@ public class SiteProperties extends Properties {
     static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
     static final String SKI_TIMEOUT = "ski.timeout";
 
-    private final CMSProperties cmsProperties;
+    //Feature switch
+    static final String FEATURE_HERO_SECTION = "feature.hero-section.enable";
+
+    public Boolean getFeatureHeroSection() {
+        return readBoolean(FEATURE_HERO_SECTION);
+    }
+
     public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties, EnvironmentManager envrionmentManager) {
         super(bundle, utils, envrionmentManager);
         this.cmsProperties = cmsProperties;
@@ -129,6 +138,9 @@ public class SiteProperties extends Properties {
     }
     public String getSiteICentre() {
         return readString(PATH_ICENTRE);
+    }
+    public String getSiteMap() {
+        return readString(PATH_MAP);
     }
     public String getSiteBanner() {
         return readString(PATH_BANNER);

@@ -108,8 +108,6 @@ definitions:
         Please ensure all required fields are populated.
       visitscotland:megalinks-grid-type-validator#emptyLinks: No links provided.
       visitscotland:megalinks-grid-type-validator#nullLayout: No layout supplied.
-      visitscotland:megalinks-grid-type-validator#numberOfLinks34: Incorrect number of links
-        supplied. Please use at least 3 and no more than 4.
       visitscotland:megalinks-grid-type-validator#numberOfLinks: Incorrect number of links
         supplied. Please use at least 1 and no more than 4.
       visitscotland:megalinks-grid-type-validator#exception: An unknown error occurred while

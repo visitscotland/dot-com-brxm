@@ -84,6 +84,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         module.setTitle(document.getTitle());
         module.setIntroduction(document.getCopy());
         module.setTabTitle(document.getTabTitle());
+        module.setGoogleMap(mapModuleDocument.getIsGoogleMap());
 
         ObjectNode featureCollectionGeoJson = mapper.createObjectNode();
         featureCollectionGeoJson.put(TYPE, "FeatureCollection");

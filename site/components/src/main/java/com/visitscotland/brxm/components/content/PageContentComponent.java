@@ -67,6 +67,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
+    public static final String MAP_PAGE = "mainMapPage";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
 
@@ -126,6 +127,23 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     /**
+     * Add flags to indicate what type of page is being processed
+     * TODO: REVIEW!
+     */
+    private void addFlags(HstRequest request) {
+        if (request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
+            request.setModel(SEARCH_RESULTS, true);
+        }
+        if (request.getPathInfo().contains(properties.getSiteMap())) {
+            request.setModel(MAP_PAGE, true);
+        }
+        //TODO: These properties are Optional for each site. This needs to be refactored after VS-343 is completed
+        request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()));
+        request.setModel("cludoEngineId", properties.getProperty("cludo.engine-id", request.getLocale()));
+        request.setModel("cludoExperienceId", properties.getProperty("cludo.experience-id", request.getLocale()));
+    }
+
+    /**
      * Adds labels that are necessary for type of pages. Please notice that there are two strategies for including properties
      * <br>
      * When all labels are required you should use {@code bundle.getAllLabels(...)}. However, in the case that only
@@ -140,7 +158,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, getGlobalLabels(request.getLocale()));
 
         addNavigationLabels(request);
-        
+
         addAllLabels(request, SOCIAL_SHARE_BUNDLE);
         addAllLabels(request, SEARCH_BUNDLE);
         addAllLabels(request, VIDEO_BUNDLE);
