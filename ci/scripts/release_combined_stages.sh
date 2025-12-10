@@ -66,6 +66,9 @@ step_1_find_distro() {
   echo "==> Step 1: Finding distribution artifact (tar.gz or war, excluding SSR)..."
 
   local files=()
+  VS_SSR_PACKAGE_NAME=""
+  VS_SSR_ARCHIVED_PACKAGE_PATH=""
+  VS_SSR_ARCHIVED_PACKAGE_MD5=""
 
   # Iterate over everything under target/
   for f in "$WORKSPACE"/target/*; do
@@ -74,16 +77,32 @@ step_1_find_distro() {
     local filename="${f##*/}"
     local lower="${filename,,}"   # lowercase for SSR check
 
-    # 1) Reject SSR in any casing
-    [[ $lower == *ssr* ]] && continue
+    # 1) Detect SSR package: keep it, but do NOT treat it as main distro
+    if [[ $lower == *ssr* && $filename == *.tar.gz ]]; then
+      VS_SSR_PACKAGE_NAME="$filename"
+      VS_SSR_ARCHIVED_PACKAGE_PATH="$f"
 
-    # 2) Accept ONLY .tar.gz or .war
+      # Compute MD5
+      if command -v md5sum >/dev/null 2>&1; then
+        VS_SSR_ARCHIVED_PACKAGE_MD5="$(md5sum "$f" | awk '{print $1}')"
+      elif command -v md5 >/dev/null 2>&1; then
+        VS_SSR_ARCHIVED_PACKAGE_MD5="$(md5 -r "$f" | awk '{print $1}')"
+      fi
+
+      # Construct the Jenkins URL to the SSR archived artifact
+      VS_SSR_ARCHIVED_PACKAGE_URL="${BUILD_URL%/}/artifact/target/${filename}"
+
+      # continue → do NOT add SSR to main distro list
+      continue
+    fi
+
+    # 2) Main distribution candidates: .tar.gz OR .war (non-SSR only)
     if [[ $filename == *.tar.gz || $filename == *.war ]]; then
       files+=("$f")
     fi
   done
 
-  # 3) Handle results
+  # 3) Select main distro from non-SSR candidates
   if (( ${#files[@]} == 0 )); then
     echo "            ERROR: No suitable distribution (.tar.gz or .war, excluding SSR) found under $WORKSPACE/target/" >&2
     VS_PIPELINE_OUTCOME_EMAIL="ERROR"
@@ -101,7 +120,7 @@ step_1_find_distro() {
 
   echo "            INFO: Selected distribution artifact: $DISTRO_FILE"
 
-  # Compute MD5 if possible
+  # Compute MD5 for main distro
   VS_RELEASE_PACKAGE_WORKSPACE_MD5=""
   if [[ -f "$DISTRO_FILE" ]]; then
     if command -v md5sum >/dev/null 2>&1; then
