@@ -21,7 +21,6 @@ definitions:
             jcr:mixinTypes: ['visitscotland:hosts']
             hst:pagemodelapi: resourceapi
             hst:responseheaders: ['Access-Control-Allow-Origin: *']
-            visitscotland:cmsProperties: cms.local.config
             visitscotland:siteProperties: vs.site.config
             /es-es:
               .meta:residual-child-node-category: content
