@@ -48,7 +48,10 @@ public class SiteProperties extends Properties {
     private static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
     private static final String GLOBAL_SEARCH_ENABLED = "feature.global-search.enable";
 
+    static final String GOOGLE_MAPS_API_KEY = "google.maps-api-key";
+
     //GTM Properties
+
     public static final String GTM_CONTAINER_ID = "gtm.container-id";
     public static final String GTM_IS_PRODUCTION = "gtm.is-production";
     public static final String GTM_PREVIEW_QUERY_STRING = "gtm.preview-query-string";
@@ -116,6 +119,9 @@ public class SiteProperties extends Properties {
     }
     public String getCampaignSection() {
         return readString(PATH_CAMPAIGN_SECTION);
+    }
+    public String getGoogleMapsApi() {
+        return readString(GOOGLE_MAPS_API_KEY);
     }
 
     public String getSiteNewsletter() {

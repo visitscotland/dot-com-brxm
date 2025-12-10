@@ -1,0 +1,76 @@
+/content/documents/administration/options/content-categories:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: c329d545-fcc1-4c30-a267-6f87517dc247
+  hippo:name: Content - Categories
+  /content-categories:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 486323a8-8df6-468d-97c2-6b70461acd13
+    hippo:availability: [live, preview]
+    hippotranslation:id: d687ae10-195d-4996-a1a5-132e4f0413af
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/attractions/arts-culture
+      selection:label: culture-history
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events
+      selection:label: events
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/family
+      selection:label: family-friendly
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/passes-offers
+      selection:label: family-friendly
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/food-drink
+      selection:label: food-drink
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/outdoor-activities
+      selection:label: active-adventure
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/landscapes-nature
+      selection:label: nature-outdoors
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/iconic-spots-alternatives
+      selection:label: nature-outdoors
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/inspiring-spots
+      selection:label: nature-outdoors
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/tours
+      selection:label: tours
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: /travel-planning/touring
+      selection:label: tours
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/unesco-trail
+      selection:label: nature-outdoors
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: /info/tours
+      selection:label: tours
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: /places-to-go
+      selection:label: city-break
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: /accommodation
+      selection:label: accommodation
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: /travel-planning
+      selection:label: travel-information

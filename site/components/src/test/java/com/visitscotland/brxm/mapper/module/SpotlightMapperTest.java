@@ -41,14 +41,14 @@ class SpotlightMapperTest {
     ContentLogger contentLogger;
 
     @InjectMocks
-    SpotlightMapper spotlightMapper;
+    CTABannerMapper ctaBannerMapper;
 
     @Test
     @DisplayName("Should throw InvalidContentException when CTA link is not available")
     void when_ctaLinkIsNull_then_ErrorModuleIsReturned(){
         CTABanner ctaBanner = mock(CTABanner.class, RETURNS_DEEP_STUBS);
 
-        Assertions.assertThrows(InvalidContentException.class, () ->spotlightMapper.createModule(ctaBanner));
+        Assertions.assertThrows(InvalidContentException.class, () -> ctaBannerMapper.createModule(ctaBanner));
     }
 
 
@@ -66,7 +66,7 @@ class SpotlightMapperTest {
 
         when(ctaBanner.getCtaLink().getLabel()).thenReturn("Read More");
 
-        SignpostModule result = spotlightMapper.createModule(ctaBanner);
+        SignpostModule result = ctaBannerMapper.createModule(ctaBanner);
         Assertions.assertInstanceOf(SignpostModule.class, result);
 
         Assertions.assertEquals("Read More", ((SignpostModule) result).getCta().getLabel());
@@ -87,7 +87,7 @@ class SpotlightMapperTest {
 
         when(ctaBanner.getImage()).thenReturn(mock(Image.class));
 
-        SignpostModule result = spotlightMapper.createModule(ctaBanner);
+        SignpostModule result = ctaBannerMapper.createModule(ctaBanner);
         Assertions.assertInstanceOf(SignpostModule.class, result);
         SignpostModule signpostModule = (SignpostModule) result;
 

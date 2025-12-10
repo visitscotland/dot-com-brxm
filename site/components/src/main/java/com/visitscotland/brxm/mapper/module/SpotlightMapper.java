@@ -1,83 +1,73 @@
 package com.visitscotland.brxm.mapper.module;
 
-import com.visitscotland.brxm.hippobeans.CMSLink;
-import com.visitscotland.brxm.hippobeans.CTABanner;
+import com.visitscotland.brxm.hippobeans.Spotlight;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
-import com.visitscotland.brxm.model.SignpostModule;
-import com.visitscotland.brxm.services.LinkService;
-import com.visitscotland.brxm.utils.AnchorFormatter;
+import com.visitscotland.brxm.model.SpotlightModule;
 import com.visitscotland.brxm.pagebuilder.InvalidContentException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.services.LinkService;
+import com.visitscotland.brxm.utils.AnchorFormatter;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
+import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
+import java.util.Locale;
 import java.util.MissingResourceException;
 
 @Component
-public class SpotlightMapper extends ModuleMapper<CTABanner, SignpostModule> {
+public class SpotlightMapper extends ModuleMapper<Spotlight, SpotlightModule>{
 
+    private final Logger contentLogger;
     private final LinkService linkService;
     private final AnchorFormatter anchorFormatter;
 
     public SpotlightMapper(LinkService linkService,
-                           AnchorFormatter anchorFormatter) {
+                           AnchorFormatter anchorFormatter,
+                           ContentLogger contentLogger) {
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
+        this.contentLogger = contentLogger;
     }
 
     @Override
-    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
-
+    SpotlightModule map(Spotlight document, PageCompositionHelper compositionHelper) throws PageCompositionException {
+        return createModule(document, compositionHelper.getLocale());
     }
 
-    @Override
-    SignpostModule map(CTABanner document, PageCompositionHelper compositionHelper) throws PageCompositionException {
-        return createModule(document);
-    }
+    public SpotlightModule createModule(Spotlight spotlight, Locale locale) throws InvalidContentException {
+        SpotlightModule module = new SpotlightModule();
+        Linkable linkable = (Linkable) spotlight.getCtaLink().getLink();
+        FlatLink cta = linkService.createSimpleLink(linkable, module, locale);
 
-    public SignpostModule createModule(CTABanner ctaBanner) throws PageCompositionException {
-        SignpostModule module = new SignpostModule();
-        Linkable linkable = getLinkable(ctaBanner);
-        FlatLink cta = linkService.createSimpleLink(linkable, module, null);
+        if (Contract.isNull(cta.getLink())) {
+            throw new InvalidContentException(spotlight.getPath(),
+                    "The link for the Spotlight is not available. The module has been hidden");
+        }
 
-        if (!Contract.isEmpty(ctaBanner.getCtaLink().getLabel())) {
-            cta.setLabel(ctaBanner.getCtaLink().getLabel());
+        if (!Contract.isEmpty(spotlight.getCtaLink().getLabel())) {
+            cta.setLabel(spotlight.getCtaLink().getLabel());
         }
 
         FlatImage image = new FlatImage();
-        image.setCmsImage(ctaBanner.getImage());
+        image.setCmsImage(spotlight.getImage());
 
         module.setCta(cta);
         module.setImage(image);
-        module.setTitle(ctaBanner.getTitle());
-        module.setCopy(ctaBanner.getIntroduction());
-        module.setHippoBean(ctaBanner);
-        module.setNested(Boolean.TRUE.equals(ctaBanner.getNested()));
-        module.setAnchor(anchorFormatter.getAnchorOrFallback(ctaBanner.getAnchor(), ctaBanner::getTitle));
+        module.setTitle(spotlight.getTitle());
+        module.setCopy(spotlight.getCopy());
+        module.setLayout(spotlight.getLayout());
+        module.setHippoBean(spotlight);
+        module.setAnchor(anchorFormatter.getAnchorOrFallback(spotlight.getAnchor(), spotlight::getTitle));
 
         return module;
     }
 
-    /**
-     * Validates the link from the CTA banner and returns the linkable object.
-     * 
-     * @param ctaBanner the CTA banner containing the link to validate
-     * @return the validated Linkable object from the CTA banner
-     * @throws PageCompositionException if the link is null, invalid, or not a Linkable type
-     */
-    private Linkable getLinkable(CTABanner ctaBanner) throws PageCompositionException {
-        if (ctaBanner.getCtaLink() == null || ctaBanner.getCtaLink().getLink() == null) {
-            throw new InvalidContentException(ctaBanner.getPath(),
-                    "The CTA banner does not have a valid link configuration. The module has been hidden");
-        }
-
-        if (!(ctaBanner.getCtaLink().getLink() instanceof Linkable)) {
-            throw new InvalidContentException(ctaBanner.getPath(),
-                    "The link for the CTA banner is not a valid Linkable type. The module has been hidden");
-        }
-        return (Linkable) ctaBanner.getCtaLink().getLink();
+    @Override
+    void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        // No labels needed for Spotlight
     }
 }
