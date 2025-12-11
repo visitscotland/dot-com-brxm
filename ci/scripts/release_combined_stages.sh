@@ -59,11 +59,46 @@ comma_split_to_json_array() {
   printf '[%s]' "$(IFS=,; echo "${out[*]}")"
 }
 
+# helper function for .tar.gz projects (like dot-com, dot-org)
+get_manifest_from_tar() {
+  local tar_file="$1"
+
+  # Find site.war inside tarball
+  local war_rel
+  war_rel="$(tar -tzf "$tar_file" | grep -m1 'webapps/site\.war$' || true)"
+  [[ -z "$war_rel" ]] && return
+
+  # Make a temp dir
+  local tmpdir
+  tmpdir="$(mktemp -d "${TMPDIR:-/tmp}/distwar.XXXXXXXX")" || return
+
+  tar -xzf "$tar_file" -C "$tmpdir" "$war_rel" 2>/dev/null || {
+    rm -rf "$tmpdir"
+    return
+  }
+
+  local war_path="$tmpdir/$war_rel"
+  local manifest
+  manifest="$(get_manifest_from_war "$war_path")"
+
+  rm -rf "$tmpdir"
+
+  printf '%s' "$manifest"
+}
+
+# helper function for .war projects (like vs-dms-products)
+get_manifest_from_war() {
+  local war_file="$1"
+
+  # Attempt to read the manifest
+  unzip -p "$war_file" META-INF/MANIFEST.MF 2>/dev/null || true
+}
+
 # =====================================================================
 # Step 1 - Find distribution tarball + MD5
 # =====================================================================
 step_1_find_distro() {
-  echo "==> Step 1: Finding distribution artifact (tar.gz or war, excluding SSR)..."
+  echo "==> Step 1: Finding distribution artifact (tar.gz or war, and SSR if needed)..."
 
   local files=()
   VS_SSR_PACKAGE_NAME=""
@@ -184,106 +219,59 @@ step_3_extract_build_number() {
   echo "==> Step 3: Extracting build number..."
   VS_SITE_WAR_BUILD_NUMBER=""
 
-  # Read build number from the canonical file if present
+  # --------------------------------------------------------------------
+  # 1) Preferred: Use build-number.txt (canonical source)
+  # --------------------------------------------------------------------
   if [[ -f "$BUILD_NUMBER_FILE" ]]; then
     # remove every whitespace character from the input stream (which is the build-number.txt file)
     # redirect build-number.txt file into tr
     # capture the output of the command inside the parentheses and store it into the VS_SITE_WAR_BUILD_NUMBER variable
     VS_SITE_WAR_BUILD_NUMBER="$(tr -d '[:space:]' < "$BUILD_NUMBER_FILE")"
-    if [[ -z "$VS_SITE_WAR_BUILD_NUMBER" ]]; then
-        echo "            INFO: $BUILD_NUMBER_FILE is empty, assigning it the value: 'UNKNOWN'" >&2
-        VS_SITE_WAR_BUILD_NUMBER="UNKNOWN"
-    else
+    if [[ -n "$VS_SITE_WAR_BUILD_NUMBER" ]]; then
       echo "            INFO: Build number extracted from $BUILD_NUMBER_FILE: $VS_SITE_WAR_BUILD_NUMBER"
+      return
+    else
+      echo "            INFO: $BUILD_NUMBER_FILE is empty — assigning UNKNOWN" >&2
+      VS_SITE_WAR_BUILD_NUMBER="UNKNOWN"
       return
     fi
   fi
 
+
+  # --------------------------------------------------------------------
+  # 2) Fallback: MANIFEST.MF inside distribution artifact
+  # --------------------------------------------------------------------
   echo "            INFO: Build number file not found in: $BUILD_NUMBER_FILE, widening the search..." >&2
   echo "            INFO: Falling back to MANIFEST.MF inside distribution artifact"
 
-  # Fallback for DISTRO_FILE
   if [[ -z "${DISTRO_FILE:-}" || ! -f "$DISTRO_FILE" ]]; then
-    echo "            WARN: DISTRO_FILE not set in previous step, or missing; attempting fallback search..."
-    distro_file=$(find target -maxdepth 1 -type f \( -name '*.tar.gz' -o -name '*.war' \) ! -iname '*ssr*' -print -quit 2>/dev/null || true)
-    if [[ -n "$distro_file" && -f "$distro_file" ]]; then
-      DISTRO_FILE="$distro_file"
-      echo "            INFO: Fallback found distribution artifact: $DISTRO_FILE"
-    else
-      echo "            ERROR: No distribution artifact found under target/ (fallback failed)" >&2
-      exit 1
-    fi
+    echo "            ERROR: DISTRO_FILE missing— Step 1 must run before Step 3" >&2
+    exit 1
   fi
 
   echo "            INFO: Using distribution artifact $DISTRO_FILE"
 
-  # ----------------------------------------------------------------------
-  # NEW: If distribution file IS a WAR (vs-dms-products case)
-  # ----------------------------------------------------------------------
-  if [[ "$DISTRO_FILE" == *.war ]]; then
-    echo "            INFO: Distribution is a WAR; extracting MANIFEST.MF directly"
+  local manifest_contents=""
 
-    manifest_contents="$(unzip -p "$DISTRO_FILE" META-INF/MANIFEST.MF 2>/dev/null || true)"
+  # Case A — distribution is TAR.GZ with embedded WAR (dot-com, dot-org)
+  if [[ "$DISTRO_FILE" == *.tar.gz ]]; then
+    echo "            INFO: Distribution is TAR.GZ; searching for embedded site.war"
+    manifest_contents="$(get_manifest_from_tar "$DISTRO_FILE")"
 
-    if [[ -z "$manifest_contents" ]]; then
-      echo "            WARN: Could not read META-INF/MANIFEST.MF from $DISTRO_FILE" >&2
-      return
-    fi
-
-  # ----------------------------------------------------------------------
-  # Existing logic: distribution is TAR.GZ with embedded WAR (dot-com / dot-org)
-  # ----------------------------------------------------------------------
-  else
-
-    # Create throwaway temp dir for .war extraction
-    tmpdir="$(mktemp -d "${TMPDIR:-/tmp}/distwar.XXXXXXXX")" || {
-      echo "            WARN: Failed to create temp directory for WAR extraction" >&2
-      return
-    }
-
-    # Make sure we clean up this temp dir in normal exit path of this function
-    # (no trap here to avoid messing with global traps; worst case: orphaned dir)
-
-    # Locate site.war inside tarball
-    war_rel_path="$(tar -tzf "$DISTRO_FILE" | grep -m1 'webapps/site\.war$' || true)"
-
-    if [[ -z "$war_rel_path" ]]; then
-      echo "            WARN: site.war not found inside $DISTRO_FILE" >&2
-      rm -rf "$tmpdir"
-      return
-    fi
-
-    war_path="$tmpdir/$war_rel_path"
-
-    # Extract ONLY webapps/site.war from the tarball
-    if ! tar -xzf "$DISTRO_FILE" -C "$tmpdir" "$war_rel_path" 2>/dev/null; then
-      echo "            WARN: Failed to extract $war_rel_path from $DISTRO_FILE" >&2
-      rm -rf "$tmpdir"
-      return
-    fi
-
-    if [[ ! -f "$war_path" ]]; then
-      echo "            WARN: Extracted WAR not found at $war_path" >&2
-      rm -rf "$tmpdir"
-      return
-    fi
-
-    # Read MANIFEST.MF from the extracted WAR
-    manifest_contents="$(unzip -p "$war_path" META-INF/MANIFEST.MF 2>/dev/null || true)"
-
-    if [[ -z "$manifest_contents" ]]; then
-      echo "            WARN: Could not read META-INF/MANIFEST.MF from $war_path" >&2
-      rm -rf "$tmpdir"
-      return
-    fi
-
-    rm -rf "$tmpdir"
-    echo "            INFO: $tmpdir has been removed"
+  # Case B — distribution is WAR (vs-dms-products)
+  elif [[ "$DISTRO_FILE" == *.war ]]; then
+    echo "            INFO: Distribution is WAR; reading MANIFEST directly"
+    manifest_contents="$(get_manifest_from_war "$DISTRO_FILE")"
   fi
 
-  # ----------------------------------------------------------------------
-  # Common extraction logic (applies to BOTH WAR and TAR cases)
-  # ----------------------------------------------------------------------
+  if [[ -z "$manifest_contents" ]]; then
+    echo "            WARN: No MANIFEST.MF could be extracted from $DISTRO_FILE" >&2
+    return
+  fi
+
+  # --------------------------------------------------------------------
+  # 3) Common MANIFEST parse logic (same for WAR or TAR)
+  # --------------------------------------------------------------------
   VS_SITE_WAR_BUILD_NUMBER="$(
     printf '%s\n' "$manifest_contents" \
       | awk -F'[: ]+' '/^Build-Number/{print $2; exit}' \
