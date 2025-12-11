@@ -77,8 +77,8 @@ public class MapModule extends BaseDocument {
         return getSingleProperty("visitscotland:translation");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:isGoogleMap")
-    public Boolean getIsGoogleMap() {
+    @HippoEssentialsGenerated(internalName = "visitscotland:isGoogleMap" ,allowModifications = false)
+    public Boolean isGoogleMap() {
         return getSingleProperty("visitscotland:isGoogleMap");
     }
 }
