@@ -46,12 +46,12 @@ public class SiteProperties extends Properties {
 
     //Modules References
     private static final String PATH_BANNER = "site.path.banner";
-    static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
     private static final String PRODUCTS_SEARCH_ENABLED = "feature.products-search.enable";
     private static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
     private static final String GLOBAL_SEARCH_ENABLED = "feature.global-search.enable";
+    private static final String GOOGLE_MAPS_API_KEY = "google-maps.api-key";
+    static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
 
-    static final String GOOGLE_MAPS_API_KEY = "google.maps-api-key";
 
     //GTM Properties
 
@@ -129,7 +129,8 @@ public class SiteProperties extends Properties {
     public String getCampaignSection() {
         return readString(PATH_CAMPAIGN_SECTION);
     }
-    public String getGoogleMapsApi() {
+    // Where is this in use?
+    public String getGoogleMapsApiKey() {
         return readString(GOOGLE_MAPS_API_KEY);
     }
 

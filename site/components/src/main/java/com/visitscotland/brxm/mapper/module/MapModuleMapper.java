@@ -16,6 +16,7 @@ import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.onehippo.taxonomy.api.Category;
@@ -33,6 +34,9 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
 
     private static final Logger logger = LoggerFactory.getLogger(MapModuleMapper.class);
 
+    private static final String MAPS_API_PROPERTY = "mapsAPI";
+    private static final String MAIN_MAP_PAGE = "mainMapPage";
+    private static final String HIDE_PAGE_INFO = "hidePageInfo";
     static final String BUNDLE_ID = "map";
 
     static final String ID = "id";
@@ -53,16 +57,18 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
     private final DMSDataService dmsDataService;
     private final ResourceBundleService bundle;
     private final CMSProperties properties;
+    private final SiteProperties siteProperties;
     private final ImageMapper imageMapper;
     private final LocationLoader locationLoader;
 
-    public MapModuleMapper(MapService mapService, HippoUtilsService hippoUtilsService, DMSDataService dmsDataService, ResourceBundleService bundle, CMSProperties properties, ImageMapper imageMapper, LocationLoader locationLoader) {
-        this.hippoUtilsService = hippoUtilsService;
-        this.mapper = new ObjectMapper();
+    public MapModuleMapper(MapService mapService, HippoUtilsService hippoUtilsService, ObjectMapper mapper, DMSDataService dmsDataService, ResourceBundleService bundle, CMSProperties properties, SiteProperties siteProperties, ImageMapper imageMapper, LocationLoader locationLoader) {
         this.mapService = mapService;
+        this.hippoUtilsService = hippoUtilsService;
+        this.mapper = mapper;
         this.dmsDataService = dmsDataService;
         this.bundle = bundle;
         this.properties = properties;
+        this.siteProperties = siteProperties;
         this.imageMapper = imageMapper;
         this.locationLoader = locationLoader;
     }
@@ -70,6 +76,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
     @Override
     void addLabels(PageCompositionHelper page) throws MissingResourceException {
         page.addAllSiteLabels(BUNDLE_ID);
+
     }
 
     @Override
@@ -84,7 +91,11 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         module.setTitle(document.getTitle());
         module.setIntroduction(document.getCopy());
         module.setTabTitle(document.getTabTitle());
-        module.setGoogleMap(mapModuleDocument.getIsGoogleMap());
+
+        if (document.isGoogleMap()) {
+            configureGoogleMap(document, compositionHelper, module);
+        }
+
 
         ObjectNode featureCollectionGeoJson = mapper.createObjectNode();
         featureCollectionGeoJson.put(TYPE, "FeatureCollection");
@@ -119,6 +130,14 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         featureCollectionGeoJson.set("features", features);
         module.setGeoJson(featureCollectionGeoJson);
         return module;
+    }
+
+    private void configureGoogleMap(MapModule document, PageCompositionHelper compositionHelper, MapsModule module){
+        module.setGoogleMap(document.isGoogleMap());
+        //TODO: Remove this property
+        compositionHelper.addProperty(MAIN_MAP_PAGE, true);
+        compositionHelper.addProperty(HIDE_PAGE_INFO, true);
+        compositionHelper.addProperty(MAPS_API_PROPERTY, siteProperties.getGoogleMapsApiKey());
     }
 
     /**

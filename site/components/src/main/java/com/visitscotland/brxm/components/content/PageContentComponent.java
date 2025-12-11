@@ -60,6 +60,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
     public static final String LABELS = "labels";
+    public static final String PAGE_CONFIGURATION = "pageConfiguration";
 
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
@@ -124,23 +125,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void addMetadata(HstRequest request){
         request.setModel(METADATA_MODEL, metadata.getMetadata());
-    }
-
-    /**
-     * Add flags to indicate what type of page is being processed
-     * TODO: REVIEW!
-     */
-    private void addFlags(HstRequest request) {
-        if (request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
-            request.setModel(SEARCH_RESULTS, true);
-        }
-        if (request.getPathInfo().contains(properties.getSiteMap())) {
-            request.setModel(MAP_PAGE, true);
-        }
-        //TODO: These properties are Optional for each site. This needs to be refactored after VS-343 is completed
-        request.setModel("cludoCustomerId", properties.getProperty("cludo.customer-id", request.getLocale()));
-        request.setModel("cludoEngineId", properties.getProperty("cludo.engine-id", request.getLocale()));
-        request.setModel("cludoExperienceId", properties.getProperty("cludo.experience-id", request.getLocale()));
     }
 
     /**

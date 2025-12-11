@@ -9,6 +9,7 @@ import org.hippoecm.hst.core.component.HstRequest;
 import java.util.*;
 
 import static com.visitscotland.brxm.components.content.PageContentComponent.LABELS;
+import static com.visitscotland.brxm.components.content.PageContentComponent.PAGE_CONFIGURATION;
 import static com.visitscotland.brxm.services.ResourceBundleService.GLOBAL_BUNDLE_FILE;
 
 public class PageCompositionHelper {
@@ -73,13 +74,33 @@ public class PageCompositionHelper {
     }
 
     private Map<String, Map<String, String>> labels() {
-        if (request.getModel(LABELS) == null) {
-            Map<String, Map<String, String>> labels = new HashMap<>();
+        Map<String, Map<String, String>> labels = request.getModel(LABELS);
+
+        if (labels == null) {
+            labels = new HashMap<>();
             request.setModel(LABELS, labels);
-            return labels;
         }
 
-        return request.getModel(LABELS);
+        return labels;
+    }
+
+    private Map<String, Object> pageConfiguration() {
+        Map<String, Object> cfg = request.getModel(PAGE_CONFIGURATION);
+
+        if (cfg == null) {
+            cfg = new HashMap<>();
+            request.setModel(PAGE_CONFIGURATION, cfg);
+        }
+
+        return cfg;
+    }
+
+    public void addProperty(String key, Object value) {
+        if (value == null) {
+            pageConfiguration().remove(key);
+        } else {
+            pageConfiguration().put(key, value);
+        }
     }
 
     public void addRequestModel(String key, Object value) {
