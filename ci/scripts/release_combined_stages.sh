@@ -14,8 +14,8 @@ BUILD_NUMBER_FILE="${2:-.build-meta/build-number.txt}"
 OUT_DIR="${3:-artifacts}"
 LOG_FILE="${4:-${GIT_COMMIT:?GIT_COMMIT is required}.log}"
 PROPS_PATH="${5:-ci/properties/release_env.properties}"
-SITE_WAR="${6:-site/webapp/target/site.war}"
-MANIFEST_PATH="${7:-META-INF/MANIFEST.MF}"
+SITE_WAR="${6:-site/webapp/target/site.war}"        # kept for backwards-compatibility, not used directly anymore
+MANIFEST_PATH="${7:-META-INF/MANIFEST.MF}"          # kept for backwards-compatibility, not used directly anymore
 MODE="${8:-all}"  # can be: all, step1, step2, step3, etc.
 
 # ---- Shared variables ----
@@ -24,6 +24,14 @@ VS_RELEASE_PACKAGE_WORKSPACE_MD5=""
 VS_PIPELINE_OUTCOME_EMAIL=""
 VS_ERROR_LINES_EMAIL=""
 VS_SITE_WAR_BUILD_NUMBER=""
+VS_RELEASE_PACKAGE_NEXUS_URL=""
+VS_RELEASE_CANDIDATE_NEXUS_FILENAME=""
+VS_RELEASE_VERSION_DETECTED_FOR_EMAIL=""
+VS_SSR_PACKAGE_NAME=""
+VS_SSR_ARCHIVED_PACKAGE_PATH=""
+VS_SSR_ARCHIVED_PACKAGE_MD5=""
+VS_SSR_ARCHIVED_PACKAGE_URL=""
+REPO_NAME=""
 
 # ---- Preconditions / setup ----
 WORKSPACE="${WORKSPACE:-$(pwd)}"
@@ -49,14 +57,47 @@ json_escape() {
 comma_split_to_json_array() {
   # turn "a, b, c" into ["a","b","c"] (empty -> [])
   local raw="${1:-}"
-  if [[ -z "$raw" ]]; then printf '[]'; return; fi
+  if [[ -z "$raw" ]]; then
+    printf '[]'
+    return
+  fi
   local IFS=, out=()
   for part in $raw; do
     # trim surrounding spaces
-    local t="${part#"${part%%[![:space:]]*}"}"; t="${t%"${t##*[![:space:]]}"}"
+    local t="${part#"${part%%[![:space:]]*}"}"
+    t="${t%"${t##*[![:space:]]}"}"
+    [[ -z "$t" ]] && continue
     out+=("\"$(json_escape "$t")\"")
   done
-  printf '[%s]' "$(IFS=,; echo "${out[*]}")"
+  if ((${#out[@]} == 0)); then
+    printf '[]'
+  else
+    printf '[%s]' "$(IFS=,; echo "${out[*]}")"
+  fi
+}
+
+md5_for_file() {
+  # Cross-platform MD5 helper (Linux: md5sum, macOS: md5)
+  # Prints empty string if neither tool exists or file is missing.
+  local f="$1" md5=""
+  [[ -f "$f" ]] || { printf '%s' ""; return; }
+
+  if command -v md5sum >/dev/null 2>&1; then
+    md5="$(md5sum "$f" | awk '{print $1}')"
+  elif command -v md5 >/dev/null 2>&1; then
+    md5="$(md5 -r "$f" | awk '{print $1}')"
+  fi
+  printf '%s' "$md5"
+}
+
+compute_repo_name() {
+  # Derive repository name once from GIT_URL, with a safe fallback.
+  if [[ -n "${GIT_URL:-}" ]]; then
+    REPO_NAME="${GIT_URL##*/}"
+    REPO_NAME="${REPO_NAME%.git}"
+  else
+    REPO_NAME="${REPO_NAME:-unknown-repo}"
+  fi
 }
 
 # helper function for .tar.gz projects (like dot-com, dot-org)
@@ -118,11 +159,7 @@ step_1_find_distro() {
       VS_SSR_ARCHIVED_PACKAGE_PATH="$f"
 
       # Compute MD5
-      if command -v md5sum >/dev/null 2>&1; then
-        VS_SSR_ARCHIVED_PACKAGE_MD5="$(md5sum "$f" | awk '{print $1}')"
-      elif command -v md5 >/dev/null 2>&1; then
-        VS_SSR_ARCHIVED_PACKAGE_MD5="$(md5 -r "$f" | awk '{print $1}')"
-      fi
+      VS_SSR_ARCHIVED_PACKAGE_MD5="$(md5_for_file "$f")"
 
       # Construct the Jenkins URL to the SSR archived artifact
       VS_SSR_ARCHIVED_PACKAGE_URL="${BUILD_URL%/}/artifact/target/${filename}"
@@ -156,16 +193,10 @@ step_1_find_distro() {
   echo "            INFO: Selected distribution artifact: $DISTRO_FILE"
 
   # Compute MD5 for main distro
-  VS_RELEASE_PACKAGE_WORKSPACE_MD5=""
-  if [[ -f "$DISTRO_FILE" ]]; then
-    if command -v md5sum >/dev/null 2>&1; then
-      VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5sum "$DISTRO_FILE" | awk '{print $1}')"
-    elif command -v md5 >/dev/null 2>&1; then
-      VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5 -r "$DISTRO_FILE" | awk '{print $1}')"
-    else
-      echo "            WARN: Neither md5sum nor md5 found; skipping MD5" >&2
+    VS_RELEASE_PACKAGE_WORKSPACE_MD5="$(md5_for_file "$DISTRO_FILE")"
+    if [[ -z "$VS_RELEASE_PACKAGE_WORKSPACE_MD5" ]]; then
+      echo "            WARN: MD5 checksum could not be computed for $DISTRO_FILE (no md5/md5sum?)" >&2
     fi
-  fi
 }
 
 # =====================================================================
@@ -178,37 +209,48 @@ step_2_parse_log() {
   VS_RELEASE_PACKAGE_NEXUS_URL=""
   VS_RELEASE_CANDIDATE_NEXUS_FILENAME=""
 
-  if [[ -f "$LOG_FILE" ]]; then
-    MATCHING_LINE=""
-    while IFS= read -r line; do
-      if [[ "$line" =~ (\[ERROR\]|\[FAILURE\]|\[FAILED\]|\[EXCEPTION\]) ]]; then
-        esc="${line//&/&amp;}"; esc="${esc//</&lt;}"; esc="${esc//>/&gt;}"
-        VS_ERROR_LINES_EMAIL+="${esc}<br/>"
-        [[ "$VS_PIPELINE_OUTCOME_EMAIL" == "SUCCESS" ]] && VS_PIPELINE_OUTCOME_EMAIL="ERROR"
-      fi
-      # detect any maven artifact, that has been deployed to the Nexus
-      if [[ -z "$MATCHING_LINE" && "$line" =~ https://.*\.(tar\.gz|war) ]]; then
-        MATCHING_LINE="$line"
-      fi
-    done < "$LOG_FILE"
-
-    if [[ -n "$MATCHING_LINE" ]]; then
-      url_part="$(printf '%s' "$MATCHING_LINE" | sed -E 's/.*(https:\/\/[^ ]+).*/\1/')"
-      url_no443="${url_part//:443/}"
-      VS_RELEASE_PACKAGE_NEXUS_URL="${url_no443//service\/local\/staging\/deployByRepositoryId/content\/repositories}"
-      http_code="$(curl -o /dev/null --silent --head --write-out '%{http_code}' "$VS_RELEASE_PACKAGE_NEXUS_URL" || true)"
-      if [[ "$http_code" == "200" ]]; then
-        VS_RELEASE_CANDIDATE_NEXUS_FILENAME="${VS_RELEASE_PACKAGE_NEXUS_URL##*/}"
-      else
-        echo "            WARN: Nexus URL invalid. HTTP ${http_code} -> ${VS_RELEASE_PACKAGE_NEXUS_URL}" >&2
-      fi
-    else
-      echo "            INFO: No distribution URL found in ${LOG_FILE}" >&2
-    fi
-  else
+  if [[ ! -f "$LOG_FILE" ]]; then
     echo "            INFO: Log file not found: ${LOG_FILE}" >&2
     VS_ERROR_LINES_EMAIL+="Log file not found: ${LOG_FILE}<br/>"
     VS_PIPELINE_OUTCOME_EMAIL="ERROR"
+    return
+  fi
+
+  local MATCHING_LINE=""
+  while IFS= read -r line; do
+    # Capture any ERROR-/FAILURE-like lines for email body
+    if [[ "$line" =~ (\[ERROR\]|\[FAILURE\]|\[FAILED\]|\[EXCEPTION\]) ]]; then
+      local esc="${line//&/&amp;}"
+      esc="${esc//</&lt;}"
+      esc="${esc//>/&gt;}"
+      VS_ERROR_LINES_EMAIL+="${esc}<br/>"
+      [[ "$VS_PIPELINE_OUTCOME_EMAIL" == "SUCCESS" ]] && VS_PIPELINE_OUTCOME_EMAIL="ERROR"
+    fi
+
+    # detect any maven artifact that has been deployed to Nexus (tar.gz or war)
+    if [[ -z "$MATCHING_LINE" && "$line" =~ https://.*\.(tar\.gz|war) ]]; then
+      MATCHING_LINE="$line"
+    fi
+  done < "$LOG_FILE"
+
+  if [[ -z "$MATCHING_LINE" ]]; then
+    echo "            INFO: No distribution URL found in ${LOG_FILE}" >&2
+    return
+  fi
+
+  # Extract the URL from the matched line
+  local url_part
+  url_part="$(printf '%s' "$MATCHING_LINE" | sed -E 's/.*(https:\/\/[^ ]+).*/\1/')"
+  local url_no443="${url_part//:443/}"
+  VS_RELEASE_PACKAGE_NEXUS_URL="${url_no443//service\/local\/staging\/deployByRepositoryId/content\/repositories}"
+
+  # Probe the URL; mark filename only if it exists
+  local http_code
+  http_code="$(curl -o /dev/null --silent --head --write-out '%{http_code}' "$VS_RELEASE_PACKAGE_NEXUS_URL" || true)"
+  if [[ "$http_code" == "200" ]]; then
+    VS_RELEASE_CANDIDATE_NEXUS_FILENAME="${VS_RELEASE_PACKAGE_NEXUS_URL##*/}"
+  else
+    echo "            WARN: Nexus URL invalid. HTTP ${http_code} -> ${VS_RELEASE_PACKAGE_NEXUS_URL}" >&2
   fi
 }
 
@@ -222,7 +264,7 @@ step_3_extract_build_number() {
   # --------------------------------------------------------------------
   # 1) Preferred: Use build-number.txt (canonical source)
   # --------------------------------------------------------------------
-  if [[ -f "$BUILD_NUMBER_FILE" ]]; then
+  if [[ -s "$BUILD_NUMBER_FILE" ]]; then
     # remove every whitespace character from the input stream (which is the build-number.txt file)
     # redirect build-number.txt file into tr
     # capture the output of the command inside the parentheses and store it into the VS_SITE_WAR_BUILD_NUMBER variable
@@ -230,13 +272,17 @@ step_3_extract_build_number() {
     if [[ -n "$VS_SITE_WAR_BUILD_NUMBER" ]]; then
       echo "            INFO: Build number extracted from $BUILD_NUMBER_FILE: $VS_SITE_WAR_BUILD_NUMBER"
       return
-    else
-      echo "            INFO: $BUILD_NUMBER_FILE is empty — assigning UNKNOWN" >&2
-      VS_SITE_WAR_BUILD_NUMBER="UNKNOWN"
-      return
     fi
+    # File existed and was non-empty but produced empty result after trimming → treat as UNKNOWN
+    echo "            INFO: $BUILD_NUMBER_FILE content is whitespace-only — assigning UNKNOWN" >&2
+    VS_SITE_WAR_BUILD_NUMBER="UNKNOWN"
+    return
+  elif [[ -f "$BUILD_NUMBER_FILE" ]]; then
+    # File exists but is empty (size zero)
+    echo "            INFO: $BUILD_NUMBER_FILE is empty — assigning UNKNOWN" >&2
+    VS_SITE_WAR_BUILD_NUMBER="UNKNOWN"
+    return
   fi
-
 
   # --------------------------------------------------------------------
   # 2) Fallback: MANIFEST.MF inside distribution artifact
@@ -290,8 +336,11 @@ step_3_extract_build_number() {
 # =====================================================================
 step_4_parse_pom() {
   echo "==> Step 4: Deriving release version..."
-  VS_RELEASE_VERSION_DETECTED_FOR_EMAIL="${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-}"
-  if [[ -z "$VS_RELEASE_VERSION_DETECTED_FOR_EMAIL" && -f "$POM" ]]; then
+  if [[ -n "$VS_RELEASE_VERSION_DETECTED_FOR_EMAIL" ]]; then
+    return
+  fi
+
+  if [[ -f "$POM" ]]; then
     VS_RELEASE_VERSION_DETECTED_FOR_EMAIL="$(
       awk '/<parent>/,/<\/parent>/ { next } /<version>/ { print; exit }' "$POM" \
         | sed -E 's/.*<version>(.*)<\/version>.*/\1/'
@@ -303,13 +352,14 @@ step_4_parse_pom() {
 # Step 5 - Compose email HTML
 # =====================================================================
 step_5_compose_email() {
-    echo "==> Step 5: Composing email..."
-    REPO_NAME="${GIT_URL##*/}"; REPO_NAME="${REPO_NAME%.git}"
-    EMAIL_SUBJECT="[Release] ${REPO_NAME:-unknown-repo} v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} - build #${BUILD_NUMBER:-?} - ${VS_PIPELINE_OUTCOME_EMAIL}"
-    EMAIL_HTML_FILE="$OUT_DIR/email.html"
+  echo "==> Step 5: Composing email..."
+  [[ -z "$REPO_NAME" ]] && compute_repo_name
 
-    {
-      cat <<'HTML_HEAD'
+  EMAIL_SUBJECT="[Release] ${REPO_NAME:-unknown-repo} v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} - build #${BUILD_NUMBER:-?} - ${VS_PIPELINE_OUTCOME_EMAIL}"
+  EMAIL_HTML_FILE="$OUT_DIR/email.html"
+
+  {
+    cat <<'HTML_HEAD'
 <html>
 <head>
   <meta charset="utf-8"/>
@@ -325,20 +375,20 @@ step_5_compose_email() {
 <body>
 HTML_HEAD
 
-      printf '<h1>%s: Package details for release v%s, <a href="%s">Jenkins Build %s</a> - %s</h1>\n' \
-        "$(json_escape "$REPO_NAME")" \
-        "$(json_escape "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}")" \
-        "$(json_escape "${BUILD_URL:-#}")" \
-        "$(json_escape "${BUILD_NUMBER:-?}")" \
-        "$(json_escape "$VS_PIPELINE_OUTCOME_EMAIL")"
+    printf '<h1>%s: Package details for release v%s, <a href="%s">Jenkins Build %s</a> - %s</h1>\n' \
+      "$(json_escape "$REPO_NAME")" \
+      "$(json_escape "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}")" \
+      "$(json_escape "${BUILD_URL:-#}")" \
+      "$(json_escape "${BUILD_NUMBER:-?}")" \
+      "$(json_escape "$VS_PIPELINE_OUTCOME_EMAIL")"
 
-      echo "<p>Here are the details for the artefacts (distribution/release and SSR packages) related to this build.</p>"
-      echo "<h2>Release v$(json_escape "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}") artefact</h2>"
+    echo "<p>Here are the details for the artefacts (distribution/release and SSR packages) related to this build.</p>"
+    echo "<h2>Release v$(json_escape "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}") artefact</h2>"
 
-      if [[ -n "${VS_ERROR_LINES_EMAIL:-}" ]]; then
-        printf '%s\n' "${VS_ERROR_LINES_EMAIL}"
-      else
-        cat <<TABLE1
+    if [[ -n "${VS_ERROR_LINES_EMAIL:-}" ]]; then
+      printf '%s\n' "${VS_ERROR_LINES_EMAIL}"
+    else
+      cat <<TABLE1
 <table>
   <tr><th>Build-Number</th><td>$(json_escape "${VS_SITE_WAR_BUILD_NUMBER:-}")</td></tr>
   <tr><th>Nexus URL (hyperlink)</th><td><a href="$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")">$(json_escape "${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}")</a></td></tr>
@@ -346,10 +396,10 @@ HTML_HEAD
   <tr><th>MD5 Checksum</th><td><code>$(json_escape "${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")</code></td></tr>
 </table>
 TABLE1
-      fi
+    fi
 
-      if [[ -n "${VS_SSR_ARCHIVED_PACKAGE_URL:-}" ]]; then
-        cat <<TABLE2
+    if [[ -n "${VS_SSR_ARCHIVED_PACKAGE_URL:-}" ]]; then
+      cat <<TABLE2
 <h2>SSR Package (in Jenkins)</h2>
 <table>
   <tr><th>URL (hyperlink)</th><td><a href="$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")">$(json_escape "${VS_SSR_PACKAGE_NAME:-}")</a></td></tr>
@@ -357,12 +407,12 @@ TABLE1
   <tr><th>MD5 Checksum</th><td><code>$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")</code></td></tr>
 </table>
 TABLE2
-      fi
-      cat <<TABLE3
+    fi
+    cat <<TABLE3
 <p>For more information, see the <a href="$(json_escape "${BUILD_URL:-#}")/consoleFull">Jenkins build log</a>.</p>
 </body></html>
 TABLE3
-    } > "$EMAIL_HTML_FILE"
+  } > "$EMAIL_HTML_FILE"
 }
 
 # =====================================================================
@@ -370,9 +420,13 @@ TABLE3
 # =====================================================================
 step_6_write_outputs() {
   echo "==> Step 6: Writing outputs..."
+  [[ -z "$REPO_NAME" ]] && compute_repo_name
+
   echo "            (debugging) MAIL_TO_NET=$MAIL_TO_NET, VS_COMMIT_AUTHOR=$VS_COMMIT_AUTHOR, CC_DEV_LIST=$CC_DEV_LIST"
+  local RECIPIENTS_ARRAY
   RECIPIENTS_ARRAY="$(comma_split_to_json_array "${MAIL_TO_NET:-}, ${VS_COMMIT_AUTHOR:-}, ${CC_DEV_LIST:-}")"
-  RESULTS_JSON="$OUT_DIR/results.json"
+
+  local RESULTS_JSON="$OUT_DIR/results.json"
   cat > "$RESULTS_JSON" <<JSON
 {
   "repo": "$(json_escape "$REPO_NAME")",
@@ -426,9 +480,8 @@ JSON
 # =====================================================================
 # Main dispatcher
 # =====================================================================
-# Loop over every argument passed to the script.
-# If any argument starts with --mode=,
-# extract whatever comes after = and store it in MODE.
+# Loop over every argument passed to the script
+# If any argument starts with --mode=, extract whatever comes after = and store it in MODE
 for arg in "$@"; do
   case "$arg" in
     --mode=*) MODE="${arg#*=}" ;;
@@ -437,7 +490,7 @@ done
 
 main() {
   case "$MODE" in
-    all) step_1_find_distro; step_2_parse_log; step_3_extract_build_number; step_4_parse_pom; step_5_compose_email; step_6_write_outputs ;;
+    all)   step_1_find_distro; step_2_parse_log; step_3_extract_build_number; step_4_parse_pom; step_5_compose_email; step_6_write_outputs ;;
     step1) step_1_find_distro ;;
     step2) step_2_parse_log ;;
     step3) step_3_extract_build_number ;;
