@@ -105,7 +105,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         super.doBeforeRender(request, response);
 
         addMetadata(request);
-
         addHeroImage(request);
 
         addOTYML(request);

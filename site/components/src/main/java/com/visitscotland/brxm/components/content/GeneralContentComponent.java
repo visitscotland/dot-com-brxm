@@ -1,8 +1,8 @@
 package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
-import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.config.VsComponentManager;
+import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @ParametersInfo(type = GeneralPageComponentInfo.class)
-public class GeneralContentComponent extends PageContentComponent<Destination> {
+public class GeneralContentComponent extends PageContentComponent<General> {
 
     private static final Logger logger = LoggerFactory.getLogger(GeneralContentComponent.class);
 
@@ -44,8 +44,6 @@ public class GeneralContentComponent extends PageContentComponent<Destination> {
         addNavigationCards(request);
         builder.addModules(request);
     }
-
-
 
     private void addNavigationCards(HstRequest request){
         try {
