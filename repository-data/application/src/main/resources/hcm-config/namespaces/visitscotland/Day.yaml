@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5808202a-dee2-4a25-bf10-2e867aa6d19d
+          jcr:uuid: c312b95a-36d6-4d2d-833d-7a8b7f35b93d
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -41,7 +41,7 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: visitscotland:stops
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:link-validator',
+            hipposysedit:validators: [contentblocks-validator, 'visitscotland:link-validator',
               'visitscotland:itinerary-stop-validator']
           /transports:
             jcr:primaryType: hipposysedit:field
@@ -59,6 +59,22 @@ definitions:
             hipposysedit:path: visitscotland:translation
             hipposysedit:primary: false
             hipposysedit:type: OpenUiString
+          /mapLink:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:mapLink
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:ExternalLink
+            hipposysedit:validators: [required]
+          /media:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:media
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -71,7 +87,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: 730047b9-8280-4c05-ac2b-dc2016a5c06c
+          jcr:uuid: 6273322e-b6e0-4505-9c10-4faaf62864ce
           hippostdpubwf:lastModificationDate: 2019-12-05T15:29:52.785Z
           hippostdpubwf:creationDate: 2019-12-05T15:29:52.785Z
           visitscotland:transports: []
@@ -79,6 +95,10 @@ definitions:
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+          /visitscotland:mapLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: ''
+            visitscotland:link: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -99,6 +119,58 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /media:
+            jcr:primaryType: frontend:plugin
+            caption: Media
+            compoundList: hippogallerypicker:imagelink,visitscotland:VideoLink
+            contentPickerType: links
+            field: media
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              compoundNamesMaxLength: 90
+              maxitems: 1
+              showCompoundNames: false
+              showTitles: false
+              startCollapsed: false
+              titleMapping: []
+          /introduction:
+            jcr:primaryType: frontend:plugin
+            caption: Copy
+            field: introduction
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: Max length suggestion is 2500.
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'',  stylesSet:
+                ''article:./vs_styles.js'',  toolbarGroups: [ { name: ''basicstyles''},{name:
+                ''styles''},{name:''listindentalign'',groups:[''list'']}, {name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
+                ] , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+              ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
+                {countSpacesAsChars: true, showCharCount: true, maxCharCount: 4000}}'
+          /mapLink:
+            jcr:primaryType: frontend:plugin
+            caption: Map Link
+            field: mapLink
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /stops:
+            jcr:primaryType: frontend:plugin
+            caption: Stops (Deprecated)
+            compoundList: hippo:mirror
+            contentPickerType: links
+            field: stops
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /transports:
             jcr:primaryType: frontend:plugin
             caption: Transports
@@ -113,32 +185,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/transports
-          /introduction:
-            jcr:primaryType: frontend:plugin
-            caption: Copy
-            field: introduction
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: Max length suggestion is 500.
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
-                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
-                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
-              ckeditor.config.appended.json: "{ extraPlugins: 'wordcount',   wordcount:\
-                \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:750\
-                \   }  }"
-          /stops:
-            jcr:primaryType: frontend:plugin
-            caption: Stops
-            compoundList: hippo:mirror
-            contentPickerType: links
-            field: stops
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation
