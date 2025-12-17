@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c312b95a-36d6-4d2d-833d-7a8b7f35b93d
+          jcr:uuid: bc83ce23-789c-4b11-bff7-0200ea0ca635
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -75,6 +75,15 @@ definitions:
             hipposysedit:path: visitscotland:media
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator, required]
+          /ctaLink:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:ctaLink
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:ExternalLink
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -87,7 +96,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: 6273322e-b6e0-4505-9c10-4faaf62864ce
+          jcr:uuid: 76a37187-0cf5-486e-963d-493d4bb64d84
           hippostdpubwf:lastModificationDate: 2019-12-05T15:29:52.785Z
           hippostdpubwf:creationDate: 2019-12-05T15:29:52.785Z
           visitscotland:transports: []
@@ -96,6 +105,10 @@ definitions:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
           /visitscotland:mapLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: ''
+            visitscotland:link: ''
+          /visitscotland:ctaLink:
             jcr:primaryType: visitscotland:ExternalLink
             visitscotland:label: ''
             visitscotland:link: ''
@@ -151,6 +164,15 @@ definitions:
                 ] , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
                 {countSpacesAsChars: true, showCharCount: true, maxCharCount: 4000}}'
+          /ctaLink:
+            jcr:primaryType: frontend:plugin
+            caption: CTA Link
+            field: ctaLink
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /mapLink:
             jcr:primaryType: frontend:plugin
             caption: Map Link
