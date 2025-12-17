@@ -174,7 +174,7 @@ class EnhancedLinkServiceTest {
         List<EnhancedLink> result = service.convert(module, Arrays.asList((HippoBean) null), Locale.UK, false, false);
 
         assertEquals(0, result.size());
-        verify(contentLogger).warn(anyString(), (Object) isNull());
+        verify(contentLogger).warn(anyString(), anyString());
     }
 
     @Test
