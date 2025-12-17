@@ -6,12 +6,12 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.utils.ContentLogger;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.junit.Ignore;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockSettings;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
@@ -174,7 +174,7 @@ class EnhancedLinkServiceTest {
         List<EnhancedLink> result = service.convert(module, Arrays.asList((HippoBean) null), Locale.UK, false, false);
 
         assertEquals(0, result.size());
-        verify(contentLogger).warn(anyString());
+        verify(contentLogger).warn(anyString(), (Object) isNull());
     }
 
     @Test
