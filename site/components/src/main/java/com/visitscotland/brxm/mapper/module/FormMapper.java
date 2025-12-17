@@ -139,15 +139,11 @@ public class FormMapper extends ModuleMapper<Form, FormModule> {
     @Override
     void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
         compositionHelper.addAllSiteLabels("forms");
-        compositionHelper.addGlobalLabel("cfg.form.json.countries");
 
-        Map<String, String> formLabels = new HashMap<>();
-
-        //The following files are required independent of the Form Framework
-        formLabels.put("cfg.form.json.countries", properties.getProperty("form.json.countries").orElse(""));
-        formLabels.put("cfg.form.json.messages", properties.getProperty("form.json.messages").orElse(""));
-
-        compositionHelper.addRequestModel("form-config",formLabels);
+        compositionHelper.addProperty("form.json.countries",
+                properties.getProperty("form.json.countries").orElse(""));
+        compositionHelper.addProperty("form.json.messages",
+                properties.getProperty("form.json.messages").orElse(""));
     }
 
     @Override
