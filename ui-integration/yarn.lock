@@ -603,10 +603,10 @@
   resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.20.tgz#f066abfcd1cbe66267cdbbf0de010d8a41b41597"
   integrity sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==
 
-"@visitscotland/component-library@^5.21.2":
-  version "5.21.2"
-  resolved "https://registry.yarnpkg.com/@visitscotland/component-library/-/component-library-5.21.2.tgz#5e136e8e0f174d7b20ee6646902f846e1d0f5e80"
-  integrity sha512-dK8fxYQcxFgSy8tcZxcoSMhXayNKcXNSoUAgdoy2/5gnpFiqZrviN6nwuipSNhQsp7xYSNYyi7GGRaN09cxhFA==
+"@visitscotland/component-library@^5.20.6":
+  version "5.20.6"
+  resolved "https://registry.yarnpkg.com/@visitscotland/component-library/-/component-library-5.20.6.tgz#40e4f9889d92875b333590df4c9db9f49622f50f"
+  integrity sha512-I7V+dlFHY9n0T/IL8EjNGTax+T6oXMw7zpIom59n8OIih0V4A4SzMVQfHs7WqjYnVhI34GI4EbvZgPm5TC9ONg==
   dependencies:
     "@googlemaps/js-api-loader" "^2.0.1"
     "@mapbox/geojson-extent" "^1.0.1"

@@ -47,6 +47,8 @@ public class SiteProperties extends Properties {
     private static final String PATH_BANNER = "site.path.banner";
     private static final String GOOGLE_MAPS_API_KEY = "google-maps.api-key";
     static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
+    static final String CLUDO_API = "cludo.experience-id";
+    static final String EVENTS_ENDPOINT = "events.endpoint";
 
     //GTM Properties
     public static final String GTM_CONTAINER_ID = "gtm.container-id";
@@ -184,6 +186,14 @@ public class SiteProperties extends Properties {
     @Deprecated
     public String getFormsMarketoUrl() {
         return readString(FORMS_MARKETO_URL);
+    }
+
+    public String getEventsEndpoint() {
+        return readString(EVENTS_ENDPOINT);
+    }
+
+    public String getCludoApi() {
+        return readString(CLUDO_API);
     }
 
     @Deprecated
