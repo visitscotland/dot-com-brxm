@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: c443083d-2924-408b-85a5-0a08f3ac0bae
   hippo:name: Map
-  hippo:versionHistory: 92de78f1-7587-4438-910e-8adb5b38505c
+  hippo:versionHistory: ddbc7b41-d504-4ef9-9fd8-b9e50decc810
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,11 +13,11 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2025-12-05T08:40:36.083Z
+    hippostdpubwf:lastModificationDate: 2025-12-18T16:40:47.513Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -26,19 +26,20 @@
       map.show-results, map.filters-applied, map.buttons-label, map.load-more, map.loading-results,
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
-      map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message]
-    resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
-        in, Zoom out, Featured Places, Discover, Close search and filter panel, Map
-        menu, Go back one step, Reset filters, Accommodation, Activities, Attractions,
-      Events, Food & Drink, Shopping, Places, iCentres, Regions, Places, Javascript
-        is needed to show this map., Clear all, Show results, Filters Applied, Select
-        map types, Load more, Loading results, Loading, Please apply filter(s) to
-        refine results, 'No results found, please apply filter(s)', '', 'No results
-        found, please apply filter(s).', 'We''re sorry, you can''t zoom out any more',
-      'We''re sorry, you can''t zoom in any more', Explore, Distilleries, Type in
-        your keyword, Search, Search Results for, Cookies need to be enabled to show
-        this map, Refine your results, We couldn't find anything here. Try zooming
-        out to explore more locations.]
+      map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
+      map.search-map]
+    resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
+      Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
+      Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
+      Food & Drink, Shopping, Places, iCentres, Regions, Places, Javascript is needed
+        to show this map., Clear all, Show results, Filters Applied, Select map types,
+      Load more, Loading results, Loading, Please apply filter(s) to refine results,
+      'No results found, please apply filter(s)', '', 'No results found, please apply
+        filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
+        you can''t zoom in any more', Explore, Distilleries, Type in your keyword,
+      Search, Search Results for, Cookies need to be enabled to show this map, Refine
+        your results, We couldn't find anything here. Try zooming out to explore more
+        locations., Search the map]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -52,19 +53,20 @@
       Sie können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
-      Verfeinern Sie Ihre Ergebnisse, '']
+      Verfeinern Sie Ihre Ergebnisse, '', '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
-        de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
-      Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares, iCentres,
-      Regiones, Lugares, Se requiere Javascript para visualizar este mapa., Borrar
-        todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa, Cargar
-        mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los resultados,
-      'No se encontraron resultados, por favor aplique filtro(s)', '', 'No se encontraron
-        resultados, por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte',
-      'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías, Escribe tu palabra
-        clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
-        para mostrar este mapa, Refinar resultados de búsqueda, '']
+      Restablecer el mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar
+        panel de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros,
+      Alojamiento, Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares,
+      iCentres, Regiones, Lugares, Se requiere Javascript para visualizar este mapa.,
+      Borrar todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa,
+      Cargar mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los
+        resultados, 'No se encontraron resultados, por favor aplique filtro(s)', '',
+      'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
+        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías,
+      Escribe tu palabra clave, Buscar, Resultados de búsqueda para, Las cookies deben
+        estar habilitadas para mostrar este mapa, Refinar resultados de búsqueda,
+      '', '']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -77,7 +79,7 @@
         un filtre.', 'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous
         ne pouvez pas zoomer davantage', Explorez, '', Entrez un mot-clé, Rechercher,
       Afficher les résultats pour, Les cookies doivent être activés pour afficher
-        cette carte, Affiner vos résultats de recherche, '']
+        cette carte, Affiner vos résultats de recherche, '', '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
@@ -90,7 +92,7 @@
         filtro/i.', 'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti,
         non è più possibile ingrandire', Esplora, '', Digita la tua parola chiave,
       Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
-        questa mappa, Affina i tuoi risultati, '']
+        questa mappa, Affina i tuoi risultati, '', '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
@@ -101,7 +103,7 @@
         pas filter(s) toe', '', 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas,
         je kunt niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek,
       '', Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn cookies nodig om
-        deze kaart te tonen, Verfijn je zoekresultaten, '']
+        deze kaart te tonen, Verfijn je zoekresultaten, '', '']
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -111,11 +113,11 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2025-12-05T08:40:55.177Z
+    hippostdpubwf:lastModificationDate: 2025-12-18T16:41:33.758Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -124,19 +126,20 @@
       map.show-results, map.filters-applied, map.buttons-label, map.load-more, map.loading-results,
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
-      map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message]
-    resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
-        in, Zoom out, Featured Places, Discover, Close search and filter panel, Map
-        menu, Go back one step, Reset filters, Accommodation, Activities, Attractions,
-      Events, Food & Drink, Shopping, Places, iCentres, Regions, Places, Javascript
-        is needed to show this map., Clear all, Show results, Filters Applied, Select
-        map types, Load more, Loading results, Loading, Please apply filter(s) to
-        refine results, 'No results found, please apply filter(s)', '', 'No results
-        found, please apply filter(s).', 'We''re sorry, you can''t zoom out any more',
-      'We''re sorry, you can''t zoom in any more', Explore, Distilleries, Type in
-        your keyword, Search, Search Results for, Cookies need to be enabled to show
-        this map, Refine your results, We couldn't find anything here. Try zooming
-        out to explore more locations.]
+      map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
+      map.search-map]
+    resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
+      Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
+      Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
+      Food & Drink, Shopping, Places, iCentres, Regions, Places, Javascript is needed
+        to show this map., Clear all, Show results, Filters Applied, Select map types,
+      Load more, Loading results, Loading, Please apply filter(s) to refine results,
+      'No results found, please apply filter(s)', '', 'No results found, please apply
+        filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
+        you can''t zoom in any more', Explore, Distilleries, Type in your keyword,
+      Search, Search Results for, Cookies need to be enabled to show this map, Refine
+        your results, We couldn't find anything here. Try zooming out to explore more
+        locations., Search the map]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -150,19 +153,20 @@
       Sie können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
-      Verfeinern Sie Ihre Ergebnisse, '']
+      Verfeinern Sie Ihre Ergebnisse, '', '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
-        de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
-      Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares, iCentres,
-      Regiones, Lugares, Se requiere Javascript para visualizar este mapa., Borrar
-        todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa, Cargar
-        mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los resultados,
-      'No se encontraron resultados, por favor aplique filtro(s)', '', 'No se encontraron
-        resultados, por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte',
-      'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías, Escribe tu palabra
-        clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
-        para mostrar este mapa, Refinar resultados de búsqueda, '']
+      Restablecer el mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar
+        panel de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros,
+      Alojamiento, Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares,
+      iCentres, Regiones, Lugares, Se requiere Javascript para visualizar este mapa.,
+      Borrar todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa,
+      Cargar mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los
+        resultados, 'No se encontraron resultados, por favor aplique filtro(s)', '',
+      'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
+        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías,
+      Escribe tu palabra clave, Buscar, Resultados de búsqueda para, Las cookies deben
+        estar habilitadas para mostrar este mapa, Refinar resultados de búsqueda,
+      '', '']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -175,7 +179,7 @@
         un filtre.', 'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous
         ne pouvez pas zoomer davantage', Explorez, '', Entrez un mot-clé, Rechercher,
       Afficher les résultats pour, Les cookies doivent être activés pour afficher
-        cette carte, Affiner vos résultats de recherche, '']
+        cette carte, Affiner vos résultats de recherche, '', '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
@@ -188,7 +192,7 @@
         filtro/i.', 'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti,
         non è più possibile ingrandire', Esplora, '', Digita la tua parola chiave,
       Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
-        questa mappa, Affina i tuoi risultati, '']
+        questa mappa, Affina i tuoi risultati, '', '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
@@ -199,7 +203,7 @@
         pas filter(s) toe', '', 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas,
         je kunt niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek,
       '', Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn cookies nodig om
-        deze kaart te tonen, Verfijn je zoekresultaten, '']
+        deze kaart te tonen, Verfijn je zoekresultaten, '', '']
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -209,12 +213,12 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2025-12-05T08:40:55.177Z
+    hippostdpubwf:lastModificationDate: 2025-12-18T16:41:33.758Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-12-05T08:40:58.572Z
+    hippostdpubwf:publicationDate: 2025-12-18T16:41:36.741Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -223,19 +227,20 @@
       map.show-results, map.filters-applied, map.buttons-label, map.load-more, map.loading-results,
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
-      map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message]
-    resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset angle, Zoom
-        in, Zoom out, Featured Places, Discover, Close search and filter panel, Map
-        menu, Go back one step, Reset filters, Accommodation, Activities, Attractions,
-      Events, Food & Drink, Shopping, Places, iCentres, Regions, Places, Javascript
-        is needed to show this map., Clear all, Show results, Filters Applied, Select
-        map types, Load more, Loading results, Loading, Please apply filter(s) to
-        refine results, 'No results found, please apply filter(s)', '', 'No results
-        found, please apply filter(s).', 'We''re sorry, you can''t zoom out any more',
-      'We''re sorry, you can''t zoom in any more', Explore, Distilleries, Type in
-        your keyword, Search, Search Results for, Cookies need to be enabled to show
-        this map, Refine your results, We couldn't find anything here. Try zooming
-        out to explore more locations.]
+      map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
+      map.search-map]
+    resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
+      Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
+      Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
+      Food & Drink, Shopping, Places, iCentres, Regions, Places, Javascript is needed
+        to show this map., Clear all, Show results, Filters Applied, Select map types,
+      Load more, Loading results, Loading, Please apply filter(s) to refine results,
+      'No results found, please apply filter(s)', '', 'No results found, please apply
+        filter(s).', 'We''re sorry, you can''t zoom out any more', 'We''re sorry,
+        you can''t zoom in any more', Explore, Distilleries, Type in your keyword,
+      Search, Search Results for, Cookies need to be enabled to show this map, Refine
+        your results, We couldn't find anything here. Try zooming out to explore more
+        locations., Search the map]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -249,19 +254,20 @@
       Sie können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
-      Verfeinern Sie Ihre Ergebnisse, '']
+      Verfeinern Sie Ihre Ergebnisse, '', '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
-        de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
-      Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares, iCentres,
-      Regiones, Lugares, Se requiere Javascript para visualizar este mapa., Borrar
-        todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa, Cargar
-        mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los resultados,
-      'No se encontraron resultados, por favor aplique filtro(s)', '', 'No se encontraron
-        resultados, por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte',
-      'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías, Escribe tu palabra
-        clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
-        para mostrar este mapa, Refinar resultados de búsqueda, '']
+      Restablecer el mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar
+        panel de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros,
+      Alojamiento, Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares,
+      iCentres, Regiones, Lugares, Se requiere Javascript para visualizar este mapa.,
+      Borrar todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa,
+      Cargar mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los
+        resultados, 'No se encontraron resultados, por favor aplique filtro(s)', '',
+      'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
+        no puedes alejarte', 'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías,
+      Escribe tu palabra clave, Buscar, Resultados de búsqueda para, Las cookies deben
+        estar habilitadas para mostrar este mapa, Refinar resultados de búsqueda,
+      '', '']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -274,7 +280,7 @@
         un filtre.', 'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous
         ne pouvez pas zoomer davantage', Explorez, '', Entrez un mot-clé, Rechercher,
       Afficher les résultats pour, Les cookies doivent être activés pour afficher
-        cette carte, Affiner vos résultats de recherche, '']
+        cette carte, Affiner vos résultats de recherche, '', '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
@@ -287,7 +293,7 @@
         filtro/i.', 'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti,
         non è più possibile ingrandire', Esplora, '', Digita la tua parola chiave,
       Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
-        questa mappa, Affina i tuoi risultati, '']
+        questa mappa, Affina i tuoi risultati, '', '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
@@ -298,4 +304,4 @@
         pas filter(s) toe', '', 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas,
         je kunt niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek,
       '', Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn cookies nodig om
-        deze kaart te tonen, Verfijn je zoekresultaten, '']
+        deze kaart te tonen, Verfijn je zoekresultaten, '', '']
