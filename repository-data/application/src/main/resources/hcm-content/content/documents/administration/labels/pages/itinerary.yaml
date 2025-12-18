@@ -95,7 +95,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: cc0f2ac3-6393-4c95-a3bb-fe1f9825baae
     hippo:name: Areas
-    hippo:versionHistory: f2a66bce-16ba-4914-9e7c-f4561a65f5c6
+    hippo:versionHistory: c81368ea-e363-425c-9d62-2be78070d2d5
     /areas[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -105,7 +105,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
-      hippostdpubwf:lastModificationDate: 2025-12-18T16:22:41.050Z
+      hippostdpubwf:lastModificationDate: 2025-12-18T17:34:04.425Z
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '']
@@ -113,30 +113,31 @@
       resourcebundle:keys: [all, west, east, south, north, aberdeen, argyll, ayrshire,
         dumfries, dundee, edinburgh, fife, glasgow, stirling, Perthshire, highlands,
         borders, orkney, hebrides, shetland]
-      resourcebundle:messages: [All, West, East, South, North, Aberdeenshire, Argyll
-          & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus, Edinburgh
-          & The Lothians, Fife, Greater Glasgow & The Clyde Valley, 'Loch Lomond,
-          The Trossachs, Stirling & Forth Valley', Perthshire, The Highlands and Moray
-          Speyside, Scottish Borders, Orkney, Outer Hebrides, Shetland]
-      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden, Aberdeenshire,
+      resourcebundle:messages: [All, West, East, South, North, Aberdeen & Aberdeenshire,
         Argyll & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus,
-        Edinburgh & die Lothians, Fife, Greater Glasgow & das Clyde Valley, 'Loch
-          Lomond, die Trossachs, Stirling & das Forth Valley', Perthshire, Die Highlands,
-        Die Scottish Borders, Die Orkney-Inseln, Die Äußeren Hebriden, Die Shetland-Inseln]
-      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte, Aberdeenshire,
+        Edinburgh & The Lothians, Fife, Greater Glasgow & The Clyde Valley, 'Loch
+          Lomond, The Trossachs, Stirling & Forth Valley', Perthshire, The Highlands
+          and Moray Speyside, Scottish Borders, Orkney, Outer Hebrides, Shetland]
+      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden, Aberdeen &
+          Aberdeenshire, Argyll & The Isles, Ayrshire & Arran, Dumfries & Galloway,
+        Dundee & Angus, Edinburgh & die Lothians, Fife, Greater Glasgow & das Clyde
+          Valley, 'Loch Lomond, die Trossachs, Stirling & das Forth Valley', Perthshire,
+        Die Highlands, Die Scottish Borders, Die Orkney-Inseln, Die Äußeren Hebriden,
+        Die Shetland-Inseln]
+      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte, Aberdeen y Aberdeenshire,
         Argyll y las Islas, Ayrshire y Arran, Dumfries y Galloway, Dundee y Angus,
         Edimburgo y los Lothians, Fife, Glasgow y el valle del Clyde, 'Loch Lomond,
           los Trossachs, Stirling y el valle de Forth', Perthshire, Las Highlands,
         Los Scottish Borders, Islas Orcadas, Las Hébridas Exteriores, Islas Shetland]
-      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord, L’Aberdeenshire,
+      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord, Aberdeen & l’Aberdeenshire,
         L’Argyll & ses îles, L’Ayrshire & l’île d’Arran, Le Dumfries & Galloway, Dundee
           & l’Angus, Édimbourg et les Lothians, Le Fife, Le Grand Glasgow & la vallée
           de la Clyde, 'Le Loch Lomond, les Trossachs, Stirling & la vallée de la
           Forth', Le Perthshire, Les Highlands, Les Scottish Borders, Les îles Orcades,
         Les îles Hébrides extérieures, Les îles Shetland]
-      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord, Aberdeenshire, Argyll
-          & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus, Edimburgo
-          e il Lothian, Fife, Glasgow & la Clyde Valley, 'Loch Lomond, Trossachs,
+      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord, Aberdeen & Aberdeenshire,
+        Argyll & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus,
+        Edimburgo e il Lothian, Fife, Glasgow & la Clyde Valley, 'Loch Lomond, Trossachs,
           Stirling & la Forth Valley', Perthshire, Le Highlands scozzesi, Gli Scottish
           Borders, Orcadi, Le Ebride Esterne, Shetland]
       resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden, Aberdeenshire,
@@ -153,7 +154,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
-      hippostdpubwf:lastModificationDate: 2025-12-18T16:25:31.316Z
+      hippostdpubwf:lastModificationDate: 2025-12-18T17:35:08.918Z
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '']
@@ -161,30 +162,31 @@
       resourcebundle:keys: [all, west, east, south, north, aberdeen, argyll, ayrshire,
         dumfries, dundee, edinburgh, fife, glasgow, stirling, Perthshire, highlands,
         borders, orkney, hebrides, shetland]
-      resourcebundle:messages: [All, West, East, South, North, Aberdeenshire, Argyll
-          & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus, Edinburgh
-          & The Lothians, Fife, Greater Glasgow & The Clyde Valley, 'Loch Lomond,
-          The Trossachs, Stirling & Forth Valley', Perthshire, The Highlands and Moray
-          Speyside, Scottish Borders, Orkney, Outer Hebrides, Shetland]
-      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden, Aberdeenshire,
+      resourcebundle:messages: [All, West, East, South, North, Aberdeen & Aberdeenshire,
         Argyll & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus,
-        Edinburgh & die Lothians, Fife, Greater Glasgow & das Clyde Valley, 'Loch
-          Lomond, die Trossachs, Stirling & das Forth Valley', Perthshire, Die Highlands,
-        Die Scottish Borders, Die Orkney-Inseln, Die Äußeren Hebriden, Die Shetland-Inseln]
-      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte, Aberdeenshire,
+        Edinburgh & The Lothians, Fife, Greater Glasgow & The Clyde Valley, 'Loch
+          Lomond, The Trossachs, Stirling & Forth Valley', Perthshire, The Highlands
+          and Moray Speyside, Scottish Borders, Orkney, Outer Hebrides, Shetland]
+      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden, Aberdeen &
+          Aberdeenshire, Argyll & The Isles, Ayrshire & Arran, Dumfries & Galloway,
+        Dundee & Angus, Edinburgh & die Lothians, Fife, Greater Glasgow & das Clyde
+          Valley, 'Loch Lomond, die Trossachs, Stirling & das Forth Valley', Perthshire,
+        Die Highlands, Die Scottish Borders, Die Orkney-Inseln, Die Äußeren Hebriden,
+        Die Shetland-Inseln]
+      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte, Aberdeen y Aberdeenshire,
         Argyll y las Islas, Ayrshire y Arran, Dumfries y Galloway, Dundee y Angus,
         Edimburgo y los Lothians, Fife, Glasgow y el valle del Clyde, 'Loch Lomond,
           los Trossachs, Stirling y el valle de Forth', Perthshire, Las Highlands,
         Los Scottish Borders, Islas Orcadas, Las Hébridas Exteriores, Islas Shetland]
-      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord, L’Aberdeenshire,
+      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord, Aberdeen & l’Aberdeenshire,
         L’Argyll & ses îles, L’Ayrshire & l’île d’Arran, Le Dumfries & Galloway, Dundee
           & l’Angus, Édimbourg et les Lothians, Le Fife, Le Grand Glasgow & la vallée
           de la Clyde, 'Le Loch Lomond, les Trossachs, Stirling & la vallée de la
           Forth', Le Perthshire, Les Highlands, Les Scottish Borders, Les îles Orcades,
         Les îles Hébrides extérieures, Les îles Shetland]
-      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord, Aberdeenshire, Argyll
-          & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus, Edimburgo
-          e il Lothian, Fife, Glasgow & la Clyde Valley, 'Loch Lomond, Trossachs,
+      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord, Aberdeen & Aberdeenshire,
+        Argyll & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus,
+        Edimburgo e il Lothian, Fife, Glasgow & la Clyde Valley, 'Loch Lomond, Trossachs,
           Stirling & la Forth Valley', Perthshire, Le Highlands scozzesi, Gli Scottish
           Borders, Orcadi, Le Ebride Esterne, Shetland]
       resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden, Aberdeenshire,
@@ -201,39 +203,40 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
-      hippostdpubwf:lastModificationDate: 2025-12-18T16:25:31.316Z
+      hippostdpubwf:lastModificationDate: 2025-12-18T17:35:08.918Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-12-18T16:25:33.396Z
+      hippostdpubwf:publicationDate: 2025-12-18T17:35:11.834Z
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '']
       resourcebundle:id: areas
       resourcebundle:keys: [all, west, east, south, north, aberdeen, argyll, ayrshire,
         dumfries, dundee, edinburgh, fife, glasgow, stirling, Perthshire, highlands,
         borders, orkney, hebrides, shetland]
-      resourcebundle:messages: [All, West, East, South, North, Aberdeenshire, Argyll
-          & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus, Edinburgh
-          & The Lothians, Fife, Greater Glasgow & The Clyde Valley, 'Loch Lomond,
-          The Trossachs, Stirling & Forth Valley', Perthshire, The Highlands and Moray
-          Speyside, Scottish Borders, Orkney, Outer Hebrides, Shetland]
-      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden, Aberdeenshire,
+      resourcebundle:messages: [All, West, East, South, North, Aberdeen & Aberdeenshire,
         Argyll & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus,
-        Edinburgh & die Lothians, Fife, Greater Glasgow & das Clyde Valley, 'Loch
-          Lomond, die Trossachs, Stirling & das Forth Valley', Perthshire, Die Highlands,
-        Die Scottish Borders, Die Orkney-Inseln, Die Äußeren Hebriden, Die Shetland-Inseln]
-      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte, Aberdeenshire,
+        Edinburgh & The Lothians, Fife, Greater Glasgow & The Clyde Valley, 'Loch
+          Lomond, The Trossachs, Stirling & Forth Valley', Perthshire, The Highlands
+          and Moray Speyside, Scottish Borders, Orkney, Outer Hebrides, Shetland]
+      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden, Aberdeen &
+          Aberdeenshire, Argyll & The Isles, Ayrshire & Arran, Dumfries & Galloway,
+        Dundee & Angus, Edinburgh & die Lothians, Fife, Greater Glasgow & das Clyde
+          Valley, 'Loch Lomond, die Trossachs, Stirling & das Forth Valley', Perthshire,
+        Die Highlands, Die Scottish Borders, Die Orkney-Inseln, Die Äußeren Hebriden,
+        Die Shetland-Inseln]
+      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte, Aberdeen y Aberdeenshire,
         Argyll y las Islas, Ayrshire y Arran, Dumfries y Galloway, Dundee y Angus,
         Edimburgo y los Lothians, Fife, Glasgow y el valle del Clyde, 'Loch Lomond,
           los Trossachs, Stirling y el valle de Forth', Perthshire, Las Highlands,
         Los Scottish Borders, Islas Orcadas, Las Hébridas Exteriores, Islas Shetland]
-      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord, L’Aberdeenshire,
+      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord, Aberdeen & l’Aberdeenshire,
         L’Argyll & ses îles, L’Ayrshire & l’île d’Arran, Le Dumfries & Galloway, Dundee
           & l’Angus, Édimbourg et les Lothians, Le Fife, Le Grand Glasgow & la vallée
           de la Clyde, 'Le Loch Lomond, les Trossachs, Stirling & la vallée de la
           Forth', Le Perthshire, Les Highlands, Les Scottish Borders, Les îles Orcades,
         Les îles Hébrides extérieures, Les îles Shetland]
-      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord, Aberdeenshire, Argyll
-          & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus, Edimburgo
-          e il Lothian, Fife, Glasgow & la Clyde Valley, 'Loch Lomond, Trossachs,
+      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord, Aberdeen & Aberdeenshire,
+        Argyll & The Isles, Ayrshire & Arran, Dumfries & Galloway, Dundee & Angus,
+        Edimburgo e il Lothian, Fife, Glasgow & la Clyde Valley, 'Loch Lomond, Trossachs,
           Stirling & la Forth Valley', Perthshire, Le Highlands scozzesi, Gli Scottish
           Borders, Orcadi, Le Ebride Esterne, Shetland]
       resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden, Aberdeenshire,
