@@ -115,7 +115,8 @@ public class EnhancedLinkService {
                 contentLogger.warn("The module {} is pointing to a module of type {} which cannot be rendered as a page", item.getPath(), item.getClass().getSimpleName());
             } else {
                 contentLogger.warn("One of the links in module {} seems to contain no link",
-                        (module != null ? module.getDocumentPath() : "unknown"));
+                        (module != null && module.getDocumentPath() != null ?
+                                module.getDocumentPath() : "unknown"));
             }
             return null;
         }

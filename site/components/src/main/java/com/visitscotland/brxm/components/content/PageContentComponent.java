@@ -60,6 +60,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
     public static final String LABELS = "labels";
+    public static final String PAGE_CONFIGURATION = "pageConfiguration";
 
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
@@ -67,6 +68,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String SEARCH_RESULTS = "searchResultsPage";
+    public static final String MAP_PAGE = "mainMapPage";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
 
@@ -139,7 +141,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, getGlobalLabels(request.getLocale()));
 
         addNavigationLabels(request);
-        
+
         addAllLabels(request, SOCIAL_SHARE_BUNDLE);
         addAllLabels(request, SEARCH_BUNDLE);
         addAllLabels(request, VIDEO_BUNDLE);

@@ -24092,7 +24092,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 29d5c34b-f975-4c7f-bd31-661261c710e3
           hippo:name: Main Map
-          hippo:versionHistory: 39ff3edc-b47f-4198-a228-2dba2ab5e00f
+          hippo:versionHistory: 4af0b7d4-c099-4067-9a85-4dce2e9d0251
           /main-map[1]:
             jcr:primaryType: visitscotland:MapModule
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
@@ -24102,11 +24102,12 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-            hippostdpubwf:lastModificationDate: 2023-11-16T17:13:54.972Z
+            hippostdpubwf:lastModificationDate: 2025-11-21T08:36:19.059Z
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [destinations]
             hippotranslation:id: ea7f9827-02a3-4ebd-b420-503a9f39a773
             hippotranslation:locale: en
+            visitscotland:isGoogleMap: false
             visitscotland:mapType: ''
             visitscotland:tabTitle: Explore places to go
             visitscotland:title: Map of Scotland
@@ -24135,11 +24136,12 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-            hippostdpubwf:lastModificationDate: 2023-11-16T17:13:47.592Z
+            hippostdpubwf:lastModificationDate: 2025-11-20T10:56:26.923Z
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [destinations]
             hippotranslation:id: ea7f9827-02a3-4ebd-b420-503a9f39a773
             hippotranslation:locale: en
+            visitscotland:isGoogleMap: false
             visitscotland:mapType: ''
             visitscotland:tabTitle: Explore places to go
             visitscotland:title: Map of Scotland
@@ -24168,12 +24170,13 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-            hippostdpubwf:lastModificationDate: 2023-11-16T17:13:54.972Z
+            hippostdpubwf:lastModificationDate: 2025-11-21T08:36:19.059Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-11-16T17:14:40.387Z
+            hippostdpubwf:publicationDate: 2025-11-21T08:36:30.891Z
             hippotaxonomy:keys: [destinations]
             hippotranslation:id: ea7f9827-02a3-4ebd-b420-503a9f39a773
             hippotranslation:locale: en
+            visitscotland:isGoogleMap: false
             visitscotland:mapType: ''
             visitscotland:tabTitle: Explore places to go
             visitscotland:title: Map of Scotland
@@ -24983,6 +24986,173 @@
               /visitscotland:mapPins[2]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 961348bd-660b-423f-bca8-e694f5e892ce
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: ef3bed17-8c9c-4a77-a9f8-db34bcb8710a
+        hippo:name: Content
+        hippo:versionHistory: c8fe1eea-9afc-4573-b110-bf72048aa8ef
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: fad2e23a-e8ea-472f-b168-d49d070e624c
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-11-20T10:37:01.343Z
+          hippostdpubwf:lastModificationDate: 2025-11-21T08:47:09.348Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 023ca232-2fb5-4eae-8e59-7b6dbc8320f0
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: Map of Scotland
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Main Map
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Main Map
+          visitscotland:teaser: Main Map
+          visitscotland:theme: Simple
+          visitscotland:title: Main Map
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This is a main map using the new component</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: f420cffc-24f6-4d57-9dd5-d4015ccc4653
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-11-20T10:37:01.343Z
+          hippostdpubwf:lastModificationDate: 2025-11-21T08:47:16.586Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 023ca232-2fb5-4eae-8e59-7b6dbc8320f0
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: Map of Scotland
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Main Map
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Main Map
+          visitscotland:teaser: Main Map
+          visitscotland:theme: Simple
+          visitscotland:title: Main Map
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This is a main map using the new component</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 297f4d28-857b-4cf8-9a73-9001a5ca36fc
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-11-20T10:37:01.343Z
+          hippostdpubwf:lastModificationDate: 2025-11-21T08:47:16.586Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-11-21T08:47:19.004Z
+          hippotranslation:id: 023ca232-2fb5-4eae-8e59-7b6dbc8320f0
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: Map of Scotland
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Default
+          visitscotland:seoDescription: Main Map
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Main Map
+          visitscotland:teaser: Main Map
+          visitscotland:theme: Simple
+          visitscotland:title: Main Map
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This is a main map using the new component</p>
+      /main-map:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 7d1fff40-114d-44e6-a48a-e7f7841483ee
+        hippo:name: Main Map
+        hippo:versionHistory: 9b575ac4-6770-4503-b9eb-cee8086ad822
+        /main-map[1]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: d20ac1e0-9805-4a70-951e-706585709b91
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-11-20T10:39:12.032Z
+          hippostdpubwf:lastModificationDate: 2025-11-20T11:03:15.741Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [main-map]
+          hippotranslation:id: 935a7e8f-2867-49a7-8279-2f0e085cb4e4
+          hippotranslation:locale: en
+          visitscotland:isGoogleMap: true
+          visitscotland:mapType: ''
+          visitscotland:tabTitle: Discover your Scotland
+          visitscotland:title: ''
+          visitscotland:translation: ''
+        /main-map[2]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 3efc202e-cab4-4a69-8a27-1a06b2163ed6
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-11-20T10:39:12.032Z
+          hippostdpubwf:lastModificationDate: 2025-11-20T11:04:04.374Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [main-map]
+          hippotranslation:id: 935a7e8f-2867-49a7-8279-2f0e085cb4e4
+          hippotranslation:locale: en
+          visitscotland:isGoogleMap: true
+          visitscotland:mapType: ''
+          visitscotland:tabTitle: Discover your Scotland
+          visitscotland:title: ''
+          visitscotland:translation: ''
+        /main-map[3]:
+          jcr:primaryType: visitscotland:MapModule
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: a4949730-5454-4677-9f8e-8f83d4dfefbf
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-11-20T10:39:12.032Z
+          hippostdpubwf:lastModificationDate: 2025-11-20T11:04:04.374Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-11-20T11:04:51.434Z
+          hippotaxonomy:keys: [main-map]
+          hippotranslation:id: 935a7e8f-2867-49a7-8279-2f0e085cb4e4
+          hippotranslation:locale: en
+          visitscotland:isGoogleMap: true
+          visitscotland:mapType: ''
+          visitscotland:tabTitle: Discover your Scotland
+          visitscotland:title: ''
+          visitscotland:translation: ''
   /automation:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
