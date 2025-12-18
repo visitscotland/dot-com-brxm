@@ -73,10 +73,7 @@ public class SiteProperties extends Properties {
     private static final String FEATURE_HERO_SECTION = "feature.hero-section.enable";
     private static final String PRODUCTS_SEARCH_ENABLED = "feature.products-search.enable";
     private static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
-
-
-
-
+    private static final String SEARCH_WIDGET = "feature.search-widget.enable";
 
     public Boolean getFeatureHeroSection() {
         return readBoolean(FEATURE_HERO_SECTION);
@@ -194,6 +191,14 @@ public class SiteProperties extends Properties {
 
     public String getCludoApi() {
         return readString(CLUDO_API);
+    }
+
+    /**
+     * Enable the Search Widget in the Homepage
+     * @return
+     */
+    public Boolean getFeatureSearchWidget() {
+        return readBoolean(SEARCH_WIDGET);
     }
 
     @Deprecated

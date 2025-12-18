@@ -55,13 +55,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String SEARCH_FILTERS = "search-categories";
     private static final String EVENTS_API = "eventsAPI";
 
-
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
 
     //Objects injected in the page payload
     public static final String DOCUMENT = "document";
     public static final String EDIT_MODE = "editMode";
+    public static final String SEARCH_LINK = "searchLink";
 
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
@@ -74,7 +74,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String VIDEO_HEADER = "videoHeader";
     public static final String PSR_WIDGET = "psrWidget";
 
-    public static final String SEARCH_WIDGET = "searchWidget";
+    public static final String INCLUDE_SEARCH_WIDGET = "searchWidget";
     public static final String SEARCH_RESULTS = "searchResultsPage";
     public static final String SEARCH_RESULTS_URL = "searchResultsUrl";
     public static final String MAP_PAGE = "mainMapPage";
@@ -144,8 +144,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request HstRequest
      */
     private void addLabels(HstRequest request) {
-
-
         labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, getGlobalLabels(request.getLocale()));
 
         addNavigationLabels(request);
@@ -155,8 +153,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addAllLabels(request, VIDEO_BUNDLE);
         addAllLabels(request, SEO_BUNDLE);
         addAllLabels(request, SKIP_TO_BUNDLE);
-
-        addWidget(request);
 
         if (isEditMode(request)) {
              addAllLabels(request, CMS_MESSAGES_BUNDLE);
@@ -353,7 +349,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         //TODO: We shouldn't use orElse in this case
         if (!request.getPathInfo().contains(properties.getSiteSkiSection())
-                && !request.getPathInfo().contains(properties.getGlobalSearchURL().orElse(""))
                 && !request.getPathInfo().contains(properties.getCampaignSection())) {
             request.setModel(PSR_WIDGET, psrFactory.getWidget(request));
             labels(request).put(PRODUCT_SEARCH_BUNDLE,
@@ -411,8 +406,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (properties.isTableOfContentsEnabled()){
             addAllLabels(request, TABLE_CONTENTS_BUNDLE);
         }
+
         if (properties.isGlobalSearchEnabled()){
             enableGlobalSearch(request);
+            addSearchWidget(request);
         }
     }
 
@@ -436,14 +433,18 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         return Boolean.TRUE.equals(request.getAttribute(EDIT_MODE));
     }
 
-    private void addWidget(HstRequest request) {
-        if (isHomepage(request) || request.getPathInfo().contains(properties.getSiteGlobalSearch())) {
-            labels(request).put(SEARCH_EVENTS_FILTERS, bundle.getAllLabels(SEARCH_EVENTS_FILTERS, request.getLocale()));
-            labels(request).put(SEARCH_FILTERS, bundle.getAllLabels(SEARCH_FILTERS, request.getLocale()));
-            request.setModel(EVENTS_API, properties.getProperty("events.endpoint", request.getLocale()));
+    private void addSearchWidget(HstRequest request) {
+        if (isHomepage(request) ||
+                getSearchResultsURL(request).filter(link -> link.equals(request.getRequestURI())).isPresent()) {
+
+            addAllLabels(request, SEARCH_FILTERS);
+            request.setModel(EVENTS_API, properties.getEventsEndpoint());
+
             if (isHomepage(request)) {
-                request.setModel(SEARCH_WIDGET, properties.getProperty("search-widget.enabled", request.getLocale()));
-                setSearchPageLink(request);
+                request.setModel(INCLUDE_SEARCH_WIDGET, properties.getFeatureSearchWidget());
+                properties.getGlobalSearchURL().ifPresent(url -> request.setModel(SEARCH_LINK, url));
+            } else {
+                addAllLabels(request, SEARCH_EVENTS_FILTERS);
             }
         }
     }
@@ -459,7 +460,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      *
      * @param request the current HstRequest
      */
-    private void setSearchPageLink(final HstRequest request) {
+    private Optional<String> getSearchResultsURL(final HstRequest request) {
         HstRequestContext requestContext = request.getRequestContext();
 
         // Create a link to the sitemap item with refId "search-page"
@@ -468,11 +469,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         if (link != null) {
             // Convert the link to a URL and make it available to the template
-            String searchUrl = link.toUrlForm(requestContext, false);
-            request.setModel("searchLink", searchUrl);
+            return Optional.of(link.toUrlForm(requestContext, false));
         } else {
             logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration.");
         }
+
+        return Optional.empty();
     }
 }
 
