@@ -5,6 +5,7 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -34,7 +35,9 @@ public class GeneralContentComponent extends PageContentComponent<General> {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        super.doBeforeRender(request, response);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
+
+        super.doBeforeRender(request, response, pageConfig);
         GeneralPageComponentInfo pageInfo = getComponentParametersInfo(request);
         int pageStatus = Integer.parseInt(pageInfo.getStatus());
         response.setStatus(pageStatus);
@@ -42,7 +45,7 @@ public class GeneralContentComponent extends PageContentComponent<General> {
             request.setModel(ERROR_CODE, pageStatus);
         }
         addNavigationCards(request);
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(getBundle(), request));
     }
 
     private void addNavigationCards(HstRequest request){

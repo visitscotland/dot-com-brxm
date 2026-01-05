@@ -6,6 +6,7 @@ import com.visitscotland.brxm.hippobeans.GeneralBSH;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -31,12 +32,14 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        super.doBeforeRender(request, response);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
+
+        super.doBeforeRender(request, response, pageConfig);
 
         addReadData(request);
         addPageStatusCode(request, response);
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(getBundle(), request));
     }
 
     @Override
