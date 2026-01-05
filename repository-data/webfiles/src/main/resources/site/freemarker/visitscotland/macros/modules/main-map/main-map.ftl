@@ -19,7 +19,7 @@
             no-cookies-message = "${label('map', 'map.cookies-message')}"
             cookie-btn-text = "${label('essentials.global', 'cookie.link-message')}"
             no-results-message = "${label('map', 'map.no-results-message')}"
-            reset-map-mo-results-message = "${label('map', 'map.reset')}"
+            reset-map-no-results-message = "${label('map', 'map.reset')}"
             :category-labels="${escapeJSON(module.filters,true)}"
             categories-location="https://static.visitscotland.com/maps-resources/main-map/map-categories.json"
             :labels = "{
