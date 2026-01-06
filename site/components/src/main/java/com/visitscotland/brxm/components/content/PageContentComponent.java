@@ -34,6 +34,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
 
+    //refId of sitemap items
+    public static final String ROOT = "root";
+    public static final String SEARCH_PAGE = "search-page";
+
     /* Should we use Content Logger instead of Freemarker?
      *
      * TODO: Verify usage of this logger and decide what to do with this
@@ -190,7 +194,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private boolean isHomepage (HstRequest request){
-        return "root".equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
+        return ROOT.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
     }
 
     /**
@@ -483,9 +487,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private Optional<String> getSearchResultsURL(final HstRequest request) {
         HstRequestContext requestContext = request.getRequestContext();
 
-        // Create a link to the sitemap item with refId "search-page"
         HstLink link = requestContext.getHstLinkCreator()
-                .createByRefId("search-page", requestContext.getResolvedMount().getMount());
+                .createByRefId(SEARCH_PAGE, requestContext.getResolvedMount().getMount());
 
         if (link != null) {
             // Convert the link to a URL and make it available to the template
