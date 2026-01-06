@@ -54,7 +54,6 @@ public class PageAssembler {
     private final EventsListingMapper eventsListingMapper;
     private final SpotlightMapper spotlightMapper;
 
-    private final ResourceBundleService bundle;
     private final Logger contentLogger;
 
     @Autowired
@@ -86,7 +85,6 @@ public class PageAssembler {
         this.formMapper = formMapper;
         this.ctaBannerMapper = ctaBannerMapper;
         this.eventsListingMapper = eventsListingMapper;
-        this.bundle = bundle;
         this.contentLogger = contentLogger;
         this.spotlightMapper = spotlightMapper;
     }
@@ -95,8 +93,7 @@ public class PageAssembler {
         return (Page) request.getAttribute("document");
     }
 
-    public void addModules(HstRequest request) {
-        PageCompositionHelper page = new PageCompositionHelper(bundle, request);
+    public void addModules(HstRequest request, PageCompositionHelper page) {
 
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {
             try {
