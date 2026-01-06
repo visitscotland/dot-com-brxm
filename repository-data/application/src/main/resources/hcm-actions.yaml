@@ -130,7 +130,6 @@ action-lists:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/visitscotland/test: reload
 - 2.15.0:
-    /content/documents/administration/options/content-categories: reload
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/labels/global/search: reload
     /content/documents/administration/labels/global/search-filters: reload
