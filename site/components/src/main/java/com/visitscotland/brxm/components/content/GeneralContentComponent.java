@@ -45,7 +45,7 @@ public class GeneralContentComponent extends PageContentComponent<General> {
             request.setModel(ERROR_CODE, pageStatus);
         }
         addNavigationCards(request);
-        builder.addModules(request, new PageCompositionHelper(getBundle(), request));
+        builder.addModules(request, pageConfig);
     }
 
     private void addNavigationCards(HstRequest request){

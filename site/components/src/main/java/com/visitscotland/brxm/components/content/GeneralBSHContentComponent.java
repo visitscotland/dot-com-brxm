@@ -39,7 +39,7 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
         addReadData(request);
         addPageStatusCode(request, response);
 
-        builder.addModules(request, new PageCompositionHelper(getBundle(), request));
+        builder.addModules(request, pageConfig);
     }
 
     @Override
