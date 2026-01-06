@@ -4,7 +4,6 @@ import com.visitscotland.brxm.mapper.*;
 import com.visitscotland.brxm.mapper.module.*;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.SiteProperties;
 import org.slf4j.Logger;
 
 /**
@@ -16,6 +15,6 @@ import org.slf4j.Logger;
 public final class PageTemplateBuilder extends PageAssembler {
 
     public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper, IKnowMapper iKnowMapper, ArticleMapper articleMapper, UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper, PreviewWarningMapper previewWarningMapper, MapModuleMapper mapModuleMapper, SkiCentreMapper skiCentreMapper, SkiCentreListMapper skiCentreListMapper, DevModuleMapper devModuleMapper, LongCopyMapper longCopyMapper, CannedSearchMapper cannedSearchMapper, CannedSearchDMSMapper cannedSearchDMSMapper, FormMapper formMapper, CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper, ResourceBundleService bundle, Logger contentLogger, SpotlightMapper spotlightMapper) {
-        super(documentUtils, megalinkMapper, iCentreMapper, iKnowMapper, articleMapper, userGeneratedContentMapper, travelInformationMapper, previewWarningMapper, mapModuleMapper, skiCentreMapper, skiCentreListMapper, devModuleMapper, longCopyMapper, cannedSearchMapper, cannedSearchDMSMapper, formMapper, ctaBannerMapper, eventsListingMapper, bundle, contentLogger, spotlightMapper);
+        super(documentUtils, megalinkMapper, iCentreMapper, articleMapper, userGeneratedContentMapper, travelInformationMapper, previewWarningMapper, mapModuleMapper, skiCentreMapper, skiCentreListMapper, devModuleMapper, longCopyMapper, cannedSearchMapper, cannedSearchDMSMapper, formMapper, ctaBannerMapper, eventsListingMapper, contentLogger, spotlightMapper);
     }
 }
