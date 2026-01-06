@@ -65,8 +65,7 @@ public class PageAssembler {
                          skiCentreListMapper, DevModuleMapper devModuleMapper, LongCopyMapper longCopyMapper,
                          CannedSearchMapper cannedSearchMapper, CannedSearchDMSMapper cannedSearchDMSMapper,
                          FormMapper formMapper, CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper,
-                         ResourceBundleService bundle, Logger contentLogger,
-                         SpotlightMapper spotlightMapper) {
+                         Logger contentLogger, SpotlightMapper spotlightMapper) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
         this.iCentreMapper = iCentreMapper;
