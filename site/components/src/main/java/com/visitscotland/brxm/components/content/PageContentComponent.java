@@ -105,12 +105,17 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         properties = VsComponentManager.get(SiteProperties.class);
         bundle = VsComponentManager.get(ResourceBundleService.class);
         metadata = VsComponentManager.get(MetadataFactory.class);
+    }
 
+    ResourceBundleService getBundle() {
+        return bundle;
     }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        throw new IllegalArgumentException();
+        throw new UnsupportedOperationException(
+                "doBeforeRender(HstRequest, HstResponse) is not supported. " +
+                "Use doBeforeRender(HstRequest, HstResponse, PageCompositionHelper) instead.");
     }
 
     public void doBeforeRender(HstRequest request, HstResponse response, PageCompositionHelper pageConfig) {
@@ -128,9 +133,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addSiteSpecificConfiguration(request, pageConfig);
     }
 
-    public ResourceBundleService getBundle() {
-        return bundle;
-    }
+
 
     /**
      * Adds Metadata about the application to the request
@@ -418,7 +421,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
                 pageConfig.addProperty("dms-based", "true");
                 setGeneralCludoConfiguration(pageConfig);
             } else {
-                applyGlobalSeachConfiguration(request, pageConfig);
+                applyGlobalSearchConfiguration(request, pageConfig);
             }
         }
     }
@@ -426,7 +429,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     /**
      * Set General Cludo Configuration for the Global Search
-     * @param pageConfig
+     * @param pageConfig the page composition helper to add configuration properties to
      */
     private void setGeneralCludoConfiguration(PageCompositionHelper pageConfig) {
         properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search-url", v));
@@ -438,10 +441,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     /**
      * Apply the site search configuration to the pages where the search component is available
-     * @param request
-     * @param pageConfig
+     * @param request the current HST request
+     * @param pageConfig the page composition helper to add configuration properties to
      */
-    private void applyGlobalSeachConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
+    private void applyGlobalSearchConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
         if (isHomepage(request) ||
                 getSearchResultsURL(request).filter(link -> link.equals(request.getRequestURI())).isPresent()) {
 
