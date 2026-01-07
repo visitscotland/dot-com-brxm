@@ -18,7 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletContext;
-import javax.swing.text.StringContent;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -27,20 +26,27 @@ public class VsBreadcrumbComponent extends CommonComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(VsBreadcrumbComponent.class.getName());
 
-    final String REQUESTED_URI = "requestedURI";
-    final String IS_HOME = "isHome";
-    final String BREADCRUMB = "breadcrumb";
-    final String DOCUMENT = "document";
-    final String ORDERED_TRANSLATIONS = "orderedTranslations";
-    final String CONTENT_CATEGORIES_OPTIONS = "content-categories-options";
-    final String CONTENT_TYPE_OPTIONS = "content-content-type";
-    final String SEARCH_CATEGORY = "searchCategory";
-    final String SEARCH_CONTENT_TYPE = "searchContentType";
-    final String OTHER_VALUE = "other";
+    private static final String REQUESTED_URI = "requestedURI";
+    private static final String IS_HOME = "isHome";
+    private static final String BREADCRUMB = "breadcrumb";
+    private static final String DOCUMENT = "document";
+    private static final String ORDERED_TRANSLATIONS = "orderedTranslations";
+    private static final String CONTENT_CATEGORIES_OPTIONS = "content-categories-options";
+    private static final String CONTENT_TYPE_OPTIONS = "content-content-type";
+    private static final String SEARCH_CATEGORY = "searchCategory";
+    private static final String SEARCH_CONTENT_TYPE = "searchContentType";
+    private static final String OTHER = "other";
 
     private VsBreadCrumbProvider breadcrumbProvider;
     private HippoUtilsService hippoUtilsService;
     private DocumentUtilsService documentUtils;
+
+    public void init(ServletContext servletContext, ComponentConfiguration componentConfig) throws HstComponentException {
+        super.init(servletContext, componentConfig);
+        this.breadcrumbProvider = new VsBreadCrumbProvider(this);
+        this.hippoUtilsService = VsComponentManager.get(HippoUtilsService.class);
+        this.documentUtils = VsComponentManager.get(DocumentUtilsService.class);
+    }
 
     public void doBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
@@ -52,7 +58,7 @@ public class VsBreadcrumbComponent extends CommonComponent {
         //Breadcrumb Items list
         request.setModel(BREADCRUMB, this.breadcrumbProvider.getBreadcrumb(request));
         //Search category for Cludo site search
-        request.setModel(SEARCH_CATEGORY, getValueFromValueListAndUrl(request, CONTENT_CATEGORIES_OPTIONS));
+        request.setModel(SEARCH_CATEGORY, getValueFromValueListAndUrl(request, CONTENT_CATEGORIES_OPTIONS).orElse(OTHER));
         //Main document for the page
         setDocument(request, response);
     }
@@ -64,41 +70,52 @@ public class VsBreadcrumbComponent extends CommonComponent {
             // Translations ordered by SEO order
             List<BaseDocument> availableTranslations = ((Page) document.get()).getAvailableTranslations(BaseDocument.class).getTranslations();
             request.setModel(ORDERED_TRANSLATIONS, documentUtils.sortTranslationsForSeo(availableTranslations));
-            String contentType = getValueFromValueListAndUrl(request, CONTENT_TYPE_OPTIONS);
-            if (contentType.equals(OTHER_VALUE)){
-                if (document.get() instanceof Destination) {
-                    contentType = "destination";
-                } else if (document.get() instanceof Itinerary){
-                    contentType = "itinerary";
-                } else {
-                    contentType = "article";
-                }
-            }
-            //Search contentType for Cludo site search
-            request.setModel(SEARCH_CONTENT_TYPE, contentType);
+
+            request.setModel(SEARCH_CONTENT_TYPE, getContentType(request, document.get()));
         } else {
             logger.debug("{} page not found - redirecting to 404 page", request.getRequestURI());
             this.pageNotFound(response);
         }
     }
 
-    public void init(ServletContext servletContext, ComponentConfiguration componentConfig) throws HstComponentException {
-        super.init(servletContext, componentConfig);
-        this.breadcrumbProvider = new VsBreadCrumbProvider(this);
-        this.hippoUtilsService = VsComponentManager.get(HippoUtilsService.class);
-        this.documentUtils = VsComponentManager.get(DocumentUtilsService.class);
+    /**
+     * Determines the content type for the Cludo search categorization based on the request URL and document type.
+     * <p>
+     * This method follows a hierarchical approach to determine the content type:
+     * <ol>
+     *   <li>First checks if a specific content type is configured in the value list that matches the URL path</li>
+     *   <li>If no URL-based match is found, determines type based on the document's class type</li>
+     *   <li>Falls back to "article" as the default content type</li>
+     * </ol>
+     *
+     * @param request the HST request containing the URL path information
+     * @param document the Hippo document bean to analyze for type determination
+     *
+     * @return the content type string used for search categorization.
+     */
+    private String getContentType(HstRequest request, HippoBean document) {
+        Optional<String> type = getValueFromValueListAndUrl(request, CONTENT_TYPE_OPTIONS);
+        if (type.isPresent()){
+            return type.get();
+        } else if (document instanceof Destination) {
+            return "destination";
+        } else if (document instanceof Itinerary){
+            return "itinerary";
+        } else {
+            return "article";
+        }
     }
 
     /**
      * Returns the category that best matches the given URL.
      */
-    private String getValueFromValueListAndUrl(HstRequest request, String valueListPath) {
+    private Optional<String> getValueFromValueListAndUrl(HstRequest request, String valueListPath) {
         for (Map.Entry<String, String> entry : hippoUtilsService.getValueMap(valueListPath).entrySet()) {
             if (request.getPathInfo().contains(entry.getKey())) {
-                return entry.getValue();
+                return Optional.of(entry.getValue());
             }
         }
-        return OTHER_VALUE;
+        return Optional.empty();
     }
 
 }
