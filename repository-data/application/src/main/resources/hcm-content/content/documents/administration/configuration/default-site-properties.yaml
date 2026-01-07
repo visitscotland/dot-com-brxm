@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-01-05T10:27:19.083Z
+    hippostdpubwf:lastModificationDate: 2026-01-07T12:05:16.981Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -31,8 +31,12 @@
         \ //830-QYE-256.mktoweb.com", Public Recaptcha Key for Forms, '', Marketo
         Script required for the form to work, '', '', '', '', This property is used
         to set up the Cludo Chatbox functionality, This property is used to set up
-        the Cludo Chatbox functionality, This property is used to set up the Cludo
-        Chatbox functionality, '', '', '', '', '', '', '', '', '', '', '', '']
+        the Cludo Chatbox functionality and for the Site Search Results, This property
+        is used to set up the Cludo Chatbox functionality, Show or hide the Product
+        Search widget for the entire site, '', '', '', '', '', '', '', '', Endpoint
+        for the Events service., This property switches between the DMS‑based search
+        and the Google‑based search., Show or hide the Product Search widget for the
+        homepage]
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -54,24 +58,24 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '', '14069', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
+      '', '12809', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
       vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, /test/examples/map-examples, 'true',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'false']
+      'https://api.visitscotland.com/dev/data/products/events/search', 'true', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12812', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12814', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12811', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12813', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12810', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-site-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -81,7 +85,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-01-05T10:21:41.686Z
+    hippostdpubwf:lastModificationDate: 2026-01-07T12:00:54.006Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -98,8 +102,12 @@
         \ //830-QYE-256.mktoweb.com", Public Recaptcha Key for Forms, '', Marketo
         Script required for the form to work, '', '', '', '', This property is used
         to set up the Cludo Chatbox functionality, This property is used to set up
-        the Cludo Chatbox functionality, This property is used to set up the Cludo
-        Chatbox functionality, '', '', '', '', '', '', '', '', '', '', '', '']
+        the Cludo Chatbox functionality and for the Site Search Results, This property
+        is used to set up the Cludo Chatbox functionality, Show or hide the Product
+        Search widget for the entire site, '', '', '', '', '', '', '', '', Endpoint
+        for the Events service., This property switches between the DMS‑based search
+        and the Google‑based search., Show or hide the Product Search widget for the
+        homepage]
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -121,24 +129,24 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '', '14069', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
+      '', '12809', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
       vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, /test/examples/map-examples, 'true',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'false']
+      'https://api.visitscotland.com/dev/data/products/events/search', 'true', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12812', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12814', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12811', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12813', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12810', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-site-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -148,9 +156,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-01-05T10:27:19.083Z
+    hippostdpubwf:lastModificationDate: 2026-01-07T12:05:16.981Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-01-05T10:27:22.788Z
+    hippostdpubwf:publicationDate: 2026-01-07T12:05:22.371Z
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -166,8 +174,12 @@
         \ //830-QYE-256.mktoweb.com", Public Recaptcha Key for Forms, '', Marketo
         Script required for the form to work, '', '', '', '', This property is used
         to set up the Cludo Chatbox functionality, This property is used to set up
-        the Cludo Chatbox functionality, This property is used to set up the Cludo
-        Chatbox functionality, '', '', '', '', '', '', '', '', '', '', '', '']
+        the Cludo Chatbox functionality and for the Site Search Results, This property
+        is used to set up the Cludo Chatbox functionality, Show or hide the Product
+        Search widget for the entire site, '', '', '', '', '', '', '', '', Endpoint
+        for the Events service., This property switches between the DMS‑based search
+        and the Google‑based search., Show or hide the Product Search widget for the
+        homepage]
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -189,21 +201,21 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '', '14069', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
+      '', '12809', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
       vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, /test/examples/map-examples, 'true',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'false']
+      'https://api.visitscotland.com/dev/data/products/events/search', 'true', 'false']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12812', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12814', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12811', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12813', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '12810', '', '', '', '', '', '', '', '', '', '', '', '', '']
