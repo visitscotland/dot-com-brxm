@@ -59,7 +59,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String SEARCH_EVENTS_CATEGORIES = "content.categories";
     private static final String SEARCH_EVENTS_FILTERS = "search-events-filters";
     private static final String SEARCH_FILTERS = "search-categories";
-    private static final String EVENTS_API = "eventsAPI";
 
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
@@ -436,10 +435,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param pageConfig the page composition helper to add configuration properties to
      */
     private void setGeneralCludoConfiguration(PageCompositionHelper pageConfig) {
-        properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search-url", v));
-        properties.getCludoCustomerId().ifPresent(v -> pageConfig.addProperty("customer-id", v));
-        properties.getCludoEngineId().ifPresent(v -> pageConfig.addProperty("engine-id", v));
-        properties.getCludoExperienceId().ifPresent(v -> pageConfig.addProperty("experience-id", v));
+        properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
+        properties.getCludoCustomerId().ifPresent(v -> pageConfig.addProperty("cludo.customer-id", v));
+        properties.getCludoEngineId().ifPresent(v -> pageConfig.addProperty("cludo.engine-id", v));
+        properties.getCludoExperienceId().ifPresent(v -> pageConfig.addProperty("cludo.experience-id", v));
         pageConfig.addProperty("language", pageConfig.getLocale().getLanguage());
     }
 
@@ -449,22 +448,22 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param pageConfig the page composition helper to add configuration properties to
      */
     private void applyGlobalSearchConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
-        if (isHomepage(request) ||
-                getSearchResultsURL(request).filter(link -> link.equals(request.getRequestURI())).isPresent()) {
+        boolean searchResultsPage = getSearchResultsURL(request).filter(link -> link.equals(request.getRequestURI())).isPresent();
 
+        if (isHomepage(request) || searchResultsPage) {
             setGeneralCludoConfiguration(pageConfig);
-
-            pageConfig.addAllSiteLabels(SEARCH_FILTERS);
-            pageConfig.addProperty(EVENTS_API, properties.getGlobalSearchEventsEndpoint());
             properties.getGlobalSearchEventsEndpoint().ifPresentOrElse(
                     v -> pageConfig.addProperty("events-endpoint", v),
                     () -> logger.error("The URL for the events Endpoint hasn't been defined"));
 
-            if (isHomepage(request)) {
+            pageConfig.addAllSiteLabels(SEARCH_FILTERS);
+
+            if (searchResultsPage) {
+                pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
+                pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
+            } else {
                 pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, properties.getFeatureSearchWidget());
                 properties.getGlobalSearchURL().ifPresent(url -> pageConfig.addProperty(SEARCH_LINK, url));
-            } else {
-                pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
             }
         }
     }
