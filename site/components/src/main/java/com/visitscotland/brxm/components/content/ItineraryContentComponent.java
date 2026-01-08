@@ -6,6 +6,7 @@ import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.factory.ItineraryFactory;
 import com.visitscotland.brxm.hippobeans.Itinerary;
 import com.visitscotland.brxm.model.ItineraryPage;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.utils.Contract;
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.template.TemplateHashModel;
@@ -32,7 +33,9 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        super.doBeforeRender(request, response);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
+
+        super.doBeforeRender(request, response, pageConfig);
 
         addProductSearchBuilder(request);
         includeLabels(request);
