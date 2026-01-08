@@ -47,8 +47,7 @@ public class SiteProperties extends Properties {
     private static final String PATH_BANNER = "site.path.banner";
     private static final String GOOGLE_MAPS_API_KEY = "google-maps.api-key";
     static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
-    static final String CLUDO_API = "cludo.experience-id";
-    static final String EVENTS_ENDPOINT = "events.endpoint";
+
 
     //GTM Properties
     public static final String GTM_CONTAINER_ID = "gtm.container-id";
@@ -70,6 +69,8 @@ public class SiteProperties extends Properties {
 
     //Feature switch
     private static final String GLOBAL_SEARCH_ENABLED = "feature.global-search.enable";
+    private static final String GLOBAL_SEARCH_DMS_BASED = "feature.global-search.dms-based";
+    private static final String GLOBAL_SEARCH_EVENTS_ENDPOINT = "feature.global-search.events-endpoint";
     private static final String FEATURE_HERO_SECTION = "feature.hero-section.enable";
     private static final String PRODUCTS_SEARCH_ENABLED = "feature.products-search.enable";
     private static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
@@ -171,11 +172,18 @@ public class SiteProperties extends Properties {
         return readBoolean(GLOBAL_SEARCH_ENABLED);
     }
 
+    public boolean isGlobalSearchDmsBased() {
+        return readBoolean(GLOBAL_SEARCH_DMS_BASED);
+    }
+
+    public Optional<String> getGlobalSearchEventsEndpoint() {
+        return readOptionalString(GLOBAL_SEARCH_EVENTS_ENDPOINT);
+    }
+
     public List<String> getInternalSites() {
         String sites = readString(INTERNAL_SITES);
         if (!Contract.isEmpty(sites)){
-            // TODO Java 11: Replace & Test: Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(Predicate.not(String::isEmpty)).collect(Collectors.toUnmodifiableList());
-            return Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(((Predicate<String>) String::isEmpty).negate()).collect(Collectors.toList());
+            return Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(Predicate.not(String::isEmpty)).collect(Collectors.toUnmodifiableList());
         }
         return Collections.emptyList();
     }
@@ -183,14 +191,6 @@ public class SiteProperties extends Properties {
     @Deprecated
     public String getFormsMarketoUrl() {
         return readString(FORMS_MARKETO_URL);
-    }
-
-    public String getEventsEndpoint() {
-        return readString(EVENTS_ENDPOINT);
-    }
-
-    public String getCludoApi() {
-        return readString(CLUDO_API);
     }
 
     /**

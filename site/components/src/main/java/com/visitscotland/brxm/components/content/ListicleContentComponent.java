@@ -3,6 +3,7 @@ package com.visitscotland.brxm.components.content;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.ListicleFactory;
 import com.visitscotland.brxm.hippobeans.Listicle;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
@@ -29,7 +30,9 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        super.doBeforeRender(request, response);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
+
+        super.doBeforeRender(request, response, pageConfig);
 
         addLabels(request);
 

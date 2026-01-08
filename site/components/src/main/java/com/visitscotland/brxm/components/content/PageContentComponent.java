@@ -13,6 +13,7 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
@@ -33,6 +34,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
 
+    //refId of sitemap items
+    public static final String ROOT = "root";
+    public static final String SEARCH_PAGE = "search-page";
+
     /* Should we use Content Logger instead of Freemarker?
      *
      * TODO: Verify usage of this logger and decide what to do with this
@@ -50,10 +55,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String SEO_BUNDLE = "seo";
     private static final String TABLE_CONTENTS_BUNDLE = "table-contents";
     private static final String MEGALINKS_BUNDLE = "megalinks";
+    //TODO: Review: This constant is not in use
     private static final String SEARCH_EVENTS_CATEGORIES = "content.categories";
     private static final String SEARCH_EVENTS_FILTERS = "search-events-filters";
     private static final String SEARCH_FILTERS = "search-categories";
-    private static final String EVENTS_API = "eventsAPI";
 
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
@@ -61,7 +66,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     //Objects injected in the page payload
     public static final String DOCUMENT = "document";
     public static final String EDIT_MODE = "editMode";
-    public static final String SEARCH_LINK = "searchLink";
 
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
@@ -75,9 +79,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String INCLUDE_SEARCH_WIDGET = "searchWidget";
-    public static final String SEARCH_RESULTS = "searchResultsPage";
-    public static final String SEARCH_RESULTS_URL = "searchResultsUrl";
-    public static final String MAP_PAGE = "mainMapPage";
+    public static final String SEARCH_LINK = "searchLink";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
 
@@ -106,11 +108,20 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         properties = VsComponentManager.get(SiteProperties.class);
         bundle = VsComponentManager.get(ResourceBundleService.class);
         metadata = VsComponentManager.get(MetadataFactory.class);
+    }
 
+    ResourceBundleService getBundle() {
+        return bundle;
     }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
+        throw new UnsupportedOperationException(
+                "doBeforeRender(HstRequest, HstResponse) is not supported. " +
+                "Use doBeforeRender(HstRequest, HstResponse, PageCompositionHelper) instead.");
+    }
+
+    public void doBeforeRender(HstRequest request, HstResponse response, PageCompositionHelper pageConfig) {
         super.doBeforeRender(request, response);
 
         addMetadata(request);
@@ -122,8 +133,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addBlog(request);
         addGtmConfiguration(request);
         addLabels(request);
-        addSiteSpecificConfiguration(request);
+        addSiteSpecificConfiguration(request, pageConfig);
     }
+
+
 
     /**
      * Adds Metadata about the application to the request
@@ -180,7 +193,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private boolean isHomepage (HstRequest request){
-        return "root".equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
+        return ROOT.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
     }
 
     /**
@@ -335,9 +348,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
                 signpost = newsletterFactory.createNewsletterSignpostModule(request.getLocale());
             }
 
-            if (signpost.isPresent()) {
-                request.setModel(NEWSLETTER_SIGNPOST, signpost.get());
-            }
+            signpost.ifPresent(signpostModule -> request.setModel(NEWSLETTER_SIGNPOST, signpostModule));
         }
     }
 
@@ -347,7 +358,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private void addProductSearchWidget(HstRequest request) {
         final String PRODUCT_SEARCH_BUNDLE = "product-search-widget";
 
-        //TODO: We shouldn't use orElse in this case
         if (!request.getPathInfo().contains(properties.getSiteSkiSection())
                 && !request.getPathInfo().contains(properties.getCampaignSection())) {
             request.setModel(PSR_WIDGET, psrFactory.getWidget(request));
@@ -371,6 +381,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request HstRequest
      * @return the main document of
      */
+    @SuppressWarnings("unchecked")
     protected T getDocument(HstRequest request) {
         if (request.getAttribute(DOCUMENT) instanceof Page) {
             return (T) request.getAttribute(DOCUMENT);
@@ -398,7 +409,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * Add Configuration specific to the VisitScotland.com or businessevents site
      * @param request HSt request
      */
-    private void addSiteSpecificConfiguration(HstRequest request) {
+    private void addSiteSpecificConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
         if (properties.isProductSearchEnabled()){
             addProductSearchWidget(request);
         }
@@ -408,53 +419,65 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
 
         if (properties.isGlobalSearchEnabled()){
-            enableGlobalSearch(request);
-            addSearchWidget(request);
+            if (properties.isGlobalSearchDmsBased()) {
+                //TODO: This method will be removed once the DMS is retired
+                pageConfig.addProperty("dms-based", "true");
+                setGeneralCludoConfiguration(pageConfig);
+            } else {
+                applyGlobalSearchConfiguration(request, pageConfig);
+            }
         }
     }
 
+
     /**
-     * Enable Global Search in the site
-     * @param request
+     * Set General Cludo Configuration for the Global Search
+     * @param pageConfig the page composition helper to add configuration properties to
      */
-    private void enableGlobalSearch(HstRequest request){
-        Map<String, String> searchProperties = new HashMap<>();
-        properties.getGlobalSearchURL().ifPresent(v -> searchProperties.put("global-search-url", v));
-        properties.getCludoCustomerId().ifPresent(v -> searchProperties.put("customer-id", v));
-        properties.getCludoEngineId().ifPresent(v -> searchProperties.put("engine-id", v));
-        properties.getCludoExperienceId().ifPresent(v -> searchProperties.put("experience-id", v));
+    private void setGeneralCludoConfiguration(PageCompositionHelper pageConfig) {
+        properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
+        properties.getCludoCustomerId().ifPresent(v -> pageConfig.addProperty("cludo.customer-id", v));
+        properties.getCludoEngineId().ifPresent(v -> pageConfig.addProperty("cludo.engine-id", v));
+        properties.getCludoExperienceId().ifPresent(v -> pageConfig.addProperty("cludo.experience-id", v));
+        pageConfig.addProperty("language", pageConfig.getLocale().getLanguage());
+    }
 
-        searchProperties.put("language", request.getLocale().getLanguage());
+    /**
+     * Apply the site search configuration to the pages where the search component is available
+     * @param request the current HST request
+     * @param pageConfig the page composition helper to add configuration properties to
+     */
+    private void applyGlobalSearchConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
+        boolean searchResultsPage = getSearchResultsURL(request).filter(link -> link.equals(request.getRequestURI())).isPresent();
 
-        request.setModel("cludo", searchProperties);
+        if (isHomepage(request) || searchResultsPage) {
+            setGeneralCludoConfiguration(pageConfig);
+            properties.getGlobalSearchEventsEndpoint().ifPresentOrElse(
+                    v -> pageConfig.addProperty("events-endpoint", v),
+                    () -> logger.error("The URL for the events Endpoint hasn't been defined"));
+
+            pageConfig.addAllSiteLabels(SEARCH_FILTERS);
+
+            if (searchResultsPage) {
+                pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
+                pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
+            } else {
+                pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, properties.getFeatureSearchWidget());
+                properties.getGlobalSearchURL().ifPresent(url -> pageConfig.addProperty(SEARCH_LINK, url));
+            }
+        }
     }
 
     boolean isEditMode(HstRequest request) {
         return Boolean.TRUE.equals(request.getAttribute(EDIT_MODE));
     }
 
-    private void addSearchWidget(HstRequest request) {
-        if (isHomepage(request) ||
-                getSearchResultsURL(request).filter(link -> link.equals(request.getRequestURI())).isPresent()) {
-
-            addAllLabels(request, SEARCH_FILTERS);
-            request.setModel(EVENTS_API, properties.getEventsEndpoint());
-
-            if (isHomepage(request)) {
-                request.setModel(INCLUDE_SEARCH_WIDGET, properties.getFeatureSearchWidget());
-                properties.getGlobalSearchURL().ifPresent(url -> request.setModel(SEARCH_LINK, url));
-            } else {
-                addAllLabels(request, SEARCH_EVENTS_FILTERS);
-            }
-        }
-    }
-
     /**
      * Creates and exposes a locale-aware search page link in the HST request context.
-     *
+     * <br>
      * This method generates an HstLink for the sitemap item with refId "search-page"
-     * and stores it as a request attribute named "searchLink"
-     *
+     * and stores it as a request attribute named "searchLink".
+     * <br>
      * Use this to ensure the search URL is correctly resolved for the current
      * locale and mount, avoiding hardcoded or relative paths in templates
      *
@@ -463,9 +486,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private Optional<String> getSearchResultsURL(final HstRequest request) {
         HstRequestContext requestContext = request.getRequestContext();
 
-        // Create a link to the sitemap item with refId "search-page"
         HstLink link = requestContext.getHstLinkCreator()
-                .createByRefId("search-page", requestContext.getResolvedMount().getMount());
+                .createByRefId(SEARCH_PAGE, requestContext.getResolvedMount().getMount());
 
         if (link != null) {
             // Convert the link to a URL and make it available to the template
