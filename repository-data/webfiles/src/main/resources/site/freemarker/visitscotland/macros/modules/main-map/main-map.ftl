@@ -30,7 +30,7 @@
                 searchButton: '${label('map', 'map.search')}',
                 clearMap: '${label('map', 'map.clear')}',
                 subFilterHeader: '${label('map', 'map.sub-filter')}',
-                searchResults: '${label('map', 'map.places')}',
+                searchResults: '${label('map', 'map.search-results')}',
                 openSidebarButton: '${label('map', 'map.open-panel')}',
             }"
             language-code="${language}"
