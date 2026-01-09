@@ -1,38 +1,32 @@
 package com.visitscotland.brxm.model;
 
 import com.visitscotland.brxm.hippobeans.Day;
-import com.visitscotland.brxm.hippobeans.Itinerary;
+import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.megalinks.Entry;
+import com.visitscotland.brxm.pagebuilder.model.PageIntro;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ItineraryPage {
+public class ItineraryPage extends PageIntro {
 
-    private Itinerary document;
-
-    private String firstStopLocation;
-    private String lastStopLocation;
-    private List<Day> days;
     private BigDecimal distance;
-    private Map<String, ItineraryStopModule> stops;
-    private List<String> errorMessages = new ArrayList<>();
     private List<Entry> transports;
     private List<Entry> areas;
     private Entry theme;
+
+    //Properties to be removed from the delivery API
+    private String firstStopLocation;
+    private String lastStopLocation;
+    private List<Day> days;
+    private Map<String, ItineraryStopModule> stops;
     private String lastStopNearbyEat;
     private String lastStopNearbyStay;
 
-
-    public Itinerary getDocument() {
-        return document;
-    }
-
-    public void setDocument(Itinerary document) {
-        this.document = document;
+    public ItineraryPage(Page page) {
+        super(page);
     }
 
     public String getFirstStopLocation() {
@@ -80,14 +74,6 @@ public class ItineraryPage {
             stops = new HashMap<>();
         }
         stops.put(module.getIdentifier(), module);
-    }
-
-    public void addErrorMessage(String errorMessage) {
-        this.errorMessages.add(errorMessage);
-    }
-
-    public List<String> getErrorMessages() {
-        return errorMessages;
     }
 
     public List<Entry> getTransports() {
