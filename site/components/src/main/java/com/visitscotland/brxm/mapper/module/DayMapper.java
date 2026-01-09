@@ -1,0 +1,23 @@
+package com.visitscotland.brxm.mapper.module;
+
+import com.visitscotland.brxm.hippobeans.Day;
+import com.visitscotland.brxm.model.ItineraryDayModule;
+import com.visitscotland.brxm.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+
+import java.util.MissingResourceException;
+
+public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
+
+
+    @Override
+    public void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+
+    }
+
+    @Override
+    public ItineraryDayModule map(Day document, PageCompositionHelper compositionHelper) throws PageCompositionException {
+        return null;
+    }
+
+}
