@@ -421,7 +421,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (properties.isGlobalSearchEnabled()){
             if (properties.isGlobalSearchDmsBased()) {
                 //TODO: This method will be removed once the DMS is retired
-                pageConfig.addProperty("dms-based", "true");
+                pageConfig.addProperty("dms-based", true);
+                properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
                 setGeneralCludoConfiguration(pageConfig);
             } else {
                 applyGlobalSearchConfiguration(request, pageConfig);
@@ -435,7 +436,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param pageConfig the page composition helper to add configuration properties to
      */
     private void setGeneralCludoConfiguration(PageCompositionHelper pageConfig) {
-        properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
         properties.getCludoCustomerId().ifPresent(v -> pageConfig.addProperty("cludo.customer-id", v));
         properties.getCludoEngineId().ifPresent(v -> pageConfig.addProperty("cludo.engine-id", v));
         properties.getCludoExperienceId().ifPresent(v -> pageConfig.addProperty("cludo.experience-id", v));
@@ -448,9 +448,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param pageConfig the page composition helper to add configuration properties to
      */
     private void applyGlobalSearchConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
-        boolean searchResultsPage = getSearchResultsURL(request).filter(link -> link.equals(request.getRequestURI())).isPresent();
+        final boolean isSearchResultsPage = isSearchResultsPage(request);
+        final boolean isHomepage = isHomepage(request);
 
-        if (isHomepage(request) || searchResultsPage) {
+        properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
+        pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, isHomepage && properties.getFeatureSearchWidget());
+
+        if (isHomepage || isSearchResultsPage) {
             setGeneralCludoConfiguration(pageConfig);
             properties.getGlobalSearchEventsEndpoint().ifPresentOrElse(
                     v -> pageConfig.addProperty("events-endpoint", v),
@@ -458,18 +462,19 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
             pageConfig.addAllSiteLabels(SEARCH_FILTERS);
 
-            if (searchResultsPage) {
+            if (isSearchResultsPage) {
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
-            } else {
-                pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, properties.getFeatureSearchWidget());
-                properties.getGlobalSearchURL().ifPresent(url -> pageConfig.addProperty(SEARCH_LINK, url));
             }
         }
     }
 
     boolean isEditMode(HstRequest request) {
         return Boolean.TRUE.equals(request.getAttribute(EDIT_MODE));
+    }
+
+    private boolean isSearchResultsPage(HstRequest request) {
+        return getSearchResultsURL(request).filter(link -> request.getRequestURI().startsWith(link)).isPresent();
     }
 
     /**
