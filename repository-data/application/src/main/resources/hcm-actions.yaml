@@ -129,3 +129,8 @@ action-lists:
     /content/documents/administration/labels/global/common-label: reload
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/visitscotland/test: reload
+- 2.15.0:
+    /content/documents/administration/configuration/default-site-properties: reload
+    /content/documents/administration/labels/global/search: reload
+    /content/documents/administration/labels/global/search-filters: reload
+    /content/documents/administration/labels/global/search-events-filters: reload

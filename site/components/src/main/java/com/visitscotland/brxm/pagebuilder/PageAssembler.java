@@ -9,7 +9,6 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
 import com.visitscotland.brxm.services.DocumentUtilsService;
-import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
@@ -37,7 +36,6 @@ public class PageAssembler {
     //Factories
     private final MegalinkMapper megalinkMapper;
     private final ICentreMapper iCentreMapper;
-    private final IKnowMapper iKnowMapper;
     private final ArticleMapper articleMapper;
     private final UserGeneratedContentMapper userGeneratedContentMapper;
     private final TravelInformationMapper travelInformationMapper;
@@ -54,24 +52,21 @@ public class PageAssembler {
     private final EventsListingMapper eventsListingMapper;
     private final SpotlightMapper spotlightMapper;
 
-    private final ResourceBundleService bundle;
     private final Logger contentLogger;
 
     @Autowired
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
-                         IKnowMapper iKnowMapper, ArticleMapper articleMapper,
+                         ArticleMapper articleMapper,
                          UserGeneratedContentMapper userGeneratedContentMapper,
                          TravelInformationMapper travelInformationMapper, PreviewWarningMapper previewWarningMapper,
                          MapModuleMapper mapModuleMapper, SkiCentreMapper skiCentreMapper, SkiCentreListMapper
                          skiCentreListMapper, DevModuleMapper devModuleMapper, LongCopyMapper longCopyMapper,
                          CannedSearchMapper cannedSearchMapper, CannedSearchDMSMapper cannedSearchDMSMapper,
                          FormMapper formMapper, CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper,
-                         ResourceBundleService bundle, Logger contentLogger,
-                         SpotlightMapper spotlightMapper) {
+                         Logger contentLogger, SpotlightMapper spotlightMapper) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
         this.iCentreMapper = iCentreMapper;
-        this.iKnowMapper = iKnowMapper;
         this.articleMapper = articleMapper;
         this.userGeneratedContentMapper = userGeneratedContentMapper;
         this.travelInformationMapper = travelInformationMapper;
@@ -86,7 +81,6 @@ public class PageAssembler {
         this.formMapper = formMapper;
         this.ctaBannerMapper = ctaBannerMapper;
         this.eventsListingMapper = eventsListingMapper;
-        this.bundle = bundle;
         this.contentLogger = contentLogger;
         this.spotlightMapper = spotlightMapper;
     }
@@ -95,8 +89,7 @@ public class PageAssembler {
         return (Page) request.getAttribute("document");
     }
 
-    public void addModules(HstRequest request) {
-        PageCompositionHelper page = new PageCompositionHelper(bundle, request);
+    public void addModules(HstRequest request, PageCompositionHelper page) {
 
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {
             try {

@@ -36,7 +36,6 @@ public class SiteProperties extends Properties {
     static final String CONVERT_TO_RELATIVE = "links.convert-to-relative";
     static final String DOWNLOAD_EXTENSIONS = "links.download.extensions";
 
-
     //Page References
     private static final String PATH_SKI_SECTION = "site.path.ski-landing";
     private static final String PATH_CAMPAIGN_SECTION = "site.path.campaigns";
@@ -46,31 +45,36 @@ public class SiteProperties extends Properties {
 
     //Modules References
     private static final String PATH_BANNER = "site.path.banner";
-    private static final String PRODUCTS_SEARCH_ENABLED = "feature.products-search.enable";
-    private static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
-    private static final String GLOBAL_SEARCH_ENABLED = "feature.global-search.enable";
     private static final String GOOGLE_MAPS_API_KEY = "google-maps.api-key";
     static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
 
 
     //GTM Properties
-
     public static final String GTM_CONTAINER_ID = "gtm.container-id";
     public static final String GTM_IS_PRODUCTION = "gtm.is-production";
     public static final String GTM_PREVIEW_QUERY_STRING = "gtm.preview-query-string";
 
     //Form Properties
+    static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
+    static final String FORM_BREG_LEGAL_BASIS_TEXT = "form.breg.legal-basis.text";
+    static final String FORMS_MARKETO_IS_PRODUCTION = "form.is-production";
     static final String FORMS_RECAPTCHA = "form.recaptcha-key";
     static final String FORMS_MARKETO_URL = "form.maketo.instance-url";
     static final String FORMS_MARKETO_MUNCHKIN = "form.marketo.munchkin";
     static final String FORMS_MARKETO_SCRIPT = "form.marketo.script";
-    static final String FORMS_MARKETO_IS_PRODUCTION = "form.is-production";
-    static final String FORM_BREG_LEGAL_BASIS_TEXT = "form.breg.legal-basis.text";
-    static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
+
+
+
     static final String SKI_TIMEOUT = "ski.timeout";
 
     //Feature switch
-    static final String FEATURE_HERO_SECTION = "feature.hero-section.enable";
+    private static final String GLOBAL_SEARCH_ENABLED = "feature.global-search.enable";
+    private static final String GLOBAL_SEARCH_DMS_BASED = "feature.global-search.dms-based";
+    private static final String GLOBAL_SEARCH_EVENTS_ENDPOINT = "feature.global-search.events-endpoint";
+    private static final String FEATURE_HERO_SECTION = "feature.hero-section.enable";
+    private static final String PRODUCTS_SEARCH_ENABLED = "feature.products-search.enable";
+    private static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
+    private static final String SEARCH_WIDGET = "feature.search-widget.enable";
 
     public Boolean getFeatureHeroSection() {
         return readBoolean(FEATURE_HERO_SECTION);
@@ -168,11 +172,18 @@ public class SiteProperties extends Properties {
         return readBoolean(GLOBAL_SEARCH_ENABLED);
     }
 
+    public boolean isGlobalSearchDmsBased() {
+        return readBoolean(GLOBAL_SEARCH_DMS_BASED);
+    }
+
+    public Optional<String> getGlobalSearchEventsEndpoint() {
+        return readOptionalString(GLOBAL_SEARCH_EVENTS_ENDPOINT);
+    }
+
     public List<String> getInternalSites() {
         String sites = readString(INTERNAL_SITES);
         if (!Contract.isEmpty(sites)){
-            // TODO Java 11: Replace & Test: Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(Predicate.not(String::isEmpty)).collect(Collectors.toUnmodifiableList());
-            return Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(((Predicate<String>) String::isEmpty).negate()).collect(Collectors.toList());
+            return Arrays.stream(sites.trim().split("\\s*,\\s*")).filter(Predicate.not(String::isEmpty)).collect(Collectors.toUnmodifiableList());
         }
         return Collections.emptyList();
     }
@@ -180,6 +191,14 @@ public class SiteProperties extends Properties {
     @Deprecated
     public String getFormsMarketoUrl() {
         return readString(FORMS_MARKETO_URL);
+    }
+
+    /**
+     * Enable the Search Widget in the Homepage
+     * @return
+     */
+    public Boolean getFeatureSearchWidget() {
+        return readBoolean(SEARCH_WIDGET);
     }
 
     @Deprecated

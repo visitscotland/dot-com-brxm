@@ -86,7 +86,7 @@ class PageAssemblerTest {
     void pageWithoutElements() {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
 
         List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
@@ -105,7 +105,7 @@ class PageAssemblerTest {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
         doReturn(module).when(megalinkMapper).getMegalinkModule(megalinks, Locale.UK);
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
         List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
         assertEquals(1, items.size());
@@ -127,7 +127,7 @@ class PageAssemblerTest {
         when(previewModeFactory.createErrorModule(any())).thenReturn(new Module<>());
 
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
         List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
         assertEquals(1, items.size());
@@ -156,8 +156,7 @@ class PageAssemblerTest {
         doReturn(module3).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
         doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
-
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
         List<LinksModule<?>> items = request.getModel(PageAssembler.PAGE_ITEMS);
 
         assertEquals(4, items.size());
@@ -192,7 +191,7 @@ class PageAssemblerTest {
         doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
         List<?> items = request.getModel(PageAssembler.PAGE_ITEMS);
 
         assertEquals(4, items.size());
@@ -217,11 +216,11 @@ class PageAssemblerTest {
         LinksModule<?> module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
         doReturn(module1).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
 
         // Build the second case where the first element has a title
         doReturn(module2).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
 
         verify(module1).setThemeIndex(0);
         verify(module2).setThemeIndex(0);
@@ -252,7 +251,7 @@ class PageAssemblerTest {
         doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
         List<?> items = request.getModel(PageAssembler.PAGE_ITEMS);
         assertEquals(4, items.size());
 
@@ -271,7 +270,7 @@ class PageAssemblerTest {
 
         doReturn(new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build()).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
         LinksModule<?> module = (LinksModule<?>) ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).get(0);
 
         assertNotNull(request.getAttribute(PageAssembler.INTRO_THEME));
@@ -283,7 +282,7 @@ class PageAssemblerTest {
     void setIntroTheme_forNonMegalinks(){
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
 
         assertNull(request.getAttribute(PageAssembler.INTRO_THEME));
     }
@@ -302,7 +301,7 @@ class PageAssemblerTest {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
         when(longCopyMapper.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
 
         //List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
         LongCopyModule module = (LongCopyModule) ((List<Module>) request.getModel(PageAssembler.PAGE_ITEMS)).get(0);
@@ -320,7 +319,7 @@ class PageAssemblerTest {
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
 
         assertEquals(0, ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
     }
@@ -338,7 +337,7 @@ class PageAssemblerTest {
 
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
 
         assertEquals(0,((List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS)).stream().filter(m -> !(m instanceof ErrorModule)).count());
     }
@@ -356,7 +355,7 @@ class PageAssemblerTest {
         when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
         when(longCopyMapper.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
 
-        builder.addModules(request);
+        builder.addModules(request, new PageCompositionHelper(bundle, request));
 
         assertEquals(1, ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
     }
