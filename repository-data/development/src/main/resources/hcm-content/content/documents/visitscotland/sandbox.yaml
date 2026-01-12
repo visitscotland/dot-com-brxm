@@ -4294,7 +4294,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 191da414-2b36-40eb-85bc-0a1730f5a5da
           hippo:name: www.visitscotland.com - Lewis and Harris
-          hippo:versionHistory: 3a86f6c4-449d-42e8-801d-7c3c3f2867a0
+          hippo:versionHistory: 82f25b07-eb6d-45c4-ad4d-03552005667a
           /www.visitscotland.com---lewis-and-harris[1]:
             jcr:primaryType: visitscotland:SharedLink
             jcr:mixinTypes: ['mix:versionable']
@@ -4353,14 +4353,14 @@
             jcr:primaryType: visitscotland:SharedLink
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: dd929a67-e6ee-4f46-b5a7-280b91b0de97
-            hippo:availability: []
+            hippo:availability: [live]
             hippostd:retainable: false
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-07-10T13:34:45.173+01:00
             hippostdpubwf:lastModificationDate: 2021-06-24T14:58:10.611+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2021-06-24T14:58:12.414+01:00
+            hippostdpubwf:publicationDate: 2025-11-20T11:18:20.311Z
             hippotranslation:id: 4ca683a5-e68a-47f6-b65a-481061871a0d
             hippotranslation:locale: en
             visitscotland:teaser: Off the west coast of Scotland, the Isle of Lewis
@@ -34563,7 +34563,7 @@
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f1ef2c5b-cf03-41cf-bd1c-291cf1ca5f2d
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Top tips...
@@ -34611,7 +34611,7 @@
             hippostdpubwf:publicationDate: 2025-11-12T09:54:24.014Z
             hippotranslation:id: f1ef2c5b-cf03-41cf-bd1c-291cf1ca5f2d
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Top tips...
@@ -34664,7 +34664,7 @@
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 776a50e2-c9f3-4e4e-a3b7-9ee7dc4f5a89
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Not sure where to start?
@@ -34707,7 +34707,7 @@
             hippostdpubwf:publicationDate: 2025-11-12T09:54:28.554Z
             hippotranslation:id: 776a50e2-c9f3-4e4e-a3b7-9ee7dc4f5a89
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Not sure where to start?
@@ -38357,7 +38357,7 @@
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 0013b57c-6cd3-4675-81bf-c5437f671fd5
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Top tips...
@@ -38405,7 +38405,7 @@
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 0013b57c-6cd3-4675-81bf-c5437f671fd5
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Top tips...
@@ -38453,7 +38453,7 @@
             hippostdpubwf:publicationDate: 2025-11-05T15:47:06.067Z
             hippotranslation:id: 0013b57c-6cd3-4675-81bf-c5437f671fd5
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Top tips...
@@ -38506,7 +38506,7 @@
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 7dabff51-97ab-4983-9f72-00b37b6f2fa9
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Not sure where to start?
@@ -38549,7 +38549,7 @@
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 7dabff51-97ab-4983-9f72-00b37b6f2fa9
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Not sure where to start?
@@ -38592,7 +38592,7 @@
             hippostdpubwf:publicationDate: 2025-11-05T15:47:17.274Z
             hippotranslation:id: 7dabff51-97ab-4983-9f72-00b37b6f2fa9
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Not sure where to start?
@@ -38728,7 +38728,7 @@
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 80bd5274-ed24-48e0-a72e-caee287ee4e0
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Card Grid Layout with too many Elements
@@ -38776,13 +38776,14 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:15.872Z
+            hippostdpubwf:lastModificationDate: 2025-12-04T14:41:38.259Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 80bd5274-ed24-48e0-a72e-caee287ee4e0
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Card Grid Layout with too many Elements
@@ -38821,8 +38822,8 @@
                   hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
             /visitscotland:introduction:
               jcr:primaryType: hippostd:html
-              hippostd:content: <p>If the card grid has too many elements, it should
-                be converted into a list layout</p>
+              hippostd:content: <p>If the card grid has too many elements, the validator
+                will display an error</p>
           /card-grid-above-5-elements[3]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:referenceable']
@@ -38837,7 +38838,7 @@
             hippostdpubwf:publicationDate: 2025-11-05T15:49:23.887Z
             hippotranslation:id: 80bd5274-ed24-48e0-a72e-caee287ee4e0
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
+            visitscotland:grid: Grid
             visitscotland:layout: Grid
             visitscotland:teaserVisible: true
             visitscotland:title: Card Grid Layout with too many Elements
@@ -38878,320 +38879,136 @@
               jcr:primaryType: hippostd:html
               hippostd:content: <p>If the card grid has too many elements, it should
                 be converted into a list layout</p>
-        /card-grid-3:
+        /card-group-test:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-          jcr:uuid: cf2969db-5270-4cdf-b0dc-d883eae043a0
-          hippo:name: Card Grid 3 (Deprecated)
-          hippo:versionHistory: 23ea9c2c-a69a-4467-b0d6-475c8994574e
-          /card-grid-3[1]:
-            jcr:primaryType: visitscotland:Megalinks
-            jcr:mixinTypes: ['mix:versionable']
-            jcr:uuid: fa075318-4cf7-4524-b115-170545c7fa0a
-            hippo:availability: [preview]
-            hippostd:retainable: false
-            hippostd:state: unpublished
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:52.964Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 3f40a071-75ef-4c17-9527-398b35fbb50e
-            hippotranslation:locale: en
-            visitscotland:grid: Grid 3
-            visitscotland:layout: Grid 3
-            visitscotland:teaserVisible: true
-            visitscotland:title: Card Grid 3 Layout
-            visitscotland:translation: ''
-            /visitscotland:megalinkItems[1]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
-            /visitscotland:megalinkItems[2]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
-            /visitscotland:megalinkItems[3]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
-            /visitscotland:megalinkItems[4]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
-            /visitscotland:megalinkItems[5]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: visitscotland:VideoLink
-                /visitscotland:videoLink:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
-          /card-grid-3[2]:
+          jcr:uuid: b37f7f72-e3ad-43e0-bb5f-424143d1e5b9
+          hippo:name: card group test
+          hippo:versionHistory: 7090f34e-ef24-474b-8c04-ef6537c9ae90
+          /card-group-test[1]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: ebfa68f8-4ba2-49e5-9e53-3a478df0cf94
+            jcr:uuid: 7f464e94-d9f6-4df1-8c2d-37ca8e19a81d
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:45.589Z
+            hippostdpubwf:creationDate: 2025-12-04T14:37:50.522Z
+            hippostdpubwf:lastModificationDate: 2025-12-04T15:07:05.042Z
             hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 3f40a071-75ef-4c17-9527-398b35fbb50e
+            hippotranslation:id: 987edd3c-9fed-4f6c-a442-49a7ff0c5a10
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
-            visitscotland:layout: Grid 3
+            visitscotland:layout: Grid
             visitscotland:teaserVisible: true
-            visitscotland:title: Card Grid 3 Layout
+            visitscotland:title: Finalized Grid layout test
             visitscotland:translation: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
+                hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
             /visitscotland:megalinkItems[2]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+                hippo:docbase: b3a03184-6cf7-4186-bf5f-2c7f4e8c64b6
             /visitscotland:megalinkItems[3]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
+                hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
             /visitscotland:megalinkItems[4]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
-            /visitscotland:megalinkItems[5]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: visitscotland:VideoLink
-                /visitscotland:videoLink:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
-          /card-grid-3[3]:
+                hippo:docbase: e16bdb89-c271-46f1-851f-2d2b82d631d4
+          /card-group-test[2]:
             jcr:primaryType: visitscotland:Megalinks
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: c65fa21a-d2fc-4fa2-a981-93b100760cff
-            hippo:availability: [live]
-            hippostd:retainable: false
-            hippostd:state: published
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:52.964Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-11-05T15:49:55.170Z
-            hippotranslation:id: 3f40a071-75ef-4c17-9527-398b35fbb50e
-            hippotranslation:locale: en
-            visitscotland:grid: Grid 3
-            visitscotland:layout: Grid 3
-            visitscotland:teaserVisible: true
-            visitscotland:title: Card Grid 3 Layout
-            visitscotland:translation: ''
-            /visitscotland:megalinkItems[1]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
-            /visitscotland:megalinkItems[2]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
-            /visitscotland:megalinkItems[3]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
-            /visitscotland:megalinkItems[4]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
-            /visitscotland:megalinkItems[5]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: visitscotland:VideoLink
-                /visitscotland:videoLink:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
-        /card-grid-4:
-          jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-          jcr:uuid: e9004d7f-78ce-48e6-9e3a-4d94c09fe69f
-          hippo:name: Card Grid 4 (Deprecated)
-          hippo:versionHistory: 98c902cb-0f88-4306-bd63-b3c3caa232ac
-          /card-grid-4[1]:
-            jcr:primaryType: visitscotland:Megalinks
-            jcr:mixinTypes: ['mix:versionable']
-            jcr:uuid: aeed6bbf-d694-4e4a-8917-c1632331b35f
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 1867eb20-cc68-422f-961d-a31b004b2d5c
             hippo:availability: [preview]
             hippostd:retainable: false
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:39.966Z
+            hippostdpubwf:creationDate: 2025-12-04T14:37:50.522Z
+            hippostdpubwf:lastModificationDate: 2025-12-04T15:07:04.747Z
             hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 51fead90-e4d7-4915-aaa0-52a6fc04c32f
+            hippotranslation:id: 987edd3c-9fed-4f6c-a442-49a7ff0c5a10
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
-            visitscotland:layout: Grid 4
+            visitscotland:layout: Grid
             visitscotland:teaserVisible: true
-            visitscotland:title: Card Grid 4 Layout
+            visitscotland:title: Finalized Grid layout test
             visitscotland:translation: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
+                hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
             /visitscotland:megalinkItems[2]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+                hippo:docbase: b3a03184-6cf7-4186-bf5f-2c7f4e8c64b6
             /visitscotland:megalinkItems[3]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
+                hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
             /visitscotland:megalinkItems[4]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
-            /visitscotland:megalinkItems[5]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: visitscotland:VideoLink
-                /visitscotland:videoLink:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
-          /card-grid-4[2]:
+                hippo:docbase: e16bdb89-c271-46f1-851f-2d2b82d631d4
+          /card-group-test[3]:
             jcr:primaryType: visitscotland:Megalinks
             jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 49095b65-4a3d-47f6-b18d-efd67c1f6a2c
-            hippo:availability: []
-            hippostd:retainable: false
-            hippostd:state: draft
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:26.728Z
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 51fead90-e4d7-4915-aaa0-52a6fc04c32f
-            hippotranslation:locale: en
-            visitscotland:grid: Grid 3
-            visitscotland:layout: Grid 4
-            visitscotland:teaserVisible: true
-            visitscotland:title: Card Grid 4 Layout
-            visitscotland:translation: ''
-            /visitscotland:megalinkItems[1]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
-            /visitscotland:megalinkItems[2]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
-            /visitscotland:megalinkItems[3]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
-            /visitscotland:megalinkItems[4]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: hippo:mirror
-                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
-            /visitscotland:megalinkItems[5]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: visitscotland:VideoLink
-                /visitscotland:videoLink:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
-          /card-grid-4[3]:
-            jcr:primaryType: visitscotland:Megalinks
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: 43e77c22-86b0-439c-984e-a7c0c9a03b36
+            jcr:uuid: 50a1abdb-f80b-4027-8851-1e51e837acca
             hippo:availability: [live]
             hippostd:retainable: false
             hippostd:state: published
             hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2021-05-25T09:15:37.452+01:00
-            hippostdpubwf:lastModificationDate: 2025-11-05T15:49:39.966Z
+            hippostdpubwf:creationDate: 2025-12-04T14:37:50.522Z
+            hippostdpubwf:lastModificationDate: 2025-12-04T15:07:04.747Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2025-11-05T15:49:42.896Z
-            hippotranslation:id: 51fead90-e4d7-4915-aaa0-52a6fc04c32f
+            hippostdpubwf:publicationDate: 2025-12-04T15:07:12.578Z
+            hippotranslation:id: 987edd3c-9fed-4f6c-a442-49a7ff0c5a10
             hippotranslation:locale: en
-            visitscotland:grid: Grid 3
-            visitscotland:layout: Grid 4
+            visitscotland:layout: Grid
             visitscotland:teaserVisible: true
-            visitscotland:title: Card Grid 4 Layout
+            visitscotland:title: Finalized Grid layout test
             visitscotland:translation: ''
             /visitscotland:megalinkItems[1]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: b2cdb04b-2a32-4003-b865-78fde7a8bbea
+                hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
             /visitscotland:megalinkItems[2]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 23d70711-bab2-4981-a696-c24599ad3f29
+                hippo:docbase: b3a03184-6cf7-4186-bf5f-2c7f4e8c64b6
             /visitscotland:megalinkItems[3]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 2ea8781d-5fe9-487c-bdeb-8b306d2fb7c2
+                hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
             /visitscotland:megalinkItems[4]:
               jcr:primaryType: visitscotland:MegalinkItem
               visitscotland:feature: false
               /visitscotland:links:
                 jcr:primaryType: hippo:mirror
-                hippo:docbase: 44ad86b4-a8b2-45a3-901d-66751d2345a9
-            /visitscotland:megalinkItems[5]:
-              jcr:primaryType: visitscotland:MegalinkItem
-              visitscotland:feature: false
-              /visitscotland:links:
-                jcr:primaryType: visitscotland:VideoLink
-                /visitscotland:videoLink:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
+                hippo:docbase: e16bdb89-c271-46f1-851f-2d2b82d631d4
     /iknow-community:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -52614,7 +52431,7 @@
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 499a384f-a141-4c6d-860a-89408748cdcd
-      hippo:versionHistory: 6dea4e15-ca55-4767-9c25-f997e39028c2
+      hippo:versionHistory: c4247a3a-61c8-4242-a828-336284fb5874
       /main-map[1]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -52624,11 +52441,12 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-19T15:58:42.916Z
+        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:54.194Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys: [main-map]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
+        visitscotland:isGoogleMap: true
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
@@ -52642,11 +52460,12 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-19T15:59:25.096Z
+        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:59.816Z
         hippostdpubwf:lastModifiedBy: admin
         hippotaxonomy:keys: [main-map]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
+        visitscotland:isGoogleMap: true
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
@@ -52660,12 +52479,13 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-19T15:59:25.096Z
+        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:59.816Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-11-19T15:59:29.285Z
+        hippostdpubwf:publicationDate: 2025-11-28T12:22:02.037Z
         hippotaxonomy:keys: [main-map]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
+        visitscotland:isGoogleMap: true
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
