@@ -24,6 +24,7 @@ public class ItineraryPage extends PageIntro {
     private Map<String, ItineraryStopModule> stops;
     private String lastStopNearbyEat;
     private String lastStopNearbyStay;
+    private String subHeading;
 
     public ItineraryPage(Page page) {
         super(page);
@@ -115,4 +116,8 @@ public class ItineraryPage extends PageIntro {
     public void setLastStopNearbyStay(String lastStopNearbyStay) {
         this.lastStopNearbyStay = lastStopNearbyStay;
     }
+
+    public String getSubHeading() { return subHeading; }
+
+    public void setSubHeading(String subHeading) { this.subHeading = subHeading; }
 }
