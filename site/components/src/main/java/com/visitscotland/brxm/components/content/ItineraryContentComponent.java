@@ -6,6 +6,7 @@ import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.factory.ItineraryFactory;
 import com.visitscotland.brxm.hippobeans.Itinerary;
 import com.visitscotland.brxm.model.ItineraryPage;
+import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.utils.Contract;
 import freemarker.ext.beans.BeansWrapper;
@@ -24,32 +25,44 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
     public static final String ITINERARY = "itinerary";
 
     private ItineraryFactory itineraryFactory;
+    private final PageAssembler builder;
 
     public ItineraryContentComponent() {
         logger.debug("ItineraryContentComponent initialized");
 
         itineraryFactory = VsComponentManager.get(ItineraryFactory.class);
+        this.builder = VsComponentManager.get(PageAssembler.class);
     }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
-
         super.doBeforeRender(request, response, pageConfig);
 
-        addProductSearchBuilder(request);
         includeLabels(request);
 
-        ItineraryPage itineraryPage = itineraryFactory.buildItinerary(getDocument(request), request.getLocale());
+        if (itineraryFactory.isStopBasedItinerary(getDocument(request))){
+            buildStopBasedItinerary(request);
+        } else {
+            ItineraryPage itinerary = itineraryFactory.buildItinerary(getDocument(request), request.getLocale());
+            request.setModel("pageIntro", itinerary);
+            builder.addModules(request, pageConfig);
+        }
+    }
+
+    private void buildStopBasedItinerary(HstRequest request) {
+        ItineraryPage itineraryPage = itineraryFactory.buildStopBasedItinerary(getDocument(request), request.getLocale());
         request.setModel(ITINERARY, itineraryPage);
 
         if (!Contract.isEmpty(itineraryPage.getErrorMessages())) {
             setErrorMessages(request, itineraryPage.getErrorMessages());
         }
+
+        addProductSearchBuilder(request);
     }
 
     // This is only in use in Freemarker to inject product search
-    @Deprecated  // TODO: Remove method after VS-343 is completed
+    @Deprecated (forRemoval = true)  // TODO: Remove method after VS-343 is completed
     // TODO: Remove method after VS-343 is completed
     public void addProductSearchBuilder(HstRequest request) {
         BeansWrapper wrapper = BeansWrapper.getDefaultInstance();
