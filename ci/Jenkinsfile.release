@@ -476,7 +476,6 @@ pipeline {
                     "SLEEP_INTERVAL=0.2"
                 ]) {
                     sh '''
-                    # forcing the deletion of build-number.txt for now, so that the MANIFEST.MF search is triggered
                     bash ci/scripts/release_combined_stages.sh \
                       "pom.xml" \
                       "build-number.txt" \
