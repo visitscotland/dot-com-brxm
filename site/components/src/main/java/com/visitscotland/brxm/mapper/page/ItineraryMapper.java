@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper.page;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.dms.DMSDataService;
@@ -8,7 +8,6 @@ import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.mapper.ImageMapper;
-import com.visitscotland.brxm.mapper.page.StopMapper;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.megalinks.Entry;
@@ -18,7 +17,6 @@ import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
 import com.visitscotland.utils.CoordinateUtils;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -31,9 +29,9 @@ import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
 
 @Component
-public class ItineraryFactory {
+public class ItineraryMapper {
 
-    private static final Logger logger = LoggerFactory.getLogger(ItineraryFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(ItineraryMapper.class);
 
     static final String BUNDLE_FILE = "itinerary";
 
@@ -48,9 +46,9 @@ public class ItineraryFactory {
     private final StopMapper stopMapper;
 
 
-    public ItineraryFactory(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
-                            DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
-                            ContentLogger contentLogger, EntryMapper entryMapper, StopMapper stopMapper) {
+    public ItineraryMapper(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
+                           DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
+                           ContentLogger contentLogger, EntryMapper entryMapper, StopMapper stopMapper) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageMapper = imageMapper;

@@ -3,7 +3,7 @@ package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
-import com.visitscotland.brxm.factory.ItineraryFactory;
+import com.visitscotland.brxm.mapper.page.ItineraryMapper;
 import com.visitscotland.brxm.hippobeans.Itinerary;
 import com.visitscotland.brxm.model.ItineraryPage;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
@@ -25,13 +25,13 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
     public static final String ITINERARY = "itinerary";
     public static final String PAGE_INTRO = "pageIntro";
 
-    private ItineraryFactory itineraryMapper;
+    private final ItineraryMapper itineraryMapper;
     private final PageAssembler builder;
 
     public ItineraryContentComponent() {
         logger.debug("ItineraryContentComponent initialized");
 
-        this.itineraryMapper = VsComponentManager.get(ItineraryFactory.class);
+        this.itineraryMapper = VsComponentManager.get(ItineraryMapper.class);
         this.builder = VsComponentManager.get(PageAssembler.class);
     }
 
