@@ -9809,6 +9809,361 @@
             /visitscotland:stops[3]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: e8202d3f-3d3e-43e2-8075-3cf9b212df05
+      /itinerary-new-layout:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: d23a8746-ac44-4948-90ce-cc9e035eb2ab
+        hippo:name: Itinerary New Layout
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 34f260cd-13e6-48c1-af76-36738b0e678c
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: d660a005-456f-433d-842a-7ca180139771
+          hippo:name: Itinerary new layout
+          hippo:versionHistory: 3d7fde01-bf31-4013-97ea-2607b8206287
+          /content[1]:
+            jcr:primaryType: visitscotland:Itinerary
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 9d83aaf9-c678-4298-8b3a-aa3fa2fd4124
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
+            hippostdpubwf:lastModificationDate: 2026-01-09T15:27:40.020Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
+            hippotranslation:locale: en
+            visitscotland:areas: [aberdeen]
+            visitscotland:breadcrumb: ''
+            visitscotland:distance: 0.0
+            visitscotland:finish: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:highlights: ['']
+            visitscotland:popular: false
+            visitscotland:seoDescription: sdfdssdf
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: fdsfsdaa
+            visitscotland:start: ''
+            visitscotland:subheading: ddfs
+            visitscotland:teaser: fdfdfdf
+            visitscotland:theme: familyev
+            visitscotland:title: sdffdsdfs
+            visitscotland:translation: ''
+            visitscotland:transports: [boat]
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>fdfdfsfss</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: fdfdf
+              visitscotland:link: https://www.google.com
+          /content[2]:
+            jcr:primaryType: visitscotland:Itinerary
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 3219031e-b693-49f7-adc9-267ebcc87e91
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
+            hippostdpubwf:lastModificationDate: 2026-01-09T15:27:51.170Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
+            hippotranslation:locale: en
+            visitscotland:areas: [aberdeen]
+            visitscotland:breadcrumb: ''
+            visitscotland:distance: 0.0
+            visitscotland:finish: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:highlights: ['']
+            visitscotland:popular: false
+            visitscotland:seoDescription: sdfdssdf
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: fdsfsdaa
+            visitscotland:start: ''
+            visitscotland:subheading: ddfs
+            visitscotland:teaser: fdfdfdf
+            visitscotland:theme: familyev
+            visitscotland:title: sdffdsdfs
+            visitscotland:translation: ''
+            visitscotland:transports: [boat]
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>fdfdfsfss</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: fdfdf
+              visitscotland:link: https://www.google.com
+          /content[3]:
+            jcr:primaryType: visitscotland:Itinerary
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 0fc10013-b59a-42d0-bc2e-c26aabe90d47
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
+            hippostdpubwf:lastModificationDate: 2026-01-09T15:27:51.170Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-01-09T15:28:05.689Z
+            hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
+            hippotranslation:locale: en
+            visitscotland:areas: [aberdeen]
+            visitscotland:breadcrumb: ''
+            visitscotland:distance: 0.0
+            visitscotland:finish: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:highlights: ['']
+            visitscotland:popular: false
+            visitscotland:seoDescription: sdfdssdf
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: fdsfsdaa
+            visitscotland:start: ''
+            visitscotland:subheading: ddfs
+            visitscotland:teaser: fdfdfdf
+            visitscotland:theme: familyev
+            visitscotland:title: sdffdsdfs
+            visitscotland:translation: ''
+            visitscotland:transports: [boat]
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>fdfdfsfss</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: fdfdf
+              visitscotland:link: https://www.google.com
+        /day1:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: f059ee84-d8e3-4e2c-a477-ab311e5e1076
+          hippo:versionHistory: 9783d474-d6b1-48c1-b9cf-30c6525a1752
+          /day1[1]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 931b7556-8eeb-4a2d-8271-98377a2f9008
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-07T13:55:42.551Z
+            hippostdpubwf:lastModificationDate: 2026-01-09T09:25:31.048Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: f7fb3824-1346-4aad-b9bf-44b81b8018ab
+            hippotranslation:locale: en
+            visitscotland:title: dsssdfs
+            visitscotland:translation: ''
+            visitscotland:transports: [boat]
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>fsdfsdfsd</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: map override test
+              visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5706885,-3.6005787,13z/data=!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: mull overrid test
+              visitscotland:link: https://www.google.com
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /day1[2]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 80192c08-79e6-4ce9-8d45-4afb9d89aef4
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-07T13:55:42.551Z
+            hippostdpubwf:lastModificationDate: 2026-01-09T09:25:23.222Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: f7fb3824-1346-4aad-b9bf-44b81b8018ab
+            hippotranslation:locale: en
+            visitscotland:title: dsssdfs
+            visitscotland:translation: ''
+            visitscotland:transports: [boat]
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>fsdfsdfsd</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: map override test
+              visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5706885,-3.6005787,13z/data=!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: mull overrid test
+              visitscotland:link: https://www.google.com
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /day1[3]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: fe865d64-6c7a-4579-95bb-bf3615a699d6
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-07T13:55:42.551Z
+            hippostdpubwf:lastModificationDate: 2026-01-09T09:25:23.222Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-01-09T09:26:10.860Z
+            hippotranslation:id: f7fb3824-1346-4aad-b9bf-44b81b8018ab
+            hippotranslation:locale: en
+            visitscotland:title: dsssdfs
+            visitscotland:translation: ''
+            visitscotland:transports: [boat]
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>fsdfsdfsd</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: map override test
+              visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5706885,-3.6005787,13z/data=!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: mull overrid test
+              visitscotland:link: https://www.google.com
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /day2:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 0af403e4-8626-477b-ac0c-d802c232a40b
+          hippo:name: Day2
+          hippo:versionHistory: dfe891a7-5a2d-4afe-b54b-6ba5abab906d
+          /day2[1]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: bb05b8de-a89b-4bde-8bcf-aebd86d070b0
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-09T09:23:02.919Z
+            hippostdpubwf:lastModificationDate: 2026-01-09T15:48:21.320Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 9b07beec-26b2-46b9-9dfa-a45af378f8f6
+            hippotranslation:locale: en
+            visitscotland:title: Mull
+            visitscotland:translation: ''
+            visitscotland:transports: [boat]
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>mull&nbsp; &nbsp;</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Mull place
+              visitscotland:link: https://www.google.com/maps/place/Ardalanish+Isle+of+Mull+Weavers/@56.2920138,-7.4704993,9z/data=!4m10!1m3!11m2!2sQ5GLkNlJTKemWjc1gBVe0Q!3e3!3m5!1s0x488bbbde27f94557:0xeb67efa807c8938!8m2!3d56.2920115!4d-6.2510207!16s%2Fg%2F1tf651lr?entry=ttu&g_ep=EgoyMDI2MDEwNi4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Mull
+              visitscotland:link: https://www.google.com/
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ea78cf97-be18-42d9-b266-3a5023316f16
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /day2[2]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 9572acf5-c224-4607-9526-32d7979cec86
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-09T09:23:02.919Z
+            hippostdpubwf:lastModificationDate: 2026-01-09T15:48:21.130Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 9b07beec-26b2-46b9-9dfa-a45af378f8f6
+            hippotranslation:locale: en
+            visitscotland:title: Mull
+            visitscotland:translation: ''
+            visitscotland:transports: [boat]
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>mull&nbsp; &nbsp;</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Mull place
+              visitscotland:link: https://www.google.com/maps/place/Ardalanish+Isle+of+Mull+Weavers/@56.2920138,-7.4704993,9z/data=!4m10!1m3!11m2!2sQ5GLkNlJTKemWjc1gBVe0Q!3e3!3m5!1s0x488bbbde27f94557:0xeb67efa807c8938!8m2!3d56.2920115!4d-6.2510207!16s%2Fg%2F1tf651lr?entry=ttu&g_ep=EgoyMDI2MDEwNi4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Mull
+              visitscotland:link: https://www.google.com/
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ea78cf97-be18-42d9-b266-3a5023316f16
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /day2[3]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 004ffed3-b583-46d4-99c1-959984373b0b
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-09T09:23:02.919Z
+            hippostdpubwf:lastModificationDate: 2026-01-09T15:48:21.130Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-01-09T15:48:25.764Z
+            hippotranslation:id: 9b07beec-26b2-46b9-9dfa-a45af378f8f6
+            hippotranslation:locale: en
+            visitscotland:title: Mull
+            visitscotland:translation: ''
+            visitscotland:transports: [boat]
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>mull&nbsp; &nbsp;</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Mull place
+              visitscotland:link: https://www.google.com/maps/place/Ardalanish+Isle+of+Mull+Weavers/@56.2920138,-7.4704993,9z/data=!4m10!1m3!11m2!2sQ5GLkNlJTKemWjc1gBVe0Q!3e3!3m5!1s0x488bbbde27f94557:0xeb67efa807c8938!8m2!3d56.2920115!4d-6.2510207!16s%2Fg%2F1tf651lr?entry=ttu&g_ep=EgoyMDI2MDEwNi4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Mull
+              visitscotland:link: https://www.google.com/
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ea78cf97-be18-42d9-b266-3a5023316f16
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
     /listicle:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -34804,9 +35159,9 @@
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 0bcd555d-1d70-485b-8eeb-ab0c7025cbf6
           hippo:availability: []
-          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
           hippostdpubwf:lastModificationDate: 2025-12-17T14:36:39.837Z
@@ -34947,18 +35302,17 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: f65d7265-a940-484f-8fa3-1d3d3944ae70
         hippo:name: DAy 1 - Dunkeld
-        hippo:versionHistory: e1713e3a-f033-4009-b01c-c1d42cf1ce33
+        hippo:versionHistory: 61944134-610c-41d8-a262-71fe5a09fef9
         /day-1---dunkeld[1]:
           jcr:primaryType: visitscotland:Day
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: ebb1a3ce-7333-45c1-b38f-f330a1bd773a
           hippo:availability: []
-          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:47:36.473Z
-          hippostdpubwf:lastModificationDate: 2025-12-17T14:42:57.188Z
+          hippostdpubwf:lastModificationDate: 2026-01-09T14:59:05.365Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: b2c5ceb9-31d9-4e18-9ff2-c87da530f9d5
           hippotranslation:locale: en
@@ -35012,7 +35366,7 @@
               </ul>
           /visitscotland:mapLink:
             jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: See in Google maps
+            visitscotland:label: See Google map
             visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5679334,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=de&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
           /visitscotland:ctaLink:
             jcr:primaryType: visitscotland:ExternalLink
@@ -35033,11 +35387,11 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:47:36.473Z
-          hippostdpubwf:lastModificationDate: 2025-12-17T13:50:14.195Z
+          hippostdpubwf:lastModificationDate: 2026-01-09T14:59:05.242Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: b2c5ceb9-31d9-4e18-9ff2-c87da530f9d5
           hippotranslation:locale: en
-          visitscotland:title: Day 1 – Dunkeld
+          visitscotland:title: Dunkeld
           visitscotland:translation: ''
           visitscotland:transports: []
           /visitscotland:introduction:
@@ -35087,7 +35441,7 @@
               </ul>
           /visitscotland:mapLink:
             jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: See in Google maps
+            visitscotland:label: See Google map
             visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5679334,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=de&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
           /visitscotland:ctaLink:
             jcr:primaryType: visitscotland:ExternalLink
@@ -35108,12 +35462,12 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:47:36.473Z
-          hippostdpubwf:lastModificationDate: 2025-12-17T13:50:14.195Z
+          hippostdpubwf:lastModificationDate: 2026-01-09T14:59:05.242Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-12-17T13:53:30.440Z
+          hippostdpubwf:publicationDate: 2026-01-09T14:59:11.507Z
           hippotranslation:id: b2c5ceb9-31d9-4e18-9ff2-c87da530f9d5
           hippotranslation:locale: en
-          visitscotland:title: Day 1 – Dunkeld
+          visitscotland:title: Dunkeld
           visitscotland:translation: ''
           visitscotland:transports: []
           /visitscotland:introduction:
@@ -35163,7 +35517,7 @@
               </ul>
           /visitscotland:mapLink:
             jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: See in Google maps
+            visitscotland:label: See Google map
             visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5679334,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=de&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
           /visitscotland:ctaLink:
             jcr:primaryType: visitscotland:ExternalLink

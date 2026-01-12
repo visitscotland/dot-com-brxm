@@ -25,7 +25,7 @@ public class ItineraryPage {
     private Entry theme;
     private String lastStopNearbyEat;
     private String lastStopNearbyStay;
-
+    private String subHeading;
 
     public Itinerary getDocument() {
         return document;
@@ -129,4 +129,8 @@ public class ItineraryPage {
     public void setLastStopNearbyStay(String lastStopNearbyStay) {
         this.lastStopNearbyStay = lastStopNearbyStay;
     }
+
+    public String getSubHeading() { return subHeading; }
+
+    public void setSubHeading(String subHeading) { this.subHeading = subHeading; }
 }
