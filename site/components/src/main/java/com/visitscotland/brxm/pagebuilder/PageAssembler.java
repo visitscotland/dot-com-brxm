@@ -51,19 +51,19 @@ public class PageAssembler {
     private final CTABannerMapper ctaBannerMapper;
     private final EventsListingMapper eventsListingMapper;
     private final SpotlightMapper spotlightMapper;
+    private final DayMapper dayMapper;
 
     private final Logger contentLogger;
 
-    @Autowired
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
-                         ArticleMapper articleMapper,
-                         UserGeneratedContentMapper userGeneratedContentMapper,
+                         ArticleMapper articleMapper, UserGeneratedContentMapper userGeneratedContentMapper,
                          TravelInformationMapper travelInformationMapper, PreviewWarningMapper previewWarningMapper,
-                         MapModuleMapper mapModuleMapper, SkiCentreMapper skiCentreMapper, SkiCentreListMapper
-                         skiCentreListMapper, DevModuleMapper devModuleMapper, LongCopyMapper longCopyMapper,
-                         CannedSearchMapper cannedSearchMapper, CannedSearchDMSMapper cannedSearchDMSMapper,
-                         FormMapper formMapper, CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper,
-                         Logger contentLogger, SpotlightMapper spotlightMapper) {
+                         MapModuleMapper mapModuleMapper, SkiCentreMapper skiCentreMapper,
+                         SkiCentreListMapper skiCentreListMapper, DevModuleMapper devModuleMapper,
+                         LongCopyMapper longCopyMapper, CannedSearchMapper cannedSearchMapper,
+                         CannedSearchDMSMapper cannedSearchDMSMapper, FormMapper formMapper,
+                         CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper,
+                         SpotlightMapper spotlightMapper, DayMapper dayMapper, Logger contentLogger) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
         this.iCentreMapper = iCentreMapper;
@@ -81,8 +81,9 @@ public class PageAssembler {
         this.formMapper = formMapper;
         this.ctaBannerMapper = ctaBannerMapper;
         this.eventsListingMapper = eventsListingMapper;
-        this.contentLogger = contentLogger;
         this.spotlightMapper = spotlightMapper;
+        this.dayMapper = dayMapper;
+        this.contentLogger = contentLogger;
     }
 
     private Page getDocument(HstRequest request) {
@@ -152,6 +153,8 @@ public class PageAssembler {
             spotlightMapper.include((Spotlight) item, compositionHelper);
         } else if (item instanceof EventsListing){
             eventsListingMapper.include((EventsListing) item, compositionHelper);
+        } else if (item instanceof Day){
+            dayMapper.include((Day) item, compositionHelper);
         } else {
             throw new PageCompositionException(item.getPath(), String.format("Unrecognized Module Type: %s", item.getClass()));
         }
