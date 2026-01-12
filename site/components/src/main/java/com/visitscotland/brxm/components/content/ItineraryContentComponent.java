@@ -23,14 +23,15 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
     private static final Logger logger = LoggerFactory.getLogger(ItineraryContentComponent.class);
 
     public static final String ITINERARY = "itinerary";
+    public static final String PAGE_INTRO = "pageIntro";
 
-    private ItineraryFactory itineraryFactory;
+    private ItineraryFactory itineraryMapper;
     private final PageAssembler builder;
 
     public ItineraryContentComponent() {
         logger.debug("ItineraryContentComponent initialized");
 
-        itineraryFactory = VsComponentManager.get(ItineraryFactory.class);
+        this.itineraryMapper = VsComponentManager.get(ItineraryFactory.class);
         this.builder = VsComponentManager.get(PageAssembler.class);
     }
 
@@ -41,17 +42,25 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
 
         includeLabels(request);
 
-        if (itineraryFactory.isStopBasedItinerary(getDocument(request))){
+        if (itineraryMapper.isStopBasedItinerary(getDocument(request))){
             buildStopBasedItinerary(request);
         } else {
-            ItineraryPage itinerary = itineraryFactory.buildItinerary(getDocument(request), request.getLocale());
-            request.setModel("pageIntro", itinerary);
+            ItineraryPage itinerary = itineraryMapper.buildItinerary(getDocument(request), request.getLocale());
+            request.setModel(PAGE_INTRO, itinerary);
             builder.addModules(request, pageConfig);
         }
     }
 
     private void buildStopBasedItinerary(HstRequest request) {
-        ItineraryPage itineraryPage = itineraryFactory.buildStopBasedItinerary(getDocument(request), request.getLocale());
+        ItineraryPage itineraryPage = itineraryMapper.buildStopBasedItinerary(getDocument(request), request.getLocale());
+
+        request.setModel(PAGE_INTRO, itineraryPage);
+        /*
+         * Stop-based version of Itineraries is deprecated and the plan is to remove it from the codebase in the short
+         * term. If they are still needed, the front-end should be updated to use the pageIntro object instead of the
+         * itinerary object. Add after that the following line, including the itinerary object, can be removed.
+         */
+        //TODO: Read previous comment and remove the following line if needed
         request.setModel(ITINERARY, itineraryPage);
 
         if (!Contract.isEmpty(itineraryPage.getErrorMessages())) {
