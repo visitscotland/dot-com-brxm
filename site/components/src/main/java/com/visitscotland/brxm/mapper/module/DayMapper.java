@@ -19,7 +19,11 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
 
     @Override
     public ItineraryDayModule map(Day document, PageCompositionHelper compositionHelper) throws PageCompositionException {
-        return null;
+        ItineraryDayModule day = new ItineraryDayModule();
+        day.setTitle(document.getTitle());
+        day.setIntroduction(document.getIntroduction());
+
+        return day;
     }
 
 }
