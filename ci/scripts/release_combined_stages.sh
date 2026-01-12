@@ -91,13 +91,20 @@ md5_for_file() {
 }
 
 compute_repo_name() {
-  # Derive repository name once from GIT_URL, with a safe fallback.
-  if [[ -n "${GIT_URL:-}" ]]; then
-    REPO_NAME="${GIT_URL##*/}"
-    REPO_NAME="${REPO_NAME%.git}"
-  else
-    REPO_NAME="${REPO_NAME:-unknown-repo}"
+  if [[ -n "${REPO_NAME:-}" ]]; then
+    # this variable is supposed to be reliable, don't second-guess it
+    return
   fi
+
+  # variable REPO_NAME isn't set, so we need to derive the repo name from git context/commands
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    REPO_NAME="$(basename "$(git rev-parse --show-toplevel)")"
+    return
+  fi
+
+  # fail the pipeline if we can't derive the repo name
+  echo "ERROR: Unable to determine repository name" >&2
+  exit 1
 }
 
 # helper function for .tar.gz projects (like dot-com, dot-org)
