@@ -4,9 +4,11 @@ import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.model.ItineraryDayModule;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+import org.springframework.stereotype.Component;
 
 import java.util.MissingResourceException;
 
+@Component
 public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
 
 
