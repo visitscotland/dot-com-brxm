@@ -25,6 +25,7 @@ import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.container.ComponentManager;
 import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -48,7 +49,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 //TODO This unit test needs to be broken down
-@Ignore
+@Disabled
 @ExtendWith(MockitoExtension.class)
 class ItineraryMapperTest {
 
