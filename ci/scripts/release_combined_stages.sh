@@ -181,8 +181,8 @@ step_1_find_distro() {
     printf '        %s\n' "${files[@]}" >&2
   fi
 
-  # Filtered list is already sorted lexicographically by Bash → deterministic
-  DISTRO_FILE="${files[0]}"
+  # Pick the "newest" file from the list, based on modification time
+  DISTRO_FILE="$(ls -1t "${files[@]}" 2>/dev/null | head -n1)"
 
   echo "            INFO: Selected distribution artifact: $DISTRO_FILE"
 
