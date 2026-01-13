@@ -416,7 +416,7 @@ TABLE1
 TABLE2
     fi
     cat <<TABLE3
-<p>For more information, see the <a href="$(json_escape "${BUILD_URL:-#}")/consoleFull">Jenkins build log</a>.</p>
+<p>For more information, see the <a href="$(json_escape "${BUILD_URL:-#}")consoleFull">Jenkins build log</a>.</p>
 </body></html>
 TABLE3
   } > "$EMAIL_HTML_FILE"
