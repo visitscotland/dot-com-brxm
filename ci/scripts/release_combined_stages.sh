@@ -7,6 +7,8 @@
 #   - <props_path>            (legacy .properties for back-compat)
 set -Eeuo pipefail
 IFS=$'\n\t'
+# Trap failures and include the exact command and line number that caused the failure
+trap 'rc=$?; echo "ERROR: ${BASH_SOURCE[0]}:${LINENO}: command failed: ${BASH_COMMAND}" >&2; exit $rc' ERR
 
 # ---- Inputs ----
 POM="${1:-pom.xml}"
@@ -412,9 +414,7 @@ TABLE3
 # =====================================================================
 step_6_write_outputs() {
   echo "==> Step 6: Writing outputs..."
-  [[ -z "$REPO_NAME" ]]
-
-  echo "            (debugging) MAIL_TO_NET=$MAIL_TO_NET, VS_COMMIT_AUTHOR=$VS_COMMIT_AUTHOR, CC_DEV_LIST=$CC_DEV_LIST"
+  echo "            (debugging) MAIL_TO_NET=${MAIL_TO_NET:-}, VS_COMMIT_AUTHOR=${VS_COMMIT_AUTHOR:-}, CC_DEV_LIST=${CC_DEV_LIST:-}"
   local RECIPIENTS_ARRAY
   RECIPIENTS_ARRAY="$(comma_split_to_json_array "${MAIL_TO_NET:-}, ${VS_COMMIT_AUTHOR:-}, ${CC_DEV_LIST:-}")"
 
