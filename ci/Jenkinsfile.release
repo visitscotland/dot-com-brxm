@@ -148,6 +148,7 @@ pipeline {
             steps {
                 deleteDir()
                 script {
+                    def scmVars = checkout(scm)
                     // In some Jenkins setups, scmVars.GIT_URL is missing and only scmVars.GIT_URL_1
                     // (or similar) will be present, especially with multiple remotes
                     def repoUrl = scmVars.GIT_URL ?: scmVars.GIT_URL_1
