@@ -31,7 +31,9 @@ VS_SSR_PACKAGE_NAME=""
 VS_SSR_ARCHIVED_PACKAGE_PATH=""
 VS_SSR_ARCHIVED_PACKAGE_MD5=""
 VS_SSR_ARCHIVED_PACKAGE_URL=""
-REPO_NAME=""
+
+# --- Jenkins-provided metadata sanity checks (env variable set right after checkout) ---
+: "${REPO_NAME:?REPO_NAME must be set by Jenkins (set env.REPO_NAME after checkout scm)}"
 
 # ---- Preconditions / setup ----
 WORKSPACE="${WORKSPACE:-$(pwd)}"
@@ -88,23 +90,6 @@ md5_for_file() {
     md5="$(md5 -r "$f" | awk '{print $1}')"
   fi
   printf '%s' "$md5"
-}
-
-compute_repo_name() {
-  if [[ -n "${REPO_NAME:-}" ]]; then
-    # this variable is supposed to be reliable, don't second-guess it
-    return
-  fi
-
-  # variable REPO_NAME isn't set, so we need to derive the repo name from git context/commands
-  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    REPO_NAME="$(basename "$(git rev-parse --show-toplevel)")"
-    return
-  fi
-
-  # fail the pipeline if we can't derive the repo name
-  echo "ERROR: Unable to determine repository name" >&2
-  exit 1
 }
 
 # helper function for .tar.gz projects (like dot-com, dot-org)
@@ -360,7 +345,7 @@ step_4_parse_pom() {
 # =====================================================================
 step_5_compose_email() {
   echo "==> Step 5: Composing email..."
-  [[ -z "$REPO_NAME" ]] && compute_repo_name
+  echo "            (debugging) Wrote: REPO_NAME=$REPO_NAME"
 
   EMAIL_SUBJECT="[Release] ${REPO_NAME:-unknown-repo} v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} - build #${BUILD_NUMBER:-?} - ${VS_PIPELINE_OUTCOME_EMAIL}"
   EMAIL_HTML_FILE="$OUT_DIR/email.html"
@@ -427,7 +412,7 @@ TABLE3
 # =====================================================================
 step_6_write_outputs() {
   echo "==> Step 6: Writing outputs..."
-  [[ -z "$REPO_NAME" ]] && compute_repo_name
+  [[ -z "$REPO_NAME" ]]
 
   echo "            (debugging) MAIL_TO_NET=$MAIL_TO_NET, VS_COMMIT_AUTHOR=$VS_COMMIT_AUTHOR, CC_DEV_LIST=$CC_DEV_LIST"
   local RECIPIENTS_ARRAY

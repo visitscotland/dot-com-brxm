@@ -147,7 +147,17 @@ pipeline {
         stage('Prepare workspace') {
             steps {
                 deleteDir()
-                checkout scm
+                script {
+                    // In some Jenkins setups, scmVars.GIT_URL is missing and only scmVars.GIT_URL_1
+                    // (or similar) will be present, especially with multiple remotes
+                    def repoUrl = scmVars.GIT_URL ?: scmVars.GIT_URL_1
+                    if (!repoUrl) {
+                        error("Could not determine repo URL from checkout(scm). scmVars keys: ${scmVars.keySet()}")
+                    }
+                    env.REPO_NAME = repoUrl.tokenize('/').last().replace('.git','')
+                    echo "Repo URL: ${repoUrl}"
+                    echo "Repo name: ${env.REPO_NAME}"
+                }
             }
         }
 
