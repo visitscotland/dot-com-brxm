@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a810a523-c89a-40ad-9195-7adb8d9de6c4
+          jcr:uuid: d25912d8-408f-405e-8c6f-6d270241b4cf
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -69,6 +69,82 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
             hipposysedit:validators: [optional]
+          /properties:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:properties
+            hipposysedit:primary: false
+            hipposysedit:type: selection:listitem
+        /hipposysedit:nodetype[2]:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 4b4d513f-cdb3-42e6-8a3a-21820132e047
+          hipposysedit:node: true
+          hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          /html:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:html
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+          /notes:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:notes
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators: [optional]
+          /headContributions:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:headContributions
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [url]
+          /footerContributions:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:footerContributions
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [url]
+          /freemarkerId:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:freemarkerId
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators: [optional]
+          /bespoken:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:bespoken
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            hipposysedit:validators: [optional]
+          /properties:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:properties
+            hipposysedit:primary: false
+            hipposysedit:type: selection:listitem
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -82,12 +158,30 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:html: ''
           visitscotland:notes: ''
-          jcr:uuid: 07449767-c934-40e8-ae72-49bed836d154
+          jcr:uuid: f31e97cc-b861-471e-b492-f602b71ceae4
           hippostdpubwf:lastModificationDate: 2023-01-18T16:27:53.908Z
           hippostdpubwf:creationDate: 2023-01-18T16:27:53.908Z
           visitscotland:headContributions: []
           visitscotland:footerContributions: []
           visitscotland:bespoken: ''
+        /hipposysedit:prototype[2]:
+          jcr:primaryType: nt:unstructured
+          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
+            'hippotranslation:translated', 'mix:referenceable']
+          jcr:uuid: 365c78a4-455e-4207-aa33-a62ea1008e24
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2023-01-18T16:27:53.908Z
+          hippostdpubwf:lastModificationDate: 2023-01-18T16:27:53.908Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          visitscotland:bespoken: ''
+          visitscotland:footerContributions: []
+          visitscotland:headContributions: []
+          visitscotland:html: ''
+          visitscotland:notes: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -145,6 +239,15 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/bespoken-modules
+          /properties:
+            jcr:primaryType: frontend:plugin
+            caption: Bespoken Module Configuration
+            field: properties
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /freemarkerId:
             jcr:primaryType: frontend:plugin
             caption: FreeMarker Template (Deprecated)
