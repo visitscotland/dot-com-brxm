@@ -7,8 +7,8 @@
 #   - <props_path>            (legacy .properties for back-compat)
 set -Eeuo pipefail
 IFS=$'\n\t'
-# Trap failures and include the exact command and line number that caused the failure
-trap 'rc=$?; echo "ERROR: ${BASH_SOURCE[0]}:${LINENO}: command failed: ${BASH_COMMAND}" >&2; exit $rc' ERR
+# Trap failures and include the exact command and the *actual* failing line number
+trap 'rc=$?; echo "ERROR: ${BASH_SOURCE[1]}:${BASH_LINENO[0]}: command failed: ${BASH_COMMAND}" >&2; exit $rc' ERR
 
 # ---- Inputs ----
 POM="${1:-pom.xml}"
