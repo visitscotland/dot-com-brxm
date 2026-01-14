@@ -108,7 +108,8 @@ public class ItineraryMapper {
         page.setDistance(calculateDistance ? totalDistance.setScale(0, RoundingMode.HALF_UP) :BigDecimal.valueOf(itinerary.getDistance()));
 
         populateFirstAndLastStopTexts(page, firstStop, lastStop);
-        populateLastStopLinks(page, lastStop, locale);
+        /* VS-802 DMS retire tasks, remove whats nearby links to PSR results*/
+        //populateLastStopLinks(page, lastStop, locale);
         populateTransports(page, itinerary.getTransports());
         populateThemes(page, itinerary.getTheme());
         populateAreas(page, itinerary.getAreas());
