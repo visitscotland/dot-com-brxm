@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.factory;
+package com.visitscotland.brxm.mapper.page;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.dms.DMSDataService;
@@ -22,15 +22,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
+
 @Component
-public class ItineraryFactory {
+public class ItineraryMapper {
 
-    private static final Logger logger = LoggerFactory.getLogger(ItineraryFactory.class);
-
+    private static final Logger logger = LoggerFactory.getLogger(ItineraryMapper.class);
 
     static final String BUNDLE_FILE = "itinerary";
 
@@ -42,10 +43,12 @@ public class ItineraryFactory {
     private final DocumentUtilsService documentUtils;
     private final LinkService linkService;
     private final Logger contentLogger;
+    private final StopMapper stopMapper;
 
-    public ItineraryFactory(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
-                            DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
-                            ContentLogger contentLogger, EntryMapper entryMapper) {
+
+    public ItineraryMapper(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
+                           DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
+                           ContentLogger contentLogger, EntryMapper entryMapper, StopMapper stopMapper) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageMapper = imageMapper;
@@ -54,22 +57,19 @@ public class ItineraryFactory {
         this.linkService = linkService;
         this.contentLogger = contentLogger;
         this.entryMapper = entryMapper;
+        this.stopMapper = stopMapper;
     }
 
-    /**
-     * Collects the information about an itinerary and enhances the information in it
-     */
-    public ItineraryPage buildItinerary (Itinerary itinerary, Locale locale){
+    public ItineraryPage buildItinerary (Itinerary itinerary, Locale locale) {
         final boolean calculateDistance = (itinerary.getDistance() == null || itinerary.getDistance() == 0);
 
-        ItineraryPage page = new ItineraryPage();
+        ItineraryPage page = new ItineraryPage(itinerary);
         ItineraryStopModule firstStop = null;
         ItineraryStopModule lastStop = null;
         BigDecimal totalDistance = BigDecimal.ZERO;
         Coordinates prevCoordinates = null;
         int index = 1;
 
-        page.setDocument(itinerary);
         page.setDays(documentUtils.getAllowedDocuments(itinerary, Day.class));
 
         for (Day day : page.getDays()) {
@@ -81,7 +81,7 @@ public class ItineraryFactory {
                     continue;
                 }
 
-                ItineraryStopModule module = generateStop(locale, stop, itinerary, index++);
+                ItineraryStopModule module = stopMapper.generateStop(locale, stop, itinerary, index++);
 
                 if (module.getCoordinates() == null){
                     contentLogger.error("The Itinerary {} located at {} has a stop without coordinates," +
@@ -105,7 +105,7 @@ public class ItineraryFactory {
             contentLogger.warn("The itinerary page {} does not have any modules published", itinerary.getPath());
         }
 
-        page.setDistance(calculateDistance ? totalDistance.setScale(0, BigDecimal.ROUND_HALF_UP) :BigDecimal.valueOf(itinerary.getDistance()));
+        page.setDistance(calculateDistance ? totalDistance.setScale(0, RoundingMode.HALF_UP) :BigDecimal.valueOf(itinerary.getDistance()));
 
         populateFirstAndLastStopTexts(page, firstStop, lastStop);
         populateLastStopLinks(page, lastStop, locale);
@@ -116,12 +116,83 @@ public class ItineraryFactory {
         return page;
     }
 
+    @Deprecated
+    public boolean isStopBasedItinerary(Itinerary itinerary) {
+        List<BaseDocument> bean = documentUtils.getAllowedDocuments(itinerary, BaseDocument.class);
+        for (BaseDocument b : bean) {
+            if (b instanceof Day) {
+                return ((Day) b).getStops() != null && !((Day) b).getStops().isEmpty();
+            }
+        }
+        return false;
+    }
+
+    @Deprecated
+    public ItineraryPage buildStopBasedItinerary (Itinerary itinerary, Locale locale) {
+        final boolean calculateDistance = (itinerary.getDistance() == null || itinerary.getDistance() == 0);
+
+        ItineraryPage page = new ItineraryPage(itinerary);
+        ItineraryStopModule firstStop = null;
+        ItineraryStopModule lastStop = null;
+        BigDecimal totalDistance = BigDecimal.ZERO;
+        Coordinates prevCoordinates = null;
+        int index = 1;
+
+        page.setDays(documentUtils.getAllowedDocuments(itinerary, Day.class));
+
+        for (Day day : page.getDays()) {
+            for (Stop stop : day.getStops()) {
+                if (page.getStops() != null && page.getStops().containsKey(stop.getIdentifier())) {
+                    String message = String.format("Duplicate stop '%s' found on itinerary '%s', please review the document %s at: %s ", stop.getTitle(), itinerary.getTitle(), itinerary.getDisplayName(), itinerary.getPath());
+                    contentLogger.error(message);
+                    page.addErrorMessage(message);
+                    continue;
+                }
+
+                ItineraryStopModule module = stopMapper.generateStop(locale, stop, itinerary, index++);
+
+                if (module.getCoordinates() == null){
+                    contentLogger.error("The Itinerary {} located at {} has a stop without coordinates," +
+                            " the stop affected is {} located at {}", itinerary.getName(), itinerary.getPath(), stop.getName(), stop.getPath());
+                }
+
+                lastStop = module;
+                if (firstStop == null) {
+                    firstStop = lastStop;
+                }
+
+                if (calculateDistance && module.getCoordinates() != null) {
+                    totalDistance = totalDistance.add(getDistanceStops(prevCoordinates, module.getCoordinates()));
+                    prevCoordinates = module.getCoordinates();
+                }
+
+                page.addStop(module);
+            }
+        }
+        if (page.getDays() == null || page.getDays().isEmpty()) {
+            contentLogger.warn("The itinerary page {} does not have any modules published", itinerary.getPath());
+        }
+
+        page.setDistance(calculateDistance ? totalDistance.setScale(0, RoundingMode.HALF_UP) :BigDecimal.valueOf(itinerary.getDistance()));
+
+        populateFirstAndLastStopTexts(page, firstStop, lastStop);
+        populateLastStopLinks(page, lastStop, locale);
+        populateTransports(page, itinerary.getTransports());
+        populateThemes(page, itinerary.getTheme());
+        populateAreas(page, itinerary.getAreas());
+
+        return page;
+    }
+
+
+
     /**
      * Populates the first stop text and the last stop text depending on whether they have been set or not in the
      * Itinerary document
      */
+    @Deprecated
     private void populateFirstAndLastStopTexts(ItineraryPage page, ItineraryStopModule first, ItineraryStopModule last){
-        Itinerary itinerary = page.getDocument();
+        Itinerary itinerary = (Itinerary) page.getHippoBean();
 
         if (Contract.isEmpty(itinerary.getStart()) && first != null) {
             page.setFirstStopLocation(first.getSubTitle());
@@ -139,6 +210,7 @@ public class ItineraryFactory {
     /**
      * Method to calculate the distance between stops
      */
+    @Deprecated
     private BigDecimal getDistanceStops(Coordinates previous, Coordinates current) {
         if (previous == null || current == null){
             return BigDecimal.ZERO;
@@ -153,6 +225,7 @@ public class ItineraryFactory {
     /**
      * Transform a Stop document in a ItineraryStopModule and add extra information depending on the type
      */
+    @Deprecated
     public ItineraryStopModule generateStop(Locale locale, Stop stop, Itinerary itinerary, Integer index){
         ItineraryStopModule module = initializeStop(stop);
         module.setIndex(index);
@@ -183,6 +256,7 @@ public class ItineraryFactory {
     /**
      * Creates a Stop from the stop Document type
      */
+    @Deprecated
     private ItineraryStopModule initializeStop(Stop stop) {
         ItineraryStopModule module = new ItineraryStopModule();
         module.setHippoBean(stop);
@@ -201,6 +275,7 @@ public class ItineraryFactory {
     /**
      * Generates the text for time to explore
      */
+    @Deprecated
     private String generateTimeToExplore(String visitDuration, Locale locale){
         return visitDuration + " " + bundle.getResourceBundle(BUNDLE_FILE, visitDuration.equals("1") ?"stop.hour": "stop.hours", locale);
     }
@@ -208,6 +283,7 @@ public class ItineraryFactory {
     /**
      * Extracts all relevant information for an External link in order to enhance the stop
      */
+    @Deprecated
     public void processExternalStop(Locale locale, ItineraryStopModule module, ItineraryExternalLink externalLink) {
         if (!Contract.isEmpty(externalLink.getTimeToExplore())) {
             module.setTimeToExplore(generateTimeToExplore(externalLink.getTimeToExplore(), locale));
@@ -228,6 +304,7 @@ public class ItineraryFactory {
     /**
      * Extracts all relevant information from the Product Card in order to enhance the Stop
      */
+    @Deprecated
     public void processDMSStop(Locale locale, ItineraryStopModule module, DMSLink dmsLink) {
         JsonNode product = dmsData.productCard(dmsLink.getProduct(), locale);
 
@@ -303,6 +380,7 @@ public class ItineraryFactory {
         return Collections.emptyList();
     }
 
+    @Deprecated
     private void populateLastStopLinks(ItineraryPage page, ItineraryStopModule lastStop, Locale locale) {
         if (lastStop != null && lastStop.getCoordinates() != null) {
             var latitude = lastStop.getCoordinates().getLatitude();
@@ -313,6 +391,7 @@ public class ItineraryFactory {
         }
     }
 
+    @Deprecated
     private String getProductSearchUrl(Locale locale, String productType, Double latitude, Double longitude) {
         return ProductSearchBuilder.newInstance().locale(locale).productTypes(productType).proximity(5.)
                 .coordinates(latitude, longitude).build();
