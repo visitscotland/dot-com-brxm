@@ -34,6 +34,11 @@ VS_SSR_ARCHIVED_PACKAGE_PATH=""
 VS_SSR_ARCHIVED_PACKAGE_MD5=""
 VS_SSR_ARCHIVED_PACKAGE_URL=""
 
+# force errors to test the trap
+false | true
+false
+( false )
+
 # --- Jenkins-provided metadata sanity checks (env variable set right after checkout) ---
 : "${REPO_NAME:?REPO_NAME must be set by Jenkins (set env.REPO_NAME after checkout scm)}"
 
