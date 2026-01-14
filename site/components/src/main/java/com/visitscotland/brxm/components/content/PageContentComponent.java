@@ -462,7 +462,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             if (searchResultsPage) {
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
-                pageConfig.addProperty(SEARCH_LOGIC, properties.getGlobalSearchLogic());
+                properties.getGlobalSearchLogic().ifPresent(v -> pageConfig.addProperty(SEARCH_LOGIC, v));
             } else {
                 pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, properties.getFeatureSearchWidget());
                 properties.getGlobalSearchURL().ifPresent(url -> pageConfig.addProperty(SEARCH_LINK, url));
