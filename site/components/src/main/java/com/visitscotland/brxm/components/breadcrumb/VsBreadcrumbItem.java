@@ -5,7 +5,7 @@ import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
 
 public class VsBreadcrumbItem extends BreadcrumbItem {
 
-    private String plainLink;
+    private final String plainLink;
 
     public VsBreadcrumbItem(HstLink link, String title, String plainLink) {
         super(link, title);

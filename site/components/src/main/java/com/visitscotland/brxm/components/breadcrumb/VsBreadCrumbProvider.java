@@ -105,7 +105,7 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
 
     /**
      * Add breadcrumb items based on an ancestor.
-     *
+     * <br>
      * Note: This method has been overriden so we can adapt the way it to our sitemap structure
      *
      * @param items          list of breadcrumb items
@@ -118,9 +118,8 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
                                                final HippoBean ancestorBean, final HstRequest request) {
 
         final ResolvedSiteMapItem currentSmi = request.getRequestContext().getResolvedSiteMapItem();
-        final HippoBean currentItem = getComponent().getBeanForResolvedSiteMapItem(request, currentSmi);
+        HippoBean currentItemBean = getComponent().getBeanForResolvedSiteMapItem(request, currentSmi);
 
-        HippoBean currentItemBean = currentItem;
         while (!currentItemBean.getParentBean().isSelf(ancestorBean) && !currentItemBean.isSelf(ancestorBean)) {
             final BreadcrumbItem item = getBreadcrumbItem(request, currentItemBean);
 
@@ -135,7 +134,7 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
 
     /** Method to check if the index document (content) exists in a particular folder.
      * Extract the proper name from the bean.
-     * @param bean
+     * @param bean Page document
      * @return HippoBean index document (content) or the folder if the index does not exist
      */
     private HippoBean getValidHippoBean (HippoBean bean){
@@ -150,8 +149,8 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
 
     /**
      * Extract the proper name from the bean.
-     * @param bean
-     * @return
+     * @param bean Page document
+     * @return Page text used for navigation elements
      */
     private String getBreadcrumbText(final HippoBean bean) {
         if (bean instanceof Page) {
