@@ -16,10 +16,10 @@ public class ItineraryPage extends PageIntro {
     private List<Entry> transports;
     private List<Entry> areas;
     private Entry theme;
-
     //Properties to be removed from the delivery API
     private String firstStopLocation;
     private String lastStopLocation;
+    // private Integer dayCount;
     private List<Day> days;
     private Map<String, ItineraryStopModule> stops;
     private String lastStopNearbyEat;

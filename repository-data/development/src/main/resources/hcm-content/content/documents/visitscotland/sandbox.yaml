@@ -9957,17 +9957,18 @@
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: f059ee84-d8e3-4e2c-a477-ab311e5e1076
-          hippo:versionHistory: 9783d474-d6b1-48c1-b9cf-30c6525a1752
+          hippo:versionHistory: cc136ec1-57e8-4a37-95e8-a7ad5cbefb56
           /day1[1]:
             jcr:primaryType: visitscotland:Day
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 931b7556-8eeb-4a2d-8271-98377a2f9008
             hippo:availability: []
+            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:55:42.551Z
-            hippostdpubwf:lastModificationDate: 2026-01-09T09:25:31.048Z
+            hippostdpubwf:lastModificationDate: 2026-01-14T14:17:30.759Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f7fb3824-1346-4aad-b9bf-44b81b8018ab
             hippotranslation:locale: en
@@ -9979,11 +9980,11 @@
               hippostd:content: <p>fsdfsdfsd</p>
             /visitscotland:mapLink:
               jcr:primaryType: visitscotland:ExternalLink
-              visitscotland:label: map override test
+              visitscotland:label: ''
               visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5706885,-3.6005787,13z/data=!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
             /visitscotland:ctaLink:
               jcr:primaryType: visitscotland:ExternalLink
-              visitscotland:label: mull overrid test
+              visitscotland:label: ''
               visitscotland:link: https://www.google.com
             /visitscotland:media:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -10000,7 +10001,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:55:42.551Z
-            hippostdpubwf:lastModificationDate: 2026-01-09T09:25:23.222Z
+            hippostdpubwf:lastModificationDate: 2026-01-14T11:13:46.520Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f7fb3824-1346-4aad-b9bf-44b81b8018ab
             hippotranslation:locale: en
@@ -10012,11 +10013,11 @@
               hippostd:content: <p>fsdfsdfsd</p>
             /visitscotland:mapLink:
               jcr:primaryType: visitscotland:ExternalLink
-              visitscotland:label: map override test
+              visitscotland:label: ''
               visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5706885,-3.6005787,13z/data=!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
             /visitscotland:ctaLink:
               jcr:primaryType: visitscotland:ExternalLink
-              visitscotland:label: mull overrid test
+              visitscotland:label: ''
               visitscotland:link: https://www.google.com
             /visitscotland:media:
               jcr:primaryType: hippogallerypicker:imagelink
@@ -10033,9 +10034,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:55:42.551Z
-            hippostdpubwf:lastModificationDate: 2026-01-09T09:25:23.222Z
+            hippostdpubwf:lastModificationDate: 2026-01-14T11:13:46.520Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-01-09T09:26:10.860Z
+            hippostdpubwf:publicationDate: 2026-01-14T11:13:52.062Z
             hippotranslation:id: f7fb3824-1346-4aad-b9bf-44b81b8018ab
             hippotranslation:locale: en
             visitscotland:title: dsssdfs
@@ -10046,11 +10047,11 @@
               hippostd:content: <p>fsdfsdfsd</p>
             /visitscotland:mapLink:
               jcr:primaryType: visitscotland:ExternalLink
-              visitscotland:label: map override test
+              visitscotland:label: ''
               visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5706885,-3.6005787,13z/data=!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
             /visitscotland:ctaLink:
               jcr:primaryType: visitscotland:ExternalLink
-              visitscotland:label: mull overrid test
+              visitscotland:label: ''
               visitscotland:link: https://www.google.com
             /visitscotland:media:
               jcr:primaryType: hippogallerypicker:imagelink

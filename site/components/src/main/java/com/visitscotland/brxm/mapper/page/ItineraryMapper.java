@@ -8,6 +8,7 @@ import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.mapper.ImageMapper;
+import com.visitscotland.brxm.mapper.module.DayMapper;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.megalinks.Entry;
@@ -29,7 +30,9 @@ import java.util.regex.Pattern;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
-
+/**
+ * use the google maps service rather than code in this class
+ */
 @Component
 public class ItineraryMapper {
 
@@ -50,11 +53,12 @@ public class ItineraryMapper {
     private final LinkService linkService;
     private final Logger contentLogger;
     private final StopMapper stopMapper;
+    private final DayMapper dayMapper;
 
 
     public ItineraryMapper(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
                            DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
-                           ContentLogger contentLogger, EntryMapper entryMapper, StopMapper stopMapper) {
+                           ContentLogger contentLogger, EntryMapper entryMapper, StopMapper stopMapper, DayMapper dayMapper) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageMapper = imageMapper;
@@ -64,77 +68,29 @@ public class ItineraryMapper {
         this.contentLogger = contentLogger;
         this.entryMapper = entryMapper;
         this.stopMapper = stopMapper;
+        this.dayMapper = dayMapper;
     }
 
     /**
-     * checks if any days have stops associated with them
-     */
-    private boolean checkForStops(List<Day> days) {
-
-        for (Day day : days) {
-            List <Stop> stops = day.getStops();
-            if (stops != null && !stops.isEmpty()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Collects the information about an itinerary and enhances the information in it
+     * Method for creating new format Itineraries
+     * Collectss the information about an itinerary and enhances the information in it
      */
     public ItineraryPage buildItinerary (Itinerary itinerary, Locale locale){
 
         final boolean calculateDistance = (itinerary.getDistance() == null || itinerary.getDistance() == 0);
 
-        contentLogger.warn("\nStarting itinerary handling...\n");
+        dayMapper.setLocale(locale);
 
         ItineraryPage page = new ItineraryPage(itinerary);
-        ItineraryStopModule firstStop = null;
-        ItineraryStopModule lastStop = null;
-        BigDecimal totalDistance = BigDecimal.ZERO;
-        Coordinates prevCoordinates = null;
-        int index = 1;
-
         page.setDays(documentUtils.getAllowedDocuments(itinerary, Day.class));
 
-        for (Day day : page.getDays()) {
-            for (Stop stop : day.getStops()) {
-                if (page.getStops() != null && page.getStops().containsKey(stop.getIdentifier())) {
-                    String message = String.format("Duplicate stop '%s' found on itinerary '%s', please review the document %s at: %s ", stop.getTitle(), itinerary.getTitle(), itinerary.getDisplayName(), itinerary.getPath());
-                    contentLogger.error(message);
-                    page.addErrorMessage(message);
-                    continue;
-                }
-
-                ItineraryStopModule module = stopMapper.generateStop(locale, stop, itinerary, index++);
-
-                if (module.getCoordinates() == null){
-                    contentLogger.error("The Itinerary {} located at {} has a stop without coordinates," +
-                            " the stop affected is {} located at {}", itinerary.getName(), itinerary.getPath(), stop.getName(), stop.getPath());
-                }
-
-                lastStop = module;
-                if (firstStop == null) {
-                    firstStop = lastStop;
-                }
-
-                if (calculateDistance && module.getCoordinates() != null) {
-                    totalDistance = totalDistance.add(getDistanceStops(prevCoordinates, module.getCoordinates()));
-                    prevCoordinates = module.getCoordinates();
-                }
-
-                page.addStop(module);
-            }
-        }
         if (page.getDays() == null || page.getDays().isEmpty()) {
             contentLogger.warn("The itinerary page {} does not have any modules published", itinerary.getPath());
+        } else {
+            page.setDistance(calculateDistanceFromDays(page.getDays()));
         }
+        page.setSubHeading(itinerary.getSubheading());
 
-        page.setDistance(calculateDistance ? totalDistance.setScale(0, RoundingMode.HALF_UP) :BigDecimal.valueOf(itinerary.getDistance()));
-
-        populateFirstAndLastStopTexts(page, firstStop, lastStop);
-        populateLastStopLinks(page, lastStop, locale);
         populateTransports(page, itinerary.getTransports());
         populateThemes(page, itinerary.getTheme());
         populateAreas(page, itinerary.getAreas());
@@ -166,14 +122,11 @@ public class ItineraryMapper {
 
         page.setDays(documentUtils.getAllowedDocuments(itinerary, Day.class));
 
-        // check if we have stops at all
-        final boolean hasStops = checkForStops(page.getDays());
-
         if (page.getDays() == null || page.getDays().isEmpty()) {
 
             contentLogger.warn("The itinerary page {} does not have any modules published", itinerary.getPath());
 
-        } else if (hasStops) {
+        } else {
             contentLogger.warn("Processing old itinerary....");
             for (Day day : page.getDays()) {
                 for (Stop stop : day.getStops()) {
@@ -186,7 +139,7 @@ public class ItineraryMapper {
 
                     ItineraryStopModule module = stopMapper.generateStop(locale, stop, itinerary, index++);
 
-                    if (module.getCoordinates() == null){
+                    if (module.getCoordinates() == null) {
                         contentLogger.error("The Itinerary {} located at {} has a stop without coordinates," +
                                 " the stop affected is {} located at {}", itinerary.getName(), itinerary.getPath(), stop.getName(), stop.getPath());
                     }
@@ -204,18 +157,11 @@ public class ItineraryMapper {
                     page.addStop(module);
                 }
             }
-
             page.setDistance(calculateDistance ? totalDistance.setScale(0, RoundingMode.HALF_UP) :BigDecimal.valueOf(itinerary.getDistance()));
 
             populateFirstAndLastStopTexts(page, firstStop, lastStop);
             // this needs to go after release on the 3rd feb
             populateLastStopLinks(page, lastStop, locale);
-
-        } else {
-            // handle as new
-            contentLogger.warn("Processing new itinerary....");
-            page.setDistance(calculateDistanceFromDays(page.getDays()));
-            page.setSubHeading(itinerary.getSubheading());
         }
 
         populateTransports(page, itinerary.getTransports());
