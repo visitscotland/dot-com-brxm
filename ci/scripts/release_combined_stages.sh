@@ -8,7 +8,7 @@
 set -Eeuo pipefail
 IFS=$'\n\t'
 # Trap failures and include the exact command and the *actual* failing line number
-trap 'rc=$?; echo "ERROR: ${BASH_SOURCE[1]}:${BASH_LINENO[0]}: command failed: ${BASH_COMMAND}" >&2; exit $rc' ERR
+trap 'rc=$?; echo "ERROR: ${BASH_SOURCE[1]:-${BASH_SOURCE[0]:-?}}: ${LINENO:-${BASH_LINENO[0]:-?}}: command failed: ${BASH_COMMAND:-?}" >&2; exit $rc' ERR
 
 # ---- Inputs ----
 POM="${1:-pom.xml}"
