@@ -16,6 +16,7 @@ definitions:
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
+          hipposysedit:validators: ['visitscotland:megalinks-grid-type-validator']
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -199,7 +200,7 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Default,List,Horizontal Links,Grid,Grid 3,Grid 4
+              selectable.options: Default,List,Horizontal Links,Grid
           /teaserVisible:
             jcr:primaryType: frontend:plugin
             caption: Show Teasers
