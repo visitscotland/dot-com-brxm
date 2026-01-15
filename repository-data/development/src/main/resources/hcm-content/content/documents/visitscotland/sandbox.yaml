@@ -9822,35 +9822,36 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: d660a005-456f-433d-842a-7ca180139771
           hippo:name: Itinerary new layout
-          hippo:versionHistory: 3d7fde01-bf31-4013-97ea-2607b8206287
+          hippo:versionHistory: f97c68ea-d3b5-4568-9056-0337a46275c4
           /content[1]:
             jcr:primaryType: visitscotland:Itinerary
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 9d83aaf9-c678-4298-8b3a-aa3fa2fd4124
             hippo:availability: []
+            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
-            hippostdpubwf:lastModificationDate: 2026-01-09T15:27:40.020Z
+            hippostdpubwf:lastModificationDate: 2026-01-15T15:22:41.471Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
             hippotranslation:locale: en
             visitscotland:areas: [aberdeen]
             visitscotland:breadcrumb: ''
             visitscotland:distance: 0.0
-            visitscotland:finish: ''
+            visitscotland:finish: overrid finish for new itinerary
             visitscotland:hideNewsletter: false
-            visitscotland:highlights: ['']
+            visitscotland:highlights: [Deprecated Highlights for new itinerary]
             visitscotland:popular: false
-            visitscotland:seoDescription: sdfdssdf
+            visitscotland:seoDescription: Meta Description
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: fdsfsdaa
-            visitscotland:start: ''
-            visitscotland:subheading: ddfs
-            visitscotland:teaser: fdfdfdf
+            visitscotland:seoTitle: Meta Title for new Itinerary
+            visitscotland:start: override start for new itinerary
+            visitscotland:subheading: Subheading for new itinerary
+            visitscotland:teaser: Teaser for new itinerary
             visitscotland:theme: familyev
-            visitscotland:title: sdffdsdfs
+            visitscotland:title: Heading for new itinerary
             visitscotland:translation: ''
             visitscotland:transports: [boat]
             /visitscotland:heroImage:
@@ -9861,11 +9862,32 @@
               hippo:values: []
             /visitscotland:introduction:
               jcr:primaryType: hippostd:html
-              hippostd:content: <p>fdfdfsfss</p>
+              hippostd:content: <p>Introduction&nbsp;for new itinerary</p>
             /visitscotland:mapLink:
               jcr:primaryType: visitscotland:ExternalLink
-              visitscotland:label: fdfdf
+              visitscotland:label: CTA text override for map url
               visitscotland:link: https://www.google.com
+            /visitscotland:otherThings:
+              jcr:primaryType: visitscotland:OTYML
+              visitscotland:title: Override title (OTYML) for new itinerary
+              /visitscotland:links[1]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
+              /visitscotland:links[2]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
+              /visitscotland:links[3]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: a397c3e9-f1c2-4520-b040-af8016ed66be
+              /visitscotland:links[4]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: d40c3ebe-d9bb-4107-bb5d-cdbdcc051f37
+              /visitscotland:links[5]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: a70f9aea-08e4-4957-951f-e7131901c302
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Copy (OTYML)&nbsp;for new itinerary</p>
           /content[2]:
             jcr:primaryType: visitscotland:Itinerary
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -9875,25 +9897,25 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
-            hippostdpubwf:lastModificationDate: 2026-01-09T15:27:51.170Z
+            hippostdpubwf:lastModificationDate: 2026-01-15T15:11:20.380Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
             hippotranslation:locale: en
             visitscotland:areas: [aberdeen]
             visitscotland:breadcrumb: ''
             visitscotland:distance: 0.0
-            visitscotland:finish: ''
+            visitscotland:finish: overrid finish for new itinerary
             visitscotland:hideNewsletter: false
-            visitscotland:highlights: ['']
+            visitscotland:highlights: [Deprecated Highlights for new itinerary]
             visitscotland:popular: false
-            visitscotland:seoDescription: sdfdssdf
+            visitscotland:seoDescription: Meta Description
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: fdsfsdaa
-            visitscotland:start: ''
-            visitscotland:subheading: ddfs
-            visitscotland:teaser: fdfdfdf
+            visitscotland:seoTitle: Meta Title for new Itinerary
+            visitscotland:start: override start for new itinerary
+            visitscotland:subheading: Subheading for new itinerary
+            visitscotland:teaser: Teaser for new itinerary
             visitscotland:theme: familyev
-            visitscotland:title: sdffdsdfs
+            visitscotland:title: Heading for new itinerary
             visitscotland:translation: ''
             visitscotland:transports: [boat]
             /visitscotland:heroImage:
@@ -9904,11 +9926,32 @@
               hippo:values: []
             /visitscotland:introduction:
               jcr:primaryType: hippostd:html
-              hippostd:content: <p>fdfdfsfss</p>
+              hippostd:content: <p>Introduction&nbsp;for new itinerary</p>
             /visitscotland:mapLink:
               jcr:primaryType: visitscotland:ExternalLink
-              visitscotland:label: fdfdf
+              visitscotland:label: CTA text override for map url
               visitscotland:link: https://www.google.com
+            /visitscotland:otherThings:
+              jcr:primaryType: visitscotland:OTYML
+              visitscotland:title: Override title (OTYML) for new itinerary
+              /visitscotland:links[1]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
+              /visitscotland:links[2]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
+              /visitscotland:links[3]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: a397c3e9-f1c2-4520-b040-af8016ed66be
+              /visitscotland:links[4]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: d40c3ebe-d9bb-4107-bb5d-cdbdcc051f37
+              /visitscotland:links[5]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: a70f9aea-08e4-4957-951f-e7131901c302
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Copy (OTYML)&nbsp;for new itinerary</p>
           /content[3]:
             jcr:primaryType: visitscotland:Itinerary
             jcr:mixinTypes: ['mix:referenceable']
@@ -9918,26 +9961,26 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
-            hippostdpubwf:lastModificationDate: 2026-01-09T15:27:51.170Z
+            hippostdpubwf:lastModificationDate: 2026-01-15T15:11:20.380Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-01-09T15:28:05.689Z
+            hippostdpubwf:publicationDate: 2026-01-15T15:11:27.770Z
             hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
             hippotranslation:locale: en
             visitscotland:areas: [aberdeen]
             visitscotland:breadcrumb: ''
             visitscotland:distance: 0.0
-            visitscotland:finish: ''
+            visitscotland:finish: overrid finish for new itinerary
             visitscotland:hideNewsletter: false
-            visitscotland:highlights: ['']
+            visitscotland:highlights: [Deprecated Highlights for new itinerary]
             visitscotland:popular: false
-            visitscotland:seoDescription: sdfdssdf
+            visitscotland:seoDescription: Meta Description
             visitscotland:seoNoIndex: false
-            visitscotland:seoTitle: fdsfsdaa
-            visitscotland:start: ''
-            visitscotland:subheading: ddfs
-            visitscotland:teaser: fdfdfdf
+            visitscotland:seoTitle: Meta Title for new Itinerary
+            visitscotland:start: override start for new itinerary
+            visitscotland:subheading: Subheading for new itinerary
+            visitscotland:teaser: Teaser for new itinerary
             visitscotland:theme: familyev
-            visitscotland:title: sdffdsdfs
+            visitscotland:title: Heading for new itinerary
             visitscotland:translation: ''
             visitscotland:transports: [boat]
             /visitscotland:heroImage:
@@ -9948,27 +9991,47 @@
               hippo:values: []
             /visitscotland:introduction:
               jcr:primaryType: hippostd:html
-              hippostd:content: <p>fdfdfsfss</p>
+              hippostd:content: <p>Introduction&nbsp;for new itinerary</p>
             /visitscotland:mapLink:
               jcr:primaryType: visitscotland:ExternalLink
-              visitscotland:label: fdfdf
+              visitscotland:label: CTA text override for map url
               visitscotland:link: https://www.google.com
+            /visitscotland:otherThings:
+              jcr:primaryType: visitscotland:OTYML
+              visitscotland:title: Override title (OTYML) for new itinerary
+              /visitscotland:links[1]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
+              /visitscotland:links[2]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
+              /visitscotland:links[3]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: a397c3e9-f1c2-4520-b040-af8016ed66be
+              /visitscotland:links[4]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: d40c3ebe-d9bb-4107-bb5d-cdbdcc051f37
+              /visitscotland:links[5]:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: a70f9aea-08e4-4957-951f-e7131901c302
+              /visitscotland:introduction:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Copy (OTYML)&nbsp;for new itinerary</p>
         /day1:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: f059ee84-d8e3-4e2c-a477-ab311e5e1076
-          hippo:versionHistory: cc136ec1-57e8-4a37-95e8-a7ad5cbefb56
+          hippo:versionHistory: 729a4489-f38d-4740-9886-ed7796f55393
           /day1[1]:
             jcr:primaryType: visitscotland:Day
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 931b7556-8eeb-4a2d-8271-98377a2f9008
             hippo:availability: []
-            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:55:42.551Z
-            hippostdpubwf:lastModificationDate: 2026-01-14T14:17:30.759Z
+            hippostdpubwf:lastModificationDate: 2026-01-15T14:27:01.251Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f7fb3824-1346-4aad-b9bf-44b81b8018ab
             hippotranslation:locale: en
@@ -9988,7 +10051,7 @@
               visitscotland:link: https://www.google.com
             /visitscotland:media:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -10001,7 +10064,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:55:42.551Z
-            hippostdpubwf:lastModificationDate: 2026-01-14T11:13:46.520Z
+            hippostdpubwf:lastModificationDate: 2026-01-15T14:26:59.703Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f7fb3824-1346-4aad-b9bf-44b81b8018ab
             hippotranslation:locale: en
@@ -10021,7 +10084,7 @@
               visitscotland:link: https://www.google.com
             /visitscotland:media:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -10034,9 +10097,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:55:42.551Z
-            hippostdpubwf:lastModificationDate: 2026-01-14T11:13:46.520Z
+            hippostdpubwf:lastModificationDate: 2026-01-15T14:26:59.703Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-01-14T11:13:52.062Z
+            hippostdpubwf:publicationDate: 2026-01-15T14:27:15.310Z
             hippotranslation:id: f7fb3824-1346-4aad-b9bf-44b81b8018ab
             hippotranslation:locale: en
             visitscotland:title: dsssdfs
@@ -10055,7 +10118,7 @@
               visitscotland:link: https://www.google.com
             /visitscotland:media:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+              hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
               hippo:facets: []
               hippo:modes: []
               hippo:values: []

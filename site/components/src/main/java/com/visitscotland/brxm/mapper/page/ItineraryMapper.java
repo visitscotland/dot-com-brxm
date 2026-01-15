@@ -13,6 +13,7 @@ import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.services.GoogleMapsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
@@ -25,8 +26,6 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
@@ -38,10 +37,6 @@ public class ItineraryMapper {
 
     private static final Logger logger = LoggerFactory.getLogger(ItineraryMapper.class);
 
-    private static final String PLACE_URL_REGEX =
-            "(?i)https://www\\.google\\.com/maps/place/[^/]*/@(-?\\d{1,3}\\.\\d{1,20}),(-?\\d{1,3}\\.\\d{1,20}),.*";
-    private static final Pattern pattern = Pattern.compile(PLACE_URL_REGEX);
-
     static final String BUNDLE_FILE = "itinerary";
 
     private final ResourceBundleService bundle;
@@ -51,6 +46,7 @@ public class ItineraryMapper {
     private final EntryMapper entryMapper;
     private final DocumentUtilsService documentUtils;
     private final LinkService linkService;
+    private final GoogleMapsService googleMapsService;
     private final Logger contentLogger;
     private final StopMapper stopMapper;
     private final DayMapper dayMapper;
@@ -58,13 +54,15 @@ public class ItineraryMapper {
 
     public ItineraryMapper(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
                            DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
-                           ContentLogger contentLogger, EntryMapper entryMapper, StopMapper stopMapper, DayMapper dayMapper) {
+                           GoogleMapsService googleMapsService, ContentLogger contentLogger,
+                           EntryMapper entryMapper, StopMapper stopMapper, DayMapper dayMapper) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageMapper = imageMapper;
         this.utils = utils;
         this.documentUtils = documentUtils;
         this.linkService = linkService;
+        this.googleMapsService = googleMapsService;
         this.contentLogger = contentLogger;
         this.entryMapper = entryMapper;
         this.stopMapper = stopMapper;
@@ -73,10 +71,11 @@ public class ItineraryMapper {
 
     /**
      * Method for creating new format Itineraries
-     * Collectss the information about an itinerary and enhances the information in it
+     * Collects the information about an itinerary and enhances the information in it
      */
-    public ItineraryPage buildItinerary (Itinerary itinerary, Locale locale){
+    public ItineraryPage buildItinerary (final Itinerary itinerary, final Locale locale){
 
+        // check if a user value has been supplied
         final boolean calculateDistance = (itinerary.getDistance() == null || itinerary.getDistance() == 0);
 
         dayMapper.setLocale(locale);
@@ -86,8 +85,15 @@ public class ItineraryMapper {
 
         if (page.getDays() == null || page.getDays().isEmpty()) {
             contentLogger.warn("The itinerary page {} does not have any modules published", itinerary.getPath());
-        } else {
-            page.setDistance(calculateDistanceFromDays(page.getDays()));
+            page.setDayCount(0);
+        } else if (calculateDistance) {
+            page.setDistance(googleMapsService.calculateDistanceFromDays(page.getDays()));
+            if (page.getDays() != null && !page.getDays().isEmpty()) {
+                page.setDayCount(page.getDays().size());
+            } else {
+                page.setDayCount(0);
+                contentLogger.warn("Unable to extract days from itinerary page {}", itinerary.getPath());
+            }
         }
         page.setSubHeading(itinerary.getSubheading());
 
@@ -99,7 +105,7 @@ public class ItineraryMapper {
     }
 
     @Deprecated
-    public boolean isStopBasedItinerary(Itinerary itinerary) {
+    public boolean isStopBasedItinerary(final Itinerary itinerary) {
         List<BaseDocument> bean = documentUtils.getAllowedDocuments(itinerary, BaseDocument.class);
         for (BaseDocument b : bean) {
             if (b instanceof Day) {
@@ -109,8 +115,11 @@ public class ItineraryMapper {
         return false;
     }
 
+    /**
+     * Build an old format itinerary
+     */
     @Deprecated
-    public ItineraryPage buildStopBasedItinerary (Itinerary itinerary, Locale locale) {
+    public ItineraryPage buildStopBasedItinerary (final Itinerary itinerary, final Locale locale) {
         final boolean calculateDistance = (itinerary.getDistance() == null || itinerary.getDistance() == 0);
 
         ItineraryPage page = new ItineraryPage(itinerary);
@@ -171,50 +180,6 @@ public class ItineraryMapper {
         return page;
     }
 
-
-    /**
-     * calculates the total distance across days from the coordinates contained in the map
-     * url for each day
-     *
-     * this will need a link/coordinates validator
-     */
-    private BigDecimal calculateDistanceFromDays(List <Day> days) {
-
-        BigDecimal distance = new BigDecimal(0);
-        TreeMap<Integer, Coordinates> coordinatesMap = new TreeMap<>();
-        int dayCount = 0;
-
-        for (Day day : days) {
-            final String mapUrl = day.getMapLink().getLink();
-            if (mapUrl == null) {
-                contentLogger.warn("No map Url provided for day");
-                return distance;
-            } else {
-                contentLogger.info("Map url: {}", mapUrl);
-            }
-            final Matcher matcher = pattern.matcher(mapUrl);
-
-            if (matcher.matches()) {
-                coordinatesMap.put(dayCount++, new Coordinates(Double.valueOf(matcher.group(1)),Double.valueOf(matcher.group(2))));
-            } else {
-                contentLogger.warn("Could not extract coordinates from map Url {}", mapUrl);
-            }
-        }
-
-        Coordinates previous = null;
-        for (Coordinates current : coordinatesMap.values()) {
-            if (previous == null) {
-                previous = current;
-                continue;
-            }
-
-            distance = distance.add(getDistanceStops(previous, current));
-            previous = current;
-        }
-
-        return distance;
-    }
-
     /**
      * Populates the first stop text and the last stop text depending on whether they have been set or not in the
      * Itinerary document
@@ -238,9 +203,11 @@ public class ItineraryMapper {
 
     /**
      * Method to calculate the distance between stops
+     * *
+     * moved to googleMapsService - remove from here once deprecated
      */
     @Deprecated
-    private BigDecimal getDistanceStops(Coordinates previous, Coordinates current) {
+    private BigDecimal getDistanceStops(final Coordinates previous, final Coordinates current) {
         if (previous == null || current == null){
             return BigDecimal.ZERO;
         } else {
@@ -255,7 +222,7 @@ public class ItineraryMapper {
      * Transform a Stop document in a ItineraryStopModule and add extra information depending on the type
      */
     @Deprecated
-    public ItineraryStopModule generateStop(Locale locale, Stop stop, Itinerary itinerary, Integer index){
+    public ItineraryStopModule generateStop(final Locale locale, final Stop stop, final Itinerary itinerary, final Integer index){
         ItineraryStopModule module = initializeStop(stop);
         module.setIndex(index);
 
@@ -286,7 +253,7 @@ public class ItineraryMapper {
      * Creates a Stop from the stop Document type
      */
     @Deprecated
-    private ItineraryStopModule initializeStop(Stop stop) {
+    private ItineraryStopModule initializeStop(final Stop stop) {
         ItineraryStopModule module = new ItineraryStopModule();
         module.setHippoBean(stop);
         module.setTitle(stop.getTitle());
@@ -305,7 +272,7 @@ public class ItineraryMapper {
      * Generates the text for time to explore
      */
     @Deprecated
-    private String generateTimeToExplore(String visitDuration, Locale locale){
+    private String generateTimeToExplore(final String visitDuration, final Locale locale){
         return visitDuration + " " + bundle.getResourceBundle(BUNDLE_FILE, visitDuration.equals("1") ?"stop.hour": "stop.hours", locale);
     }
 
@@ -398,7 +365,7 @@ public class ItineraryMapper {
         page.setAreas(valueListToEntryList(areas, ValueList.VS_ITINERARY_AREAS));
     }
 
-    private List<com.visitscotland.brxm.model.megalinks.Entry> valueListToEntryList(String[] items, ValueList valueList){
+    private List<com.visitscotland.brxm.model.megalinks.Entry> valueListToEntryList(final String[] items, final ValueList valueList) {
         if (items != null) {
             List<Entry> entries = new ArrayList<>(items.length);
             for (String item : items) {

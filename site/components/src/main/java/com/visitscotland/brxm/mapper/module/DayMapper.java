@@ -29,6 +29,7 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
 
     private Locale locale;
 
+    // some of these to be removed
     private final ResourceBundleService bundle;
     private final DMSDataService dmsData;
     private final ImageMapper imageMapper;
@@ -57,6 +58,10 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         // nothing needed here for now
     }
 
+    /**
+     * Set the locale from the parent itinerary for translations
+     * @param locale
+     */
     public void setLocale(Locale locale) {
         this.locale = locale;
     }
