@@ -37,6 +37,7 @@ VS_SSR_ARCHIVED_PACKAGE_URL=""
 
 # ---- Preconditions / setup ----
 WORKSPACE="${WORKSPACE:-$(pwd)}"
+mkdir -p "$OUT_DIR"
 
 # ---- Helpers ----
 json_escape() {
