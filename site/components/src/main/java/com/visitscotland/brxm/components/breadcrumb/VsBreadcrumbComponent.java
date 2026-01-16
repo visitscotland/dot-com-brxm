@@ -41,6 +41,7 @@ public class VsBreadcrumbComponent extends CommonComponent {
     private HippoUtilsService hippoUtilsService;
     private DocumentUtilsService documentUtils;
 
+    @Override
     public void init(ServletContext servletContext, ComponentConfiguration componentConfig) throws HstComponentException {
         super.init(servletContext, componentConfig);
         this.breadcrumbProvider = new VsBreadCrumbProvider(this);
@@ -48,6 +49,7 @@ public class VsBreadcrumbComponent extends CommonComponent {
         this.documentUtils = VsComponentManager.get(DocumentUtilsService.class);
     }
 
+    @Override
     public void doBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
 
