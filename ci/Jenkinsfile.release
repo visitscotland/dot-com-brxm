@@ -502,7 +502,6 @@ pipeline {
                       "build-number.txt" \
                       "artifacts" \
                       "${GIT_COMMIT}.log" \
-                      "ci/properties/release_env.properties" \
                       "site/webapp/target/site.war" \
                       "META-INF/MANIFEST.MF" \
                       "--mode=all"
@@ -533,7 +532,7 @@ pipeline {
             }
             post {
                 always {
-                    archiveArtifacts artifacts: 'artifacts/**, ci/properties/release_env.properties', onlyIfSuccessful: false
+                    archiveArtifacts artifacts: 'artifacts/**', onlyIfSuccessful: false
                 }
             }
         }

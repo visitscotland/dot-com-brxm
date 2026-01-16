@@ -4,7 +4,6 @@
 # Outputs:
 #   - <out_dir>/results.json  (single source of truth for pipeline)
 #   - <out_dir>/email.html    (rendered email body)
-#   - <props_path>            (legacy .properties for back-compat)
 set -Eeuo pipefail
 IFS=$'\n\t'
 # Trap failures and include the exact command and the *actual* failing line number
@@ -15,10 +14,9 @@ POM="${1:-pom.xml}"
 BUILD_NUMBER_FILE="${2:-.build-meta/build-number.txt}"
 OUT_DIR="${3:-artifacts}"
 LOG_FILE="${4:-${GIT_COMMIT:?GIT_COMMIT is required}.log}"
-PROPS_PATH="${5:-ci/properties/release_env.properties}"
-SITE_WAR="${6:-site/webapp/target/site.war}"        # kept for backwards-compatibility, not used directly anymore
-MANIFEST_PATH="${7:-META-INF/MANIFEST.MF}"          # kept for backwards-compatibility, not used directly anymore
-MODE="${8:-all}"  # can be: all, step1, step2, step3, etc.
+SITE_WAR="${5:-site/webapp/target/site.war}"        # kept for backwards-compatibility, not used directly anymore
+MANIFEST_PATH="${6:-META-INF/MANIFEST.MF}"          # kept for backwards-compatibility, not used directly anymore
+MODE="${7:-all}"  # can be: all, step1, step2, step3, etc.
 
 # ---- Shared variables ----
 DISTRO_FILE=""
@@ -39,9 +37,6 @@ VS_SSR_ARCHIVED_PACKAGE_URL=""
 
 # ---- Preconditions / setup ----
 WORKSPACE="${WORKSPACE:-$(pwd)}"
-mkdir -p "$OUT_DIR" "$(dirname "$PROPS_PATH")"
-# Zero/init legacy props (same keys as before)
-: > "$PROPS_PATH"
 
 # ---- Helpers ----
 json_escape() {
@@ -451,21 +446,7 @@ step_6_write_outputs() {
 }
 JSON
 
-  # ---- Write legacy .properties (for any other consumers) ----
-  {
-    echo "VS_RELEASE_PACKAGE_WORKSPACE_MD5=${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}"
-    echo "VS_RELEASE_PACKAGE_NEXUS_URL=${VS_RELEASE_PACKAGE_NEXUS_URL:-}"
-    echo "VS_RELEASE_CANDIDATE_NEXUS_FILENAME=${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}"
-    echo "VS_ERROR_LINES_EMAIL=${VS_ERROR_LINES_EMAIL:-}"
-    echo "VS_PIPELINE_OUTCOME_EMAIL=${VS_PIPELINE_OUTCOME_EMAIL:-}"
-    echo "VS_SITE_WAR_BUILD_NUMBER=${VS_SITE_WAR_BUILD_NUMBER:-}"
-    echo "VS_RELEASE_VERSION_DETECTED_FOR_EMAIL=${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-}"
-    echo "VS_EMAIL_SUBJECT=${EMAIL_SUBJECT}"
-    echo "VS_EMAIL_HTML_FILE=${EMAIL_HTML_FILE}"
-  } >> "$PROPS_PATH"
-
   echo "            (debugging) Wrote: $RESULTS_JSON"
-  echo "            (debugging) Wrote: $PROPS_PATH"
   echo "            (debugging) Wrote: $EMAIL_HTML_FILE"
 }
 
