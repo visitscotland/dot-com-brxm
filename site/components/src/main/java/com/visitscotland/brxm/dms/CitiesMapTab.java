@@ -4,7 +4,6 @@ public enum CitiesMapTab {
     ACCOMMODATION(DMSConstants.TYPE_ACCOMMODATION, "map.acco"),
     ATTRACTION(DMSConstants.TYPE_ATTRACTIONS, "map.attr"),
     ACTIVITIES(DMSConstants.TYPE_ACTIVITIES, "map.acti"),
-    EVENTS(DMSConstants.TYPE_EVENTS, "map.even"),
     FOOD_DRINK(DMSConstants.TYPE_FOOD_DRINK, "map.cate"),
     SHOPPING(DMSConstants.TYPE_RETAIL, "map.reta");
 
