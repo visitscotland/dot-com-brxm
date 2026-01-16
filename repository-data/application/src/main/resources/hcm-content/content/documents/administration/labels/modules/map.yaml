@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: c443083d-2924-408b-85a5-0a08f3ac0bae
   hippo:name: Map
-  hippo:versionHistory: e4ae526f-faf2-4359-9491-875ab6c0e2ae
+  hippo:versionHistory: 5140f15e-c9a8-47ea-a927-3b0d3c4a7404
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,11 +13,11 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-01-16T09:45:33.187Z
+    hippostdpubwf:lastModificationDate: 2026-01-16T09:52:22.329Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -27,7 +27,7 @@
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
       map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
-      map.search-map, map.google-disclaimer-text, map.google-disclaimer-title]
+      map.search-map, map.google-disclaimer-text, map.google-disclaimer-title, map.google-disclaimer-link-title]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
       Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
       Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
@@ -42,7 +42,7 @@
         locations., Search the map, Map search results are provided by Google. VisitScotland
         accepts no responsibility for any error or misrepresentation contained in
         search results. Search results are provided for your information only and
-        are not endorsed by VisitScotland., About these results]
+        are not endorsed by VisitScotland., About these results, About these results]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -57,7 +57,8 @@
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
       Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
-        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, '', '']
+        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, '', '',
+      '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
@@ -71,7 +72,7 @@
         clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
         para mostrar este mapa, Refinar resultados de búsqueda, No hemos encontrado
         nada aquí. Intenta alejar el zoom para explorar más ubicaciones., Buscar en
-        el mapa, '', '']
+        el mapa, '', '', '']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -86,7 +87,7 @@
       Rechercher, Afficher les résultats pour, Les cookies doivent être activés pour
         afficher cette carte, Affiner vos résultats de recherche, Nous n’avons rien
         trouvé dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres
-        zones., Rechercher sur la carte, '', '']
+        zones., Rechercher sur la carte, '', '', '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
@@ -100,7 +101,8 @@
         non è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola
         chiave, Cerca, Risultati della ricerca per, I cookie devono essere attivati
         per visualizzare questa mappa, Affina i tuoi risultati, Non abbiamo trovato
-        niente qui. Prova a zoomare indietro per vedere altri luoghi., '', '', '']
+        niente qui. Prova a zoomare indietro per vedere altri luoghi., '', '', '',
+      '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
@@ -113,7 +115,7 @@
       Distilleerderijen, Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn
         cookies nodig om deze kaart te tonen, Verfijn je zoekresultaten, Er zijn helaas
         geen resultaten gevonden. Zoom uit om meerdere locaties te ontdekken., Zoek
-        op de kaart, '', '']
+        op de kaart, '', '', '']
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -123,11 +125,11 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-01-16T09:46:12.871Z
+    hippostdpubwf:lastModificationDate: 2026-01-16T09:53:04.521Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -137,7 +139,7 @@
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
       map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
-      map.search-map, map.google-disclaimer-text, map.google-disclaimer-title]
+      map.search-map, map.google-disclaimer-text, map.google-disclaimer-title, map.google-disclaimer-link-title]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
       Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
       Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
@@ -152,7 +154,7 @@
         locations., Search the map, Map search results are provided by Google. VisitScotland
         accepts no responsibility for any error or misrepresentation contained in
         search results. Search results are provided for your information only and
-        are not endorsed by VisitScotland., About these results]
+        are not endorsed by VisitScotland., About these results, About these results]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -167,7 +169,8 @@
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
       Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
-        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, '', '']
+        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, '', '',
+      '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
@@ -181,7 +184,7 @@
         clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
         para mostrar este mapa, Refinar resultados de búsqueda, No hemos encontrado
         nada aquí. Intenta alejar el zoom para explorar más ubicaciones., Buscar en
-        el mapa, '', '']
+        el mapa, '', '', '']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -196,7 +199,7 @@
       Rechercher, Afficher les résultats pour, Les cookies doivent être activés pour
         afficher cette carte, Affiner vos résultats de recherche, Nous n’avons rien
         trouvé dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres
-        zones., Rechercher sur la carte, '', '']
+        zones., Rechercher sur la carte, '', '', '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
@@ -210,7 +213,8 @@
         non è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola
         chiave, Cerca, Risultati della ricerca per, I cookie devono essere attivati
         per visualizzare questa mappa, Affina i tuoi risultati, Non abbiamo trovato
-        niente qui. Prova a zoomare indietro per vedere altri luoghi., '', '', '']
+        niente qui. Prova a zoomare indietro per vedere altri luoghi., '', '', '',
+      '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
@@ -223,7 +227,7 @@
       Distilleerderijen, Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn
         cookies nodig om deze kaart te tonen, Verfijn je zoekresultaten, Er zijn helaas
         geen resultaten gevonden. Zoom uit om meerdere locaties te ontdekken., Zoek
-        op de kaart, '', '']
+        op de kaart, '', '', '']
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -233,12 +237,12 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-01-12T17:13:34.394Z
+    hippostdpubwf:lastModificationDate: 2026-01-16T09:53:04.521Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-01-12T17:18:44.943Z
+    hippostdpubwf:publicationDate: 2026-01-16T09:53:06.815Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -248,7 +252,7 @@
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
       map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
-      map.search-map]
+      map.search-map, map.google-disclaimer-text, map.google-disclaimer-title, map.google-disclaimer-link-title]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
       Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
       Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
@@ -260,7 +264,10 @@
         you can''t zoom in any more', Explore, Distilleries, Type in your keyword,
       Search, Search Results for, Cookies need to be enabled to show this map, Refine
         your results, We couldn't find anything here. Try zooming out to explore more
-        locations., Search the map]
+        locations., Search the map, Map search results are provided by Google. VisitScotland
+        accepts no responsibility for any error or misrepresentation contained in
+        search results. Search results are provided for your information only and
+        are not endorsed by VisitScotland., About these results, About these results]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -275,7 +282,8 @@
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
       Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
-        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen]
+        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, '', '',
+      '']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
@@ -289,7 +297,7 @@
         clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
         para mostrar este mapa, Refinar resultados de búsqueda, No hemos encontrado
         nada aquí. Intenta alejar el zoom para explorar más ubicaciones., Buscar en
-        el mapa]
+        el mapa, '', '', '']
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -304,7 +312,7 @@
       Rechercher, Afficher les résultats pour, Les cookies doivent être activés pour
         afficher cette carte, Affiner vos résultats de recherche, Nous n’avons rien
         trouvé dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres
-        zones., Rechercher sur la carte]
+        zones., Rechercher sur la carte, '', '', '']
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
         pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
@@ -318,7 +326,8 @@
         non è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola
         chiave, Cerca, Risultati della ricerca per, I cookie devono essere attivati
         per visualizzare questa mappa, Affina i tuoi risultati, Non abbiamo trovato
-        niente qui. Prova a zoomare indietro per vedere altri luoghi., '']
+        niente qui. Prova a zoomare indietro per vedere altri luoghi., '', '', '',
+      '']
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
@@ -331,4 +340,4 @@
       Distilleerderijen, Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn
         cookies nodig om deze kaart te tonen, Verfijn je zoekresultaten, Er zijn helaas
         geen resultaten gevonden. Zoom uit om meerdere locaties te ontdekken., Zoek
-        op de kaart]
+        op de kaart, '', '', '']
