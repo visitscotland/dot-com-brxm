@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.26.10",
-    "@visitscotland/component-library": "^5.20.6",
+    "@visitscotland/component-library": "^5.29.1",
     "autoprefixer": "^10.4.2",
     "cheerio": "1.0.0-rc.3",
     "css-loader": "^6.10.0",
