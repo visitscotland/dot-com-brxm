@@ -154,7 +154,7 @@
             </#if>
 
             <#--  <#if isLastStop == 'true' && stop.coordinates.longitude?? && stop.coordinates.longitude?has_content && stop.coordinates.latitude?? && stop.coordinates.latitude?has_content>  -->
-            <#if isLastStop == 'true'>
+            <#--<#if isLastStop == 'true'>
                 <#assign nearbyEatsUrl = productSearch(locale, "cate", stop.coordinates.latitude, stop.coordinates.longitude, 5)>
                 <#assign nearbyStayUrl = productSearch(locale, "acco", stop.coordinates.latitude, stop.coordinates.longitude, 5)>
                 <template v-slot:stop-buttons>
@@ -176,7 +176,7 @@
                         </vs-button>
                     </vs-itinerary-border-overlap-wrapper>
                 </template>
-            </#if>
+            </#if>-->
             
         </#if>        
     </vs-itinerary-stop>
