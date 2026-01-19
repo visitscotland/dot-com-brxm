@@ -669,12 +669,12 @@ class LinkServiceTest {
     @Test
     @DisplayName(("VS-2935 - Allow videos for Megalinks Items"))
     void enhancedLink_fromVideo(){
-        Video video = new VideoMockBuilder().url("youtu.be?v=1").build();
+        Video video = new VideoMockBuilder().url("youtube?v=1").build();
 
         EnhancedLink link = service.createEnhancedLink(video, null, null, false).get();
 
         assertNotNull(link);
-        assertEquals("youtu.be?v=1", link.getLink());
+        assertEquals("youtube?v=1", link.getLink());
         assertEquals("1", link.getYoutubeId());
         assertEquals(LinkType.VIDEO, link.getType());
     }

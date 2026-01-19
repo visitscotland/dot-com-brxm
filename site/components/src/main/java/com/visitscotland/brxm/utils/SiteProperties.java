@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
 @Component
 public class SiteProperties extends Properties {
 
+    private final CMSProperties cmsProperties;
+
     static final String DEFAULT_CONFIG = "default.site.config";
     static final String OVERRIDE_PROPERTY = "visitscotland:siteProperties";
 
@@ -39,13 +41,17 @@ public class SiteProperties extends Properties {
     private static final String PATH_ABOUT_US = "site.path.about-us";
     private static final String PATH_NEWSLETTER = "site.path.newsletter";
     private static final String PATH_ICENTRE = "site.path.icentre-landing";
+    private static final String PATH_MAP = "site.path.map";
 
     //Modules References
     private static final String PATH_BANNER = "site.path.banner";
     static final String ENABLE_IKNOW_MODULE = "iknow-module.enabled";
     static final String EVENTS_LISTINGS_PAGE_SIZE = "events-listings.page-size";
 
+    static final String GOOGLE_MAPS_API_KEY = "google.maps-api-key";
+
     //GTM Properties
+
     public static final String GTM_CONTAINER_ID = "gtm.container-id";
     public static final String GTM_IS_PRODUCTION = "gtm.is-production";
     public static final String GTM_PREVIEW_QUERY_STRING = "gtm.preview-query-string";
@@ -59,7 +65,13 @@ public class SiteProperties extends Properties {
     static final String FORM_BREG_LEGAL_BASIS = "form.breg.legal-basis";
     static final String FORM_BREG_LEGAL_BASIS_ENABLE = "form.breg.legal-basis.enable";
 
-    private final CMSProperties cmsProperties;
+    //Feature switch
+    static final String FEATURE_HERO_SECTION = "feature.hero-section.enable";
+
+    public Boolean getFeatureHeroSection() {
+        return readBoolean(FEATURE_HERO_SECTION);
+    }
+
     public SiteProperties(ResourceBundleService bundle, HippoUtilsService utils, CMSProperties cmsProperties){
         super(bundle, utils);
         this.cmsProperties = cmsProperties;
@@ -106,11 +118,18 @@ public class SiteProperties extends Properties {
     public String getSiteGlobalSearch() {
         return readString(PATH_GLOBAL_SEARCH);
     }
+    public String getGoogleMapsApi() {
+        return readString(GOOGLE_MAPS_API_KEY);
+    }
+
     public String getSiteNewsletter() {
         return readString(PATH_NEWSLETTER);
     }
     public String getSiteICentre() {
         return readString(PATH_ICENTRE);
+    }
+    public String getSiteMap() {
+        return readString(PATH_MAP);
     }
     public String getSiteBanner() {
         return readString(PATH_BANNER);
@@ -175,5 +194,4 @@ public class SiteProperties extends Properties {
         int size = readInteger(EVENTS_LISTINGS_PAGE_SIZE);
         return size > 0 ? size : 10;
     }
-
 }

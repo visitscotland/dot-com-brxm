@@ -1,4 +1,5 @@
 /hst:hst/hst:configurations/visitscotland/hst:workspace/hst:sitemenus/main/accommodation:
+  .meta:order-before: main-map
   jcr:primaryType: hst:sitemenuitem
   hst:referencesitemapitem: sandbox/itinerary
   hst:repobased: false

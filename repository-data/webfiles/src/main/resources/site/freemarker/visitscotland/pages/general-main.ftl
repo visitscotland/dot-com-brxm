@@ -5,6 +5,7 @@
     <#include "../macros/modules/page-intro/intro-image.ftl">
     <#include "../macros/modules/product-search/psr-module.ftl">
     <#include "../macros/modules/signpost/signpost.ftl">
+	<#include "../macros/modules/category-section/category-section.ftl">
     <#include "../macros/shared/module-builder.ftl">
     <#include "../macros/modules/search-results/search-results.ftl">
     <#include "../../frontend/components/vs-container.ftl">
@@ -25,32 +26,51 @@
     <#assign standardTemplate = (document.theme == "Standard") />
     <#assign simpleTemplate = (document.theme == "Simple") />
 	<#assign inspirationTemplate = (document.theme == "Inspiration") />
-
 </#compress>
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
 
-	<#if author??>
-		<@pageIntro content=document lightBackground=true author=author />
-		<@introImage mainImage=heroImage />
-	<#elseif topLevelTemplate>
-		<#if heroVideo?? && !heroVideo.youtubeId??>
-			<@heroSection content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
-		<#else>
-			<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
-		</#if>
-	<#elseif standardTemplate>
-        <@pageIntro content=document lightBackground=true />
-		<@introImage mainImage=heroImage />
-	<#elseif inspirationTemplate>
-		<@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") fullScreenMobile=true />
-	<#else>
-        <@pageIntro content=document lightBackground=true />
-    </#if>
+    <#if !mainMapPage??>
+        <#if author??>
+            <@pageIntro content=document lightBackground=true author=author />
+            <@introImage mainImage=heroImage />
+        <#elseif topLevelTemplate>
+            <#if heroVideo?? && !heroVideo.youtubeId??>
+                <@heroSection content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
+            <#elseif (heroVideo?? && heroVideo.youtubeId??) || !property("feature.hero-section.enable")?boolean>
+                <@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") />
+            <#else>
+                <vs-container class="mt-075 mt-lg-200">
+                    <vs-row>
+                        <vs-col
+                            cols="10"
+                            lg="8"
+                        >
+                        <@hst.include ref="breadcrumb"/>
+                        </vs-col>
+                    </vs-row>
+                </vs-container>
+                <@heroSection content=document heroDetails=heroImage />
+            </#if>
+        <#elseif standardTemplate>
+            <@pageIntro content=document lightBackground=true />
+            <@introImage mainImage=heroImage />
+        <#elseif inspirationTemplate>
+            <@pageIntro content=document heroDetails=heroImage lightBackground=(psrWidget?has_content && psrWidget.position = "Top") fullScreenMobile=true />
+        <#else>
+            <@pageIntro content=document lightBackground=true />
+        </#if>
 
-	<#if psrWidget?? && psrWidget.position = "Top">
-		<@productSearchWidget psrWidget/>
-	</#if>
+        <#if pageIntroData?? && pageIntroData.categorySection??>
+            <div class="mt-175 mt-md-500 mb-175 mb-md-500">
+                <@categorySection data=pageIntroData.categorySection />
+            </div>
+        </#if>
+
+        <#if psrWidget?? && psrWidget.position = "Top">
+            <@productSearchWidget psrWidget/>
+        </#if>
+    </#if>
 
 	<#if errorCode??>
 		<vs-html-error status-code="${errorCode}"></vs-html-error>
@@ -66,21 +86,23 @@
 		</#if>
 	</#list>
 
-    <#if searchResultsPage??>
-        <@searchResults />
+    <#if !mainMapPage??>
+        <#if searchResultsPage??>
+            <@searchResults />
+        </#if>
+
+        <@socialShare nojs=true/>
+
+        <#if psrWidget?? && psrWidget.position = "Bottom">
+            <@productSearchWidget psrWidget/>
+        </#if>
+
+        <#if otyml??>
+            <@otymlModule otyml editMode />
+        </#if>
+
+        <#if newsletterSignpost??>
+            <@signpost module=newsletterSignpost />
+        </#if>
     </#if>
-
-    <@socialShare nojs=true/>
-
-	<#if psrWidget?? && psrWidget.position = "Bottom">
-		<@productSearchWidget psrWidget/>
-	</#if>
-
-	<#if otyml??>
-		<@otymlModule otyml editMode />
-	</#if>
-
-	<#if newsletterSignpost??>
-		<@signpost module=newsletterSignpost />
-	</#if>
 </div>
