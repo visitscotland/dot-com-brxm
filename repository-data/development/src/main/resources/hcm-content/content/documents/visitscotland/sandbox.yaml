@@ -1332,11 +1332,12 @@
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: aca5e20d-3679-4f46-8943-92af37b3c1d2
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:29:58.768Z
-          hippostdpubwf:lastModificationDate: 2022-06-16T09:45:31.108+01:00
+          hippostdpubwf:lastModificationDate: 2026-01-15T16:03:47.007Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 9db86001-4751-4705-8482-f23c3ae32f9b
           hippotranslation:locale: en
@@ -9822,18 +9823,17 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: d660a005-456f-433d-842a-7ca180139771
           hippo:name: Itinerary new layout
-          hippo:versionHistory: f97c68ea-d3b5-4568-9056-0337a46275c4
+          hippo:versionHistory: d88c68e9-f3eb-4c44-a963-84767ec84e30
           /content[1]:
             jcr:primaryType: visitscotland:Itinerary
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 9d83aaf9-c678-4298-8b3a-aa3fa2fd4124
             hippo:availability: []
-            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
-            hippostdpubwf:lastModificationDate: 2026-01-15T15:22:41.471Z
+            hippostdpubwf:lastModificationDate: 2026-01-16T08:46:52.657Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
             hippotranslation:locale: en
@@ -9866,7 +9866,7 @@
             /visitscotland:mapLink:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: CTA text override for map url
-              visitscotland:link: https://www.google.com
+              visitscotland:link: https://www.google.com/
             /visitscotland:otherThings:
               jcr:primaryType: visitscotland:OTYML
               visitscotland:title: Override title (OTYML) for new itinerary
@@ -9897,7 +9897,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
-            hippostdpubwf:lastModificationDate: 2026-01-15T15:11:20.380Z
+            hippostdpubwf:lastModificationDate: 2026-01-16T08:47:19.579Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
             hippotranslation:locale: en
@@ -9930,7 +9930,7 @@
             /visitscotland:mapLink:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: CTA text override for map url
-              visitscotland:link: https://www.google.com
+              visitscotland:link: https://www.google.com/
             /visitscotland:otherThings:
               jcr:primaryType: visitscotland:OTYML
               visitscotland:title: Override title (OTYML) for new itinerary
@@ -9961,9 +9961,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
-            hippostdpubwf:lastModificationDate: 2026-01-15T15:11:20.380Z
+            hippostdpubwf:lastModificationDate: 2026-01-16T08:47:19.579Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-01-15T15:11:27.770Z
+            hippostdpubwf:publicationDate: 2026-01-16T08:47:29.986Z
             hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
             hippotranslation:locale: en
             visitscotland:areas: [aberdeen]
@@ -9995,7 +9995,7 @@
             /visitscotland:mapLink:
               jcr:primaryType: visitscotland:ExternalLink
               visitscotland:label: CTA text override for map url
-              visitscotland:link: https://www.google.com
+              visitscotland:link: https://www.google.com/
             /visitscotland:otherThings:
               jcr:primaryType: visitscotland:OTYML
               visitscotland:title: Override title (OTYML) for new itinerary

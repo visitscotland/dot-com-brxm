@@ -159,7 +159,7 @@ public class ItineraryMapper {
                     }
 
                     if (calculateDistance && module.getCoordinates() != null) {
-                        totalDistance = totalDistance.add(getDistanceStops(prevCoordinates, module.getCoordinates()));
+                        totalDistance = totalDistance.add(googleMapsService.getDistanceStops(prevCoordinates, module.getCoordinates()));
                         prevCoordinates = module.getCoordinates();
                     }
 
@@ -198,23 +198,6 @@ public class ItineraryMapper {
             page.setLastStopLocation(last.getSubTitle());
         } else {
             page.setLastStopLocation(itinerary.getFinish());
-        }
-    }
-
-    /**
-     * Method to calculate the distance between stops
-     * *
-     * moved to googleMapsService - remove from here once deprecated
-     */
-    @Deprecated
-    private BigDecimal getDistanceStops(final Coordinates previous, final Coordinates current) {
-        if (previous == null || current == null){
-            return BigDecimal.ZERO;
-        } else {
-            return CoordinateUtils.haversineDistance(
-                    BigDecimal.valueOf(previous.getLatitude()), BigDecimal.valueOf(previous.getLongitude()),
-                    BigDecimal.valueOf(current.getLatitude()), BigDecimal.valueOf(current.getLongitude()),
-                    true, "#,###,##0.0");
         }
     }
 
