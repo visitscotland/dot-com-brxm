@@ -32,8 +32,14 @@ VS_SSR_ARCHIVED_PACKAGE_PATH=""
 VS_SSR_ARCHIVED_PACKAGE_MD5=""
 VS_SSR_ARCHIVED_PACKAGE_URL=""
 
-# --- Jenkins-provided metadata sanity checks (env variable set right after checkout) ---
-: "${REPO_NAME:?REPO_NAME must be set by Jenkins (set env.REPO_NAME after checkout scm)}"
+# variable REPO_NAME isn't set, so we need to derive the repo name via git context/commands
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  REPO_NAME="$(basename "$(git rev-parse --show-toplevel)")"
+else
+  # fail the pipeline if we can't derive the repo name
+  echo "ERROR: Unable to determine repository name" >&2
+  exit 1
+fi
 
 # ---- Preconditions / setup ----
 WORKSPACE="${WORKSPACE:-$(pwd)}"
@@ -343,7 +349,7 @@ step_4_parse_pom() {
 # =====================================================================
 step_5_compose_email() {
   echo "==> Step 5: Composing email..."
-  echo "            (debugging) Wrote: REPO_NAME=$REPO_NAME"
+  echo "            INFO: REPO_NAME=$REPO_NAME"
 
   EMAIL_SUBJECT="[Release] ${REPO_NAME:-unknown-repo} v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} - build #${BUILD_NUMBER:-?} - ${VS_PIPELINE_OUTCOME_EMAIL}"
   EMAIL_HTML_FILE="$OUT_DIR/email.html"
