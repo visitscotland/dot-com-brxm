@@ -75,25 +75,32 @@ public class ItineraryMapper {
      */
     public ItineraryPage buildItinerary (final Itinerary itinerary, final Locale locale){
 
-        // check if a user value has been supplied
-        final boolean calculateDistance = (itinerary.getDistance() == null || itinerary.getDistance() == 0);
+
 
         dayMapper.setLocale(locale);
 
         ItineraryPage page = new ItineraryPage(itinerary);
         page.setDays(documentUtils.getAllowedDocuments(itinerary, Day.class));
 
-        if (page.getDays() == null || page.getDays().isEmpty()) {
+        // check if a user value has been supplied
+        final boolean calculateDistance = (itinerary.getDistance() == null || itinerary.getDistance() == 0);
+        final boolean noDays = page.getDays() == null || page.getDays().isEmpty();
+
+        if (noDays) {
             contentLogger.warn("The itinerary page {} does not have any modules published", itinerary.getPath());
             page.setDayCount(0);
-        } else if (calculateDistance) {
+        } else {
+            page.setDayCount(page.getDays().size());
+        }
+
+        if (calculateDistance && !noDays) {
             page.setDistance(googleMapsService.calculateDistanceFromDays(page.getDays()));
-            if (page.getDays() != null && !page.getDays().isEmpty()) {
-                page.setDayCount(page.getDays().size());
-            } else {
-                page.setDayCount(0);
-                contentLogger.warn("Unable to extract days from itinerary page {}", itinerary.getPath());
-            }
+
+        } else if (!calculateDistance) {
+            page.setDistance(BigDecimal.valueOf(itinerary.getDistance()));
+        } else {
+            // default to 0 if we can't get distance from calculations or user value
+            page.setDistance(BigDecimal.valueOf(0));
         }
         page.setSubHeading(itinerary.getSubheading());
 

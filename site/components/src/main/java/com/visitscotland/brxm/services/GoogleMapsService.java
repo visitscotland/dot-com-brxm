@@ -35,7 +35,7 @@ public class GoogleMapsService {
      * calculates the total distance across days from the coordinates contained in the map
      * url for each day
      *
-     * this will need a link/coordinates validator
+     * returns a distance of 0 if any issues occur to prevent erroneous values
      */
     public BigDecimal calculateDistanceFromDays(final List<Day> days) {
 
@@ -46,10 +46,8 @@ public class GoogleMapsService {
         for (final Day day : days) {
             final String mapUrl = day.getMapLink().getLink();
             if (mapUrl == null) {
-                logger.warn("No map Url provided for day");
-                return distance;
-            } else {
-                logger.info("Map url: {}", mapUrl);
+                logger.warn("No map Url provided for day {}", day.getTitle());
+                return new BigDecimal(0);
             }
             final Matcher matcher = URL_PATTERN.matcher(mapUrl);
 
@@ -57,6 +55,7 @@ public class GoogleMapsService {
                 coordinatesMap.put(dayCount++, new Coordinates(Double.valueOf(matcher.group(1)),Double.valueOf(matcher.group(2))));
             } else {
                 logger.warn("Could not extract coordinates from map Url {}", mapUrl);
+                return new BigDecimal(0);
             }
         }
 
