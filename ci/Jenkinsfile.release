@@ -96,8 +96,6 @@ pipeline {
         //     DONE
         // gp: change sonarqube project target to a short version of the project name
         timestamps()
-        // don't rely on cached checkout
-        skipDefaultCheckout()
     }
     agent {label thisAgent}
     triggers { cron( cron_string ) }
