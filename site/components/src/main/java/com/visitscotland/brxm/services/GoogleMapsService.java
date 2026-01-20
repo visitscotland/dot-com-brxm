@@ -65,11 +65,9 @@ public class GoogleMapsService {
                 previous = current;
                 continue;
             }
-
             distance = distance.add(getDistanceStops(previous, current));
             previous = current;
         }
-
         return distance;
     }
 
@@ -197,7 +195,6 @@ public class GoogleMapsService {
         if (urlBuilder.length() > 0) {
             urlBuilder.insert(0, DIRECTIONS_URL);
             urlBuilder.append("/");
-            logger.info("Generated url from itinerary stops: {}", urlBuilder); // remove before commit
             return urlBuilder.toString();
         } else {
             return null;
