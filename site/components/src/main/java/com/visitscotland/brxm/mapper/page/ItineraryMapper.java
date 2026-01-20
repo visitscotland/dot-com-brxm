@@ -18,7 +18,6 @@ import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
-import com.visitscotland.utils.CoordinateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -30,7 +29,7 @@ import java.util.*;
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
 /**
- * use the google maps service rather than code in this class
+ * mapper class for itineraries
  */
 @Component
 public class ItineraryMapper {
@@ -95,15 +94,14 @@ public class ItineraryMapper {
 
         if (calculateDistance && !noDays) {
             page.setDistance(googleMapsService.calculateDistanceFromDays(page.getDays()));
-
         } else if (!calculateDistance) {
             page.setDistance(BigDecimal.valueOf(itinerary.getDistance()));
         } else {
             // default to 0 if we can't get distance from calculations or user value
             page.setDistance(BigDecimal.valueOf(0));
         }
-        page.setSubHeading(itinerary.getSubheading());
 
+        page.setSubHeading(itinerary.getSubheading());
         populateTransports(page, itinerary.getTransports());
         populateThemes(page, itinerary.getTheme());
         populateAreas(page, itinerary.getAreas());

@@ -9823,7 +9823,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: d660a005-456f-433d-842a-7ca180139771
           hippo:name: Itinerary new layout
-          hippo:versionHistory: 12d1a79b-cc57-4285-91e9-48ab16155f34
+          hippo:versionHistory: 7400dae3-7cc9-4cb2-8126-46d62a279433
           /content[1]:
             jcr:primaryType: visitscotland:Itinerary
             jcr:mixinTypes: ['mix:referenceable']
@@ -9833,14 +9833,14 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
-            hippostdpubwf:lastModificationDate: 2026-01-20T09:32:08.287Z
+            hippostdpubwf:lastModificationDate: 2026-01-20T10:31:40.010Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
             hippotranslation:locale: en
             visitscotland:areas: [aberdeen]
             visitscotland:breadcrumb: ''
             visitscotland:distance: 500.0
-            visitscotland:finish: overrid finish for new itinerary
+            visitscotland:finish: override finish for new itinerary
             visitscotland:hideNewsletter: false
             visitscotland:highlights: [Deprecated Highlights for new itinerary]
             visitscotland:popular: false
@@ -9897,14 +9897,14 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
-            hippostdpubwf:lastModificationDate: 2026-01-20T09:32:07.740Z
+            hippostdpubwf:lastModificationDate: 2026-01-20T10:31:39.583Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
             hippotranslation:locale: en
             visitscotland:areas: [aberdeen]
             visitscotland:breadcrumb: ''
             visitscotland:distance: 500.0
-            visitscotland:finish: overrid finish for new itinerary
+            visitscotland:finish: override finish for new itinerary
             visitscotland:hideNewsletter: false
             visitscotland:highlights: [Deprecated Highlights for new itinerary]
             visitscotland:popular: false
@@ -9961,15 +9961,15 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:53:25.733Z
-            hippostdpubwf:lastModificationDate: 2026-01-20T09:32:07.740Z
+            hippostdpubwf:lastModificationDate: 2026-01-20T10:31:39.583Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-01-20T09:32:14.631Z
+            hippostdpubwf:publicationDate: 2026-01-20T10:32:38.136Z
             hippotranslation:id: 9e3ad779-0d35-4104-84d7-902cf4b18d01
             hippotranslation:locale: en
             visitscotland:areas: [aberdeen]
             visitscotland:breadcrumb: ''
             visitscotland:distance: 500.0
-            visitscotland:finish: overrid finish for new itinerary
+            visitscotland:finish: override finish for new itinerary
             visitscotland:hideNewsletter: false
             visitscotland:highlights: [Deprecated Highlights for new itinerary]
             visitscotland:popular: false
@@ -10031,7 +10031,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-07T13:55:42.551Z
-            hippostdpubwf:lastModificationDate: 2026-01-19T15:33:46.107Z
+            hippostdpubwf:lastModificationDate: 2026-01-20T10:32:20.219Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: f7fb3824-1346-4aad-b9bf-44b81b8018ab
             hippotranslation:locale: en

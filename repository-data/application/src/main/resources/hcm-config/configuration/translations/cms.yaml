@@ -116,3 +116,9 @@ definitions:
       visitscotland:event-deadline-validator#exception: An unknown error occurred
         while attempting to validate the event deadline, if this issue persists please
         contact an administrator.
+      visitscotland:google-maps-link-validator#invalidLink: Invalid google place link
+        supplied.
+      visitscotland:google-maps-link-validator#error: An error occurred. Please contact 
+        your administrator if this persists.
+      visitscotland:google-maps-link-validator#exception: An exception occurred. Please 
+        contact your administrator if this persists

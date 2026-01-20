@@ -150,3 +150,6 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:megalinks-grid-type-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.MegalinksGridTypeValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:google-maps-link-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.GoogleMapsLinkValidator
