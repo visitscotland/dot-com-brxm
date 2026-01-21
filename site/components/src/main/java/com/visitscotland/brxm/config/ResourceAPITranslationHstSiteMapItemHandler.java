@@ -67,7 +67,7 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
     /**
      * Alters the context of the request to check if the page would be available in the main site mount
      */
-    private boolean isPageNotFound(ResolvedSiteMapItem originalSitemapItem, ResolvedSiteMapItem alternativeSiteMapItem) {
+    private boolean isPageNotFound(ResolvedSiteMapItem originalSiteMapItem, ResolvedSiteMapItem alternativeSiteMapItem) {
         HstMutableRequestContext requestContext = (HstMutableRequestContext) RequestContextProvider.get();
 
         requestContext.setResolvedMount(alternativeSiteMapItem.getResolvedMount());
