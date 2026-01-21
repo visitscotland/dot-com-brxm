@@ -91,15 +91,12 @@ comma_split_to_json_array() {
 }
 
 md5_for_file() {
-  # Cross-platform MD5 helper (Linux: md5sum, macOS: md5)
-  # Prints empty string if neither tool exists or file is missing.
+  # MD5 helper: prints empty string if the tool doesn't exists or file passed as an argument is missing
   local f="$1" md5=""
   [[ -f "$f" ]] || { printf '%s' ""; return; }
 
   if command -v md5sum >/dev/null 2>&1; then
     md5="$(md5sum "$f" | awk '{print $1}')"
-  elif command -v md5 >/dev/null 2>&1; then
-    md5="$(md5 -r "$f" | awk '{print $1}')"
   fi
   printf '%s' "$md5"
 }
