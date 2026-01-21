@@ -173,8 +173,6 @@ public class ItineraryMapper {
             page.setDistance(calculateDistance ? totalDistance.setScale(0, RoundingMode.HALF_UP) : BigDecimal.valueOf(itinerary.getDistance()));
 
             populateFirstAndLastStopTexts(page, firstStop, lastStop);
-            // this needs to go after release on the 3rd feb
-            populateLastStopLinks(page, lastStop, locale);
         }
 
         populateTransports(page, itinerary.getTransports());
@@ -362,17 +360,6 @@ public class ItineraryMapper {
             return entries;
         }
         return Collections.emptyList();
-    }
-
-    @Deprecated
-    private void populateLastStopLinks(ItineraryPage page, ItineraryStopModule lastStop, Locale locale) {
-        if (lastStop != null && lastStop.getCoordinates() != null) {
-            var latitude = lastStop.getCoordinates().getLatitude();
-            var longitude = lastStop.getCoordinates().getLongitude();
-
-            page.setLastStopNearbyEat(getProductSearchUrl(locale, "cate", latitude, longitude));
-            page.setLastStopNearbyStay(getProductSearchUrl(locale, "acco", latitude, longitude));
-        }
     }
 
     @Deprecated
