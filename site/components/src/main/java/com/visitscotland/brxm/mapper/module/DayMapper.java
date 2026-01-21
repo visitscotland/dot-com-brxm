@@ -27,8 +27,6 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
 
     private static final String BUNDLE_FILE = "itinerary";
 
-    private Locale locale;
-
     // some of these to be removed
     private final ResourceBundleService bundle;
     private final DMSDataService dmsData;
@@ -40,8 +38,8 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
     private final Logger contentLogger;
 
     public DayMapper(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
-                           DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
-                           ContentLogger contentLogger, EntryMapper entryMapper) {
+                     DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
+                     ContentLogger contentLogger, EntryMapper entryMapper) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageMapper = imageMapper;
@@ -58,13 +56,6 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         // nothing needed here for now
     }
 
-    /**
-     * Set the locale from the parent itinerary for translations
-     * @param locale
-     */
-    public void setLocale(Locale locale) {
-        this.locale = locale;
-    }
 
     @Override
     public ItineraryDayModule map(Day document, PageCompositionHelper compositionHelper) throws PageCompositionException {
@@ -73,14 +64,16 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         day.setTitle(document.getTitle());
         day.setIntroduction(document.getIntroduction());
         day.setTransports(document.getTransports());
-        day.setMapLink(formatCTA(document.getMapLink(), bundle.getResourceBundle(BUNDLE_FILE, "days.default-cta", locale)));
-        day.setCtaLink(formatCTA(document.getCtaLink(), "default CTA here"));
+        day.setMapLink(formatCTA(document.getMapLink(),
+                bundle.getResourceBundle(BUNDLE_FILE, "days.default-cta", compositionHelper.getLocale()),
+                compositionHelper.getLocale()));
+        day.setCtaLink(formatCTA(document.getCtaLink(), "default CTA here", compositionHelper.getLocale()));
         day.setMedia(document.getMedia());
 
         return day;
     }
 
-    FlatLink formatCTA(final ExternalLink externalLink, final String defaultCta) {
+    FlatLink formatCTA(final ExternalLink externalLink, final String defaultCta, final Locale locale) {
 
         FlatLink ctaLink = linkService.createExternalLink(locale, externalLink.getLink(),
                 !externalLink.getLabel().isEmpty() ? externalLink.getLabel() : defaultCta, externalLink.getPath());

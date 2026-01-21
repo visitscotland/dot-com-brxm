@@ -50,6 +50,7 @@ public class GoogleMapsLinkValidator implements Validator<Node>  {
                 return Optional.of(context.createViolation(ERROR));
             }
         } catch (RepositoryException e) {
+            logger.error("A repository exception occurred. {}", e);
             return Optional.of(context.createViolation(EXCEPTION));
         }
     }
