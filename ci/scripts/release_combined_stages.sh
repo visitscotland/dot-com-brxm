@@ -34,12 +34,20 @@ VS_SSR_ARCHIVED_PACKAGE_URL=""
 
 # variable REPO_NAME isn't set, so we need to derive the repo name via git context/commands
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-  REPO_NAME="$(basename "$(git rev-parse --show-toplevel)")"
+  origin_url="$(git config --get remote.origin.url || true)"
+  if [[ -n "$origin_url" ]]; then
+    REPO_NAME="${GIT_URL##*/}"
+    REPO_NAME="${REPO_NAME%.git}"
+  else
+    REPO_NAME="$(basename "$(git rev-parse --show-toplevel)")"
+  fi
 else
   # fail the pipeline if we can't derive the repo name
-  echo "ERROR: Unable to determine repository name" >&2
+  echo "ERROR: Not inside a git work tree; cannot determine REPO_NAME" >&2
   exit 1
 fi
+
+: "${REPO_NAME:?ERROR: REPO_NAME is empty}"
 
 # ---- Preconditions / setup ----
 WORKSPACE="${WORKSPACE:-$(pwd)}"
