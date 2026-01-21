@@ -74,8 +74,8 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
         requestContext.setResolvedSiteMapItem(alternativeSiteMapItem);
         boolean notFound = isPageNotFound(alternativeSiteMapItem);
         if (notFound) {
-            requestContext.setResolvedSiteMapItem(originalSitemapItem);
-            requestContext.setResolvedMount(originalSitemapItem.getResolvedMount());
+            requestContext.setResolvedSiteMapItem(originalSiteMapItem);
+            requestContext.setResolvedMount(originalSiteMapItem.getResolvedMount());
         }
         return notFound;
     }
