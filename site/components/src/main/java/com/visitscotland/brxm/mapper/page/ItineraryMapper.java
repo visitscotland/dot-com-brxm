@@ -96,7 +96,6 @@ public class ItineraryMapper {
             page.setDistance(BigDecimal.valueOf(0));
         }
 
-        page.setSubHeading(itinerary.getSubheading());
         populateTransports(page, itinerary.getTransports());
         populateThemes(page, itinerary.getTheme());
         populateAreas(page, itinerary.getAreas());
