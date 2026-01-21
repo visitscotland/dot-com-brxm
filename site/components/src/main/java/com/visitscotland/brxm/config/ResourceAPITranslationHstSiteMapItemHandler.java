@@ -3,7 +3,6 @@ package com.visitscotland.brxm.config;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.core.container.ContainerConstants;
 import org.hippoecm.hst.core.internal.HstMutableRequestContext;
-import org.hippoecm.hst.core.request.ResolvedMount;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.hst.core.request.ResolvedVirtualHost;
 import org.hippoecm.hst.core.request.SiteMapItemHandlerConfiguration;
@@ -44,7 +43,7 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
             var englishMount = resolvedVirtualHost.matchMount(ENGLISH_ROOT_PATH);
             var englishSiteMapItem = englishMount.matchSiteMapItem(path);
 
-            if (!isPageNotFound(englishMount, englishSiteMapItem)) {
+            if (!isPageNotFound(resolvedSiteMapItem, englishSiteMapItem)) {
                 // English content does exist - use translated mount with an english sitemap
                 return englishSiteMapItem;
             }
@@ -68,15 +67,17 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
     /**
      * Alters the context of the request to check if the page would be available in the main site mount
      */
-    private boolean isPageNotFound(ResolvedMount mount, ResolvedSiteMapItem siteMapItem) {
+    private boolean isPageNotFound(ResolvedSiteMapItem originalSitemapItem, ResolvedSiteMapItem alternativeSiteMapItem) {
         HstMutableRequestContext requestContext = (HstMutableRequestContext) RequestContextProvider.get();
-        ResolvedMount originalMount = requestContext.getResolvedMount();
-        try {
-            requestContext.setResolvedMount(mount);
-            return isPageNotFound(siteMapItem);
-        } finally {
-            requestContext.setResolvedMount(originalMount);
+
+        requestContext.setResolvedMount(alternativeSiteMapItem.getResolvedMount());
+        requestContext.setResolvedSiteMapItem(alternativeSiteMapItem);
+        boolean notFound = isPageNotFound(alternativeSiteMapItem);
+        if (notFound) {
+            requestContext.setResolvedSiteMapItem(originalSitemapItem);
+            requestContext.setResolvedMount(originalSitemapItem.getResolvedMount());
         }
+        return notFound;
     }
 
     private boolean isPageNotFound(ResolvedSiteMapItem resolvedSiteMapItem) {
