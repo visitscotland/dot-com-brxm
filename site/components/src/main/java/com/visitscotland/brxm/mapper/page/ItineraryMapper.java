@@ -8,7 +8,6 @@ import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.mapper.ImageMapper;
-import com.visitscotland.brxm.mapper.module.DayMapper;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.megalinks.Entry;
@@ -48,13 +47,12 @@ public class ItineraryMapper {
     private final GoogleMapsService googleMapsService;
     private final Logger contentLogger;
     private final StopMapper stopMapper;
-    private final DayMapper dayMapper;
 
 
     public ItineraryMapper(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
                            DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
                            GoogleMapsService googleMapsService, ContentLogger contentLogger,
-                           EntryMapper entryMapper, StopMapper stopMapper, DayMapper dayMapper) {
+                           EntryMapper entryMapper, StopMapper stopMapper) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageMapper = imageMapper;
@@ -65,7 +63,6 @@ public class ItineraryMapper {
         this.contentLogger = contentLogger;
         this.entryMapper = entryMapper;
         this.stopMapper = stopMapper;
-        this.dayMapper = dayMapper;
     }
 
     /**
@@ -140,7 +137,6 @@ public class ItineraryMapper {
             contentLogger.warn("The itinerary page {} does not have any modules published", itinerary.getPath());
 
         } else {
-            contentLogger.warn("Processing old itinerary....");
             for (Day day : page.getDays()) {
                 for (Stop stop : day.getStops()) {
                     if (page.getStops() != null && page.getStops().containsKey(stop.getIdentifier())) {
