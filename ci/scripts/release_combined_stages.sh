@@ -393,8 +393,8 @@ HTML_HEAD
 <table>
   <tr><th>Build-Number</th><td>$(json_escape "${VS_SITE_WAR_BUILD_NUMBER:-}")</td></tr>
   <tr><th>Nexus URL (hyperlink)</th><td><a href="$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")">$(json_escape "${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}")</a></td></tr>
-  <tr><th>Nexus URL (clean link)</th><td><code>$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")</code></td></tr>
-  <tr><th>MD5 Checksum</th><td><code>$(json_escape "${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")</code></td></tr>
+  <tr><th>Nexus URL (clean link)</th><td>$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")</td></tr>
+  <tr><th>MD5 Checksum</th><td>$(json_escape "${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")</td></tr>
 </table>
 TABLE1
     fi
@@ -404,8 +404,8 @@ TABLE1
 <h2>SSR Package (in Jenkins)</h2>
 <table>
   <tr><th>URL (hyperlink)</th><td><a href="$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")">$(json_escape "${VS_SSR_PACKAGE_NAME:-}")</a></td></tr>
-  <tr><th>URL (clean link)</th><td><code>$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")</code></td></tr>
-  <tr><th>MD5 Checksum</th><td><code>$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")</code></td></tr>
+  <tr><th>URL (clean link)</th><td>$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")</td></tr>
+  <tr><th>MD5 Checksum</th><td>$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")</td></tr>
 </table>
 TABLE2
     fi
