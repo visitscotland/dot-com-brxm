@@ -36,7 +36,7 @@ VS_SSR_ARCHIVED_PACKAGE_URL=""
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   origin_url="$(git config --get remote.origin.url || true)"
   if [[ -n "$origin_url" ]]; then
-    REPO_NAME="${GIT_URL##*/}"
+    REPO_NAME="${origin_url##*/}"
     REPO_NAME="${REPO_NAME%.git}"
   else
     REPO_NAME="$(basename "$(git rev-parse --show-toplevel)")"
