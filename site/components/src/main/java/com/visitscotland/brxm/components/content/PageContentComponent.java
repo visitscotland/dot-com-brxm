@@ -22,8 +22,6 @@ import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.linking.HstLink;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -79,7 +77,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String INCLUDE_SEARCH_WIDGET = "searchWidget";
-    public static final String SEARCH_LINK = "searchLink";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
 
@@ -193,7 +190,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private boolean isHomepage (HstRequest request){
-        return ROOT.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
+        return ROOT.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getRefId());
     }
 
     /**
@@ -480,25 +477,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
                         .getHstSiteMapItem()
                         .getRefId()
         );
-    }
-    private boolean isSearchResultsPageCopy(HstRequest request) {
-        return getSearchResultsPath(request)
-                .map(path -> request.getRequestURI().startsWith(path))
-                .orElse(false);
-    }
-
-    private Optional<String> getSearchResultsPath(final HstRequest request) {
-        HstRequestContext ctx = request.getRequestContext();
-
-        HstLink link = ctx.getHstLinkCreator()
-                .createByRefId(SEARCH_PAGE, ctx.getResolvedMount().getMount());
-
-        if (link != null) {
-            return Optional.of(link.getPath());
-        }
-
-        logger.warn("Could not resolve link for siteMapItemRefId 'search-page'");
-        return Optional.empty();
     }
 }
 
