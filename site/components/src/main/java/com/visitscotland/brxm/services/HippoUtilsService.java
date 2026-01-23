@@ -83,7 +83,7 @@ public class HippoUtilsService {
 
             HstLink link = requestContext.getHstLinkCreator().create(localize ? getLocalizedDocument(document) : document, requestContext);
             if (localize && link.getMount() != requestMount && !Locale.UK.toString().equals(requestMount.getLocale())) {
-                link = new LocalizedHstLink(link.getPath(), requestMount);
+                link = requestContext.getHstLinkCreator().create(link.getHstSiteMapItem(), requestMount);
             }
             return link.toUrlForm(requestContext, FULLY_QUALIFIED);
         }
