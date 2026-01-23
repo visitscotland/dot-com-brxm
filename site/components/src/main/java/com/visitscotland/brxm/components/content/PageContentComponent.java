@@ -474,6 +474,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private boolean isSearchResultsPage(HstRequest request) {
+        return SEARCH_PAGE.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
+    }
+    private boolean isSearchResultsPageCopy(HstRequest request) {
         return getSearchResultsURL(request).filter(link -> request.getRequestURI().startsWith(link)).isPresent();
     }
 
