@@ -22,8 +22,6 @@ import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.linking.HstLink;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -79,7 +77,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String INCLUDE_SEARCH_WIDGET = "searchWidget";
-    public static final String SEARCH_LINK = "searchLink";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
 
@@ -193,7 +190,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private boolean isHomepage (HstRequest request){
-        return ROOT.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
+        return ROOT.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getRefId());
     }
 
     /**
@@ -474,34 +471,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private boolean isSearchResultsPage(HstRequest request) {
-        return getSearchResultsURL(request).filter(link -> request.getRequestURI().startsWith(link)).isPresent();
-    }
-
-    /**
-     * Creates and exposes a locale-aware search page link in the HST request context.
-     * <br>
-     * This method generates an HstLink for the sitemap item with refId "search-page"
-     * and stores it as a request attribute named "searchLink".
-     * <br>
-     * Use this to ensure the search URL is correctly resolved for the current
-     * locale and mount, avoiding hardcoded or relative paths in templates
-     *
-     * @param request the current HstRequest
-     */
-    private Optional<String> getSearchResultsURL(final HstRequest request) {
-        HstRequestContext requestContext = request.getRequestContext();
-
-        HstLink link = requestContext.getHstLinkCreator()
-                .createByRefId(SEARCH_PAGE, requestContext.getResolvedMount().getMount());
-
-        if (link != null) {
-            // Convert the link to a URL and make it available to the template
-            return Optional.of(link.toUrlForm(requestContext, false));
-        } else {
-            logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration.");
-        }
-
-        return Optional.empty();
+        return SEARCH_PAGE.equals(
+                request.getRequestContext()
+                        .getResolvedSiteMapItem()
+                        .getHstSiteMapItem()
+                        .getRefId()
+        );
     }
 }
 
