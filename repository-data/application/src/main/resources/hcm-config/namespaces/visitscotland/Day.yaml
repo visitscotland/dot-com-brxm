@@ -16,7 +16,8 @@ definitions:
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          hipposysedit:validators: ['visitscotland:itinerary-stop-validator', 'visitscotland:google-maps-link-validator']
+          hipposysedit:validators: ['visitscotland:itinerary-stop-validator', 'visitscotland:google-maps-link-validator',
+            'visitscotland:cta-label-validator']
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
