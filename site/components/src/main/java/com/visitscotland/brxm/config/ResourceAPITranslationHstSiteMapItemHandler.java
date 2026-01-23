@@ -20,7 +20,7 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
     private static final Logger logger = LoggerFactory.getLogger(ResourceAPITranslationHstSiteMapItemHandler.class);
 
     private static final String PAGE_NOT_FOUND_COMPONENT = "hst:pages/pagenotfound";
-    private static final String ENGLISH_ROOT_PATH = "/resourceapi";
+    private static final String ENGLISH_ROOT_MOUNT = "/resourceapi";
 
     /**
      * Implement the translation fallback mechanism.
@@ -40,15 +40,12 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
                 path = "/" + path;
             }
             var resolvedVirtualHost = getResolvedVirtualHost(httpServletRequest);
-            var englishMount = resolvedVirtualHost.matchMount(ENGLISH_ROOT_PATH);
+            var englishMount = resolvedVirtualHost.matchMount(ENGLISH_ROOT_MOUNT);
             var englishSiteMapItem = englishMount.matchSiteMapItem(path);
 
             if (!isPageNotFound(resolvedSiteMapItem, englishSiteMapItem)) {
                 // English content does exist - use translated mount with an english sitemap
                 return englishSiteMapItem;
-//                HstMutableRequestContext requestContext = (HstMutableRequestContext) RequestContextProvider.get();
-//                //requestContext.setAttribute("englishSiteMapItem", englishSiteMapItem);
-//                httpServletRequest.setAttribute("httpEnglishSiteMapItem", englishSiteMapItem);
             }
         } catch (IllegalStateException e) {
             logger.error("The translation fallback could not be calculated", e);
@@ -65,7 +62,7 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
              return false;
         }
         String mountPath = resolvedSiteMapItem.getResolvedMount().getResolvedMountPath();
-        return ENGLISH_ROOT_PATH.equals(mountPath);
+        return ENGLISH_ROOT_MOUNT.equals(mountPath);
     }
     /**
      * Alters the context of the request to check if the page would be available in the main site mount

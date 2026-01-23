@@ -2,7 +2,6 @@ package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Page;
-import com.visitscotland.brxm.services.hst.LocalizedHstLink;
 import com.visitscotland.brxm.utils.NonTestable;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -48,6 +47,8 @@ public class HippoUtilsService {
 
     private static final Logger logger = LoggerFactory.getLogger(HippoUtilsService.class);
 
+    private static final String ENGLISH_ROOT_MOUNT = "/resourceapi";
+
     /**
      * Convert and HstLink or a HippoBean into a URL String
      *
@@ -82,7 +83,13 @@ public class HippoUtilsService {
             Mount requestMount = requestContext.getResolvedMount().getMount();
 
             HstLink link = requestContext.getHstLinkCreator().create(localize ? getLocalizedDocument(document) : document, requestContext);
+
             if (localize && link.getMount() != requestMount && !Locale.UK.toString().equals(requestMount.getLocale())) {
+                if (link.getHstSiteMapItem().isWildCard()) {
+                    return link.toUrlForm(requestContext, FULLY_QUALIFIED)
+                            .replace(ENGLISH_ROOT_MOUNT, requestMount.getMountPath());
+                }
+
                 link = requestContext.getHstLinkCreator().create(link.getHstSiteMapItem(), requestMount);
             }
             return link.toUrlForm(requestContext, FULLY_QUALIFIED);
