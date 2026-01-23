@@ -46,6 +46,9 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
             if (!isPageNotFound(resolvedSiteMapItem, englishSiteMapItem)) {
                 // English content does exist - use translated mount with an english sitemap
                 return englishSiteMapItem;
+//                HstMutableRequestContext requestContext = (HstMutableRequestContext) RequestContextProvider.get();
+//                //requestContext.setAttribute("englishSiteMapItem", englishSiteMapItem);
+//                httpServletRequest.setAttribute("httpEnglishSiteMapItem", englishSiteMapItem);
             }
         } catch (IllegalStateException e) {
             logger.error("The translation fallback could not be calculated", e);
@@ -73,10 +76,9 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
         requestContext.setResolvedMount(alternativeSiteMapItem.getResolvedMount());
         requestContext.setResolvedSiteMapItem(alternativeSiteMapItem);
         boolean notFound = isPageNotFound(alternativeSiteMapItem);
-        if (notFound) {
-            requestContext.setResolvedSiteMapItem(originalSiteMapItem);
-            requestContext.setResolvedMount(originalSiteMapItem.getResolvedMount());
-        }
+        requestContext.setResolvedSiteMapItem(originalSiteMapItem);
+        requestContext.setResolvedMount(originalSiteMapItem.getResolvedMount());
+
         return notFound;
     }
 
