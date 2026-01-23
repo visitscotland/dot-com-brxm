@@ -5,7 +5,6 @@ definitions:
       /root:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/general-page
-        hst:pagetitle: Home Page
         hst:refId: root
         hst:relativecontentpath: site/content
       /_any_:
@@ -1739,6 +1738,5 @@ definitions:
       /site-search-results:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/general-page
-        hst:pagetitle: Search Results
         hst:refId: search-page
         hst:relativecontentpath: site/site-search-results/content

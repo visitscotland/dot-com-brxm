@@ -22,8 +22,6 @@ import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.linking.HstLink;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -194,7 +192,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private boolean isHomepage (HstRequest request){
-        return ROOT.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
+        return ROOT.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getRefId());
     }
 
     /**
@@ -422,7 +420,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (properties.isGlobalSearchEnabled()){
             if (properties.isGlobalSearchDmsBased()) {
                 //TODO: This method will be removed once the DMS is retired
-                pageConfig.addProperty("dms-based", "true");
+                pageConfig.addProperty("dms-based", true);
+                properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
                 setGeneralCludoConfiguration(pageConfig);
             } else {
                 applyGlobalSearchConfiguration(request, pageConfig);
@@ -436,7 +435,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param pageConfig the page composition helper to add configuration properties to
      */
     private void setGeneralCludoConfiguration(PageCompositionHelper pageConfig) {
-        properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
         properties.getCludoCustomerId().ifPresent(v -> pageConfig.addProperty("cludo.customer-id", v));
         properties.getCludoEngineId().ifPresent(v -> pageConfig.addProperty("cludo.engine-id", v));
         properties.getCludoExperienceId().ifPresent(v -> pageConfig.addProperty("cludo.experience-id", v));
@@ -449,9 +447,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param pageConfig the page composition helper to add configuration properties to
      */
     private void applyGlobalSearchConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
-        boolean searchResultsPage = getSearchResultsURL(request).filter(link -> link.equals(request.getRequestURI())).isPresent();
+        final boolean isSearchResultsPage = isSearchResultsPage(request);
+        final boolean isHomepage = isHomepage(request);
 
-        if (isHomepage(request) || searchResultsPage) {
+        properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
+        pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, isHomepage && properties.getFeatureSearchWidget());
+
+        if (isHomepage || isSearchResultsPage) {
             setGeneralCludoConfiguration(pageConfig);
             properties.getGlobalSearchEventsEndpoint().ifPresentOrElse(
                     v -> pageConfig.addProperty("events-endpoint", v),
@@ -459,13 +461,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
             pageConfig.addAllSiteLabels(SEARCH_FILTERS);
 
-            if (searchResultsPage) {
+            if (isSearchResultsPage) {
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
                 properties.getGlobalSearchLogic().ifPresent(v -> pageConfig.addProperty(SEARCH_LOGIC, v));
-            } else {
-                pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, properties.getFeatureSearchWidget());
-                properties.getGlobalSearchURL().ifPresent(url -> pageConfig.addProperty(SEARCH_LINK, url));
+
             }
         }
     }
@@ -474,31 +474,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         return Boolean.TRUE.equals(request.getAttribute(EDIT_MODE));
     }
 
-    /**
-     * Creates and exposes a locale-aware search page link in the HST request context.
-     * <br>
-     * This method generates an HstLink for the sitemap item with refId "search-page"
-     * and stores it as a request attribute named "searchLink".
-     * <br>
-     * Use this to ensure the search URL is correctly resolved for the current
-     * locale and mount, avoiding hardcoded or relative paths in templates
-     *
-     * @param request the current HstRequest
-     */
-    private Optional<String> getSearchResultsURL(final HstRequest request) {
-        HstRequestContext requestContext = request.getRequestContext();
-
-        HstLink link = requestContext.getHstLinkCreator()
-                .createByRefId(SEARCH_PAGE, requestContext.getResolvedMount().getMount());
-
-        if (link != null) {
-            // Convert the link to a URL and make it available to the template
-            return Optional.of(link.toUrlForm(requestContext, false));
-        } else {
-            logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration.");
-        }
-
-        return Optional.empty();
+    private boolean isSearchResultsPage(HstRequest request) {
+        return SEARCH_PAGE.equals(
+                request.getRequestContext()
+                        .getResolvedSiteMapItem()
+                        .getHstSiteMapItem()
+                        .getRefId()
+        );
     }
 }
 
