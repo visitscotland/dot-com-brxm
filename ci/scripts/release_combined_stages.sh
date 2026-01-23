@@ -9,15 +9,6 @@ IFS=$'\n\t'
 # Trap failures and include the exact command and the *actual* failing line number
 trap 'rc=$?; echo "ERROR: ${BASH_SOURCE[1]:-${BASH_SOURCE[0]:-?}}: ${LINENO:-${BASH_LINENO[0]:-?}}: command failed: ${BASH_COMMAND:-?}" >&2; exit $rc' ERR
 
-# ---- Inputs ----
-POM="${1:-pom.xml}"
-BUILD_NUMBER_FILE="${2:-.build-meta/build-number.txt}"
-OUT_DIR="${3:-artifacts}"
-LOG_FILE="${4:-${GIT_COMMIT:?GIT_COMMIT is required}.log}"
-SITE_WAR="${5:-site/webapp/target/site.war}"        # kept for backwards-compatibility, not used directly anymore
-MANIFEST_PATH="${6:-META-INF/MANIFEST.MF}"          # kept for backwards-compatibility, not used directly anymore
-MODE="${7:-all}"  # can be: all, step1, step2, step3, etc.
-
 # ---- Shared variables ----
 DISTRO_FILE=""
 VS_RELEASE_PACKAGE_WORKSPACE_MD5=""
@@ -32,8 +23,22 @@ VS_SSR_ARCHIVED_PACKAGE_PATH=""
 VS_SSR_ARCHIVED_PACKAGE_MD5=""
 VS_SSR_ARCHIVED_PACKAGE_URL=""
 
-# variable REPO_NAME isn't set, so we need to derive the repo name via git context/commands
+# ---- Preconditions / setup ----
+WORKSPACE="${WORKSPACE:-$(pwd)}"
+mkdir -p "$OUT_DIR"
+
+# if any of the variables GIT_COMMIT, VS_COMMIT_AUTHOR, REPO_NAME isn't set,
+# we need to derive their values via git context/commands
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  # check if GIT_COMMIT is set (should be the case for a declarative/multibranch Jenkins pipeline
+  if [[ -z "$GIT_COMMIT" ]]; then
+    GIT_COMMIT="$(git rev-parse HEAD 2>/dev/null || true)"
+    echo "GIT_COMMIT wasn't set. Setting it to: $GIT_COMMIT"
+  fi
+  # make sure that VS_COMMIT_AUTHOR is set, as it is tied to the infrastructure.sh execution
+  VS_COMMIT_AUTHOR="$(git show -s --pretty='%ae' "$GIT_COMMIT")"
+
+  # adjusting the REPO_NAME (will be used in the email's subject)
   origin_url="$(git config --get remote.origin.url || true)"
   if [[ -n "$origin_url" ]]; then
     REPO_NAME="${origin_url##*/}"
@@ -49,9 +54,14 @@ fi
 
 : "${REPO_NAME:?ERROR: REPO_NAME is empty}"
 
-# ---- Preconditions / setup ----
-WORKSPACE="${WORKSPACE:-$(pwd)}"
-mkdir -p "$OUT_DIR"
+# ---- Inputs ----
+POM="${1:-pom.xml}"
+BUILD_NUMBER_FILE="${2:-.build-meta/build-number.txt}"
+OUT_DIR="${3:-artifacts}"
+LOG_FILE="${4:-${GIT_COMMIT:?GIT_COMMIT is required}.log}"
+SITE_WAR="${5:-site/webapp/target/site.war}"        # kept for backwards-compatibility, not used directly anymore
+MANIFEST_PATH="${6:-META-INF/MANIFEST.MF}"          # kept for backwards-compatibility, not used directly anymore
+MODE="${7:-all}"  # can be: all, step1, step2, step3, etc.
 
 # ---- Helpers ----
 json_escape() {
