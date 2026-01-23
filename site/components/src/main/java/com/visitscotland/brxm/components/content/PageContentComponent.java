@@ -78,7 +78,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     public static final String INCLUDE_SEARCH_WIDGET = "searchWidget";
     public static final String SEARCH_LOGIC = "cludoApiOperator";
-    public static final String SEARCH_LINK = "searchLink";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
 
