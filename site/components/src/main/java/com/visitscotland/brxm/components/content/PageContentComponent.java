@@ -474,36 +474,30 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private boolean isSearchResultsPage(HstRequest request) {
-        return SEARCH_PAGE.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
+        return SEARCH_PAGE.equals(
+                request.getRequestContext()
+                        .getResolvedSiteMapItem()
+                        .getHstSiteMapItem()
+                        .getRefId()
+        );
     }
     private boolean isSearchResultsPageCopy(HstRequest request) {
-        return getSearchResultsURL(request).filter(link -> request.getRequestURI().startsWith(link)).isPresent();
+        return getSearchResultsPath(request)
+                .map(path -> request.getRequestURI().startsWith(path))
+                .orElse(false);
     }
 
-    /**
-     * Creates and exposes a locale-aware search page link in the HST request context.
-     * <br>
-     * This method generates an HstLink for the sitemap item with refId "search-page"
-     * and stores it as a request attribute named "searchLink".
-     * <br>
-     * Use this to ensure the search URL is correctly resolved for the current
-     * locale and mount, avoiding hardcoded or relative paths in templates
-     *
-     * @param request the current HstRequest
-     */
-    private Optional<String> getSearchResultsURL(final HstRequest request) {
-        HstRequestContext requestContext = request.getRequestContext();
+    private Optional<String> getSearchResultsPath(final HstRequest request) {
+        HstRequestContext ctx = request.getRequestContext();
 
-        HstLink link = requestContext.getHstLinkCreator()
-                .createByRefId(SEARCH_PAGE, requestContext.getResolvedMount().getMount());
+        HstLink link = ctx.getHstLinkCreator()
+                .createByRefId(SEARCH_PAGE, ctx.getResolvedMount().getMount());
 
         if (link != null) {
-            // Convert the link to a URL and make it available to the template
-            return Optional.of(link.toUrlForm(requestContext, false));
-        } else {
-            logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration.");
+            return Optional.of(link.getPath());
         }
 
+        logger.warn("Could not resolve link for siteMapItemRefId 'search-page'");
         return Optional.empty();
     }
 }
