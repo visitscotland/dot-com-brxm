@@ -464,7 +464,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
                 properties.getGlobalSearchLogic().ifPresent(v -> pageConfig.addProperty(SEARCH_LOGIC, v));
-
             }
         }
     }
