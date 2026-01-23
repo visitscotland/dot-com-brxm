@@ -479,8 +479,6 @@ pipeline {
                 withEnv([
                     "MAIL_TO_NET=${MAIL_TO_NET}",
                     "CC_DEV_LIST=${CC_DEV_LIST}",
-                    "MAX_RETRIES=10",
-                    "SLEEP_INTERVAL=0.2"
                 ]) {
                     sh '''
                     bash ci/scripts/release_combined_stages.sh \
