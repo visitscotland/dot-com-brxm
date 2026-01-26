@@ -19,7 +19,7 @@ public class GoogleMapsLinkValidator implements Validator<Node>  {
 
     // regex to extract coordinates from url using @ coordinates
     private static final String URL_REGEX =
-            "(?i)https://www\\.google\\.com/maps/place/[^/]*/@(-?\\d{1,3}\\.\\d{1,20}),(-?\\d{1,3}\\.\\d{1,20}),.*";
+            "(?i)https://www\\.google\\.(com|co\\.uk)?/maps/place/[^/]*/@(-?\\d{1,3}\\.\\d{1,20}),(-?\\d{1,3}\\.\\d{1,20}),.*";
 
     static final String MAP_LINK = "visitscotland:mapLink";
     static final String LINK_FIELD = "visitscotland:link";
@@ -50,7 +50,7 @@ public class GoogleMapsLinkValidator implements Validator<Node>  {
                 return Optional.of(context.createViolation(ERROR));
             }
         } catch (RepositoryException e) {
-            logger.error("A repository exception occurred. {}", e);
+            logger.error("A repository exception occurred.", e);
             return Optional.of(context.createViolation(EXCEPTION));
         }
     }
