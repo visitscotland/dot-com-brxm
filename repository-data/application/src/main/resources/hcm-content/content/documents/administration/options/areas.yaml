@@ -20,7 +20,7 @@
       selection:label: Argyll & The Isles
     /selection:listitem[3]:
       jcr:primaryType: selection:listitem
-      selection:key: ayrshire
+      selection:key: arranayr
       selection:label: Ayrshire & Arran
     /selection:listitem[4]:
       jcr:primaryType: selection:listitem
@@ -44,7 +44,7 @@
       selection:label: Greater Glasgow & The Clyde Valley
     /selection:listitem[9]:
       jcr:primaryType: selection:listitem
-      selection:key: stirling
+      selection:key: lomond
       selection:label: Loch Lomond, The Trossachs, Stirling & Forth Valley
     /selection:listitem[10]:
       jcr:primaryType: selection:listitem
@@ -52,7 +52,7 @@
       selection:label: Orkney
     /selection:listitem[11]:
       jcr:primaryType: selection:listitem
-      selection:key: hebrides
+      selection:key: outerhebs
       selection:label: Outer Hebrides
     /selection:listitem[12]:
       jcr:primaryType: selection:listitem
@@ -73,7 +73,7 @@
     /selection:listitem[16]:
       jcr:primaryType: selection:listitem
       selection:key: all
-      selection:label: All
+      selection:label: All (Deprecated)
     /selection:listitem[17]:
       jcr:primaryType: selection:listitem
       selection:key: east
