@@ -136,3 +136,8 @@ action-lists:
     /content/documents/administration/labels/global/search-events-filters: reload
 - 2.15.0.1:
     /content/documents/administration/options/bespoken-modules: reload
+- 3.0.0:
+    /content/documents/administration/configuration/default-site-properties: reload
+
+
+
