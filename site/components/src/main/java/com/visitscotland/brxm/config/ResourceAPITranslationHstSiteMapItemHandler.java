@@ -3,7 +3,6 @@ package com.visitscotland.brxm.config;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.core.container.ContainerConstants;
 import org.hippoecm.hst.core.internal.HstMutableRequestContext;
-import org.hippoecm.hst.core.request.ResolvedMount;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.hst.core.request.ResolvedVirtualHost;
 import org.hippoecm.hst.core.request.SiteMapItemHandlerConfiguration;
@@ -21,7 +20,7 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
     private static final Logger logger = LoggerFactory.getLogger(ResourceAPITranslationHstSiteMapItemHandler.class);
 
     private static final String PAGE_NOT_FOUND_COMPONENT = "hst:pages/pagenotfound";
-    private static final String ENGLISH_ROOT_PATH = "/resourceapi";
+    private static final String ENGLISH_ROOT_MOUNT = "/resourceapi";
 
     /**
      * Implement the translation fallback mechanism.
@@ -41,10 +40,10 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
                 path = "/" + path;
             }
             var resolvedVirtualHost = getResolvedVirtualHost(httpServletRequest);
-            var englishMount = resolvedVirtualHost.matchMount(ENGLISH_ROOT_PATH);
+            var englishMount = resolvedVirtualHost.matchMount(ENGLISH_ROOT_MOUNT);
             var englishSiteMapItem = englishMount.matchSiteMapItem(path);
 
-            if (!isPageNotFound(englishMount, englishSiteMapItem)) {
+            if (!isPageNotFound(resolvedSiteMapItem, englishSiteMapItem)) {
                 // English content does exist - use translated mount with an english sitemap
                 return englishSiteMapItem;
             }
@@ -63,20 +62,21 @@ public class ResourceAPITranslationHstSiteMapItemHandler implements HstSiteMapIt
              return false;
         }
         String mountPath = resolvedSiteMapItem.getResolvedMount().getResolvedMountPath();
-        return ENGLISH_ROOT_PATH.equals(mountPath);
+        return ENGLISH_ROOT_MOUNT.equals(mountPath);
     }
     /**
      * Alters the context of the request to check if the page would be available in the main site mount
      */
-    private boolean isPageNotFound(ResolvedMount mount, ResolvedSiteMapItem siteMapItem) {
+    private boolean isPageNotFound(ResolvedSiteMapItem originalSiteMapItem, ResolvedSiteMapItem alternativeSiteMapItem) {
         HstMutableRequestContext requestContext = (HstMutableRequestContext) RequestContextProvider.get();
-        ResolvedMount originalMount = requestContext.getResolvedMount();
-        try {
-            requestContext.setResolvedMount(mount);
-            return isPageNotFound(siteMapItem);
-        } finally {
-            requestContext.setResolvedMount(originalMount);
-        }
+
+        requestContext.setResolvedMount(alternativeSiteMapItem.getResolvedMount());
+        requestContext.setResolvedSiteMapItem(alternativeSiteMapItem);
+        boolean notFound = isPageNotFound(alternativeSiteMapItem);
+        requestContext.setResolvedSiteMapItem(originalSiteMapItem);
+        requestContext.setResolvedMount(originalSiteMapItem.getResolvedMount());
+
+        return notFound;
     }
 
     private boolean isPageNotFound(ResolvedSiteMapItem resolvedSiteMapItem) {
