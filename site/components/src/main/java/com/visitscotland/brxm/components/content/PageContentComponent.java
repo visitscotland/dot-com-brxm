@@ -77,6 +77,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String INCLUDE_SEARCH_WIDGET = "searchWidget";
+    public static final String SEARCH_LOGIC = "cludoApiOperator";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
 
@@ -462,6 +463,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             if (isSearchResultsPage) {
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
+                properties.getGlobalSearchLogic().ifPresent(v -> pageConfig.addProperty(SEARCH_LOGIC, v));
             }
         }
     }
