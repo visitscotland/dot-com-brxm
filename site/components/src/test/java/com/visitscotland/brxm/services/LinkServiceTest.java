@@ -252,8 +252,7 @@ class LinkServiceTest {
         FlatLink link = service.createFindOutMoreLink(null, Locale.UK, dmsLink);
 
         assertTrue(link.getLink().endsWith("/dms-page"));
-        assertEquals(LinkType.INTERNAL, link.getType());
-
+        assertEquals(LinkType.EXTERNAL, link.getType());
     }
 
     @Test
