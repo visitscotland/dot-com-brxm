@@ -370,6 +370,11 @@ step_5_compose_email() {
   echo "            INFO: REPO_NAME=$REPO_NAME"
 
   EMAIL_SUBJECT="[Release] ${REPO_NAME:-unknown-repo} v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} - build #${BUILD_NUMBER:-?} - ${VS_PIPELINE_OUTCOME_EMAIL}"
+  EMAIL_SUBJECT_FILE="$OUT_DIR/email.subject.txt"
+  # Write subject as a single line
+  printf '%s' "$EMAIL_SUBJECT" > "$EMAIL_SUBJECT_FILE"
+  echo "            INFO: EMAIL_SUBJECT=$EMAIL_SUBJECT"
+
   EMAIL_HTML_FILE="$OUT_DIR/email.html"
 
   {
