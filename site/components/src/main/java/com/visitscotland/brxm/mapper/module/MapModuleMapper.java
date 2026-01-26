@@ -256,7 +256,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         if (dmsResponseData != null && !dmsResponseData.isEmpty()) {
             for (JsonNode jsonNode : dmsResponseData) {
                 FlatImage image = imageMapper.createImage(jsonNode, module,locale);
-                FlatLink link = new FlatLink(bundle.getResourceBundle(MAP, DISCOVER, locale), jsonNode.get("productLink").get("link").asText(), LinkType.INTERNAL);
+                FlatLink link = new FlatLink(bundle.getResourceBundle(MAP, DISCOVER, locale), jsonNode.get("productLink").get("link").asText(), LinkType.EXTERNAL);
                 ObjectNode data = mapper.createObjectNode();
                 String name = jsonNode.has(NAME) ? jsonNode.get(NAME).asText() : null;
                 String description = jsonNode.has(DESCRIPTION) ? jsonNode.get(DESCRIPTION).asText() : null;

@@ -228,11 +228,11 @@ public class LinkService {
 
     public FlatLink createDmsLink(Locale locale, DMSLink dmsLink, JsonNode dmsProductJson, String defaultCta) {
         String cta = Contract.isEmpty(dmsLink.getLabel()) ? defaultCta : dmsLink.getLabel();
-        return new FlatLink(cta, getPlainLink(locale, dmsLink, dmsProductJson), LinkType.INTERNAL);
+        return new FlatLink(cta, getPlainLink(locale, dmsLink, dmsProductJson), LinkType.EXTERNAL);
     }
 
     public FlatLink createDmsLink(Locale locale, DMSLink dmsLink, JsonNode dmsProductJson) {
-        return new FlatLink(bundle.getCtaLabel(dmsLink.getLabel(), locale), getPlainLink(locale, dmsLink, dmsProductJson), LinkType.INTERNAL);
+        return new FlatLink(bundle.getCtaLabel(dmsLink.getLabel(), locale), getPlainLink(locale, dmsLink, dmsProductJson), LinkType.EXTERNAL);
     }
 
     /**
