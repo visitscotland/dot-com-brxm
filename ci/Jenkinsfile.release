@@ -493,6 +493,9 @@ pipeline {
                 }
                 // Wrap all Groovy logic in a script block
                 script {
+                    // New approach using files
+                    def emailSubjectFile = 'artifacts/email.subject.txt'
+
                     // Read the results
                     def r = readJSON file: 'artifacts/results.json'
 
@@ -507,7 +510,8 @@ pipeline {
                     }
 
                     emailext(
-                            subject: r.email.subject,
+//                            subject: r.email.subject,
+                            subject: readFile(emailSubjectFile),
                             body: readFile(r.email.htmlFile),
                             to: recipients.join(', '), // can be used because of JSONArray → Groovy List conversion
                             mimeType: 'text/html'
