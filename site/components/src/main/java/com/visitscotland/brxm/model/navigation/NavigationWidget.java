@@ -15,6 +15,7 @@ public abstract class NavigationWidget<W extends HippoBean> extends Module<W> {
     private W hippoBean;
 
     @Override
+    @PageModelIgnore
     public W getHippoBean() {
         return hippoBean;
     }
