@@ -23,10 +23,9 @@ VS_SSR_ARCHIVED_PACKAGE_PATH=""
 VS_SSR_ARCHIVED_PACKAGE_MD5=""
 VS_SSR_ARCHIVED_PACKAGE_URL=""
 
-# ---- Preconditions / setup ----
-WORKSPACE="${WORKSPACE:-$(pwd)}"
-mkdir -p "$OUT_DIR"
+# ---- Preconditions / Inputs / Setup ----
 
+# Preconditions
 # if any of the variables GIT_COMMIT, VS_COMMIT_AUTHOR, REPO_NAME isn't set,
 # we need to derive their values via git context/commands
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
@@ -54,7 +53,7 @@ fi
 
 : "${REPO_NAME:?ERROR: REPO_NAME is empty}"
 
-# ---- Inputs ----
+# Inputs
 POM="${1:-pom.xml}"
 BUILD_NUMBER_FILE="${2:-.build-meta/build-number.txt}"
 OUT_DIR="${3:-artifacts}"
@@ -62,6 +61,10 @@ LOG_FILE="${4:-${GIT_COMMIT:?GIT_COMMIT is required}.log}"
 SITE_WAR="${5:-site/webapp/target/site.war}"        # kept for backwards-compatibility, not used directly anymore
 MANIFEST_PATH="${6:-META-INF/MANIFEST.MF}"          # kept for backwards-compatibility, not used directly anymore
 MODE="${7:-all}"  # can be: all, step1, step2, step3, etc.
+
+# Setup
+WORKSPACE="${WORKSPACE:-$(pwd)}"
+mkdir -p "$OUT_DIR"
 
 # ---- Helpers ----
 json_escape() {
