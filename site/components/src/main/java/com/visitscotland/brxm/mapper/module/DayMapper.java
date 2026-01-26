@@ -24,7 +24,6 @@ import java.util.MissingResourceException;
 @Component
 public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
 
-
     private static final String BUNDLE_FILE = "itinerary";
 
     // some of these to be removed
@@ -56,7 +55,6 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         // nothing needed here for now
     }
 
-
     @Override
     public ItineraryDayModule map(Day document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         ItineraryDayModule day = new ItineraryDayModule();
@@ -67,7 +65,7 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         day.setMapLink(formatCTA(document.getMapLink(),
                 bundle.getResourceBundle(BUNDLE_FILE, "days.default-cta", compositionHelper.getLocale()),
                 compositionHelper.getLocale()));
-        day.setCtaLink(formatCTA(document.getCtaLink(), "default CTA here", compositionHelper.getLocale()));
+        day.setCtaLink(formatCTA(document.getCtaLink(), "", compositionHelper.getLocale()));
         day.setMedia(document.getMedia());
 
         return day;
@@ -81,5 +79,4 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
 
         return ctaLink;
     }
-
 }
