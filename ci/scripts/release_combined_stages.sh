@@ -449,7 +449,7 @@ step_5_compose_email() {
   echo "            INFO: Wrote subject: $EMAIL_SUBJECT_FILE"
   echo "            INFO: EMAIL_SUBJECT: $EMAIL_SUBJECT"
 
-  EMAIL_HTML_FILE="$OUT_DIR/email.html"
+  EMAIL_HTML_FILE="$OUT_DIR/email.body.txt"
 
   {
     cat <<'HTML_HEAD'
