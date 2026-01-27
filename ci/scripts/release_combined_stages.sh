@@ -478,7 +478,7 @@ HTML_HEAD
       "$VS_PIPELINE_OUTCOME_EMAIL"
 
     echo "<p>Here are the details for the artefacts (distribution/release and SSR packages) related to this build.</p>"
-    echo "<h2>Release v$(json_escape "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}") artefact</h2>"
+    printf '<h2>Release v%s artefact</h2>\n' "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}"
 
     if [[ -n "${VS_ERROR_LINES_EMAIL:-}" ]]; then
       printf '%s\n' "${VS_ERROR_LINES_EMAIL}"
