@@ -448,51 +448,6 @@ TABLE3
 }
 
 # =====================================================================
-# Step 6 - Write outputs
-# =====================================================================
-step_6_write_outputs() {
-  echo "==> Step 6: Writing outputs..."
-  echo "            (debugging) MAIL_TO_NET=${MAIL_TO_NET:-}, VS_COMMIT_AUTHOR=${VS_COMMIT_AUTHOR:-}, CC_DEV_LIST=${CC_DEV_LIST:-}"
-  local RECIPIENTS_ARRAY
-  RECIPIENTS_ARRAY="$(comma_split_to_json_array "${MAIL_TO_NET:-}, ${VS_COMMIT_AUTHOR:-}, ${CC_DEV_LIST:-}")"
-
-  local RESULTS_JSON="$OUT_DIR/results.json"
-  cat > "$RESULTS_JSON" <<JSON
-{
-  "repo": "$(json_escape "$REPO_NAME")",
-  "build": {
-    "number": "$(json_escape "${BUILD_NUMBER:-}")",
-    "url": "$(json_escape "${BUILD_URL:-}")",
-    "logFile": "$(json_escape "$LOG_FILE")",
-    "outcome": "$(json_escape "$VS_PIPELINE_OUTCOME_EMAIL")"
-  },
-  "release": {
-    "version": "$(json_escape "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-}")",
-    "nexusUrl": "$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")",
-    "filename": "$(json_escape "${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}")",
-    "md5": "$(json_escape "${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")",
-    "buildNumber": "$(json_escape "${VS_SITE_WAR_BUILD_NUMBER:-}")"
-  },
-  "ssr": {
-    "url": "$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")",
-    "md5": "$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")",
-    "name": "$(json_escape "${VS_SSR_PACKAGE_NAME:-}")"
-  },
-  "email": {
-    "subject": "$(json_escape "$EMAIL_SUBJECT")",
-    "htmlFile": "$(json_escape "$EMAIL_HTML_FILE")",
-    "recipients": ${RECIPIENTS_ARRAY}
-  },
-  "notes": {
-    "errorsHtml": "$(json_escape "${VS_ERROR_LINES_EMAIL:-}")"
-  }
-}
-JSON
-
-  echo "            (debugging) Wrote: $RESULTS_JSON"
-}
-
-# =====================================================================
 # Main dispatcher
 # =====================================================================
 # Loop over every argument passed to the script
@@ -505,15 +460,14 @@ done
 
 main() {
   case "$MODE" in
-    all)   step_1_find_distro; step_2_parse_log; step_3_extract_build_number; step_4_parse_pom; step_5_compose_email; step_6_write_outputs ;;
+    all)   step_1_find_distro; step_2_parse_log; step_3_extract_build_number; step_4_parse_pom; step_5_compose_email ;;
     step1) step_1_find_distro ;;
     step2) step_2_parse_log ;;
     step3) step_3_extract_build_number ;;
     step4) step_4_parse_pom ;;
     step5) step_5_compose_email ;;
-    step6) step_6_write_outputs ;;
     *) echo "Usage: $0 [POM] [BUILD_NUMBER_FILE] [OUT_DIR] [LOG_FILE] [PROPS_PATH] [SITE_WAR] [MANIFEST_PATH] [MODE|--mode=MODE]" >&2
-       echo "  MODE can be: all, step1, step2, step3, step4, step5, step6"
+       echo "  MODE can be: all, step1, step2, step3, step4, step5"
        echo "  You can specify it either as a positional argument or with --mode=stepX (flag form)"
        exit 1 ;;
   esac
