@@ -41,10 +41,11 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         super.doBeforeRender(request, response, pageConfig);
 
         includeLabels(request);
-
         if (itineraryMapper.isStopBasedItinerary(getDocument(request))){
+            pageConfig.addProperty("hasStops", true);
             buildStopBasedItinerary(request);
         } else {
+            pageConfig.addProperty("hasStops", false);
             ItineraryPage itinerary = itineraryMapper.buildItinerary(getDocument(request), request.getLocale());
             request.setModel(PAGE_INTRO, itinerary);
             builder.addModules(request, pageConfig);
