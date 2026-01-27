@@ -69,42 +69,6 @@ WORKSPACE="${WORKSPACE:-$(pwd)}"
 mkdir -p "$OUT_DIR"
 
 # ---- Helpers ----
-json_escape() {
-  # minimal JSON string escaper
-  local s=${1-}
-  s=${s//\\/\\\\}
-  s=${s//\"/\\\"}
-  s=${s//$'\n'/\\n}
-  s=${s//$'\r'/\\r}
-  s=${s//$'\t'/\\t}
-  s=${s//</\\u003C}
-  s=${s//>/\\u003E}
-  s=${s//&/\\u0026}
-  printf '%s' "$s"
-}
-
-comma_split_to_json_array() {
-  # turn "a, b, c" into ["a","b","c"] (empty -> [])
-  local raw="${1:-}"
-  if [[ -z "$raw" ]]; then
-    printf '[]'
-    return
-  fi
-  local IFS=, out=()
-  for part in $raw; do
-    # trim surrounding spaces
-    local t="${part#"${part%%[![:space:]]*}"}"
-    t="${t%"${t##*[![:space:]]}"}"
-    [[ -z "$t" ]] && continue
-    out+=("\"$(json_escape "$t")\"")
-  done
-  if ((${#out[@]} == 0)); then
-    printf '[]'
-  else
-    printf '[%s]' "$(IFS=,; echo "${out[*]}")"
-  fi
-}
-
 md5_for_file() {
   # MD5 helper: prints empty string if the tool doesn't exists or file passed as an argument is missing
   local f="$1" md5=""
