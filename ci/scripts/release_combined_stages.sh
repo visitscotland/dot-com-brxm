@@ -363,7 +363,80 @@ step_4_parse_pom() {
 }
 
 # =====================================================================
-# Step 5 - Compose email HTML
+# Step 5 - Compose email HTML (json-oriented approach)
+# =====================================================================
+#step_5_compose_email() {
+#  echo "==> Step 5: Composing email..."
+#  echo "            INFO: REPO_NAME=$REPO_NAME"
+#
+#  EMAIL_SUBJECT="[Release] ${REPO_NAME:-unknown-repo} v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} - build #${BUILD_NUMBER:-?} - ${VS_PIPELINE_OUTCOME_EMAIL}"
+#  EMAIL_SUBJECT_FILE="$OUT_DIR/email.subject.txt"
+#  # Write subject as a single line
+#  printf '%s' "$EMAIL_SUBJECT" > "$EMAIL_SUBJECT_FILE"
+#  echo "            INFO: Wrote subject: $EMAIL_SUBJECT_FILE"
+#  echo "            INFO: EMAIL_SUBJECT: $EMAIL_SUBJECT"
+#
+#  EMAIL_HTML_FILE="$OUT_DIR/email.html"
+#
+#  {
+#    cat <<'HTML_HEAD'
+#<html>
+#<head>
+#  <meta charset="utf-8"/>
+#  <style>
+#    body {font-family: Arial, sans-serif; line-height: 1.6;}
+#    h1 {color: #333;}
+#    table {width: 100%; border-collapse: collapse;}
+#    th, td {border: 1px solid #ddd; padding: 8px; text-align: left;}
+#    th {background-color: #f2f2f2;}
+#    code {font-family: ui-monospace, monospace;}
+#  </style>
+#</head>
+#<body>
+#HTML_HEAD
+#
+#    printf '<h1>%s: Package details for release v%s, <a href="%s">Jenkins Build %s</a> - %s</h1>\n' \
+#      "$(json_escape "$REPO_NAME")" \
+#      "$(json_escape "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}")" \
+#      "$(json_escape "${BUILD_URL:-#}")" \
+#      "$(json_escape "${BUILD_NUMBER:-?}")" \
+#      "$(json_escape "$VS_PIPELINE_OUTCOME_EMAIL")"
+#
+#    echo "<p>Here are the details for the artefacts (distribution/release and SSR packages) related to this build.</p>"
+#    echo "<h2>Release v$(json_escape "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}") artefact</h2>"
+#
+#    if [[ -n "${VS_ERROR_LINES_EMAIL:-}" ]]; then
+#      printf '%s\n' "${VS_ERROR_LINES_EMAIL}"
+#    else
+#      cat <<TABLE1
+#<table>
+#  <tr><th>Build-Number</th><td>$(json_escape "${VS_SITE_WAR_BUILD_NUMBER:-}")</td></tr>
+#  <tr><th>Nexus URL (hyperlink)</th><td><a href="$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")">$(json_escape "${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}")</a></td></tr>
+#  <tr><th>Nexus URL (clean link)</th><td>$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")</td></tr>
+#  <tr><th>MD5 Checksum</th><td>$(json_escape "${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")</td></tr>
+#</table>
+#TABLE1
+#    fi
+#
+#    if [[ -n "${VS_SSR_ARCHIVED_PACKAGE_URL:-}" ]]; then
+#      cat <<TABLE2
+#<h2>SSR Package (in Jenkins)</h2>
+#<table>
+#  <tr><th>URL (hyperlink)</th><td><a href="$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")">$(json_escape "${VS_SSR_PACKAGE_NAME:-}")</a></td></tr>
+#  <tr><th>URL (clean link)</th><td>$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")</td></tr>
+#  <tr><th>MD5 Checksum</th><td>$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")</td></tr>
+#</table>
+#TABLE2
+#    fi
+#    cat <<TABLE3
+#<p>For more information, see the <a href="$(json_escape "${BUILD_URL%/}")/consoleFull">Jenkins build log</a>.</p>
+#</body></html>
+#TABLE3
+#  } > "$EMAIL_HTML_FILE"
+#}
+
+# =====================================================================
+# Step 5 - Compose email HTML (json-oriented approach)
 # =====================================================================
 step_5_compose_email() {
   echo "==> Step 5: Composing email..."
@@ -396,11 +469,11 @@ step_5_compose_email() {
 HTML_HEAD
 
     printf '<h1>%s: Package details for release v%s, <a href="%s">Jenkins Build %s</a> - %s</h1>\n' \
-      "$(json_escape "$REPO_NAME")" \
-      "$(json_escape "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}")" \
-      "$(json_escape "${BUILD_URL:-#}")" \
-      "$(json_escape "${BUILD_NUMBER:-?}")" \
-      "$(json_escape "$VS_PIPELINE_OUTCOME_EMAIL")"
+      "$REPO_NAME" \
+      "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}" \
+      "${BUILD_URL:-#}" \
+      "${BUILD_NUMBER:-?}" \
+      "$VS_PIPELINE_OUTCOME_EMAIL"
 
     echo "<p>Here are the details for the artefacts (distribution/release and SSR packages) related to this build.</p>"
     echo "<h2>Release v$(json_escape "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}") artefact</h2>"
@@ -410,10 +483,10 @@ HTML_HEAD
     else
       cat <<TABLE1
 <table>
-  <tr><th>Build-Number</th><td>$(json_escape "${VS_SITE_WAR_BUILD_NUMBER:-}")</td></tr>
-  <tr><th>Nexus URL (hyperlink)</th><td><a href="$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")">$(json_escape "${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}")</a></td></tr>
-  <tr><th>Nexus URL (clean link)</th><td>$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")</td></tr>
-  <tr><th>MD5 Checksum</th><td>$(json_escape "${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")</td></tr>
+  <tr><th>Build-Number</th><td>${VS_SITE_WAR_BUILD_NUMBER:-}</td></tr>
+  <tr><th>Nexus URL (hyperlink)</th><td><a href="${VS_RELEASE_PACKAGE_NEXUS_URL:-}">${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}</a></td></tr>
+  <tr><th>Nexus URL (clean link)</th><td>${VS_RELEASE_PACKAGE_NEXUS_URL:-}</td></tr>
+  <tr><th>MD5 Checksum</th><td>${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}</td></tr>
 </table>
 TABLE1
     fi
@@ -422,17 +495,18 @@ TABLE1
       cat <<TABLE2
 <h2>SSR Package (in Jenkins)</h2>
 <table>
-  <tr><th>URL (hyperlink)</th><td><a href="$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")">$(json_escape "${VS_SSR_PACKAGE_NAME:-}")</a></td></tr>
-  <tr><th>URL (clean link)</th><td>$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")</td></tr>
-  <tr><th>MD5 Checksum</th><td>$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")</td></tr>
+  <tr><th>URL (hyperlink)</th><td><a href="${VS_SSR_ARCHIVED_PACKAGE_URL}">${VS_SSR_PACKAGE_NAME:-}</a></td></tr></tr>
+  <tr><th>URL (clean link)</th><td>${VS_SSR_ARCHIVED_PACKAGE_URL}</td></tr>
+  <tr><th>MD5 Checksum</th><td>${VS_SSR_ARCHIVED_PACKAGE_MD5:-}</td></tr>
 </table>
 TABLE2
     fi
     cat <<TABLE3
-<p>For more information, see the <a href="$(json_escape "${BUILD_URL%/}")/consoleFull">Jenkins build log</a>.</p>
+<p>For more information, here's the <a href="${BUILD_URL%/}/consoleFull">Jenkins build log</a>.</p>
 </body></html>
 TABLE3
   } > "$EMAIL_HTML_FILE"
+  echo "            (debugging) Wrote: $EMAIL_HTML_FILE"
 }
 
 # =====================================================================
@@ -478,7 +552,6 @@ step_6_write_outputs() {
 JSON
 
   echo "            (debugging) Wrote: $RESULTS_JSON"
-  echo "            (debugging) Wrote: $EMAIL_HTML_FILE"
 }
 
 # =====================================================================
