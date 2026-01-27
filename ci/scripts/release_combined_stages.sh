@@ -35,7 +35,9 @@ if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     echo "GIT_COMMIT wasn't set. Setting it to: $GIT_COMMIT"
   fi
   # make sure that VS_COMMIT_AUTHOR is set, as it is tied to the infrastructure.sh execution
-  VS_COMMIT_AUTHOR="$(git show -s --pretty='%ae' "$GIT_COMMIT")"
+  if [[ -z "${VS_COMMIT_AUTHOR:-}" ]]; then
+    VS_COMMIT_AUTHOR="$(git show -s --pretty='%ae' "$GIT_COMMIT")"
+  fi
 
   # adjusting the REPO_NAME (will be used in the email's subject)
   origin_url="$(git config --get remote.origin.url || true)"
