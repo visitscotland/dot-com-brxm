@@ -446,11 +446,20 @@ step_5_compose_email() {
 
   EMAIL_SUBJECT="[Release] ${REPO_NAME:-unknown-repo} v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} - build #${BUILD_NUMBER:-?} - ${VS_PIPELINE_OUTCOME_EMAIL}"
   EMAIL_SUBJECT_FILE="$OUT_DIR/email.subject.txt"
-  # Write subject as a single line
+
+  # Write subject as a single line, to a file
   printf '%s' "$EMAIL_SUBJECT" > "$EMAIL_SUBJECT_FILE"
-  echo "            INFO: Wrote subject: $EMAIL_SUBJECT_FILE"
+  echo "            INFO: Wrote subject file: $EMAIL_SUBJECT_FILE"
   echo "            INFO: EMAIL_SUBJECT: $EMAIL_SUBJECT"
 
+  # Write email recipients as a single line, to a file
+  EMAIL_RECIPIENTS="${MAIL_TO_NET:-}, ${VS_COMMIT_AUTHOR:-}, ${CC_DEV_LIST:-}"
+  EMAIL_RECIPIENTS_FILE="$OUT_DIR/email.recipients.txt"
+  printf '%s' "$EMAIL_RECIPIENTS" > "$EMAIL_RECIPIENTS_FILE"
+  echo "            INFO: Wrote recipients file: $EMAIL_RECIPIENTS_FILE"
+  echo "            INFO: EMAIL_RECIPIENTS: $EMAIL_RECIPIENTS"
+
+  # Constructing the email body in html, and writing it to a file
   EMAIL_HTML_FILE="$OUT_DIR/email.body.txt"
 
   {
