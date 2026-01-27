@@ -30,7 +30,7 @@ VS_SSR_ARCHIVED_PACKAGE_URL=""
 # we need to derive their values via git context/commands
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   # check if GIT_COMMIT is set (should be the case for a declarative/multibranch Jenkins pipeline
-  if [[ -z "$GIT_COMMIT" ]]; then
+  if [[ -z "${GIT_COMMIT:-}" ]]; then
     GIT_COMMIT="$(git rev-parse HEAD 2>/dev/null || true)"
     echo "GIT_COMMIT wasn't set. Setting it to: $GIT_COMMIT"
   fi
