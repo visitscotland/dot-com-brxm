@@ -35,9 +35,9 @@ if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     #    Issue: If GIT_COMMIT is empty, invalid, or not present locally (shallow checkout edge cases),
     #           git show returns non-zero (error code) and with set -e, the pipeline will exit
     # Solution: Enforce the presence of GIT_COMMIT
-    : "${GIT_COMMIT:?ERROR: GIT_COMMIT is empty}"
+    : "${GIT_COMMIT:?ERROR: GIT_COMMIT is empty (cannot derive HEAD)}"
     # After this point, GIT_COMMIT is 100% set
-    echo "GIT_COMMIT wasn't set. Setting it to: $GIT_COMMIT"
+    echo "GIT_COMMIT wasn't set. Derived from git: $GIT_COMMIT"
   fi
   # make sure that VS_COMMIT_AUTHOR is set, as it is tied to the infrastructure.sh execution
   if [[ -z "${VS_COMMIT_AUTHOR:-}" ]]; then
