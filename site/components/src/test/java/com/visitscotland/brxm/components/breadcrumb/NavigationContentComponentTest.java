@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Disabled("Unit test is not available for this class")
-class VsBreadcrumbComponentTest {
+class NavigationContentComponentTest {
 
     @Test
     @Disabled

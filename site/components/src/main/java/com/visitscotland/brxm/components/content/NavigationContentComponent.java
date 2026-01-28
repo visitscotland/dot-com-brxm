@@ -1,6 +1,7 @@
-package com.visitscotland.brxm.components.breadcrumb;
+package com.visitscotland.brxm.components.content;
 
 
+import com.visitscotland.brxm.components.breadcrumb.VsBreadCrumbProvider;
 import com.visitscotland.brxm.hippobeans.BaseDocument;
 import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.hippobeans.Itinerary;
@@ -13,7 +14,6 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.ComponentConfiguration;
-import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,15 +22,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class VsBreadcrumbComponent extends CommonComponent {
+public class NavigationContentComponent extends ContentComponent {
 
-    private static final Logger logger = LoggerFactory.getLogger(VsBreadcrumbComponent.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(NavigationContentComponent.class.getName());
 
     private static final String REQUESTED_URI = "requestedURI";
     private static final String IS_HOME = "isHome";
     private static final String BREADCRUMB = "breadcrumb";
     private static final String DOCUMENT = "document";
     private static final String ORDERED_TRANSLATIONS = "orderedTranslations";
+
+    //TODO: Search Funtionality properties (to be moved to pageConfiguration)
     private static final String CONTENT_CATEGORIES_OPTIONS = "content-categories-options";
     private static final String CONTENT_TYPE_OPTIONS = "content-content-type";
     private static final String SEARCH_CATEGORY = "searchCategory";
