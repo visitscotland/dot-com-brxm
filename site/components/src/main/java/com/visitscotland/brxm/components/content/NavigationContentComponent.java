@@ -33,7 +33,7 @@ public class NavigationContentComponent extends CommonComponent {
     private static final String DOCUMENT = "document";
     private static final String ORDERED_TRANSLATIONS = "orderedTranslations";
 
-    //TODO: Search Funtionality properties (to be moved to pageConfiguration)
+    //TODO: Search Functionality properties (to be moved to pageConfiguration)
     private static final String CONTENT_CATEGORIES_OPTIONS = "content-categories-options";
     private static final String CONTENT_TYPE_OPTIONS = "content-content-type";
     private static final String SEARCH_CATEGORY = "searchCategory";
