@@ -7,7 +7,8 @@
 set -Eeuo pipefail
 IFS=$'\n\t'
 # Trap failures and include the exact command and the *actual* failing line number
-trap 'rc=$?; echo "ERROR: ${BASH_SOURCE[1]:-${BASH_SOURCE[0]:-?}}: ${LINENO:-${BASH_LINENO[0]:-?}}: command failed: ${BASH_COMMAND:-?}" >&2; exit $rc' ERR
+#trap 'rc=$?; echo "ERROR: ${BASH_SOURCE[1]:-${BASH_SOURCE[0]:-?}}: ${LINENO:-${BASH_LINENO[0]:-?}}: command failed: ${BASH_COMMAND:-?}" >&2; exit $rc' ERR
+trap 'rc=$?; echo "ERROR: ${BASH_SOURCE[0]}:${BASH_LINENO[0]}: ${BASH_COMMAND}" >&2; exit $rc' ERR
 
 # ---- Shared variables ----
 DISTRO_FILE=""
@@ -68,6 +69,8 @@ fi
 #SITE_WAR="${5:-site/webapp/target/site.war}"        # kept for backwards-compatibility, not used directly anymore
 #MANIFEST_PATH="${6:-META-INF/MANIFEST.MF}"          # kept for backwards-compatibility, not used directly anymore
 #MODE="${7:-all}"  # can be: all, step1, step2, step3, etc.
+
+fail
 
 # Defaults
 MODE="all"
