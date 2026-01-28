@@ -139,3 +139,5 @@ action-lists:
 - 3.0.0.1:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/options/maps---dms-categories: reload
+- 3.0.0.2:
+    /content/documents/administration/labels/global/search-events-filters: reload
