@@ -481,15 +481,8 @@ pipeline {
                     "CC_DEV_LIST=${CC_DEV_LIST}",
                 ]) {
                     sh '''
-                    bash ci/scripts/release_combined_stages.sh --mode=all --out-dir=artifacts
-//                      "pom.xml" \
-//                      "build-number.txt" \
-//                      "artifacts" \
-//                      "${GIT_COMMIT}.log" \
-//                      "site/webapp/target/site.war" \
-//                      "META-INF/MANIFEST.MF" \
-//                      "--mode=all"
-                  '''
+                        bash ci/scripts/release_combined_stages.sh --mode=all --out-dir=artifacts
+                    '''
                 }
                 // Wrap all Groovy logic in a script block
                 script {
