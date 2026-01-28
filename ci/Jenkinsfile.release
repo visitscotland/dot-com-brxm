@@ -498,9 +498,10 @@ pipeline {
                     def emailBodyFile = 'artifacts/email.body.txt'
                     def emailRecipientsFile = 'artifacts/email.recipients.txt'
                     emailext(
-                            subject: readFile(emailSubjectFile),
-                            body: readFile(emailBodyFile),
-                            to: readFile(emailRecipientsFile),
+                            // trimming, as we might have trailing newlines from printf, or editors
+                            subject: readFile(emailSubjectFile).trim(),
+                            body: readFile(emailBodyFile).trim(),
+                            to: readFile(emailRecipientsFile).trim(),
                             mimeType: 'text/html'
                     )
                 }
