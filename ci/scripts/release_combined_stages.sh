@@ -452,7 +452,7 @@ TABLE1
       cat <<TABLE2
 <h2>SSR Package (in Jenkins)</h2>
 <table>
-  <tr><th>URL (hyperlink)</th><td><a href="${VS_SSR_ARCHIVED_PACKAGE_URL}">${VS_SSR_PACKAGE_NAME:-}</a></td></tr></tr>
+  <tr><th>URL (hyperlink)</th><td><a href="${VS_SSR_ARCHIVED_PACKAGE_URL}">${VS_SSR_PACKAGE_NAME:-}</a></td></tr>
   <tr><th>URL (clean link)</th><td>${VS_SSR_ARCHIVED_PACKAGE_URL}</td></tr>
   <tr><th>MD5 Checksum</th><td>${VS_SSR_ARCHIVED_PACKAGE_MD5:-}</td></tr>
 </table>
