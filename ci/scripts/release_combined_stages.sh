@@ -68,7 +68,7 @@ fi
 MODE="all"
 OUT_DIR="artifacts"
 POM="pom.xml"
-BUILD_NUMBER_FILE=""   # empty means "auto-discover"
+BUILD_NUMBER_FILE="build-number.txt"
 LOG_FILE=""            # empty means "auto-derive"
 
 for arg in "$@"; do
@@ -100,6 +100,11 @@ if [[ -z "${LOG_FILE:-}" ]]; then
     # fallback: pick a single *.log if present
     #LOG_FILE="$(ls -1t "${WORKSPACE}"/*.log 2>/dev/null | head -n1 || true)"
   fi
+fi
+
+# If BUILD_NUMBER_FILE is relative, anchor it to WORKSPACE
+if [[ "${BUILD_NUMBER_FILE:-}" != /* ]]; then
+  BUILD_NUMBER_FILE="$WORKSPACE/$BUILD_NUMBER_FILE"
 fi
 
 # ---- Helpers ----
