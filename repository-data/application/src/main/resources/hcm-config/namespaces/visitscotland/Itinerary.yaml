@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 7352de02-c022-48a7-9070-0f2c02a2eb1d
+          jcr:uuid: cf992430-0147-48a1-aca6-a7d626f931fd
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -122,7 +122,7 @@ definitions:
           visitscotland:start: ''
           visitscotland:distance: 0.0
           visitscotland:theme: ''
-          jcr:uuid: a14e1076-d4f1-4486-acbb-fb90db89f159
+          jcr:uuid: f96a5ced-c467-4d50-87a5-3808902adfe2
           hippostdpubwf:creationDate: 2019-12-06T11:10:08.311Z
           hippostdpubwf:lastModificationDate: 2019-12-06T11:10:08.310Z
           visitscotland:areas: []
@@ -279,7 +279,7 @@ definitions:
               source: /content/documents/administration/options/areas
           /mapLink:
             jcr:primaryType: frontend:plugin
-            caption: Map Link
+            caption: Google Maps Itinerary Link
             field: mapLink
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin

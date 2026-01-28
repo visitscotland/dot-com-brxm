@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 43c16f7c-e8c8-4512-b429-23415ff3d488
+          jcr:uuid: 33fbc5ad-c2e1-4173-9ad8-265ea5e97e55
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -97,7 +97,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: af5d54a8-95c7-4384-80e8-70212ad3ea03
+          jcr:uuid: 298e90e5-f226-4906-934d-ddfb804de03b
           hippostdpubwf:lastModificationDate: 2019-12-05T15:29:52.785Z
           hippostdpubwf:creationDate: 2019-12-05T15:29:52.785Z
           visitscotland:transports: []
@@ -176,7 +176,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /mapLink:
             jcr:primaryType: frontend:plugin
-            caption: Map Link
+            caption: Google Maps Day Location Link
             field: mapLink
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
