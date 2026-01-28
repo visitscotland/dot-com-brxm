@@ -253,7 +253,6 @@ class LinkServiceTest {
 
         assertTrue(link.getLink().endsWith("/dms-page"));
         assertEquals(LinkType.EXTERNAL, link.getType());
-
     }
 
     @Test
