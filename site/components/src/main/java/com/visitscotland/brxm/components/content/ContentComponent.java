@@ -59,8 +59,6 @@ public abstract class ContentComponent extends EssentialsContentComponent {
 
     }
 
-
-
     /**
      * Sets the status code for the Page request.
      *
@@ -77,7 +75,7 @@ public abstract class ContentComponent extends EssentialsContentComponent {
                     request.setModel(ERROR_CODE, pageStatus);
                 }
             }
-        } catch (Exception e) {
+        } catch (NumberFormatException | NullPointerException e) {
             logger.error("The HTTP status code could not be calculated: {} ", e.getMessage());
         }
     }
