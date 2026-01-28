@@ -95,7 +95,8 @@ if [[ -z "${LOG_FILE:-}" ]]; then
     LOG_FILE="${WORKSPACE}/${GIT_COMMIT}.log"
   else
     # should never reach here (but if it does, fail the pipeline)
-    echo "ERROR: Not inside a git work tree; cannot determine REPO_NAME" >&2
+    echo "ERROR: no $GIT_COMMIT detected, exiting..." >&2
+    exit 2
     # fallback: pick a single *.log if present
     #LOG_FILE="$(ls -1t "${WORKSPACE}"/*.log 2>/dev/null | head -n1 || true)"
   fi
