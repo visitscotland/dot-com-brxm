@@ -2,8 +2,10 @@ package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.LocalizationComponent;
+import com.visitscotland.brxm.services.ResourceBundleService;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -20,14 +22,19 @@ import java.util.Optional;
  */
 // TODO: Rename to VsContentComponent
 public abstract class ContentComponent extends EssentialsContentComponent {
+
+    private static final Logger logger = LoggerFactory.getLogger(ContentComponent.class);
+
     private final HippoUtilsService hippoUtilsService;
     private final LocalizationComponent localizationComponent;
+    private final ResourceBundleService bundle;
     public static final String PAGE_PATH = "content";
     private static final String ERROR_CODE = "errorCode";
 
     protected ContentComponent() {
         hippoUtilsService = VsComponentManager.get(HippoUtilsService.class);
         localizationComponent = VsComponentManager.get(LocalizationComponent.class);
+        bundle = VsComponentManager.get(ResourceBundleService.class);
     }
 
     @Override
@@ -43,11 +50,16 @@ public abstract class ContentComponent extends EssentialsContentComponent {
 
     @Override
     public void prepareBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
+        PageCompositionHelper helper = new PageCompositionHelper(bundle, request);
+
         super.prepareBeforeRender(request, response);
 
+        localizationComponent.setLocale(helper);
         setStatusCode(request, response);
-        localizationComponent.setLocale();
+
     }
+
+
 
     /**
      * Sets the status code for the Page request.
@@ -55,14 +67,18 @@ public abstract class ContentComponent extends EssentialsContentComponent {
      * @param request HstRequest
      * @param response HstResponse
      */
-    private void setStatusCode(HstRequest request, HstResponse response){
+    private void setStatusCode(HstRequest request, HstResponse response) {
         GeneralPageComponentInfo pageInfo = getComponentParametersInfo(request);
-        if (pageInfo != null) {
-            int pageStatus = Integer.parseInt(pageInfo.getStatus());
-            response.setStatus(pageStatus);
-            if (pageStatus >= 400) {
-                request.setModel(ERROR_CODE, pageStatus);
+        try {
+            if (pageInfo != null) {
+                int pageStatus = Integer.parseInt(pageInfo.getStatus());
+                response.setStatus(pageStatus);
+                if (pageStatus >= 400) {
+                    request.setModel(ERROR_CODE, pageStatus);
+                }
             }
+        } catch (Exception e) {
+            logger.error("The HTTP status code could not be calculated: {} ", e.getMessage());
         }
     }
 }
