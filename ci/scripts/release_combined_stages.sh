@@ -71,6 +71,7 @@ POM="pom.xml"
 BUILD_NUMBER_FILE="build-number.txt"
 LOG_FILE=""            # empty means "auto-derive"
 
+# Loop over every argument passed to the script
 for arg in "$@"; do
   case "$arg" in
     --mode=*) MODE="${arg#*=}" ;;
@@ -463,14 +464,6 @@ TABLE3
 # =====================================================================
 # Main dispatcher
 # =====================================================================
-# Loop over every argument passed to the script
-# If any argument starts with --mode=, extract whatever comes after = and store it in MODE
-for arg in "$@"; do
-  case "$arg" in
-    --mode=*) MODE="${arg#*=}" ;;
-  esac
-done
-
 usage() {
   cat >&2 <<'USAGE'
 Usage:
