@@ -23,7 +23,7 @@ VS_SSR_ARCHIVED_PACKAGE_PATH=""
 VS_SSR_ARCHIVED_PACKAGE_MD5=""
 VS_SSR_ARCHIVED_PACKAGE_URL=""
 
-# ---- Preconditions / Inputs / Setup ----
+# ---- Preconditions / Defaults / Setup ----
 
 # Preconditions
 # if any of the variables GIT_COMMIT, VS_COMMIT_AUTHOR, REPO_NAME isn't set,
@@ -56,13 +56,34 @@ fi
 : "${REPO_NAME:?ERROR: REPO_NAME is empty}"
 
 # Inputs
-POM="${1:-pom.xml}"
-BUILD_NUMBER_FILE="${2:-.build-meta/build-number.txt}"
-OUT_DIR="${3:-artifacts}"
-LOG_FILE="${4:-${GIT_COMMIT:?GIT_COMMIT is required}.log}"
-SITE_WAR="${5:-site/webapp/target/site.war}"        # kept for backwards-compatibility, not used directly anymore
-MANIFEST_PATH="${6:-META-INF/MANIFEST.MF}"          # kept for backwards-compatibility, not used directly anymore
-MODE="${7:-all}"  # can be: all, step1, step2, step3, etc.
+#POM="${1:-pom.xml}"
+#BUILD_NUMBER_FILE="${2:-.build-meta/build-number.txt}"
+#OUT_DIR="${3:-artifacts}"
+#LOG_FILE="${4:-${GIT_COMMIT:?GIT_COMMIT is required}.log}"
+#SITE_WAR="${5:-site/webapp/target/site.war}"        # kept for backwards-compatibility, not used directly anymore
+#MANIFEST_PATH="${6:-META-INF/MANIFEST.MF}"          # kept for backwards-compatibility, not used directly anymore
+#MODE="${7:-all}"  # can be: all, step1, step2, step3, etc.
+
+# Defaults
+MODE="all"
+OUT_DIR="artifacts"
+POM="pom.xml"
+BUILD_NUMBER_FILE=""   # empty means "auto-discover"
+LOG_FILE=""            # empty means "auto-derive"
+
+for arg in "$@"; do
+  case "$arg" in
+    --mode=*) MODE="${arg#*=}" ;;
+    --out-dir=*) OUT_DIR="${arg#*=}" ;;
+    --pom=*) POM="${arg#*=}" ;;
+    --build-number-file=*) BUILD_NUMBER_FILE="${arg#*=}" ;;
+    --log-file=*) LOG_FILE="${arg#*=}" ;;
+    *)
+      echo "ERROR: Unknown argument: $arg" >&2
+      exit 2
+      ;;
+  esac
+done
 
 # Setup
 WORKSPACE="${WORKSPACE:-$(pwd)}"
