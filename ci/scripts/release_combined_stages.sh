@@ -471,6 +471,21 @@ for arg in "$@"; do
   esac
 done
 
+usage() {
+  cat >&2 <<'USAGE'
+Usage:
+  release_combined_stages.sh [--mode=all|step1|step2|step3|step4|step5]
+                             [--out-dir=artifacts]
+                             [--pom=pom.xml]
+                             [--build-number-file=PATH]
+                             [--log-file=PATH]
+
+Notes:
+  - If --build-number-file is not provided, the script will prioritise $WORKSPACE/$BUILD_NUMBER_FILE, and subsequently, auto-discover common locations
+  - If --log-file is not provided, it defaults to $WORKSPACE/$GIT_COMMIT.log when possible
+USAGE
+}
+
 main() {
   case "$MODE" in
     all)   step_1_find_distro; step_2_parse_log; step_3_extract_build_number; step_4_parse_pom; step_5_compose_email ;;
@@ -479,10 +494,7 @@ main() {
     step3) step_3_extract_build_number ;;
     step4) step_4_parse_pom ;;
     step5) step_5_compose_email ;;
-    *) echo "Usage: $0 [POM] [BUILD_NUMBER_FILE] [OUT_DIR] [LOG_FILE] [PROPS_PATH] [SITE_WAR] [MANIFEST_PATH] [MODE|--mode=MODE]" >&2
-       echo "  MODE can be: all, step1, step2, step3, step4, step5"
-       echo "  You can specify it either as a positional argument or with --mode=stepX (flag form)"
-       exit 1 ;;
+    *) usage; exit 1 ;;
   esac
 }
 
