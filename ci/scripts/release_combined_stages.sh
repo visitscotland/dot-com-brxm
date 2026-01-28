@@ -32,6 +32,11 @@ if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   # check if GIT_COMMIT is set (should be the case for a declarative/multibranch Jenkins pipeline
   if [[ -z "${GIT_COMMIT:-}" ]]; then
     GIT_COMMIT="$(git rev-parse HEAD 2>/dev/null || true)"
+    #    Issue: If GIT_COMMIT is empty, invalid, or not present locally (shallow checkout edge cases),
+    #           git show returns non-zero (error code) and with set -e, the pipeline will exit
+    # Solution: Enforce the presence of GIT_COMMIT
+    : "${GIT_COMMIT:?ERROR: GIT_COMMIT is empty}"
+    # After this point, GIT_COMMIT is 100% set
     echo "GIT_COMMIT wasn't set. Setting it to: $GIT_COMMIT"
   fi
   # make sure that VS_COMMIT_AUTHOR is set, as it is tied to the infrastructure.sh execution
