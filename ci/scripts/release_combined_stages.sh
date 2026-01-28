@@ -87,9 +87,8 @@ done
 
 # Setup
 WORKSPACE="${WORKSPACE:-$(pwd)}"
-mkdir -p "$OUT_DIR"
 
-# Derive log file if not provided
+# Derive log file if not provided (and normalise it to WORKSPACE path)
 if [[ -z "${LOG_FILE:-}" ]]; then
   if [[ -n "${GIT_COMMIT:-}" ]]; then
     LOG_FILE="${WORKSPACE}/${GIT_COMMIT}.log"
@@ -102,10 +101,21 @@ if [[ -z "${LOG_FILE:-}" ]]; then
   fi
 fi
 
-# If BUILD_NUMBER_FILE is relative, anchor it to WORKSPACE
+# If BUILD_NUMBER_FILE path is relative, normalise it to WORKSPACE path
 if [[ "${BUILD_NUMBER_FILE:-}" != /* ]]; then
   BUILD_NUMBER_FILE="$WORKSPACE/$BUILD_NUMBER_FILE"
 fi
+
+# If POM path is relative, normalise it to WORKSPACE path
+if [[ "$POM" != /* ]]; then
+  POM="$WORKSPACE/$POM"
+fi
+
+# If OUT_DIR path is relative, normalise it to WORKSPACE path
+if [[ "$OUT_DIR" != /* ]]; then
+  OUT_DIR="$WORKSPACE/$OUT_DIR"
+fi
+mkdir -p "$OUT_DIR"
 
 # ---- Helpers ----
 md5_for_file() {
