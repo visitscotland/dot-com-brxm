@@ -19,9 +19,7 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
 
     private static final Logger logger = LoggerFactory.getLogger(GeneralBSHContentComponent.class);
 
-    private static final String ERROR_CODE = "errorCode";
     private static final String READ_DATA = "readData";
-
 
     private final PageAssembler builder;
 
@@ -37,7 +35,6 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
         super.doBeforeRender(request, response, pageConfig);
 
         addReadData(request);
-        addPageStatusCode(request, response);
 
         builder.addModules(request, pageConfig);
     }
@@ -54,15 +51,5 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
     protected void addReadData(HstRequest request) {
         FlatBlog blog = blogFactory.getPageReadData(getDocument(request), request.getLocale());
         request.setModel(READ_DATA, blog);
-    }
-
-    //TODO mode to PageContentComponent
-    private void addPageStatusCode(HstRequest request, HstResponse response){
-        GeneralPageComponentInfo pageInfo = getComponentParametersInfo(request);
-        int pageStatus = Integer.parseInt(pageInfo.getStatus());
-        response.setStatus(pageStatus);
-        if (pageStatus >= 400) {
-            request.setModel(ERROR_CODE, pageStatus);
-        }
     }
 }

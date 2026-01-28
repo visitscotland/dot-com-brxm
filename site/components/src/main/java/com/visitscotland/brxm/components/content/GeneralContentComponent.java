@@ -22,7 +22,7 @@ public class GeneralContentComponent extends PageContentComponent<General> {
     public static final String STANDARD = "Standard";
     public static final String TOP_LEVEL = "Top-Level";
     public static final String INSPIRATION = "Inspiration";
-    static final String ERROR_CODE = "errorCode";
+
 
     private final PageAssembler builder;
     private final PageIntroAssembler pageIntroAssembler;
@@ -38,12 +38,7 @@ public class GeneralContentComponent extends PageContentComponent<General> {
         PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
 
         super.doBeforeRender(request, response, pageConfig);
-        GeneralPageComponentInfo pageInfo = getComponentParametersInfo(request);
-        int pageStatus = Integer.parseInt(pageInfo.getStatus());
-        response.setStatus(pageStatus);
-        if (pageStatus >= 400) {
-            request.setModel(ERROR_CODE, pageStatus);
-        }
+
         addNavigationCards(request);
         builder.addModules(request, pageConfig);
     }
