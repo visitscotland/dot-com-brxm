@@ -6,9 +6,8 @@
 #   - <out_dir>/email.html    (rendered email body)
 set -Eeuo pipefail
 IFS=$'\n\t'
-# Trap failures and include the exact command and the *actual* failing line number
-#trap 'rc=$?; echo "ERROR: ${BASH_SOURCE[1]:-${BASH_SOURCE[0]:-?}}: ${LINENO:-${BASH_LINENO[0]:-?}}: command failed: ${BASH_COMMAND:-?}" >&2; exit $rc' ERR
-trap 'rc=$?; echo "ERROR: ${BASH_SOURCE[0]}:${BASH_LINENO[0]}: ${BASH_COMMAND}" >&2; exit $rc' ERR
+# Trap failures, exit with the return code non-zero value, and let bash take care of the display message
+trap 'exit $?' ERR
 
 # ---- Shared variables ----
 DISTRO_FILE=""
