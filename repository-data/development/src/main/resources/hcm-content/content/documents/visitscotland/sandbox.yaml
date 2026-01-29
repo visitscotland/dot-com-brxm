@@ -10228,6 +10228,654 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+      /mull-and-iona:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: ce333ea8-0a3c-471e-b7f4-82275f1a1c0b
+        hippo:name: Mull and Iona
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 57730a75-3dde-413a-a1c2-959534847a8d
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 03638a37-3acc-4c14-b07d-bbaaa816f576
+          hippo:name: Mull and Iona west coast island itinerary
+          hippo:versionHistory: b097cdf6-0a4f-4b28-8b34-0ad78d78c960
+          /content[1]:
+            jcr:primaryType: visitscotland:Itinerary
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 20c15110-df0d-49ee-8ec6-65b145b6210a
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T10:36:41.147Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:41:23.579Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 33bd43c5-0eb5-4bbd-80c0-4d0282b6bc11
+            hippotranslation:locale: en
+            visitscotland:areas: [argyll]
+            visitscotland:breadcrumb: ''
+            visitscotland:distance: 295.0
+            visitscotland:finish: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:highlights: ['']
+            visitscotland:popular: false
+            visitscotland:seoDescription: Take a trip around Mull and Iona in this
+              5-day itinerary, and discover a beautiful set of islands on Scotland's
+              west coast.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: 5 Days around Mull & Iona with Frida and Leo
+            visitscotland:start: ''
+            visitscotland:subheading: 5 Days around Mull & Iona with Frida and Leo
+            visitscotland:teaser: Take a trip around Mull and Iona in this 5-day itinerary,
+              and discover a beautiful set of islands on Scotland's west coast.
+            visitscotland:theme: landscape
+            visitscotland:title: Mull & Iona West coast island itinerary
+            visitscotland:translation: ''
+            visitscotland:transports: [car]
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 66ec1dec-a973-481e-88ea-ff496c5d2cf4
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Frida and Leo love road tripping in their Land Rover and going on long hikes with their two dogs, Henry and Wally.&nbsp;</p>
+
+                <p>You’ll&nbsp;find them camping in the middle of nowhere so they can wake up early to take photographs of the sunrise over a cup of coffee. Then&nbsp;it’s&nbsp;time to cook something delicious up on the&nbsp;two burner&nbsp;hob, before heading off for the next Scottish adventure.&nbsp;</p>
+
+                <p>Frida and Leo’s car was hired from&nbsp;<a rel="noopener noreferrer" href="https://www.nomadicscotland.com/" id="menur2ed2" title="https://www.nomadicscotland.com/" class="fui-Link ___1q1shib f2hkw1w f3rmtva f1ewtqcl fyind8e f1k6fduh f1w7gpdv fk6fouc fjoy568 figsok6 f1s184ao f1mk8lai fnbmjn9 f1o700av f13mvf36 f1cmlufx f9n3di6 f1ids18y f1tx3yz7 f1deo86v f1eh06m1 f1iescvh fhgqx19 f1olyrje f1p93eir f1nev41a f1h8hb77 f1lqvz6u f10aw75t fsle3fq f17ae5zn" target="_blank">Nomadic Scotland</a>, a premium Land Rover 4x4 company who offer vehicle rental, can provide camping kit, and offer a selection of trails for inspiration.&nbsp;</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://maps.app.goo.gl/ABgjDpvtxyfNrCL76
+          /content[2]:
+            jcr:primaryType: visitscotland:Itinerary
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 1baa0183-8f5d-4647-abe6-28063ec4ff32
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T10:36:41.147Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:48:12.928Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 33bd43c5-0eb5-4bbd-80c0-4d0282b6bc11
+            hippotranslation:locale: en
+            visitscotland:areas: [argyll]
+            visitscotland:breadcrumb: ''
+            visitscotland:distance: 295.0
+            visitscotland:finish: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:highlights: ['']
+            visitscotland:popular: false
+            visitscotland:seoDescription: Take a trip around Mull and Iona in this
+              5-day itinerary, and discover a beautiful set of islands on Scotland's
+              west coast.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: 5 Days around Mull & Iona with Frida and Leo
+            visitscotland:start: ''
+            visitscotland:subheading: 5 Days around Mull & Iona with Frida and Leo
+            visitscotland:teaser: Take a trip around Mull and Iona in this 5-day itinerary,
+              and discover a beautiful set of islands on Scotland's west coast.
+            visitscotland:theme: landscape
+            visitscotland:title: Mull & Iona West coast island itinerary
+            visitscotland:translation: ''
+            visitscotland:transports: [car]
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 66ec1dec-a973-481e-88ea-ff496c5d2cf4
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Frida and Leo love road tripping in their Land Rover and going on long hikes with their two dogs, Henry and Wally.&nbsp;</p>
+
+                <p>You’ll&nbsp;find them camping in the middle of nowhere so they can wake up early to take photographs of the sunrise over a cup of coffee. Then&nbsp;it’s&nbsp;time to cook something delicious up on the&nbsp;two burner&nbsp;hob, before heading off for the next Scottish adventure.&nbsp;</p>
+
+                <p>Frida and Leo’s car was hired from&nbsp;<a rel="noopener noreferrer" href="https://www.nomadicscotland.com/" id="menur2ed2" title="https://www.nomadicscotland.com/" class="fui-Link ___1q1shib f2hkw1w f3rmtva f1ewtqcl fyind8e f1k6fduh f1w7gpdv fk6fouc fjoy568 figsok6 f1s184ao f1mk8lai fnbmjn9 f1o700av f13mvf36 f1cmlufx f9n3di6 f1ids18y f1tx3yz7 f1deo86v f1eh06m1 f1iescvh fhgqx19 f1olyrje f1p93eir f1nev41a f1h8hb77 f1lqvz6u f10aw75t fsle3fq f17ae5zn" target="_blank">Nomadic Scotland</a>, a premium Land Rover 4x4 company who offer vehicle rental, can provide camping kit, and offer a selection of trails for inspiration.&nbsp;</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://maps.app.goo.gl/ABgjDpvtxyfNrCL76
+          /content[3]:
+            jcr:primaryType: visitscotland:Itinerary
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 8f7f5779-854a-4c04-b842-38ce61de8c65
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T10:36:41.147Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:48:12.928Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-01-29T10:48:17.598Z
+            hippotranslation:id: 33bd43c5-0eb5-4bbd-80c0-4d0282b6bc11
+            hippotranslation:locale: en
+            visitscotland:areas: [argyll]
+            visitscotland:breadcrumb: ''
+            visitscotland:distance: 295.0
+            visitscotland:finish: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:highlights: ['']
+            visitscotland:popular: false
+            visitscotland:seoDescription: Take a trip around Mull and Iona in this
+              5-day itinerary, and discover a beautiful set of islands on Scotland's
+              west coast.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: 5 Days around Mull & Iona with Frida and Leo
+            visitscotland:start: ''
+            visitscotland:subheading: 5 Days around Mull & Iona with Frida and Leo
+            visitscotland:teaser: Take a trip around Mull and Iona in this 5-day itinerary,
+              and discover a beautiful set of islands on Scotland's west coast.
+            visitscotland:theme: landscape
+            visitscotland:title: Mull & Iona West coast island itinerary
+            visitscotland:translation: ''
+            visitscotland:transports: [car]
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 66ec1dec-a973-481e-88ea-ff496c5d2cf4
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Frida and Leo love road tripping in their Land Rover and going on long hikes with their two dogs, Henry and Wally.&nbsp;</p>
+
+                <p>You’ll&nbsp;find them camping in the middle of nowhere so they can wake up early to take photographs of the sunrise over a cup of coffee. Then&nbsp;it’s&nbsp;time to cook something delicious up on the&nbsp;two burner&nbsp;hob, before heading off for the next Scottish adventure.&nbsp;</p>
+
+                <p>Frida and Leo’s car was hired from&nbsp;<a rel="noopener noreferrer" href="https://www.nomadicscotland.com/" id="menur2ed2" title="https://www.nomadicscotland.com/" class="fui-Link ___1q1shib f2hkw1w f3rmtva f1ewtqcl fyind8e f1k6fduh f1w7gpdv fk6fouc fjoy568 figsok6 f1s184ao f1mk8lai fnbmjn9 f1o700av f13mvf36 f1cmlufx f9n3di6 f1ids18y f1tx3yz7 f1deo86v f1eh06m1 f1iescvh fhgqx19 f1olyrje f1p93eir f1nev41a f1h8hb77 f1lqvz6u f10aw75t fsle3fq f17ae5zn" target="_blank">Nomadic Scotland</a>, a premium Land Rover 4x4 company who offer vehicle rental, can provide camping kit, and offer a selection of trails for inspiration.&nbsp;</p>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://maps.app.goo.gl/ABgjDpvtxyfNrCL76
+        /dunkeld:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: d1fe995f-67c8-45ec-a7e7-9ff4e74868aa
+          hippo:name: Dunkeld
+          hippo:versionHistory: e2cb92ce-3d95-4979-9785-ed01188da05e
+          /dunkeld[1]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 2fd0f184-8849-4d70-a275-c1f0ab3d1071
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T10:48:55.708Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:48:25.159Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: dbfd24f2-a9dd-4d21-93bc-905e53f50c7d
+            hippotranslation:locale: en
+            visitscotland:title: Dunkeld
+            visitscotland:translation: ''
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <h3>Dunkeld to Oban</h3>
+
+                <p>Dunkeld is a small but charming historic town, just north of Perth on the banks of the flowing River Tay. This is a beautiful but popular spot with locals and visitors alike.</p>
+
+                <p>Frida and Leo visited:</p>
+
+                <ul>
+                 <li>The <a rel="noopener noreferrer" href="https://www.thetaybank.co.uk/" target="_blank">Taybank</a>, a hotel, bar and restaurant</li>
+                 <li><a rel="noopener noreferrer" href="https://share.google/03yZZQRxFCBxVEJdd" target="_blank">The Hermitage</a> – woodland trails to Black Linn Falls and Ossian Hall</li>
+                 <li><a rel="noopener noreferrer" href="https://www.instagram.com/full.circle.donuts/?hl=en" target="_blank">Full Circle Donuts</a> - based at the Hermitage</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/search?q=loch+rannoch&amp;safe=active&amp;ssui=on" target="_blank">Loch Rannoch</a> - a picturesque 15km freshwater loch</li>
+                 <li><a rel="noopener noreferrer" href="https://www.horncarver.co.uk/" target="_blank">Horn Carver</a> - a craft workshop for handmade horn products</li>
+                 <li>They stayed overnight in <a rel="noopener noreferrer" href="https://www.visitscotland.com/places-to-go/oban" target="_blank">Oban</a>, ready for the ferry to Mull.</li>
+                </ul>
+
+                <p>If you’re taking a similar trip, you could also explore:</p>
+
+                <ul>
+                 <li>The majestic but partly ruined Dunkeld Cathedral and several brightly coloured houses which date back to the early 1700s.</li>
+                 <li><a rel="noopener noreferrer" href="https://share.google/HKS4qQxzuIa9OJix5" target="_blank">Birnam Wood</a> – see the remaining trees from the ancient wood depicted in Shakespeare’s Macbeth.</li>
+                 <li><a rel="noopener noreferrer" href="https://share.google/Gx9uxWgpCjHxLEm0p" target="_blank">Loch of the Lowes</a> – a large nature reserve home to ospreys, squirrels and more.</li>
+                 <li>The <a rel="noopener noreferrer" href="https://birnamarts.com/Beatrix-Potter" target="_blank">Beatrix Potter Exhibition</a>&nbsp;at the Birnam Arts Centre.</li>
+                </ul>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5679452,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?entry=ttu&g_ep=EgoyMDI2MDEyNS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Find out more about Dunkeld
+              visitscotland:link: https://www.nts.org.uk/visit/places/dunkeld
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 178f1bf2-8a94-4359-a999-ec0f179c6fdc
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /dunkeld[2]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: b9f5f1f6-7999-4764-b893-6a07be82fb41
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T10:48:55.708Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:49:02.816Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: dbfd24f2-a9dd-4d21-93bc-905e53f50c7d
+            hippotranslation:locale: en
+            visitscotland:title: Dunkeld
+            visitscotland:translation: ''
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <h3>Dunkeld to Oban</h3>
+
+                <p>Dunkeld is a small but charming historic town, just north of Perth on the banks of the flowing River Tay. This is a beautiful but popular spot with locals and visitors alike.</p>
+
+                <p>Frida and Leo visited:</p>
+
+                <ul>
+                 <li>The <a rel="noopener noreferrer" href="https://www.thetaybank.co.uk/" target="_blank">Taybank</a>, a hotel, bar and restaurant</li>
+                 <li><a rel="noopener noreferrer" href="https://share.google/03yZZQRxFCBxVEJdd" target="_blank">The Hermitage</a> – woodland trails to Black Linn Falls and Ossian Hall</li>
+                 <li><a rel="noopener noreferrer" href="https://www.instagram.com/full.circle.donuts/?hl=en" target="_blank">Full Circle Donuts</a> - based at the Hermitage</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/search?q=loch+rannoch&amp;safe=active&amp;ssui=on" target="_blank">Loch Rannoch</a> - a picturesque 15km freshwater loch</li>
+                 <li><a rel="noopener noreferrer" href="https://www.horncarver.co.uk/" target="_blank">Horn Carver</a> - a craft workshop for handmade horn products</li>
+                 <li>They stayed overnight in <a rel="noopener noreferrer" href="https://www.visitscotland.com/places-to-go/oban" target="_blank">Oban</a>, ready for the ferry to Mull.</li>
+                </ul>
+
+                <p>If you’re taking a similar trip, you could also explore:</p>
+
+                <ul>
+                 <li>The majestic but partly ruined Dunkeld Cathedral and several brightly coloured houses which date back to the early 1700s.</li>
+                 <li><a rel="noopener noreferrer" href="https://share.google/HKS4qQxzuIa9OJix5" target="_blank">Birnam Wood</a> – see the remaining trees from the ancient wood depicted in Shakespeare’s Macbeth.</li>
+                 <li><a rel="noopener noreferrer" href="https://share.google/Gx9uxWgpCjHxLEm0p" target="_blank">Loch of the Lowes</a> – a large nature reserve home to ospreys, squirrels and more.</li>
+                 <li>The <a rel="noopener noreferrer" href="https://birnamarts.com/Beatrix-Potter" target="_blank">Beatrix Potter Exhibition</a>&nbsp;at the Birnam Arts Centre.</li>
+                </ul>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5679452,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?entry=ttu&g_ep=EgoyMDI2MDEyNS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Find out more about Dunkeld
+              visitscotland:link: https://www.nts.org.uk/visit/places/dunkeld
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 178f1bf2-8a94-4359-a999-ec0f179c6fdc
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /dunkeld[3]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 2a7f896d-59d1-4dcf-acd1-8be17d541380
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T10:48:55.708Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:49:02.816Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-01-29T10:49:08.064Z
+            hippotranslation:id: dbfd24f2-a9dd-4d21-93bc-905e53f50c7d
+            hippotranslation:locale: en
+            visitscotland:title: Dunkeld
+            visitscotland:translation: ''
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <h3>Dunkeld to Oban</h3>
+
+                <p>Dunkeld is a small but charming historic town, just north of Perth on the banks of the flowing River Tay. This is a beautiful but popular spot with locals and visitors alike.</p>
+
+                <p>Frida and Leo visited:</p>
+
+                <ul>
+                 <li>The <a rel="noopener noreferrer" href="https://www.thetaybank.co.uk/" target="_blank">Taybank</a>, a hotel, bar and restaurant</li>
+                 <li><a rel="noopener noreferrer" href="https://share.google/03yZZQRxFCBxVEJdd" target="_blank">The Hermitage</a> – woodland trails to Black Linn Falls and Ossian Hall</li>
+                 <li><a rel="noopener noreferrer" href="https://www.instagram.com/full.circle.donuts/?hl=en" target="_blank">Full Circle Donuts</a> - based at the Hermitage</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/search?q=loch+rannoch&amp;safe=active&amp;ssui=on" target="_blank">Loch Rannoch</a> - a picturesque 15km freshwater loch</li>
+                 <li><a rel="noopener noreferrer" href="https://www.horncarver.co.uk/" target="_blank">Horn Carver</a> - a craft workshop for handmade horn products</li>
+                 <li>They stayed overnight in <a rel="noopener noreferrer" href="https://www.visitscotland.com/places-to-go/oban" target="_blank">Oban</a>, ready for the ferry to Mull.</li>
+                </ul>
+
+                <p>If you’re taking a similar trip, you could also explore:</p>
+
+                <ul>
+                 <li>The majestic but partly ruined Dunkeld Cathedral and several brightly coloured houses which date back to the early 1700s.</li>
+                 <li><a rel="noopener noreferrer" href="https://share.google/HKS4qQxzuIa9OJix5" target="_blank">Birnam Wood</a> – see the remaining trees from the ancient wood depicted in Shakespeare’s Macbeth.</li>
+                 <li><a rel="noopener noreferrer" href="https://share.google/Gx9uxWgpCjHxLEm0p" target="_blank">Loch of the Lowes</a> – a large nature reserve home to ospreys, squirrels and more.</li>
+                 <li>The <a rel="noopener noreferrer" href="https://birnamarts.com/Beatrix-Potter" target="_blank">Beatrix Potter Exhibition</a>&nbsp;at the Birnam Arts Centre.</li>
+                </ul>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5679452,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?entry=ttu&g_ep=EgoyMDI2MDEyNS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Find out more about Dunkeld
+              visitscotland:link: https://www.nts.org.uk/visit/places/dunkeld
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 178f1bf2-8a94-4359-a999-ec0f179c6fdc
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /ross-of-mull:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 176560f7-3524-4e28-9626-e0edcb70e285
+          hippo:name: Ross of Mull
+          hippo:versionHistory: 231a1e99-b837-4ee5-8d76-517449bb664e
+          /ross-of-mull[1]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: c2fe16e6-ab38-4bcf-8557-76b8c592b075
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T11:11:18.989Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:51:18.260Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 3bc7e63e-4ddb-4535-b01f-70a65fff818f
+            hippotranslation:locale: en
+            visitscotland:title: Isle of Mull
+            visitscotland:translation: ''
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <h3>Ross of Mull</h3>
+
+                <p>Mull is a stunning small island off the west coast of Scotland. Around 25 miles long, it has an incredible 300 miles of coastline views to soak up, gorgeous wildlife to spot, and authentic culture to enjoy.</p>
+
+                <p>Frida and Leo’s trip included:</p>
+
+                <ul>
+                 <li>The <a rel="noopener noreferrer" href="https://www.calmac.co.uk/en-gb/route-information/oban-craignure/#/" target="_blank">Calmac Oban to Mull ferry</a></li>
+                 <li><a rel="noopener noreferrer" href="https://ardalanish.com/" target="_blank">Ardalanish - Isle of Mull Weavers</a> farm and mill shop - set on a 1,500 acre farm who look after cattle and sheep, and weave their own products.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.instagram.com/thecreelseafoodbar/?hl=en-gb" target="_blank">The Creel Seafood Bar</a> - serving fresh seafood by the ferry pier at Fionnphort.</li>
+                 <li><a rel="noopener noreferrer" href="https://fiddenfarm.co.uk/" target="_blank">Fidden Farm Campsite</a> overnight - family-run campsite by a safe and secluded bay.</li>
+                </ul>
+
+                <p>If you’ve got time to explore further, try:</p>
+
+                <ul>
+                 <li><a rel="noopener noreferrer" href="https://goruralscotland.com/listings/the-fauld-hebridean-farm-hikes/" target="_blank">The Fauld</a> - take an occasional Hebridean Farm Hike to learn about hill crofting, or sign up for a workshop on traditional skills like dry-stone walling.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwikhKbFh8CRAxWhT0EAHWGpIdwQFnoECFYQAQ&amp;url=https%3A%2F%2Fstaffatours.com%2Fisle-of-staffa%2F&amp;usg=AOvVaw1dy6L8IoSyg9EvKW0mU5VK&amp;opi=89978449" target="_blank">Boat trip to the Isle of Staffa</a> - experience the incredible geological formations of Fingal’s Cave.</li>
+                </ul>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.google.com/maps/place/Isle+of+Mull+PA65+6BD/@56.44689,-5.8454855,13z/data=!3m1!4b1!4m14!1m7!3m6!1s0x488bc310f55d3693:0x1ccc6844774d042f!2sIsle+of+Mull!8m2!3d56.4391984!4d-6.000887!16zL20vMDI0X2xf!3m5!1s0x488b8d510730b925:0x5885e895a3433f27!8m2!3d56.446865!4d-5.771666!16s%2Fg%2F1tdp9631?entry=ttu&g_ep=EgoyMDI2MDEyNS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Find out more about Mull
+              visitscotland:link: https://www.visitscotland.com/places-to-go/islands/isle-mull
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 12022d3d-4462-4c51-869f-b5517ce98252
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /ross-of-mull[2]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 06e50f90-6cfa-4760-9021-b7b73c64e849
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T11:11:18.989Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:51:47.233Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 3bc7e63e-4ddb-4535-b01f-70a65fff818f
+            hippotranslation:locale: en
+            visitscotland:title: Isle of Mull
+            visitscotland:translation: ''
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <h3>Ross of Mull</h3>
+
+                <p>Mull is a stunning small island off the west coast of Scotland. Around 25 miles long, it has an incredible 300 miles of coastline views to soak up, gorgeous wildlife to spot, and authentic culture to enjoy.</p>
+
+                <p>Frida and Leo’s trip included:</p>
+
+                <ul>
+                 <li>The <a rel="noopener noreferrer" href="https://www.calmac.co.uk/en-gb/route-information/oban-craignure/#/" target="_blank">Calmac Oban to Mull ferry</a></li>
+                 <li><a rel="noopener noreferrer" href="https://ardalanish.com/" target="_blank">Ardalanish - Isle of Mull Weavers</a> farm and mill shop - set on a 1,500 acre farm who look after cattle and sheep, and weave their own products.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.instagram.com/thecreelseafoodbar/?hl=en-gb" target="_blank">The Creel Seafood Bar</a> - serving fresh seafood by the ferry pier at Fionnphort.</li>
+                 <li><a rel="noopener noreferrer" href="https://fiddenfarm.co.uk/" target="_blank">Fidden Farm Campsite</a> overnight - family-run campsite by a safe and secluded bay.</li>
+                </ul>
+
+                <p>If you’ve got time to explore further, try:</p>
+
+                <ul>
+                 <li><a rel="noopener noreferrer" href="https://goruralscotland.com/listings/the-fauld-hebridean-farm-hikes/" target="_blank">The Fauld</a> - take an occasional Hebridean Farm Hike to learn about hill crofting, or sign up for a workshop on traditional skills like dry-stone walling.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwikhKbFh8CRAxWhT0EAHWGpIdwQFnoECFYQAQ&amp;url=https%3A%2F%2Fstaffatours.com%2Fisle-of-staffa%2F&amp;usg=AOvVaw1dy6L8IoSyg9EvKW0mU5VK&amp;opi=89978449" target="_blank">Boat trip to the Isle of Staffa</a> - experience the incredible geological formations of Fingal’s Cave.</li>
+                </ul>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.google.com/maps/place/Isle+of+Mull+PA65+6BD/@56.44689,-5.8454855,13z/data=!3m1!4b1!4m14!1m7!3m6!1s0x488bc310f55d3693:0x1ccc6844774d042f!2sIsle+of+Mull!8m2!3d56.4391984!4d-6.000887!16zL20vMDI0X2xf!3m5!1s0x488b8d510730b925:0x5885e895a3433f27!8m2!3d56.446865!4d-5.771666!16s%2Fg%2F1tdp9631?entry=ttu&g_ep=EgoyMDI2MDEyNS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Find out more about Mull
+              visitscotland:link: https://www.visitscotland.com/places-to-go/islands/isle-mull
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 12022d3d-4462-4c51-869f-b5517ce98252
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /ross-of-mull[3]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 2ee19489-a1f6-48f2-bc6a-4d47dce2d92c
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T11:11:18.989Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:51:47.233Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-01-29T10:51:55.209Z
+            hippotranslation:id: 3bc7e63e-4ddb-4535-b01f-70a65fff818f
+            hippotranslation:locale: en
+            visitscotland:title: Isle of Mull
+            visitscotland:translation: ''
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <h3>Ross of Mull</h3>
+
+                <p>Mull is a stunning small island off the west coast of Scotland. Around 25 miles long, it has an incredible 300 miles of coastline views to soak up, gorgeous wildlife to spot, and authentic culture to enjoy.</p>
+
+                <p>Frida and Leo’s trip included:</p>
+
+                <ul>
+                 <li>The <a rel="noopener noreferrer" href="https://www.calmac.co.uk/en-gb/route-information/oban-craignure/#/" target="_blank">Calmac Oban to Mull ferry</a></li>
+                 <li><a rel="noopener noreferrer" href="https://ardalanish.com/" target="_blank">Ardalanish - Isle of Mull Weavers</a> farm and mill shop - set on a 1,500 acre farm who look after cattle and sheep, and weave their own products.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.instagram.com/thecreelseafoodbar/?hl=en-gb" target="_blank">The Creel Seafood Bar</a> - serving fresh seafood by the ferry pier at Fionnphort.</li>
+                 <li><a rel="noopener noreferrer" href="https://fiddenfarm.co.uk/" target="_blank">Fidden Farm Campsite</a> overnight - family-run campsite by a safe and secluded bay.</li>
+                </ul>
+
+                <p>If you’ve got time to explore further, try:</p>
+
+                <ul>
+                 <li><a rel="noopener noreferrer" href="https://goruralscotland.com/listings/the-fauld-hebridean-farm-hikes/" target="_blank">The Fauld</a> - take an occasional Hebridean Farm Hike to learn about hill crofting, or sign up for a workshop on traditional skills like dry-stone walling.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwikhKbFh8CRAxWhT0EAHWGpIdwQFnoECFYQAQ&amp;url=https%3A%2F%2Fstaffatours.com%2Fisle-of-staffa%2F&amp;usg=AOvVaw1dy6L8IoSyg9EvKW0mU5VK&amp;opi=89978449" target="_blank">Boat trip to the Isle of Staffa</a> - experience the incredible geological formations of Fingal’s Cave.</li>
+                </ul>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.google.com/maps/place/Isle+of+Mull+PA65+6BD/@56.44689,-5.8454855,13z/data=!3m1!4b1!4m14!1m7!3m6!1s0x488bc310f55d3693:0x1ccc6844774d042f!2sIsle+of+Mull!8m2!3d56.4391984!4d-6.000887!16zL20vMDI0X2xf!3m5!1s0x488b8d510730b925:0x5885e895a3433f27!8m2!3d56.446865!4d-5.771666!16s%2Fg%2F1tdp9631?entry=ttu&g_ep=EgoyMDI2MDEyNS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Find out more about Mull
+              visitscotland:link: https://www.visitscotland.com/places-to-go/islands/isle-mull
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 12022d3d-4462-4c51-869f-b5517ce98252
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /iona--mull:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: db3c0a4e-a441-4f15-9f8f-1ba6b9b269c0
+          hippo:name: Iona & Mull
+          hippo:versionHistory: 5976402b-9b6c-419c-b76d-8351275d6b82
+          /iona--mull[1]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: aeb4713a-4fc6-4b79-9c89-b512da5c8c6b
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T11:24:12.053Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:52:01.400Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a8a88372-989c-4514-a68c-4b5bbafdb0ce
+            hippotranslation:locale: en
+            visitscotland:title: Iona & Mull
+            visitscotland:translation: ''
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Iona is a tiny island off the southwest coast of Mull with a fascinating history as the ‘cradle of Christianity’. A peaceful island, Iona is wonderfully unspoiled and a home to rare wildlife.</p>
+
+                <p>Frida and Leo started with a day trip to Iona:</p>
+
+                <ul>
+                 <li><a rel="noopener noreferrer" href="https://www.calmac.co.uk/en-gb/route-information/fionnphort-iona/#/" target="_blank">Calmac Mull to Iona ferry</a></li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiuuOyR6L-RAxXaZ0EAHeI2LLgQFnoECGUQAQ&amp;url=https%3A%2F%2Fwww.historicenvironment.scot%2Fvisit-a-place%2Fplaces%2Fiona-abbey-and-nunnery%2F&amp;usg=AOvVaw0AgLz-LCGXKp10zNDONlwE&amp;opi=89978449" target="_blank">Iona Abbey and Nunnery</a> - one of the oldest religious centres in western Europe.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiCy46v6L-RAxUAXEEAHaXmEasQFnoECA0QAQ&amp;url=https%3A%2F%2Fstcolumbalarderiona.co.uk%2F&amp;usg=AOvVaw3ml9NRW0RGFJX3tNBFGVKC&amp;opi=89978449" target="_blank">St Columba Larder</a> - sells quality artisan Scottish gifts and Iona souvenirs.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjPkr_D6L-RAxXnVkEAHWGZClYQFnoECBMQAQ&amp;url=https%3A%2F%2Fvisitmullandiona.co.uk%2Fguides%2Fbeaches-on-mull-and-iona%2Fisle-of-iona-beaches%2Fst-ronans-martyrs-bay%2F&amp;usg=AOvVaw0TP_ZQ_hZEjpaYpOQHdTEV&amp;opi=89978449" target="_blank">St Ronan’s Bay beach</a> - wonderful views across the Sound of Iona back towards Mull.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjapqXU6L-RAxV_UUEAHRxmF4IQFnoECA0QAQ&amp;url=https%3A%2F%2Fwww.ionawool.com%2F&amp;usg=AOvVaw2gRTfmMcH0rRXcvS3UjVNt&amp;opi=89978449" target="_blank">Iona Wool</a> - sustainable 100% single origin limited edition yarns, grown exclusively on Iona.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi9-dTq6L-RAxWCUkEAHSsPAzIQFnoECCIQAQ&amp;url=https%3A%2F%2Fwww.ionacraftshop.com%2F%3Fsrsltid%3DAfmBOornB7GIEFHQwxTC5mQyeUrdu2Qm0mJySeKQb3M7LtFCWd2o4Wzp&amp;usg=AOvVaw2t6AbRSKvo57ijau2LBP87&amp;opi=89978449" target="_blank">Iona Craft Shop</a> - Scottish knitwear, Iona Wool garments, yarn and accessories, jewellery, skincare and more.</li>
+                </ul>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.google.com/maps/place/Iona/@56.3290706,-6.4539319,13z/data=!3m1!4b1!4m6!3m5!1s0x488ba3153683b5ab:0xd28597046bf6c7d6!8m2!3d56.3347303!4d-6.4041001!16zL20vMDN3amo?entry=ttu&g_ep=EgoyMDI2MDEyNS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Find out more about Iona
+              visitscotland:link: https://visitmullandiona.co.uk/listing-region/iona/
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a42c649a-23e5-424e-9857-81aab35a74fd
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /iona--mull[2]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 9c44d271-fb72-4cbd-9d1b-b87e58004fcd
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T11:24:12.053Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:52:24.899Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a8a88372-989c-4514-a68c-4b5bbafdb0ce
+            hippotranslation:locale: en
+            visitscotland:title: Iona & Mull
+            visitscotland:translation: ''
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Iona is a tiny island off the southwest coast of Mull with a fascinating history as the ‘cradle of Christianity’. A peaceful island, Iona is wonderfully unspoiled and a home to rare wildlife.</p>
+
+                <p>Frida and Leo started with a day trip to Iona:</p>
+
+                <ul>
+                 <li><a rel="noopener noreferrer" href="https://www.calmac.co.uk/en-gb/route-information/fionnphort-iona/#/" target="_blank">Calmac Mull to Iona ferry</a></li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiuuOyR6L-RAxXaZ0EAHeI2LLgQFnoECGUQAQ&amp;url=https%3A%2F%2Fwww.historicenvironment.scot%2Fvisit-a-place%2Fplaces%2Fiona-abbey-and-nunnery%2F&amp;usg=AOvVaw0AgLz-LCGXKp10zNDONlwE&amp;opi=89978449" target="_blank">Iona Abbey and Nunnery</a> - one of the oldest religious centres in western Europe.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiCy46v6L-RAxUAXEEAHaXmEasQFnoECA0QAQ&amp;url=https%3A%2F%2Fstcolumbalarderiona.co.uk%2F&amp;usg=AOvVaw3ml9NRW0RGFJX3tNBFGVKC&amp;opi=89978449" target="_blank">St Columba Larder</a> - sells quality artisan Scottish gifts and Iona souvenirs.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjPkr_D6L-RAxXnVkEAHWGZClYQFnoECBMQAQ&amp;url=https%3A%2F%2Fvisitmullandiona.co.uk%2Fguides%2Fbeaches-on-mull-and-iona%2Fisle-of-iona-beaches%2Fst-ronans-martyrs-bay%2F&amp;usg=AOvVaw0TP_ZQ_hZEjpaYpOQHdTEV&amp;opi=89978449" target="_blank">St Ronan’s Bay beach</a> - wonderful views across the Sound of Iona back towards Mull.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjapqXU6L-RAxV_UUEAHRxmF4IQFnoECA0QAQ&amp;url=https%3A%2F%2Fwww.ionawool.com%2F&amp;usg=AOvVaw2gRTfmMcH0rRXcvS3UjVNt&amp;opi=89978449" target="_blank">Iona Wool</a> - sustainable 100% single origin limited edition yarns, grown exclusively on Iona.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi9-dTq6L-RAxWCUkEAHSsPAzIQFnoECCIQAQ&amp;url=https%3A%2F%2Fwww.ionacraftshop.com%2F%3Fsrsltid%3DAfmBOornB7GIEFHQwxTC5mQyeUrdu2Qm0mJySeKQb3M7LtFCWd2o4Wzp&amp;usg=AOvVaw2t6AbRSKvo57ijau2LBP87&amp;opi=89978449" target="_blank">Iona Craft Shop</a> - Scottish knitwear, Iona Wool garments, yarn and accessories, jewellery, skincare and more.</li>
+                </ul>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.google.com/maps/place/Iona/@56.3290706,-6.4539319,13z/data=!3m1!4b1!4m6!3m5!1s0x488ba3153683b5ab:0xd28597046bf6c7d6!8m2!3d56.3347303!4d-6.4041001!16zL20vMDN3amo?entry=ttu&g_ep=EgoyMDI2MDEyNS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Find out more about Iona
+              visitscotland:link: https://visitmullandiona.co.uk/listing-region/iona/
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a42c649a-23e5-424e-9857-81aab35a74fd
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /iona--mull[3]:
+            jcr:primaryType: visitscotland:Day
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: d2a773b8-d8eb-419f-97c1-3c55056f3498
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-01-28T11:24:12.053Z
+            hippostdpubwf:lastModificationDate: 2026-01-29T10:52:24.899Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-01-29T10:52:31.365Z
+            hippotranslation:id: a8a88372-989c-4514-a68c-4b5bbafdb0ce
+            hippotranslation:locale: en
+            visitscotland:title: Iona & Mull
+            visitscotland:translation: ''
+            visitscotland:transports: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>Iona is a tiny island off the southwest coast of Mull with a fascinating history as the ‘cradle of Christianity’. A peaceful island, Iona is wonderfully unspoiled and a home to rare wildlife.</p>
+
+                <p>Frida and Leo started with a day trip to Iona:</p>
+
+                <ul>
+                 <li><a rel="noopener noreferrer" href="https://www.calmac.co.uk/en-gb/route-information/fionnphort-iona/#/" target="_blank">Calmac Mull to Iona ferry</a></li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiuuOyR6L-RAxXaZ0EAHeI2LLgQFnoECGUQAQ&amp;url=https%3A%2F%2Fwww.historicenvironment.scot%2Fvisit-a-place%2Fplaces%2Fiona-abbey-and-nunnery%2F&amp;usg=AOvVaw0AgLz-LCGXKp10zNDONlwE&amp;opi=89978449" target="_blank">Iona Abbey and Nunnery</a> - one of the oldest religious centres in western Europe.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiCy46v6L-RAxUAXEEAHaXmEasQFnoECA0QAQ&amp;url=https%3A%2F%2Fstcolumbalarderiona.co.uk%2F&amp;usg=AOvVaw3ml9NRW0RGFJX3tNBFGVKC&amp;opi=89978449" target="_blank">St Columba Larder</a> - sells quality artisan Scottish gifts and Iona souvenirs.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjPkr_D6L-RAxXnVkEAHWGZClYQFnoECBMQAQ&amp;url=https%3A%2F%2Fvisitmullandiona.co.uk%2Fguides%2Fbeaches-on-mull-and-iona%2Fisle-of-iona-beaches%2Fst-ronans-martyrs-bay%2F&amp;usg=AOvVaw0TP_ZQ_hZEjpaYpOQHdTEV&amp;opi=89978449" target="_blank">St Ronan’s Bay beach</a> - wonderful views across the Sound of Iona back towards Mull.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjapqXU6L-RAxV_UUEAHRxmF4IQFnoECA0QAQ&amp;url=https%3A%2F%2Fwww.ionawool.com%2F&amp;usg=AOvVaw2gRTfmMcH0rRXcvS3UjVNt&amp;opi=89978449" target="_blank">Iona Wool</a> - sustainable 100% single origin limited edition yarns, grown exclusively on Iona.</li>
+                 <li><a rel="noopener noreferrer" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi9-dTq6L-RAxWCUkEAHSsPAzIQFnoECCIQAQ&amp;url=https%3A%2F%2Fwww.ionacraftshop.com%2F%3Fsrsltid%3DAfmBOornB7GIEFHQwxTC5mQyeUrdu2Qm0mJySeKQb3M7LtFCWd2o4Wzp&amp;usg=AOvVaw2t6AbRSKvo57ijau2LBP87&amp;opi=89978449" target="_blank">Iona Craft Shop</a> - Scottish knitwear, Iona Wool garments, yarn and accessories, jewellery, skincare and more.</li>
+                </ul>
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.google.com/maps/place/Iona/@56.3290706,-6.4539319,13z/data=!3m1!4b1!4m6!3m5!1s0x488ba3153683b5ab:0xd28597046bf6c7d6!8m2!3d56.3347303!4d-6.4041001!16zL20vMDN3amo?entry=ttu&g_ep=EgoyMDI2MDEyNS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D
+            /visitscotland:ctaLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Find out more about Iona
+              visitscotland:link: https://visitmullandiona.co.uk/listing-region/iona/
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a42c649a-23e5-424e-9857-81aab35a74fd
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
     /listicle:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -35372,11 +36020,12 @@
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: ebb1a3ce-7333-45c1-b38f-f330a1bd773a
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:47:36.473Z
-          hippostdpubwf:lastModificationDate: 2026-01-09T14:59:05.365Z
+          hippostdpubwf:lastModificationDate: 2026-01-26T13:48:00.694Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: b2c5ceb9-31d9-4e18-9ff2-c87da530f9d5
           hippotranslation:locale: en
@@ -35430,11 +36079,11 @@
               </ul>
           /visitscotland:mapLink:
             jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: See Google map
-            visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5679334,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=de&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
+            visitscotland:label: Google Map day1 CTA text override
+            visitscotland:link: https://www.google.co.uk/maps/place/Dunkeld/@56.5679334,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=de&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
           /visitscotland:ctaLink:
             jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: Explore Dunkeld
+            visitscotland:label: Day 1 CTA text override
             visitscotland:link: https://www.dunkeldandbirnam.org.uk/
           /visitscotland:media:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -35451,7 +36100,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:47:36.473Z
-          hippostdpubwf:lastModificationDate: 2026-01-09T14:59:05.242Z
+          hippostdpubwf:lastModificationDate: 2026-01-26T13:47:44.448Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: b2c5ceb9-31d9-4e18-9ff2-c87da530f9d5
           hippotranslation:locale: en
@@ -35505,11 +36154,11 @@
               </ul>
           /visitscotland:mapLink:
             jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: See Google map
-            visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5679334,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=de&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
+            visitscotland:label: Google Map day1 CTA text override
+            visitscotland:link: https://www.google.co.uk/maps/place/Dunkeld/@56.5679334,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=de&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
           /visitscotland:ctaLink:
             jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: Explore Dunkeld
+            visitscotland:label: Day 1 CTA text override
             visitscotland:link: https://www.dunkeldandbirnam.org.uk/
           /visitscotland:media:
             jcr:primaryType: hippogallerypicker:imagelink
