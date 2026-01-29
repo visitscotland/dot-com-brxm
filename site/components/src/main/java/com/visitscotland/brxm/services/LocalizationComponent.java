@@ -1,6 +1,6 @@
 package com.visitscotland.brxm.services;
 
-import com.visitscotland.brxm.components.content.ContentComponent;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import org.apache.commons.lang3.LocaleUtils;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.core.internal.HstMutableRequestContext;
@@ -15,15 +15,18 @@ import java.util.Locale;
 //TODO: Move class to a coherent location
 public class LocalizationComponent {
 
-    private static final Logger logger = LoggerFactory.getLogger(ContentComponent.class);
+    private static final Logger logger = LoggerFactory.getLogger(LocalizationComponent.class);
 
-    public void setLocale() {
+    private final static String LANGUAGE = "language";
+
+    public void setLocale(PageCompositionHelper helper) {
         HstMutableRequestContext requestContext = (HstMutableRequestContext) RequestContextProvider.get();
-        String mountLocale = requestContext.getResolvedMount().getMount().getLocale();
+        String mountLocale = null;
 
         try {
-            Locale currentLocale = requestContext.getPreferredLocale();
+            mountLocale = requestContext.getResolvedMount().getMount().getLocale();
             Locale requestLocale = LocaleUtils.toLocale(mountLocale);
+            Locale currentLocale = requestContext.getPreferredLocale();
 
             if (!requestLocale.equals(currentLocale)) {
                 logger.debug("Changing request locale from {} to {} ", currentLocale.getLanguage(), requestLocale.getLanguage());
@@ -32,8 +35,10 @@ public class LocalizationComponent {
                 requestContext.setLocales(Collections.singletonList(requestLocale));
 
             }
+
+            helper.addProperty(LANGUAGE, requestLocale.getLanguage());
         } catch (IllegalArgumentException e) {
-            logger.error("Mount has invalid locale {}", mountLocale);
+            logger.error("There was a problem calculating the locale, {}", mountLocale);
         }
     }
 }

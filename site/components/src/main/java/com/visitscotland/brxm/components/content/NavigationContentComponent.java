@@ -14,6 +14,7 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.ComponentConfiguration;
+import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class NavigationContentComponent extends ContentComponent {
+public class NavigationContentComponent extends CommonComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(NavigationContentComponent.class.getName());
 
@@ -32,7 +33,7 @@ public class NavigationContentComponent extends ContentComponent {
     private static final String DOCUMENT = "document";
     private static final String ORDERED_TRANSLATIONS = "orderedTranslations";
 
-    //TODO: Search Funtionality properties (to be moved to pageConfiguration)
+    //TODO: Search Functionality properties (to be moved to pageConfiguration)
     private static final String CONTENT_CATEGORIES_OPTIONS = "content-categories-options";
     private static final String CONTENT_TYPE_OPTIONS = "content-content-type";
     private static final String SEARCH_CATEGORY = "searchCategory";
