@@ -19,6 +19,7 @@ import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.MetadataFactory;
 import com.visitscotland.brxm.utils.SiteProperties;
+import com.visitscotland.brxm.utils.SitePropertyKeys;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -203,9 +204,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         Map<String, String> gtmProperties = new HashMap<>();
 
-        gtmProperties.put(SiteProperties.GTM_CONTAINER_ID, properties.getGtmContainerId());
-        gtmProperties.put(SiteProperties.GTM_PREVIEW_QUERY_STRING, properties.getGtmPreviewQueryString());
-        gtmProperties.put(SiteProperties.GTM_IS_PRODUCTION, properties.getGtmIsProduction());
+        gtmProperties.put(SitePropertyKeys.GTM_CONTAINER_ID, properties.getGtmContainerId());
+        gtmProperties.put(SitePropertyKeys.GTM_PREVIEW_QUERY_STRING, properties.getGtmPreviewQueryString());
+        gtmProperties.put(SitePropertyKeys.GTM_IS_PRODUCTION, properties.getGtmIsProduction());
 
         request.setModel(GTM, gtmProperties);
     }
@@ -416,6 +417,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             addAllLabels(request, TABLE_CONTENTS_BUNDLE);
         }
 
+        pageConfig.addProperty(SitePropertyKeys.FEATURE_HERO_SECTION, properties.getFeatureHeroSection());
+
         if (properties.isGlobalSearchEnabled()){
             if (properties.isGlobalSearchDmsBased()) {
                 //TODO: This method will be removed once the DMS is retired
@@ -434,9 +437,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param pageConfig the page composition helper to add configuration properties to
      */
     private void setGeneralCludoConfiguration(PageCompositionHelper pageConfig) {
-        properties.getCludoCustomerId().ifPresent(v -> pageConfig.addProperty("cludo.customer-id", v));
-        properties.getCludoEngineId().ifPresent(v -> pageConfig.addProperty("cludo.engine-id", v));
-        properties.getCludoExperienceId().ifPresent(v -> pageConfig.addProperty("cludo.experience-id", v));
+        properties.getCludoCustomerId().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_CUSTOMER_ID, v));
+        properties.getCludoEngineId().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_ENGINE_ID, v));
+        properties.getCludoExperienceId().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_EXPERIENCE_ID, v));
         pageConfig.addProperty("language", pageConfig.getLocale().getLanguage());
     }
 
@@ -449,7 +452,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final boolean isSearchResultsPage = isSearchResultsPage(request);
         final boolean isHomepage = isHomepage(request);
 
-        properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
+        properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.GLOBAL_SEARCH_PATH, v));
         pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, isHomepage && properties.getFeatureSearchWidget());
 
         if (isHomepage || isSearchResultsPage) {
