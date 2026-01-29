@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class SitePropertiesTest {
 
-    final static String BUNDLE_ID = SiteProperties.DEFAULT_CONFIG;
+    final static String BUNDLE_ID = SitePropertyKeys.DEFAULT_CONFIG;
     final static boolean OPTIONAL = true;
     @Mock
     ResourceBundleService bundle;
@@ -35,7 +35,7 @@ class SitePropertiesTest {
     @Test
     @DisplayName("VS-2756 - Return InternalSites as a list")
     void getInternalSites(){
-        when(bundle.getResourceBundle(BUNDLE_ID, SiteProperties.INTERNAL_SITES, Locale.UK, OPTIONAL))
+        when(bundle.getResourceBundle(BUNDLE_ID, SitePropertyKeys.INTERNAL_SITES, Locale.UK, OPTIONAL))
                 .thenReturn("  aaa , bbb,,,ccc,");
         List<String> hosts = properties.getInternalSites();
 
