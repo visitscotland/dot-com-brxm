@@ -1,9 +1,45 @@
 #!/usr/bin/env bash
-# Unified release script that replaces:
-#   release_url_md5.sh + release_build_number.sh + release_compose_email.sh
-# Outputs:
-#   - <out_dir>/results.json  (single source of truth for pipeline)
-#   - <out_dir>/email.html    (rendered email body)
+# Release metadata and email-rendering helper script.
+#
+# Author:
+#   Matt Syrigos — Senior Software Engineer
+#
+# Created:
+#   January 2026
+#
+# Purpose:
+#   Collect release/build information from the Jenkins workspace, build log,
+#   and project files (pom.xml, build-number file, distribution artifacts),
+#   and render email-ready outputs for a later Jenkins pipeline stage.
+#
+# Responsibilities:
+#   - Discover the main distribution artifact (.tar.gz or .war) under target/
+#     and compute its checksum.
+#   - Detect and capture SSR package details when present.
+#   - Parse the build log to extract deployed Nexus artifact URLs and
+#     error/failure lines.
+#   - Derive build number (from file or MANIFEST.MF) and release version
+#     (from pom.xml).
+#   - Render email subject, recipients, and HTML body as files.
+#
+# Outputs (written under <out_dir>/):
+#   - email.subject.txt      Single-line email subject
+#   - email.recipients.txt   Comma-separated recipient list
+#   - email.body.txt         Rendered HTML email body
+#
+# Execution model:
+#   - Intended to run inside a Jenkins workspace with SCM context available.
+#   - Produces filesystem artifacts only; no external side effects.
+#
+# Notes for maintainers:
+#   - This script does NOT send email; Jenkins is responsible for delivery.
+#   - Treat the generated files as a stable contract between this script
+#     and the Jenkinsfile email/notification stage.
+#   - Failure handling is best-effort: the script attempts to emit meaningful
+#     outputs even when parts of the build or release process fail.
+#   - If extending beyond email (e.g. Slack/Teams), prefer consuming the
+#     existing outputs rather than adding delivery logic here.
+
 set -Eeuo pipefail
 IFS=$'\n\t'
 # Trap failures, exit with the return code non-zero value, and let bash take care of the display message
