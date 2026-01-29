@@ -5,10 +5,7 @@ import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.utils.Contract;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -45,8 +42,8 @@ public class SiteProperties extends Properties {
             return "";
         }
     }
-    public Optional<String> getGlobalSearchURL() {
-        return readOptionalString(GLOBAL_SEARCH_PATH);
+    public Optional<String> getGlobalSearchURL(Locale locale) {
+        return getProperty(GLOBAL_SEARCH_PATH, locale);
     }
 
     public Optional<String> getCludoCustomerId() {
