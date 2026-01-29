@@ -23,6 +23,8 @@ import com.visitscotland.brxm.utils.SitePropertyKeys;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.linking.HstLink;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,6 +63,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
+
+    private static final String SEARCH = "search";
+    private static final String NAVIGATION_STATIC = "navigation.static";
+    private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
 
     //Objects injected in the page payload
     public static final String DOCUMENT = "document";
@@ -170,10 +176,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
              addAllLabels(request, CMS_MESSAGES_BUNDLE);
         }
     }
-
-    private static final String SEARCH = "search";
-    private static final String NAVIGATION_STATIC = "navigation.static";
-    private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
 
     private void addNavigationLabels(HstRequest request) {
         addAllLabels(request, SEARCH);
@@ -423,7 +425,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             if (properties.isGlobalSearchDmsBased()) {
                 //TODO: This method will be removed once the DMS is retired
                 pageConfig.addProperty("dms-based", true);
-                properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
+                getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("global-search.path", v));
                 setGeneralCludoConfiguration(pageConfig);
             } else {
                 applyGlobalSearchConfiguration(request, pageConfig);
@@ -452,7 +454,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final boolean isSearchResultsPage = isSearchResultsPage(request);
         final boolean isHomepage = isHomepage(request);
 
-        properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.GLOBAL_SEARCH_PATH, v));
+        getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("site-search.path", v));
+        properties.getGlobalSearchURL(request.getLocale()).ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.GLOBAL_SEARCH_PATH, v));
         pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, isHomepage && properties.getFeatureSearchWidget());
 
         if (isHomepage || isSearchResultsPage) {
@@ -482,6 +485,33 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
                         .getHstSiteMapItem()
                         .getRefId()
         );
+    }
+
+    /**
+     * Creates and exposes a locale-aware search page link in the HST request context.
+     * <br>
+     * This method generates an HstLink for the sitemap item with refId "search-page"
+     * and stores it as a request attribute named "searchLink".
+     * <br>
+     * Use this to ensure the search URL is correctly resolved for the current
+     * locale and mount, avoiding hardcoded or relative paths in templates
+     *
+     * @param request the current HstRequest
+     */
+    private Optional<String> getSearchResultsURL(final HstRequest request) {
+        HstRequestContext requestContext = request.getRequestContext();
+
+        HstLink link = requestContext.getHstLinkCreator()
+                .createByRefId(SEARCH_PAGE, requestContext.getResolvedMount().getMount());
+
+        if (link != null) {
+            // Convert the link to a URL and make it available to the template
+            return Optional.of(link.toUrlForm(requestContext, false));
+        } else {
+            logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration.");
+        }
+
+        return Optional.empty();
     }
 }
 
