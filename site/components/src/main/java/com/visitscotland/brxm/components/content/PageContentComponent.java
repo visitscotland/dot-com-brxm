@@ -181,6 +181,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addAllLabels(request, SEARCH);
         addAllLabels(request, NAVIGATION_STATIC);
         addAllLabels(request, NAVIGATION_SOCIAL_MEDIA);
+        addSiteSpecificLabels(request, NAVIGATION_SOCIAL_MEDIA);
     }
 
     /**
@@ -191,6 +192,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     protected void addAllLabels(HstRequest request, String bundleId) {
         labels(request).put(bundleId, bundle.getAllLabels(bundleId, request.getLocale()));
+    }
+
+    protected void addSiteSpecificLabels(HstRequest request, String bundleId) {
+        labels(request).put(bundleId, bundle.getSiteSpecificLabels(bundleId, request.getLocale()));
     }
 
     private boolean isHomepage (HstRequest request){
