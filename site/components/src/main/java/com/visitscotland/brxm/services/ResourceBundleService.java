@@ -239,6 +239,15 @@ public class ResourceBundleService {
         return labels;
     }
 
+    public Map<String, String> getSiteSpecificLabels(String bundleName, Locale locale) {
+        Map<String, String> labels = new HashMap<>();
+        String bundleId = hasSiteResourceBundle(bundleName, locale)? getResourceBundleId(bundleName) : bundleName;
+        for (String key : getResourceBundle( bundleId, locale).keySet()) {
+            labels.put(key, getResourceBundle(bundleName, key, locale));
+        }
+        return labels;
+    }
+
     /**
      * Logs an issue that can be solved from the CMS
      *
