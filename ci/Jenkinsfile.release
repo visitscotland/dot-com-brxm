@@ -473,7 +473,7 @@ pipeline {
             }
         }
 
-        stage('Release & Email (single-call)') {
+        stage('Prepare release email payload') {
             steps {
                 // bash execution needs to be aware of the groovy environmental variables
                 withEnv([
