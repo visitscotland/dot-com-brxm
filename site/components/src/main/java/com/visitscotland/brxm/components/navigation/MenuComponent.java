@@ -23,7 +23,6 @@ import java.util.Locale;
 public class MenuComponent extends EssentialsMenuComponent {
 
     private static final String NAVIGATION = "navigation.";
-    private static final String BE_PREFIX = "be.navigation.";
 
     private static final String PREVIEW_QUERY_PARAMETER = "preview-token";
 
@@ -85,23 +84,26 @@ public class MenuComponent extends EssentialsMenuComponent {
         boolean editMode = Boolean.TRUE.equals(request.getAttribute("editMode"));
         boolean cacheable = editMode ? Boolean.TRUE.equals(properties.getNavigationCache()) : properties.isSnippetCacheEnabled();
 
-        // The values "0-" & "1-" are not in use. They just create different IDs for the cache depending on editmode
-        String id = (editMode?"1-":"0-") + getAnyParameter(request, PREVIEW_QUERY_PARAMETER);
-
-        RootMenuItem rootMenuItem = factory.buildMenu(request, getResourceBundleID(request), id, cacheable);
+        RootMenuItem rootMenuItem = factory.buildMenu(request, getResourceBundleID(request), generateCacheId(request, editMode), cacheable);
         rootMenuItem.setCmsCached(cacheable && editMode);
 
         return rootMenuItem;
     }
 
     private String getResourceBundleID(HstRequest request){
-        String prefix;
-        if (Contract.isEmpty(siteProperties.getSiteId())){
-            prefix = NAVIGATION;
-        } else {
-            prefix = siteProperties.getSiteId() + "." + NAVIGATION;
-        }
-
-        return prefix +  ((HstSiteMenu) request.getModel(MENU)).getName();
+        return NAVIGATION +  ((HstSiteMenu) request.getModel(MENU)).getName();
     }
+
+    private String generateCacheId(HstRequest request, boolean editMode){
+        // The values "0-" & "1-" are not in use. They just create different IDs for the cache depending on editmode
+        String id = (editMode?"1-":"0-") + getAnyParameter(request, PREVIEW_QUERY_PARAMETER);
+
+        if (Contract.isEmpty(siteProperties.getSiteId())){
+            return id;
+        } else {
+            return siteProperties.getSiteId() + "." + id;
+        }
+    }
+
+
 }

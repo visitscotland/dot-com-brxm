@@ -27,6 +27,7 @@ import static org.springframework.beans.factory.config.ConfigurableBeanFactory.S
  */
 @Component
 @Scope(SCOPE_PROTOTYPE)
+@Deprecated(since = "2.14.0", forRemoval = true)
 public class ProductSearchBuilder {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductSearchBuilder.class.getName());

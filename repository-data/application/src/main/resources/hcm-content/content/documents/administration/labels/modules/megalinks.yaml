@@ -1,0 +1,70 @@
+/content/documents/administration/labels/modules/megalinks:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: bcb3583d-955b-44c2-ae93-a95eb2c789a8
+  hippo:name: Megalinks
+  hippo:versionHistory: ba10b0f9-4bb3-43b3-9077-6a366896ee6e
+  /megalinks[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: ca3298ee-31b0-42fe-ae9f-43aac6d7025b
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-05-13T08:26:45.287+01:00
+    hippostdpubwf:lastModificationDate: 2025-05-13T08:30:03.400+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: [Used by Itinerary link items, Used by Itinerary
+        link items]
+    resourcebundle:id: megalinks
+    resourcebundle:keys: [day, days]
+    resourcebundle:messages: [Day, Days]
+    resourcebundle:messages_de: [Tag, Tage]
+    resourcebundle:messages_es: [Día, Días]
+    resourcebundle:messages_fr: [Jour, Jours]
+    resourcebundle:messages_it: [Giorno, Giorni]
+    resourcebundle:messages_nl: [Dag, Dagen]
+  /megalinks[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: edc423af-8d33-4669-9bcf-dae79a978091
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-05-13T08:26:45.287+01:00
+    hippostdpubwf:lastModificationDate: 2025-05-13T08:29:51.170+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: [Used by Itinerary link items, Used by Itinerary
+        link items]
+    resourcebundle:id: megalinks
+    resourcebundle:keys: [day, days]
+    resourcebundle:messages: [Day, Days]
+    resourcebundle:messages_de: [Tag, Tage]
+    resourcebundle:messages_es: [Día, Días]
+    resourcebundle:messages_fr: [Jour, Jours]
+    resourcebundle:messages_it: [Giorno, Giorni]
+    resourcebundle:messages_nl: [Dag, Dagen]
+  /megalinks[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 8c4a8697-bd6e-4de0-aa7b-5e1d23efc53f
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-05-13T08:26:45.287+01:00
+    hippostdpubwf:lastModificationDate: 2025-05-13T08:29:51.170+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2025-05-13T08:30:08.951+01:00
+    resourcebundle:descriptions: [Used by Itinerary link items, Used by Itinerary
+        link items]
+    resourcebundle:id: megalinks
+    resourcebundle:keys: [day, days]
+    resourcebundle:messages: [Day, Days]
+    resourcebundle:messages_de: [Tag, Tage]
+    resourcebundle:messages_es: [Día, Días]
+    resourcebundle:messages_fr: [Jour, Jours]
+    resourcebundle:messages_it: [Giorno, Giorni]
+    resourcebundle:messages_nl: [Dag, Dagen]

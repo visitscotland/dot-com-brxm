@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: c443083d-2924-408b-85a5-0a08f3ac0bae
   hippo:name: Map
-  hippo:versionHistory: e4ae526f-faf2-4359-9491-875ab6c0e2ae
+  hippo:versionHistory: 81c60db2-e8d3-47ce-ba72-56b928e6f342
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,7 +13,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-01-12T17:13:47.276Z
+    hippostdpubwf:lastModificationDate: 2026-01-23T18:03:01.838Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -97,7 +97,8 @@
         non è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola
         chiave, Cerca, Risultati della ricerca per, I cookie devono essere attivati
         per visualizzare questa mappa, Affina i tuoi risultati, Non abbiamo trovato
-        niente qui. Prova a zoomare indietro per vedere altri luoghi., '']
+        niente qui. Prova a zoomare indietro per vedere altri luoghi., Cerca sulla
+        mappa]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
@@ -120,7 +121,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-01-12T17:13:34.394Z
+    hippostdpubwf:lastModificationDate: 2026-01-23T18:05:07.592Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -204,7 +205,8 @@
         non è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola
         chiave, Cerca, Risultati della ricerca per, I cookie devono essere attivati
         per visualizzare questa mappa, Affina i tuoi risultati, Non abbiamo trovato
-        niente qui. Prova a zoomare indietro per vedere altri luoghi., '']
+        niente qui. Prova a zoomare indietro per vedere altri luoghi., Cerca sulla
+        mappa]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
@@ -227,9 +229,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-01-12T17:13:34.394Z
+    hippostdpubwf:lastModificationDate: 2026-01-23T18:05:07.592Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-01-12T17:18:44.943Z
+    hippostdpubwf:publicationDate: 2026-01-23T18:05:18.295Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '']
@@ -312,7 +314,8 @@
         non è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola
         chiave, Cerca, Risultati della ricerca per, I cookie devono essere attivati
         per visualizzare questa mappa, Affina i tuoi risultati, Non abbiamo trovato
-        niente qui. Prova a zoomare indietro per vedere altri luoghi., '']
+        niente qui. Prova a zoomare indietro per vedere altri luoghi., Cerca sulla
+        mappa]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
       Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
       Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,

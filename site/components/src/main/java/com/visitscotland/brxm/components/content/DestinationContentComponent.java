@@ -4,7 +4,8 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.LocationLoader;
 import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.Destination;
-import com.visitscotland.brxm.utils.PageTemplateBuilder;
+import com.visitscotland.brxm.pagebuilder.PageAssembler;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
@@ -16,29 +17,31 @@ public class DestinationContentComponent extends PageContentComponent<Destinatio
 
     private static final Logger logger = LoggerFactory.getLogger(DestinationContentComponent.class);
 
-    private PageTemplateBuilder builder;
-    private LocationLoader locationLoader;
+    private final PageAssembler builder;
+    private final LocationLoader locationLoader;
 
     public DestinationContentComponent(){
         logger.debug("DestinationContentComponent initialized");
-        this.builder = VsComponentManager.get(PageTemplateBuilder.class);
+        this.builder = VsComponentManager.get(PageAssembler.class);
         this.locationLoader = VsComponentManager.get(LocationLoader.class);
     }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        super.doBeforeRender(request, response);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
 
-        addAttributesToRequest(request);
+        super.doBeforeRender(request, response, pageConfig);
+
+        addAttributesToRequest(request, pageConfig);
     }
 
-    void addAttributesToRequest(HstRequest request) {
+    void addAttributesToRequest(HstRequest request, PageCompositionHelper pageConfig) {
         Destination document = (Destination) request.getAttribute("document");
         LocationObject location = locationLoader.getLocation(document.getLocation(), Locale.UK);
         request.setModel("location", location);
         request.setModel("region", locationLoader.getRegion(location, Locale.UK));
 
-        builder.addModules(request, document.getLocation());
+        builder.addModules(request , pageConfig);
     }
 
 }
