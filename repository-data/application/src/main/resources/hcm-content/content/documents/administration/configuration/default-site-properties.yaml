@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ea5611a6-5160-4713-86e9-52334587567c
   hippo:name: Default - Site Properties
-  hippo:versionHistory: d5e3ac1d-812c-43af-9577-e7486b0124ac
+  hippo:versionHistory: 3b2585d1-aa59-4efb-bd88-3c79fb436815
   /default-site-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-01-14T14:26:36.688Z
+    hippostdpubwf:lastModificationDate: 2026-01-30T12:44:33.371Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -58,25 +58,25 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '', '12809', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
-      vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, /test/examples/map-examples, 'true',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'true', 'false',
-      or]
+      '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', 'true', Consent,
+      /test/examples/icentres/content, vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E,
+      /test/examples/map-examples, 'true', 'https://api.visitscotland.com/dev/data/products/events/search',
+      'false', 'true', and]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-site-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -86,7 +86,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-01-14T14:26:08.426Z
+    hippostdpubwf:lastModificationDate: 2026-01-30T12:44:24.672Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -130,25 +130,25 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '', '12809', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
-      vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, /test/examples/map-examples, 'true',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'true', 'false',
-      or]
+      '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', 'true', Consent,
+      /test/examples/icentres/content, vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E,
+      /test/examples/map-examples, 'true', 'https://api.visitscotland.com/dev/data/products/events/search',
+      'false', 'true', and]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-site-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -158,9 +158,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-01-14T14:26:36.688Z
+    hippostdpubwf:lastModificationDate: 2026-01-30T12:44:33.371Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-01-14T14:28:10.897Z
+    hippostdpubwf:publicationDate: 2026-01-30T12:44:35.991Z
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -203,22 +203,22 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '', '12809', '', 'true', 'true', 'true', Consent, /test/examples/icentres/content,
-      vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, /test/examples/map-examples, 'true',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'true', 'false',
-      or]
+      '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', 'true', Consent,
+      /test/examples/icentres/content, vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E,
+      /test/examples/map-examples, 'true', 'https://api.visitscotland.com/dev/data/products/events/search',
+      'false', 'true', and]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
