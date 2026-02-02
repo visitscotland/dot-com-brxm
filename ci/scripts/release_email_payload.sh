@@ -499,11 +499,11 @@ TABLE3
 usage() {
   cat >&2 <<'USAGE'
 Usage:
-  release_combined_stages.sh [--mode=all|step1|step2|step3|step4|step5]
-                             [--out-dir=artifacts]
-                             [--pom=pom.xml]
-                             [--build-number-file=PATH]
-                             [--log-file=PATH]
+  release_email_payload.sh [--mode=all|step1|step2|step3|step4|step5]
+                           [--out-dir=artifacts]
+                           [--pom=pom.xml]
+                           [--build-number-file=PATH]
+                           [--log-file=PATH]
 
 Notes:
   - If --build-number-file is not provided, the script will prioritise $WORKSPACE/$BUILD_NUMBER_FILE, and subsequently, auto-discover common locations
