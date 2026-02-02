@@ -2,7 +2,7 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:components/breadcrumb:
       jcr:primaryType: hst:component
-      hst:componentclassname: com.visitscotland.brxm.components.breadcrumb.VsBreadcrumbComponent
+      hst:componentclassname: com.visitscotland.brxm.components.content.NavigationContentComponent
       hst:template: breadcrumb
       hst:parameternames: [breadcrumb-menus, breadcrumb-separator]
       hst:parametervalues: ['main,footer,utility', '|']
