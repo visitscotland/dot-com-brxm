@@ -343,19 +343,23 @@ public class ItineraryMapper {
 
     private void populateTransports(ItineraryPage page, final String[] transports, final Locale locale) {
         List<Entry> transportsToAdd = new ArrayList<>();
-        for (final String transport : transports) {
-            if (transport != null && bundle.existsResourceBundleKey(TRANSPORTS, transport, locale)) {
-                transportsToAdd.add(new Entry(transport, bundle.getResourceBundle(TRANSPORTS, transport, locale)));
-            } else {
-                contentLogger.warn("No key/value pair for transport type {}", transport);
+        if (transports == null) {
+            page.setTransports(transportsToAdd);
+        } else {
+            for (final String transport : transports) {
+                if (transport != null && bundle.existsResourceBundleKey(TRANSPORTS, transport, locale)) {
+                    transportsToAdd.add(new Entry(transport, bundle.getResourceBundle(TRANSPORTS, transport, locale)));
+                } else {
+                    contentLogger.warn("No key/value pair for transport type {}", transport);
+                }
             }
+            page.setTransports(transportsToAdd);
         }
-        page.setTransports(transportsToAdd);
     }
 
     private void populateThemes(ItineraryPage page, final String theme, final Locale locale) {
         final String translatedTheme = bundle.getResourceBundle(THEMES, theme, locale);
-        if (translatedTheme.isEmpty() || translatedTheme == null) {
+        if (translatedTheme == null || translatedTheme.isEmpty() ) {
             contentLogger.warn("No theme found for {} for locale {}", theme, locale.getDisplayCountry());
         } else {
             page.setTheme(new Entry(theme, translatedTheme));
@@ -364,13 +368,18 @@ public class ItineraryMapper {
 
     private void populateAreas(ItineraryPage page, String[] areas, Locale locale) {
         List<Entry> areasToAdd = new ArrayList<>();
-        for (final String area : areas) {
-            if (area != null && bundle.existsResourceBundleKey(AREAS, area, locale)) {
-                areasToAdd.add(new Entry(area, bundle.getResourceBundle(AREAS, area, locale)));
-            } else {
-                contentLogger.warn("No key/value pair for area {}", area);
+        if (areas == null) {
+            page.setAreas(areasToAdd);
+        } else {
+            for (final String area : areas) {
+                if (area != null && bundle.existsResourceBundleKey(AREAS, area, locale)) {
+                    areasToAdd.add(new Entry(area, bundle.getResourceBundle(AREAS, area, locale)));
+                } else {
+                    contentLogger.warn("No key/value pair for area {}", area);
+                }
             }
+            page.setAreas(areasToAdd);
         }
-        page.setAreas(areasToAdd);
+
     }
 }
