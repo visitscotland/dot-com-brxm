@@ -43,15 +43,15 @@ public class SiteProperties extends Properties {
         }
     }
     public Optional<String> getGlobalSearchURL(Locale locale) {
-        return getProperty(GLOBAL_SEARCH_PATH, locale);
+        return readOptionalString(GLOBAL_SEARCH_PATH, locale);
     }
 
     public Optional<String> getCludoCustomerId() {
         return readOptionalString(CLUDO_CUSTOMER_ID);
     }
 
-    public Optional<String> getCludoEngineId() {
-        return readOptionalString(CLUDO_ENGINE_ID);
+    public Optional<String> getCludoEngineId(Locale locale) {
+        return readOptionalString(CLUDO_ENGINE_ID, locale);
     }
 
     public Optional<String> getCludoExperienceId() {

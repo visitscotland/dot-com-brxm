@@ -43,9 +43,12 @@ public abstract class Properties {
     }
 
     public Optional<String> readOptionalString(String key){
-        return getProperty(key, DEFAULT_LOCALE);
+        return readOptionalString(key, DEFAULT_LOCALE);
     }
 
+    public Optional<String> readOptionalString(String key, Locale locale){
+        return getProperty(key, locale);
+    }
 
     public int readInteger(String key){
         Optional<String> value = getProperty(key);
