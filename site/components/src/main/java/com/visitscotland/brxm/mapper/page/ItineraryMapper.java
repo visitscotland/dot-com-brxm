@@ -358,6 +358,10 @@ public class ItineraryMapper {
     }
 
     private void populateThemes(ItineraryPage page, final String theme, final Locale locale) {
+        if (theme == null ) {
+            contentLogger.warn("No theme provided for page.");
+            return;
+        }
         final String translatedTheme = bundle.getResourceBundle(THEMES, theme, locale);
         if (translatedTheme == null || translatedTheme.isEmpty() ) {
             contentLogger.warn("No theme found for {} for locale {}", theme, locale.getDisplayCountry());
