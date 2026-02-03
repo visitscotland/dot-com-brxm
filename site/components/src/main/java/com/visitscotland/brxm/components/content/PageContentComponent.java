@@ -441,12 +441,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     /**
      * Set General Cludo Configuration for the Global Search
-     * @param pageConfig the page composition helper to add configuration properties to
+     * @param pageConfig the page composition helper to F configuration properties to
      */
     private void setGeneralCludoConfiguration(PageCompositionHelper pageConfig) {
         properties.getCludoCustomerId().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_CUSTOMER_ID, v));
-        properties.getCludoEngineId().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_ENGINE_ID, v));
         properties.getCludoExperienceId().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_EXPERIENCE_ID, v));
+        properties.getCludoEngineId(pageConfig.getLocale()).ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_ENGINE_ID, v));
         pageConfig.addProperty("language", pageConfig.getLocale().getLanguage());
     }
 
