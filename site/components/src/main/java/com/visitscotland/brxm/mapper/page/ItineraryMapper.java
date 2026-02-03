@@ -3,8 +3,6 @@ package com.visitscotland.brxm.mapper.page;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.DMSUtils;
-import com.visitscotland.brxm.dms.ProductSearchBuilder;
-import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.mapper.ImageMapper;
@@ -36,6 +34,9 @@ public class ItineraryMapper {
     private static final Logger logger = LoggerFactory.getLogger(ItineraryMapper.class);
 
     static final String BUNDLE_FILE = "itinerary";
+    private static final String THEMES = "themes";
+    private static final String AREAS = "areas";
+    private static final String TRANSPORTS = "transports";
 
     private final ResourceBundleService bundle;
     private final DMSDataService dmsData;
@@ -71,6 +72,7 @@ public class ItineraryMapper {
      */
     public ItineraryPage buildItinerary(final Itinerary itinerary, final Locale locale) {
 
+        logger.debug("buildItinerary initialized");
 
         ItineraryPage page = new ItineraryPage(itinerary);
 
@@ -93,12 +95,13 @@ public class ItineraryMapper {
             page.setDistance(BigDecimal.valueOf(itinerary.getDistance()));
         } else {
             // default to 0 if we can't get distance from calculations or user value
+            contentLogger.warn("No distance value provided for itinerary page {} - defaulting to 0", itinerary.getPath());
             page.setDistance(BigDecimal.valueOf(0));
         }
 
-        populateTransports(page, itinerary.getTransports());
-        populateThemes(page, itinerary.getTheme());
-        populateAreas(page, itinerary.getAreas());
+        populateTransports(page, itinerary.getTransports(), locale);
+        populateThemes(page, itinerary.getTheme(), locale);
+        populateAreas(page, itinerary.getAreas(), locale);
 
         return page;
     }
@@ -119,6 +122,9 @@ public class ItineraryMapper {
      */
     @Deprecated
     public ItineraryPage buildStopBasedItinerary(final Itinerary itinerary, final Locale locale) {
+
+        logger.debug("buildStopBasedItinerary initialized");
+
         final boolean calculateDistance = (itinerary.getDistance() == null || itinerary.getDistance() == 0);
 
         ItineraryPage page = new ItineraryPage(itinerary);
@@ -129,7 +135,6 @@ public class ItineraryMapper {
         int index = 1;
 
         page.setDays(documentUtils.getAllowedDocuments(itinerary, Day.class));
-
 
         if (page.getDays() == null || page.getDays().isEmpty()) {
 
@@ -166,13 +171,12 @@ public class ItineraryMapper {
                 }
             }
             page.setDistance(calculateDistance ? totalDistance.setScale(0, RoundingMode.HALF_UP) : BigDecimal.valueOf(itinerary.getDistance()));
-
             populateFirstAndLastStopTexts(page, firstStop, lastStop);
         }
 
-        populateTransports(page, itinerary.getTransports());
-        populateThemes(page, itinerary.getTheme());
-        populateAreas(page, itinerary.getAreas());
+        populateTransports(page, itinerary.getTransports(), locale);
+        populateThemes(page, itinerary.getTheme(), locale);
+        populateAreas(page, itinerary.getAreas(), locale);
 
         return page;
     }
@@ -267,7 +271,8 @@ public class ItineraryMapper {
 
         if (externalLink.getExternalLink() != null) {
             FlatLink ctaLink = linkService.createExternalLink(locale, externalLink.getExternalLink().getLink(),
-                    !externalLink.getExternalLink().getLabel().isEmpty() ? externalLink.getExternalLink().getLabel() : bundle.getFindOutMoreAboutCta(module.getTitle(), locale),
+                    !externalLink.getExternalLink().getLabel().isEmpty() ? externalLink.getExternalLink().getLabel()
+                    : bundle.getFindOutMoreAboutCta(module.getTitle(), locale),
                     externalLink.getPath());
             module.setCtaLink(ctaLink);
         }
@@ -285,7 +290,8 @@ public class ItineraryMapper {
         JsonNode product = dmsData.productCard(dmsLink.getProduct(), locale);
 
         if (product == null) {
-            String message = String.format("The DMS product added to '%s' was not found, please review the DMS Product id field at: %s ", module.getTitle(), dmsLink.getPath());
+            String message = String.format("The DMS product added to '%s' was not found, please review the DMS Product id field at: %s ",
+                    module.getTitle(), dmsLink.getPath());
             module.addErrorMessage(message);
             if (logger.isWarnEnabled()) {
                 contentLogger.warn(message);
@@ -311,7 +317,8 @@ public class ItineraryMapper {
         if (product.has(LATITUDE) && product.has(LONGITUDE)) {
             module.setCoordinates(new Coordinates(product.get(LATITUDE).asDouble(), product.get(LONGITUDE).asDouble()));
         } else {
-            String message = String.format("The DMS product added to '%s' does not have coordinates, please review the DMS Product id field at: %s ", module.getTitle(), dmsLink.getPath());
+            String message = String.format("The DMS product added to '%s' does not have coordinates, please review the DMS Product id field at: %s ",
+                    module.getTitle(), dmsLink.getPath());
             module.addErrorMessage(message);
             if (logger.isWarnEnabled()) {
                 contentLogger.error(message);
@@ -334,32 +341,36 @@ public class ItineraryMapper {
         }
     }
 
-    private void populateTransports(ItineraryPage page, String[] transports) {
-        page.setTransports(valueListToEntryList(transports, ValueList.VS_ITINERARY_TRANSPORT));
-    }
-
-    private void populateThemes(ItineraryPage page, String theme) {
-        page.setTheme(entryMapper.getEntry(theme, ValueList.VS_ITINERARY_THEMES));
-    }
-
-    private void populateAreas(ItineraryPage page, String[] areas) {
-        page.setAreas(valueListToEntryList(areas, ValueList.VS_ITINERARY_AREAS));
-    }
-
-    private List<com.visitscotland.brxm.model.megalinks.Entry> valueListToEntryList(final String[] items, final ValueList valueList) {
-        if (items != null) {
-            List<Entry> entries = new ArrayList<>(items.length);
-            for (String item : items) {
-                entries.add(entryMapper.getEntry(item, valueList));
+    private void populateTransports(ItineraryPage page, final String[] transports, final Locale locale) {
+        List<Entry> transportsToAdd = new ArrayList<>();
+        for (final String transport : transports) {
+            if (transport != null && bundle.existsResourceBundleKey(TRANSPORTS, transport, locale)) {
+                transportsToAdd.add(new Entry(transport, bundle.getResourceBundle(TRANSPORTS, transport, locale)));
+            } else {
+                contentLogger.warn("No key/value pair for transport type {}", transport);
             }
-            return entries;
         }
-        return Collections.emptyList();
+        page.setTransports(transportsToAdd);
     }
 
-    @Deprecated
-    private String getProductSearchUrl(Locale locale, String productType, Double latitude, Double longitude) {
-        return ProductSearchBuilder.newInstance().locale(locale).productTypes(productType).proximity(5.)
-                .coordinates(latitude, longitude).build();
+    private void populateThemes(ItineraryPage page, final String theme, final Locale locale) {
+        final String translatedTheme = bundle.getResourceBundle(THEMES, theme, locale);
+        if (translatedTheme.isEmpty() || translatedTheme == null) {
+            contentLogger.warn("No theme found for {} for locale {}", theme, locale.getDisplayCountry());
+        } else {
+            page.setTheme(new Entry(theme, translatedTheme));
+        }
+    }
+
+    private void populateAreas(ItineraryPage page, String[] areas, Locale locale) {
+        List<Entry> areasToAdd = new ArrayList<>();
+        for (final String area : areas) {
+            if (area != null && bundle.existsResourceBundleKey(AREAS, area, locale)) {
+                areasToAdd.add(new Entry(area, bundle.getResourceBundle(AREAS, area, locale)));
+            } else {
+                contentLogger.warn("No key/value pair for area {}", area);
+            }
+        }
+        page.setAreas(areasToAdd);
     }
 }
