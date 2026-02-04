@@ -123,21 +123,13 @@ action-lists:
     /content/taxonomies/Visitscotland-categories: reload
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/labels/modules/newsletter-signpost: reload
-- 2.14.0:
+- 3.0.0:
+    /content/documents/administration/options/bespoken-modules: reload
+    /content/documents/administration/options/maps---dms-categories: reload
     /content/documents/administration/labels/pages/itinerary: reload
     /content/documents/administration/labels/modules/listicle: delete
     /content/documents/administration/labels/global/common-label: reload
+    /content/documents/administration/labels/global/search: reload    
     /content/documents/administration/configuration/default-site-properties: reload
-    /content/documents/visitscotland/test: reload
-- 2.15.0:
-    /content/documents/administration/configuration/default-site-properties: reload
-    /content/documents/administration/labels/global/search: reload
-    /content/documents/administration/labels/global/search-filters: reload
-    /content/documents/administration/labels/global/search-events-filters: reload
-- 2.15.0.1:
-    /content/documents/administration/options/bespoken-modules: reload
-- 3.0.0.1:
-    /content/documents/administration/configuration/default-site-properties: reload
-    /content/documents/administration/options/maps---dms-categories: reload
-- 3.0.0.2:
-    /content/documents/administration/labels/global/search-events-filters: reload
+    
+    
