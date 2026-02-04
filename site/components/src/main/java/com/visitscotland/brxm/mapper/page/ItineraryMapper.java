@@ -84,7 +84,7 @@ public class ItineraryMapper {
         final boolean noDays = page.getDays() == null || page.getDays().isEmpty();
 
         if (noDays) {
-            contentLogger.warn("The itinerary page {} does not have any modules published", itinerary.getPath());
+            contentLogger.info("The itinerary page {} does not have any modules published", itinerary.getPath());
             page.setDayCount(0);
         } else {
             page.setDayCount(page.getDays().size());
@@ -96,15 +96,19 @@ public class ItineraryMapper {
             page.setDistance(BigDecimal.valueOf(itinerary.getDistance()));
         } else {
             // default to 0 if we can't get distance from calculations or user value
-            contentLogger.warn("No distance value provided for itinerary page {} - defaulting to 0", itinerary.getPath());
+            contentLogger.info("No distance value provided for itinerary page {} - defaulting to 0", itinerary.getPath());
             page.setDistance(BigDecimal.valueOf(0));
         }
 
-        FlatLink ctaLink = linkService.createExternalLink(locale, itinerary.getMapLink().getLink(),
-                !itinerary.getMapLink().getLabel().isEmpty() ? itinerary.getMapLink().getLabel() : bundle.getResourceBundle(BUNDLE_FILE, DEFAULT_CTA_TEXT, locale),
-                itinerary.getMapLink().getPath());
-        ctaLink.setType(LinkType.EXTERNAL);
-        page.setMapLink(ctaLink);
+        if(itinerary.getMapLink() == null || itinerary.getMapLink().getLink() == null) {
+            contentLogger.info("An issue occurred while extracting Itinerary map link for {}", itinerary.getPath());
+        } else {
+            FlatLink ctaLink = linkService.createExternalLink(locale, itinerary.getMapLink().getLink(),
+                    !Contract.isEmpty(itinerary.getMapLink().getLabel()) ? itinerary.getMapLink().getLabel() : bundle.getResourceBundle(BUNDLE_FILE, DEFAULT_CTA_TEXT, locale),
+                    itinerary.getMapLink().getPath());
+            ctaLink.setType(LinkType.EXTERNAL);
+            page.setMapLink(ctaLink);
+        }
 
         populateTransports(page, itinerary.getTransports(), locale);
         populateThemes(page, itinerary.getTheme(), locale);
