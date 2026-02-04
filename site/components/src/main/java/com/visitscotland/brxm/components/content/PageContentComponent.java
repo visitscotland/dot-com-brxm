@@ -19,6 +19,7 @@ import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.MetadataFactory;
 import com.visitscotland.brxm.utils.SiteProperties;
+import com.visitscotland.brxm.utils.SitePropertyKeys;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -63,6 +64,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
 
+    private static final String SEARCH = "search";
+    private static final String NAVIGATION_STATIC = "navigation.static";
+    private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
+
     //Objects injected in the page payload
     public static final String DOCUMENT = "document";
     public static final String EDIT_MODE = "editMode";
@@ -79,7 +84,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String PSR_WIDGET = "psrWidget";
 
     public static final String INCLUDE_SEARCH_WIDGET = "searchWidget";
-    public static final String SEARCH_LINK = "searchLink";
+    public static final String SEARCH_LOGIC = "cludoApiOperator";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
 
@@ -172,14 +177,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
-    private static final String SEARCH = "search";
-    private static final String NAVIGATION_STATIC = "navigation.static";
-    private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
-
     private void addNavigationLabels(HstRequest request) {
         addAllLabels(request, SEARCH);
         addAllLabels(request, NAVIGATION_STATIC);
         addAllLabels(request, NAVIGATION_SOCIAL_MEDIA);
+        addSiteSpecificLabels(request, NAVIGATION_SOCIAL_MEDIA);
     }
 
     /**
@@ -192,8 +194,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         labels(request).put(bundleId, bundle.getAllLabels(bundleId, request.getLocale()));
     }
 
+    protected void addSiteSpecificLabels(HstRequest request, String bundleId) {
+        labels(request).put(bundleId, bundle.getSiteSpecificLabels(bundleId, request.getLocale()));
+    }
+
     private boolean isHomepage (HstRequest request){
-        return ROOT.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getId());
+        return ROOT.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getRefId());
     }
 
     /**
@@ -205,9 +211,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         Map<String, String> gtmProperties = new HashMap<>();
 
-        gtmProperties.put(SiteProperties.GTM_CONTAINER_ID, properties.getGtmContainerId());
-        gtmProperties.put(SiteProperties.GTM_PREVIEW_QUERY_STRING, properties.getGtmPreviewQueryString());
-        gtmProperties.put(SiteProperties.GTM_IS_PRODUCTION, properties.getGtmIsProduction());
+        gtmProperties.put(SitePropertyKeys.GTM_CONTAINER_ID, properties.getGtmContainerId());
+        gtmProperties.put(SitePropertyKeys.GTM_PREVIEW_QUERY_STRING, properties.getGtmPreviewQueryString());
+        gtmProperties.put(SitePropertyKeys.GTM_IS_PRODUCTION, properties.getGtmIsProduction());
 
         request.setModel(GTM, gtmProperties);
     }
@@ -418,11 +424,13 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             addAllLabels(request, TABLE_CONTENTS_BUNDLE);
         }
 
+        pageConfig.addProperty(SitePropertyKeys.FEATURE_HERO_SECTION, properties.getFeatureHeroSection());
+
         if (properties.isGlobalSearchEnabled()){
             if (properties.isGlobalSearchDmsBased()) {
                 //TODO: This method will be removed once the DMS is retired
                 pageConfig.addProperty("dms-based", true);
-                properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
+                getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("global-search.path", v));
                 setGeneralCludoConfiguration(pageConfig);
             } else {
                 applyGlobalSearchConfiguration(request, pageConfig);
@@ -436,9 +444,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param pageConfig the page composition helper to add configuration properties to
      */
     private void setGeneralCludoConfiguration(PageCompositionHelper pageConfig) {
-        properties.getCludoCustomerId().ifPresent(v -> pageConfig.addProperty("cludo.customer-id", v));
-        properties.getCludoEngineId().ifPresent(v -> pageConfig.addProperty("cludo.engine-id", v));
-        properties.getCludoExperienceId().ifPresent(v -> pageConfig.addProperty("cludo.experience-id", v));
+        properties.getCludoCustomerId().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_CUSTOMER_ID, v));
+        properties.getCludoEngineId().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_ENGINE_ID, v));
+        properties.getCludoExperienceId().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_EXPERIENCE_ID, v));
         pageConfig.addProperty("language", pageConfig.getLocale().getLanguage());
     }
 
@@ -451,7 +459,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         final boolean isSearchResultsPage = isSearchResultsPage(request);
         final boolean isHomepage = isHomepage(request);
 
-        properties.getGlobalSearchURL().ifPresent(v -> pageConfig.addProperty("global-search.path", v));
+        getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("site-search.path", v));
+        properties.getGlobalSearchURL(request.getLocale()).ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.GLOBAL_SEARCH_PATH, v));
         pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, isHomepage && properties.getFeatureSearchWidget());
 
         if (isHomepage || isSearchResultsPage) {
@@ -465,6 +474,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             if (isSearchResultsPage) {
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
+                properties.getGlobalSearchLogic().ifPresent(v -> pageConfig.addProperty(SEARCH_LOGIC, v));
             }
         }
     }
@@ -474,7 +484,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private boolean isSearchResultsPage(HstRequest request) {
-        return getSearchResultsURL(request).filter(link -> request.getRequestURI().startsWith(link)).isPresent();
+        return SEARCH_PAGE.equals(
+                request.getRequestContext()
+                        .getResolvedSiteMapItem()
+                        .getHstSiteMapItem()
+                        .getRefId()
+        );
     }
 
     /**
