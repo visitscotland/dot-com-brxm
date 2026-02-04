@@ -6,6 +6,11 @@ import org.hippoecm.hst.container.valves.AbstractOrderableValve;
 import org.hippoecm.hst.core.container.ContainerException;
 import org.hippoecm.hst.core.container.ValveContext;
 
+/**
+ *
+ * @deprecated valves do not have any effect on the resourceapi
+ */
+@Deprecated
 public class VSEnvironmentContextValve extends AbstractOrderableValve {
 
     private static boolean active = true;

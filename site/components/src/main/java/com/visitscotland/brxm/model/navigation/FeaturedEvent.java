@@ -1,9 +1,8 @@
 package com.visitscotland.brxm.model.navigation;
 
 import com.visitscotland.brxm.hippobeans.FeaturedWidget;
-import com.visitscotland.brxm.model.Module;
 
-public class FeaturedEvent extends Module<FeaturedWidget> implements NavigationWidget{
+public class FeaturedEvent extends NavigationWidget<FeaturedWidget> {
 
     private String apiUrl;
 

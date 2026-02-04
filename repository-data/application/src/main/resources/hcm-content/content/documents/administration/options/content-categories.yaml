@@ -12,65 +12,313 @@
     hippotranslation:locale: inherited - from query
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
-      selection:key: /things-to-do/attractions/arts-culture
-      selection:label: culture-history
+      selection:key: /places-to-go/aberdeen/
+      selection:label: city-break
     /selection:listitem[2]:
       jcr:primaryType: selection:listitem
-      selection:key: /things-to-do/events
-      selection:label: events
+      selection:key: /places-to-go/city-breaks/
+      selection:label: city-break
     /selection:listitem[3]:
       jcr:primaryType: selection:listitem
-      selection:key: /things-to-do/family
-      selection:label: family-friendly
+      selection:key: /places-to-go/edinburgh/
+      selection:label: city-break
     /selection:listitem[4]:
       jcr:primaryType: selection:listitem
-      selection:key: /things-to-do/passes-offers
-      selection:label: family-friendly
+      selection:key: /places-to-go/dundee/
+      selection:label: city-break
     /selection:listitem[5]:
       jcr:primaryType: selection:listitem
-      selection:key: /things-to-do/food-drink
-      selection:label: food-drink
+      selection:key: /places-to-go/dunfermline/
+      selection:label: city-break
     /selection:listitem[6]:
       jcr:primaryType: selection:listitem
-      selection:key: /things-to-do/outdoor-activities
-      selection:label: active-adventure
+      selection:key: /places-to-go/glasgow/
+      selection:label: city-break
     /selection:listitem[7]:
       jcr:primaryType: selection:listitem
-      selection:key: /things-to-do/landscapes-nature
-      selection:label: nature-outdoors
+      selection:key: /places-to-go/inverness/
+      selection:label: city-break
     /selection:listitem[8]:
       jcr:primaryType: selection:listitem
-      selection:key: /things-to-do/iconic-spots-alternatives
-      selection:label: nature-outdoors
+      selection:key: /places-to-go/perth/
+      selection:label: city-break
     /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: /places-to-go/stirling/
+      selection:label: city-break
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: /places-to-go/countryside-breaks
+      selection:label: nature-outdoors
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: /places-to-go/islands
+      selection:label: nature-outdoors
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/hidden-gems/
+      selection:label: culture-history
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/gardens-parks
+      selection:label: nature-outdoors
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/witch-trail
+      selection:label: culture-history
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/rainy-day
+      selection:label: travel-information
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/most-visited
+      selection:label: travel-information
+    /selection:listitem[17]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/free/dundee
+      selection:label: city-break
+    /selection:listitem[18]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/museums-galleries
+      selection:label: culture-history
+    /selection:listitem[19]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/haunted-sites
+      selection:label: culture-history
+    /selection:listitem[20]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/free/glasgow
+      selection:label: city-break
+    /selection:listitem[21]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/free/aberdeen
+      selection:label: city-break
+    /selection:listitem[22]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/architecture
+      selection:label: culture-history
+    /selection:listitem[23]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/arts-culture
+      selection:label: culture-history
+    /selection:listitem[24]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/creepy-abandoned-places
+      selection:label: nature-outdoors
+    /selection:listitem[25]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/castles
+      selection:label: culture-history
+    /selection:listitem[26]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/free/aberdeen
+      selection:label: city-break
+    /selection:listitem[27]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/free/highlands
+      selection:label: nature-outdoors
+    /selection:listitem[28]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/free/unesco
+      selection:label: nature-outdoors
+    /selection:listitem[29]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/free/
+      selection:label: travel-information
+    /selection:listitem[30]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/historic
+      selection:label: culture-history
+    /selection:listitem[31]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/magical-landmarks
+      selection:label: nature-outdoors
+    /selection:listitem[32]:
+      jcr:primaryType: selection:listitem
+      selection:key: /attractions/tv-film
+      selection:label: culture-history
+    /selection:listitem[33]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/unesco-trail/dundee-city-of-design
+      selection:label: city-break
+    /selection:listitem[34]:
       jcr:primaryType: selection:listitem
       selection:key: /things-to-do/inspiring-spots
       selection:label: nature-outdoors
-    /selection:listitem[10]:
+    /selection:listitem[35]:
       jcr:primaryType: selection:listitem
-      selection:key: /things-to-do/tours
-      selection:label: tours
-    /selection:listitem[11]:
+      selection:key: /things-to-do/unesco-trail/glasgow-city-of-music
+      selection:label: city-break
+    /selection:listitem[36]:
       jcr:primaryType: selection:listitem
-      selection:key: /travel-planning/touring
-      selection:label: tours
-    /selection:listitem[12]:
+      selection:key: /things-to-do/unesco-trail/edinburgh-city-of-literature
+      selection:label: city-break
+    /selection:listitem[37]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/iconic-spots-alternatives
+      selection:label: active-adventure
+    /selection:listitem[38]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/unesco-trail/edinburgh-old-new-towns
+      selection:label: city-break
+    /selection:listitem[39]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/family
+      selection:label: family-friendly
+    /selection:listitem[40]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/food-drink
+      selection:label: food-drink
+    /selection:listitem[41]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/unesco-trail/perth-city-of-craft
+      selection:label: city-break
+    /selection:listitem[42]:
       jcr:primaryType: selection:listitem
       selection:key: /things-to-do/unesco-trail
       selection:label: nature-outdoors
-    /selection:listitem[13]:
+    /selection:listitem[43]:
       jcr:primaryType: selection:listitem
-      selection:key: /info/tours
+      selection:key: /things-to-do/iconic-spots-alternatives
+      selection:label: nature-outdoors
+    /selection:listitem[44]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/landscapes-nature
+      selection:label: nature-outdoors
+    /selection:listitem[45]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/outdoor-activities
+      selection:label: active-adventure
+    /selection:listitem[46]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/research-your-ancestry
+      selection:label: culture-history
+    /selection:listitem[47]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/tours
       selection:label: tours
-    /selection:listitem[14]:
+    /selection:listitem[48]:
       jcr:primaryType: selection:listitem
-      selection:key: /places-to-go
-      selection:label: city-break
-    /selection:listitem[15]:
+      selection:key: /things-to-do/passes-offers
+      selection:label: family-friendly
+    /selection:listitem[49]:
       jcr:primaryType: selection:listitem
-      selection:key: /accommodation
-      selection:label: accommodation
-    /selection:listitem[16]:
+      selection:key: /things-to-do/wellness
+      selection:label: wellness
+    /selection:listitem[50]:
+      jcr:primaryType: selection:listitem
+      selection:key: /travel-planning/touring
+      selection:label: tours
+    /selection:listitem[51]:
       jcr:primaryType: selection:listitem
       selection:key: /travel-planning
       selection:label: travel-information
+    /selection:listitem[52]:
+      jcr:primaryType: selection:listitem
+      selection:key: /blog/large-groups
+      selection:label: accommodation
+    /selection:listitem[53]:
+      jcr:primaryType: selection:listitem
+      selection:key: /blog/magical-places-to-stay
+      selection:label: family-friendly
+    /selection:listitem[54]:
+      jcr:primaryType: selection:listitem
+      selection:key: /blog/must-visit-destinations
+      selection:label: travel-information
+    /selection:listitem[55]:
+      jcr:primaryType: selection:listitem
+      selection:key: /blog/outdoor-saunas
+      selection:label: wellness
+    /selection:listitem[56]:
+      jcr:primaryType: selection:listitem
+      selection:key: /blog/speyside-malt-whisky-trail-itinerary
+      selection:label: food-drink
+    /selection:listitem[57]:
+      jcr:primaryType: selection:listitem
+      selection:key: /blog/stirling-places-to-eat
+      selection:label: food-drink
+    /selection:listitem[58]:
+      jcr:primaryType: selection:listitem
+      selection:key: /blog/
+      selection:label: active-adventure
+    /selection:listitem[59]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/calendar
+      selection:label: travel-information
+    /selection:listitem[60]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/christmas-winter-festivals/edinburgh
+      selection:label: city-break
+    /selection:listitem[61]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/christmas-winter-festivals/aberdeen
+      selection:label: city-break
+    /selection:listitem[62]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/christmas-winter-festivals/inverness
+      selection:label: city-break
+    /selection:listitem[63]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/christmas-winter-festivals/perth
+      selection:label: city-break
+    /selection:listitem[64]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/edinburgh-festivals
+      selection:label: city-break
+    /selection:listitem[65]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/food-festivals/
+      selection:label: food-drink
+    /selection:listitem[66]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/seasonal
+      selection:label: travel-information
+    /selection:listitem[67]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/sound-light-shows
+      selection:label: nature-outdoors
+    /selection:listitem[68]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/submit-event
+      selection:label: about
+    /selection:listitem[69]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/winter-events
+      selection:label: travel-information
+    /selection:listitem[70]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do/events/
+      selection:label: culture-history
+    /selection:listitem[71]:
+      jcr:primaryType: selection:listitem
+      selection:key: /about
+      selection:label: about
+    /selection:listitem[72]:
+      jcr:primaryType: selection:listitem
+      selection:key: /contact-us
+      selection:label: about
+    /selection:listitem[73]:
+      jcr:primaryType: selection:listitem
+      selection:key: /newsletter
+      selection:label: about
+    /selection:listitem[74]:
+      jcr:primaryType: selection:listitem
+      selection:key: /policies
+      selection:label: about
+    /selection:listitem[75]:
+      jcr:primaryType: selection:listitem
+      selection:key: /accommodation
+      selection:label: accommodation
+    /selection:listitem[76]:
+      jcr:primaryType: selection:listitem
+      selection:key: /places-to-go
+      selection:label: nature-outdoors
+    /selection:listitem[77]:
+      jcr:primaryType: selection:listitem
+      selection:key: /things-to-do
+      selection:label: travel-information
+    /selection:listitem[78]:
+      jcr:primaryType: selection:listitem
+      selection:key: /info/tours
+      selection:label: tours

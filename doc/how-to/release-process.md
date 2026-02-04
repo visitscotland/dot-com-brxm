@@ -54,3 +54,13 @@ The Jenkins job will notice the change to the branch and it will create an artef
 ---
 
 For more information about releases please refer to [Confluence](https://confluence.visitscotland.com/display/VCE/.COM+-+Release+Process) 
+
+## Manual Release 
+
+In event, that Jenkins are down and a release artefact needs to be generated. These are the commands
+you need to run.
+
+      mvn clean verify
+      mvn deploy -Pdist
+      printf "\n------ BUILD NUMBER -----\n" && unzip -q -c site/webapp/target/site.war META-INF/MANIFEST.MF | grep "Build-Number"
+

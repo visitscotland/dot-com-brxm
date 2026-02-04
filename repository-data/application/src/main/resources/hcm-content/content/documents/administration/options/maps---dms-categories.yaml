@@ -1,5 +1,4 @@
 /content/documents/administration/options/maps---dms-categories:
-  # If this meta order changes. Please flag to the owner of the PR and reject it
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: cfbc7102-50fd-4866-850b-d05f52925f19
@@ -11,11 +10,7 @@
     hippo:availability: [live, preview]
     hippotranslation:id: eba6910c-9c03-4b0b-b8c0-8a529fae564e
     hippotranslation:locale: inherited - from query
-    /selection:listitem[1]:
-      jcr:primaryType: selection:listitem
-      selection:key: IcentresMap
-      selection:label: iCentres
-    /selection:listitem[2]:
+    /selection:listitem:
       jcr:primaryType: selection:listitem
       selection:key: DistilleriesMap
       selection:label: Distilleries
