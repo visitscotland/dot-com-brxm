@@ -37,6 +37,7 @@ public class ItineraryMapper {
     private static final String THEMES = "themes";
     private static final String AREAS = "areas";
     private static final String TRANSPORTS = "transports";
+    private static final String DEFAULT_CTA_TEXT = "itinerary.default-cta";
 
     private final ResourceBundleService bundle;
     private final DMSDataService dmsData;
@@ -98,6 +99,12 @@ public class ItineraryMapper {
             contentLogger.warn("No distance value provided for itinerary page {} - defaulting to 0", itinerary.getPath());
             page.setDistance(BigDecimal.valueOf(0));
         }
+
+        FlatLink ctaLink = linkService.createExternalLink(locale, itinerary.getMapLink().getLink(),
+                !itinerary.getMapLink().getLabel().isEmpty() ? itinerary.getMapLink().getLabel() : bundle.getResourceBundle(BUNDLE_FILE, DEFAULT_CTA_TEXT, locale),
+                itinerary.getMapLink().getPath());
+        ctaLink.setType(LinkType.EXTERNAL);
+        page.setMapLink(ctaLink);
 
         populateTransports(page, itinerary.getTransports(), locale);
         populateThemes(page, itinerary.getTheme(), locale);
@@ -384,6 +391,5 @@ public class ItineraryMapper {
             }
             page.setAreas(areasToAdd);
         }
-
     }
 }

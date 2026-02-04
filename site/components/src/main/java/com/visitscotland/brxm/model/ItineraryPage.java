@@ -24,6 +24,7 @@ public class ItineraryPage extends PageIntro {
     private Map<String, ItineraryStopModule> stops;
     private String lastStopNearbyEat;
     private String lastStopNearbyStay;
+    private FlatLink mapLink;
 
     public ItineraryPage(Page page) {
         super(page);
@@ -119,4 +120,8 @@ public class ItineraryPage extends PageIntro {
     public void setLastStopNearbyStay(String lastStopNearbyStay) {
         this.lastStopNearbyStay = lastStopNearbyStay;
     }
+
+    public FlatLink getMapLink() { return mapLink; }
+
+    public void setMapLink(FlatLink mapLink) { this.mapLink = mapLink; }
 }
