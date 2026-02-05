@@ -123,8 +123,8 @@ definitions:
         your administrator if this persists.
       visitscotland:google-maps-link-validator#exception: An exception occurred. Please 
         contact your administrator if this persists
-      visitscotland:cta-label-validator#emptyLabel: No text provided for Google Maps CTA label.
-        Please add text to this field before saving.
+      visitscotland:cta-label-validator#emptyLabel: No text provided for CTA label.
+        Please add text to this field before saving. (CTA Link)
       visitscotland:cta-label-validator#error: An error occurred. Please contact
         your administrator if this persists.
       visitscotland:cta-label-validator#exception: An exception occurred. Please
