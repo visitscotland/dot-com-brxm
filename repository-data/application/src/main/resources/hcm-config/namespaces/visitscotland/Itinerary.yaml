@@ -93,7 +93,7 @@ definitions:
             hipposysedit:path: visitscotland:mapLink
             hipposysedit:primary: false
             hipposysedit:type: visitscotland:ExternalLink
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required, 'visitscotland:google-maps-link-validator']
           /subheading:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
