@@ -101,9 +101,6 @@ public class GoogleMapsService {
             logger.warn("Null locale or link provided.");
             return;
         }
-        if (link.getLink().matches(".*&hl=.*")) {
-            return;
-        }
         if (LANGUAGES_MAP.containsKey(locale.toLanguageTag())) {
             link.setLink(link.getLink() + "&hl=" + LANGUAGES_MAP.get(locale.toLanguageTag()));
         } else {
