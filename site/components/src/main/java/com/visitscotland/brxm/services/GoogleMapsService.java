@@ -1,7 +1,9 @@
 package com.visitscotland.brxm.services;
 
+import com.google.common.collect.ImmutableMap;
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.model.Coordinates;
+import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ItineraryPage;
 import com.visitscotland.utils.CoordinateUtils;
 import org.slf4j.Logger;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Locale;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,6 +33,13 @@ public class GoogleMapsService {
 
     private static final Pattern URL_PATTERN = Pattern.compile(URL_REGEX);
 
+    private final ImmutableMap<String, String> LANGUAGES_MAP = ImmutableMap.<String, String>builder()
+            .put("es-ES", "es")
+            .put("it-IT", "it")
+            .put("de-DE", "de")
+            .put("fr-FR", "fr")
+            .put("nl-NL", "nl")
+            .build();
 
     /**
      * calculates the total distance across days from the coordinates contained in the map
@@ -83,6 +93,18 @@ public class GoogleMapsService {
                     BigDecimal.valueOf(previous.getLatitude()), BigDecimal.valueOf(previous.getLongitude()),
                     BigDecimal.valueOf(current.getLatitude()), BigDecimal.valueOf(current.getLongitude()),
                     true, "#,###,##0.0");
+        }
+    }
+
+    public void localizeUrl(FlatLink link, Locale locale) {
+        if (locale == null || link == null || link.getLink() == null) {
+            logger.warn("Null locale or link provided.");
+            return;
+        }
+        if (LANGUAGES_MAP.containsKey(locale.toLanguageTag())) {
+            link.setLink(link.getLink() + "&hl=" + LANGUAGES_MAP.get(locale.toLanguageTag()));
+        } else {
+            logger.warn("Unable to apply language parameter to url {} for locale {}.  Default (en) will be used.", link.getLink(), locale.toLanguageTag());
         }
     }
 

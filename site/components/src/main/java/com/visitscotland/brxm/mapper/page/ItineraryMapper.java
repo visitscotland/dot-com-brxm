@@ -104,8 +104,13 @@ public class ItineraryMapper {
             contentLogger.info("An issue occurred while extracting Itinerary map link for {}", itinerary.getPath());
         } else {
             FlatLink ctaLink = linkService.createExternalLink(locale, itinerary.getMapLink().getLink(),
-                    !Contract.isEmpty(itinerary.getMapLink().getLabel()) ? itinerary.getMapLink().getLabel() : bundle.getResourceBundle(BUNDLE_FILE, DEFAULT_CTA_TEXT, locale),
+                    !Contract.isEmpty(itinerary.getMapLink().getLabel())
+                            ? itinerary.getMapLink().getLabel()
+                            : bundle.getResourceBundle(BUNDLE_FILE, DEFAULT_CTA_TEXT, locale),
                     itinerary.getMapLink().getPath());
+            if (locale != Locale.UK) {
+                googleMapsService.localizeUrl(ctaLink, locale);
+            }
             ctaLink.setType(LinkType.EXTERNAL);
             page.setMapLink(ctaLink);
         }
