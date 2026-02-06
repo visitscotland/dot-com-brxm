@@ -21,20 +21,22 @@ public class GoogleMapsLinkValidator implements Validator<Node>  {
      *     regex to extract coordinates from Google Maps place url using @ coordinates (.com and .co.uk)
      */
     private static final String URL_REGEX =
-            "(?i)https://www\\.google\\.(com|co\\.uk)?/maps/place/[^/]*/@(-?\\d{1,3}\\.\\d{1,20}),(-?\\d{1,3}\\.\\d{1,20}),.*";
+            "(?i)https://www\\.google\\.(?:com|co\\.uk)/maps/place/[^/]*/@(-?\\d{1,3}\\.\\d{1,20}),(-?\\d{1,3}\\.\\d{1,20}),.*";
 
     /**
      *     simple regex to check for Google urls (.com and .co.uk)
      */
-    private static final String BASIC_URL_REGEX = "(?i)https://www\\.google\\.(com|co\\.uk)?/maps/.*";
+    private static final String BASIC_URL_REGEX = "(?i)https://www\\.google\\.(?:com|co\\.uk)/maps/.*";
 
     static final String DAY = "visitscotland:Day";
     static final String MAP_LINK = "visitscotland:mapLink";
     static final String LINK_FIELD = "visitscotland:link";
+    static final String EXTERNAL_LINK = "visitscotland:ExternalLink";
     static final String ERROR = "error";
     static final String EXCEPTION = "exception";
-    static final String INVALID_LINK = "invalidLink";
-    static final String EXTERNAL_LINK = "visitscotland:ExternalLink";
+    static final String INVALID_LINK_DAYS = "invalidLinkDays";
+    static final String INVALID_LINK_ITINERARIES = "invalidLinkItineraries";
+
 
     @Override
     public Optional<Violation> validate(ValidationContext context, Node node) {
@@ -61,6 +63,7 @@ public class GoogleMapsLinkValidator implements Validator<Node>  {
                 // currently used for mapLink in Itineraries
                 return validateItinerary(context, node);
             } else {
+                LOGGER.warn("Invalid node type: {}", node.getPrimaryNodeType());
                 return Optional.of(context.createViolation(ERROR));
             }
         } catch (RepositoryException e) {
@@ -79,7 +82,7 @@ public class GoogleMapsLinkValidator implements Validator<Node>  {
         if (mapLink != null && mapLink.matches(URL_REGEX)) {
             return Optional.empty();
         } else {
-            return Optional.of(context.createViolation(INVALID_LINK));
+            return Optional.of(context.createViolation(INVALID_LINK_DAYS));
         }
     }
 
@@ -91,15 +94,19 @@ public class GoogleMapsLinkValidator implements Validator<Node>  {
      */
     private Optional<Violation> validateItinerary(final ValidationContext context, final Node node) {
         try {
+            if (node.getProperty(LINK_FIELD) == null) {
+                LOGGER.warn("Link field not present in node.");
+                return Optional.of(context.createViolation(ERROR));
+            }
             final String mapLink = node.getProperty(LINK_FIELD).getString();
             if (mapLink != null && mapLink.matches(BASIC_URL_REGEX)) {
                 return Optional.empty();
             } else {
-                return Optional.of(context.createViolation(INVALID_LINK));
+                return Optional.of(context.createViolation(INVALID_LINK_ITINERARIES));
             }
         } catch (RepositoryException e) {
-            LOGGER.error("A Repository Exception occurred:", e);
-            return Optional.of(context.createViolation(ERROR));
+            LOGGER.error("A Repository Exception occurred when validating link field for Itinerary:", e);
+            return Optional.of(context.createViolation(EXCEPTION));
         }
     }
 }
