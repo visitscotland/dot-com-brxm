@@ -24,6 +24,7 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
 
     public static final String ITINERARY = "itinerary";
     public static final String PAGE_INTRO = "pageIntro";
+    public static final String HAS_STOPS = "hasStops";
 
     private final ItineraryMapper itineraryMapper;
     private final PageAssembler builder;
@@ -42,10 +43,10 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
 
         includeLabels(request);
         if (itineraryMapper.isStopBasedItinerary(getDocument(request))){
-            pageConfig.addProperty("hasStops", true);
+            pageConfig.addProperty(HAS_STOPS, true);
             buildStopBasedItinerary(request);
         } else {
-            pageConfig.addProperty("hasStops", false);
+            pageConfig.addProperty(HAS_STOPS, false);
             ItineraryPage itinerary = itineraryMapper.buildItinerary(getDocument(request), request.getLocale());
             request.setModel(PAGE_INTRO, itinerary);
             builder.addModules(request, pageConfig);

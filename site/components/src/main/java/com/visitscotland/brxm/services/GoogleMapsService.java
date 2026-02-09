@@ -29,7 +29,7 @@ public class GoogleMapsService {
 
     // regex to extract coordinates from url using @ coordinates
     private static final String URL_REGEX =
-            "(?i)https://www\\.google\\.com/maps/place/[^/]*/@(-?\\d{1,3}\\.\\d{1,20}),(-?\\d{1,3}\\.\\d{1,20}),.*";
+            "(?i)https://www\\.google\\.com/maps/place/[^/]*/@(-?\\d{1,3}\\.\\d{1,20}),(-?\\d{1,3}\\.\\d{1,20}),\\d{1,2}z/data=.*";
 
     private static final Pattern URL_PATTERN = Pattern.compile(URL_REGEX);
 
@@ -101,11 +101,20 @@ public class GoogleMapsService {
             logger.warn("Null locale or link provided.");
             return;
         }
-        if (LANGUAGES_MAP.containsKey(locale.toLanguageTag())) {
+        if (LANGUAGES_MAP.containsKey(locale.toLanguageTag()) && hasParameters(link.getLink())) {
             link.setLink(link.getLink() + "&hl=" + LANGUAGES_MAP.get(locale.toLanguageTag()));
         } else {
             logger.warn("Unable to apply language parameter to url {} for locale {}.  Default (en) will be used.", link.getLink(), locale.toLanguageTag());
         }
+    }
+
+    private boolean hasParameters(final String link) {
+        final String parameterCheck = "[a-zA-Z0-9]+=.*";
+        if (link.matches(parameterCheck)) {
+            return true;
+        }
+        return false;
+
     }
 
     /**
