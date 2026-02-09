@@ -109,12 +109,7 @@ public class GoogleMapsService {
     }
 
     private boolean hasParameters(final String link) {
-        final String parameterCheck = "[a-zA-Z0-9]+=.*";
-        if (link.matches(parameterCheck)) {
-            return true;
-        }
-        return false;
-
+        return link.contains("?") || link.matches(".*[a-zA-Z0-9]+=.*");
     }
 
     /**
