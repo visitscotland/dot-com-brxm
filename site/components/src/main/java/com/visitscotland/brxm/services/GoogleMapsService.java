@@ -101,16 +101,16 @@ public class GoogleMapsService {
             logger.warn("Null locale or link provided.");
             return;
         }
-        if (LANGUAGES_MAP.containsKey(locale.toLanguageTag()) && hasParameters(link.getLink())) {
+        if (LANGUAGES_MAP.containsKey(locale.toLanguageTag())) {
             link.setLink(link.getLink() + "&hl=" + LANGUAGES_MAP.get(locale.toLanguageTag()));
         } else {
             logger.warn("Unable to apply language parameter to url {} for locale {}.  Default (en) will be used.", link.getLink(), locale.toLanguageTag());
         }
     }
 
-    private boolean hasParameters(final String link) {
+    /*private boolean hasParameters(final String link) {
         return link.contains("?") || link.matches(".*[a-zA-Z0-9]+=.*");
-    }
+    }*/
 
     /**
      * takes a list of google place urls, extracts the coordinates and returns a google directions url
