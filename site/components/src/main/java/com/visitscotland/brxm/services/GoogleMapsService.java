@@ -33,7 +33,7 @@ public class GoogleMapsService {
 
     private static final Pattern URL_PATTERN = Pattern.compile(URL_REGEX);
 
-    private final ImmutableMap<String, String> LANGUAGES_MAP = ImmutableMap.<String, String>builder()
+    private static final ImmutableMap<String, String> LANGUAGES_MAP = ImmutableMap.<String, String>builder()
             .put("es-ES", "es")
             .put("it-IT", "it")
             .put("de-DE", "de")

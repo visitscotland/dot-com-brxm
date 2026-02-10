@@ -108,7 +108,7 @@ public class ItineraryMapper {
                             ? itinerary.getMapLink().getLabel()
                             : bundle.getResourceBundle(BUNDLE_FILE, DEFAULT_CTA_TEXT, locale),
                     itinerary.getMapLink().getPath());
-            if (locale != Locale.UK) {
+            if (!Locale.UK.equals(locale)) {
                 googleMapsService.localizeUrl(ctaLink, locale);
             }
             ctaLink.setType(LinkType.EXTERNAL);

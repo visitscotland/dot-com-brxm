@@ -10,8 +10,6 @@ import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.GoogleMapsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.ContentLogger;
-import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -49,7 +47,7 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         day.setMapLink(formatCTA(document.getMapLink(),
                 bundle.getResourceBundle(BUNDLE_FILE, "days.default-cta", locale),
                 compositionHelper.getLocale()));
-        if (compositionHelper.getLocale() != Locale.UK) {
+        if (!Locale.UK.equals(locale)) {
             googleMapsService.localizeUrl(day.getMapLink(), locale);
         }
         day.setCtaLink(formatCTA(document.getCtaLink(), null, compositionHelper.getLocale()));
@@ -58,7 +56,6 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         return day;
     }
 
-    // look at this again to catch possible NPEs from CTA link
     FlatLink formatCTA(final ExternalLink externalLink, final String defaultCta, final Locale locale) {
 
         FlatLink ctaLink = linkService.createExternalLink(locale, externalLink.getLink(),
