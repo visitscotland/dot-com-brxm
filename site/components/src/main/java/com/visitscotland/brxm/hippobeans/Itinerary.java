@@ -49,8 +49,7 @@ public class Itinerary extends Page {
 
     @HippoEssentialsGenerated(internalName = "visitscotland:otherThings")
     public com.visitscotland.brxm.hippobeans.OTYML getOtherThings() {
-        return getBean("visitscotland:otherThings",
-                com.visitscotland.brxm.hippobeans.OTYML.class);
+        return getBean("visitscotland:otherThings", com.visitscotland.brxm.hippobeans.OTYML.class);
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:highlights")
@@ -71,5 +70,15 @@ public class Itinerary extends Page {
     @HippoEssentialsGenerated(internalName = "visitscotland:translationDeadline")
     public Calendar getTranslationDeadline() {
         return getSingleProperty("visitscotland:translationDeadline");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:subheading")
+    public String getSubheading() {
+        return getSingleProperty("visitscotland:subheading");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:mapLink")
+    public ExternalLink getMapLink() {
+        return getBean("visitscotland:mapLink", ExternalLink.class);
     }
 }
