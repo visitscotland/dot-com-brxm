@@ -286,9 +286,6 @@ pipeline {
 
         stage ('vs build feature env') {
             when {
-                not {
-                    branch 'pipeline/*'
-                }
                 anyOf {
                     // Always build the feature environment for 'develop' builds
                     branch 'develop'
