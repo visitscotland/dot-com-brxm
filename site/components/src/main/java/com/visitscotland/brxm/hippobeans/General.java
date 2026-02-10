@@ -46,11 +46,6 @@ public class General extends Page {
         return getBean("visitscotland:blog", Blog.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:pswPosition")
-    public String getPswPosition() {
-        return getSingleProperty("visitscotland:pswPosition");
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:categoryLinks")
     public PageLinksSectionCompound getCategoryLinks() {
         return getBean("visitscotland:categoryLinks", PageLinksSectionCompound.class);
