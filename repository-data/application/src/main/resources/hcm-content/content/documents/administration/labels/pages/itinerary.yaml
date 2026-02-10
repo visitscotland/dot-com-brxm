@@ -113,7 +113,7 @@
       resourcebundle:keys: [all, west, east, south, north, aberdeen, argyll, dumfries,
         dundee, edinburgh, fife, glasgow, highlands, borders, orkney, shetland, arranayr,
         outerhebs, lomond, perth]
-      resourcebundle:messages: [All (Deprecated), West, East, South, North, Aberdeen
+      resourcebundle:messages: [All, West, East, South, North, Aberdeen
           & Aberdeenshire, Argyll & The Isles, Dumfries & Galloway, Dundee & Angus,
         Edinburgh & The Lothians, Fife, Greater Glasgow & The Clyde Valley, The Highlands
           and Moray Speyside, Scottish Borders, Orkney, Shetland, Ayrshire & Arran,
@@ -162,7 +162,7 @@
       resourcebundle:keys: [all, west, east, south, north, aberdeen, argyll, dumfries,
         dundee, edinburgh, fife, glasgow, highlands, borders, orkney, shetland, arranayr,
         outerhebs, lomond, perth]
-      resourcebundle:messages: [All (Deprecated), West, East, South, North, Aberdeen
+      resourcebundle:messages: [All, West, East, South, North, Aberdeen
           & Aberdeenshire, Argyll & The Isles, Dumfries & Galloway, Dundee & Angus,
         Edinburgh & The Lothians, Fife, Greater Glasgow & The Clyde Valley, The Highlands
           and Moray Speyside, Scottish Borders, Orkney, Shetland, Ayrshire & Arran,
