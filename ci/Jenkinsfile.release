@@ -499,11 +499,6 @@ pipeline {
                     )
                 }
             }
-            post {
-                always {
-                    archiveArtifacts artifacts: 'artifacts/**', onlyIfSuccessful: false
-                }
-            }
         }
     }
 
