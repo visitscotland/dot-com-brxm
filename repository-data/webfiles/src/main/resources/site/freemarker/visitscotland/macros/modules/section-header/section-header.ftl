@@ -3,12 +3,18 @@
 
 <#macro sectionHeader heading lede="" >
     <vs-section-header
-        heading="${heading}"
+            heading="${heading}"
     >
         <#if lede != "" && lede?has_content >
-        <template v-slot:section-header-lede>
-            <@hst.html hippohtml=lede />
-        </template>
+            <#if lede?is_hash>
+                <template v-slot:section-header-lede>
+                    <@hst.html hippohtml=lede />
+                </template>
+            <#else>
+                <template v-slot:section-header-lede>
+                    ${lede}
+                </template>
+            </#if>
         </#if>
     </vs-section-header>
 </#macro>

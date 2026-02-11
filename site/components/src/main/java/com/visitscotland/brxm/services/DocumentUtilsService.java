@@ -193,10 +193,12 @@ public class DocumentUtilsService {
      * Composes the URL from the current request for a non-existing URL.
      */
     private String composeNonExistingLanguageURL(Locale locale, HstRequest request){
-        String languagePath = "";
+        String languagePath;
 
         if (locale != null) {
-            languagePath += Language.getLanguageForLocale(locale).getPathVariable();
+            languagePath = Language.getLanguageForLocale(locale).getResourceAPIPath();
+        } else {
+            languagePath = "";
         }
 
         return cmsProperties.getCmsBasePath() +

@@ -16,6 +16,7 @@ import java.net.SocketTimeoutException;
 import java.nio.charset.Charset;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -54,6 +55,7 @@ class DMSProxyTest {
     void requestContent() throws IOException {
         final String CONTENT = "This is it";
         when(properties.getDmsEncoding()).thenReturn(Charset.defaultCharset());
+        when(properties.getDmsToken()).thenReturn(Optional.of("TOKEN"));
         when(huc.getResponseCode()).thenReturn(200);
         when(huc.getInputStream()).thenReturn(new ByteArrayInputStream(CONTENT.getBytes()));
 
@@ -67,6 +69,7 @@ class DMSProxyTest {
     void requestWithRedirects() throws IOException {
         final String CONTENT = "This is it";
         when(properties.getDmsEncoding()).thenReturn(Charset.defaultCharset());
+        when(properties.getDmsToken()).thenReturn(Optional.of("TOKEN"));
         when(huc.getResponseCode()).thenReturn(300);
         when(huc.getInputStream()).thenReturn(new ByteArrayInputStream(CONTENT.getBytes()));
 
