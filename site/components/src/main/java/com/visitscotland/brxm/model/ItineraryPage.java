@@ -16,14 +16,15 @@ public class ItineraryPage extends PageIntro {
     private List<Entry> transports;
     private List<Entry> areas;
     private Entry theme;
-
-    //Properties to be removed from the delivery API
+    // Properties to be removed from the delivery API
     private String firstStopLocation;
     private String lastStopLocation;
     private List<Day> days;
+    private Integer dayCount;
     private Map<String, ItineraryStopModule> stops;
     private String lastStopNearbyEat;
     private String lastStopNearbyStay;
+    private FlatLink mapLink;
 
     public ItineraryPage(Page page) {
         super(page);
@@ -52,6 +53,10 @@ public class ItineraryPage extends PageIntro {
     public void setDays(List<Day> days) {
         this.days = days;
     }
+
+    public Integer getDayCount() { return dayCount; }
+
+    public void setDayCount(Integer dayCount) { this.dayCount = dayCount; }
 
     public BigDecimal getDistance() {
         return distance;
@@ -115,4 +120,8 @@ public class ItineraryPage extends PageIntro {
     public void setLastStopNearbyStay(String lastStopNearbyStay) {
         this.lastStopNearbyStay = lastStopNearbyStay;
     }
+
+    public FlatLink getMapLink() { return mapLink; }
+
+    public void setMapLink(FlatLink mapLink) { this.mapLink = mapLink; }
 }
