@@ -95,7 +95,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: cc0f2ac3-6393-4c95-a3bb-fe1f9825baae
     hippo:name: Areas
-    hippo:versionHistory: c9e7c66c-dc34-4944-bf21-2472db0c2ec9
+    hippo:versionHistory: bf330322-faf0-4482-b9e5-b6eb2f45cd10
     /areas[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -105,17 +105,46 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
-      hippostdpubwf:lastModificationDate: 2021-10-14T11:29:00.535Z
+      hippostdpubwf:lastModificationDate: 2026-02-10T11:20:47.373Z
       hippostdpubwf:lastModifiedBy: admin
-      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '']
       resourcebundle:id: areas
-      resourcebundle:keys: [all, west, east, south, north]
-      resourcebundle:messages: [All, West, East, South, North]
-      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden]
-      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte]
-      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord]
-      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord]
-      resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden]
+      resourcebundle:keys: [all, west, east, south, north, aberdeen, argyll, dumfries,
+        dundee, edinburgh, fife, glasgow, highlands, borders, orkney, shetland, arranayr,
+        outerhebs, lomond, perth]
+      resourcebundle:messages: [All, West, East, South, North, Aberdeen & Aberdeenshire,
+        Argyll & The Isles, Dumfries & Galloway, Dundee & Angus, Edinburgh & The Lothians,
+        Fife, Greater Glasgow & The Clyde Valley, The Highlands and Moray Speyside,
+        Scottish Borders, Orkney, Shetland, Ayrshire & Arran, Outer Hebrides, 'Loch
+          Lomond, The Trossachs, Stirling & Forth Valley', Perthshire]
+      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden, Aberdeen &
+          Aberdeenshire, Argyll & The Isles, Dumfries & Galloway, Dundee & Angus,
+        Edinburgh & die Lothians, Fife, Greater Glasgow & das Clyde Valley, Die Highlands,
+        Die Scottish Borders, Die Orkney-Inseln, Die Shetland-Inseln, Ayrshire & Arran,
+        Die Äußeren Hebriden, 'Loch Lomond, die Trossachs, Stirling & das Forth Valley',
+        Perthshire]
+      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte, Aberdeen y Aberdeenshire,
+        Argyll y las Islas, Dumfries y Galloway, Dundee y Angus, Edimburgo y los Lothians,
+        Fife, Glasgow y el valle del Clyde, Las Highlands, Los Scottish Borders, Islas
+          Orcadas, Islas Shetland, Ayrshire y Arran, Las Hébridas Exteriores, 'Loch
+          Lomond, los Trossachs, Stirling y el valle de Forth', Perthshire]
+      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord, Aberdeen & l’Aberdeenshire,
+        L’Argyll & ses îles, Le Dumfries & Galloway, Dundee & l’Angus, Édimbourg et
+          les Lothians, Le Fife, Le Grand Glasgow & la vallée de la Clyde, Les Highlands,
+        Les Scottish Borders, Les îles Orcades, Les îles Shetland, L’Ayrshire & l’île
+          d’Arran, Les îles Hébrides extérieures, 'Le Loch Lomond, les Trossachs,
+          Stirling & la vallée de la Forth', Le Perthshire]
+      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord, Aberdeen & Aberdeenshire,
+        Argyll & The Isles, Dumfries & Galloway, Dundee & Angus, Edimburgo e il Lothian,
+        Fife, Glasgow & la Clyde Valley, Le Highlands scozzesi, Gli Scottish Borders,
+        Orcadi, Shetland, Ayrshire & Arran, Le Ebride Esterne, 'Loch Lomond, Trossachs,
+          Stirling & la Forth Valley', Perthshire]
+      resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden, Aberdeenshire,
+        Argyll & The Isles, Dumfries & Galloway, Dundee & Angus, Edinburgh & de Lothians,
+        Fife, Greater Glasgow & de Clyde Valley, De Hooglanden, De Scottish Borders,
+        Orkney, Shetland, Ayrshire & Arran, De Buiten-Hebriden, 'Loch Lomond, de Trossachs,
+          Stirling & de Forth Valley', Perthshire]
     /areas[2]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:versionable']
@@ -125,17 +154,46 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
-      hippostdpubwf:lastModificationDate: 2021-10-14T11:29:10.894Z
+      hippostdpubwf:lastModificationDate: 2026-02-10T11:21:06.302Z
       hippostdpubwf:lastModifiedBy: admin
-      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '']
       resourcebundle:id: areas
-      resourcebundle:keys: [all, west, east, south, north]
-      resourcebundle:messages: [All, West, East, South, North]
-      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden]
-      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte]
-      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord]
-      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord]
-      resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden]
+      resourcebundle:keys: [all, west, east, south, north, aberdeen, argyll, dumfries,
+        dundee, edinburgh, fife, glasgow, highlands, borders, orkney, shetland, arranayr,
+        outerhebs, lomond, perth]
+      resourcebundle:messages: [All, West, East, South, North, Aberdeen & Aberdeenshire,
+        Argyll & The Isles, Dumfries & Galloway, Dundee & Angus, Edinburgh & The Lothians,
+        Fife, Greater Glasgow & The Clyde Valley, The Highlands and Moray Speyside,
+        Scottish Borders, Orkney, Shetland, Ayrshire & Arran, Outer Hebrides, 'Loch
+          Lomond, The Trossachs, Stirling & Forth Valley', Perthshire]
+      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden, Aberdeen &
+          Aberdeenshire, Argyll & The Isles, Dumfries & Galloway, Dundee & Angus,
+        Edinburgh & die Lothians, Fife, Greater Glasgow & das Clyde Valley, Die Highlands,
+        Die Scottish Borders, Die Orkney-Inseln, Die Shetland-Inseln, Ayrshire & Arran,
+        Die Äußeren Hebriden, 'Loch Lomond, die Trossachs, Stirling & das Forth Valley',
+        Perthshire]
+      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte, Aberdeen y Aberdeenshire,
+        Argyll y las Islas, Dumfries y Galloway, Dundee y Angus, Edimburgo y los Lothians,
+        Fife, Glasgow y el valle del Clyde, Las Highlands, Los Scottish Borders, Islas
+          Orcadas, Islas Shetland, Ayrshire y Arran, Las Hébridas Exteriores, 'Loch
+          Lomond, los Trossachs, Stirling y el valle de Forth', Perthshire]
+      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord, Aberdeen & l’Aberdeenshire,
+        L’Argyll & ses îles, Le Dumfries & Galloway, Dundee & l’Angus, Édimbourg et
+          les Lothians, Le Fife, Le Grand Glasgow & la vallée de la Clyde, Les Highlands,
+        Les Scottish Borders, Les îles Orcades, Les îles Shetland, L’Ayrshire & l’île
+          d’Arran, Les îles Hébrides extérieures, 'Le Loch Lomond, les Trossachs,
+          Stirling & la vallée de la Forth', Le Perthshire]
+      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord, Aberdeen & Aberdeenshire,
+        Argyll & The Isles, Dumfries & Galloway, Dundee & Angus, Edimburgo e il Lothian,
+        Fife, Glasgow & la Clyde Valley, Le Highlands scozzesi, Gli Scottish Borders,
+        Orcadi, Shetland, Ayrshire & Arran, Le Ebride Esterne, 'Loch Lomond, Trossachs,
+          Stirling & la Forth Valley', Perthshire]
+      resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden, Aberdeenshire,
+        Argyll & The Isles, Dumfries & Galloway, Dundee & Angus, Edinburgh & de Lothians,
+        Fife, Greater Glasgow & de Clyde Valley, De Hooglanden, De Scottish Borders,
+        Orkney, Shetland, Ayrshire & Arran, De Buiten-Hebriden, 'Loch Lomond, de Trossachs,
+          Stirling & de Forth Valley', Perthshire]
     /areas[3]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -145,18 +203,47 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-02-25T16:21:28.079Z
-      hippostdpubwf:lastModificationDate: 2021-10-14T11:29:10.894Z
+      hippostdpubwf:lastModificationDate: 2026-02-10T11:21:06.302Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2021-10-14T11:35:23.142Z
-      resourcebundle:descriptions: ['', '', '', '', '']
+      hippostdpubwf:publicationDate: 2026-02-10T11:21:11.919Z
+      resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+        '', '', '', '', '', '', '', '']
       resourcebundle:id: areas
-      resourcebundle:keys: [all, west, east, south, north]
-      resourcebundle:messages: [All, West, East, South, North]
-      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden]
-      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte]
-      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord]
-      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord]
-      resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden]
+      resourcebundle:keys: [all, west, east, south, north, aberdeen, argyll, dumfries,
+        dundee, edinburgh, fife, glasgow, highlands, borders, orkney, shetland, arranayr,
+        outerhebs, lomond, perth]
+      resourcebundle:messages: [All, West, East, South, North, Aberdeen & Aberdeenshire,
+        Argyll & The Isles, Dumfries & Galloway, Dundee & Angus, Edinburgh & The Lothians,
+        Fife, Greater Glasgow & The Clyde Valley, The Highlands and Moray Speyside,
+        Scottish Borders, Orkney, Shetland, Ayrshire & Arran, Outer Hebrides, 'Loch
+          Lomond, The Trossachs, Stirling & Forth Valley', Perthshire]
+      resourcebundle:messages_de: [Alle, Westen, Osten, Süden, Norden, Aberdeen &
+          Aberdeenshire, Argyll & The Isles, Dumfries & Galloway, Dundee & Angus,
+        Edinburgh & die Lothians, Fife, Greater Glasgow & das Clyde Valley, Die Highlands,
+        Die Scottish Borders, Die Orkney-Inseln, Die Shetland-Inseln, Ayrshire & Arran,
+        Die Äußeren Hebriden, 'Loch Lomond, die Trossachs, Stirling & das Forth Valley',
+        Perthshire]
+      resourcebundle:messages_es: [Todas, Oeste, Este, Sur, Norte, Aberdeen y Aberdeenshire,
+        Argyll y las Islas, Dumfries y Galloway, Dundee y Angus, Edimburgo y los Lothians,
+        Fife, Glasgow y el valle del Clyde, Las Highlands, Los Scottish Borders, Islas
+          Orcadas, Islas Shetland, Ayrshire y Arran, Las Hébridas Exteriores, 'Loch
+          Lomond, los Trossachs, Stirling y el valle de Forth', Perthshire]
+      resourcebundle:messages_fr: [Toutes, Ouest, Est, Sud, Nord, Aberdeen & l’Aberdeenshire,
+        L’Argyll & ses îles, Le Dumfries & Galloway, Dundee & l’Angus, Édimbourg et
+          les Lothians, Le Fife, Le Grand Glasgow & la vallée de la Clyde, Les Highlands,
+        Les Scottish Borders, Les îles Orcades, Les îles Shetland, L’Ayrshire & l’île
+          d’Arran, Les îles Hébrides extérieures, 'Le Loch Lomond, les Trossachs,
+          Stirling & la vallée de la Forth', Le Perthshire]
+      resourcebundle:messages_it: [Tutte, Ovest, Est, Sud, Nord, Aberdeen & Aberdeenshire,
+        Argyll & The Isles, Dumfries & Galloway, Dundee & Angus, Edimburgo e il Lothian,
+        Fife, Glasgow & la Clyde Valley, Le Highlands scozzesi, Gli Scottish Borders,
+        Orcadi, Shetland, Ayrshire & Arran, Le Ebride Esterne, 'Loch Lomond, Trossachs,
+          Stirling & la Forth Valley', Perthshire]
+      resourcebundle:messages_nl: [Allemaal, Westen, Oosten, Zuiden, Noorden, Aberdeenshire,
+        Argyll & The Isles, Dumfries & Galloway, Dundee & Angus, Edinburgh & de Lothians,
+        Fife, Greater Glasgow & de Clyde Valley, De Hooglanden, De Scottish Borders,
+        Orkney, Shetland, Ayrshire & Arran, De Buiten-Hebriden, 'Loch Lomond, de Trossachs,
+          Stirling & de Forth Valley', Perthshire]
   /themes:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -250,7 +337,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: bc6381b0-51b2-47be-9ea7-043bc1a95b84
     hippo:name: Itinerary Page
-    hippo:versionHistory: 0a7f004c-e2ee-4de4-b308-4e8469c08f81
+    hippo:versionHistory: da069119-95ce-46ed-8080-fbfbf49d2b9c
     /itineraries[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -260,39 +347,42 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2025-06-06T12:48:34.949+01:00
+      hippostdpubwf:lastModificationDate: 2026-02-04T08:37:05.767Z
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
           range of time like: 9:00am to 13:00pm', '', '', '', '', '', '', '', '',
-        '']
+        '', default value for days google map, '']
       resourcebundle:id: itinerary
       resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.title, start-finish,
         days, distance, themes, miles-abbreviation, kilometres-abbreviation, transport,
         day, miles, kilometres, highlights, areas-covered, stop.no-stop, stop.time-to-explore,
         theme, stop.opening, stop.hour, stop.hours, stop.usually, stop.provisionally,
         stop.today, stop.to, stop.open, stop.closed, stop.close.soon, stop.temporarily-closed,
-        stop.and, end-itinerary, map-view, list-view, keyfacilities.title]
+        stop.and, end-itinerary, map-view, list-view, keyfacilities.title, days.default-cta,
+        itinerary.default-cta]
       resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Stop,
         Start / Finish, Days, Distance, Main themes, mi, km, Transport, Day, Miles,
         Kilometres, Highlights, Areas covered, The stop doesn't have any product linked
           to the stop, Time to explore, Main theme, Check opening times, hour, hours,
         Usually, Provisionally, today, to, Open, Closed, Closing soon, Temporarily
-          closed, and, End of itinerary, Map view, List View, Key facilities]
+          closed, and, End of itinerary, Map view, List View, Key facilities, Explore
+          on Google Maps, View Itinerary on Google Maps]
       resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
         Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi, km, Verkehrsmittel,
         Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen, Es ist kein Produkt
           mit diesem Haltepunkt verknüpft, Zeit zum Erkunden, Hauptthema, Öffnungszeiten
           überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute, bis, Geöffnet,
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
-        Kartenansicht, Listenansicht, Ausstattung]
+        Kartenansicht, Listenansicht, Ausstattung, '', '']
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, Días, Distancia, Temas principales,
         mi, km, Transporte, Día, Millas, Kilómetros, Destacado, Áreas recorridas,
         Esta parada no tiene ningún producto asociado, Tiempo para explorar, Tema
           principal, Consulta los horarios de apertura, hora, horas, Normalmente,
         Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado temporalmente,
-        y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas]
+        y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
+        '', '']
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -300,21 +390,22 @@
         Thème principal, Vérifier les horaires d’ouverture, heure, heures, Habituellement,
         Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
-        Infrastructures]
+        Infrastructures, '', '']
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, Miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
           non ha alcun prodotto collegato all'arresto, Tempo impiegato per visitare,
         Tema principale, Controlla gli orari di apertura, ora, ore, Solitamente, Provvisoriamente,
         oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
-          dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave]
+          dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave, '',
+        '']
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Eind, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, Mijlen, Kilometers, Hoogtepunten, Bestreken gebieden, Deze stop heeft
           geen specifieke bezienswaardigheid, Vrije tijd, Hoofdthema, Bekijk de openingstijden,
         uur, uur, Gewoonlijk, Onder voorbehoud, vandaag, naar, Geopend, Gesloten,
         Binnenkort gesloten, Tijdelijk gesloten, en, Einde van de route, Toon kaart,
-        Toon lijst, Faciliteiten]
+        Toon lijst, Faciliteiten, '', '']
     /itineraries[2]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:versionable']
@@ -324,39 +415,42 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2025-06-06T12:51:14.138+01:00
+      hippostdpubwf:lastModificationDate: 2026-02-04T08:37:04.550Z
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
           range of time like: 9:00am to 13:00pm', '', '', '', '', '', '', '', '',
-        '']
+        '', default value for days google map, '']
       resourcebundle:id: itinerary
       resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.title, start-finish,
         days, distance, themes, miles-abbreviation, kilometres-abbreviation, transport,
         day, miles, kilometres, highlights, areas-covered, stop.no-stop, stop.time-to-explore,
         theme, stop.opening, stop.hour, stop.hours, stop.usually, stop.provisionally,
         stop.today, stop.to, stop.open, stop.closed, stop.close.soon, stop.temporarily-closed,
-        stop.and, end-itinerary, map-view, list-view, keyfacilities.title]
+        stop.and, end-itinerary, map-view, list-view, keyfacilities.title, days.default-cta,
+        itinerary.default-cta]
       resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Stop,
         Start / Finish, Days, Distance, Main themes, mi, km, Transport, Day, Miles,
         Kilometres, Highlights, Areas covered, The stop doesn't have any product linked
           to the stop, Time to explore, Main theme, Check opening times, hour, hours,
         Usually, Provisionally, today, to, Open, Closed, Closing soon, Temporarily
-          closed, and, End of itinerary, Map view, List View, Key facilities]
+          closed, and, End of itinerary, Map view, List View, Key facilities, Explore
+          on Google Maps, View Itinerary on Google Maps]
       resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
         Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi, km, Verkehrsmittel,
         Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen, Es ist kein Produkt
           mit diesem Haltepunkt verknüpft, Zeit zum Erkunden, Hauptthema, Öffnungszeiten
           überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute, bis, Geöffnet,
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
-        Kartenansicht, Listenansicht, Ausstattung]
+        Kartenansicht, Listenansicht, Ausstattung, '', '']
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, Días, Distancia, Temas principales,
         mi, km, Transporte, Día, Millas, Kilómetros, Destacado, Áreas recorridas,
         Esta parada no tiene ningún producto asociado, Tiempo para explorar, Tema
           principal, Consulta los horarios de apertura, hora, horas, Normalmente,
         Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado temporalmente,
-        y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas]
+        y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
+        '', '']
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -364,21 +458,22 @@
         Thème principal, Vérifier les horaires d’ouverture, heure, heures, Habituellement,
         Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
-        Infrastructures]
+        Infrastructures, '', '']
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, Miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
           non ha alcun prodotto collegato all'arresto, Tempo impiegato per visitare,
         Tema principale, Controlla gli orari di apertura, ora, ore, Solitamente, Provvisoriamente,
         oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
-          dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave]
+          dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave, '',
+        '']
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Eind, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, Mijlen, Kilometers, Hoogtepunten, Bestreken gebieden, Deze stop heeft
           geen specifieke bezienswaardigheid, Vrije tijd, Hoofdthema, Bekijk de openingstijden,
         uur, uur, Gewoonlijk, Onder voorbehoud, vandaag, naar, Geopend, Gesloten,
         Binnenkort gesloten, Tijdelijk gesloten, en, Einde van de route, Toon kaart,
-        Toon lijst, Faciliteiten]
+        Toon lijst, Faciliteiten, '', '']
     /itineraries[3]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -388,40 +483,43 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2025-06-06T12:51:14.138+01:00
+      hippostdpubwf:lastModificationDate: 2026-02-04T08:37:04.550Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-06-06T12:51:16.370+01:00
+      hippostdpubwf:publicationDate: 2026-02-04T08:37:23.850Z
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
           range of time like: 9:00am to 13:00pm', '', '', '', '', '', '', '', '',
-        '']
+        '', default value for days google map, '']
       resourcebundle:id: itinerary
       resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.title, start-finish,
         days, distance, themes, miles-abbreviation, kilometres-abbreviation, transport,
         day, miles, kilometres, highlights, areas-covered, stop.no-stop, stop.time-to-explore,
         theme, stop.opening, stop.hour, stop.hours, stop.usually, stop.provisionally,
         stop.today, stop.to, stop.open, stop.closed, stop.close.soon, stop.temporarily-closed,
-        stop.and, end-itinerary, map-view, list-view, keyfacilities.title]
+        stop.and, end-itinerary, map-view, list-view, keyfacilities.title, days.default-cta,
+        itinerary.default-cta]
       resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Stop,
         Start / Finish, Days, Distance, Main themes, mi, km, Transport, Day, Miles,
         Kilometres, Highlights, Areas covered, The stop doesn't have any product linked
           to the stop, Time to explore, Main theme, Check opening times, hour, hours,
         Usually, Provisionally, today, to, Open, Closed, Closing soon, Temporarily
-          closed, and, End of itinerary, Map view, List View, Key facilities]
+          closed, and, End of itinerary, Map view, List View, Key facilities, Explore
+          on Google Maps, View Itinerary on Google Maps]
       resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
         Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi, km, Verkehrsmittel,
         Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen, Es ist kein Produkt
           mit diesem Haltepunkt verknüpft, Zeit zum Erkunden, Hauptthema, Öffnungszeiten
           überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute, bis, Geöffnet,
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
-        Kartenansicht, Listenansicht, Ausstattung]
+        Kartenansicht, Listenansicht, Ausstattung, '', '']
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, Días, Distancia, Temas principales,
         mi, km, Transporte, Día, Millas, Kilómetros, Destacado, Áreas recorridas,
         Esta parada no tiene ningún producto asociado, Tiempo para explorar, Tema
           principal, Consulta los horarios de apertura, hora, horas, Normalmente,
         Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado temporalmente,
-        y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas]
+        y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
+        '', '']
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -429,18 +527,19 @@
         Thème principal, Vérifier les horaires d’ouverture, heure, heures, Habituellement,
         Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
-        Infrastructures]
+        Infrastructures, '', '']
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, Miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
           non ha alcun prodotto collegato all'arresto, Tempo impiegato per visitare,
         Tema principale, Controlla gli orari di apertura, ora, ore, Solitamente, Provvisoriamente,
         oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
-          dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave]
+          dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave, '',
+        '']
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Eind, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, Mijlen, Kilometers, Hoogtepunten, Bestreken gebieden, Deze stop heeft
           geen specifieke bezienswaardigheid, Vrije tijd, Hoofdthema, Bekijk de openingstijden,
         uur, uur, Gewoonlijk, Onder voorbehoud, vandaag, naar, Geopend, Gesloten,
         Binnenkort gesloten, Tijdelijk gesloten, en, Einde van de route, Toon kaart,
-        Toon lijst, Faciliteiten]
+        Toon lijst, Faciliteiten, '', '']
