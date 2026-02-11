@@ -45,4 +45,5 @@ storage*/
 
 # JENKINS CI
 ci/logs/
+/build-number.txt
 
