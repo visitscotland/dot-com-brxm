@@ -38,6 +38,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     //refId of sitemap items
     public static final String ROOT = "root";
     public static final String SEARCH_PAGE = "search-page";
+    public static final String FAVOURITES_PAGE = "my-favourites";
 
     /* Should we use Content Logger instead of Freemarker?
      *
@@ -457,6 +458,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void applyGlobalSearchConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
         final boolean isSearchResultsPage = isSearchResultsPage(request);
+        final boolean isFavouritesPage = isFavouritesPage(request);
         final boolean isHomepage = isHomepage(request);
 
         getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("site-search.path", v));
@@ -485,6 +487,15 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private boolean isSearchResultsPage(HstRequest request) {
         return SEARCH_PAGE.equals(
+                request.getRequestContext()
+                        .getResolvedSiteMapItem()
+                        .getHstSiteMapItem()
+                        .getRefId()
+        );
+    }
+
+    private boolean isFavouritesPage(HstRequest request) {
+        return FAVOURITES_PAGE.equals(
                 request.getRequestContext()
                         .getResolvedSiteMapItem()
                         .getHstSiteMapItem()
