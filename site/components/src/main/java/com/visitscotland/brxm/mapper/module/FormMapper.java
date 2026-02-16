@@ -13,6 +13,8 @@ import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -23,6 +25,7 @@ import java.util.MissingResourceException;
 @Component
 public class FormMapper extends ModuleMapper<Form, FormModule> {
 
+    private static final Logger log = LoggerFactory.getLogger(FormMapper.class);
     private final SiteProperties properties;
 
 
@@ -87,14 +90,25 @@ public class FormMapper extends ModuleMapper<Form, FormModule> {
         List<Entry> consents = breg.getConsents();
         String consentValue = "";
         for (Entry cons : consents) {
+
+            String consValue = cons.getValue();
+            if (consValue.contains(",") || consValue.contains(";")){
+                //TODO: This is a workaround that must be fixed on BREG (VS-1237)
+                log.error("The consent message has been altered because it contains not allowed characters '%s'",
+                        consValue);
+                consentValue = consentValue.replace(",", "–").replace(";", "–");
+            }
+
             if (Contract.isEmpty(consentValue)){
-                consentValue = cons.getKey() + "," + cons.getValue();
+                consentValue = cons.getKey() + "," + consValue;
             } else {
-                consentValue = consentValue + ";" + cons.getKey() + "," + cons.getValue();
+                consentValue = consentValue + ";" + cons.getKey() + "," + consValue;
             }
         }
 
         cfg.setConsents(consentValue);
+        cfg.setConsentList(consents);
+
         if (properties.isFormBregLegalBasisEnabled()) {
             cfg.setLegalBasis(properties.getFormBregLegalBasisText());
         }
