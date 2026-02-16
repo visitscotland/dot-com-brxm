@@ -1,5 +1,10 @@
 package com.visitscotland.brxm.model.form;
 
+import com.visitscotland.brxm.hippobeans.Entry;
+
+import java.util.List;
+import java.util.Map;
+
 public class BregConfiguration implements  FormConfiguration {
 
     /**
@@ -14,6 +19,7 @@ public class BregConfiguration implements  FormConfiguration {
     private String activityDescription;
     private String activitySource;
     private String consents;
+    private List<Entry> consentList;
     private String legalBasis;
 
     public String getRecaptcha() {
