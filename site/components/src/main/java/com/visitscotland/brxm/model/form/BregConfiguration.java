@@ -3,7 +3,6 @@ package com.visitscotland.brxm.model.form;
 import com.visitscotland.brxm.hippobeans.Entry;
 
 import java.util.List;
-import java.util.Map;
 
 public class BregConfiguration implements  FormConfiguration {
 
@@ -89,5 +88,13 @@ public class BregConfiguration implements  FormConfiguration {
 
     public void setLegalBasis(String legalBasis) {
         this.legalBasis = legalBasis;
+    }
+
+    public List<Entry> getConsentList() {
+        return consentList;
+    }
+
+    public void setConsentList(List<Entry> consentList) {
+        this.consentList = consentList;
     }
 }

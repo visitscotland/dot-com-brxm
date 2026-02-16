@@ -96,7 +96,7 @@ public class FormMapper extends ModuleMapper<Form, FormModule> {
                 //TODO: This is a workaround that must be fixed on BREG (VS-1237)
                 log.error("The consent message has been altered because it contains not allowed characters '%s'",
                         consValue);
-                consentValue = consentValue.replace(",", "–").replace(";", "–");
+                consValue = consValue.replace(",", " –").replace(";", " –");
             }
 
             if (Contract.isEmpty(consentValue)){
