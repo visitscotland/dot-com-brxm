@@ -74,4 +74,4 @@ else
     echo "No local changes to apply from the stash"
 fi
 
-echo 'You can follow the progress of the artefacts at https://jenkinssb.visitscotland.com/job/release-brc.visitscotland.com/'
+echo 'Local release preparation is complete. The CI pipeline has taken over — check your CI server for the build progress.'

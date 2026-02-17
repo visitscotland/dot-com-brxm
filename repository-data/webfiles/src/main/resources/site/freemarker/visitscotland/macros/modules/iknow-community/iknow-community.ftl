@@ -41,9 +41,9 @@
                     offset-xl="1"
                     class="text-start"
                 >
-                    <vs-rich-text-wrapper variant="lead" class="mb-100">
+                    <vs-body variant="lead" class="mb-100">
                         <@hst.html hippohtml=module.copy/>
-                    </vs-rich-text-wrapper>
+                    </vs-body>
 
                     <vs-link
                         class="mb-300 mb-md-400 d-block"

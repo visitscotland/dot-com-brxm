@@ -64,7 +64,7 @@
                 <#if imageDetails.source?has_content>
                     <template v-slot:toggle-icon>
                         <vs-icon
-                            name="${imageDetails.source + '-filled'}"
+                            icon="fa-kit fa-${imageDetails.source + '-filled'}"
                             size="md"
                         ></vs-icon>
                     </template>

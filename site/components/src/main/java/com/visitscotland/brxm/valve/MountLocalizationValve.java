@@ -17,7 +17,11 @@ import java.util.Locale;
  * LocalizationValve obtains the locale from the content locale, whereas this valve only looks at the mount
  * This means that if the URL is /es/site/..., then the locale is always Spanish, even when the sitemap points to English content
  * This is important for the translation fallback
+ *
+ * @deprecated valves do not have any effect on the resourceapi
  */
+
+@Deprecated(forRemoval = true)
 public class MountLocalizationValve extends AbstractOrderableValve {
     private static final Logger logger = LoggerFactory.getLogger(MountLocalizationValve.class);
 

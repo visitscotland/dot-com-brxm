@@ -10,7 +10,6 @@ import java.util.List;
 @HippoEssentialsGenerated(internalName = "visitscotland:MapModule")
 @Node(jcrType = "visitscotland:MapModule")
 public class MapModule extends BaseDocument {
-
     public static final String MAP_KEYS = "hippotaxonomy:keys";
     public static final String MAP_TYPE = "visitscotland:mapType";
 
@@ -56,14 +55,12 @@ public class MapModule extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "visitscotland:categories", allowModifications = false)
     public List<MapCategory> getCategories() {
-        return getChildBeansByName("visitscotland:categories",
-                MapCategory.class);
+        return getChildBeansByName("visitscotland:categories", MapCategory.class);
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:categories", allowModifications = false)
     public List<HippoCompound> getCompundCategories() {
-        return getChildBeansByName("visitscotland:categories",
-                HippoCompound.class);
+        return getChildBeansByName("visitscotland:categories", HippoCompound.class);
     }
 
     public HippoCompound getFeaturedPlacesItem() {
@@ -78,5 +75,10 @@ public class MapModule extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:translation")
     public String getTranslation() {
         return getSingleProperty("visitscotland:translation");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:isGoogleMap" ,allowModifications = false)
+    public Boolean isGoogleMap() {
+        return getSingleProperty("visitscotland:isGoogleMap", false);
     }
 }

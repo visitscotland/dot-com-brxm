@@ -1,0 +1,6 @@
+/content/documents/administration/options/comparison-tool:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 3f290e2b-35cb-4bc6-a5cb-20de08fc54b5
+  hippo:name: Comparison Tool
+  hippostd:foldertype: [new-untranslated-folder-value-list, new-value-list]

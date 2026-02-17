@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 94d63177-a78b-4f3b-b676-4c5b0ecef3b1
+          jcr:uuid: 7342a480-b6d9-495a-890d-58a3fdc66ef5
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -24,15 +24,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
             hipposysedit:validators: [required]
-          /pswPosition:
+          /categoryLinks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:pswPosition
+            hipposysedit:path: visitscotland:categoryLinks
             hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators: [required]
+            hipposysedit:type: visitscotland:PageLinksSectionCompound
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -50,13 +50,12 @@ definitions:
           visitscotland:title: ''
           visitscotland:seoTitle: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 44f04547-a2c1-435e-8886-ea30b4658083
+          jcr:uuid: c5ce0a9c-dc97-4b2b-bec6-5de1db34de18
           hippostdpubwf:lastModificationDate: 2020-09-25T13:13:22.744+01:00
           hippostdpubwf:creationDate: 2020-09-25T13:13:22.744+01:00
           visitscotland:theme: Standard
           visitscotland:translation: ''
           visitscotland:hideNewsletter: false
-          visitscotland:pswPosition: Default
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -191,6 +190,24 @@ definitions:
                 ''general_intro:./vs_styles.js'',toolbarGroups: [{name: ''basicstyles''},{name:
                 ''styles''},{name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
                 ] , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+          /categoryLinks:
+            jcr:primaryType: frontend:plugin
+            caption: Category Cards Section
+            field: categoryLinks
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /newsletter:
+            jcr:primaryType: frontend:plugin
+            caption: Hide newsletter
+            field: newsletter
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /otherThings:
             jcr:primaryType: frontend:plugin
             caption: Other things you might like
@@ -200,12 +217,12 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /newsletter:
+          /blog:
             jcr:primaryType: frontend:plugin
-            caption: Hide newsletter
-            field: newsletter
+            caption: Blog
+            field: blog
             hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -219,22 +236,3 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ui.extension: translationDiff
-          /blog:
-            jcr:primaryType: frontend:plugin
-            caption: Blog
-            field: blog
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /pswPosition:
-            jcr:primaryType: frontend:plugin
-            caption: Product Search Position
-            field: pswPosition
-            hint: This field does not affect Blog or Simple pages
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: Default,Top,Bottom,Hidden

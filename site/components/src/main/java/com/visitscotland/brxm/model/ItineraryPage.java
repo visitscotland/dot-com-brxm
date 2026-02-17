@@ -1,31 +1,33 @@
 package com.visitscotland.brxm.model;
 
 import com.visitscotland.brxm.hippobeans.Day;
-import com.visitscotland.brxm.hippobeans.Itinerary;
+import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.brxm.model.megalinks.Entry;
+import com.visitscotland.brxm.pagebuilder.model.PageIntro;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ItineraryPage {
+public class ItineraryPage extends PageIntro {
 
-    private Itinerary document;
-
+    private BigDecimal distance;
+    private List<Entry> transports;
+    private List<Entry> areas;
+    private Entry theme;
+    // Properties to be removed from the delivery API
     private String firstStopLocation;
     private String lastStopLocation;
     private List<Day> days;
-    private BigDecimal distance;
+    private Integer dayCount;
     private Map<String, ItineraryStopModule> stops;
-    private List<String> errorMessages = new ArrayList<>();
+    private String lastStopNearbyEat;
+    private String lastStopNearbyStay;
+    private FlatLink mapLink;
 
-    public Itinerary getDocument() {
-        return document;
-    }
-
-    public void setDocument(Itinerary document) {
-        this.document = document;
+    public ItineraryPage(Page page) {
+        super(page);
     }
 
     public String getFirstStopLocation() {
@@ -52,6 +54,10 @@ public class ItineraryPage {
         this.days = days;
     }
 
+    public Integer getDayCount() { return dayCount; }
+
+    public void setDayCount(Integer dayCount) { this.dayCount = dayCount; }
+
     public BigDecimal getDistance() {
         return distance;
     }
@@ -75,11 +81,47 @@ public class ItineraryPage {
         stops.put(module.getIdentifier(), module);
     }
 
-    public void addErrorMessage(String errorMessage) {
-        this.errorMessages.add(errorMessage);
+    public List<Entry> getTransports() {
+        return transports;
     }
 
-    public List<String> getErrorMessages() {
-        return errorMessages;
+    public void setTransports(List<Entry> transports) {
+        this.transports = transports;
     }
+
+    public List<Entry> getAreas() {
+        return areas;
+    }
+
+    public void setAreas(List<Entry> areas) {
+        this.areas = areas;
+    }
+
+    public Entry getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Entry theme) {
+        this.theme = theme;
+    }
+
+    public String getLastStopNearbyEat() {
+        return lastStopNearbyEat;
+    }
+
+    public void setLastStopNearbyEat(String lastStopNearbyEat) {
+        this.lastStopNearbyEat = lastStopNearbyEat;
+    }
+
+    public String getLastStopNearbyStay() {
+        return lastStopNearbyStay;
+    }
+
+    public void setLastStopNearbyStay(String lastStopNearbyStay) {
+        this.lastStopNearbyStay = lastStopNearbyStay;
+    }
+
+    public FlatLink getMapLink() { return mapLink; }
+
+    public void setMapLink(FlatLink mapLink) { this.mapLink = mapLink; }
 }

@@ -19,7 +19,7 @@
         <@devEnvMenu />
     </#if>
     <@hst.cmseditmenu menu=menu />
-    <div class="has-edit-button vs-sticky-nav">
+    <div class="has-edit-button vs-sticky-nav vs-sticky-nav--has-content">
         <@headerSkipTo />
         <header>
             <@headerGlobalMenu />

@@ -16,8 +16,6 @@ public class BregConfiguration implements  FormConfiguration {
     private String consents;
     private String legalBasis;
 
-
-
     public String getRecaptcha() {
         return recaptcha;
     }

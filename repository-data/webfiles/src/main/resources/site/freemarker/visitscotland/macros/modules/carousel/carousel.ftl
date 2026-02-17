@@ -19,6 +19,9 @@
             <#else>
                 <#assign image = carouselItem.image.externalImage!'' />
             </#if>
+
+            <#assign transportIcon = getDMSIconName(carouselItem.itineraryTransport)>
+
             <vs-carousel-slide
                 slide-index="${carouselItem?index}"
                 link-url="${carouselItem.link}"
@@ -30,7 +33,7 @@
                     category="${carouselItem.category}"
                 </#if>
                 <#if carouselItem.itineraryTransport??>
-                    transport="${carouselItem.itineraryTransport}"
+                    transport="${transportIcon}"
                     transport-name="${label('transports', carouselItem.itineraryTransport)}"
                 </#if>
                 <#if carouselItem.itineraryDays??>

@@ -1628,6 +1628,213 @@
             jcr:primaryType: visitscotland:ImageData
             visitscotland:altText: ''
             visitscotland:caption: ''
+      /somewhere-wilder---nomadic-road-trip---isle-of-mull.jpg:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 66ec1dec-a973-481e-88ea-ff496c5d2cf4
+        hippo:name: Somewhere Wilder - Nomadic Road Trip - Isle of Mull.jpg
+        /somewhere-wilder---nomadic-road-trip---isle-of-mull.jpg:
+          jcr:primaryType: visitscotland:Image
+          hippo:availability: [live, preview]
+          hippogallery:description: Somewhere Wilder - Nomadic Road Trip - Isle of
+            Mull
+          hippogallery:filename: Somewhere Wilder - Nomadic Road Trip - Isle of Mull.jpg
+          visitscotland:altText: ''
+          visitscotland:credit: ''
+          visitscotland:location: ''
+          /hippogallery:thumbnail:
+            jcr:primaryType: hippogallery:image
+            hippo:filename: Somewhere Wilder - Nomadic Road Trip - Isle of Mull.jpg
+            hippogallery:height: 45
+            hippogallery:width: 60
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2021/01/somewhere-wilder---nomadic-road-trip---isle-of-mull.jpg/somewhere-wilder---nomadic-road-trip---isle-of-mull.jpg/thumbnail/thumbnail.jpg
+            jcr:lastModified: 2026-01-29T10:43:44.911Z
+            jcr:mimeType: image/jpeg
+          /hippogallery:original:
+            jcr:primaryType: hippogallery:image
+            hippogallery:height: 600
+            hippogallery:width: 800
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2021/01/somewhere-wilder---nomadic-road-trip---isle-of-mull.jpg/somewhere-wilder---nomadic-road-trip---isle-of-mull.jpg/original/original.jpg
+            jcr:lastModified: 2026-01-29T10:43:44.911Z
+            jcr:mimeType: image/jpeg
+          /visitscotland:nl:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:fr:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:de:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:es:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:it:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+      /dunkeld.jpg:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 178f1bf2-8a94-4359-a999-ec0f179c6fdc
+        /dunkeld.jpg:
+          jcr:primaryType: visitscotland:Image
+          hippo:availability: [live, preview]
+          hippogallery:description: Dunkeld
+          hippogallery:filename: dunkeld.jpg
+          visitscotland:altText: ''
+          visitscotland:credit: ''
+          visitscotland:location: ''
+          /hippogallery:thumbnail:
+            jcr:primaryType: hippogallery:image
+            hippo:filename: dunkeld.jpg
+            hippogallery:height: 39
+            hippogallery:width: 60
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2021/01/dunkeld.jpg/dunkeld.jpg/thumbnail/thumbnail.jpg
+            jcr:lastModified: 2026-01-29T10:43:45.936Z
+            jcr:mimeType: image/jpeg
+          /hippogallery:original:
+            jcr:primaryType: hippogallery:image
+            hippogallery:height: 622
+            hippogallery:width: 951
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2021/01/dunkeld.jpg/dunkeld.jpg/original/original.jpg
+            jcr:lastModified: 2026-01-29T10:43:45.936Z
+            jcr:mimeType: image/jpeg
+          /visitscotland:nl:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:fr:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:de:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:es:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:it:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+      /mull.jpg:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 12022d3d-4462-4c51-869f-b5517ce98252
+        hippo:name: Mull.jpg
+        /mull.jpg:
+          jcr:primaryType: visitscotland:Image
+          hippo:availability: [live, preview]
+          hippogallery:description: Mull
+          hippogallery:filename: Mull.jpg
+          visitscotland:altText: ''
+          visitscotland:credit: ''
+          visitscotland:location: ''
+          /hippogallery:thumbnail:
+            jcr:primaryType: hippogallery:image
+            hippo:filename: Mull.jpg
+            hippogallery:height: 39
+            hippogallery:width: 60
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2021/01/mull.jpg/mull.jpg/thumbnail/thumbnail.jpg
+            jcr:lastModified: 2026-01-29T10:43:47.156Z
+            jcr:mimeType: image/jpeg
+          /hippogallery:original:
+            jcr:primaryType: hippogallery:image
+            hippogallery:height: 622
+            hippogallery:width: 954
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2021/01/mull.jpg/mull.jpg/original/original.jpg
+            jcr:lastModified: 2026-01-29T10:43:47.156Z
+            jcr:mimeType: image/jpeg
+          /visitscotland:nl:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:fr:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:de:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:es:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:it:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+      /iona.jpg:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: a42c649a-23e5-424e-9857-81aab35a74fd
+        /iona.jpg:
+          jcr:primaryType: visitscotland:Image
+          hippo:availability: [live, preview]
+          hippogallery:description: Isle of Iona
+          hippogallery:filename: iona.jpg
+          visitscotland:altText: ''
+          visitscotland:credit: ''
+          visitscotland:location: ''
+          /hippogallery:thumbnail:
+            jcr:primaryType: hippogallery:image
+            hippo:filename: iona.jpg
+            hippogallery:height: 39
+            hippogallery:width: 60
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2021/01/iona.jpg/iona.jpg/thumbnail/thumbnail.jpg
+            jcr:lastModified: 2026-01-29T10:43:47.551Z
+            jcr:mimeType: image/jpeg
+          /hippogallery:original:
+            jcr:primaryType: hippogallery:image
+            hippogallery:height: 625
+            hippogallery:width: 954
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2021/01/iona.jpg/iona.jpg/original/original.jpg
+            jcr:lastModified: 2026-01-29T10:43:47.551Z
+            jcr:mimeType: image/jpeg
+          /visitscotland:nl:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:fr:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:de:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:es:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:it:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
   /oultander_s1_the_wedding.jpg:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']

@@ -1,12 +1,12 @@
 package com.visitscotland.brxm.model.navigation;
 
 import com.visitscotland.brxm.hippobeans.FeaturedWidget;
-import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 
 import java.util.List;
 
-public class FeaturedItem extends Module<FeaturedWidget> implements NavigationWidget {
+public class FeaturedItem extends NavigationWidget<FeaturedWidget> {
+
 
     private List<EnhancedLink> links;
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
 @Component
 public class CMSProperties extends Properties {
@@ -57,8 +58,8 @@ public class CMSProperties extends Properties {
 
     static final String CMS_BASE_PATH = "links.cms-base-path.url";
 
-    public CMSProperties(ResourceBundleService bundle, HippoUtilsService utils) {
-        super(bundle, utils);
+    public CMSProperties(ResourceBundleService bundle, HippoUtilsService utils, EnvironmentManager environmentManager) {
+        super(bundle, utils, environmentManager);
     }
 
     @Override
@@ -120,8 +121,8 @@ public class CMSProperties extends Properties {
         return readString(DMS_DATA_PUBLIC_HOST);
     }
 
-    public String getDmsToken() {
-        return readString(DMS_DATA_API_KEY);
+    public Optional<String> getDmsToken() {
+        return getProperty(DMS_DATA_API_KEY);
     }
 
     public Integer getDmsTimeout() {
@@ -169,7 +170,11 @@ public class CMSProperties extends Properties {
      * Max number of elements cached. If the property is not defined in the CMS, there is no maximum
      */
     public Integer getContentCacheMaxElements() {
-        Integer size = readInteger(CONTENT_CACHE_MAX_ELEMENTS);
+        int size = readInteger(CONTENT_CACHE_MAX_ELEMENTS);
+        if (size <= 0) {
+           logger.warn("Invalid or missing value for {}, defaulting to no limit", CONTENT_CACHE_MAX_ELEMENTS);
+           return Integer.MAX_VALUE;
+        }
         return size > 0 ? size : Integer.MAX_VALUE;
     }
 
@@ -190,13 +195,14 @@ public class CMSProperties extends Properties {
     }
 
     public Charset getDmsEncoding() {
-        String value = getProperty(DMS_DATA_ENCODING);
+        Optional<String> value = getProperty(DMS_DATA_ENCODING);
         try {
-            if (!Contract.isEmpty(value)) {
-                return Charset.forName(value);
+            if (value.isPresent()) {
+                return Charset.forName(value.get());
             }
-        } catch (Exception e) {
-            logger.warn("{} is not a valid value for the property {}", value, DMS_DATA_ENCODING);
+
+        } catch (IllegalArgumentException e) {
+            logger.warn("{} is not a valid value for the property {}", value.orElse(""), DMS_DATA_ENCODING);
         }
         return StandardCharsets.UTF_8;
     }

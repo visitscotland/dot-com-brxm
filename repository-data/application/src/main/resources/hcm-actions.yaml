@@ -117,3 +117,22 @@ action-lists:
     /content/documents/administration/bsh-labels/modules/events-listings-module: reload
 - 2.9.1:
     /content/documents/administration/configuration/default-site-properties: reload
+- 2.9.3:
+    /content/documents/administration/labels/modules/map: reload
+- 2.13.0:
+    /content/taxonomies/Visitscotland-categories: reload
+    /content/documents/administration/configuration/default-site-properties: reload
+    /content/documents/administration/labels/modules/newsletter-signpost: reload
+- 3.0.0:
+    /content/documents/administration/options/bespoken-modules: reload
+    /content/documents/administration/options/maps---dms-categories: reload
+    /content/documents/administration/labels/pages/itinerary: reload
+    /content/documents/administration/labels/modules/listicle: delete
+    /content/documents/administration/labels/global/common-label: reload
+    /content/documents/administration/labels/global/search: reload    
+    /content/documents/administration/configuration/default-site-properties: reload
+- 3.1.0:
+    /content/documents/administration/labels/pages/itinerary: reload
+    /content/documents/administration/options/areas: reload
+
+    
