@@ -93,7 +93,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final ImageMapper imageMapper;
     private final LinkService linksService;
     private final NewsletterFactory newsletterFactory;
-    private final ProductSearchWidgetFactory psrFactory;
     private final PreviewWarningMapper previewMapper;
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
@@ -107,7 +106,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         imageMapper = VsComponentManager.get(ImageMapper.class);
         newsletterFactory = VsComponentManager.get(NewsletterFactory.class);
         linksService = VsComponentManager.get(LinkService.class);
-        psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
         previewMapper = VsComponentManager.get(PreviewWarningMapper.class);
         contentLogger = VsComponentManager.get(ContentLogger.class);
         properties = VsComponentManager.get(SiteProperties.class);
@@ -359,20 +357,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     /**
-     * Add the configuration related to the Product Search Widget for the page
-     */
-    private void addProductSearchWidget(HstRequest request) {
-        final String PRODUCT_SEARCH_BUNDLE = "product-search-widget";
-
-        if (!request.getPathInfo().contains(properties.getSiteSkiSection())
-                && !request.getPathInfo().contains(properties.getCampaignSection())) {
-            request.setModel(PSR_WIDGET, psrFactory.getWidget(request));
-            labels(request).put(PRODUCT_SEARCH_BUNDLE,
-                    bundle.getAllLabels(PRODUCT_SEARCH_BUNDLE, request.getLocale()));
-        }
-    }
-
-    /**
      * Adds the logging object to the request.
      *
      * @param request HstRequest
@@ -416,10 +400,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request HSt request
      */
     private void addSiteSpecificConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
-        if (properties.isProductSearchEnabled()){
-            addProductSearchWidget(request);
-        }
-
         if (properties.isTableOfContentsEnabled()){
             addAllLabels(request, TABLE_CONTENTS_BUNDLE);
         }
