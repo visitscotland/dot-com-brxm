@@ -425,7 +425,6 @@ pipeline {
                     steps {
                         script {
                             try {
-                                sh 'echo "z" >> $WORKSPACE/pom.xml'
                                 sh 'set -o pipefail; mvn --batch-mode deploy -Pdist 2>&1 | tee $GIT_COMMIT.log'
                             } catch (err) {
                                 echo "ERROR: Stage 'Release to Nexus' failed for commit $GIT_COMMIT! (log: $GIT_COMMIT.log)"
