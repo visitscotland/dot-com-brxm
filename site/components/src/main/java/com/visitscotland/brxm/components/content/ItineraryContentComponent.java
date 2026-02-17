@@ -68,23 +68,8 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         if (!Contract.isEmpty(itineraryPage.getErrorMessages())) {
             setErrorMessages(request, itineraryPage.getErrorMessages());
         }
-
-        addProductSearchBuilder(request);
     }
 
-    // This is only in use in Freemarker to inject product search
-    @Deprecated (forRemoval = true)  // TODO: Remove method after VS-343 is completed
-    // TODO: Remove method after VS-343 is completed
-    public void addProductSearchBuilder(HstRequest request) {
-        BeansWrapper wrapper = BeansWrapper.getDefaultInstance();
-        TemplateHashModel staticModels = wrapper.getStaticModels();
-        try {
-            TemplateHashModel psb = (TemplateHashModel) staticModels.get(ProductSearchBuilder.class.getCanonicalName());
-            request.setModel("ProductSearchBuilder", psb);
-        } catch (TemplateModelException e) {
-            logger.error("Product Search Builder is not available for the Page", e);
-        }
-    }
 
     /**
      * Adds labels that are necessary for itineraries.
