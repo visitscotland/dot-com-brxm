@@ -1,10 +1,8 @@
 package com.visitscotland.brxm.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
-import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.factory.hippo.ValueList;
@@ -72,13 +70,6 @@ public class LinkService {
         this.assetLinkService = assetLinkService;
         this.fileMetaDataCalculator = fileMetaDataCalculator;
         this.entryMapper = entryMapper;
-    }
-
-    /**
-     * Fetches a new Product Search Object
-     */
-    private ProductSearchBuilder productSearch() {
-        return VsComponentManager.get(ProductSearchBuilder.class);
     }
 
     /**
@@ -261,10 +252,6 @@ public class LinkService {
             } else {
                 url = cmsProperties.getDmsHost() + product.get(DMSConstants.DMSProduct.URL).get(DMSConstants.DMSProduct.URL_LINK).asText();
             }
-        } else if (link instanceof ProductsSearch) {
-            url = productSearch().fromHippoBean(((ProductsSearch) link)).locale(locale).build();
-        } else if (link instanceof ProductSearchLink) {
-            url = productSearch().fromHippoBean(((ProductSearchLink) link).getSearch()).locale(locale).build();
         } else if (link instanceof Video) {
             url = ((Video) link).getUrl();
         } else if (link instanceof FileLink) {
@@ -274,7 +261,7 @@ public class LinkService {
         } else if (link instanceof UrlLink) {
             url = ((UrlLink) link).getLink();
         } else {
-            String linkType = link == null ? "null" : link.getClass().getSimpleName();
+            String linkType = (link == null ? "null" : link.getClass().getSimpleName());
             logger.warn("This class {} is not recognized as a link type and cannot be converted", linkType);
         }
         return processURL(locale, url);
