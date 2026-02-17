@@ -481,14 +481,12 @@ pipeline {
                                 "MAIL_TO_NET=${MAIL_TO_NET}",
                                 "CC_DEV_LIST=${CC_DEV_LIST}",
                         ]) {
-                            sh '''
-                            bash ci/scripts/release_email_payload.sh --mode=all --out-dir=${outDir}
-                        '''
+                            sh "bash ci/scripts/release_email_payload.sh --mode=all --out-dir=${outDir}"
                         }
                         // New approach using files
-                        def emailSubjectFile = '${outDir}/email.subject.txt'
-                        def emailBodyFile = '${outDir}/email.body.txt'
-                        def emailRecipientsFile = '${outDir}/email.recipients.txt'
+                        def emailSubjectFile = "${outDir}/email.subject.txt"
+                        def emailBodyFile = "${outDir}/email.body.txt"
+                        def emailRecipientsFile = "${outDir}/email.recipients.txt"
                         emailext(
                                 // trimming, as we might have trailing newlines from printf, or editors
                                 subject: readFile(emailSubjectFile).trim(),
