@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
-import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.factory.hippo.ValueList;
@@ -18,7 +17,6 @@ import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.utils.*;
-import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.core.container.ComponentManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -47,9 +45,6 @@ class LinkServiceTest {
 
     @Mock
     private DMSDataService dmsData;
-
-    @Mock(answer = Answers.RETURNS_SELF)
-    private ProductSearchBuilder builder;
 
     @Mock
     private ResourceBundleService resourceBundle;
@@ -89,7 +84,6 @@ class LinkServiceTest {
 
     private void initProductSearchBuilder() {
         ComponentManager context = mock(ComponentManager.class, withSettings().lenient());
-        when(context.getComponent(ProductSearchBuilder.class)).thenReturn(builder);
         VsComponentManager.setComponentManager(context);
     }
 
@@ -253,56 +247,6 @@ class LinkServiceTest {
 
         assertTrue(link.getLink().endsWith("/dms-page"));
         assertEquals(LinkType.EXTERNAL, link.getType());
-    }
-
-    @Test
-    @DisplayName("Create a link from a ProductSearchLink  Compound")
-    void productSearchLink() {
-        //Verifies that it can create a URL from the ProductSearchLink
-        initProductSearchBuilder();
-
-        ProductSearchLink productSearchLink = mock(ProductSearchLink.class, withSettings().lenient());
-        ProductsSearch ps = mock(ProductsSearch.class);
-        when(productSearchLink.getSearch()).thenReturn(ps);
-
-        FlatLink link = service.createFindOutMoreLink(null, Locale.UK, productSearchLink);
-
-        verify(builder, times(1)).build();
-        assertEquals(LinkType.INTERNAL, link.getType());
-    }
-
-    @Test
-    @DisplayName("Create a url from an SharedLink with an ProductSearchLink Compound ")
-    void getPlainLink_productSearchLink() {
-        initProductSearchBuilder();
-
-        ProductSearchLink productSearchLink = mock(ProductSearchLink.class, withSettings().lenient());
-        ProductsSearch ps = mock(ProductsSearch.class);
-        when(productSearchLink.getSearch()).thenReturn(ps);
-
-        service.getPlainLink(Locale.UK,productSearchLink, null);
-
-        verify(builder, times(1)).build();
-    }
-
-    @Test
-    @DisplayName("Create a url from an SharedLink with a ProductSearch Compound ")
-    void getPlainLink_productSearch() {
-        initProductSearchBuilder();
-
-        ProductsSearch productSearch = mock(ProductsSearch.class);
-
-        service.getPlainLink(Locale.UK,productSearch, null);
-
-        verify(builder, times(1)).build();
-    }
-
-    @Test
-    @DisplayName("Create a link from a ProductSearchLink  Compound")
-    void unexpectedLinkReturnsNull() {
-        //Tests that the addition of a new type will not introduce an exception
-        HippoCompound unrecognizedType = mock(HippoCompound.class);
-        assertNull(service.getPlainLink(Locale.UK,unrecognizedType, null));
     }
 
     @Test

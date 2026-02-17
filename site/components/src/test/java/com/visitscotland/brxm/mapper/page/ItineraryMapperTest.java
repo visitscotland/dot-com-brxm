@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.DMSUtils;
-import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.DMSLink;
 import com.visitscotland.brxm.hippobeans.Day;
@@ -72,9 +71,6 @@ class ItineraryMapperTest {
     @Mock
     ContentLogger logger;
 
-    @Mock(answer = Answers.RETURNS_SELF)
-    private ProductSearchBuilder builder;
-
     @InjectMocks
     ItineraryMapper factory;
 
@@ -85,7 +81,6 @@ class ItineraryMapperTest {
 
     private void initProductSearchBuilder() {
         ComponentManager context = mock(ComponentManager.class, withSettings().lenient());
-        when(context.getComponent(ProductSearchBuilder.class)).thenReturn(builder);
         VsComponentManager.setComponentManager(context);
     }
 
