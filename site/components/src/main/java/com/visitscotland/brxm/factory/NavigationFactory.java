@@ -2,16 +2,15 @@ package com.visitscotland.brxm.factory;
 
 import com.visitscotland.brxm.components.navigation.MenuItem;
 import com.visitscotland.brxm.components.navigation.RootMenuItem;
-import com.visitscotland.brxm.dms.ProductSearchBuilder;
 import com.visitscotland.brxm.hippobeans.CMSLink;
 import com.visitscotland.brxm.hippobeans.FeaturedWidget;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.ProductsSearch;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
-import com.visitscotland.brxm.model.navigation.FeaturedEvent;
 import com.visitscotland.brxm.model.navigation.FeaturedItem;
 import com.visitscotland.brxm.model.navigation.NavigationWidget;
+import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
@@ -45,15 +44,13 @@ public class NavigationFactory {
     private final ResourceBundleService bundle;
     private final HippoUtilsService utils;
     private final LinkService linkService;
-    private final ProductSearchBuilder productSearchBuilder;
     private final Logger contentLogger;
 
-    public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService, ProductSearchBuilder productSearchBuilder,
+    public NavigationFactory(ResourceBundleService bundle, HippoUtilsService utils, LinkService linkService,
                              ContentLogger contentLogger) {
         this.bundle = bundle;
         this.utils = utils;
         this.linkService = linkService;
-        this.productSearchBuilder = productSearchBuilder;
         this.contentLogger = contentLogger;
     }
 
@@ -134,7 +131,11 @@ public class NavigationFactory {
      */
     private NavigationWidget createWidget(HstRequest request, HippoBean bean) {
         if (bean instanceof FeaturedWidget) {
-            return addFeatureItem((FeaturedWidget) bean, request);
+            try {
+                return addFeatureItem((FeaturedWidget) bean, request);
+            } catch (PageCompositionException e) {
+                contentLogger.error(e.getMessage());
+            }
         } else if (bean instanceof HippoFolder) {
             contentLogger.warn("The following Navigation item '{}' might be unpublished for locale: {}.",
                     bean.getPath(), request.getLocale());
@@ -149,10 +150,9 @@ public class NavigationFactory {
     /**
      * Adds a Featured Navigation Widget
      */
-    private NavigationWidget addFeatureItem(FeaturedWidget document, HstRequest request) {
-        NavigationWidget widget;
+    private NavigationWidget addFeatureItem(FeaturedWidget document, HstRequest request) throws PageCompositionException {
         if (document.getItems().size() == 1 && document.getItems().get(0) instanceof ProductsSearch) {
-            widget = addFeatureEvent((ProductsSearch) document.getItems().get(0), document, request.getLocale());
+            throw new PageCompositionException(document.getItems().get(0).getPath(), "Products search Featured items are not currently supported");
         } else {
             List<CMSLink> cmsLinks = new ArrayList<>();
             for (HippoBean item : document.getItems()) {
@@ -164,7 +164,6 @@ public class NavigationFactory {
             }
             return addFeatureItem(cmsLinks, document, request);
         }
-        return widget;
     }
 
     private FeaturedItem addFeatureItem(List<CMSLink> cmsLinks, FeaturedWidget document, HstRequest request) {
@@ -200,14 +199,6 @@ public class NavigationFactory {
             request.setModel(WIDGET_LIST, listWidget);
         }
         return widget;
-    }
-
-    private FeaturedEvent addFeatureEvent(ProductsSearch productsSearch, FeaturedWidget document, Locale locale) {
-        String productSearchApi = productSearchBuilder.fromHippoBean(productsSearch).size(1).locale(locale).buildCannedSearch();
-        FeaturedEvent featuredEvent = new FeaturedEvent();
-        featuredEvent.setApiUrl(productSearchApi);
-        featuredEvent.setHippoBean(document);
-        return featuredEvent;
     }
 
     /**
