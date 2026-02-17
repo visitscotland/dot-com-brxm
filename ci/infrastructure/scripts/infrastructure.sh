@@ -201,6 +201,18 @@ checkVariables() {
   fi
 }
 
+extractVariables() {
+  # extract variables from values set by branch-specific properties
+  if [ ! -z "$BR_RESOURCE_API_ENDPOINT" ]; then
+    if [[ -z "$VS_BRXM_HOST" ]]; then
+      VS_BRXM_HOST=$(echo $BR_RESOURCE_API_ENDPOINT | sed -e "s/.*vs_brxm_host=\([^&]*\).*/\1/g")
+    fi
+    if [[ -z "$VS_BRXM_PORT" ]]; then
+      VS_BRXM_PORT=$(echo $BR_RESOURCE_API_ENDPOINT | sed -e "s/.*vs_brxm_port=\([^&]*\).*/\1/g")
+    fi  
+  fi
+}
+
 defaultSettings() {
   # unset variables
   unset VS_CONTAINER_LIST
@@ -219,6 +231,7 @@ defaultSettings() {
   if [ ! -d "$VS_CI_DIR" ]; then mkdir -p $VS_CI_DIR; fi
   if [ ! -d "$VS_CI_DIR/logs" ]; then mkdir -p $VS_CI_DIR/logs; fi
   if [ ! -d "$VS_CI_DIR/reports" ]; then mkdir -p $VS_CI_DIR/reports; fi
+  if [ ! -d "$VS_CI_DIR/temp" ]; then mkdir -p $VS_CI_DIR/temp; fi
   ## add additional check here to see if there's a CHANGE_BRANCH variable as well as a BRANCH_NAME variable
   if [ -z "$VS_BRANCH_NAME" ]; then
     if [ ! -z "$CHANGE_BRANCH" ]; then
@@ -1128,6 +1141,7 @@ createBuildReport() {
     echo "" >> $VS_MAIL_NOTIFY_BUILD_MESSAGE
   fi
   # quick and dirty conversion of the email message to an "HTML" file that'll play nice with the Jenkins HTML Publisher
+  # target="_top" is added intentionally to all links to ensure that they will FAIL to open in the Jenkins iFrame, instead the user must Ctrl-Click
   if [ -e "$VS_MAIL_NOTIFY_BUILD_MESSAGE" ]; then
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] writing build report to $VS_HTML_PUBLISHER_REPORT_DIR/$VS_HTML_PUBLISHER_REPORT_FILE"
     {
@@ -1137,9 +1151,11 @@ createBuildReport() {
         s/&/\&amp;/g
         s/</\&lt;/g
         s/>/\&gt;/g
-        /(\?vs-reset|resourceapi)/! s&(http[s]?://[^?[:space:]]+)(\?[^[:space:]].*$)?&<a href="\1\2">\1<\/a>&g
-        /(\?vs-reset|resourceapi)/ s&(http[s]?://[^?[:space:]]+)(\?[^[:space:]].*$)?&<a href="\1\2">\1\2<\/a>&g
+        /(\?vs-reset|resourceapi)/! s&(http[s]?://[^?[:space:]]+)(\?[^[:space:]].*$)?&<a href="\1\2" target=_top">\1<\/a>&g
+        /(\?vs-reset|resourceapi)/ s&(http[s]?://[^?[:space:]]+)(\?[^[:space:]].*$)?&<a href="\1\2" target=_top">\1\2<\/a>&g
       ' $VS_MAIL_NOTIFY_BUILD_MESSAGE
+      echo
+      echo " ** NOTE: all links in this report are intentionally set to require opening in a new tab/window to avoid issues with Jenkins iFrames, please Right-Click or Ctrl-Click to open in a new tab/window **"
       echo "</pre></body></html>"
     } > "$VS_HTML_PUBLISHER_REPORT_DIR/$VS_HTML_PUBLISHER_REPORT_FILE"
   fi
@@ -1209,6 +1225,7 @@ case $METHOD in
   setvars)
     checkVariables
     defaultSettings
+    extractVariables
     exportVSVariables
     copyVSVariables
     writeSettings
