@@ -94,7 +94,6 @@ if (!env.VS_BRANCH_PROPERTIES_FILE && !env.CHANGE_BRANCH) {
 } else if (!env.VS_BRANCH_PROPERTIES_FILE && env.CHANGE_BRANCH) {
 	env.VS_BRANCH_PROPERTIES_FILE = env.CHANGE_BRANCH.substring(env.CHANGE_BRANCH.lastIndexOf('/') + 1) + ".properties" 
 }
-
 echo "==/Setting default environment variables"
 
 echo "== Setting default application variables"
@@ -108,8 +107,6 @@ echo "==/Setting default application variables"
 echo "== Setting default container variables"
 if (!env.VS_CONTAINER_PRESERVE) { env.VS_CONTAINER_PRESERVE = "TRUE" }
 echo "==/Setting default container variables"
-
-import groovy.json.JsonSlurper
 
 pipeline {
     options {
@@ -183,9 +180,11 @@ pipeline {
 				sh '''
 					set +x
 					echo; echo "running stage $STAGE_NAME on $HOSTNAME"
+					export VS_MAVEN_PROPERTIES="ci/temp/maven-build.properties"
+					export VS_MAVEN_EXTRA="org.codehaus.mojo:properties-maven-plugin:1.2.1:write-project-properties -Dproperties.outputFile=$VS_MAVEN_PROPERTIES"
 					export HOME=$WORKSPACE
 					export MAVEN_OPTS="-Duser.home=$HOME"
-					mvn --batch-mode clean package
+					mvn --batch-mode clean package $VS_MAVEN_EXTRA
         '''
 			}
 			post {
