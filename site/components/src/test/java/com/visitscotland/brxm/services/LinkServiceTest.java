@@ -82,11 +82,6 @@ class LinkServiceTest {
     @InjectMocks
     LinkService service;
 
-    private void initProductSearchBuilder() {
-        ComponentManager context = mock(ComponentManager.class, withSettings().lenient());
-        VsComponentManager.setComponentManager(context);
-    }
-
     @BeforeEach
     void init(){
         // lenient is a general bad practice
