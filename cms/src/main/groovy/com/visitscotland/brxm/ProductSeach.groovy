@@ -25,16 +25,16 @@ class ProductSearchRetirement extends BaseNodeUpdateVisitor {
     @Override
     boolean doUpdate(Node node) {
         searchLiveDocuments(node.session, "ProductsSearch")
-        return true;
+        return true
     }
 
     List<Node> searchLiveDocuments(Session session, String targetDocument) {
         NodeIterator it = query(session,"//content/documents//element(*, visitscotland:${targetDocument})")
-        List<Node> documents = new ArrayList<>();
+        List<Node> documents = new ArrayList<>()
 
         while (it.hasNext()){
             Node node = it.next()
-            Node mainDocument = node;
+            Node mainDocument = node
             while (mainDocument.getName() != "visitscotland" && !mainDocument.hasProperty("hippo:availability")) {
                 mainDocument = mainDocument.getParent()
             }
@@ -47,7 +47,7 @@ class ProductSearchRetirement extends BaseNodeUpdateVisitor {
             }
         }
 
-        return documents;
+        return documents
     }
 
     /**
@@ -57,15 +57,15 @@ class ProductSearchRetirement extends BaseNodeUpdateVisitor {
      * @return
      */
     NodeIterator query(def session, def query){
-        QueryResult results = ((HippoWorkspace) session.getWorkspace()).getQueryManager().createQuery(query, Query.XPATH).execute();
+        QueryResult results = ((HippoWorkspace) session.getWorkspace()).getQueryManager().createQuery(query, Query.XPATH).execute()
         if (!results.getNodes().hasNext()){
             log.warn "No query results for ${query}"
         } else {
             // Note that the method size. Moves the pointer for the iterator at the end. That is why we need to
             // invoke .getNodes() for getting the size
-            log.info "Matches = ${results.getNodes().size()}";
+            log.info "Matches = ${results.getNodes().size()}"
         }
-        return results.getNodes();
+        return results.getNodes()
     }
 
     @Override
