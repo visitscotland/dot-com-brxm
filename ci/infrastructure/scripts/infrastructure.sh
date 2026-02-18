@@ -254,7 +254,22 @@ defaultSettings() {
     VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
     VS_CONTAINER_NAME_SHORT=$(echo "$BRANCH_NAME" | sed -e "s/\//_/g")
     VS_CONTAINER_NAME_SHORTEST=$(basename "$BRANCH_NAME")
+    echo VS_CONTAINER_NAME_SHORTEST
+    echo $VS_CONTAINER_NAME_SHORTEST
+    echo upper to lower
+    echo $VS_CONTAINER_NAME_SHORTEST | tr '[:upper:]' '[:lower:]'
+    echo cut to 54 chars
+    echo $VS_CONTAINER_NAME_SHORTEST | tr '[:upper:]' '[:lower:]' | cut -c 1-54
+    echo replace non-alphanumeric with hyphens, and trim leading and trailing hyphens
+    echo $VS_CONTAINER_NAME_SHORTEST | tr '[:upper:]' '[:lower:]' | cut -c 1-54 | sed -e 's/[^a-z0-9]/-/g' -e 's/^-*//' -e 's/-*$//'
+    echo replace non-alphanumeric with hyphens, and trim leading and trailing hyphens - v2
+    echo $VS_CONTAINER_NAME_SHORTEST | tr '[:upper:]' '[:lower:]' | cut -c 1-54 | sed -e 's/[^a-z0-9]/-/g; s/^-*// -e s/-*$//'
+    echo HASH
+    echo -n "$VS_CONTAINER_NAME_SHORTEST" | md5sum | cut -c 1-8
+
     VS_CONTAINER_NAME_RFC="$(echo "$VS_CONTAINER_NAME_SHORTEST" | tr '[:upper:]' '[:lower:]' | cut -c 1-54 | sed -e 's/[^a-z0-9]/-/g' -e 's/^-*//' -e 's/-*$//')-$(echo -n "$VS_CONTAINER_NAME_SHORTEST" | md5sum | cut -c 1-8)"
+    echo VS_CONTAINER_NAME_RFC=$VS_CONTAINER_NAME_RFC
+    
     VS_CONTAINER_NAME="$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT"
   fi
   # check for VS_CONTAINER_BASE_PORT_OVERRIDE, ensure it's unset if it's not overridden
