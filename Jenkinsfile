@@ -181,7 +181,7 @@ pipeline {
 					set +x
 					echo; echo "running stage $STAGE_NAME on $HOSTNAME"
 					export VS_MAVEN_PROPERTIES="ci/temp/maven-build.properties"
-					export VS_MAVEN_EXTRA="org.codehaus.mojo:properties-maven-plugin:1.2.1:write-project-properties -Dproperties.outputFile=$VS_MAVEN_PROPERTIES"
+					export VS_MAVEN_EXTRA="org.codehaus.mojo:properties-maven-plugin:1.3.0:write-project-properties -Dproperties.outputFile=$VS_MAVEN_PROPERTIES"
 					export HOME=$WORKSPACE
 					export MAVEN_OPTS="-Duser.home=$HOME"
 					mvn --batch-mode clean package $VS_MAVEN_EXTRA
