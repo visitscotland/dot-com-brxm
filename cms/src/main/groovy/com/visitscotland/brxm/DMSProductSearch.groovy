@@ -20,12 +20,14 @@ import javax.jcr.query.QueryResult
  * @since February 2026
  * @version 3.1.x
  */
-class ProductSearchRetirement extends BaseNodeUpdateVisitor {
+class DMSProductSearch extends BaseNodeUpdateVisitor {
 
     @Override
     boolean doUpdate(Node node) {
         searchLiveDocuments(node.session, "ProductsSearch")
-        return true
+
+        // Return false indicates that no changes would be persisted
+        return false;
     }
 
     List<Node> searchLiveDocuments(Session session, String targetDocument) {
@@ -58,14 +60,15 @@ class ProductSearchRetirement extends BaseNodeUpdateVisitor {
      */
     NodeIterator query(def session, def query){
         QueryResult results = ((HippoWorkspace) session.getWorkspace()).getQueryManager().createQuery(query, Query.XPATH).execute()
-        if (!results.getNodes().hasNext()){
+        NodeIterator iterator = results.getNodes()
+        if (!iterator.hasNext()){
             log.warn "No query results for ${query}"
         } else {
             // Note that the method size. Moves the pointer for the iterator at the end. That is why we need to
             // invoke .getNodes() for getting the size
-            log.info "Matches = ${results.getNodes().size()}"
+            log.info "Matches = ${iterator.size()}"
         }
-        return results.getNodes()
+        return iterator
     }
 
     @Override
