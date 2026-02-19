@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.pagebuilder;
 
+import com.google.common.collect.ImmutableList;
 import com.visitscotland.brxm.mapper.module.SpotlightMapper;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.*;
@@ -29,7 +30,6 @@ public class PageAssembler {
 
     static final String DEFAULT = "default";
 
-
     //Utils
     private final DocumentUtilsService documentUtils;
 
@@ -54,6 +54,11 @@ public class PageAssembler {
     private final DayMapper dayMapper;
 
     private final Logger contentLogger;
+
+    private static final ImmutableList<String> FAVOURITABLE_CONTENT = ImmutableList.<String>builder()
+            .add("visitscotland:Itinerary")
+            .add("visitscotland:Destination")
+            .build();
 
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
                          ArticleMapper articleMapper, UserGeneratedContentMapper userGeneratedContentMapper,
@@ -90,7 +95,20 @@ public class PageAssembler {
         return (Page) request.getAttribute("document");
     }
 
-    public void addModules(HstRequest request, PageCompositionHelper page) {
+    public void addModules(HstRequest request, PageCompositionHelper page)  {
+
+        // TODO - fix this, doesn't work (left in for FE testing)
+        try {
+            final String contentType = page.getPage().getContentType();
+            if (!Contract.isEmpty(contentType) && FAVOURITABLE_CONTENT.contains(page.getPage().getContentType())) {
+                logger.warn("Got favourite content");
+                page.addProperty("isFavourite", true);
+            } else {
+                page.addProperty("isFavourite", false);
+            }
+        } catch (PageCompositionException e) {
+            logger.warn("Failed to set ");
+        }
 
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {
             try {

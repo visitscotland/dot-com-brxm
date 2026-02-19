@@ -9,6 +9,8 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.utils.Contract;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.MissingResourceException;
@@ -19,11 +21,14 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
     private static final String OBS_BUNDLE = "online-booking-system-comparator";
     private static final String OBS_MODULE = "online-booking-system";
     private static final String CARBON_CALCULATOR = "carbon-calculator";
+    private static final String FAVOURITES_LIST = "favourites-list";
+    private static final String FAVOURITES = "favourites";
     private static final String FORMS_BUNDLE = "forms";
+    private static final String FAVOURITES_API = "/site/api/favourites";
 
     private final ComparatorMapper comparisonMapper;
 
-
+    private static final Logger logger = LoggerFactory.getLogger(DevModuleMapper.class);
 
     public DevModuleMapper(ComparatorMapper comparisonMapper) {
         this.comparisonMapper = comparisonMapper;
@@ -40,6 +45,8 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
             return new SimpleDevModule(document);
         }
 
+        logger.warn("Bespoke module: {}", document.getBespoken());
+
         try {
             if (OBS_MODULE.equals(document.getBespoken())) {
                 var module = comparisonMapper.map(document);
@@ -49,6 +56,10 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
                 return module;
             } else if (CARBON_CALCULATOR.equals(document.getBespoken())) {
                 compositionHelper.addAllSiteLabels(CARBON_CALCULATOR);
+                return new SimpleDevModule(document, document.getBespoken());
+            } else if (FAVOURITES_LIST.equals(document.getBespoken())) {
+                compositionHelper.addProperty("api", FAVOURITES_API);
+                compositionHelper.addAllSiteLabels(FAVOURITES);
                 return new SimpleDevModule(document, document.getBespoken());
             }
 

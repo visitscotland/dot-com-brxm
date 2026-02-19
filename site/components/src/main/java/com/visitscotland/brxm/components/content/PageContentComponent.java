@@ -30,7 +30,10 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
-
+/**
+ * TODO - check if this needs favs stuff here or if it's already handled in other classes
+ * @param <T>
+ */
 public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
@@ -38,7 +41,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     //refId of sitemap items
     public static final String ROOT = "root";
     public static final String SEARCH_PAGE = "search-page";
-    public static final String FAVOURITES_PAGE = "my-favourites";
+    public static final String FAVOURITES_PAGE = "favourites";
 
     /* Should we use Content Logger instead of Freemarker?
      *
@@ -477,6 +480,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
                 properties.getGlobalSearchLogic().ifPresent(v -> pageConfig.addProperty(SEARCH_LOGIC, v));
+            }
+
+            if (isFavouritesPage) {
+                logger.warn("No idea if we need to do something here??");
             }
         }
     }
