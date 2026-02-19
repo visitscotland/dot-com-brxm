@@ -245,23 +245,23 @@ defaultSettings() {
     fi
   fi
   # set unique container name from JOB_NAME and VS_BRANCH_NAME - removing / characters, use VS_BRANCH_NAME when available as it may contain more specific branch information than JOB_NAME (e.g. pull request branch vs main branch)
-  if [ -z "$VS_CONTAINER_NAME" ]; then
-    if [ "$VS_BRANCH_NAME" != "branch-not-found" ]; then
+  if [ -z "$VS_CONTAINER_NAME" ]&&[ "$VS_BRANCH_NAME" != "branch-not-found" ]; then
       VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
       VS_CONTAINER_NAME_SHORT=$(echo "$VS_BRANCH_NAME" | sed -e "s/\//_/g")
       VS_CONTAINER_NAME_SHORTEST=$(basename "$VS_BRANCH_NAME")
-    else
+  else
       VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
       VS_CONTAINER_NAME_SHORT=$(echo "$BRANCH_NAME" | sed -e "s/\//_/g")
       VS_CONTAINER_NAME_SHORTEST=$(basename "$BRANCH_NAME")
-    fi
-    # create VS_CONTAINER_NAME_DOCKER from VS_CONTAINER_NAME_BASE and VS_CONTAINER_NAME_SHORT using Docker compliant characters, note: can be longer than the 63 character limit for inter-container communication using "--link", below we'll create a fully compliant VS_CONTAINER_NAME_DOCKER for potential future use
-    VS_CONTAINER_NAME_DOCKER="$(echo "$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT" | sed -e "s/[^a-zA-Z0-9_.-]/-/g")"
-    # create VS_CONTAINER_NAME_DOCKER63 in Docker compliant format ([a-zA-Z0-9_.-], max 63 chars) for use as Docker container name, use md5 to ensure uniqueness
-    VS_CONTAINER_NAME_DOCKER63="$(echo "$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT" | sed -e "s/[^a-zA-Z0-9_.-]/-/g" | cut -c 1-55)$(echo "$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT" | md5sum | cut -c 1-8)"
-    # create VS_CONTAINER_NAME_RFC1034 in RFC 1034 compliant format for use as a Docker container internal hostname, use md5 to ensure uniqueness
-    VS_CONTAINER_NAME_RFC1034="$(echo "$VS_CONTAINER_NAME_SHORTEST" | tr '[:upper:]' '[:lower:]' | cut -c 1-55 | sed -e 's/[^a-z0-9]/-/g' -e 's/^-*//' -e 's/-*$//')$(echo -n "$VS_CONTAINER_NAME_SHORTEST" | md5sum | cut -c 1-8)"
-    # finally set VS_CONTAINER_NAME to the preferred version, note: if changing the preference manual container management may be needed to remove old containers with the previous naming convention
+  fi
+  # create VS_CONTAINER_NAME_DOCKER from VS_CONTAINER_NAME_BASE and VS_CONTAINER_NAME_SHORT using Docker compliant characters, note: can be longer than the 63 character limit for inter-container communication using "--link", below we'll create a fully compliant VS_CONTAINER_NAME_DOCKER for potential future use
+  VS_CONTAINER_NAME_DOCKER="$(echo "$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT" | sed -e "s/[^a-zA-Z0-9_.-]/-/g")"
+  # create VS_CONTAINER_NAME_DOCKER63 in Docker compliant format ([a-zA-Z0-9_.-], max 63 chars) for use as Docker container name, use md5 to ensure uniqueness
+  VS_CONTAINER_NAME_DOCKER63="$(echo "$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT" | sed -e "s/[^a-zA-Z0-9_.-]/-/g" | cut -c 1-55)$(echo -n "$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT" | md5sum | cut -c 1-8)"
+  # create VS_CONTAINER_NAME_RFC1034 in RFC 1034 compliant format for use as a Docker container internal hostname, use md5 to ensure uniqueness
+  VS_CONTAINER_NAME_RFC1034="$(echo "$VS_CONTAINER_NAME_SHORTEST" | tr '[:upper:]' '[:lower:]' | cut -c 1-55 | sed -e 's/[^a-z0-9]/-/g' -e 's/^-*//' -e 's/-*$//')$(echo -n "$VS_CONTAINER_NAME_SHORTEST" | md5sum | cut -c 1-8)"
+  # finally, set VS_CONTAINER_NAME to the preferred version, note: if changing the preference manual container management may be needed to remove old containers with the previous naming convention
+  if [ -z "$VS_CONTAINER_NAME" ]; then
     VS_CONTAINER_NAME=$VS_CONTAINER_NAME_DOCKER
   fi
 
