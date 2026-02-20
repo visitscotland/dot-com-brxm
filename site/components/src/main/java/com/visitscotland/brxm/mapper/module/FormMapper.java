@@ -2,6 +2,7 @@ package com.visitscotland.brxm.mapper.module;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.FormModule;
+import com.visitscotland.brxm.model.SimpleEntry;
 import com.visitscotland.brxm.model.form.BregConfiguration;
 import com.visitscotland.brxm.model.form.CRMConfiguration;
 import com.visitscotland.brxm.model.form.FeplConfiguration;
@@ -17,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.MissingResourceException;
 
@@ -87,12 +89,17 @@ public class FormMapper extends ModuleMapper<Form, FormModule> {
         cfg.setActivitySource(breg.getActivitySource());
         List<Entry> consents = breg.getConsents();
         String consentComposition = "";
+        List<SimpleEntry> entries = new ArrayList<SimpleEntry>();
         for (Entry cons : consents) {
+            if (cons.getKey().equals("in-person")) {
+                cfg.setRecaptcha(null);
+                continue;
+            }
 
             String consValue = cons.getValue();
             if (consValue.contains(",") || consValue.contains(";")){
                 //TODO: This is a workaround that must be fixed on BREG (VS-1237)
-                log.error("The consent message has been altered because it contains not allowed characters '{}}'",
+                log.error("The consent message has been altered because it contains not allowed characters '{}'",
                         consValue);
                 consValue = consValue.replace(",", " –").replace(";", " –");
             }
@@ -102,10 +109,12 @@ public class FormMapper extends ModuleMapper<Form, FormModule> {
             } else {
                 consentComposition = consentComposition + ";" + cons.getKey() + "," + consValue;
             }
+
+            entries.add(new SimpleEntry(cons));
         }
 
         cfg.setConsents(consentComposition);
-        cfg.setConsentList(consents);
+        cfg.setConsentList(entries);
 
         if (properties.isFormBregLegalBasisEnabled()) {
             cfg.setLegalBasis(properties.getFormBregLegalBasisText());
