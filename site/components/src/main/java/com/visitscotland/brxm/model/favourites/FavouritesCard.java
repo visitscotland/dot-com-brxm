@@ -1,14 +1,27 @@
 package com.visitscotland.brxm.model.favourites;
 
 /**
- * TODO - confirm with Mark if these are the fields we're going with
+ * Favourites card object used to send limited page info to favourites page
  */
 public class FavouritesCard {
 
+    private String uuid;
     private String title;
     private String introduction;
     private String url;
     private String image;
+
+    public FavouritesCard(final String uuid, final String title, final String introduction, final String url, final String image) {
+        this.uuid = uuid;
+        this.title = title;
+        this.introduction = introduction;
+        this.url = url;
+        this.image = image;
+    }
+
+    public String getUuid() { return uuid; }
+
+    public void setUuid(String uuid) { this.uuid = uuid; }
 
     public String getTitle() {
         return title;

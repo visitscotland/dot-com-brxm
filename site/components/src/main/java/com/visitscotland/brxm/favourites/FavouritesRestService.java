@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.favourites;
 
 import com.visitscotland.brxm.services.CommonUtilsService;
-import com.visitscotland.brxm.utils.VsException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.jaxrs.services.AbstractResource;
 import org.slf4j.Logger;
@@ -12,7 +11,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
 /**
- * TODO - Complete this
+ * TODO - Refine this - committed during development to give Mark an endpoint with test data to work with
  */
 @Path("/favourites")
 public class FavouritesRestService extends AbstractResource {
@@ -29,31 +28,27 @@ public class FavouritesRestService extends AbstractResource {
 
     @GET
     @Path("/")
-    @Produces()
+    @Produces("text/plain")
     public Response health() {
         return Response.ok().entity("Favourites rest service - status OK!").build();
     }
 
-    // test with GET first and then check POST
-    @GET
-    @Path("/favourites-list-get")
-    @Produces(/*"application/json"*/)
-    public Response getFavouritesGet(@Context final HstRequest request,
-                             @DefaultValue("hst:root") @QueryParam("channel") final String locale/*, List<String> uuids*/) {
-        try {
-            //List<FavouritesCard> favouritesCards = favouritesRepository.getFavouritesCards(uuids);
-            return Response.ok().build();
-        } catch (VsException e){
-            return Response.serverError().build();
-        }
-    }
 
-    /*@POST
-    @Path("/favourites-list-post")
+    @POST
+    @Path("/getFavourites")
     @Consumes("application/json")
-    //@Produces("application/json")
-    public Response getFavouritesPost(@Context final HstRequest request,
-                                  @DefaultValue("hst:root") @QueryParam("channel") final String locale) {
-        return Response.ok().entity("Favourites rest service - my-favs").build();
-    }*/
+    @Produces("application/json")
+    public Response getFavouritesPostReq(@Context final HstRequest request,
+                                  @DefaultValue("hst:root") @QueryParam("channel")
+                                  final String locale, final FavouritesRequest favouritesRequest) {
+
+        try {
+            FavouritesCardResponse response = favouritesRepository.getFavouritesCards(favouritesRequest);
+            return Response.ok().entity(response).build();
+        } catch (Exception e) { // TODO - refine exception handling before merge as this is not braw
+            logger.error("Failed to get favourites cards", e);
+            return Response.serverError().entity("Could not process request.").build();
+        }
+
+    }
 }
