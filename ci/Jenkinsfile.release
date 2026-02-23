@@ -493,6 +493,16 @@ pipeline {
                                 to: readFile(emailRecipientsFile).trim(),
                                 mimeType: 'text/html'
                         )
+
+                        publishHTML target: [
+                                allowMissing: true,
+                                alwaysLinkToLastBuild: false,
+                                keepAll: false,
+                                reportDir: outDir,
+                                reportFiles: 'email.body.txt',
+                                reportName: 'Release Email Body',
+                                reportTitles: ''
+                        ]
                     }
                 }
             }
