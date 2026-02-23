@@ -58,6 +58,7 @@ public class PageAssembler {
     private static final ImmutableList<String> FAVOURITABLE_CONTENT = ImmutableList.<String>builder()
             .add("visitscotland:Itinerary")
             .add("visitscotland:Destination")
+            .add("visitscotland:Listicle")
             .build();
 
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
@@ -97,17 +98,17 @@ public class PageAssembler {
 
     public void addModules(HstRequest request, PageCompositionHelper page)  {
 
-        // TODO - fix this, doesn't work (left in for FE testing)
         try {
             final String contentType = page.getPage().getContentType();
-            if (!Contract.isEmpty(contentType) && FAVOURITABLE_CONTENT.contains(page.getPage().getContentType())) {
-                logger.warn("Got favourite content");
+            if (contentType != null && FAVOURITABLE_CONTENT.contains(page.getPage().getContentType())) {
+                logger.debug("Got favouritable content");
                 page.addProperty("isFavourite", true);
             } else {
                 page.addProperty("isFavourite", false);
             }
         } catch (PageCompositionException e) {
-            logger.warn("Failed to set ");
+            logger.warn("Failed to set favourites boolean. Defaulting to false.");
+            page.addProperty("isFavourite", false);
         }
 
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {

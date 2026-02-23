@@ -63,6 +63,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
 
     @Override
     ArticleModule map(Article document, PageCompositionHelper compositionHelper) throws PageCompositionException {
+        compositionHelper.addProperty("isFavourite", true);
         return getModule(document, compositionHelper.getLocale(), compositionHelper.isEditMode());
     }
 
