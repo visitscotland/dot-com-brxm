@@ -33,9 +33,8 @@ public class FavouritesRestService extends AbstractResource {
         return Response.ok().entity("Favourites rest service - status OK!").build();
     }
 
-
     @POST
-    @Path("/getFavourites")
+    @Path("/get-favourites")
     @Consumes("application/json")
     @Produces("application/json")
     public Response getFavouritesPostReq(@Context final HstRequest request,
@@ -44,7 +43,11 @@ public class FavouritesRestService extends AbstractResource {
 
         try {
             FavouritesCardResponse response = favouritesRepository.getFavouritesCards(favouritesRequest);
-            return Response.ok().entity(response).build();
+            if (response != null) {
+                return Response.ok().entity(response).build();
+            } else {
+                return Response.serverError().entity("Could not process request.").build();
+            }
         } catch (Exception e) { // TODO - refine exception handling before merge as this is not braw
             logger.error("Failed to get favourites cards", e);
             return Response.serverError().entity("Could not process request.").build();
