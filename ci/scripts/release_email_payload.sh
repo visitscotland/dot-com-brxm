@@ -98,7 +98,7 @@ fi
 
 # Defaults
 MODE="all"
-OUT_DIR="ci/tmp"
+OUT_DIR="ci/temp"
 POM="pom.xml"
 BUILD_NUMBER_FILE="build-number.txt"
 LOG_FILE=""            # empty means "auto-derive"
