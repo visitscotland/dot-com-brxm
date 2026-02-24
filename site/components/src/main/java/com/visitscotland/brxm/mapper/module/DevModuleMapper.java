@@ -18,17 +18,18 @@ import java.util.MissingResourceException;
 @Component
 public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> {
 
+    private static final Logger logger = LoggerFactory.getLogger(DevModuleMapper.class);
+
     private static final String OBS_BUNDLE = "online-booking-system-comparator";
     private static final String OBS_MODULE = "online-booking-system";
     private static final String CARBON_CALCULATOR = "carbon-calculator";
     private static final String FAVOURITES_LIST = "favourites-list";
+    private static final String API = "api";
     private static final String FAVOURITES = "favourites";
     private static final String FORMS_BUNDLE = "forms";
     private static final String FAVOURITES_API = "/site/api/favourites";
 
     private final ComparatorMapper comparisonMapper;
-
-    private static final Logger logger = LoggerFactory.getLogger(DevModuleMapper.class);
 
     public DevModuleMapper(ComparatorMapper comparisonMapper) {
         this.comparisonMapper = comparisonMapper;
@@ -45,7 +46,7 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
             return new SimpleDevModule(document);
         }
 
-        logger.warn("Bespoke module: {}", document.getBespoken());
+        logger.debug("Bespoke module: {}", document.getBespoken());
 
         try {
             if (OBS_MODULE.equals(document.getBespoken())) {
@@ -58,7 +59,7 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
                 compositionHelper.addAllSiteLabels(CARBON_CALCULATOR);
                 return new SimpleDevModule(document, document.getBespoken());
             } else if (FAVOURITES_LIST.equals(document.getBespoken())) {
-                compositionHelper.addProperty("api", FAVOURITES_API);
+                compositionHelper.addProperty(API, FAVOURITES_API);
                 compositionHelper.addAllSiteLabels(FAVOURITES);
                 return new SimpleDevModule(document, document.getBespoken());
             }
