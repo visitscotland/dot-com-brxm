@@ -36436,9 +36436,10 @@
       hippotranslation:locale: en
       /content:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: c81ab456-79a3-4949-b5bd-47dba7678d28
-        hippo:versionHistory: 496698b4-8d84-4f4f-b8fe-ab6c2ea41fa7
+        hippo:name: favourites
+        hippo:versionHistory: 970e7561-56b4-4048-b9e6-3262dc9106e2
         /content[1]:
           jcr:primaryType: visitscotland:General
           jcr:mixinTypes: ['mix:referenceable']
@@ -36446,9 +36447,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2026-02-19T08:59:45.284Z
-          hippostdpubwf:lastModificationDate: 2026-02-19T09:01:10.219Z
+          hippostdpubwf:lastModificationDate: 2026-02-24T14:16:24.098Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 409e39da-d92f-43fe-a7f8-7c0135c4fb93
           hippotranslation:locale: en
@@ -36512,7 +36514,7 @@
           hippostdpubwf:creationDate: 2026-02-19T08:59:45.284Z
           hippostdpubwf:lastModificationDate: 2026-02-19T09:01:09.640Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2026-02-19T09:05:46.788Z
+          hippostdpubwf:publicationDate: 2026-02-24T14:17:01.496Z
           hippotranslation:id: 409e39da-d92f-43fe-a7f8-7c0135c4fb93
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
