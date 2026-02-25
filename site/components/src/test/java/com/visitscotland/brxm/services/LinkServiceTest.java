@@ -6,7 +6,9 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.DMSConstants;
 import com.visitscotland.brxm.dms.DMSDataService;
 import com.visitscotland.brxm.dms.ProductSearchBuilder;
-import com.visitscotland.brxm.factory.ImageFactory;
+import com.visitscotland.brxm.mapper.EntryMapper;
+import com.visitscotland.brxm.mapper.ImageMapper;
+import com.visitscotland.brxm.factory.hippo.ValueList;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
 import com.visitscotland.brxm.mock.SharedLinkMockBuilder;
@@ -14,6 +16,7 @@ import com.visitscotland.brxm.mock.VideoMockBuilder;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.model.megalinks.Entry;
 import com.visitscotland.brxm.utils.*;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import org.hippoecm.hst.core.container.ComponentManager;
@@ -70,10 +73,13 @@ class LinkServiceTest {
     private DocumentUtilsService documentUtilsService;
 
     @Mock
-    private ImageFactory imageFactory;
+    private ImageMapper imageMapper;
 
     @Mock
     private YoutubeApiService youtubeApiService;
+
+    @Mock
+    private EntryMapper entryMapper;
 
     @Mock
     ContentLogger logger;
@@ -246,8 +252,7 @@ class LinkServiceTest {
         FlatLink link = service.createFindOutMoreLink(null, Locale.UK, dmsLink);
 
         assertTrue(link.getLink().endsWith("/dms-page"));
-        assertEquals(LinkType.INTERNAL, link.getType());
-
+        assertEquals(LinkType.EXTERNAL, link.getType());
     }
 
     @Test
@@ -509,7 +514,7 @@ class LinkServiceTest {
         Module<?> module = new Module<>();
 
         SharedLink dmsLink = new SharedLinkMockBuilder().dmsLink(dmsData, node).build();
-        when(imageFactory.createImage(node, module, Locale.UK)).thenReturn(new FlatImage());
+        when(imageMapper.createImage(node, module, Locale.UK)).thenReturn(new FlatImage());
 
         EnhancedLink link = service.createEnhancedLink(dmsLink, module,Locale.UK,false).get();
 
@@ -669,12 +674,12 @@ class LinkServiceTest {
     @Test
     @DisplayName(("VS-2935 - Allow videos for Megalinks Items"))
     void enhancedLink_fromVideo(){
-        Video video = new VideoMockBuilder().url("youtu.be?v=1").build();
+        Video video = new VideoMockBuilder().url("youtube?v=1").build();
 
         EnhancedLink link = service.createEnhancedLink(video, null, null, false).get();
 
         assertNotNull(link);
-        assertEquals("youtu.be?v=1", link.getLink());
+        assertEquals("youtube?v=1", link.getLink());
         assertEquals("1", link.getYoutubeId());
         assertEquals(LinkType.VIDEO, link.getType());
     }
@@ -733,7 +738,7 @@ class LinkServiceTest {
 
         when(sharedLink.getImage()).thenReturn(image);
         when(image.getPath()).thenReturn("path/to/image");
-        when(imageFactory.createImage(image, null, Locale.UK)).thenReturn(flatImage);
+        when(imageMapper.createImage(image, null, Locale.UK)).thenReturn(flatImage);
 
         when(sharedLink.getLinkType()).thenReturn(dmsLink);
         when(dmsLink.getProduct()).thenReturn("123");
@@ -762,7 +767,7 @@ class LinkServiceTest {
         when(sharedLink.getLinkType()).thenReturn(dmsLink);
         when(dmsLink.getProduct()).thenReturn("123");
         when(dmsData.productCard("123", Locale.UK)).thenReturn(product);
-        when(imageFactory.createImage(product, null, Locale.UK)).thenReturn(flatImage);
+        when(imageMapper.createImage(product, null, Locale.UK)).thenReturn(flatImage);
 
         when(product.has(DMSConstants.DMSProduct.IMAGE)).thenReturn(true);
 
@@ -771,4 +776,18 @@ class LinkServiceTest {
         Assertions.assertEquals("dms-image.jpg", link.getImage().getExternalImage());
     }
 
+    @Test
+    @DisplayName("tests successful retrieval of mapped display text")
+    void When_ValidTransportKeyExists_Expect_EntryWithMappedDisplayText(){
+        Itinerary itinerary = new MegalinksMockBuilder().getItinerary("bus");
+        when(documentUtilsService.getSiblingDocuments(itinerary,Day.class, "visitscotland:Day")).thenReturn(Arrays.asList(mock(Day.class), mock(Day.class)));
+        when(utils.createUrl(itinerary)).thenReturn("URL");
+        when(entryMapper.getEntry("bus", ValueList.VS_ITINERARY_TRANSPORT)).thenReturn(new Entry("bus", "Bus"));
+
+        EnhancedLink enhancedLink = service.createEnhancedLink(itinerary, null, Locale.UK, false).get();
+
+        assertNotNull(enhancedLink.getItineraryMainTransport());
+        assertEquals("bus", enhancedLink.getItineraryMainTransport().getKey());
+        assertEquals("Bus", enhancedLink.getItineraryMainTransport().getDisplayName());
+    }
 }

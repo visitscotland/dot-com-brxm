@@ -2,6 +2,7 @@ package com.visitscotland.brxm.components.navigation.info;
 
 import org.hippoecm.hst.core.parameters.Parameter;
 
+//TODO: Rename to PageContentComponent
 public interface GeneralPageComponentInfo  {
     @Parameter(
             name = "status",

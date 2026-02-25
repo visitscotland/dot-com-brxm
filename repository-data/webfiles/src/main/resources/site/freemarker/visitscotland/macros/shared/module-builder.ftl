@@ -37,8 +37,10 @@
             </#list>
         </div>
         <#elseif moduleType == "CardGroupModule">
-            <@includeOnce "../modules/megalinks/cardgroup.ftl" />
-            <@cardgroup item=module type=module.getType() theme=themeName />
+            <@includeOnce "../modules/megalinks/grid/megalinks-card-grid.ftl" />
+            <div class="mt-500">
+                <@megalinksCardGrid item=module />
+            </div>
         <#elseif moduleType == "megalinks">
             <@includeOnce "../modules/megalinks/megalinks.ftl" />
             <#-- all Megalinks modules except HorizontalListLinksModule -->
@@ -65,8 +67,13 @@
             <@includeOnce "../modules/travel-information/travel-information.ftl" />
             <@travelInformation module/>
         <#elseif moduleType == "MapsModule">
-            <@includeOnce "../modules/map-with-sidebar/map-with-sidebar.ftl" />
-            <@mapWithSidebar module/>
+            <#if module.googleMap?? && module.googleMap>
+                <@includeOnce "../modules/main-map/main-map.ftl" />
+                <@mainMap module/>
+            <#else>
+                <@includeOnce "../modules/map-with-sidebar/map-with-sidebar.ftl" />
+                <@mapWithSidebar module/>
+            </#if>
         <#elseif moduleType == "CannedSearchModule">
             <@includeOnce "../modules/canned-search/canned-search.ftl" />
             <@cannedSearch module themeName/>
@@ -87,9 +94,13 @@
         <#elseif module.getType()== "SimpleDevModule">
             <@includeOnce "../modules/dev-module/dev-module.ftl" />
             <@devModule module/>
+        <#elseif module.getType()== "SpotlightModule">
+            <@includeOnce "../modules/featured-content/featured-content.ftl" />
+            <@featuredContent module/>
         <#elseif module.getType()== "SignpostModule">
-            <@includeOnce "../modules/spotlight-section/spotlight-section.ftl" />
-            <@spotlightSection module/>
+            <#-- TODO: This block should be removed by VS-825 -->
+            <@includeOnce "../modules/featured-content/featured-content.ftl" />
+            <@featuredContent module/>
         <#else >
             <@includeOnce "../global/preview-warning.ftl" />
             <@previewWarning editMode module module.errorMessages true />
