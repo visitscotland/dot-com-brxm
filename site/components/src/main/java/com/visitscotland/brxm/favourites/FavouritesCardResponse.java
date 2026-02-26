@@ -11,6 +11,7 @@ import java.util.List;
 public class FavouritesCardResponse {
 
     private List<FavouritesCard> cards = new ArrayList<>();
+    private List<String> failedUuids = new ArrayList<>(); // UUIDs of cards we failed to generate content for
 
     public List<FavouritesCard> getCards() {
         return cards;
@@ -18,5 +19,13 @@ public class FavouritesCardResponse {
 
     public void setCards(List<FavouritesCard> cards) {
         this.cards = cards;
+    }
+
+    public List<String> getFailedUuids() {
+        return failedUuids;
+    }
+
+    public void setFailedUuids(List<String> failedUuids) {
+        this.failedUuids = failedUuids;
     }
 }

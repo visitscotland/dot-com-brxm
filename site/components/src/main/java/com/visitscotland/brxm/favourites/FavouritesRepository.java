@@ -39,14 +39,16 @@ public class FavouritesRepository {
      */
     public FavouritesCardResponse getFavouritesCards(FavouritesRequest favouritesRequest) {
         List<FavouritesCard> cards = new ArrayList<>();
+        List<String> failedUuids = new ArrayList<>();
         FavouritesCardResponse response = new FavouritesCardResponse();
+
         if (favouritesRequest != null) {
             for (final String uuid : favouritesRequest.getUuids()) {
                 if (uuid != null && uuid.matches(UUID_REGEX)) {
                     final FavouritesCard card = favouritesCardMapper.getFavouritesCard(hippoUtilsService.getContentByUuid(uuid));
                     if (card == null) {
                         logger.info("Unable to get favourites card content for UUID {}", uuid);
-                        // TODO - return uuids of failed cards
+                        failedUuids.add(uuid);
                     } else {
                         cards.add(card);
                     }
@@ -56,6 +58,7 @@ public class FavouritesRepository {
             }
         }
         response.setCards(cards);
+        response.setFailedUuids(failedUuids);
         return response;
     }
 }
