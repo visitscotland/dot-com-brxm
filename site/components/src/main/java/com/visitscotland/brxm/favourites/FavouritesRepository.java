@@ -3,7 +3,6 @@ package com.visitscotland.brxm.favourites;
 import com.visitscotland.brxm.model.favourites.FavouritesCard;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.SiteProperties;
-import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
