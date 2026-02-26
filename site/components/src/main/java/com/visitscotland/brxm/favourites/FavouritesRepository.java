@@ -29,9 +29,8 @@ public class FavouritesRepository extends BaseHstComponent {
     private static final Logger logger = LoggerFactory.getLogger(FavouritesRepository.class);
 
 
-    public FavouritesRepository(FavouritesHstQueryService favouritesHstQueryService, FavouritesCardMapper favouritesCardMapper,
-                                SiteProperties siteProperties, HippoUtilsService hippoUtilsService) {
-        this.favouritesHstQueryService = favouritesHstQueryService;
+    public FavouritesRepository(FavouritesCardMapper favouritesCardMapper, SiteProperties siteProperties,
+                                HippoUtilsService hippoUtilsService) {
         this.favouritesCardMapper = favouritesCardMapper;
         this.siteProperties = siteProperties;
         this.hippoUtilsService = hippoUtilsService;
