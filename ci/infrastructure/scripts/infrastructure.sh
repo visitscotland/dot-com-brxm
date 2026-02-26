@@ -201,6 +201,18 @@ checkVariables() {
   fi
 }
 
+extractVariables() {
+  # extract variables from values set by branch-specific properties
+  if [ ! -z "$BR_RESOURCE_API_ENDPOINT" ]; then
+    if [[ -z "$VS_BRXM_HOST" ]]; then
+      VS_BRXM_HOST=$(echo $BR_RESOURCE_API_ENDPOINT | grep "vs_brxm_host" | sed -e "s/.*vs_brxm_host=\([^&]*\).*/\1/g")
+    fi
+    if [[ -z "$VS_BRXM_PORT" ]]; then
+      VS_BRXM_PORT=$(echo $BR_RESOURCE_API_ENDPOINT | grep "vs_brxm_port" | sed -e "s/.*vs_brxm_port=\([^&]*\).*/\1/g")
+    fi  
+  fi
+}
+
 defaultSettings() {
   # unset variables
   unset VS_CONTAINER_LIST
@@ -219,6 +231,7 @@ defaultSettings() {
   if [ ! -d "$VS_CI_DIR" ]; then mkdir -p $VS_CI_DIR; fi
   if [ ! -d "$VS_CI_DIR/logs" ]; then mkdir -p $VS_CI_DIR/logs; fi
   if [ ! -d "$VS_CI_DIR/reports" ]; then mkdir -p $VS_CI_DIR/reports; fi
+  if [ ! -d "$VS_CI_DIR/temp" ]; then mkdir -p $VS_CI_DIR/temp; fi
   ## add additional check here to see if there's a CHANGE_BRANCH variable as well as a BRANCH_NAME variable
   if [ -z "$VS_BRANCH_NAME" ]; then
     if [ ! -z "$CHANGE_BRANCH" ]; then
@@ -873,7 +886,7 @@ containerCreateAndStart() {
     if [ "$VS_BRXM_PERSISTENCE_METHOD" == "mysql" ]; then
       VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
     elif [ "${VS_BUILD_TYPE^^}" == "DSSR" ]; then
-      VS_DOCKER_CMD='docker run -t -d -u $VS_CONTAINER_USR:$VS_CONTAINER_GRP --name '$VS_CONTAINER_NAME' --hostname '$VS_CONTAINER_NAME_SHORTEST' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --workdir '$VS_CONTAINER_WD'  --volume $VS_CONTAINER_WORKSPACE:$VS_CONTAINER_WORKSPACE:$VS_CONTAINER_VOLUME_PERMISSIONS --volume $VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_VOLUME_PERMISSIONS --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' $VS_CONTAINER_ENVIRONMENT '$VS_DOCKER_IMAGE_NAME' '$VS_CONTAINER_INIT_EXEC''
+      VS_DOCKER_CMD='docker run -t -d -u $VS_CONTAINER_USR:$VS_CONTAINER_GRP --name '$VS_CONTAINER_NAME' --hostname '${VS_CONTAINER_NAME_SHORTEST:0:63}' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --workdir '$VS_CONTAINER_WD'  --volume $VS_CONTAINER_WORKSPACE:$VS_CONTAINER_WORKSPACE:$VS_CONTAINER_VOLUME_PERMISSIONS --volume $VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_VOLUME_PERMISSIONS --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' $VS_CONTAINER_ENVIRONMENT '$VS_DOCKER_IMAGE_NAME' '$VS_CONTAINER_INIT_EXEC''
     else
       VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
     fi
@@ -1096,7 +1109,7 @@ createBuildReport() {
     if [ ! -z "$VS_BRXM_DSSR_SITES" ]; then
       echo "# Resource API URLs for SPA-SDK/DSSR sites" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
       for SITE in $VS_BRXM_DSSR_SITES; do
-        echo "#   - https://$SITE/resourceapi?vs_brxm_host=$VS_HOST_IP_ADDRESS&vs_brxm_port=$VS_CONTAINER_BASE_PORT&vs-no-redirect" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
+        echo "#   - https://$SITE/resourceapi?vs_brxm_host=$VS_HOST_IP_ADDRESS&vs_brxm_port=$VS_CONTAINER_BASE_PORT&vs-no-redirect=true" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
       done
       echo "#   NOTE: the vs-no-redirect query string parameter allows the content to be served without redirecting to a bare URL" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
       echo "#       this is necessary to allow non-browser requests, such as those from the front-end to the resourceapi, to be served" | tee -a $VS_MAIL_NOTIFY_BUILD_MESSAGE
@@ -1128,6 +1141,7 @@ createBuildReport() {
     echo "" >> $VS_MAIL_NOTIFY_BUILD_MESSAGE
   fi
   # quick and dirty conversion of the email message to an "HTML" file that'll play nice with the Jenkins HTML Publisher
+  # target="_top" is added intentionally to all links to ensure that they will FAIL to open in the Jenkins iFrame, instead the user must Ctrl-Click
   if [ -e "$VS_MAIL_NOTIFY_BUILD_MESSAGE" ]; then
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] writing build report to $VS_HTML_PUBLISHER_REPORT_DIR/$VS_HTML_PUBLISHER_REPORT_FILE"
     {
@@ -1137,9 +1151,11 @@ createBuildReport() {
         s/&/\&amp;/g
         s/</\&lt;/g
         s/>/\&gt;/g
-        /(\?vs-reset|resourceapi)/! s&(http[s]?://[^?[:space:]]+)(\?[^[:space:]].*$)?&<a href="\1\2">\1<\/a>&g
-        /(\?vs-reset|resourceapi)/ s&(http[s]?://[^?[:space:]]+)(\?[^[:space:]].*$)?&<a href="\1\2">\1\2<\/a>&g
+        /(\?vs-reset|resourceapi)/! s&(http[s]?://[^?[:space:]]+)(\?[^[:space:]].*$)?&<a href="\1\2" target=\"_top\">\1<\/a>&g
+        /(\?vs-reset|resourceapi)/ s&(http[s]?://[^?[:space:]]+)(\?[^[:space:]].*$)?&<a href="\1\2" target=\"_top\">\1\2<\/a>&g
       ' $VS_MAIL_NOTIFY_BUILD_MESSAGE
+      echo
+      echo " ** NOTE: all links in this report are intentionally set to require opening in a new tab/window to avoid issues with Jenkins iFrames, please Right-Click or Ctrl-Click to open in a new tab/window **"
       echo "</pre></body></html>"
     } > "$VS_HTML_PUBLISHER_REPORT_DIR/$VS_HTML_PUBLISHER_REPORT_FILE"
   fi
@@ -1209,6 +1225,7 @@ case $METHOD in
   setvars)
     checkVariables
     defaultSettings
+    extractVariables
     exportVSVariables
     copyVSVariables
     writeSettings
