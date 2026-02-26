@@ -3,7 +3,6 @@ package com.visitscotland.brxm.favourites;
 import com.visitscotland.brxm.model.favourites.FavouritesCard;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.SiteProperties;
-import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,15 +18,13 @@ import java.util.List;
 @Component
 public class FavouritesRepository extends BaseHstComponent {
 
-    private final FavouritesHstQueryService favouritesHstQueryService;
     private final FavouritesCardMapper favouritesCardMapper;
     private final SiteProperties siteProperties;
     private final HippoUtilsService hippoUtilsService;
 
     // matches any hexadecimal character (a-f and 0-9)
-    private final String HEX_REGEX = "[a-fA-F0-9]";
-
-    private final String UUID_REGEX = HEX_REGEX + "{8}-" + HEX_REGEX + "{4}-"+ HEX_REGEX + "{4}-" + HEX_REGEX + "{4}-" + HEX_REGEX + "{12}";
+    private static final String HEX_REGEX = "[a-fA-F0-9]";
+    private static final String UUID_REGEX = HEX_REGEX + "{8}-" + HEX_REGEX + "{4}-"+ HEX_REGEX + "{4}-" + HEX_REGEX + "{4}-" + HEX_REGEX + "{12}";
 
     private static final Logger logger = LoggerFactory.getLogger(FavouritesRepository.class);
 
@@ -42,7 +39,6 @@ public class FavouritesRepository extends BaseHstComponent {
 
     /**
      * get page info by uuid
-     * TODO - this data has been mocked for FE testing and will include a full repository implementation before merge
      */
     public FavouritesCardResponse getFavouritesCards(FavouritesRequest favouritesRequest) {
         List<FavouritesCard> cards = new ArrayList<>();
@@ -50,9 +46,8 @@ public class FavouritesRepository extends BaseHstComponent {
         if (favouritesRequest != null) {
             for (String uuid : favouritesRequest.getUuids()) {
                 if (uuid != null && uuid.matches(UUID_REGEX)) {
-                    cards.add(new FavouritesCard("working uuid - " + uuid, "title for " + uuid,
-                            "intro for " + uuid, "url for " + uuid, "image link for " + uuid));
-                } else {
+                    cards.add(favouritesCardMapper.getFavouritesCard(hippoUtilsService.getContentByUuid(uuid)));
+               } else {
                     logger.info("Invalid uuid provided: {}", uuid);
                 }
             }

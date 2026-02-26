@@ -26,8 +26,8 @@ public class PageAssembler {
     //Static Constant
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
-
     static final String DEFAULT = "default";
+    private static final String IS_FAVOURITE = "isFavourite";
 
     //Utils
     private final DocumentUtilsService documentUtils;
@@ -54,6 +54,7 @@ public class PageAssembler {
 
     private final Logger contentLogger;
 
+    // content thatcan be favourited can be added here (see also FavouritesCardMapper)
     private static final ImmutableList<String> FAVOURITABLE_CONTENT = ImmutableList.<String>builder()
             .add("visitscotland:Itinerary")
             .add("visitscotland:Destination")
@@ -101,13 +102,13 @@ public class PageAssembler {
             final String contentType = page.getPage().getContentType();
             if (contentType != null && FAVOURITABLE_CONTENT.contains(page.getPage().getContentType())) {
                 logger.debug("Got favouritable content");
-                page.addProperty("isFavourite", true);
+                page.addProperty(IS_FAVOURITE, true);
             } else {
-                page.addProperty("isFavourite", false);
+                page.addProperty(IS_FAVOURITE, false);
             }
         } catch (PageCompositionException e) {
             logger.warn("Failed to set favourites boolean. Defaulting to false.");
-            page.addProperty("isFavourite", false);
+            page.addProperty(IS_FAVOURITE, false);
         }
 
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {
