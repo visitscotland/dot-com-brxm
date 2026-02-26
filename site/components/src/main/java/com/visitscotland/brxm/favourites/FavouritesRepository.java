@@ -16,7 +16,7 @@ import java.util.List;
  * TODO - Complete this
  */
 @Component
-public class FavouritesRepository extends BaseHstComponent {
+public class FavouritesRepository {
 
     private final FavouritesCardMapper favouritesCardMapper;
     private final SiteProperties siteProperties;
@@ -29,8 +29,7 @@ public class FavouritesRepository extends BaseHstComponent {
     private static final Logger logger = LoggerFactory.getLogger(FavouritesRepository.class);
 
 
-    public FavouritesRepository(FavouritesCardMapper favouritesCardMapper, SiteProperties siteProperties,
-                                HippoUtilsService hippoUtilsService) {
+    public FavouritesRepository(FavouritesCardMapper favouritesCardMapper, SiteProperties siteProperties, HippoUtilsService hippoUtilsService) {
         this.favouritesCardMapper = favouritesCardMapper;
         this.siteProperties = siteProperties;
         this.hippoUtilsService = hippoUtilsService;
@@ -43,9 +42,15 @@ public class FavouritesRepository extends BaseHstComponent {
         List<FavouritesCard> cards = new ArrayList<>();
         FavouritesCardResponse response = new FavouritesCardResponse();
         if (favouritesRequest != null) {
-            for (String uuid : favouritesRequest.getUuids()) {
+            for (final String uuid : favouritesRequest.getUuids()) {
                 if (uuid != null && uuid.matches(UUID_REGEX)) {
-                    cards.add(favouritesCardMapper.getFavouritesCard(hippoUtilsService.getContentByUuid(uuid)));
+                    final FavouritesCard card = favouritesCardMapper.getFavouritesCard(hippoUtilsService.getContentByUuid(uuid));
+                    if (card == null) {
+                        logger.info("Unable to get favourites card content for UUID {}", uuid);
+                        // TODO - return uuids of failed cards
+                    } else {
+                        cards.add(card);
+                    }
                } else {
                     logger.info("Invalid uuid provided: {}", uuid);
                 }

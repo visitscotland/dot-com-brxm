@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * TODO - complete this
+ * Mapper class to create favourites cards from supported page info
  */
 @Component
 public class FavouritesCardMapper {
@@ -25,7 +25,17 @@ public class FavouritesCardMapper {
 
     public FavouritesCard getFavouritesCard(HippoBean bean){
 
+        if (bean == null) {
+            logger.info("Cannot parse favourites card from bean.");
+            return null;
+        }
+
         final Page page = ((Page) bean);
+        if (page == null) {
+            logger.info("Could not parse page from HippoBean.");
+            return null;
+        }
+
         final String contentType = bean.getContentType();
 
         if (contentType != null && FAVOURITABLE_CONTENT.contains(contentType)) {
@@ -40,9 +50,8 @@ public class FavouritesCardMapper {
 
         } else {
             logger.info("Content type {} is not supported for favourite content.", bean.getContentType());
+            return null;
         }
-        return null;
+
     }
-
-
 }

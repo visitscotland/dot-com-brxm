@@ -360,7 +360,6 @@ public class HippoUtilsService {
             if (uuid != null) {
                 HippoBean bean = (HippoBean) objectBeanManager.getObjectByUuid(uuid);
                 if (bean != null) {
-                    logger.info(bean.getProperties().toString()); // TODO - remove after testing
                     return bean;
                 }
             } else {
@@ -369,7 +368,6 @@ public class HippoUtilsService {
         } catch (ObjectBeanManagerException e) {
             logger.error("An ObjectBeanManagerException occurred while getting content for UUID {}: {}", uuid, e.getCause());
         }
-
         return null;
     }
 
