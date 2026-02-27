@@ -28,8 +28,11 @@ import java.util.regex.Pattern;
 public class GoogleMapsService {
 
     private static final Logger logger = LoggerFactory.getLogger(GoogleMapsService.class);
-
     private static final String DIRECTIONS_URL = "https://www.google.com/maps/dir";
+    static final String LATITUDE = "latitude";
+    static final String LONGITUDE = "longitude";
+    static final String LOW = "low";
+    static final String HIGH = "high";
 
     // regex to extract coordinates from url using @ coordinates
     private static final String URL_REGEX =
@@ -308,15 +311,15 @@ public class GoogleMapsService {
             ObjectNode viewportNode = mapper.createObjectNode();
 
             ObjectNode lowNode = mapper.createObjectNode();
-            lowNode.put("latitude", minLat);
-            lowNode.put("longitude", minLng);
+            lowNode.put(LATITUDE, minLat);
+            lowNode.put(LONGITUDE, minLng);
 
             ObjectNode highNode = mapper.createObjectNode();
-            highNode.put("latitude", maxLat);
-            highNode.put("longitude", maxLng);
+            highNode.put(LATITUDE, maxLat);
+            highNode.put(LONGITUDE, maxLng);
 
-            viewportNode.set("low", lowNode);
-            viewportNode.set("high", highNode);
+            viewportNode.set(LOW, lowNode);
+            viewportNode.set(HIGH, highNode);
 
             return viewportNode;
 
@@ -325,4 +328,52 @@ public class GoogleMapsService {
             return null;
         }
     }
+
+    /**
+     * Calculates the geographic center from a viewport node.
+     *
+     * <p>The center is calculated as the midpoint between
+     * the southwest (low) and northeast (high) coordinates.
+     *
+     * @param viewportNode JSON node containing viewport information
+     * @return JsonNode with "latitude" and "longitude", or null if invalid
+     */
+    public JsonNode calculateCenterFromViewport(JsonNode viewportNode) {
+
+        if (viewportNode == null || viewportNode.isEmpty()) {
+            logger.warn("Empty viewport node provided");
+            return null;
+        }
+
+        try {
+            JsonNode low = viewportNode.get(LOW);
+            JsonNode high = viewportNode.get(HIGH);
+
+            if (low == null || high == null) {
+                logger.warn("Viewport missing low/high nodes");
+                return null;
+            }
+
+            double minLat = low.get(LATITUDE).asDouble();
+            double minLng = low.get(LONGITUDE).asDouble();
+            double maxLat = high.get(LATITUDE).asDouble();
+            double maxLng = high.get(LONGITUDE).asDouble();
+
+            double centerLat = (minLat + maxLat) / 2;
+            double centerLng = (minLng + maxLng) / 2;
+
+            ObjectMapper mapper = new ObjectMapper();
+            ObjectNode centerNode = mapper.createObjectNode();
+            centerNode.put(LATITUDE, centerLat);
+            centerNode.put(LONGITUDE, centerLng);
+
+            return centerNode;
+
+        } catch (Exception e) {
+            logger.error("Error calculating center from viewport", e);
+            return null;
+        }
+    }
+
+
 }

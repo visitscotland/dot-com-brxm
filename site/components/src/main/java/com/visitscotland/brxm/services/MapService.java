@@ -29,6 +29,7 @@ import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 public class MapService {
     static final String GEOMETRY = "geometry";
     static final String LOCATION_CENTRE = "locationCentre";
+    static final String VIEWPORT = "viewport";
     static final String LABEL = "label";
     static final String TAXONOMY = "taxonomy";
     static final String DISCOVER = "map.discover";
@@ -254,12 +255,12 @@ public class MapService {
                 properties.put(PLACEID, placeId);
             }
             feature.set(PROPERTIES, properties);
+            JsonNode viewports = null;
             if (Arrays.asList(destination.getKeys()).contains(REGIONS)){
                 JsonNode geometryNode = dmsData.getLocationBorders(locationLoader.getLocation(destination.getLocation(), null).getId(),true);
                 if(geometryNode!=null && !geometryNode.isEmpty()) {
                     feature.set(GEOMETRY, getGeometryNode((ArrayNode) geometryNode.get("coordinates"), geometryNode.get(TYPE).asText()));
-                    feature.set("viewport",googleUtilsService.extractViewportFromJson(geometryNode));
-
+                    viewports = googleUtilsService.extractViewportFromJson(geometryNode);
                 }
             }else {
                 ObjectNode geometryNode = getGeometryNode(getCoordinates(location.getLongitude(),location.getLatitude()),POINT);
@@ -267,9 +268,12 @@ public class MapService {
 
                 feature.set(GEOMETRY, geometryNode);
                 if (boundsNode != null) {
-                    feature.set("viewport",googleUtilsService.extractViewportFromJson(boundsNode));
+                    viewports = googleUtilsService.extractViewportFromJson(boundsNode);
                 }
+
             }
+            feature.set(VIEWPORT, viewports);
+            feature.set(LOCATION_CENTRE, googleUtilsService.calculateCenterFromViewport(viewports));
         }else {
             feature.set(PROPERTIES, properties);
         }
