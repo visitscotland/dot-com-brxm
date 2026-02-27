@@ -8,7 +8,7 @@ public class FavouritesCard {
 
     private String uuid;
     private String title;
-    private String introduction;
+    private String teaser;
     private String url;
     private String image;
 
@@ -28,12 +28,12 @@ public class FavouritesCard {
         this.title = title;
     }
 
-    public String getIntroduction() {
-        return introduction;
+    public String getTeaser() {
+        return teaser;
     }
 
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
+    public void setTeaser(String teaser) {
+        this.teaser = teaser;
     }
 
     public String getUrl() {

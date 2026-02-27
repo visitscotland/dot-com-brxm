@@ -42,7 +42,7 @@ public class FavouritesCardMapper {
            FavouritesCard card = new FavouritesCard();
            card.setUuid(bean.getCanonicalUUID());
            card.setTitle(page.getTitle());
-           card.setIntroduction(page.getIntroduction().getContent());
+           card.setTeaser(page.getTeaser());
            card.setImage(page.getHeroImage().getPath());
            card.setUrl(page.getPath());
 
