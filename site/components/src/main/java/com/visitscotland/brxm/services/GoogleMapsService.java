@@ -1,10 +1,14 @@
 package com.visitscotland.brxm.services;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.collect.ImmutableMap;
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ItineraryPage;
+import com.visitscotland.brxm.model.Viewport;
 import com.visitscotland.utils.CoordinateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -223,6 +227,101 @@ public class GoogleMapsService {
             urlBuilder.append("/");
             return urlBuilder.toString();
         } else {
+            return null;
+        }
+    }
+
+    public JsonNode extractViewportFromJson(JsonNode geometryNode) {
+
+        if (geometryNode == null || geometryNode.isEmpty()) {
+            logger.warn("Empty geometry node provided");
+            return null;
+        }
+
+        try {
+
+            String type = geometryNode.get("type").asText();
+
+            double minLat = Double.POSITIVE_INFINITY;
+            double maxLat = Double.NEGATIVE_INFINITY;
+            double minLng = Double.POSITIVE_INFINITY;
+            double maxLng = Double.NEGATIVE_INFINITY;
+
+            JsonNode coordinates = geometryNode.get("coordinates");
+
+            if ("Polygon".equalsIgnoreCase(type)) {
+
+                // coordinates[0] = outer ring
+                for (JsonNode point : coordinates.get(0)) {
+                    double lng = point.get(0).asDouble();
+                    double lat = point.get(1).asDouble();
+
+                    minLat = Math.min(minLat, lat);
+                    maxLat = Math.max(maxLat, lat);
+                    minLng = Math.min(minLng, lng);
+                    maxLng = Math.max(maxLng, lng);
+                }
+
+            } else if ("MultiPolygon".equalsIgnoreCase(type)) {
+
+                // coordinates -> polygons
+                for (JsonNode polygon : coordinates) {
+                    // polygon -> rings
+                    for (JsonNode ring : polygon) {
+                        // ring -> points
+                        for (JsonNode point : ring) {
+                            double lng = point.get(0).asDouble();
+                            double lat = point.get(1).asDouble();
+
+                            minLat = Math.min(minLat, lat);
+                            maxLat = Math.max(maxLat, lat);
+                            minLng = Math.min(minLng, lng);
+                            maxLng = Math.max(maxLng, lng);
+                        }
+                    }
+                }
+
+            } else if ("bounds".equalsIgnoreCase(type)) {
+
+                for (JsonNode point : coordinates) {
+                    double lng = point.get(0).asDouble();
+                    double lat = point.get(1).asDouble();
+
+                    minLat = Math.min(minLat, lat);
+                    maxLat = Math.max(maxLat, lat);
+                    minLng = Math.min(minLng, lng);
+                    maxLng = Math.max(maxLng, lng);
+                }
+
+            } else {
+                logger.warn("Unsupported geometry type: {}", type);
+                return null;
+            }
+
+            if (minLat == Double.POSITIVE_INFINITY) {
+                logger.warn("No valid coordinates found");
+                return null;
+            }
+
+            ObjectMapper mapper = new ObjectMapper();
+
+            ObjectNode viewportNode = mapper.createObjectNode();
+
+            ObjectNode lowNode = mapper.createObjectNode();
+            lowNode.put("latitude", minLat);
+            lowNode.put("longitude", minLng);
+
+            ObjectNode highNode = mapper.createObjectNode();
+            highNode.put("latitude", maxLat);
+            highNode.put("longitude", maxLng);
+
+            viewportNode.set("low", lowNode);
+            viewportNode.set("high", highNode);
+
+            return viewportNode;
+
+        } catch (Exception e) {
+            logger.error("Error extracting viewport", e);
             return null;
         }
     }
