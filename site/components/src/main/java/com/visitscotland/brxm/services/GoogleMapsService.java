@@ -8,7 +8,6 @@ import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ItineraryPage;
-import com.visitscotland.brxm.model.Viewport;
 import com.visitscotland.utils.CoordinateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
