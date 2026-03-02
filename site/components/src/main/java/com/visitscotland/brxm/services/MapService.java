@@ -29,6 +29,7 @@ import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 public class MapService {
     static final String GEOMETRY = "geometry";
     static final String LOCATION_CENTRE = "locationCentre";
+    static final String MAPS_GOOGLE_LOCATIONS = "maps-google-locations";
     static final String VIEWPORT = "viewport";
     static final String LABEL = "label";
     static final String TAXONOMY = "taxonomy";
@@ -79,7 +80,9 @@ public class MapService {
      * @return ObjectNode with the filters to be used
      */
     public ObjectNode addFilterNode(Category child, Locale locale) {
-        ObjectNode filter = buildCategoryNode(child.getKey(), getTaxonomyLabel(child, locale),child.getParent().getKey());
+        Category parent = child.getParent();
+        String taxonomy = parent != null ? parent.getKey() : null;
+        ObjectNode filter = buildCategoryNode(child.getKey(), getTaxonomyLabel(child, locale), taxonomy);
         if (!child.getChildren().isEmpty()){
             ArrayNode childrenArray = mapper.createArrayNode();
             for (Category children : child.getChildren()) {
@@ -250,7 +253,7 @@ public class MapService {
         if (page instanceof Destination){
             Destination destination = (Destination) page;
             LocationObject location = locationLoader.getLocation(destination.getLocation(), Locale.UK);
-            String placeId = hippoUtilsService.getValueFromList("maps-google-locations", location.getName());
+            String placeId = hippoUtilsService.getValueFromList(MAPS_GOOGLE_LOCATIONS , location.getName());
             if (placeId != null) {
                 properties.put(PLACEID, placeId);
             }

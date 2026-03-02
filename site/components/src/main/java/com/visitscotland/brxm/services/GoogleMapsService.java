@@ -321,8 +321,15 @@ public class GoogleMapsService {
             return;
         }
 
-        double lng = point.get(0).asDouble();
-        double lat = point.get(1).asDouble();
+        JsonNode lngNode = point.get(0);
+        JsonNode latNode = point.get(1);
+        if (lngNode == null || latNode == null || !lngNode.isNumber() || !latNode.isNumber()) {
+                logger.warn("Invalid coordinate point values");
+                return;
+            }
+
+        double lng = lngNode.doubleValue();
+        double lat = latNode.doubleValue();
 
         viewports.update(lat, lng);
     }
