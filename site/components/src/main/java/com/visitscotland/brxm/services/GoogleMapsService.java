@@ -241,6 +241,7 @@ public class GoogleMapsService {
 
         if (geometryNode == null || geometryNode.isEmpty()) {
             logger.warn("Empty geometry node provided");
+            return null;
         }
 
         try {
@@ -315,6 +316,11 @@ public class GoogleMapsService {
         }
     }
     private void updateViewports(JsonNode point, Viewports viewports) {
+        if (point == null || !point.isArray() || point.size() < 2) {
+           logger.warn("Invalid coordinate point structure");
+            return;
+        }
+
         double lng = point.get(0).asDouble();
         double lat = point.get(1).asDouble();
 
@@ -379,12 +385,22 @@ public class GoogleMapsService {
             return null;
         }
 
+        JsonNode minLatNode = low.get(LATITUDE);
+        JsonNode minLngNode = low.get(LONGITUDE);
+        JsonNode maxLatNode = high.get(LATITUDE);
+        JsonNode maxLngNode = high.get(LONGITUDE);
+
+        if (minLatNode == null || minLngNode == null || maxLatNode == null || maxLngNode == null) {
+            logger.warn("Viewport missing required coordinate fields");
+            return null;
+        }
+
         Viewports viewports = new Viewports();
 
-        viewports.setMinLat(low.get(LATITUDE).asDouble());
-        viewports.setMinLng(low.get(LONGITUDE).asDouble());
-        viewports.setMaxLat(low.get(LATITUDE).asDouble());
-        viewports.setMaxLng(low.get(LONGITUDE).asDouble());
+        viewports.setMinLat(minLatNode.asDouble());
+        viewports.setMinLng(minLngNode.asDouble());
+        viewports.setMaxLat(maxLatNode.asDouble());
+        viewports.setMaxLng(maxLngNode.asDouble());
 
         return viewports;
     }
