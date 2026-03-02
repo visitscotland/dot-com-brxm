@@ -8,9 +8,11 @@ import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ItineraryPage;
+import com.visitscotland.brxm.model.Viewports;
 import com.visitscotland.utils.CoordinateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -33,6 +35,8 @@ public class GoogleMapsService {
     static final String LOW = "low";
     static final String HIGH = "high";
 
+    private final ObjectMapper mapper;
+
     // regex to extract coordinates from url using @ coordinates
     private static final String URL_REGEX =
             "(?i)https://www\\.google\\.com/maps/place/[^/]*/@(-?\\d{1,3}\\.\\d{1,20}),(-?\\d{1,3}\\.\\d{1,20}),\\d{1,2}z/data=.*";
@@ -47,10 +51,14 @@ public class GoogleMapsService {
             .put("nl-NL", "nl")
             .build();
 
+    @Autowired
+    public GoogleMapsService ( ObjectMapper mapper) {
+        this.mapper = mapper;
+    }
+
     /**
      * calculates the total distance across days from the coordinates contained in the map
      * url for each day
-     *
      * returns a distance of 0 if any issues occur to prevent erroneous values
      */
     public BigDecimal calculateDistanceFromDays(final List<Day> days) {
@@ -114,10 +122,6 @@ public class GoogleMapsService {
         }
     }
 
-    /*private boolean hasParameters(final String link) {
-        return link.contains("?") || link.matches(".*[a-zA-Z0-9]+=.*");
-    }*/
-
     /**
      * takes a list of google place urls, extracts the coordinates and returns a google directions url
      */
@@ -152,7 +156,7 @@ public class GoogleMapsService {
     /**
      * extracts a map of direction urls from a list of coordinates
      *
-     * @param coordinatesList
+     * @param coordinatesList coordinates list
      * @return urlBuilder.toString()
      */
     public String getDirectionsUrlFromCoordinates(List<Coordinates> coordinatesList) {
@@ -188,7 +192,7 @@ public class GoogleMapsService {
      * creates a route url from coordinates extracted from the place urls of days in an itinerary
      * *
      * returns null if unable to extract any coordinates for a day to prevent erroneous route maps
-     * @param itineraryPage
+     * @param itineraryPage the page for the itinerary
      * @return directionsByDayMap
      */
     public String getDirectionsUrlFromItinerary(ItineraryPage itineraryPage) {
@@ -237,96 +241,103 @@ public class GoogleMapsService {
 
         if (geometryNode == null || geometryNode.isEmpty()) {
             logger.warn("Empty geometry node provided");
-            return null;
         }
 
         try {
-
-            String type = geometryNode.get("type").asText();
-
-            double minLat = Double.POSITIVE_INFINITY;
-            double maxLat = Double.NEGATIVE_INFINITY;
-            double minLng = Double.POSITIVE_INFINITY;
-            double maxLng = Double.NEGATIVE_INFINITY;
-
-            JsonNode coordinates = geometryNode.get("coordinates");
-
-            if ("Polygon".equalsIgnoreCase(type)) {
-
-                // coordinates[0] = outer ring
-                for (JsonNode point : coordinates.get(0)) {
-                    double lng = point.get(0).asDouble();
-                    double lat = point.get(1).asDouble();
-
-                    minLat = Math.min(minLat, lat);
-                    maxLat = Math.max(maxLat, lat);
-                    minLng = Math.min(minLng, lng);
-                    maxLng = Math.max(maxLng, lng);
-                }
-
-            } else if ("MultiPolygon".equalsIgnoreCase(type)) {
-
-                // coordinates -> polygons
-                for (JsonNode polygon : coordinates) {
-                    // polygon -> rings
-                    for (JsonNode ring : polygon) {
-                        // ring -> points
-                        for (JsonNode point : ring) {
-                            double lng = point.get(0).asDouble();
-                            double lat = point.get(1).asDouble();
-
-                            minLat = Math.min(minLat, lat);
-                            maxLat = Math.max(maxLat, lat);
-                            minLng = Math.min(minLng, lng);
-                            maxLng = Math.max(maxLng, lng);
-                        }
-                    }
-                }
-
-            } else if ("bounds".equalsIgnoreCase(type)) {
-
-                for (JsonNode point : coordinates) {
-                    double lng = point.get(0).asDouble();
-                    double lat = point.get(1).asDouble();
-
-                    minLat = Math.min(minLat, lat);
-                    maxLat = Math.max(maxLat, lat);
-                    minLng = Math.min(minLng, lng);
-                    maxLng = Math.max(maxLng, lng);
-                }
-
-            } else {
-                logger.warn("Unsupported geometry type: {}", type);
+            JsonNode typeNode = geometryNode.get("type");
+            if (typeNode == null) {
+                logger.warn("Geometry node missing 'type' field");
+                return null;
+            }
+            String type = typeNode.asText();
+            if (type == null) {
+                logger.warn("Geometry node 'type' can not be converted to text");
                 return null;
             }
 
-            if (minLat == Double.POSITIVE_INFINITY) {
+            JsonNode coordinates =  geometryNode.get("coordinates");
+            if (coordinates == null) {
+                logger.warn("Geometry node missing 'coordinates' field");
+                return null;
+            }
+
+            Viewports viewports = new Viewports();
+
+            switch (type.toLowerCase()) {
+                case "polygon":
+                    processPolygon(coordinates, viewports);
+                    break;
+
+                case "multipolygon":
+                    processMultiPolygon(coordinates, viewports);
+                    break;
+
+                case "bounds":
+                    processSimpleCoordinates(coordinates, viewports);
+                    break;
+
+                default:
+                    logger.warn("Unsupported geometry type: {}", type);
+                    return null;
+            }
+
+            if (!viewports.hasValidValues()) {
                 logger.warn("No valid coordinates found");
                 return null;
             }
 
-            ObjectMapper mapper = new ObjectMapper();
-
-            ObjectNode viewportNode = mapper.createObjectNode();
-
-            ObjectNode lowNode = mapper.createObjectNode();
-            lowNode.put(LATITUDE, minLat);
-            lowNode.put(LONGITUDE, minLng);
-
-            ObjectNode highNode = mapper.createObjectNode();
-            highNode.put(LATITUDE, maxLat);
-            highNode.put(LONGITUDE, maxLng);
-
-            viewportNode.set(LOW, lowNode);
-            viewportNode.set(HIGH, highNode);
-
-            return viewportNode;
+            return buildViewportNode(viewports);
 
         } catch (Exception e) {
             logger.error("Error extracting viewport", e);
             return null;
         }
     }
+    private void processPolygon(JsonNode coordinates, Viewports viewports) {
+        // coordinates[0] = outer ring
+        for (JsonNode point : coordinates.get(0)) {
+            updateBounds(point, viewports);
+        }
+    }
+
+    private void processMultiPolygon(JsonNode coordinates, Viewports viewports) {
+        for (JsonNode polygon : coordinates) {
+            for (JsonNode ring : polygon) {
+                for (JsonNode point : ring) {
+                    updateBounds(point, viewports);
+                }
+            }
+        }
+    }
+    private void processSimpleCoordinates(JsonNode coordinates, Viewports viewports) {
+        for (JsonNode point : coordinates) {
+            updateBounds(point, viewports);
+        }
+    }
+    private void updateBounds(JsonNode point, Viewports viewports) {
+        double lng = point.get(0).asDouble();
+        double lat = point.get(1).asDouble();
+
+        viewports.update(lat, lng);
+    }
+    private JsonNode buildViewportNode(Viewports viewports) {
+
+        ObjectNode viewportNode = mapper.createObjectNode();
+
+        ObjectNode lowNode = mapper.createObjectNode();
+        lowNode.put(LATITUDE, viewports.getMinLat());
+        lowNode.put(LONGITUDE, viewports.getMinLng());
+
+        ObjectNode highNode = mapper.createObjectNode();
+        highNode.put(LATITUDE, viewports.getMaxLat());
+        highNode.put(LONGITUDE, viewports.getMaxLng());
+
+        viewportNode.set(LOW, lowNode);
+        viewportNode.set(HIGH, highNode);
+
+        return viewportNode;
+    }
+
 
     /**
      * Calculates the geographic center from a viewport node.
@@ -361,7 +372,6 @@ public class GoogleMapsService {
             double centerLat = (minLat + maxLat) / 2;
             double centerLng = (minLng + maxLng) / 2;
 
-            ObjectMapper mapper = new ObjectMapper();
             ObjectNode centerNode = mapper.createObjectNode();
             centerNode.put(LATITUDE, centerLat);
             centerNode.put(LONGITUDE, centerLng);
