@@ -23,35 +23,42 @@ public class FavouritesCardMapper {
             .add("visitscotland:Listicle")
             .build();
 
-    public FavouritesCard getFavouritesCard(HippoBean bean){
+    public FavouritesCard getFavouritesCard(HippoBean bean) {
 
         if (bean == null) {
             logger.info("Cannot parse favourites card from bean.");
             return null;
         }
 
+        final String contentType = bean.getContentType();
+        if (contentType == null || contentType.isEmpty()) {
+            logger.info("Cannot extract content type from bean.");
+            return null;
+        }
+        if (!FAVOURITABLE_CONTENT.contains(contentType)) {
+            logger.info("Unsupported content type: {}", bean.getContentType());
+            return null;
+        }
         final Page page = ((Page) bean);
         if (page == null) {
             logger.info("Could not parse page from HippoBean.");
             return null;
         }
 
-        final String contentType = bean.getContentType();
-
-        if (contentType != null && FAVOURITABLE_CONTENT.contains(contentType)) {
-           FavouritesCard card = new FavouritesCard();
-           card.setUuid(bean.getCanonicalUUID());
-           card.setTitle(page.getTitle());
-           card.setTeaser(page.getTeaser());
-           card.setImage(page.getHeroImage().getPath());
-           card.setUrl(page.getPath());
+        if (FAVOURITABLE_CONTENT.contains(contentType)) {
+            FavouritesCard card = new FavouritesCard();
+            card.setUuid(page.getCanonicalHandleUUID());
+            card.setTitle(page.getTitle());
+            card.setTeaser(page.getTeaser());
+            card.setImage(page.getHeroImage().getPath());
+            card.setUrl(page.getPath());
 
             return card;
 
         } else {
             logger.info("Content type {} is not supported for favourite content.", bean.getContentType());
-            return null;
-        }
 
+        }
+        return null;
     }
 }

@@ -100,6 +100,11 @@ public class SiteProperties extends Properties {
         return readString(GTM_PREVIEW_QUERY_STRING);
     }
 
+    // enable/disable favourites for each site
+    public boolean isFavouritesEnabled() {
+        return readBoolean(FAVOURITES_PAGE_ENABLED);
+    }
+
     public boolean isTableOfContentsEnabled() {
         return readBoolean(TABLE_OF_CONTENTS_ENABLED);
     }

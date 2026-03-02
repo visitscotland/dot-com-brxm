@@ -64,6 +64,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String SEARCH_EVENTS_CATEGORIES = "content.categories";
     private static final String SEARCH_EVENTS_FILTERS = "search-events-filters";
     private static final String SEARCH_FILTERS = "search-categories";
+    public static final String FAVOURITES_PAGE_ENABLED = "feature.favourites.enable";
+    public static final String FAVOURITES_SITE_URL = "feature.favourites.url";
 
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
@@ -97,7 +99,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final ImageMapper imageMapper;
     private final LinkService linksService;
     private final NewsletterFactory newsletterFactory;
-    private final ProductSearchWidgetFactory psrFactory;
     private final PreviewWarningMapper previewMapper;
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
@@ -111,7 +112,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         imageMapper = VsComponentManager.get(ImageMapper.class);
         newsletterFactory = VsComponentManager.get(NewsletterFactory.class);
         linksService = VsComponentManager.get(LinkService.class);
-        psrFactory = VsComponentManager.get(ProductSearchWidgetFactory.class);
         previewMapper = VsComponentManager.get(PreviewWarningMapper.class);
         contentLogger = VsComponentManager.get(ContentLogger.class);
         properties = VsComponentManager.get(SiteProperties.class);
@@ -363,20 +363,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     /**
-     * Add the configuration related to the Product Search Widget for the page
-     */
-    private void addProductSearchWidget(HstRequest request) {
-        final String PRODUCT_SEARCH_BUNDLE = "product-search-widget";
-
-        if (!request.getPathInfo().contains(properties.getSiteSkiSection())
-                && !request.getPathInfo().contains(properties.getCampaignSection())) {
-            request.setModel(PSR_WIDGET, psrFactory.getWidget(request));
-            labels(request).put(PRODUCT_SEARCH_BUNDLE,
-                    bundle.getAllLabels(PRODUCT_SEARCH_BUNDLE, request.getLocale()));
-        }
-    }
-
-    /**
      * Adds the logging object to the request.
      *
      * @param request HstRequest
@@ -420,15 +406,21 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * @param request HSt request
      */
     private void addSiteSpecificConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
-        if (properties.isProductSearchEnabled()){
-            addProductSearchWidget(request);
+
+        // look for property isFavsEnabled
+        // add url prop to page for favs
+
+
+        if (properties.isFavouritesEnabled()){
+            pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, true); // enabled
+            pageConfig.addProperty("", ""); // url
         }
 
         if (properties.isTableOfContentsEnabled()){
             addAllLabels(request, TABLE_CONTENTS_BUNDLE);
         }
 
-        pageConfig.addProperty(SitePropertyKeys.FEATURE_HERO_SECTION, properties.getFeatureHeroSection());
+        pageConfig.addProperty(SitePropertyKeys.FEATURE_HERO_SECTION, properties.getFeatureHeroSection()); // use this as ref for url key
 
         if (properties.isGlobalSearchEnabled()){
             if (properties.isGlobalSearchDmsBased()) {
@@ -461,7 +453,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void applyGlobalSearchConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
         final boolean isSearchResultsPage = isSearchResultsPage(request);
-        final boolean isFavouritesPage = isFavouritesPage(request);
         final boolean isHomepage = isHomepage(request);
 
         getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("site-search.path", v));
@@ -481,10 +472,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
                 pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
                 properties.getGlobalSearchLogic().ifPresent(v -> pageConfig.addProperty(SEARCH_LOGIC, v));
             }
-
-            if (isFavouritesPage) {
-                logger.warn("No idea if we need to do something here??");
-            }
         }
     }
 
@@ -494,15 +481,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private boolean isSearchResultsPage(HstRequest request) {
         return SEARCH_PAGE.equals(
-                request.getRequestContext()
-                        .getResolvedSiteMapItem()
-                        .getHstSiteMapItem()
-                        .getRefId()
-        );
-    }
-
-    private boolean isFavouritesPage(HstRequest request) {
-        return FAVOURITES_PAGE.equals(
                 request.getRequestContext()
                         .getResolvedSiteMapItem()
                         .getHstSiteMapItem()
