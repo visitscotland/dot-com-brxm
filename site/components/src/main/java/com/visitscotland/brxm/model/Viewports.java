@@ -1,10 +1,10 @@
 package com.visitscotland.brxm.model;
 
 public class Viewports {
-    double minLat = Double.POSITIVE_INFINITY;
-    double maxLat = Double.NEGATIVE_INFINITY;
-    double minLng = Double.POSITIVE_INFINITY;
-    double maxLng = Double.NEGATIVE_INFINITY;
+    private double minLat = Double.POSITIVE_INFINITY;
+    private double maxLat = Double.NEGATIVE_INFINITY;
+    private double minLng = Double.POSITIVE_INFINITY;
+    private double maxLng = Double.NEGATIVE_INFINITY;
 
     public void update(double lat, double lng) {
         minLat = Math.min(minLat, lat);
@@ -14,7 +14,7 @@ public class Viewports {
     }
 
     public boolean hasValidValues() {
-        return minLat != Double.POSITIVE_INFINITY;
+        return Double.isFinite(minLat) && Double.isFinite(maxLat) && Double.isFinite(minLng) && Double.isFinite(maxLng);
     }
 
     public double getMinLat() {
