@@ -296,7 +296,7 @@ public class GoogleMapsService {
     private void processPolygon(JsonNode coordinates, Viewports viewports) {
         // coordinates[0] = outer ring
         for (JsonNode point : coordinates.get(0)) {
-            updateBounds(point, viewports);
+            updateViewports(point, viewports);
         }
     }
 
@@ -304,17 +304,17 @@ public class GoogleMapsService {
         for (JsonNode polygon : coordinates) {
             for (JsonNode ring : polygon) {
                 for (JsonNode point : ring) {
-                    updateBounds(point, viewports);
+                    updateViewports(point, viewports);
                 }
             }
         }
     }
     private void processSimpleCoordinates(JsonNode coordinates, Viewports viewports) {
         for (JsonNode point : coordinates) {
-            updateBounds(point, viewports);
+            updateViewports(point, viewports);
         }
     }
-    private void updateBounds(JsonNode point, Viewports viewports) {
+    private void updateViewports(JsonNode point, Viewports viewports) {
         double lng = point.get(0).asDouble();
         double lat = point.get(1).asDouble();
 
@@ -348,7 +348,7 @@ public class GoogleMapsService {
      * @param viewportNode JSON node containing viewport information
      * @return JsonNode with "latitude" and "longitude", or null if invalid
      */
-    public JsonNode calculateCenterFromViewport(JsonNode viewportNode) {
+   public JsonNode calculateCenterFromViewport(JsonNode viewportNode) {
 
         if (viewportNode == null || viewportNode.isEmpty()) {
             logger.warn("Empty viewport node provided");
@@ -356,27 +356,12 @@ public class GoogleMapsService {
         }
 
         try {
-            JsonNode low = viewportNode.get(LOW);
-            JsonNode high = viewportNode.get(HIGH);
-
-            if (low == null || high == null) {
-                logger.warn("Viewport missing low/high nodes");
+            Viewports bounds = extractBoundsFromViewport(viewportNode);
+            if (bounds == null) {
                 return null;
             }
 
-            double minLat = low.get(LATITUDE).asDouble();
-            double minLng = low.get(LONGITUDE).asDouble();
-            double maxLat = high.get(LATITUDE).asDouble();
-            double maxLng = high.get(LONGITUDE).asDouble();
-
-            double centerLat = (minLat + maxLat) / 2;
-            double centerLng = (minLng + maxLng) / 2;
-
-            ObjectNode centerNode = mapper.createObjectNode();
-            centerNode.put(LATITUDE, centerLat);
-            centerNode.put(LONGITUDE, centerLng);
-
-            return centerNode;
+            return buildCenterNode(bounds);
 
         } catch (Exception e) {
             logger.error("Error calculating center from viewport", e);
@@ -384,5 +369,35 @@ public class GoogleMapsService {
         }
     }
 
+    private Viewports extractBoundsFromViewport(JsonNode viewportNode) {
 
+        JsonNode low = viewportNode.get(LOW);
+        JsonNode high = viewportNode.get(HIGH);
+
+        if (low == null || high == null) {
+            logger.warn("Viewport missing low/high nodes");
+            return null;
+        }
+
+        Viewports viewports = new Viewports();
+
+        viewports.setMinLat(low.get(LATITUDE).asDouble());
+        viewports.setMinLng(low.get(LONGITUDE).asDouble());
+        viewports.setMaxLat(low.get(LATITUDE).asDouble());
+        viewports.setMaxLng(low.get(LONGITUDE).asDouble());
+
+        return viewports;
+    }
+
+    private JsonNode buildCenterNode(Viewports bounds) {
+
+        double centerLat = (bounds.getMinLat() + bounds.getMaxLat()) / 2;
+        double centerLng = (bounds.getMinLng() + bounds.getMaxLng()) / 2;
+
+        ObjectNode centerNode = mapper.createObjectNode();
+        centerNode.put(LATITUDE, centerLat);
+        centerNode.put(LONGITUDE, centerLng);
+
+        return centerNode;
+    }
 }
