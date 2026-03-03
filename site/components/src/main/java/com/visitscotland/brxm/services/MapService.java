@@ -32,7 +32,7 @@ public class MapService {
     static final String MAPS_GOOGLE_LOCATIONS = "maps-google-locations";
     static final String VIEWPORT = "viewport";
     static final String LABEL = "label";
-    static final String TAXONOMY = "taxonomy";
+    static final String CMS_DATA = "cmsData";
     static final String DISCOVER = "map.discover";
     static final String PROPERTIES = "properties";
     static final String CATEGORY = "category";
@@ -79,20 +79,17 @@ public class MapService {
      * @param locale locale to bring the label in the right language
      * @return ObjectNode with the filters to be used
      */
-    public ObjectNode addFilterNode(Category child, Locale locale) {
-        Category parent = child.getParent();
-        String parentTaxonomy = parent != null ? parent.getKey() : null;
-        ObjectNode filter = buildCategoryNode(child.getKey(), getTaxonomyLabel(child, locale), parentTaxonomy);
+    public ObjectNode addFilterNode(Category child, Locale locale, boolean cmsBased) {
+        ObjectNode filter = buildCategoryNode(child.getKey(), getTaxonomyLabel(child, locale), cmsBased);
         if (!child.getChildren().isEmpty()){
             ArrayNode childrenArray = mapper.createArrayNode();
             for (Category children : child.getChildren()) {
-                childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName(), child.getKey()));
+                childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName(), false));
             }
             filter.set(SUBCATEGORY,childrenArray);
         }
         return filter;
     }
-
 
     /**
      * Method to build ObjectNode key label for category/taxonomy
@@ -102,9 +99,7 @@ public class MapService {
      * @return ObjectNode key label for categories
      */
     public ObjectNode buildCategoryNode(String key, String label) {
-        return  mapper.createObjectNode()
-                .put(ID, key)
-                .put(LABEL, label);
+        return  buildCategoryNode( key,  label, false);
     }
 
     /**
@@ -112,14 +107,19 @@ public class MapService {
      *
      * @param key taxonomy category to build key
      * @param label taxonomy category to build label
-     * @param taxonomy taxonomy main node to build label
+     * @param cmsBased if data comes from CMS
      * @return ObjectNode key label for categories
      */
-    public ObjectNode buildCategoryNode(String key, String label, String taxonomy) {
-        return mapper.createObjectNode()
-            .put(ID, key)
-            .put(LABEL, label)
-            .put(TAXONOMY, taxonomy);
+    public ObjectNode buildCategoryNode(String key, String label, boolean cmsBased) {
+        ObjectNode node = mapper.createObjectNode()
+                .put(ID, key)
+                .put(LABEL, label);
+
+        if (cmsBased) {
+            node.put(CMS_DATA, true);
+        }
+
+        return node;
     }
     /**
      *
