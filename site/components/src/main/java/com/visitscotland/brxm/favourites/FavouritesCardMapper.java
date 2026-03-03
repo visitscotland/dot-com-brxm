@@ -39,6 +39,7 @@ public class FavouritesCardMapper {
             logger.info("Unsupported content type: {}", bean.getContentType());
             return null;
         }
+
         final Page page = ((Page) bean);
         if (page == null) {
             logger.info("Could not parse page from HippoBean.");
@@ -50,8 +51,8 @@ public class FavouritesCardMapper {
             card.setUuid(page.getCanonicalHandleUUID());
             card.setTitle(page.getTitle());
             card.setTeaser(page.getTeaser());
-            card.setImage(page.getHeroImage().getPath());
-            card.setUrl(page.getPath());
+            card.setImage("/site/binaries" + page.getHeroImage().getCanonicalPath()); // TODO - temp for FE dev, change before merge
+            card.setUrl(page.getPath()); // not working
 
             return card;
 
