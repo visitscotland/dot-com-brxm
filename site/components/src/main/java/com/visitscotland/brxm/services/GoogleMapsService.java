@@ -1,18 +1,13 @@
 package com.visitscotland.brxm.services;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.collect.ImmutableMap;
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ItineraryPage;
-import com.visitscotland.brxm.model.Viewports;
 import com.visitscotland.utils.CoordinateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -30,12 +25,6 @@ public class GoogleMapsService {
 
     private static final Logger logger = LoggerFactory.getLogger(GoogleMapsService.class);
     private static final String DIRECTIONS_URL = "https://www.google.com/maps/dir";
-    static final String LATITUDE = "latitude";
-    static final String LONGITUDE = "longitude";
-    static final String LOW = "low";
-    static final String HIGH = "high";
-
-    private final ObjectMapper mapper;
 
     // regex to extract coordinates from url using @ coordinates
     private static final String URL_REGEX =
@@ -50,11 +39,6 @@ public class GoogleMapsService {
             .put("fr-FR", "fr")
             .put("nl-NL", "nl")
             .build();
-
-    @Autowired
-    public GoogleMapsService ( ObjectMapper mapper) {
-        this.mapper = mapper;
-    }
 
     /**
      * calculates the total distance across days from the coordinates contained in the map
@@ -237,190 +221,4 @@ public class GoogleMapsService {
         }
     }
 
-    public JsonNode extractViewportFromJson(JsonNode geometryNode) {
-
-        if (geometryNode == null || geometryNode.isEmpty()) {
-            logger.warn("Empty geometry node provided");
-            return null;
-        }
-
-        try {
-            JsonNode typeNode = geometryNode.get("type");
-            if (typeNode == null) {
-                logger.warn("Geometry node missing 'type' field");
-                return null;
-            }
-            String type = typeNode.asText();
-            if (type == null) {
-                logger.warn("Geometry node 'type' can not be converted to text");
-                return null;
-            }
-
-            JsonNode coordinates =  geometryNode.get("coordinates");
-            if (coordinates == null) {
-                logger.warn("Geometry node missing 'coordinates' field");
-                return null;
-            }
-
-            Viewports viewports = new Viewports();
-
-            switch (type.toLowerCase()) {
-                case "polygon":
-                    processPolygon(coordinates, viewports);
-                    break;
-
-                case "multipolygon":
-                    processMultiPolygon(coordinates, viewports);
-                    break;
-
-                case "bounds":
-                    processSimpleCoordinates(coordinates, viewports);
-                    break;
-
-                default:
-                    logger.warn("Unsupported geometry type: {}", type);
-                    return null;
-            }
-
-            if (!viewports.hasValidValues()) {
-                logger.warn("No valid coordinates found");
-                return null;
-            }
-
-            return buildViewportNode(viewports);
-
-        } catch (Exception e) {
-            logger.error("Error extracting viewport", e);
-            return null;
-        }
-    }
-    private void processPolygon(JsonNode coordinates, Viewports viewports) {
-        // coordinates[0] = outer ring
-        for (JsonNode point : coordinates.get(0)) {
-            updateViewports(point, viewports);
-        }
-    }
-
-    private void processMultiPolygon(JsonNode coordinates, Viewports viewports) {
-        for (JsonNode polygon : coordinates) {
-            for (JsonNode ring : polygon) {
-                for (JsonNode point : ring) {
-                    updateViewports(point, viewports);
-                }
-            }
-        }
-    }
-    private void processSimpleCoordinates(JsonNode coordinates, Viewports viewports) {
-        for (JsonNode point : coordinates) {
-            updateViewports(point, viewports);
-        }
-    }
-    private void updateViewports(JsonNode point, Viewports viewports) {
-        if (point == null || !point.isArray() || point.size() < 2) {
-           logger.warn("Invalid coordinate point structure");
-            return;
-        }
-
-        JsonNode lngNode = point.get(0);
-        JsonNode latNode = point.get(1);
-        if (lngNode == null || latNode == null || !lngNode.isNumber() || !latNode.isNumber()) {
-                logger.warn("Invalid coordinate point values");
-                return;
-            }
-
-        double lng = lngNode.doubleValue();
-        double lat = latNode.doubleValue();
-
-        viewports.update(lat, lng);
-    }
-    private JsonNode buildViewportNode(Viewports viewports) {
-
-        ObjectNode viewportNode = mapper.createObjectNode();
-
-        ObjectNode lowNode = mapper.createObjectNode();
-        lowNode.put(LATITUDE, viewports.getMinLat());
-        lowNode.put(LONGITUDE, viewports.getMinLng());
-
-        ObjectNode highNode = mapper.createObjectNode();
-        highNode.put(LATITUDE, viewports.getMaxLat());
-        highNode.put(LONGITUDE, viewports.getMaxLng());
-
-        viewportNode.set(LOW, lowNode);
-        viewportNode.set(HIGH, highNode);
-
-        return viewportNode;
-    }
-
-
-    /**
-     * Calculates the geographic center from a viewport node.
-     *
-     * <p>The center is calculated as the midpoint between
-     * the southwest (low) and northeast (high) coordinates.
-     *
-     * @param viewportNode JSON node containing viewport information
-     * @return JsonNode with "latitude" and "longitude", or null if invalid
-     */
-   public JsonNode calculateCenterFromViewport(JsonNode viewportNode) {
-
-        if (viewportNode == null || viewportNode.isEmpty()) {
-            logger.warn("Empty viewport node provided");
-            return null;
-        }
-
-        try {
-            Viewports bounds = extractBoundsFromViewport(viewportNode);
-            if (bounds == null) {
-                return null;
-            }
-
-            return buildCenterNode(bounds);
-
-        } catch (Exception e) {
-            logger.error("Error calculating center from viewport", e);
-            return null;
-        }
-    }
-
-    private Viewports extractBoundsFromViewport(JsonNode viewportNode) {
-
-        JsonNode low = viewportNode.get(LOW);
-        JsonNode high = viewportNode.get(HIGH);
-
-        if (low == null || high == null) {
-            logger.warn("Viewport missing low/high nodes");
-            return null;
-        }
-
-        JsonNode minLatNode = low.get(LATITUDE);
-        JsonNode minLngNode = low.get(LONGITUDE);
-        JsonNode maxLatNode = high.get(LATITUDE);
-        JsonNode maxLngNode = high.get(LONGITUDE);
-
-        if (minLatNode == null || minLngNode == null || maxLatNode == null || maxLngNode == null) {
-            logger.warn("Viewport missing required coordinate fields");
-            return null;
-        }
-
-        Viewports viewports = new Viewports();
-
-        viewports.setMinLat(minLatNode.asDouble());
-        viewports.setMinLng(minLngNode.asDouble());
-        viewports.setMaxLat(maxLatNode.asDouble());
-        viewports.setMaxLng(maxLngNode.asDouble());
-
-        return viewports;
-    }
-
-    private JsonNode buildCenterNode(Viewports bounds) {
-
-        double centerLat = (bounds.getMinLat() + bounds.getMaxLat()) / 2;
-        double centerLng = (bounds.getMinLng() + bounds.getMaxLng()) / 2;
-
-        ObjectNode centerNode = mapper.createObjectNode();
-        centerNode.put(LATITUDE, centerLat);
-        centerNode.put(LONGITUDE, centerLng);
-
-        return centerNode;
-    }
 }
