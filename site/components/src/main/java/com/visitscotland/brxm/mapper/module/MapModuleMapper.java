@@ -48,7 +48,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
     static final String NAME = "name";
     static final String REGIONS = "regions";
     static final String TITLE = "title";
-    static final String MAP = "map";
+    static final String MAP_BUNDLE = "map";
     static final String POINT = "Point";
 
     private final MapService mapService;
@@ -56,7 +56,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
     private final ObjectMapper mapper;
     private final DMSDataService dmsDataService;
     private final ResourceBundleService bundle;
-    private final CMSProperties properties;
+    private final CMSProperties cmsProperties;
     private final SiteProperties siteProperties;
     private final ImageMapper imageMapper;
     private final LocationLoader locationLoader;
@@ -67,7 +67,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         this.mapper = mapper;
         this.dmsDataService = dmsDataService;
         this.bundle = bundle;
-        this.properties = properties;
+        this.cmsProperties = properties;
         this.siteProperties = siteProperties;
         this.imageMapper = imageMapper;
         this.locationLoader = locationLoader;
@@ -92,7 +92,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         module.setIntroduction(document.getCopy());
         module.setTabTitle(document.getTabTitle());
 
-        if (document.isGoogleMap()) {
+        if (Boolean.TRUE.equals(document.isGoogleMap())) {
             configureGoogleMap(document, compositionHelper, module);
         }
 
@@ -154,7 +154,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
         }
-        Boolean multipleTaxonomy = false;
+        boolean multipleTaxonomy = false;
         for (String taxonomy : mapModuleDocument.getKeys()) {
             //get all the Taxonomy information
             Taxonomy vsTaxonomyTree = hippoUtilsService.getTaxonomy();
@@ -197,7 +197,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
      */
     private void buildDestinationMapPages (Locale locale,Destination destinationPage, MapModule mapModuleDocument, MapsModule module, ArrayNode keys, ArrayNode features){
        if (Contract.isEmpty(module.getTabTitle())){
-           String tabTitle = bundle.getResourceBundle(MAP, "map.explore", locale) + " " + destinationPage.getTitle();
+           String tabTitle = bundle.getResourceBundle(MAP_BUNDLE, "map.explore", locale) + " " + destinationPage.getTitle();
            module.setTabTitle(tabTitle);
        }
         LocationObject location = locationLoader.getLocation(destinationPage.getLocation(),locale);
@@ -209,11 +209,12 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         if (location == null) {
             logger.error("The locations list is not available and the map cannot be displayed for {}", destinationPage.getPath());
         } else if (destinationPage.getKeys() == null || !Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
+            //TODO Regions map are based on DMS and are not in use, refactor this code when we know what is happening with Destination(regions) pages
             module.setMapType(MapType.CITIES.getMapType());
             geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
             for (CitiesMapTab prodType : CitiesMapTab.values()) {
                 //filters
-                ObjectNode filter = mapService.buildCategoryNode(prodType.getProdTypeId(), bundle.getResourceBundle(MAP, prodType.getLabel(), locale));
+                ObjectNode filter = mapService.buildCategoryNode(prodType.getProdTypeId(), bundle.getResourceBundle(MAP_BUNDLE, prodType.getLabel(), locale));
 
                 ///endpoint for data (pins)
                 ProductSearchBuilder dmsQuery = this.buildProductSearch (destinationPage.getLocation(), prodType.getProdTypeId(), null, locale, null, 24);
@@ -222,7 +223,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
                 //Endpoint base to bring 24 random results
                 filter.put("listProductsEndPoint", dmsQuery.buildCannedSearch());
 
-                filter.put("pinClickEndPoint", properties.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD
+                filter.put("pinClickEndPoint", cmsProperties.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD
                         +"locale="+locale.toLanguageTag()+"&id=");
 
                 //subcategories added
@@ -233,13 +234,13 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         }else{
             module.setMapType(MapType.REGIONAL.getMapType());
             //for multipolygon regions we need the bounds to get the zoom level.
-            geometryNode = dmsDataService.getLocationBorders(location.getId(), !properties.getMapMultipolygons().contains(location.getId()));
+            geometryNode = dmsDataService.getLocationBorders(location.getId(), !cmsProperties.getMapMultipolygons().contains(location.getId()));
 
             for (RegionsMapTab regionMap: RegionsMapTab.values()) {
                 buildDMSMapPages(regionMap, module, keys, features, locale, destinationPage);
             }
         }
-        module.setDetailsEndpoint(properties.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD+"locale="+locale.toLanguageTag()+"&id=");
+        module.setDetailsEndpoint(cmsProperties.getDmsDataPublicHost() + DMSConstants.VS_DMS_PRODUCT_MAP_CARD+"locale="+locale.toLanguageTag()+"&id=");
         if (geometryNode != null) {
             module.setMapPosition((ObjectNode) geometryNode);
         }else{
@@ -253,8 +254,8 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
 
 
     private void buildDMSMapPages (BespokeDmsMap bespokeMap, MapsModule module, ArrayNode keys, ArrayNode features, Locale locale, Destination destinationPage) {
-        String label = !Contract.isNull(bundle.getResourceBundle(MAP,bespokeMap.getLabel(),locale))?
-                bundle.getResourceBundle(MAP,bespokeMap.getLabel(),locale):locationLoader.getLocation(bespokeMap.getLocation(), locale).getName();
+        String label = !Contract.isNull(bundle.getResourceBundle(MAP_BUNDLE,bespokeMap.getLabel(),locale))?
+                bundle.getResourceBundle(MAP_BUNDLE,bespokeMap.getLabel(),locale):locationLoader.getLocation(bespokeMap.getLocation(), locale).getName();
         ObjectNode regionFilters = this.addFilters(bespokeMap.getCategory(), label);
         keys.add(regionFilters);
         this.addDmsData(this.buildProductSearch(destinationPage != null? destinationPage.getLocation():bespokeMap.getLocation(), bespokeMap.getProdTypeId(), bespokeMap.getDmsCategory(), locale, DMSConstants.SORT_ALPHA, 100),
@@ -266,7 +267,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         if (dmsResponseData != null && !dmsResponseData.isEmpty()) {
             for (JsonNode jsonNode : dmsResponseData) {
                 FlatImage image = imageMapper.createImage(jsonNode, module,locale);
-                FlatLink link = new FlatLink(bundle.getResourceBundle(MAP, DISCOVER, locale), jsonNode.get("productLink").get("link").asText(), LinkType.EXTERNAL);
+                FlatLink link = new FlatLink(bundle.getResourceBundle(MAP_BUNDLE, DISCOVER, locale), jsonNode.get("productLink").get("link").asText(), LinkType.EXTERNAL);
                 ObjectNode data = mapper.createObjectNode();
                 String name = jsonNode.has(NAME) ? jsonNode.get(NAME).asText() : null;
                 String description = jsonNode.has(DESCRIPTION) ? jsonNode.get(DESCRIPTION).asText() : null;
@@ -288,14 +289,10 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
     }
 
     private BespokeDmsMap[] getValues(String mapType){
-        switch(mapType) {
-            case "IcentresMap":
-                return ICentresMapTab.values();
-            case "DistilleriesMap":
-                return DistilleryMapTab.values();
-            default:
-                return null;
+        if (mapType.equals("DistilleriesMap")) {
+            return DistilleryMapTab.values();
         }
+        return new BespokeDmsMap[0];
     }
 }
 
