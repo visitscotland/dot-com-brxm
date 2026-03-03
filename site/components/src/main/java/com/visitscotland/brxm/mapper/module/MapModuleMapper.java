@@ -209,7 +209,6 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         if (location == null) {
             logger.error("The locations list is not available and the map cannot be displayed for {}", destinationPage.getPath());
         } else if (destinationPage.getKeys() == null || !Arrays.asList(destinationPage.getKeys()).contains(REGIONS)) {
-            //TODO Regions map are based on DMS and are not in use, refactor this code when we know what is happening with Destination(regions) pages
             module.setMapType(MapType.CITIES.getMapType());
             geometryNode = dmsDataService.getLocationBorders(location.getId(),false);
             for (CitiesMapTab prodType : CitiesMapTab.values()) {
@@ -232,6 +231,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
                 keys.add(filter);
             }
         }else{
+            //TODO Regions map are based on DMS and are not in use, refactor this code when we know what is happening with Destination(regions) pages
             module.setMapType(MapType.REGIONAL.getMapType());
             //for multipolygon regions we need the bounds to get the zoom level.
             geometryNode = dmsDataService.getLocationBorders(location.getId(), !cmsProperties.getMapMultipolygons().contains(location.getId()));
