@@ -3,12 +3,14 @@ package com.visitscotland.brxm.components.breadcrumb;
 import com.visitscotland.brxm.components.content.ContentComponent;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.hst.core.sitemenu.HstSiteMenuItem;
@@ -23,6 +25,7 @@ import java.util.List;
 
 public class VsBreadCrumbProvider extends BreadcrumbProvider {
 
+    private final HippoUtilsService hippoUtilsService;
 
     /**
      * Constructor with an extra flag that determines behaviour for the trailing items
@@ -33,10 +36,12 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
     @SuppressWarnings("unused")
     public VsBreadCrumbProvider(BaseHstComponent component, boolean addTrailingDocumentOnly) {
         super(component, addTrailingDocumentOnly);
+        this.hippoUtilsService = VsComponentManager.get(HippoUtilsService.class);
     }
 
     public VsBreadCrumbProvider(BaseHstComponent component) {
         super(component);
+        this.hippoUtilsService = VsComponentManager.get(HippoUtilsService.class);
     }
 
     @Override
@@ -63,8 +68,9 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
         if(menuItem.getHstLink() != null){
             if (menuItem.resolveToSiteMapItem() != null) {
                 HippoBean bean = getComponent().getBeanForResolvedSiteMapItem(request, menuItem.resolveToSiteMapItem());
-                if (bean != null) {
-                    return new BreadcrumbItem(menuItem.getHstLink(), getBreadcrumbText(bean));
+                if (bean instanceof Page) {
+                    String plainLink = hippoUtilsService.createUrl((Page) bean);
+                    return new VsBreadcrumbItem(menuItem.getHstLink(), getBreadcrumbText(bean), plainLink);
                 }
             } else {
                 //If this warning message is logged and it is required that a menu item appears in the breadcrumb even though it
@@ -72,7 +78,7 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
                 getContentLogger().warn("The menu Item {} does point to a document.", menuItem.getName());
                 //The following error message flags a possible issue and a solution. If the implementation is required please remove the log message.
                 getContentLogger().warn("If previous message is not an unexpected issue, some extra logic might be required - {}", menuItem.getName());
-                return new BreadcrumbItem(menuItem.getHstLink(), menuItem.getName());
+                return new VsBreadcrumbItem(menuItem.getHstLink(), menuItem.getName(), menuItem.getHstLink().getPath());
             }
         }
 
@@ -86,19 +92,20 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
     protected BreadcrumbItem getBreadcrumbItem(final HstRequest request, final HippoBean bean,
                                                final boolean navigationStateful) {
         final HstRequestContext context = request.getRequestContext();
+        final HstLink link;
 
         if (navigationStateful) {
-            return new BreadcrumbItem(
-                    context.getHstLinkCreator().create(bean.getNode(), context, null, true, true),
-                    getBreadcrumbText(bean));
+            link = context.getHstLinkCreator().create(bean.getNode(), context, null, true, true);
         } else {
-            return new BreadcrumbItem(context.getHstLinkCreator().create(bean, context), getBreadcrumbText(bean));
+            link = context.getHstLinkCreator().create(bean, context);
         }
+
+        return new VsBreadcrumbItem(link, getBreadcrumbText(bean), link.toUrlForm(context,false));
     }
 
     /**
      * Add breadcrumb items based on an ancestor.
-     *
+     * <br>
      * Note: This method has been overriden so we can adapt the way it to our sitemap structure
      *
      * @param items          list of breadcrumb items
@@ -111,9 +118,8 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
                                                final HippoBean ancestorBean, final HstRequest request) {
 
         final ResolvedSiteMapItem currentSmi = request.getRequestContext().getResolvedSiteMapItem();
-        final HippoBean currentItem = getComponent().getBeanForResolvedSiteMapItem(request, currentSmi);
+        HippoBean currentItemBean = getComponent().getBeanForResolvedSiteMapItem(request, currentSmi);
 
-        HippoBean currentItemBean = currentItem;
         while (!currentItemBean.getParentBean().isSelf(ancestorBean) && !currentItemBean.isSelf(ancestorBean)) {
             final BreadcrumbItem item = getBreadcrumbItem(request, currentItemBean);
 
@@ -128,7 +134,7 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
 
     /** Method to check if the index document (content) exists in a particular folder.
      * Extract the proper name from the bean.
-     * @param bean
+     * @param bean Page document
      * @return HippoBean index document (content) or the folder if the index does not exist
      */
     private HippoBean getValidHippoBean (HippoBean bean){
@@ -143,8 +149,8 @@ public class VsBreadCrumbProvider extends BreadcrumbProvider {
 
     /**
      * Extract the proper name from the bean.
-     * @param bean
-     * @return
+     * @param bean Page document
+     * @return Page text used for navigation elements
      */
     private String getBreadcrumbText(final HippoBean bean) {
         if (bean instanceof Page) {

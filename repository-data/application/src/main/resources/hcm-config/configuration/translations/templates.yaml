@@ -55,6 +55,8 @@ definitions:
       new-bsh-page: new page
       new-translated-folder-shared-bsh: new folder
       new-shared-bsh-document: new shared link
+      new-bsh-comparator-feature: new feature
+      new-bsh-comparator-system: new provider
     /hippo:configuration/hippo:translations/hippo:templates/fr:
       new-resource-bundle: nouveau resource bundle
       new-untranslated-folder: nouveau dossier non traduit

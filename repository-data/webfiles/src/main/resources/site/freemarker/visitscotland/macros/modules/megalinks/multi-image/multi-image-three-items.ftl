@@ -16,6 +16,8 @@
         md="6"
         xl="4"
     >
+        <#assign transportIcon = getDMSIconName(megalink.itineraryTransport)>
+
         <vs-megalink-multi-image
             img-src="${image}"
             theme="${theme}"
@@ -23,7 +25,7 @@
             link-url="${megalink.link}"
             error-message="${label('essentials.global', 'third-party-error')}"
             <#if megalink.itineraryTransport??>
-                transport="${megalink.itineraryTransport}"
+                transport="${transportIcon}"
                 transport-name="${label('transports', megalink.itineraryTransport)}"
             </#if>
             <#if megalink.itineraryDays??>

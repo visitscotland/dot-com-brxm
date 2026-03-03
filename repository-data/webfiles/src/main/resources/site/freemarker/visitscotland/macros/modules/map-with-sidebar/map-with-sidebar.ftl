@@ -90,9 +90,6 @@
             <#if module.detailsEndpoint??>
                 details-endpoint="${module.detailsEndpoint}"
             </#if>
-            <#if module.mapType = 'regional'>
-                panel-message="${label('map', 'map.panel-bottom-msg')}"
-            </#if>
         >
             <template v-slot:close-side-panel-text>
                 <span class="visually-hidden">

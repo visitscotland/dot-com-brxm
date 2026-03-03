@@ -102,6 +102,33 @@ definitions:
       visitscotland:event-date-validator: The end date must be after the start date.
       visitscotland:event-deadline-validator: Please ensure that the deadline for
         registration is before the event start date.
+      visitscotland:megalinks-grid-type-validator: Please ensure that the correct
+       number of links is supplied for the megalinks grid type.
+      visitscotland:megalinks-grid-type-validator#translation: Required field not found.
+        Please ensure all required fields are populated.
+      visitscotland:megalinks-grid-type-validator#emptyLinks: No links provided.
+      visitscotland:megalinks-grid-type-validator#nullLayout: No layout supplied.
+      visitscotland:megalinks-grid-type-validator#numberOfLinks: Incorrect number of links
+        supplied. Please use at least 1 and no more than 4.
+      visitscotland:megalinks-grid-type-validator#exception: An unknown error occurred while
+        attempting to validate the megalinks grid type - If this issue persists, please
+        contact an administrator.
       visitscotland:event-deadline-validator#exception: An unknown error occurred
         while attempting to validate the event deadline, if this issue persists please
         contact an administrator.
+      visitscotland:google-maps-link-validator#invalidLinkDays: Invalid google place link
+        supplied. Please use the format https://www.google.com/maps/place/@[coordinate],[coordinate],(timezone)z/data=...
+        or https://www.google.co.uk/maps/place/@[coordinate],[coordinate],(timezone)z/data=...
+      visitscotland:google-maps-link-validator#invalidLinkItineraries: Invalid Google Maps link
+        supplied. Please use the format https://www.google.com/maps/... or
+        https://www.google.co.uk/maps/...
+      visitscotland:google-maps-link-validator#error: An error occurred. Please contact 
+        your administrator if this persists.
+      visitscotland:google-maps-link-validator#exception: An exception occurred. Please 
+        contact your administrator if this persists
+      visitscotland:cta-label-validator#emptyLabel: No text provided for CTA label.
+        Please add text to this field before saving. (CTA Link)
+      visitscotland:cta-label-validator#error: An error occurred. Please contact
+        your administrator if this persists.
+      visitscotland:cta-label-validator#exception: An exception occurred. Please
+        contact your administrator if this persists

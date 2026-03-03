@@ -1,0 +1,168 @@
+/content/documents/administration/options/comparison-tool/obs-features:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 5635dbc2-b4bb-4ccc-9c9a-553b30961496
+  hippo:name: Online Booking System - Features
+  /obs-features:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 954aa22e-3f22-43ca-8f13-5a6eef376e95
+    hippo:availability: [live, preview]
+    hippotranslation:id: 4696f27e-c9a5-45bd-81a1-8500bde1ddee
+    hippotranslation:locale: en
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: account-creation
+      selection:label: Account creation
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: accounting-integration
+      selection:label: Accounting integration
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: alternative-booking-options
+      selection:label: Alternative booking options
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: assigned-seating
+      selection:label: Assigned seating
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: business-support
+      selection:label: Business support
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: cloud-based-updates
+      selection:label: Cloud-based updates
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: customer-profiles
+      selection:label: Customer profiles
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: crm
+      selection:label: Customer Relationship Management (CRM) integration
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: customer-reviews-and-feedback
+      selection:label: Customer reviews and feedback
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: customer-validation-checks
+      selection:label: Customer validation checks
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: digital-waivers
+      selection:label: Digital waivers
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: discount-options
+      selection:label: Discount options
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: email-automation
+      selection:label: Email automation
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: email-marketing-platform-integration
+      selection:label: Email/marketing platform integration
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: epos-integration
+      selection:label: EPOS integration
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: equipment-management
+      selection:label: Equipment management
+    /selection:listitem[17]:
+      jcr:primaryType: selection:listitem
+      selection:key: failed-bookings
+      selection:label: Failed bookings
+    /selection:listitem[18]:
+      jcr:primaryType: selection:listitem
+      selection:key: gift-certificates
+      selection:label: Gift certificates, retail purchases and food and beverage purchases
+    /selection:listitem[19]:
+      jcr:primaryType: selection:listitem
+      selection:key: google-things-to-do
+      selection:label: Google Things To Do integration
+    /selection:listitem[20]:
+      jcr:primaryType: selection:listitem
+      selection:key: inventory-and-availability-management
+      selection:label: Inventory and availability management
+    /selection:listitem[21]:
+      jcr:primaryType: selection:listitem
+      selection:key: onboarding
+      selection:label: Onboarding
+    /selection:listitem[22]:
+      jcr:primaryType: selection:listitem
+      selection:key: ota-apis
+      selection:label: OTA APIs
+    /selection:listitem[23]:
+      jcr:primaryType: selection:listitem
+      selection:key: payment-processing
+      selection:label: Payment processing
+    /selection:listitem[24]:
+      jcr:primaryType: selection:listitem
+      selection:key: reservations-management
+      selection:label: Reservations management
+    /selection:listitem[25]:
+      jcr:primaryType: selection:listitem
+      selection:key: rules-based-pricing
+      selection:label: Rules-based pricing
+    /selection:listitem[26]:
+      jcr:primaryType: selection:listitem
+      selection:key: sms-automation
+      selection:label: SMS automation
+    /selection:listitem[27]:
+      jcr:primaryType: selection:listitem
+      selection:key: social-media
+      selection:label: Social media
+    /selection:listitem[28]:
+      jcr:primaryType: selection:listitem
+      selection:key: staff-guide-scheduling
+      selection:label: Staff/guide scheduling
+    /selection:listitem[29]:
+      jcr:primaryType: selection:listitem
+      selection:key: tour-budgeting
+      selection:label: Tour budgeting
+    /selection:listitem[30]:
+      jcr:primaryType: selection:listitem
+      selection:key: travel-agent-portal
+      selection:label: Travel agent portal
+    /selection:listitem[31]:
+      jcr:primaryType: selection:listitem
+      selection:key: visitor-check-in
+      selection:label: Visitor check-in
+    /selection:listitem[32]:
+      jcr:primaryType: selection:listitem
+      selection:key: whatsapp
+      selection:label: WhatsApp
+    /selection:listitem[33]:
+      jcr:primaryType: selection:listitem
+      selection:key: setup-fee
+      selection:label: Setup fee
+    /selection:listitem[34]:
+      jcr:primaryType: selection:listitem
+      selection:key: admin-fee
+      selection:label: Admin fee per booking
+    /selection:listitem[35]:
+      jcr:primaryType: selection:listitem
+      selection:key: annual-monthly
+      selection:label: Annual/monthly fee option available
+    /selection:listitem[36]:
+      jcr:primaryType: selection:listitem
+      selection:key: commission-only
+      selection:label: Commission only option available
+    /selection:listitem[37]:
+      jcr:primaryType: selection:listitem
+      selection:key: credit-debit-card
+      selection:label: Credit-debit card processing fee
+    /selection:listitem[38]:
+      jcr:primaryType: selection:listitem
+      selection:key: zero-business-cost
+      selection:label: Zero business cost (visitor chargeable) option available
+    /selection:listitem[39]:
+      jcr:primaryType: selection:listitem
+      selection:key: additional-fee-channel-manager
+      selection:label: Additional fee for use of channel manager

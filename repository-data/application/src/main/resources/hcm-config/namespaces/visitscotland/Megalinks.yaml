@@ -11,11 +11,12 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a1ca6ab8-4baf-4d84-8fe7-78510afbe4bf
+          jcr:uuid: e824260f-a8bf-42f5-8e6d-11f124a2c798
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
+          hipposysedit:validators: ['visitscotland:megalinks-grid-type-validator']
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -100,7 +101,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: eb916953-0042-4da9-a921-1fb49e6654ed
+          jcr:uuid: 9a305322-cc6a-4a27-878b-6ee3d310eed1
           hippostdpubwf:lastModificationDate: 2020-05-14T14:29:51.020+01:00
           hippostdpubwf:creationDate: 2020-05-14T14:29:51.020+01:00
           visitscotland:teaserVisible: true
@@ -199,7 +200,7 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Default,List,Horizontal Links
+              selectable.options: Default,List,Horizontal Links,Grid
           /teaserVisible:
             jcr:primaryType: frontend:plugin
             caption: Show Teasers

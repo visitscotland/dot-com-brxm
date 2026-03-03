@@ -25,13 +25,13 @@
         >
         </vs-summary-box-distance-list-item>
         <vs-summary-box-list-item
-            icon="${mainTransport}"
+            icon="${getDMSIconName(mainTransport)}"
             icon-label="${label("transports", "${mainTransport}")}"
             label="${label("itinerary", "transport")}"
         >
         </vs-summary-box-list-item>
         <vs-summary-box-list-item
-            icon="${itinerary.document.theme}"
+            icon="${getDMSIconName(itinerary.document.theme)}"
             icon-label="${label("themes", "${itinerary.document.theme}")}"
             label="${label("itinerary", "theme")}"
         >

@@ -9,11 +9,16 @@ repository-data/application/src/main/resources/hcm-content/content/documents/*
 repository-data/webfiles/src/main/resources/site/frontend/
 repository-data/webfiles/src/main/resources/site/static/
 repository-data/webfiles/src/main/resources/site/freemarker/frontend/
+
 #Other front-end assets
 node_modules/
 *.bundle.map
 *.css.map
 .env
+
+#Any component library changes imported from Yalc
+ui-integration/.yalc/
+ui-integration/yalc.lock
 
 #BloomReach CMS Related files
 essentials/overlays/
@@ -40,4 +45,4 @@ storage*/
 
 # JENKINS CI
 ci/logs/
-
+ci/temp/

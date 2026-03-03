@@ -71,10 +71,12 @@
                                     <vs-description-list-item 
                                         class="col-auto px-0"
                                     >
+                                        <#assign transportIcon = getDMSIconName(transport)>
+
                                         <vs-tooltip
                                             title="${label('transports', '${transport}')}"
                                             href="#"
-                                            icon="${transport}"
+                                            icon="${transportIcon}"
                                             size="sm"
                                             icon-only
                                             variant="transparent"

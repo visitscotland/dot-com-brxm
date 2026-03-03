@@ -1,4 +1,5 @@
 /hst:hst/hst:configurations/visitscotland/hst:workspace/hst:sitemenus/main/travel-planning:
+  .meta:order-before: main-map
   jcr:primaryType: hst:sitemenuitem
   hst:referencesitemapitem: sandbox/long-copy
   hst:repobased: false

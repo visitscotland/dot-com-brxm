@@ -97,7 +97,7 @@ public class NavigationFactory {
         MenuItem menuItem = new MenuItem(hstItem);
 
         //By default, the name would be populated by the resourceBundle
-        menuItem.setTitle(bundle.getResourceBundle(resourceBundle, hstItem.getName(), request.getLocale(), true));
+        menuItem.setTitle(bundle.getResourceBundle(resourceBundle, hstItem.getName(), request.getLocale()));
 
         //if document base page or widget, we enhance the document
         if (isDocumentBased(hstItem.getHstLink()) && hstItem.resolveToSiteMapItem() != null) {

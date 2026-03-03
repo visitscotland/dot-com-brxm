@@ -14,10 +14,25 @@ if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop.visitscotland.(com
     env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
     env.VS_RELEASE_SNAPSHOT = "FALSE"
     env.VS_PROXY_SERVER_FQDN = "develop.visitscotland.com"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop.visitscotland.(com|org)(-delivery-api)/develop")) {
+    echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+    thisAgent = "xvcdocker"
+    env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8089"
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
+    env.VS_RELEASE_SNAPSHOT = "FALSE"
+    env.VS_PROXY_SERVER_FQDN = "develop.visitscotland.com"
 } else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop-nightly.visitscotland.(com|org)(-mb)?/develop")) {
     echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
     thisAgent = "xvcdocker"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8098"
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
+    env.VS_CONTAINER_PRESERVE = "FALSE"
+    env.VS_PROXY_SERVER_FQDN = "develop-nightly.visitscotland.com"
+    cron_string = "@midnight"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop-nightly.visitscotland.(com|org)(-delivery-api)/develop")) {
+    echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+    thisAgent = "xvcdocker"
+    env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8088"
     env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
     env.VS_CONTAINER_PRESERVE = "FALSE"
     env.VS_PROXY_SERVER_FQDN = "develop-nightly.visitscotland.com"
@@ -34,10 +49,22 @@ if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?develop.visitscotland.(com
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8097"
     env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
     env.VS_PROXY_SERVER_FQDN = "feature.visitscotland.com"
+} else if (BRANCH_NAME == "develop" && (JOB_NAME ==~ "^(.*/)?feature.visitscotland.(com|org)(-delivery-api)/develop")) {
+    echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+    thisAgent = "xvcdocker"
+    env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8087"
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
+    env.VS_PROXY_SERVER_FQDN = "feature.visitscotland.com"
 } else if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements" && (JOB_NAME ==~ "^(.*/)?feature.visitscotland.(com|org)(-mb)?/ops%2Ffeature-environment(s)?-enhancements")) {
     echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
     thisAgent = "xvcdocker"
     env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8091"
+    env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
+    env.VS_PROXY_SERVER_FQDN = "feature.visitscotland.com"
+} else if (BRANCH_NAME ==~ "ops/feature-environment(s)?-enhancements" && (JOB_NAME ==~ "^(.*/)?feature.visitscotland.(com|org)(-delivery-api)/ops%2Ffeature-environment(s)?-enhancements")) {
+    echo "=== Setting conditional environment variables for branch $BRANCH_NAME in job $JOB_NAME"
+    thisAgent = "xvcdocker"
+    env.VS_CONTAINER_BASE_PORT_OVERRIDE = "8081"
     env.VS_CONTAINER_REMOVE_WHEN_PORT_IN_USE = "TRUE"
     env.VS_PROXY_SERVER_FQDN = "feature.visitscotland.com"
 } else {
@@ -67,11 +94,10 @@ if (!env.VS_BRANCH_PROPERTIES_FILE && !env.CHANGE_BRANCH) {
 } else if (!env.VS_BRANCH_PROPERTIES_FILE && env.CHANGE_BRANCH) {
 	env.VS_BRANCH_PROPERTIES_FILE = env.CHANGE_BRANCH.substring(env.CHANGE_BRANCH.lastIndexOf('/') + 1) + ".properties" 
 }
-
 echo "==/Setting default environment variables"
 
 echo "== Setting default application variables"
-if (!env.VS_BRXM_DSSR_SITES) { env.VS_BRXM_DSSR_SITES = "feature-businessevents.visitscotland.com feature-support.visitscotland.org" }
+if (!env.VS_BRXM_DSSR_SITES) { env.VS_BRXM_DSSR_SITES = "feature.visitscotland.com feature-businessevents.visitscotland.com feature-support.visitscotland.org" }
 if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
 if (!env.VS_BRXM_BVC_SPA_URL) { env.VS_BRXM_BVC_SPA_URL = "https://feature-businessevents.visitscotland.com" }
 if (!env.VS_BRXM_SVO_SPA_URL) { env.VS_BRXM_SVO_SPA_URL = "https://feature-support.visitscotland.org" }
@@ -81,8 +107,6 @@ echo "==/Setting default application variables"
 echo "== Setting default container variables"
 if (!env.VS_CONTAINER_PRESERVE) { env.VS_CONTAINER_PRESERVE = "TRUE" }
 echo "==/Setting default container variables"
-
-import groovy.json.JsonSlurper
 
 pipeline {
     options {
@@ -156,9 +180,11 @@ pipeline {
 				sh '''
 					set +x
 					echo; echo "running stage $STAGE_NAME on $HOSTNAME"
+					export VS_MAVEN_PROPERTIES="ci/temp/maven-build.properties"
+					export VS_MAVEN_EXTRA="org.codehaus.mojo:properties-maven-plugin:1.2.1:write-project-properties -Dproperties.outputFile=$VS_MAVEN_PROPERTIES"
 					export HOME=$WORKSPACE
 					export MAVEN_OPTS="-Duser.home=$HOME"
-					mvn --batch-mode clean package
+					mvn --batch-mode clean package $VS_MAVEN_EXTRA
         '''
 			}
 			post {
@@ -279,6 +305,15 @@ pipeline {
 						echo "cannot load environment variables, file does not exist"
 					}
 				}
+                publishHTML target: [
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: false,
+                    reportDir: env.VS_HTML_PUBLISHER_REPORT_DIR,
+                    reportFiles: env.VS_HTML_PUBLISHER_REPORT_FILE,
+                    reportName: 'VS Environment Details',
+                    reportTitles: ''
+                ]
 			}
 		} //end stage
 

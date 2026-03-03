@@ -3,6 +3,9 @@
 <#include "../../../../frontend/components/vs-accordion-item.ftl">
 <#include "../../../../frontend/components/vs-icon.ftl">
 <#include "../../../../frontend/components/vs-heading.ftl">
+
+<#include "../../../functions/helpers.ftl">
+
 <#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.TravelInformationModuleTab" -->
 
 <#macro travelInformationTab module>
@@ -10,6 +13,8 @@
         <div class="px-075 px-md-150 px-lg-300 px-xl-400 pt-200 pb-125">
             <vs-accordion>
                 <#list module.travelInformationTransportRows as row>
+                    <#assign transportIcon = getDMSIconName(row.transport.key)>
+
                     <vs-accordion-item
                         :open-by-default="<#if row?is_first>true<#else>false</#if>"
                         variant="transparent"
@@ -17,14 +22,14 @@
                         class="<#if row?is_first>border-top-0</#if>"
                     >
                         <template v-slot:title>
-                            <vs-icon name="${row.transport.key}" size="sm" class="me-050"></vs-icon>
+                            <vs-icon icon="fa-regular fa-${transportIcon}" size="sm" class="me-050"></vs-icon>
                             ${row.transport.label}
                         </template>
                         <template v-slot:icon-open>
-                            <vs-icon name="chevron" size="sm" />
+                            <vs-icon icon="fa-regular fa-chevron-up" size="sm" />
                         </template>
                         <template v-slot:icon-closed>
-                            <vs-icon name="chevron" orientation="down" size="sm" />
+                            <vs-icon icon="fa-regular fa-chevron-down" size="sm" />
                         </template>
                         <div class="p-075">
                             <@hst.html hippohtml=row.copy/>

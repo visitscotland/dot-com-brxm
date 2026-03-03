@@ -42,31 +42,35 @@ class MapPageValidatorTest {
     }
 
     @Test
-    @DisplayName("General Pages can only define one Taxonomy")
-    void validate_GeneralPageWithMultipleTaxonomyKeys() throws Exception {
-        // Setup the mock nodes
+    @DisplayName("General Pages cannot define more than two Taxonomies")
+    void validate_GeneralPageWithMoreThanTwoTaxonomyKeys() throws Exception {
+
         Node node = mock(Node.class, RETURNS_DEEP_STUBS);
         Property property = mock(Property.class);
         ValidationContext context = mock(ValidationContext.class);
         Violation violation = mock(Violation.class);
 
-        when(node.getParent().getParent().getNode("content")).thenReturn(Mockito.mock(Node.class));
+        when(node.getParent().getParent().getNode("content"))
+                .thenReturn(mock(Node.class));
 
-        // Mock the utils service to recognize as GeneralPage
-        when(utilsService.getDocumentFromNode(any(Node.class), eq(true))).thenReturn(mock(General.class));
+        when(utilsService.getDocumentFromNode(any(Node.class), eq(true)))
+                .thenReturn(mock(General.class));
 
-        // Mock node properties
         when(node.hasProperty(MapModule.MAP_KEYS)).thenReturn(true);
         when(node.getProperty(MapModule.MAP_KEYS)).thenReturn(property);
-        when(property.getValues()).thenReturn(new Value[]{Mockito.mock(Value.class), Mockito.mock(Value.class)}); // More than one key
 
-        // Mock violation creation
-        when(context.createViolation(MapPageValidator.VIOLATION_GENERAL_PAGE)).thenReturn(violation);
+        // Now 3 values (invalid)
+        when(property.getValues()).thenReturn(new Value[]{
+                mock(Value.class),
+                mock(Value.class),
+                mock(Value.class)
+        });
 
-        // Execute validation
+        when(context.createViolation(MapPageValidator.VIOLATION_GENERAL_PAGE))
+                .thenReturn(violation);
+
         Optional<Violation> result = validator.validate(context, node);
 
-        // Verify
         assertTrue(result.isPresent());
         assertEquals(violation, result.get());
     }

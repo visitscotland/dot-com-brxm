@@ -1,8 +1,9 @@
 package com.visitscotland.brxm.model;
 
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
-public class CannedSearchModule extends Module{
+public class CannedSearchModule extends Module<HippoBean> {
 
     private String title;
     private String productType;

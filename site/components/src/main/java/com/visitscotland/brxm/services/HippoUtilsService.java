@@ -47,6 +47,8 @@ public class HippoUtilsService {
 
     private static final Logger logger = LoggerFactory.getLogger(HippoUtilsService.class);
 
+    private static final String ENGLISH_ROOT_MOUNT = "/resourceapi";
+
     /**
      * Convert and HstLink or a HippoBean into a URL String
      *
@@ -81,11 +83,14 @@ public class HippoUtilsService {
             Mount requestMount = requestContext.getResolvedMount().getMount();
 
             HstLink link = requestContext.getHstLinkCreator().create(localize ? getLocalizedDocument(document) : document, requestContext);
-            // Ensure links always link to the current mount
-            // If the document does not exist on the current mount, HstLinkCreatorImpl will fall back to the english mount
-            // However we want to link to the current mount, and let the translation fallback handle resolution of the english document
-            if (localize && link.getMount().getLocale().equals(Locale.UK.toString()) && !requestMount.getLocale().equals(Locale.UK.toString())) {
-                link.setPath(String.format("%s/%s", requestMount.getMountPath(), link.getPath()));
+
+            if (localize && link.getMount() != requestMount && !Locale.UK.toString().equals(requestMount.getLocale())) {
+                if (link.getHstSiteMapItem().isWildCard()) {
+                    return link.toUrlForm(requestContext, FULLY_QUALIFIED)
+                            .replace(ENGLISH_ROOT_MOUNT, requestMount.getMountPath());
+                }
+
+                link = requestContext.getHstLinkCreator().create(link.getHstSiteMapItem(), requestMount);
             }
             return link.toUrlForm(requestContext, FULLY_QUALIFIED);
         }
@@ -310,6 +315,12 @@ public class HippoUtilsService {
     public Map<String, String> getValueMap(String valueListIdentifier) {
         ValueList valueList = SelectionUtil.getValueListByIdentifier(valueListIdentifier, RequestContextProvider.get());
         return SelectionUtil.valueListAsMap(valueList);
+    }
+
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public String getValueFromList(String valueListIdentifier, String key) {
+        Map<String, String> map = getValueMap(valueListIdentifier);
+        return map != null ? map.get(key) : null;
     }
 
     @NonTestable(NonTestable.Cause.BRIDGE)
