@@ -154,12 +154,18 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         if (!Contract.isNull(mapModuleDocument.getFeaturedPlacesItem())) {
             mapService.addFeaturePlacesNode(module, mapModuleDocument.getCategories(), request.getLocale(), keys, features);
         }
+        Boolean multipleTaxonomy = false;
         for (String taxonomy : mapModuleDocument.getKeys()) {
             //get all the Taxonomy information
             Taxonomy vsTaxonomyTree = hippoUtilsService.getTaxonomy();
-            module.setMapType(vsTaxonomyTree.getCategoryByKey(taxonomy).getKey());
-            for (Category mainCategory : vsTaxonomyTree.getCategoryByKey(taxonomy).getChildren()) {
-                keys.add(mapService.addFilterNode(mainCategory, request.getLocale()));
+            if (module.getMapType() == null || module.getMapType().isEmpty()) {
+                module.setMapType(vsTaxonomyTree.getCategoryByKey(taxonomy).getKey());
+            }
+             for (Category mainCategory : vsTaxonomyTree.getCategoryByKey(taxonomy).getChildren()) {
+                if (!multipleTaxonomy) {
+                    keys.add(mapService.addFilterNode(mainCategory, request.getLocale(), false));
+                }
+
                 //if the map has 2 levels, the parent won't be a category for the mapcards, so pick sons
                 if (!mainCategory.getChildren().isEmpty()) {
                     for(Category child : mainCategory.getChildren()){
@@ -172,6 +178,10 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
                 }
             }
 
+            if (multipleTaxonomy && taxonomy.equalsIgnoreCase("destinations")){
+                keys.add(mapService.addFilterNode(vsTaxonomyTree.getCategoryByKey(taxonomy), request.getLocale(),true));
+            }
+            multipleTaxonomy = true;
         }
     }
 
