@@ -56,12 +56,12 @@ public class MapService {
     private final LinkService linkService;
     private final LocationLoader locationLoader;
     private final HippoUtilsService hippoUtilsService;
-    private final GoogleMapsService googleUtilsService;
+    private final GeometryViewportService geometryViewportService;
 
     @Autowired
     public MapService(DMSDataService dmsData, ResourceBundleService bundle, ImageMapper imageMapper,
                       LinkService linkService, ObjectMapper mapper, LocationLoader locationLoader,
-                      HippoUtilsService hippoUtilsService, ContentLogger contentLogger, GoogleMapsService googleUtilsService) {
+                      HippoUtilsService hippoUtilsService, ContentLogger contentLogger, GeometryViewportService geometryViewportService) {
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.locationLoader = locationLoader;
@@ -70,7 +70,7 @@ public class MapService {
         this.mapper = mapper;
         this.hippoUtilsService = hippoUtilsService;
         this.contentLogger = contentLogger;
-        this.googleUtilsService = googleUtilsService;
+        this.geometryViewportService = geometryViewportService;
     }
 
     /**
@@ -81,12 +81,12 @@ public class MapService {
      */
     public ObjectNode addFilterNode(Category child, Locale locale) {
         Category parent = child.getParent();
-        String taxonomy = parent != null ? parent.getKey() : null;
-        ObjectNode filter = buildCategoryNode(child.getKey(), getTaxonomyLabel(child, locale), taxonomy);
+        String parentTaxonomy = parent != null ? parent.getKey() : null;
+        ObjectNode filter = buildCategoryNode(child.getKey(), getTaxonomyLabel(child, locale), parentTaxonomy);
         if (!child.getChildren().isEmpty()){
             ArrayNode childrenArray = mapper.createArrayNode();
             for (Category children : child.getChildren()) {
-                childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName()));
+                childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName(), child.getKey()));
             }
             filter.set(SUBCATEGORY,childrenArray);
         }
@@ -263,7 +263,7 @@ public class MapService {
                 JsonNode geometryNode = dmsData.getLocationBorders(locationLoader.getLocation(destination.getLocation(), null).getId(),true);
                 if(geometryNode!=null && !geometryNode.isEmpty()) {
                     feature.set(GEOMETRY, getGeometryNode((ArrayNode) geometryNode.get("coordinates"), geometryNode.get(TYPE).asText()));
-                    viewports = googleUtilsService.extractViewportFromJson(geometryNode);
+                    viewports = geometryViewportService.extractViewportFromGeometry(geometryNode);
                 }
             }else {
                 ObjectNode geometryNode = getGeometryNode(getCoordinates(location.getLongitude(),location.getLatitude()),POINT);
@@ -271,12 +271,12 @@ public class MapService {
 
                 feature.set(GEOMETRY, geometryNode);
                 if (boundsNode != null) {
-                    viewports = googleUtilsService.extractViewportFromJson(boundsNode);
+                    viewports = geometryViewportService.extractViewportFromGeometry(boundsNode);
                 }
 
             }
-            feature.set(VIEWPORT, viewports);
-            feature.set(LOCATION_CENTRE, googleUtilsService.calculateCenterFromViewport(viewports));
+            properties.set(VIEWPORT, viewports);
+            properties.set(LOCATION_CENTRE, geometryViewportService.calculateCenterFromViewport(viewports));
         }else {
             feature.set(PROPERTIES, properties);
         }
