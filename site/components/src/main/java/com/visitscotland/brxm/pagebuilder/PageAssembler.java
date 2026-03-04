@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.pagebuilder;
 
 import com.google.common.collect.ImmutableList;
+import com.visitscotland.brxm.components.content.GeneralContentComponent;
 import com.visitscotland.brxm.mapper.module.SpotlightMapper;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.*;
@@ -102,6 +103,9 @@ public class PageAssembler {
             final String contentType = page.getPage().getContentType();
             if (contentType != null && FAVOURITABLE_CONTENT.contains(page.getPage().getContentType())) {
                 logger.debug("Got favouritable content");
+                page.addProperty(IS_FAVOURITE, true);
+            } else if (page.getPage() instanceof General && GeneralContentComponent.STANDARD.equals(((General) page.getPage()).getTheme())){
+                logger.debug("Got favouritable General content for standard layout");
                 page.addProperty(IS_FAVOURITE, true);
             } else {
                 page.addProperty(IS_FAVOURITE, false);

@@ -1,6 +1,8 @@
 package com.visitscotland.brxm.favourites;
 
 import com.google.common.collect.ImmutableList;
+import com.visitscotland.brxm.components.content.GeneralContentComponent;
+import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.favourites.FavouritesCard;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -35,9 +37,15 @@ public class FavouritesCardMapper {
             logger.info("Cannot extract content type from bean.");
             return null;
         }
+
         if (!FAVOURITABLE_CONTENT.contains(contentType)) {
-            logger.info("Unsupported content type: {}", bean.getContentType());
-            return null;
+            if (!(bean instanceof General && GeneralContentComponent.STANDARD.equals((((General) bean).getTheme())))){
+                logger.info("Unsupported content type: {}", bean.getContentType());
+                if (contentType.equals("visitscotland:General")) {
+                    logger.info("General pages are only supported for 'Standard' layout.");
+                }
+                return null;
+            }
         }
 
         final Page page = ((Page) bean);
@@ -46,20 +54,15 @@ public class FavouritesCardMapper {
             return null;
         }
 
-        if (FAVOURITABLE_CONTENT.contains(contentType)) {
-            FavouritesCard card = new FavouritesCard();
-            card.setUuid(page.getCanonicalHandleUUID());
-            card.setTitle(page.getTitle());
-            card.setTeaser(page.getTeaser());
-            card.setImage("/site/binaries" + page.getHeroImage().getCanonicalPath()); // TODO - temp for FE dev, change before merge
-            card.setUrl(page.getPath()); // not working
+        FavouritesCard card = new FavouritesCard();
+        card.setUuid(page.getCanonicalHandleUUID());
+        card.setTitle(page.getTitle());
+        card.setTeaser(page.getTeaser());
+        card.setImage(page.getHeroImage().getCanonicalPath());
+        card.setUrl(page.getPath()); // not working
 
-            return card;
+        return card;
 
-        } else {
-            logger.info("Content type {} is not supported for favourite content.", bean.getContentType());
-
-        }
-        return null;
     }
 }
+
