@@ -25,7 +25,7 @@
 # Outputs (written under <out_dir>/):
 #   - email.subject.txt      Single-line email subject
 #   - email.recipients.txt   Comma-separated recipient list
-#   - email.body.txt         Rendered HTML email body
+#   - email.body.html         Rendered HTML email body
 #
 # Execution model:
 #   - Intended to run inside a Jenkins workspace with SCM context available.
@@ -433,7 +433,7 @@ step_5_compose_email() {
   echo "            INFO: EMAIL_RECIPIENTS: $EMAIL_RECIPIENTS"
 
   # Constructing the email body in html, and writing it to a file
-  EMAIL_HTML_FILE="$OUT_DIR/email.body.txt"
+  EMAIL_HTML_FILE="$OUT_DIR/email.body.html"
 
   {
     cat <<'HTML_HEAD'

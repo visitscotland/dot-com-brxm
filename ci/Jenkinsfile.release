@@ -491,7 +491,7 @@ pipeline {
                         }
                         // New approach using files
                         def emailSubjectFile = "${outDir}/email.subject.txt"
-                        def emailBodyFile = "${outDir}/email.body.txt"
+                        def emailBodyFile = "${outDir}/email.body.html"
                         def emailRecipientsFile = "${outDir}/email.recipients.txt"
                         emailext(
                                 // trimming, as we might have trailing newlines from printf, or editors
@@ -506,7 +506,7 @@ pipeline {
                                 alwaysLinkToLastBuild: false,
                                 keepAll: false,
                                 reportDir: outDir,
-                                reportFiles: 'email.body.txt',
+                                reportFiles: 'email.body.html',
                                 reportName: 'Release Email Body',
                                 reportTitles: ''
                         ]
