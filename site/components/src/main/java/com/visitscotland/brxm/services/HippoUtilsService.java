@@ -6,6 +6,7 @@ import com.visitscotland.brxm.utils.NonTestable;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
+import org.hippoecm.hst.content.beans.manager.ObjectBeanManager;
 import org.hippoecm.hst.content.beans.manager.ObjectConverter;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -48,6 +49,7 @@ public class HippoUtilsService {
     private static final Logger logger = LoggerFactory.getLogger(HippoUtilsService.class);
 
     private static final String ENGLISH_ROOT_MOUNT = "/resourceapi";
+    private static final String FWD_SLASH = "/";
 
     /**
      * Convert and HstLink or a HippoBean into a URL String
@@ -134,7 +136,7 @@ public class HippoUtilsService {
     @NonTestable(NonTestable.Cause.BRIDGE)
     public <T extends HippoBean> T getDocumentFromContent(String relativeContentPath) throws QueryException, ObjectBeanManagerException, RepositoryException  {
         Mount requestMount = RequestContextProvider.get().getResolvedMount().getMount();
-        String bannerPath = "/" + PathUtils.normalizePath(requestMount.getContentPath()) + "/" + PathUtils.normalizePath(relativeContentPath);
+        String bannerPath = FWD_SLASH + PathUtils.normalizePath(requestMount.getContentPath()) + FWD_SLASH + PathUtils.normalizePath(relativeContentPath);
         return getDocumentFromNode(bannerPath);
     }
 
@@ -291,7 +293,7 @@ public class HippoUtilsService {
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
     public Mount getResolvedMount(HstRequest request){
-        HstRequestContext context = request == null? RequestContextProvider.get(): request.getRequestContext();
+        HstRequestContext context = request == null ? RequestContextProvider.get() : request.getRequestContext();
         return context.getResolvedMount().getMount();
     }
 
@@ -355,4 +357,24 @@ public class HippoUtilsService {
         }
         return null;
     }
+
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public HippoBean getContentByUuid(final String uuid) {
+
+        try {
+            final ObjectBeanManager objectBeanManager = RequestContextProvider.get().getObjectBeanManager();
+            if (uuid != null) {
+                HippoBean bean = (HippoBean) objectBeanManager.getObjectByUuid(uuid);
+                if (bean != null) {
+                    return bean;
+                }
+            } else {
+                logger.info("Null UUID provided. Skipping...");
+            }
+        } catch (ObjectBeanManagerException e) {
+            logger.error("An ObjectBeanManagerException occurred while getting content for UUID {}: {}", uuid, e.getCause());
+        }
+        return null;
+    }
+
 }

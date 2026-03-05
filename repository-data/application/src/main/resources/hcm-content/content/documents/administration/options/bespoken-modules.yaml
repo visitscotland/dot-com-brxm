@@ -22,3 +22,7 @@
       jcr:primaryType: selection:listitem
       selection:key: carbon-calculator
       selection:label: Carbon Calculator
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: favourites-list
+      selection:label: Favourites List

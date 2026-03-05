@@ -1,5 +1,7 @@
 package com.visitscotland.brxm.pagebuilder;
 
+import com.google.common.collect.ImmutableList;
+import com.visitscotland.brxm.components.content.GeneralContentComponent;
 import com.visitscotland.brxm.mapper.module.SpotlightMapper;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.*;
@@ -13,7 +15,6 @@ import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -26,9 +27,8 @@ public class PageAssembler {
     //Static Constant
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
-
     static final String DEFAULT = "default";
-
+    private static final String IS_FAVOURITE = "isFavourite";
 
     //Utils
     private final DocumentUtilsService documentUtils;
@@ -54,6 +54,13 @@ public class PageAssembler {
     private final DayMapper dayMapper;
 
     private final Logger contentLogger;
+
+    // content thatcan be favourited can be added here (see also FavouritesCardMapper)
+    private static final ImmutableList<String> FAVOURITABLE_CONTENT = ImmutableList.<String>builder()
+            .add("visitscotland:Itinerary")
+            .add("visitscotland:Destination")
+            .add("visitscotland:Listicle")
+            .build();
 
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
                          ArticleMapper articleMapper, UserGeneratedContentMapper userGeneratedContentMapper,
@@ -90,7 +97,23 @@ public class PageAssembler {
         return (Page) request.getAttribute("document");
     }
 
-    public void addModules(HstRequest request, PageCompositionHelper page) {
+    public void addModules(HstRequest request, PageCompositionHelper page)  {
+
+        try {
+            final String contentType = page.getPage().getContentType();
+            if (contentType != null && FAVOURITABLE_CONTENT.contains(page.getPage().getContentType())) {
+                logger.debug("Got favouritable content");
+                page.addProperty(IS_FAVOURITE, true);
+            } else if (page.getPage() instanceof General && GeneralContentComponent.STANDARD.equals(((General) page.getPage()).getTheme())){
+                logger.debug("Got favouritable General content for standard layout");
+                page.addProperty(IS_FAVOURITE, true);
+            } else {
+                page.addProperty(IS_FAVOURITE, false);
+            }
+        } catch (PageCompositionException e) {
+            logger.warn("Failed to set favourites boolean. Defaulting to false.");
+            page.addProperty(IS_FAVOURITE, false);
+        }
 
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {
             try {
