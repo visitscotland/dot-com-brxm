@@ -320,6 +320,12 @@ public class HippoUtilsService {
     }
 
     @NonTestable(NonTestable.Cause.BRIDGE)
+    public String getValueFromList(String valueListIdentifier, String key) {
+        Map<String, String> map = getValueMap(valueListIdentifier);
+        return map != null ? map.get(key) : null;
+    }
+
+    @NonTestable(NonTestable.Cause.BRIDGE)
     public Taxonomy getTaxonomy() {
         TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent("TaxonomyManager", "org.onehippo.taxonomy.contentbean");
         return taxonomyManager.getTaxonomies().getTaxonomy("Visitscotland-categories");

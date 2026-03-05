@@ -37,9 +37,9 @@ public class MapPageValidator implements Validator<Node> {
                 if (node.hasProperty(MapModule.MAP_KEYS)) {
                     taxonomyKeys = node.getProperty(MapModule.MAP_KEYS).getValues();
 
-                    if (taxonomyKeys.length > 1) {
+                    if (taxonomyKeys.length > 2) {
                         return Optional.of(validationContext.createViolation(VIOLATION_GENERAL_PAGE));
-                    } else if (taxonomyKeys.length == 1) {
+                    } else if (taxonomyKeys.length >= 1) {
                         Taxonomy vsTaxonomyTree = getUtilsService().getTaxonomy();
                         if (vsTaxonomyTree.getCategoryByKey(taxonomyKeys[0].getString()).getChildren().isEmpty()) {
                             return Optional.of(validationContext.createViolation(VIOLATION_GENERAL_PAGE));
