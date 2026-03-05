@@ -1,4 +1,5 @@
 /content/documents/administration/labels/modules/map:
+  .meta:order-before: favourites-labels
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: c443083d-2924-408b-85a5-0a08f3ac0bae
