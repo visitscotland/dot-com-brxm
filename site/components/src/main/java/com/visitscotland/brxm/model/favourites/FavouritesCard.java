@@ -12,9 +12,6 @@ public class FavouritesCard {
     private String url;
     private String image;
 
-    public FavouritesCard() {
-
-    }
 
     public String getUuid() { return uuid; }
 

@@ -73,12 +73,6 @@ public class FavouritesCardMapper {
             return null;
         }
 
-        final Locale locale = page.getLocale();
-
-        final String pageUrl = linkService.getPlainLink(page.getLocale(), page, null);
-
-        final FlatImage image = imageMapper.createImage(page.getHeroImage(), new Module<>(), locale);
-
         FavouritesCard card = new FavouritesCard();
         card.setUuid(page.getCanonicalHandleUUID());
         card.setTitle(page.getTitle());
@@ -94,12 +88,9 @@ public class FavouritesCardMapper {
         final boolean FULLY_QUALIFIED = true;
         HstRequestContext context = RequestContextProvider.get();
         Mount mount = context.getMount("vs-en");
-//
-//        FlatImage image = imageMapper.createImage(page.getHeroImage(), null, null);
 
         return context.getHstLinkCreator().create(document.getNode(), mount)
                 .toUrlForm(context, FULLY_QUALIFIED);
     }
-
 }
 
