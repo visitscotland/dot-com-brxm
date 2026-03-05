@@ -70,10 +70,10 @@ public class FavouritesCardMapper {
 
     }
 
-    private String toURL(HippoBean document){
+    private String toURL(final HippoBean document){
         final boolean FULLY_QUALIFIED = true;
-        HstRequestContext context = RequestContextProvider.get();
-        Mount mount = context.getMount("vs-en");
+        final HstRequestContext context = RequestContextProvider.get();
+        final Mount mount = context.getMount("vs-en");
 
         return context.getHstLinkCreator().create(document.getNode(), mount)
                 .toUrlForm(context, FULLY_QUALIFIED);
