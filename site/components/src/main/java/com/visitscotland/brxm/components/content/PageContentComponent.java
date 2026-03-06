@@ -347,15 +347,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     /**
-     * Adds the logging object to the request.
-     *
-     * @param request HstRequest
-     */
-    public void addLogging(HstRequest request) {
-        request.setModel("Logger", freemarkerLogger);
-    }
-
-    /**
      * Return the document from the request
      *
      * @param request HstRequest
