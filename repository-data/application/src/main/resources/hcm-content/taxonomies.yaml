@@ -3,7 +3,7 @@
   /Visitscotland-categories:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo']
-    hippo:versionHistory: 85525241-e1ec-4e0e-8643-280ec4e722d4
+    hippo:versionHistory: c55c926d-3b62-4dc2-a8e2-41ac06257f53
     /Visitscotland-categories[1]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
@@ -14,9 +14,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-06T09:28:11.526Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T10:21:49.690Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-03-06T09:28:14.542Z
+      hippostdpubwf:publicationDate: 2026-03-06T10:21:56.033Z
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
         jcr:primaryType: hippotaxonomy:category
@@ -127,6 +127,9 @@
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: national-parks
           locale.en.name: National Parks
+          locale.es.name: Parques Nacionales
+          locale.it.name: Parchi Nazionali
+          locale.nl.name: Nationale parken
       /outlander:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: outlander
@@ -540,7 +543,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-06T09:28:11.526Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T10:21:49.690Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -652,6 +655,9 @@
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: national-parks
           locale.en.name: National Parks
+          locale.es.name: Parques Nacionales
+          locale.it.name: Parchi Nazionali
+          locale.nl.name: Nationale parken
       /outlander:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: outlander
@@ -1065,7 +1071,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-06T09:15:15.353Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T10:21:21.665Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -1177,6 +1183,9 @@
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: national-parks
           locale.en.name: National Parks
+          locale.es.name: Parques Nacionales
+          locale.it.name: Parchi Nazionali
+          locale.nl.name: Nationale parken
       /outlander:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: outlander
