@@ -3,7 +3,7 @@
   /Visitscotland-categories:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo']
-    hippo:versionHistory: 1cddfdff-f765-4e75-bf34-c0559272a76f
+    hippo:versionHistory: 85525241-e1ec-4e0e-8643-280ec4e722d4
     /Visitscotland-categories[1]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
@@ -14,9 +14,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-03T13:56:57.969Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T09:28:11.526Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-03-03T13:57:03.210Z
+      hippostdpubwf:publicationDate: 2026-03-06T09:28:14.542Z
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
         jcr:primaryType: hippotaxonomy:category
@@ -123,6 +123,10 @@
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Régions
+        /national-parks:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: national-parks
+          locale.en.name: National Parks
       /outlander:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: outlander
@@ -131,9 +135,15 @@
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: outlander-category
           locale.en.name: Outlander Category
+          locale.fr.name: Outlander Category
           /outlander-castle:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-castle
+            locale.de.name: Burgen & Schlösser
+            locale.es.name: Castillos
+            locale.fr.name: Châteaux
+            locale.it.name: Castelli
+            locale.nl.name: Kasteel
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -142,6 +152,11 @@
           /outlander-church-abbey:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-church-abbey
+            locale.de.name: Kirchen & Klöster
+            locale.es.name: Iglesias y abadías
+            locale.fr.name: Églises et abbayes
+            locale.it.name: Chiese e monasteri
+            locale.nl.name: Kerk & Abdij
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -150,6 +165,11 @@
           /outlander-city-town-village:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-city-town-village
+            locale.de.name: Städte & Dörfer
+            locale.es.name: Ciudades y pueblos
+            locale.fr.name: Villes et villages
+            locale.it.name: Città e villaggi
+            locale.nl.name: Stad & Dorp
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -158,6 +178,11 @@
           /outlander-heritage:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-heritage
+            locale.de.name: Geschichte & Kultur
+            locale.es.name: Lugares históricos
+            locale.fr.name: Sites du patrimoine
+            locale.it.name: Storia e cultura
+            locale.nl.name: Erfgoedlocatie
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -166,6 +191,11 @@
           /outlander-landscape-park:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-landscape-park
+            locale.de.name: Landschaften & Parks
+            locale.es.name: Paisajes y parques
+            locale.fr.name: Paysages et parcs
+            locale.it.name: Paesaggi e parchi
+            locale.nl.name: Landschap & Park
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -174,6 +204,11 @@
           /outlander-palace-house:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-palace-house
+            locale.de.name: Paläste & Häuser
+            locale.es.name: Palacios y casas
+            locale.fr.name: Palais et demeures
+            locale.it.name: Palazzi e case
+            locale.nl.name: Paleis & Huis
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -182,22 +217,25 @@
         /outlander-season:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: outlander-season
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Outlander Season
+          locale.de.name: Outlander Season
+          locale.en.name: Outlander Season
           /outlander-season-1:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-1
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Outlander Season 1
+            locale.de.name: Staffel 1
+            locale.en.name: Outlander Season 1
+            locale.es.name: Temporada 1
+            locale.fr.name: Saison 1
+            locale.it.name: Stagione 1
+            locale.nl.name: Seizoen 1
           /outlander-season-2:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-2
+            locale.de.name: Staffel 2
+            locale.es.name: Temporada 2
+            locale.fr.name: Saison 2
+            locale.it.name: Stagione 2
+            locale.nl.name: Seizoen 2
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -206,6 +244,11 @@
           /outlander-season-3:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-3
+            locale.de.name: Staffel 3
+            locale.es.name: Temporada 3
+            locale.fr.name: Saison 3
+            locale.it.name: Stagione 3
+            locale.nl.name: Seizoen 3
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -214,11 +257,48 @@
           /outlander-season-4:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-4
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Outlander Season 4
+            locale.de.name: Staffel 4
+            locale.en.name: Outlander Season 4
+            locale.es.name: Temporada 4
+            locale.fr.name: Saison 4
+            locale.it.name: Stagione 4
+            locale.nl.name: Seizoen 4
+          /outlander-season-5:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-5
+            locale.de.name: Staffel 5
+            locale.en.name: Outlander Season 5
+            locale.es.name: Temporada 5
+            locale.fr.name: Saison 5
+            locale.it.name: Stagione 5
+            locale.nl.name: Seizoen 5
+          /outlander-season-6:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-6
+            locale.de.name: Staffel 6
+            locale.en.name: Outlander Season 6
+            locale.es.name: Temporada 6
+            locale.fr.name: Saison 6
+            locale.it.name: Stagione 6
+            locale.nl.name: Seizoen 6
+          /outlander-season-7:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-7
+            locale.de.name: Staffel 7
+            locale.en.name: Outlander Season 7
+            locale.es.name: Temporada 7
+            locale.fr.name: Saison 7
+            locale.it.name: Stagione 7
+            locale.nl.name: Seizoen 7
+          /outlander-season-8:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-8
+            locale.de.name: Staffel 8
+            locale.en.name: Outlander Season 8
+            locale.es.name: Temporada 8
+            locale.fr.name: Saison 8
+            locale.it.name: Stagione 8
+            locale.nl.name: Seizoen 8
       /main-map:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
@@ -427,6 +507,30 @@
             locale.fr.name: Infrastructures
             locale.it.name: Infrastrutture
             locale.nl.name: Faciliteiten
+      /whisky-distilleries:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: whisky-distilleries
+        locale.en.name: Whisky distilleries
+        /campbeltown-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: campbeltown-whisky
+          locale.en.name: Campbeltown Whisky
+        /highlands-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: highlands-whisky
+          locale.en.name: Highlands Whisky
+        /islay-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: islay-whisky
+          locale.en.name: Islay Whisky
+        /speyside-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: speyside-whisky
+          locale.en.name: Speyside Whisky
+        /lowlands-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: lowlands-whisky
+          locale.en.name: Lowlands Whisky
     /Visitscotland-categories[2]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable', 'mix:versionable']
@@ -436,7 +540,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-03T13:56:57.969Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T09:28:11.526Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -544,6 +648,10 @@
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Régions
+        /national-parks:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: national-parks
+          locale.en.name: National Parks
       /outlander:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: outlander
@@ -552,9 +660,15 @@
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: outlander-category
           locale.en.name: Outlander Category
+          locale.fr.name: Outlander Category
           /outlander-castle:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-castle
+            locale.de.name: Burgen & Schlösser
+            locale.es.name: Castillos
+            locale.fr.name: Châteaux
+            locale.it.name: Castelli
+            locale.nl.name: Kasteel
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -563,6 +677,11 @@
           /outlander-church-abbey:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-church-abbey
+            locale.de.name: Kirchen & Klöster
+            locale.es.name: Iglesias y abadías
+            locale.fr.name: Églises et abbayes
+            locale.it.name: Chiese e monasteri
+            locale.nl.name: Kerk & Abdij
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -571,6 +690,11 @@
           /outlander-city-town-village:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-city-town-village
+            locale.de.name: Städte & Dörfer
+            locale.es.name: Ciudades y pueblos
+            locale.fr.name: Villes et villages
+            locale.it.name: Città e villaggi
+            locale.nl.name: Stad & Dorp
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -579,6 +703,11 @@
           /outlander-heritage:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-heritage
+            locale.de.name: Geschichte & Kultur
+            locale.es.name: Lugares históricos
+            locale.fr.name: Sites du patrimoine
+            locale.it.name: Storia e cultura
+            locale.nl.name: Erfgoedlocatie
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -587,6 +716,11 @@
           /outlander-landscape-park:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-landscape-park
+            locale.de.name: Landschaften & Parks
+            locale.es.name: Paisajes y parques
+            locale.fr.name: Paysages et parcs
+            locale.it.name: Paesaggi e parchi
+            locale.nl.name: Landschap & Park
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -595,6 +729,11 @@
           /outlander-palace-house:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-palace-house
+            locale.de.name: Paläste & Häuser
+            locale.es.name: Palacios y casas
+            locale.fr.name: Palais et demeures
+            locale.it.name: Palazzi e case
+            locale.nl.name: Paleis & Huis
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -603,22 +742,25 @@
         /outlander-season:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: outlander-season
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Outlander Season
+          locale.de.name: Outlander Season
+          locale.en.name: Outlander Season
           /outlander-season-1:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-1
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Outlander Season 1
+            locale.de.name: Staffel 1
+            locale.en.name: Outlander Season 1
+            locale.es.name: Temporada 1
+            locale.fr.name: Saison 1
+            locale.it.name: Stagione 1
+            locale.nl.name: Seizoen 1
           /outlander-season-2:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-2
+            locale.de.name: Staffel 2
+            locale.es.name: Temporada 2
+            locale.fr.name: Saison 2
+            locale.it.name: Stagione 2
+            locale.nl.name: Seizoen 2
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -627,6 +769,11 @@
           /outlander-season-3:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-3
+            locale.de.name: Staffel 3
+            locale.es.name: Temporada 3
+            locale.fr.name: Saison 3
+            locale.it.name: Stagione 3
+            locale.nl.name: Seizoen 3
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -635,11 +782,48 @@
           /outlander-season-4:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-4
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Outlander Season 4
+            locale.de.name: Staffel 4
+            locale.en.name: Outlander Season 4
+            locale.es.name: Temporada 4
+            locale.fr.name: Saison 4
+            locale.it.name: Stagione 4
+            locale.nl.name: Seizoen 4
+          /outlander-season-5:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-5
+            locale.de.name: Staffel 5
+            locale.en.name: Outlander Season 5
+            locale.es.name: Temporada 5
+            locale.fr.name: Saison 5
+            locale.it.name: Stagione 5
+            locale.nl.name: Seizoen 5
+          /outlander-season-6:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-6
+            locale.de.name: Staffel 6
+            locale.en.name: Outlander Season 6
+            locale.es.name: Temporada 6
+            locale.fr.name: Saison 6
+            locale.it.name: Stagione 6
+            locale.nl.name: Seizoen 6
+          /outlander-season-7:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-7
+            locale.de.name: Staffel 7
+            locale.en.name: Outlander Season 7
+            locale.es.name: Temporada 7
+            locale.fr.name: Saison 7
+            locale.it.name: Stagione 7
+            locale.nl.name: Seizoen 7
+          /outlander-season-8:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-8
+            locale.de.name: Staffel 8
+            locale.en.name: Outlander Season 8
+            locale.es.name: Temporada 8
+            locale.fr.name: Saison 8
+            locale.it.name: Stagione 8
+            locale.nl.name: Seizoen 8
       /main-map:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
@@ -848,6 +1032,30 @@
             locale.fr.name: Infrastructures
             locale.it.name: Infrastrutture
             locale.nl.name: Faciliteiten
+      /whisky-distilleries:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: whisky-distilleries
+        locale.en.name: Whisky distilleries
+        /campbeltown-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: campbeltown-whisky
+          locale.en.name: Campbeltown Whisky
+        /highlands-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: highlands-whisky
+          locale.en.name: Highlands Whisky
+        /islay-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: islay-whisky
+          locale.en.name: Islay Whisky
+        /speyside-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: speyside-whisky
+          locale.en.name: Speyside Whisky
+        /lowlands-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: lowlands-whisky
+          locale.en.name: Lowlands Whisky
     /Visitscotland-categories[3]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
@@ -857,7 +1065,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-03T13:56:38.920Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T09:15:15.353Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -965,6 +1173,10 @@
             /fr:
               jcr:primaryType: hippotaxonomy:categoryinfo
               hippotaxonomy:name: Régions
+        /national-parks:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: national-parks
+          locale.en.name: National Parks
       /outlander:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: outlander
@@ -973,9 +1185,15 @@
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: outlander-category
           locale.en.name: Outlander Category
+          locale.fr.name: Outlander Category
           /outlander-castle:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-castle
+            locale.de.name: Burgen & Schlösser
+            locale.es.name: Castillos
+            locale.fr.name: Châteaux
+            locale.it.name: Castelli
+            locale.nl.name: Kasteel
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -984,6 +1202,11 @@
           /outlander-church-abbey:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-church-abbey
+            locale.de.name: Kirchen & Klöster
+            locale.es.name: Iglesias y abadías
+            locale.fr.name: Églises et abbayes
+            locale.it.name: Chiese e monasteri
+            locale.nl.name: Kerk & Abdij
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -992,6 +1215,11 @@
           /outlander-city-town-village:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-city-town-village
+            locale.de.name: Städte & Dörfer
+            locale.es.name: Ciudades y pueblos
+            locale.fr.name: Villes et villages
+            locale.it.name: Città e villaggi
+            locale.nl.name: Stad & Dorp
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -1000,6 +1228,11 @@
           /outlander-heritage:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-heritage
+            locale.de.name: Geschichte & Kultur
+            locale.es.name: Lugares históricos
+            locale.fr.name: Sites du patrimoine
+            locale.it.name: Storia e cultura
+            locale.nl.name: Erfgoedlocatie
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -1008,6 +1241,11 @@
           /outlander-landscape-park:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-landscape-park
+            locale.de.name: Landschaften & Parks
+            locale.es.name: Paisajes y parques
+            locale.fr.name: Paysages et parcs
+            locale.it.name: Paesaggi e parchi
+            locale.nl.name: Landschap & Park
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -1016,6 +1254,11 @@
           /outlander-palace-house:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-palace-house
+            locale.de.name: Paläste & Häuser
+            locale.es.name: Palacios y casas
+            locale.fr.name: Palais et demeures
+            locale.it.name: Palazzi e case
+            locale.nl.name: Paleis & Huis
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -1024,22 +1267,25 @@
         /outlander-season:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: outlander-season
-          /hippotaxonomy:categoryinfos:
-            jcr:primaryType: hippotaxonomy:categoryinfos
-            /en:
-              jcr:primaryType: hippotaxonomy:categoryinfo
-              hippotaxonomy:name: Outlander Season
+          locale.de.name: Outlander Season
+          locale.en.name: Outlander Season
           /outlander-season-1:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-1
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Outlander Season 1
+            locale.de.name: Staffel 1
+            locale.en.name: Outlander Season 1
+            locale.es.name: Temporada 1
+            locale.fr.name: Saison 1
+            locale.it.name: Stagione 1
+            locale.nl.name: Seizoen 1
           /outlander-season-2:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-2
+            locale.de.name: Staffel 2
+            locale.es.name: Temporada 2
+            locale.fr.name: Saison 2
+            locale.it.name: Stagione 2
+            locale.nl.name: Seizoen 2
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -1048,6 +1294,11 @@
           /outlander-season-3:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-3
+            locale.de.name: Staffel 3
+            locale.es.name: Temporada 3
+            locale.fr.name: Saison 3
+            locale.it.name: Stagione 3
+            locale.nl.name: Seizoen 3
             /hippotaxonomy:categoryinfos:
               jcr:primaryType: hippotaxonomy:categoryinfos
               /en:
@@ -1056,11 +1307,48 @@
           /outlander-season-4:
             jcr:primaryType: hippotaxonomy:category
             hippotaxonomy:key: outlander-season-4
-            /hippotaxonomy:categoryinfos:
-              jcr:primaryType: hippotaxonomy:categoryinfos
-              /en:
-                jcr:primaryType: hippotaxonomy:categoryinfo
-                hippotaxonomy:name: Outlander Season 4
+            locale.de.name: Staffel 4
+            locale.en.name: Outlander Season 4
+            locale.es.name: Temporada 4
+            locale.fr.name: Saison 4
+            locale.it.name: Stagione 4
+            locale.nl.name: Seizoen 4
+          /outlander-season-5:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-5
+            locale.de.name: Staffel 5
+            locale.en.name: Outlander Season 5
+            locale.es.name: Temporada 5
+            locale.fr.name: Saison 5
+            locale.it.name: Stagione 5
+            locale.nl.name: Seizoen 5
+          /outlander-season-6:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-6
+            locale.de.name: Staffel 6
+            locale.en.name: Outlander Season 6
+            locale.es.name: Temporada 6
+            locale.fr.name: Saison 6
+            locale.it.name: Stagione 6
+            locale.nl.name: Seizoen 6
+          /outlander-season-7:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-7
+            locale.de.name: Staffel 7
+            locale.en.name: Outlander Season 7
+            locale.es.name: Temporada 7
+            locale.fr.name: Saison 7
+            locale.it.name: Stagione 7
+            locale.nl.name: Seizoen 7
+          /outlander-season-8:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: outlander-season-8
+            locale.de.name: Staffel 8
+            locale.en.name: Outlander Season 8
+            locale.es.name: Temporada 8
+            locale.fr.name: Saison 8
+            locale.it.name: Stagione 8
+            locale.nl.name: Seizoen 8
       /main-map:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
@@ -1269,6 +1557,30 @@
             locale.fr.name: Infrastructures
             locale.it.name: Infrastrutture
             locale.nl.name: Faciliteiten
+      /whisky-distilleries:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: whisky-distilleries
+        locale.en.name: Whisky distilleries
+        /campbeltown-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: campbeltown-whisky
+          locale.en.name: Campbeltown Whisky
+        /highlands-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: highlands-whisky
+          locale.en.name: Highlands Whisky
+        /islay-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: islay-whisky
+          locale.en.name: Islay Whisky
+        /speyside-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: speyside-whisky
+          locale.en.name: Speyside Whisky
+        /lowlands-whisky:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: lowlands-whisky
+          locale.en.name: Lowlands Whisky
   /BSH-sectors:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo']

@@ -134,5 +134,7 @@ action-lists:
 - 3.1.0:
     /content/documents/administration/labels/pages/itinerary: reload
     /content/documents/administration/options/areas: reload
+- 3.1.0:
+    /content/taxonomies/Visitscotland-categories: reload
 
     
