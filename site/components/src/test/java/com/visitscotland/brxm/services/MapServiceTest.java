@@ -24,7 +24,6 @@ import org.mockito.MockitoAnnotations;
 import java.util.List;
 import java.util.Locale;
 
-import static com.visitscotland.brxm.services.MapService.FEATURE;
 import static com.visitscotland.brxm.services.MapService.ID;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -218,8 +217,12 @@ class MapServiceTest {
         when(cat.getTitle()).thenReturn("Title");
         when(cat.getMapPins()).thenReturn(List.of());
 
+        ArrayNode keys = mapper.createArrayNode();
+        ArrayNode features = mapper.createArrayNode();
+
         service.addFeaturePlacesNode(module, List.of(cat), Locale.UK, mapper.createArrayNode(), mapper.createArrayNode());
+        assertEquals(0, keys.size(), "No keys should be added when mapPins is empty");
+        assertEquals(0, features.size(), "No features should be added when mapPins is empty");
 
     }
-
 }
