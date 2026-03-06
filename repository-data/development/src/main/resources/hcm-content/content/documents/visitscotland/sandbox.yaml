@@ -300,7 +300,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 94bde36e-54e1-4aee-8d25-28def2719c55
         hippo:name: Casa Jose
-        hippo:versionHistory: 5365da3c-27da-49ed-bff7-a3eca75f538e
+        hippo:versionHistory: 94faf47d-a935-4e0f-b368-aaabfe55e157
         /casa-jose[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -310,13 +310,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-16T12:20:46.037Z
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:15:50.012+01:00
+          hippostdpubwf:lastModificationDate: 2026-03-06T12:09:25.606Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-10-13T08:15:52.184+01:00
-          hippotaxonomy:keys: [islands]
+          hippostdpubwf:publicationDate: 2026-03-06T12:09:29.572Z
+          hippotaxonomy:keys: [national-parks]
           hippotranslation:id: 38f7c9ac-27eb-4b02-9bab-16b719f241e4
           hippotranslation:locale: en
-          visitscotland:subtitle: Tenerife
+          visitscotland:subtitle: Edinburgh
           visitscotland:tipsTitle: ''
           visitscotland:title: Casa Jose
           visitscotland:translation: ''
@@ -352,12 +352,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-16T12:20:46.037Z
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:15:50.012+01:00
+          hippostdpubwf:lastModificationDate: 2026-03-06T12:09:25.606Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [islands]
+          hippotaxonomy:keys: [national-parks]
           hippotranslation:id: 38f7c9ac-27eb-4b02-9bab-16b719f241e4
           hippotranslation:locale: en
-          visitscotland:subtitle: Tenerife
+          visitscotland:subtitle: Edinburgh
           visitscotland:tipsTitle: ''
           visitscotland:title: Casa Jose
           visitscotland:translation: ''
@@ -393,12 +393,12 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-16T12:20:46.037Z
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:15:38.427+01:00
+          hippostdpubwf:lastModificationDate: 2026-03-06T12:09:02.314Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [islands]
+          hippotaxonomy:keys: [national-parks]
           hippotranslation:id: 38f7c9ac-27eb-4b02-9bab-16b719f241e4
           hippotranslation:locale: en
-          visitscotland:subtitle: Tenerife
+          visitscotland:subtitle: Edinburgh
           visitscotland:tipsTitle: ''
           visitscotland:title: Casa Jose
           visitscotland:translation: ''
@@ -1332,9 +1332,9 @@
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: aca5e20d-3679-4f46-8943-92af37b3c1d2
           hippo:availability: []
-          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:29:58.768Z
           hippostdpubwf:lastModificationDate: 2026-01-15T16:03:47.007Z
@@ -7249,6 +7249,280 @@
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+    /map-cards:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
+        'mix:versionable']
+      jcr:uuid: 70713674-be0e-4589-be4c-59a8861b18fe
+      hippo:name: Map Cards (Back-end Devs)
+      hippostd:foldertype: [new-translated-folder-stops, new-stop]
+      hippotranslation:id: fd3774d3-8ea1-47d3-9b84-7727b3ecb936
+      hippotranslation:locale: en
+      /loch-lomond-and-the-trossachs-national-park:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: bacdbf6c-eabb-4447-996e-16d6d0e2b29f
+        hippo:name: Loch Lomond and The Trossachs National Park
+        hippo:versionHistory: e6b25d80-ec87-4be9-8b9e-2cd3bc754ac6
+        /loch-lomond-and-the-trossachs-national-park[1]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 2b89287f-4a09-4d89-84b1-c4aaec7b750d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T12:11:16.583Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T15:02:11.554Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: 50f6a316-0374-4b3d-9017-164ffd2dbc93
+          hippotranslation:locale: en
+          visitscotland:subtitle: corina
+          visitscotland:title: Loch Lomond and The Trossachs National Park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland's first national park is packed with interesting
+              corners for you to explore, each with its own character. Between 22
+              lochs, 39 miles of coastline around three sea lochs, miles of rivers
+              and paths, 21 Munros (mountains over 3,000 ft) and acres of unspoilt
+              land, there is an endless list of things to see and do in the scenic
+              Loch Lomond &amp; The Trossachs National Park.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            visitscotland:timeToExplore: ''
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 56.010178
+              visitscotland:longitude: -4.584645
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/loch-lomond-trossachs
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /loch-lomond-and-the-trossachs-national-park[2]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 9ac39858-1274-4423-8dad-a83d3ff5dcc0
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T12:11:16.583Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T14:42:32.431Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: 50f6a316-0374-4b3d-9017-164ffd2dbc93
+          hippotranslation:locale: en
+          visitscotland:subtitle: lochlomond-trossachs-national-park
+          visitscotland:title: Loch Lomond and The Trossachs National Park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland's first national park is packed with interesting
+              corners for you to explore, each with its own character. Between 22
+              lochs, 39 miles of coastline around three sea lochs, miles of rivers
+              and paths, 21 Munros (mountains over 3,000 ft) and acres of unspoilt
+              land, there is an endless list of things to see and do in the scenic
+              Loch Lomond &amp; The Trossachs National Park.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 56.010178
+              visitscotland:longitude: -4.584645
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/loch-lomond-trossachs
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /loch-lomond-and-the-trossachs-national-park[3]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 00682e49-66d8-41fd-8086-eeb268d6da58
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T12:11:16.583Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T14:42:32.431Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-03-06T14:42:35.722Z
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: 50f6a316-0374-4b3d-9017-164ffd2dbc93
+          hippotranslation:locale: en
+          visitscotland:subtitle: lochlomond-trossachs-national-park
+          visitscotland:title: Loch Lomond and The Trossachs National Park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland's first national park is packed with interesting
+              corners for you to explore, each with its own character. Between 22
+              lochs, 39 miles of coastline around three sea lochs, miles of rivers
+              and paths, 21 Munros (mountains over 3,000 ft) and acres of unspoilt
+              land, there is an endless list of things to see and do in the scenic
+              Loch Lomond &amp; The Trossachs National Park.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 56.010178
+              visitscotland:longitude: -4.584645
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/loch-lomond-trossachs
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /cairngorms-national-park:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: bb8c8f44-f37e-4a6d-9d58-a303d5254c58
+        hippo:name: Cairngorms national park
+        hippo:versionHistory: c0da487d-6874-4809-8c06-a9aaa33910ab
+        /cairngorms-national-park[1]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: ad604edc-9420-481f-b924-77b56168b3c2
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T15:12:04.760Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T15:12:04.763Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: bbedc9dc-354c-42a2-8c10-e4c8566d2aac
+          hippotranslation:locale: en
+          visitscotland:subtitle: cairngorms-national-park
+          visitscotland:title: Cairngorms national park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The Cairngorms National Park has more mountains,
+              forest paths, rivers, lochs, wildlife hotspots and friendly villages
+              than you can possibly imagine. You can find five of the UK's six highest
+              mountains here, alongside 55 Munros - mountains over 3,000 ft. There
+              is no shortage of things to see and do in the mighty, majestic Cairngorms
+              National Park, from ancient fortresses, wildlife and distilleries to
+              some of the best attractions and museums.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 57.0492
+              visitscotland:longitude: -3.5616
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/cairngorms
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 878bc413-07fe-4c1a-9df6-55514c250a16
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /cairngorms-national-park[2]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: c65e4a6c-f5b7-4911-90cd-e388906e8e35
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T15:12:04.760Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T15:13:38.572Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: bbedc9dc-354c-42a2-8c10-e4c8566d2aac
+          hippotranslation:locale: en
+          visitscotland:subtitle: cairngorms-national-park
+          visitscotland:title: Cairngorms national park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The Cairngorms National Park has more mountains,
+              forest paths, rivers, lochs, wildlife hotspots and friendly villages
+              than you can possibly imagine. You can find five of the UK's six highest
+              mountains here, alongside 55 Munros - mountains over 3,000 ft. There
+              is no shortage of things to see and do in the mighty, majestic Cairngorms
+              National Park, from ancient fortresses, wildlife and distilleries to
+              some of the best attractions and museums.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 57.0492
+              visitscotland:longitude: -3.5616
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/cairngorms
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 878bc413-07fe-4c1a-9df6-55514c250a16
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /cairngorms-national-park[3]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: aa286327-5023-47d5-92eb-2fd807e8e215
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T15:12:04.760Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T15:13:38.572Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-03-06T15:13:41.148Z
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: bbedc9dc-354c-42a2-8c10-e4c8566d2aac
+          hippotranslation:locale: en
+          visitscotland:subtitle: cairngorms-national-park
+          visitscotland:title: Cairngorms national park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The Cairngorms National Park has more mountains,
+              forest paths, rivers, lochs, wildlife hotspots and friendly villages
+              than you can possibly imagine. You can find five of the UK's six highest
+              mountains here, alongside 55 Munros - mountains over 3,000 ft. There
+              is no shortage of things to see and do in the mighty, majestic Cairngorms
+              National Park, from ancient fortresses, wildlife and distilleries to
+              some of the best attractions and museums.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 57.0492
+              visitscotland:longitude: -3.5616
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/cairngorms
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 878bc413-07fe-4c1a-9df6-55514c250a16
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -54071,7 +54345,7 @@
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 499a384f-a141-4c6d-860a-89408748cdcd
-      hippo:versionHistory: c4247a3a-61c8-4242-a828-336284fb5874
+      hippo:versionHistory: e3e49b7d-0d29-41a5-b428-8f5daf44a674
       /main-map[1]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -54081,12 +54355,12 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:54.194Z
+        hippostdpubwf:lastModificationDate: 2026-03-06T10:29:02.646Z
         hippostdpubwf:lastModifiedBy: admin
-        hippotaxonomy:keys: [main-map]
+        hippotaxonomy:keys: [main-map, destinations]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
-        visitscotland:isGoogleMap: true
+        visitscotland:isGoogleMap: false
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
@@ -54100,12 +54374,12 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:59.816Z
+        hippostdpubwf:lastModificationDate: 2026-03-06T10:29:05.459Z
         hippostdpubwf:lastModifiedBy: admin
-        hippotaxonomy:keys: [main-map]
+        hippotaxonomy:keys: [main-map, destinations]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
-        visitscotland:isGoogleMap: true
+        visitscotland:isGoogleMap: false
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
@@ -54119,14 +54393,77 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:59.816Z
+        hippostdpubwf:lastModificationDate: 2026-03-06T10:29:05.459Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-11-28T12:22:02.037Z
-        hippotaxonomy:keys: [main-map]
+        hippostdpubwf:publicationDate: 2026-03-06T10:29:07.421Z
+        hippotaxonomy:keys: [main-map, destinations]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
-        visitscotland:isGoogleMap: true
+        visitscotland:isGoogleMap: false
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
         visitscotland:translation: ''
+  /mapa:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 7167d05a-2e71-4639-9efc-7f03f6940128
+    hippo:versionHistory: 39d5f813-cbbe-420d-92bb-7f96e2a181fa
+    /mapa[1]:
+      jcr:primaryType: visitscotland:MapModule
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 6909096f-0ad1-42ae-ac28-b309ab90eaea
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-03-06T10:33:33.245Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T10:33:33.246Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys: [main-map, destinations]
+      hippotranslation:id: fab09e63-b8a9-44f5-a805-68bbecdaa59d
+      hippotranslation:locale: en
+      visitscotland:isGoogleMap: false
+      visitscotland:mapType: ''
+      visitscotland:tabTitle: ''
+      visitscotland:title: mapa
+      visitscotland:translation: ''
+    /mapa[2]:
+      jcr:primaryType: visitscotland:MapModule
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 885da05a-c5dc-42f9-9a89-c874dcec9f37
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-03-06T10:33:33.245Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T10:33:45.978Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys: [main-map, destinations]
+      hippotranslation:id: fab09e63-b8a9-44f5-a805-68bbecdaa59d
+      hippotranslation:locale: en
+      visitscotland:isGoogleMap: false
+      visitscotland:mapType: ''
+      visitscotland:tabTitle: ''
+      visitscotland:title: mapa
+      visitscotland:translation: ''
+    /mapa[3]:
+      jcr:primaryType: visitscotland:MapModule
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 6fe61771-1a1c-4fbb-b115-1b16ca14efa0
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-03-06T10:33:33.245Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T10:33:45.978Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2026-03-06T10:33:48.414Z
+      hippotaxonomy:keys: [main-map, destinations]
+      hippotranslation:id: fab09e63-b8a9-44f5-a805-68bbecdaa59d
+      hippotranslation:locale: en
+      visitscotland:isGoogleMap: false
+      visitscotland:mapType: ''
+      visitscotland:tabTitle: ''
+      visitscotland:title: mapa
+      visitscotland:translation: ''
