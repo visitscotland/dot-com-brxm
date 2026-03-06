@@ -186,6 +186,7 @@ public class MapService {
             FlatLink flatLink = null;
             HippoBean item = stop.getStopItem();
             FlatImage image = imageMapper.createImage(stop.getImage(), module, locale);
+            //TODO review this condition if it is in use and delete if possible
             if (item instanceof DMSLink) {
                 JsonNode dmsNode = dmsData.productCard(((DMSLink) item).getProduct(), locale);
                 if (!Contract.isNull(dmsNode)) {
@@ -217,11 +218,20 @@ public class MapService {
                 ObjectNode properties = getPropertyNode(stop.getTitle(), description,
                         image, category, flatLink, stop.getCanonicalUUID());
 
-
                 if (stop.getKeys() != null && stop.getKeys().length > 1) {
                     List<String> listKeys = new ArrayList<>(Arrays.asList(stop.getKeys()));
                     listKeys.remove(category.get(ID).asText());
                     addSubcategories(properties, listKeys, locale);
+                }
+
+                if (!Contract.isEmpty(stop.getSubtitle())) {
+                    JsonNode boundsNode = dmsData.getLocationBorders(stop.getSubtitle(),false);
+                    if (boundsNode != null) {
+                        properties.put(PLACEID, hippoUtilsService.getValueFromList(MAPS_GOOGLE_LOCATIONS , stop.getSubtitle()));                        String placeId = ;
+                        JsonNode viewports = geometryViewportService.extractViewportFromGeometry(boundsNode);
+                        properties.set(VIEWPORT, viewports);
+                        properties.set(LOCATION_CENTRE, geometryViewportService.calculateCenterFromViewport(viewports));
+                    }
                 }
 
                 feature.set(PROPERTIES, properties);
@@ -250,7 +260,7 @@ public class MapService {
         ObjectNode properties = getPropertyNode(page.getTitle(), page.getTeaser(),
                 imageMapper.createImage(page.getImage(), module, locale), category,
                 flatLink, page.getCanonicalUUID());
-        if (page instanceof Destination){
+        if (page instanceof Destination) {
             Destination destination = (Destination) page;
             LocationObject location = locationLoader.getLocation(destination.getLocation(), Locale.UK);
             String placeId = hippoUtilsService.getValueFromList(MAPS_GOOGLE_LOCATIONS , location.getName());
@@ -259,13 +269,13 @@ public class MapService {
             }
             feature.set(PROPERTIES, properties);
             JsonNode viewports = null;
-            if (Arrays.asList(destination.getKeys()).contains(REGIONS)){
+            if (Arrays.asList(destination.getKeys()).contains(REGIONS)) {
                 JsonNode geometryNode = dmsData.getLocationBorders(locationLoader.getLocation(destination.getLocation(), null).getId(),true);
                 if(geometryNode!=null && !geometryNode.isEmpty()) {
                     feature.set(GEOMETRY, getGeometryNode((ArrayNode) geometryNode.get("coordinates"), geometryNode.get(TYPE).asText()));
                     viewports = geometryViewportService.extractViewportFromGeometry(geometryNode);
                 }
-            }else {
+            } else {
                 ObjectNode geometryNode = getGeometryNode(getCoordinates(location.getLongitude(),location.getLatitude()),POINT);
                 JsonNode boundsNode = dmsData.getLocationBorders(locationLoader.getLocation(destination.getLocation(), null).getId(),false);
 
@@ -277,7 +287,7 @@ public class MapService {
             }
             properties.set(VIEWPORT, viewports);
             properties.set(LOCATION_CENTRE, geometryViewportService.calculateCenterFromViewport(viewports));
-        }else {
+        } else {
             feature.set(PROPERTIES, properties);
         }
     }
