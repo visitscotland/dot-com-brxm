@@ -220,7 +220,9 @@ public class MapService {
             );
         }
 
-        data.image = image;
+        if (data.image == null) {
+           data.image = image;
+        }
         return data;
     }
 
