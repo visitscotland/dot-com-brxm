@@ -178,7 +178,7 @@ public class MapService {
      *
      * @return boolean to indicate if the stop/dms/pin is valid and was built as expected
      */
-    private boolean buildStopNode(Locale locale, ObjectNode category, MapsModule module, Stop stop, ObjectNode feature){
+    public boolean buildStopNode(Locale locale, ObjectNode category, MapsModule module, Stop stop, ObjectNode feature){
         boolean validPoint = false;
         if (stop != null){
             Double latitude = null;
@@ -227,7 +227,7 @@ public class MapService {
                 if (!Contract.isEmpty(stop.getSubtitle())) {
                     JsonNode boundsNode = dmsData.getLocationBorders(stop.getSubtitle(),false);
                     if (boundsNode != null) {
-                        properties.put(PLACEID, hippoUtilsService.getValueFromList(MAPS_GOOGLE_LOCATIONS , stop.getSubtitle()));                        String placeId = ;
+                        properties.put(PLACEID, hippoUtilsService.getValueFromList(MAPS_GOOGLE_LOCATIONS , stop.getSubtitle()));
                         JsonNode viewports = geometryViewportService.extractViewportFromGeometry(boundsNode);
                         properties.set(VIEWPORT, viewports);
                         properties.set(LOCATION_CENTRE, geometryViewportService.calculateCenterFromViewport(viewports));
@@ -254,7 +254,7 @@ public class MapService {
      * @param page the destination or other pages
      * @param feature json to build the features and geometry nodes
      */
-    private void buildPageNode(Locale locale, ObjectNode category, MapsModule module, Page page, ObjectNode feature){
+    void buildPageNode(Locale locale, ObjectNode category, MapsModule module, Page page, ObjectNode feature){
         FlatLink flatLink = linkService.createSimpleLink(page, module, locale);
         flatLink.setLabel(bundle.getResourceBundle(MAP, DISCOVER, locale));
         ObjectNode properties = getPropertyNode(page.getTitle(), page.getTeaser(),
