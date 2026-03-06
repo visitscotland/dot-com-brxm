@@ -244,18 +244,27 @@ defaultSettings() {
       VS_BRANCH_NAME="branch-not-found"
     fi
   fi
-  # set unique container name from JOB_NAME and VS_BRANCH_NAME - removing / characters
+  # set unique container name from JOB_NAME and VS_BRANCH_NAME - removing / characters, use VS_BRANCH_NAME when available as it may contain more specific branch information than JOB_NAME (e.g. pull request branch vs main branch)
   if [ -z "$VS_CONTAINER_NAME" ]&&[ "$VS_BRANCH_NAME" != "branch-not-found" ]; then
-    VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
-    VS_CONTAINER_NAME_SHORT=$(echo "$VS_BRANCH_NAME" | sed -e "s/\//_/g")
-    VS_CONTAINER_NAME_SHORTEST=$(basename "$VS_BRANCH_NAME")
-    VS_CONTAINER_NAME="$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT"
+      VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
+      VS_CONTAINER_NAME_SHORT=$(echo "$VS_BRANCH_NAME" | sed -e "s/\//_/g")
+      VS_CONTAINER_NAME_SHORTEST=$(basename "$VS_BRANCH_NAME")
   else
-    VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
-    VS_CONTAINER_NAME_SHORT=$(echo "$BRANCH_NAME" | sed -e "s/\//_/g")
-    VS_CONTAINER_NAME_SHORTEST=$(basename "$BRANCH_NAME")
-    VS_CONTAINER_NAME="$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT"
+      VS_CONTAINER_NAME_BASE=$(dirname "$JOB_NAME" | sed -e "s/\//_/g")
+      VS_CONTAINER_NAME_SHORT=$(echo "$BRANCH_NAME" | sed -e "s/\//_/g")
+      VS_CONTAINER_NAME_SHORTEST=$(basename "$BRANCH_NAME")
   fi
+  # create VS_CONTAINER_NAME_DOCKER from VS_CONTAINER_NAME_BASE and VS_CONTAINER_NAME_SHORT using Docker compliant characters, note: can be longer than the 63 character limit for inter-container communication using "--link", below we'll create a fully compliant VS_CONTAINER_NAME_DOCKER for potential future use
+  VS_CONTAINER_NAME_DOCKER="$(echo "$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT" | sed -e "s/[^a-zA-Z0-9_.-]/-/g")"
+  # create VS_CONTAINER_NAME_DOCKER63 in Docker compliant format ([a-zA-Z0-9_.-], max 63 chars) for use as Docker container name, use md5 to ensure uniqueness
+  VS_CONTAINER_NAME_DOCKER63="$(echo "$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT" | sed -e "s/[^a-zA-Z0-9_.-]/-/g" | cut -c 1-55)$(echo -n "$VS_CONTAINER_NAME_BASE""_""$VS_CONTAINER_NAME_SHORT" | md5sum | cut -c 1-8)"
+  # create VS_CONTAINER_NAME_RFC1034 in RFC 1034 compliant format for use as a Docker container internal hostname, use md5 to ensure uniqueness
+  VS_CONTAINER_NAME_RFC1034="$(echo "$VS_CONTAINER_NAME_SHORTEST" | tr '[:upper:]' '[:lower:]' | cut -c 1-55 | sed -e 's/[^a-z0-9]/-/g' -e 's/^-*//' -e 's/-*$//')$(echo -n "$VS_CONTAINER_NAME_SHORTEST" | md5sum | cut -c 1-8)"
+  # finally, set VS_CONTAINER_NAME to the preferred version, note: if changing the preference manual container management may be needed to remove old containers with the previous naming convention
+  if [ -z "$VS_CONTAINER_NAME" ]; then
+    VS_CONTAINER_NAME=$VS_CONTAINER_NAME_DOCKER
+  fi
+
   # check for VS_CONTAINER_BASE_PORT_OVERRIDE, ensure it's unset if it's not overridden
   if [ -z "$VS_CONTAINER_BASE_PORT_OVERRIDE" ]; then
     unset VS_CONTAINER_BASE_PORT_OVERRIDE
@@ -884,11 +893,11 @@ containerCreateAndStart() {
     echo ""
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] about to create a new Docker container with:"
     if [ "$VS_BRXM_PERSISTENCE_METHOD" == "mysql" ]; then
-      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
+      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' --hostname '$VS_CONTAINER_NAME_RFC1034' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
     elif [ "${VS_BUILD_TYPE^^}" == "DSSR" ]; then
-      VS_DOCKER_CMD='docker run -t -d -u $VS_CONTAINER_USR:$VS_CONTAINER_GRP --name '$VS_CONTAINER_NAME' --hostname '${VS_CONTAINER_NAME_SHORTEST:0:63}' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --workdir '$VS_CONTAINER_WD'  --volume $VS_CONTAINER_WORKSPACE:$VS_CONTAINER_WORKSPACE:$VS_CONTAINER_VOLUME_PERMISSIONS --volume $VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_VOLUME_PERMISSIONS --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' $VS_CONTAINER_ENVIRONMENT '$VS_DOCKER_IMAGE_NAME' '$VS_CONTAINER_INIT_EXEC''
+      VS_DOCKER_CMD='docker run -t -d -u $VS_CONTAINER_USR:$VS_CONTAINER_GRP --name '$VS_CONTAINER_NAME' --hostname '$VS_CONTAINER_NAME_RFC1034' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --workdir '$VS_CONTAINER_WD'  --volume $VS_CONTAINER_WORKSPACE:$VS_CONTAINER_WORKSPACE:$VS_CONTAINER_VOLUME_PERMISSIONS --volume $VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_WORKSPACE@tmp:$VS_CONTAINER_VOLUME_PERMISSIONS --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' $VS_CONTAINER_ENVIRONMENT '$VS_DOCKER_IMAGE_NAME' '$VS_CONTAINER_INIT_EXEC''
     else
-      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
+      VS_DOCKER_CMD='docker run -d --name '$VS_CONTAINER_NAME' --hostname '$VS_CONTAINER_NAME_RFC1034' -p '$VS_CONTAINER_BASE_PORT':'$VS_CONTAINER_EXPOSE_PORT' '$VS_CONTAINER_PORT_MAPPINGS' --env VS_CONTAINER_CONSOLE_FILE=$VS_CONTAINER_CONSOLE_FILE --env VS_HIPPO_REPOSITORY_DIR='$VS_BRXM_REPOSITORY' --env VS_HIPPO_REPOSITORY_PERSIST='$VS_HIPPO_REPOSITORY_PERSIST' --env VS_SSR_PROXY_ON='$VS_SSR_PROXY_ON' --env VS_SSR_PACKAGE_NAME='$VS_SSR_PACKAGE_NAME' --env=VS_SSR_PROXY_TARGET_HOST='$VS_SSR_PROXY_TARGET_HOST' --env VS_CONTAINER_NAME='$VS_CONTAINER_NAME' --env VS_CONTAINER_MAIN_APP_PORT='$VS_CONTAINER_MAIN_APP_PORT' --env VS_BRANCH_NAME='$VS_BRANCH_NAME' --env VS_COMMIT_AUTHOR='$VS_COMMIT_AUTHOR' --env CHANGE_ID='$CHANGE_ID' '$VS_DOCKER_IMAGE_NAME' /bin/bash -c "/usr/local/bin/vs-mysqld-start && while [ ! -f /home/hippo/tomcat_8080/logs/cms.log ]; do echo no log; sleep 2; done; tail -f /home/hippo/tomcat_8080/logs/cms.log"'
     fi
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME]  - $VS_DOCKER_CMD"
     eval $VS_DOCKER_CMD
