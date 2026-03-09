@@ -177,7 +177,7 @@ public class MapService {
 
         StopData stopData = extractStopData(locale, stop, item, image, module);
         if (!stopData.validPoint || stopData.latitude == null || stopData.longitude == null) {
-            logStopError(module, item);
+            logStopError(module, stop, item);
             return false;
         }
 
@@ -259,9 +259,10 @@ public class MapService {
         return description;
     }
 
-    private void logStopError(MapsModule module, HippoBean item) {
+    private void logStopError(MapsModule module, Stop stop, HippoBean item) {
         String errorMessage = String.format("Failed to create map card '%s', please review the document attached at: %s",
-                item.getDisplayName(), item.getPath());
+                item != null ? item.getDisplayName() : stop.getDisplayName(),
+                item == null ? stop.getPath() : item.getPath());
         module.addErrorMessage(errorMessage);
         contentLogger.error(errorMessage);
     }
