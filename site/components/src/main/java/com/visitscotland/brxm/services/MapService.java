@@ -22,12 +22,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.*;
 
+
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
 @Component
 public class MapService {
     static final String GEOMETRY = "geometry";
+    static final String LOCATION_CENTRE = "locationCentre";
+    static final String MAPS_GOOGLE_LOCATIONS = "maps-google-locations";
+    static final String VIEWPORT = "viewport";
     static final String LABEL = "label";
+    static final String TAXONOMY = "taxonomy";
     static final String DISCOVER = "map.discover";
     static final String PROPERTIES = "properties";
     static final String CATEGORY = "category";
@@ -37,6 +42,7 @@ public class MapService {
     static final String ID = "id";
     static final String REGIONS = "regions";
     static final String MAP = "map";
+    static final String PLACEID = "placeId";
     static final String BESPOKEMAP = "bespoke-maps";
     static final String TYPE = "type";
     static final String POINT = "Point";
@@ -50,11 +56,12 @@ public class MapService {
     private final LinkService linkService;
     private final LocationLoader locationLoader;
     private final HippoUtilsService hippoUtilsService;
+    private final GeometryViewportService geometryViewportService;
 
     @Autowired
     public MapService(DMSDataService dmsData, ResourceBundleService bundle, ImageMapper imageMapper,
                       LinkService linkService, ObjectMapper mapper, LocationLoader locationLoader,
-                      HippoUtilsService hippoUtilsService, ContentLogger contentLogger) {
+                      HippoUtilsService hippoUtilsService, ContentLogger contentLogger, GeometryViewportService geometryViewportService) {
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.locationLoader = locationLoader;
@@ -63,6 +70,7 @@ public class MapService {
         this.mapper = mapper;
         this.hippoUtilsService = hippoUtilsService;
         this.contentLogger = contentLogger;
+        this.geometryViewportService = geometryViewportService;
     }
 
     /**
@@ -72,11 +80,13 @@ public class MapService {
      * @return ObjectNode with the filters to be used
      */
     public ObjectNode addFilterNode(Category child, Locale locale) {
-        ObjectNode filter = buildCategoryNode(child.getKey(), getTaxonomyLabel(child, locale));
+        Category parent = child.getParent();
+        String parentTaxonomy = parent != null ? parent.getKey() : null;
+        ObjectNode filter = buildCategoryNode(child.getKey(), getTaxonomyLabel(child, locale), parentTaxonomy);
         if (!child.getChildren().isEmpty()){
             ArrayNode childrenArray = mapper.createArrayNode();
             for (Category children : child.getChildren()) {
-                childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName()));
+                childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName(), child.getKey()));
             }
             filter.set(SUBCATEGORY,childrenArray);
         }
@@ -92,11 +102,24 @@ public class MapService {
      * @return ObjectNode key label for categories
      */
     public ObjectNode buildCategoryNode(String key, String label) {
-        ObjectNode filter = mapper.createObjectNode();
-        filter.put(ID, key);
-        filter.put(LABEL, label);
+        return  mapper.createObjectNode()
+                .put(ID, key)
+                .put(LABEL, label);
+    }
 
-        return filter;
+    /**
+     * Method to build ObjectNode key label for category/taxonomy
+     *
+     * @param key taxonomy category to build key
+     * @param label taxonomy category to build label
+     * @param taxonomy taxonomy main node to build label
+     * @return ObjectNode key label for categories
+     */
+    public ObjectNode buildCategoryNode(String key, String label, String taxonomy) {
+        return mapper.createObjectNode()
+            .put(ID, key)
+            .put(LABEL, label)
+            .put(TAXONOMY, taxonomy);
     }
     /**
      *
@@ -176,10 +199,6 @@ public class MapService {
                         latitude = dmsNode.get(LATITUDE).asDouble();
                         longitude = dmsNode.get(LONGITUDE).asDouble();
                     }
-                    //add for future iterations
-                    /*if (dmsNode.has(ADDRESS)) {
-                        JsonNode address = dmsNode.get(ADDRESS);
-                     }*/
                 }
             } else if (item instanceof ItineraryExternalLink) {
                 validPoint = true;
@@ -234,15 +253,30 @@ public class MapService {
         if (page instanceof Destination){
             Destination destination = (Destination) page;
             LocationObject location = locationLoader.getLocation(destination.getLocation(), Locale.UK);
+            String placeId = hippoUtilsService.getValueFromList(MAPS_GOOGLE_LOCATIONS , location.getName());
+            if (placeId != null) {
+                properties.put(PLACEID, placeId);
+            }
             feature.set(PROPERTIES, properties);
+            JsonNode viewports = null;
             if (Arrays.asList(destination.getKeys()).contains(REGIONS)){
                 JsonNode geometryNode = dmsData.getLocationBorders(locationLoader.getLocation(destination.getLocation(), null).getId(),true);
                 if(geometryNode!=null && !geometryNode.isEmpty()) {
                     feature.set(GEOMETRY, getGeometryNode((ArrayNode) geometryNode.get("coordinates"), geometryNode.get(TYPE).asText()));
+                    viewports = geometryViewportService.extractViewportFromGeometry(geometryNode);
                 }
             }else {
-                feature.set(GEOMETRY, getGeometryNode(getCoordinates(location.getLongitude(),location.getLatitude()),POINT));
+                ObjectNode geometryNode = getGeometryNode(getCoordinates(location.getLongitude(),location.getLatitude()),POINT);
+                JsonNode boundsNode = dmsData.getLocationBorders(locationLoader.getLocation(destination.getLocation(), null).getId(),false);
+
+                feature.set(GEOMETRY, geometryNode);
+                if (boundsNode != null) {
+                    viewports = geometryViewportService.extractViewportFromGeometry(boundsNode);
+                }
+
             }
+            properties.set(VIEWPORT, viewports);
+            properties.set(LOCATION_CENTRE, geometryViewportService.calculateCenterFromViewport(viewports));
         }else {
             feature.set(PROPERTIES, properties);
         }
@@ -260,21 +294,37 @@ public class MapService {
      * @return ObjectNode with the right format to be consumed by the front end team
      */
     public ObjectNode getPropertyNode(String title, String description, FlatImage image, ObjectNode category, FlatLink link, String id) {
-        ObjectNode rootNode = mapper.createObjectNode();
+        ObjectNode rootNode = mapper.createObjectNode()
+                .put(ID, id)
+                .put("title", title)
+                .put(DESCRIPTION, description)
+                .set(CATEGORY, category);
 
-        rootNode.put(ID, id);
-        rootNode.put("title", title);
-        rootNode.put(DESCRIPTION, description);
-        rootNode.set(CATEGORY, category);
+        if (!Contract.isNull(image)) {
+            String imageUrl = !Contract.isNull(image.getCmsImage())
+                    ? HippoUtilsService.createUrl(image.getCmsImage())
+                    : image.getExternalImage();
 
-        if (!Contract.isNull(image)){
-            rootNode.put("image", !Contract.isNull(image.getCmsImage())? HippoUtilsService.createUrl(image.getCmsImage()) : image.getExternalImage());
+            if (imageUrl != null) {
+                rootNode.put("image", imageUrl);
+            }
         }
-        if (!Contract.isNull(link)){
+        if (!Contract.isNull(link)) {
+
             ObjectNode linkNode = mapper.createObjectNode();
-            linkNode.put(LABEL, link.getLabel() + " " + title);
-            linkNode.put(LINK, link.getLink());
-            linkNode.put(TYPE, link.getType().name());
+
+            if (link.getLabel() != null) {
+                linkNode.put(LABEL, link.getLabel() + " " + title);
+            }
+
+            if (link.getLink() != null) {
+                linkNode.put(LINK, link.getLink());
+            }
+
+            if (link.getType() != null) {
+                linkNode.put(TYPE, link.getType().name());
+            }
+
             rootNode.set(LINK, linkNode);
         }
 

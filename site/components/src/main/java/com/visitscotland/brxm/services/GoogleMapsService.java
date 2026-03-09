@@ -24,7 +24,6 @@ import java.util.regex.Pattern;
 public class GoogleMapsService {
 
     private static final Logger logger = LoggerFactory.getLogger(GoogleMapsService.class);
-
     private static final String DIRECTIONS_URL = "https://www.google.com/maps/dir";
 
     // regex to extract coordinates from url using @ coordinates
@@ -44,7 +43,6 @@ public class GoogleMapsService {
     /**
      * calculates the total distance across days from the coordinates contained in the map
      * url for each day
-     *
      * returns a distance of 0 if any issues occur to prevent erroneous values
      */
     public BigDecimal calculateDistanceFromDays(final List<Day> days) {
@@ -108,10 +106,6 @@ public class GoogleMapsService {
         }
     }
 
-    /*private boolean hasParameters(final String link) {
-        return link.contains("?") || link.matches(".*[a-zA-Z0-9]+=.*");
-    }*/
-
     /**
      * takes a list of google place urls, extracts the coordinates and returns a google directions url
      */
@@ -146,7 +140,7 @@ public class GoogleMapsService {
     /**
      * extracts a map of direction urls from a list of coordinates
      *
-     * @param coordinatesList
+     * @param coordinatesList coordinates list
      * @return urlBuilder.toString()
      */
     public String getDirectionsUrlFromCoordinates(List<Coordinates> coordinatesList) {
@@ -182,7 +176,7 @@ public class GoogleMapsService {
      * creates a route url from coordinates extracted from the place urls of days in an itinerary
      * *
      * returns null if unable to extract any coordinates for a day to prevent erroneous route maps
-     * @param itineraryPage
+     * @param itineraryPage the page for the itinerary
      * @return directionsByDayMap
      */
     public String getDirectionsUrlFromItinerary(ItineraryPage itineraryPage) {
@@ -226,4 +220,5 @@ public class GoogleMapsService {
             return null;
         }
     }
+
 }

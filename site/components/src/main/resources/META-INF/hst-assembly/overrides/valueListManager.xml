@@ -10,6 +10,7 @@
                 <entry key="travel-information-transports" value="/content/documents/administration/options/travel-information-transports"/>
                 <entry key="content-categories-options" value="/content/documents/administration/options/content-categories"/>
                 <entry key="content-content-type" value="/content/documents/administration/options/content-content-type"/>
+                <entry key="maps-google-locations" value="/content/documents/administration/options/maps-google-locations"/>
                 <entry key="vs-itinerary-transports" value="/content/documents/administration/options/transports"/>
                 <entry key="vs-itinerary-themes" value="/content/documents/administration/options/themes"/>
                 <entry key="vs-itinerary-areas" value="/content/documents/administration/options/areas"/>
