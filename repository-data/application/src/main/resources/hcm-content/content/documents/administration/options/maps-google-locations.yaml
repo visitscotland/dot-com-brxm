@@ -182,3 +182,11 @@
       jcr:primaryType: selection:listitem
       selection:key: Ben Nevis
       selection:label: ChIJ8-XxipcyiUgRcZqt_3eLlG4
+    /selection:listitem[44]:
+      jcr:primaryType: selection:listitem
+      selection:key: cairngorms-national-park
+      selection:label: ChIJybx_ORbwhUgRNIv1lLkvqs4
+    /selection:listitem[45]:
+      jcr:primaryType: selection:listitem
+      selection:key: lochlomond-trossachs-national-park
+      selection:label: ChIJ81Ecc9P_iEgROPs341jn8cQ
