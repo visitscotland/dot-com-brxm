@@ -137,6 +137,7 @@ action-lists:
 - 3.2.0:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/labels/modules/product-search-widget: delete
+- 3.2.1:
     /content/taxonomies/Visitscotland-categories: reload
 
 
