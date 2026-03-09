@@ -220,9 +220,11 @@ class MapServiceTest {
         ArrayNode keys = mapper.createArrayNode();
         ArrayNode features = mapper.createArrayNode();
 
-        service.addFeaturePlacesNode(module, List.of(cat), Locale.UK,keys, features);
+        service.addFeaturePlacesNode(module, List.of(cat), Locale.UK, keys, features);
+
         assertEquals(0, keys.size(), "No keys should be added when mapPins is empty");
         assertEquals(0, features.size(), "No features should be added when mapPins is empty");
 
     }
+
 }
