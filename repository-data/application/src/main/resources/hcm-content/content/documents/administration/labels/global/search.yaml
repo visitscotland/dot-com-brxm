@@ -13,7 +13,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2026-03-09T14:53:58.453Z
+    hippostdpubwf:lastModificationDate: 2026-03-09T15:20:23.485Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '']
@@ -47,7 +47,7 @@
         einzigartige Erlebnisse in Schottland, 'Entdecken Sie Geheimtipps, planen
         Sie Ihre perfekte Reise oder finden Sie genau das, was Sie suchen – von malerischen
         Wanderungen und gemütlichen Ferienhäusern bis hin zu Veranstaltungen und kulturellen
-        Erlebnissen.', '', '']
+        Erlebnissen.', Kategorie, Unterkategorie]
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
       Buscar, '¿Qué estás buscando?', JavaScript debe estar habilitado para mostrar
         los resultados de la búsqueda. Puedes activarlo en la configuración de tu
@@ -61,7 +61,7 @@
       resultados, Descubre experiencias únicas en Escocia, 'Descubre joyas ocultas,
         planifica tu viaje perfecto o encuentra exactamente lo que necesitas: desde
         pintorescas rutas de senderismo y acogedoras cabañas hasta eventos y experiencias
-        culturales.', '', '']
+        culturales.', Categoría, Subcategoría]
     resourcebundle:messages_fr: [Effacer la recherche, Fermer le formulaire de recherche,
       Rechercher, 'Que recherchez-vous ?', JavaScript doit être activé afin d’afficher
         les résultats de la recherche. Vous pouvez l’activer dans les paramètres de
@@ -75,7 +75,7 @@
       Affichage des, résultats, Découvrez des expériences uniques en Écosse, 'Découvrez
         des lieux méconnus, organisez le voyage de vos rêves ou trouvez précisément
         ce dont vous avez besoin : randonnées pittoresques, gîtes tous conforts, événements
-        et expériences culturelles.', '', '']
+        et expériences culturelles.', catégorie, sous-catégorie]
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?', Per visualizzare i risultati della ricerca è necessario
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
@@ -87,7 +87,7 @@
         scegli un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche
         in Scozia, 'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova
         esattamente quello che cerchi: dalle escursioni panoramiche e le accoglienti
-        case vacanza agli eventi e alle esperienze culturali.', '', '']
+        case vacanza agli eventi e alle esperienze culturali.', categoria, sottocategoria]
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., Sorteren op,
@@ -99,7 +99,7 @@
         een zoekterm in of kies een filter, Er worden, resultaten getoond, Ontdek
         unieke ervaringen in Schotland, 'Ontdek verborgen pareltjes, plan je perfecte
         reis of vind precies wat je zoekt – van mooie wandelingen en gezellige huisjes
-        tot evenementen en culturele ervaringen.', '', '']
+        tot evenementen en culturele ervaringen.', categorie, subcategorie]
   /search[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -109,7 +109,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2026-03-09T14:54:23.844Z
+    hippostdpubwf:lastModificationDate: 2026-03-09T15:21:05.393Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '']
@@ -143,7 +143,7 @@
         einzigartige Erlebnisse in Schottland, 'Entdecken Sie Geheimtipps, planen
         Sie Ihre perfekte Reise oder finden Sie genau das, was Sie suchen – von malerischen
         Wanderungen und gemütlichen Ferienhäusern bis hin zu Veranstaltungen und kulturellen
-        Erlebnissen.', '', '']
+        Erlebnissen.', Kategorie, Unterkategorie]
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
       Buscar, '¿Qué estás buscando?', JavaScript debe estar habilitado para mostrar
         los resultados de la búsqueda. Puedes activarlo en la configuración de tu
@@ -157,7 +157,7 @@
       resultados, Descubre experiencias únicas en Escocia, 'Descubre joyas ocultas,
         planifica tu viaje perfecto o encuentra exactamente lo que necesitas: desde
         pintorescas rutas de senderismo y acogedoras cabañas hasta eventos y experiencias
-        culturales.', '', '']
+        culturales.', Categoría, Subcategoría]
     resourcebundle:messages_fr: [Effacer la recherche, Fermer le formulaire de recherche,
       Rechercher, 'Que recherchez-vous ?', JavaScript doit être activé afin d’afficher
         les résultats de la recherche. Vous pouvez l’activer dans les paramètres de
@@ -171,7 +171,7 @@
       Affichage des, résultats, Découvrez des expériences uniques en Écosse, 'Découvrez
         des lieux méconnus, organisez le voyage de vos rêves ou trouvez précisément
         ce dont vous avez besoin : randonnées pittoresques, gîtes tous conforts, événements
-        et expériences culturelles.', '', '']
+        et expériences culturelles.', catégorie, sous-catégorie]
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?', Per visualizzare i risultati della ricerca è necessario
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
@@ -183,7 +183,7 @@
         scegli un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche
         in Scozia, 'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova
         esattamente quello che cerchi: dalle escursioni panoramiche e le accoglienti
-        case vacanza agli eventi e alle esperienze culturali.', '', '']
+        case vacanza agli eventi e alle esperienze culturali.', categoria, sottocategoria]
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., Sorteren op,
@@ -195,7 +195,7 @@
         een zoekterm in of kies een filter, Er worden, resultaten getoond, Ontdek
         unieke ervaringen in Schotland, 'Ontdek verborgen pareltjes, plan je perfecte
         reis of vind precies wat je zoekt – van mooie wandelingen en gezellige huisjes
-        tot evenementen en culturele ervaringen.', '', '']
+        tot evenementen en culturele ervaringen.', categorie, subcategorie]
   /search[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -205,9 +205,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: juanluis.hurtado
     hippostdpubwf:creationDate: 2022-07-12T14:24:26.429+02:00
-    hippostdpubwf:lastModificationDate: 2026-03-09T14:54:23.844Z
+    hippostdpubwf:lastModificationDate: 2026-03-09T15:21:05.393Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-03-09T14:54:26.573Z
+    hippostdpubwf:publicationDate: 2026-03-09T15:21:07.928Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: search
@@ -240,7 +240,7 @@
         einzigartige Erlebnisse in Schottland, 'Entdecken Sie Geheimtipps, planen
         Sie Ihre perfekte Reise oder finden Sie genau das, was Sie suchen – von malerischen
         Wanderungen und gemütlichen Ferienhäusern bis hin zu Veranstaltungen und kulturellen
-        Erlebnissen.', '', '']
+        Erlebnissen.', Kategorie, Unterkategorie]
     resourcebundle:messages_es: [Borrar formulario, Cerrar formulario de búsqueda,
       Buscar, '¿Qué estás buscando?', JavaScript debe estar habilitado para mostrar
         los resultados de la búsqueda. Puedes activarlo en la configuración de tu
@@ -254,7 +254,7 @@
       resultados, Descubre experiencias únicas en Escocia, 'Descubre joyas ocultas,
         planifica tu viaje perfecto o encuentra exactamente lo que necesitas: desde
         pintorescas rutas de senderismo y acogedoras cabañas hasta eventos y experiencias
-        culturales.', '', '']
+        culturales.', Categoría, Subcategoría]
     resourcebundle:messages_fr: [Effacer la recherche, Fermer le formulaire de recherche,
       Rechercher, 'Que recherchez-vous ?', JavaScript doit être activé afin d’afficher
         les résultats de la recherche. Vous pouvez l’activer dans les paramètres de
@@ -268,7 +268,7 @@
       Affichage des, résultats, Découvrez des expériences uniques en Écosse, 'Découvrez
         des lieux méconnus, organisez le voyage de vos rêves ou trouvez précisément
         ce dont vous avez besoin : randonnées pittoresques, gîtes tous conforts, événements
-        et expériences culturelles.', '', '']
+        et expériences culturelles.', catégorie, sous-catégorie]
     resourcebundle:messages_it: [Campo di ricerca vuoto, Chiudere il campo di ricerca,
       Cerca, 'Cosa stai cercando?', Per visualizzare i risultati della ricerca è necessario
         abilitare JavaScript. È possibile attivarlo nelle impostazioni del browser.,
@@ -280,7 +280,7 @@
         scegli un filtro, Vengono visualizzati, risultati, Scopri esperienze uniche
         in Scozia, 'Scopri consigli segreti, pianifica il tuo viaggio perfetto o trova
         esattamente quello che cerchi: dalle escursioni panoramiche e le accoglienti
-        case vacanza agli eventi e alle esperienze culturali.', '', '']
+        case vacanza agli eventi e alle esperienze culturali.', categoria, sottocategoria]
     resourcebundle:messages_nl: [Zoeken verwijderen, Zoeken sluiten, Zoeken, 'Waar
         ben je naar op zoek?', JavaScript moet ingeschakeld zijn om de zoekresultaten
         te zien. Je kunt dit inschakelen in de browserinstellingen., Sorteren op,
@@ -292,4 +292,4 @@
         een zoekterm in of kies een filter, Er worden, resultaten getoond, Ontdek
         unieke ervaringen in Schotland, 'Ontdek verborgen pareltjes, plan je perfecte
         reis of vind precies wat je zoekt – van mooie wandelingen en gezellige huisjes
-        tot evenementen en culturele ervaringen.', '', '']
+        tot evenementen en culturele ervaringen.', categorie, subcategorie]
