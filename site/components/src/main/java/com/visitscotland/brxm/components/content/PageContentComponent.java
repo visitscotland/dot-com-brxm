@@ -412,8 +412,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
 
         if (properties.isFavouritesEnabled()){
-            pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, true); // enabled
-            pageConfig.addProperty("", ""); // url
+            pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, properties.isFavouritesEnabled());
+            pageConfig.addProperty(FAVOURITES_SITE_URL, properties.getFavouritesUrl());
         }
 
         if (properties.isTableOfContentsEnabled()){

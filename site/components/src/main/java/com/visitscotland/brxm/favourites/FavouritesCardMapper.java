@@ -5,7 +5,10 @@ import com.visitscotland.brxm.components.content.GeneralContentComponent;
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.favourites.FavouritesCard;
+import org.hippoecm.hst.configuration.hosting.Mount;
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -17,6 +20,7 @@ import org.springframework.stereotype.Component;
 public class FavouritesCardMapper {
 
     private static final Logger logger = LoggerFactory.getLogger(FavouritesCardMapper.class);
+;
 
     // content types can be added here as they are supported (see also PageAssembler)
     private static final ImmutableList<String> FAVOURITABLE_CONTENT = ImmutableList.<String>builder()
@@ -24,6 +28,7 @@ public class FavouritesCardMapper {
             .add("visitscotland:Destination")
             .add("visitscotland:Listicle")
             .build();
+
 
     public FavouritesCard getFavouritesCard(HippoBean bean) {
 
@@ -58,11 +63,20 @@ public class FavouritesCardMapper {
         card.setUuid(page.getCanonicalHandleUUID());
         card.setTitle(page.getTitle());
         card.setTeaser(page.getTeaser());
-        card.setImage(page.getHeroImage().getCanonicalPath());
-        card.setUrl(page.getPath()); // not working
+        card.setImage(toURL(page.getHeroImage()));
+        card.setUrl(toURL(page)); // not working
 
         return card;
 
+    }
+
+    private String toURL(final HippoBean document){
+        final boolean FULLY_QUALIFIED = true;
+        final HstRequestContext context = RequestContextProvider.get();
+        final Mount mount = context.getMount("vs-en");
+
+        return context.getHstLinkCreator().create(document.getNode(), mount)
+                .toUrlForm(context, FULLY_QUALIFIED);
     }
 }
 
