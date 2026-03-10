@@ -20,7 +20,9 @@ import org.springframework.stereotype.Component;
 public class FavouritesCardMapper {
 
     private static final Logger logger = LoggerFactory.getLogger(FavouritesCardMapper.class);
-;
+
+    private static final String GENERAL_PAGE = "visitscotland:General";
+    private static final String ENGLISH_CHANNEL = "vs-en";
 
     // content types can be added here as they are supported (see also PageAssembler)
     private static final ImmutableList<String> FAVOURITABLE_CONTENT = ImmutableList.<String>builder()
@@ -46,7 +48,7 @@ public class FavouritesCardMapper {
         if (!FAVOURITABLE_CONTENT.contains(contentType)) {
             if (!(bean instanceof General && GeneralContentComponent.STANDARD.equals((((General) bean).getTheme())))){
                 logger.info("Unsupported content type: {}", bean.getContentType());
-                if (contentType.equals("visitscotland:General")) {
+                if (contentType.equals(GENERAL_PAGE)) {
                     logger.info("General pages are only supported for 'Standard' layout.");
                 }
                 return null;
@@ -64,16 +66,21 @@ public class FavouritesCardMapper {
         card.setTitle(page.getTitle());
         card.setTeaser(page.getTeaser());
         card.setImage(toURL(page.getHeroImage()));
-        card.setUrl(toURL(page)); // not working
+        card.setUrl(toURL(page));
 
         return card;
 
     }
 
+    /**
+     * returns fully qualified urls for pages and images
+     * @param document
+     * @return url
+     */
     private String toURL(final HippoBean document){
         final boolean FULLY_QUALIFIED = true;
         final HstRequestContext context = RequestContextProvider.get();
-        final Mount mount = context.getMount("vs-en");
+        final Mount mount = context.getMount(ENGLISH_CHANNEL);
 
         return context.getHstLinkCreator().create(document.getNode(), mount)
                 .toUrlForm(context, FULLY_QUALIFIED);
