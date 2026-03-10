@@ -139,7 +139,7 @@ action-lists:
     /content/documents/administration/labels/modules/product-search-widget: delete
 - 3.2.1:
     /content/taxonomies/Visitscotland-categories: reload
-- 3.2.1.1:
-    /taxonomies: reload
+- 3.2.1.2:
+    /content/taxonomies: reload
 
 
