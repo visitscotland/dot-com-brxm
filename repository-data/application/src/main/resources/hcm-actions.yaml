@@ -139,5 +139,7 @@ action-lists:
     /content/documents/administration/labels/modules/product-search-widget: delete
 - 3.2.1:
     /content/taxonomies: reload
+- 3.2.1.1:
+    /content/documents/administration/labels/modules/map: reload
 
 
