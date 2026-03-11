@@ -507,7 +507,7 @@ pipeline {
                                 keepAll: false,
                                 reportDir: outDir,
                                 reportFiles: 'email.body.html',
-                                reportName: 'Release Email Body',
+                                reportName: 'VS Release Details',
                                 reportTitles: ''
                         ]
                     }
