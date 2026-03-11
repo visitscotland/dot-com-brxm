@@ -22,6 +22,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
 
     @Override
     void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
+        //Search widget does not need all labels
     }
 
     @Override
