@@ -50,8 +50,6 @@ public final class SitePropertyKeys {
     public static final String FORMS_MARKETO_MUNCHKIN = "form.marketo.munchkin";
     public static final String FORMS_MARKETO_SCRIPT = "form.marketo.script";
 
-
-
     public static final String SKI_TIMEOUT = "ski.timeout";
 
     //Feature switch
@@ -60,7 +58,6 @@ public final class SitePropertyKeys {
     public static final String GLOBAL_SEARCH_EVENTS_ENDPOINT = "feature.global-search.events-endpoint";
     public static final String GLOBAL_SEARCH_LOGIC = "feature.global-search.logic";
     public static final String FEATURE_HERO_SECTION = "feature.hero-section.enable";
-    public static final String PRODUCTS_SEARCH_ENABLED = "feature.products-search.enable";
     public static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
     public static final String SEARCH_WIDGET = "feature.search-widget.enable";
 }

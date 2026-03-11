@@ -45,4 +45,4 @@ storage*/
 
 # JENKINS CI
 ci/logs/
-
+ci/temp/
