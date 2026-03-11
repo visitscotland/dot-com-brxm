@@ -19,15 +19,16 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
     private static final String OBS_BUNDLE = "online-booking-system-comparator";
     private static final String OBS_MODULE = "online-booking-system";
     private static final String CARBON_CALCULATOR = "carbon-calculator";
+    private static final String SEARCH_WIDGET = "search-widget";
     private static final String SEARCH_WIDGET_EVENTS = "search-widget-events";
     private static final String FORMS_BUNDLE = "forms";
 
     private final ComparatorMapper comparisonMapper;
+    private final SearchWidgetMapper searchWidgetMapper;
 
-
-
-    public DevModuleMapper(ComparatorMapper comparisonMapper) {
+    public DevModuleMapper(ComparatorMapper comparisonMapper,SearchWidgetMapper searchWidgetMapper) {
         this.comparisonMapper = comparisonMapper;
+        this.searchWidgetMapper = searchWidgetMapper;
     }
 
     @Override
@@ -51,9 +52,8 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
             } else if (CARBON_CALCULATOR.equals(document.getBespoken())) {
                 compositionHelper.addAllSiteLabels(CARBON_CALCULATOR);
                 return new SimpleDevModule(document, document.getBespoken());
-            } else if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken())) {
-                compositionHelper.addAllSiteLabels(SEARCH_WIDGET_EVENTS);
-                return new SimpleDevModule(document, document.getBespoken());
+            } else if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken()) || SEARCH_WIDGET.equals(document.getBespoken())  ) {
+                return searchWidgetMapper.map(document,compositionHelper);
             }
 
 

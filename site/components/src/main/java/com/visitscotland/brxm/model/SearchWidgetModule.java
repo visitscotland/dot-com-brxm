@@ -1,31 +1,23 @@
 package com.visitscotland.brxm.model;
 
-import java.util.List;
+import com.visitscotland.brxm.hippobeans.DevModule;
 
-public class SearchWidgetModule {
+import java.util.Map;
+
+public class SearchWidgetModule extends Module<DevModule>{
 
     private String title;
     private String description;
-    private String prompt;
+    private String button;
+    private String placeholder;
     private String mainCategory;
-    private List<String> categories;
-    private List<String> subcategories;
+    private Map<String, String> categories;
+    private Map<String, String> subcategories;
+    private String id;
 
-    public SearchWidgetModule() {
-    }
-
-    public SearchWidgetModule(String title,
-                              String description,
-                              String prompt,
-                              String mainCategory,
-                              List<String> categories,
-                              List<String> subcategories) {
-        this.title = title;
-        this.description = description;
-        this.prompt = prompt;
-        this.mainCategory = mainCategory;
-        this.categories = categories;
-        this.subcategories = subcategories;
+     public SearchWidgetModule(DevModule hippoBean, String id) {
+        setHippoBean(hippoBean);
+        setId(id);
     }
 
     public String getTitle() {
@@ -44,36 +36,52 @@ public class SearchWidgetModule {
         this.description = description;
     }
 
-    public String getPrompt() {
-        return prompt;
+    public String getPlaceholder() {
+        return placeholder;
     }
 
-    public void setPrompt(String prompt) {
-        this.prompt = prompt;
+    public void setPlaceholder(String placeholder) {
+        this.placeholder = placeholder;
     }
 
     public String getMainCategory() {
         return mainCategory;
     }
 
+    public String getButton() {
+        return button;
+    }
+
+    public void setButton(String button) {
+        this.button = button;
+    }
+
     public void setMainCategory(String mainCategory) {
         this.mainCategory = mainCategory;
     }
 
-    public List<String> getCategories() {
+    public Map<String, String> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<String> categories) {
+    public void setCategories(Map<String, String> categories) {
         this.categories = categories;
     }
 
-    public List<String> getSubcategories() {
+    public Map<String, String> getSubcategories() {
         return subcategories;
     }
 
-    public void setSubcategories(List<String> subcategories) {
+    public void setSubcategories(Map<String, String> subcategories) {
         this.subcategories = subcategories;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
 
