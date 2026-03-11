@@ -16,7 +16,7 @@
     hippostdpubwf:lastModificationDate: 2026-03-11T16:10:51.134Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '']
-    resourcebundle:id: search-widget-events
+    resourcebundle:id: search-widget
     resourcebundle:keys: [title, description, button, placeholder]
     resourcebundle:messages: [Discover unique experiences in Scotland, 'Discover hidden
         gems, plan your perfect trip, or find exactly what you need—from scenic hikes
@@ -39,7 +39,7 @@
     hippostdpubwf:lastModificationDate: 2026-03-11T16:10:07.401Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '']
-    resourcebundle:id: search-widget-events
+    resourcebundle:id: search-widget
     resourcebundle:keys: [title, description, button, placeholder]
     resourcebundle:messages: [Discover unique experiences in Scotland, 'Discover hidden
         gems, plan your perfect trip, or find exactly what you need—from scenic hikes
@@ -63,7 +63,7 @@
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2026-03-11T16:10:54.274Z
     resourcebundle:descriptions: ['', '', '', '']
-    resourcebundle:id: search-widget-events
+    resourcebundle:id: search-widget
     resourcebundle:keys: [title, description, button, placeholder]
     resourcebundle:messages: [Discover unique experiences in Scotland, 'Discover hidden
         gems, plan your perfect trip, or find exactly what you need—from scenic hikes
