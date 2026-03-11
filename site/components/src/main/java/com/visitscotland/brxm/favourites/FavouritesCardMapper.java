@@ -8,11 +8,16 @@ import com.visitscotland.brxm.model.favourites.FavouritesCard;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.core.container.HstContainerURL;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedMount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
+import javax.jcr.RepositoryException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Mapper class to create favourites cards from supported page info
@@ -69,7 +74,7 @@ public class FavouritesCardMapper {
         card.setTitle(page.getTitle());
         card.setTeaser(page.getTeaser());
         card.setImage(toURL(page.getHeroImage()));
-        card.setUrl(toURL(page));
+        card.setUrl(toURL2(page));
 
         return card;
 
@@ -88,6 +93,17 @@ public class FavouritesCardMapper {
 
         return context.getHstLinkCreator().create(document.getNode(), mount)
                 .toUrlForm(context, FULLY_QUALIFIED);
+    }
+
+    private String toURL2(final HippoBean document) {
+        final boolean FULLY_QUALIFIED = true;
+        final HstRequestContext context = RequestContextProvider.get();
+        final Mount mount = context.getResolvedMount().getMount();
+
+
+        return context.getHstLinkCreator().create(document.getNode(), mount)
+                .toUrlForm(context, FULLY_QUALIFIED).replace("site/api/", "");
+
     }
 }
 
