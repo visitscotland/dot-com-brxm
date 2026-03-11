@@ -73,8 +73,8 @@ public class FavouritesCardMapper {
         card.setUuid(page.getCanonicalHandleUUID());
         card.setTitle(page.getTitle());
         card.setTeaser(page.getTeaser());
-        card.setImage(toURL(page.getHeroImage()));
-        card.setUrl(toURL2(page));
+        card.setImage(toURL(page.getHeroImage(), false));
+        card.setUrl(toURL(page, true));
 
         return card;
 
@@ -86,22 +86,25 @@ public class FavouritesCardMapper {
      * @param document
      * @return url
      */
-    private String toURL(final HippoBean document){
+    /*private String toURL(final HippoBean document){
         final boolean FULLY_QUALIFIED = true;
         final HstRequestContext context = RequestContextProvider.get();
         final Mount mount = context.getResolvedMount().getMount();
 
         return context.getHstLinkCreator().create(document.getNode(), mount)
                 .toUrlForm(context, FULLY_QUALIFIED);
-    }
+    }*/
 
-    private String toURL2(final HippoBean document) {
+    private String toURL(final HippoBean document, final boolean isPageUrl) {
         final boolean FULLY_QUALIFIED = true;
         final HstRequestContext context = RequestContextProvider.get();
         final Mount mount = context.getResolvedMount().getMount();
 
         String url = context.getHstLinkCreator().create(document.getNode(), mount)
-                .toUrlForm(context, FULLY_QUALIFIED).replace("api/", "");
+                .toUrlForm(context, FULLY_QUALIFIED);
+        if (isPageUrl) {
+            url = url.replace("api/", "");
+        }
         if (!context.getVirtualHost().getHostName().contains("localhost")) {
             url = url.replace("http:", "https:");
         }
