@@ -9,12 +9,14 @@ import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.hst.core.request.ResolvedMount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
  * Mapper class to create favourites cards from supported page info
+ * TODO - this has been modified for testing, clean up once a solution has been found
  */
 @Component
 public class FavouritesCardMapper {
@@ -22,7 +24,8 @@ public class FavouritesCardMapper {
     private static final Logger logger = LoggerFactory.getLogger(FavouritesCardMapper.class);
 
     private static final String GENERAL_PAGE = "visitscotland:General";
-    private static final String ENGLISH_CHANNEL = "vs-en";
+    private static final String ENGLISH_CHANNEL_LOC = "vs-en-loc";
+    private static final String ENGLISH_CHANNEL = "vs-en-dev";
 
     // content types can be added here as they are supported (see also PageAssembler)
     private static final ImmutableList<String> FAVOURITABLE_CONTENT = ImmutableList.<String>builder()
@@ -74,13 +77,14 @@ public class FavouritesCardMapper {
 
     /**
      * returns fully qualified urls for pages and images
+     *
      * @param document
      * @return url
      */
     private String toURL(final HippoBean document){
         final boolean FULLY_QUALIFIED = true;
         final HstRequestContext context = RequestContextProvider.get();
-        final Mount mount = context.getMount(ENGLISH_CHANNEL);
+        final Mount mount = context.getResolvedMount().getMount();
 
         return context.getHstLinkCreator().create(document.getNode(), mount)
                 .toUrlForm(context, FULLY_QUALIFIED);
