@@ -102,7 +102,7 @@ public class FavouritesCardMapper {
 
 
         return context.getHstLinkCreator().create(document.getNode(), mount)
-                .toUrlForm(context, FULLY_QUALIFIED).replace("site/api/", "");
+                .toUrlForm(context, FULLY_QUALIFIED).replace("api/", "");
 
     }
 }
