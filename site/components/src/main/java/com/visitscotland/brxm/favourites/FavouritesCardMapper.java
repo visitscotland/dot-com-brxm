@@ -100,10 +100,13 @@ public class FavouritesCardMapper {
         final HstRequestContext context = RequestContextProvider.get();
         final Mount mount = context.getResolvedMount().getMount();
 
-
-        return context.getHstLinkCreator().create(document.getNode(), mount)
+        String url = context.getHstLinkCreator().create(document.getNode(), mount)
                 .toUrlForm(context, FULLY_QUALIFIED).replace("api/", "");
+        if (!context.getVirtualHost().getHostName().contains("localhost")) {
+            url = url.replace("http:", "https:");
+        }
 
+        return url;
     }
 }
 
