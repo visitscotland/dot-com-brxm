@@ -20,17 +20,45 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
         this.bundle = bundle;
     }
 
+    /**
+     * Adds labels required for the module to the {@link PageCompositionHelper}.
+     *
+     * <p>Currently no labels are added as the search widget only requires
+     * minimal configuration in the first implementation iteration.</p>
+     *
+     * @param compositionHelper helper used during page composition
+     * @throws MissingResourceException if required resource bundles are missing
+     */
     @Override
     void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {
         //Search widget does not need all labels for this first iteration but the labels will be needed once the
         // resource bundle is ready and we can move the homepage widget to this solution
     }
 
+    /**
+     * Maps a {@link DevModule} document to a {@link SearchWidgetModule}.
+     *
+     * @param document the CMS document representing the module
+     * @param compositionHelper helper containing contextual information
+     * @return mapped {@link SearchWidgetModule}
+     * @throws PageCompositionException if mapping fails
+     */
     @Override
     SearchWidgetModule map(DevModule document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         return createModule(document, compositionHelper.getLocale());
     }
 
+    /**
+     * Creates a {@link SearchWidgetModule} from the given CMS document.
+     *
+     * <p>Localised labels are retrieved using the {@link ResourceBundleService}.
+     * Depending on the {@code bespoken} configuration, either event filters
+     * or standard search categories will be populated.</p>
+     *
+     * @param document CMS document containing widget configuration
+     * @param locale the locale used to resolve labels
+     * @return populated {@link SearchWidgetModule}
+     */
     public SearchWidgetModule createModule(DevModule document, Locale locale) {
 
         SearchWidgetModule module = new SearchWidgetModule(document, document.getBespoken());
@@ -45,8 +73,6 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
             module.setCategories(bundle.getAllLabels("search-categories", locale));
         }
 
-
         return module;
     }
-
 }
