@@ -81,21 +81,20 @@ public class FormMapper extends ModuleMapper<Form, FormModule> {
 
     private BregConfiguration getBregConfiguration(FormCompoundBreg breg){
         BregConfiguration cfg = new BregConfiguration();
-        cfg.setRecaptcha(properties.getFormsRecaptcha());
         cfg.setSubmitUrl(breg.getUrl());
         cfg.setJsonUrl(breg.getJsonUrl());
         cfg.setActivityCode(breg.getActivityCode());
         cfg.setActivityDescription(breg.getActivityDescription());
         cfg.setActivitySource(breg.getActivitySource());
+
+        if (!breg.getUrl().contains("no-captcha")){
+            cfg.setRecaptcha(properties.getFormsRecaptcha());
+        }
+
         List<Entry> consents = breg.getConsents();
         String consentComposition = "";
-        List<SimpleEntry> entries = new ArrayList<SimpleEntry>();
+        List<SimpleEntry> entries = new ArrayList<>();
         for (Entry cons : consents) {
-            if (cons.getKey().equals("in-person")) {
-                cfg.setRecaptcha(null);
-                continue;
-            }
-
             String consValue = cons.getValue();
             if (consValue.contains(",") || consValue.contains(";")){
                 //TODO: This is a workaround that must be fixed on BREG (VS-1237)
