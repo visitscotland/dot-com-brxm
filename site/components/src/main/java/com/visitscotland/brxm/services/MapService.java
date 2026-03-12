@@ -22,12 +22,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.*;
 
+
 import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
 
 @Component
 public class MapService {
     static final String GEOMETRY = "geometry";
+    static final String LOCATION_CENTRE = "locationCentre";
+    static final String MAPS_GOOGLE_LOCATIONS = "maps-google-locations";
+    static final String VIEWPORT = "viewport";
     static final String LABEL = "label";
+    static final String CMS_DATA = "cmsData";
     static final String DISCOVER = "map.discover";
     static final String PROPERTIES = "properties";
     static final String CATEGORY = "category";
@@ -37,6 +42,7 @@ public class MapService {
     static final String ID = "id";
     static final String REGIONS = "regions";
     static final String MAP = "map";
+    static final String PLACEID = "placeId";
     static final String BESPOKEMAP = "bespoke-maps";
     static final String TYPE = "type";
     static final String POINT = "Point";
@@ -50,11 +56,12 @@ public class MapService {
     private final LinkService linkService;
     private final LocationLoader locationLoader;
     private final HippoUtilsService hippoUtilsService;
+    private final GeometryViewportService geometryViewportService;
 
     @Autowired
     public MapService(DMSDataService dmsData, ResourceBundleService bundle, ImageMapper imageMapper,
                       LinkService linkService, ObjectMapper mapper, LocationLoader locationLoader,
-                      HippoUtilsService hippoUtilsService, ContentLogger contentLogger) {
+                      HippoUtilsService hippoUtilsService, ContentLogger contentLogger, GeometryViewportService geometryViewportService) {
         this.dmsData = dmsData;
         this.bundle = bundle;
         this.locationLoader = locationLoader;
@@ -63,6 +70,7 @@ public class MapService {
         this.mapper = mapper;
         this.hippoUtilsService = hippoUtilsService;
         this.contentLogger = contentLogger;
+        this.geometryViewportService = geometryViewportService;
     }
 
     /**
@@ -71,18 +79,17 @@ public class MapService {
      * @param locale locale to bring the label in the right language
      * @return ObjectNode with the filters to be used
      */
-    public ObjectNode addFilterNode(Category child, Locale locale) {
-        ObjectNode filter = buildCategoryNode(child.getKey(), getTaxonomyLabel(child, locale));
+    public ObjectNode addFilterNode(Category child, Locale locale, boolean cmsBased) {
+        ObjectNode filter = buildCategoryNode(child.getKey(), getTaxonomyLabel(child, locale), cmsBased);
         if (!child.getChildren().isEmpty()){
             ArrayNode childrenArray = mapper.createArrayNode();
             for (Category children : child.getChildren()) {
-                childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName()));
+                childrenArray.add(buildCategoryNode(children.getKey(), children.getInfo(locale).getName(), false));
             }
             filter.set(SUBCATEGORY,childrenArray);
         }
         return filter;
     }
-
 
     /**
      * Method to build ObjectNode key label for category/taxonomy
@@ -92,11 +99,27 @@ public class MapService {
      * @return ObjectNode key label for categories
      */
     public ObjectNode buildCategoryNode(String key, String label) {
-        ObjectNode filter = mapper.createObjectNode();
-        filter.put(ID, key);
-        filter.put(LABEL, label);
+        return  buildCategoryNode( key,  label, false);
+    }
 
-        return filter;
+    /**
+     * Method to build ObjectNode key label for category/taxonomy
+     *
+     * @param key taxonomy category to build key
+     * @param label taxonomy category to build label
+     * @param cmsBased if data comes from CMS
+     * @return ObjectNode key label for categories
+     */
+    public ObjectNode buildCategoryNode(String key, String label, boolean cmsBased) {
+        ObjectNode node = mapper.createObjectNode()
+                .put(ID, key)
+                .put(LABEL, label);
+
+        if (cmsBased) {
+            node.put(CMS_DATA, true);
+        }
+
+        return node;
     }
     /**
      *
@@ -144,76 +167,113 @@ public class MapService {
         }
     }
 
-    /**
-     * Method to build nodes when the document selected is a Stop
-     *
-     * @param locale locale to bring labels in the right language
-     * @param category category or taxonomy for the mapcard (id and label)
-     * @param module Mapsmodule needed for images and links
-     * @param stop stop document information
-     * @param feature ObjectNode to add the Stop information
-     *
-     * @return boolean to indicate if the stop/dms/pin is valid and was built as expected
-     */
-    private boolean buildStopNode(Locale locale, ObjectNode category, MapsModule module, Stop stop, ObjectNode feature){
-        boolean validPoint = false;
-        if (stop != null){
-            Double latitude = null;
-            Double longitude = null;
-            FlatLink flatLink = null;
-            HippoBean item = stop.getStopItem();
-            FlatImage image = imageMapper.createImage(stop.getImage(), module, locale);
-            if (item instanceof DMSLink) {
-                JsonNode dmsNode = dmsData.productCard(((DMSLink) item).getProduct(), locale);
-                if (!Contract.isNull(dmsNode)) {
-                    validPoint = true;
-                    flatLink = linkService.createDmsLink(locale,(DMSLink) item, dmsNode);
-                    flatLink.setLabel(bundle.getResourceBundle(MAP, DISCOVER, locale));
-                    if (Contract.isNull(stop.getImage()) && dmsNode.has(IMAGE)) {
-                        image = imageMapper.createImage(dmsNode, module, locale);
-                    }
-                    if (dmsNode.has(LATITUDE) && dmsNode.has(LONGITUDE)) {
-                        latitude = dmsNode.get(LATITUDE).asDouble();
-                        longitude = dmsNode.get(LONGITUDE).asDouble();
-                    }
-                    //add for future iterations
-                    /*if (dmsNode.has(ADDRESS)) {
-                        JsonNode address = dmsNode.get(ADDRESS);
-                     }*/
+    public boolean buildStopNode(Locale locale, ObjectNode category, MapsModule module, Stop stop, ObjectNode feature) {
+        if (stop == null) {
+            return false;
+        }
+
+        HippoBean item = stop.getStopItem();
+        FlatImage image = imageMapper.createImage(stop.getImage(), module, locale);
+
+        StopData stopData = extractStopData(locale, stop, item, image, module);
+        if (!stopData.validPoint || stopData.latitude == null || stopData.longitude == null) {
+            logStopError(module, stop, item);
+            return false;
+        }
+
+        ObjectNode properties = buildStopProperties(locale, stop, stopData, category);
+        feature.put(TYPE, FEATURE);
+        feature.set(PROPERTIES, properties);
+        feature.set(GEOMETRY, getGeometryNode(getCoordinates(stopData.longitude, stopData.latitude), POINT));
+
+        return true;
+    }
+
+    private StopData extractStopData(Locale locale, Stop stop, HippoBean item, FlatImage image, MapsModule module) {
+        StopData data = new StopData();
+
+        if (item instanceof DMSLink) {
+            DMSLink dmsLink = (DMSLink) item;
+            JsonNode dmsNode = dmsData.productCard(dmsLink.getProduct(), locale);
+            if (!Contract.isNull(dmsNode)) {
+                data.validPoint = true;
+                data.flatLink = linkService.createDmsLink(locale, dmsLink, dmsNode);
+                data.flatLink.setLabel(bundle.getResourceBundle(MAP, DISCOVER, locale));
+
+                if (Contract.isNull(stop.getImage()) && dmsNode.has(IMAGE)) {
+                    data.image = imageMapper.createImage(dmsNode, module, locale);
                 }
-            } else if (item instanceof ItineraryExternalLink) {
-                validPoint = true;
-                ItineraryExternalLink externalStop = ((ItineraryExternalLink) item);
-                latitude = externalStop.getCoordinates().getLatitude();
-                longitude = externalStop.getCoordinates().getLongitude();
-                flatLink = new FlatLink(bundle.getResourceBundle(MAP, DISCOVER, locale),externalStop.getExternalLink().getLink(), LinkType.EXTERNAL);
+                if (dmsNode.has(LATITUDE) && dmsNode.has(LONGITUDE)) {
+                    data.latitude = dmsNode.get(LATITUDE).asDouble();
+                    data.longitude = dmsNode.get(LONGITUDE).asDouble();
+                }
             }
-            if (validPoint && !Contract.isNull(latitude) && !Contract.isNull(longitude)) {
-                feature.put(TYPE, FEATURE);
-                String description = stop.getDescription().getContent().trim().replace("\"", "'");
-                if (description.startsWith("<p>") && description.endsWith("</p>")) {
-                    description = description.substring(3, description.length() - 4);
-                }
+        } else if (item instanceof ItineraryExternalLink) {
+            ItineraryExternalLink externalStop = (ItineraryExternalLink) item; // manual cast
+            data.validPoint = true;
+            data.latitude = externalStop.getCoordinates().getLatitude();
+            data.longitude = externalStop.getCoordinates().getLongitude();
+            data.flatLink = new FlatLink(
+                    bundle.getResourceBundle(MAP, DISCOVER, locale),
+                    externalStop.getExternalLink().getLink(),
+                    LinkType.EXTERNAL
+            );
+        }
 
-                ObjectNode properties = getPropertyNode(stop.getTitle(), description,
-                        image, category, flatLink, stop.getCanonicalUUID());
+        if (data.image == null) {
+           data.image = image;
+        }
+        return data;
+    }
 
+    private ObjectNode buildStopProperties(Locale locale, Stop stop, StopData data, ObjectNode category) {
+        String description = cleanDescription(stop.getDescription().getContent());
+        ObjectNode properties = getPropertyNode(stop.getTitle(), description,
+                data.image, category, data.flatLink, stop.getCanonicalUUID());
 
-                if (stop.getKeys() != null && stop.getKeys().length > 1) {
-                    List<String> listKeys = new ArrayList<>(Arrays.asList(stop.getKeys()));
-                    listKeys.remove(category.get(ID).asText());
-                    addSubcategories(properties, listKeys, locale);
-                }
+        if (stop.getKeys() != null && stop.getKeys().length > 1) {
+            List<String> listKeys = new ArrayList<>(Arrays.asList(stop.getKeys()));
+            listKeys.remove(category.get(ID).asText());
+            addSubcategories(properties, listKeys, locale);
+        }
 
-                feature.set(PROPERTIES, properties);
-                feature.set(GEOMETRY, getGeometryNode(getCoordinates(longitude,latitude),POINT));
-            }else{
-                String errorMessage = String.format("Failed to create map card '%s', please review the document attached at: %s", item.getDisplayName(), item.getPath() );
-                module.addErrorMessage(errorMessage);
-                contentLogger.error(errorMessage);
+        if (!Contract.isEmpty(stop.getSubtitle())) {
+            JsonNode boundsNode = dmsData.getLocationBorders(stop.getSubtitle(), false);
+            if (boundsNode != null) {
+                properties.put(PLACEID, hippoUtilsService.getValueFromList(MAPS_GOOGLE_LOCATIONS, stop.getSubtitle()));
+                JsonNode viewports = geometryViewportService.extractViewportFromGeometry(boundsNode);
+                properties.set(VIEWPORT, viewports);
+                properties.set(LOCATION_CENTRE, geometryViewportService.calculateCenterFromViewport(viewports));
             }
         }
-        return validPoint;
+
+        return properties;
+    }
+
+    private String cleanDescription(String content) {
+        if (content == null) return "";
+        String description = content.trim().replace("\"", "'");
+        if (description.startsWith("<p>") && description.endsWith("</p>")) {
+            description = description.substring(3, description.length() - 4);
+        }
+        return description;
+    }
+
+    private void logStopError(MapsModule module, Stop stop, HippoBean item) {
+        String errorMessage = String.format("Failed to create map card '%s', please review the document attached at: %s",
+                item != null ? item.getDisplayName() : stop.getDisplayName(),
+                item == null ? stop.getPath() : item.getPath());
+        module.addErrorMessage(errorMessage);
+        contentLogger.error(errorMessage);
+    }
+
+    // Helper data container
+    private static class StopData {
+        boolean validPoint = false;
+        Double latitude = null;
+        Double longitude = null;
+        FlatLink flatLink = null;
+        FlatImage image = null;
     }
 
     /**
@@ -225,25 +285,40 @@ public class MapService {
      * @param page the destination or other pages
      * @param feature json to build the features and geometry nodes
      */
-    private void buildPageNode(Locale locale, ObjectNode category, MapsModule module, Page page, ObjectNode feature){
+    void buildPageNode(Locale locale, ObjectNode category, MapsModule module, Page page, ObjectNode feature){
         FlatLink flatLink = linkService.createSimpleLink(page, module, locale);
         flatLink.setLabel(bundle.getResourceBundle(MAP, DISCOVER, locale));
         ObjectNode properties = getPropertyNode(page.getTitle(), page.getTeaser(),
                 imageMapper.createImage(page.getImage(), module, locale), category,
                 flatLink, page.getCanonicalUUID());
-        if (page instanceof Destination){
+        if (page instanceof Destination) {
             Destination destination = (Destination) page;
             LocationObject location = locationLoader.getLocation(destination.getLocation(), Locale.UK);
+            String placeId = hippoUtilsService.getValueFromList(MAPS_GOOGLE_LOCATIONS , location.getName());
+            if (placeId != null) {
+                properties.put(PLACEID, placeId);
+            }
             feature.set(PROPERTIES, properties);
-            if (Arrays.asList(destination.getKeys()).contains(REGIONS)){
+            JsonNode viewports = null;
+            if (Arrays.asList(destination.getKeys()).contains(REGIONS)) {
                 JsonNode geometryNode = dmsData.getLocationBorders(locationLoader.getLocation(destination.getLocation(), null).getId(),true);
                 if(geometryNode!=null && !geometryNode.isEmpty()) {
                     feature.set(GEOMETRY, getGeometryNode((ArrayNode) geometryNode.get("coordinates"), geometryNode.get(TYPE).asText()));
+                    viewports = geometryViewportService.extractViewportFromGeometry(geometryNode);
                 }
-            }else {
-                feature.set(GEOMETRY, getGeometryNode(getCoordinates(location.getLongitude(),location.getLatitude()),POINT));
+            } else {
+                ObjectNode geometryNode = getGeometryNode(getCoordinates(location.getLongitude(),location.getLatitude()),POINT);
+                JsonNode boundsNode = dmsData.getLocationBorders(locationLoader.getLocation(destination.getLocation(), null).getId(),false);
+
+                feature.set(GEOMETRY, geometryNode);
+                if (boundsNode != null) {
+                    viewports = geometryViewportService.extractViewportFromGeometry(boundsNode);
+                }
+
             }
-        }else {
+            properties.set(VIEWPORT, viewports);
+            properties.set(LOCATION_CENTRE, geometryViewportService.calculateCenterFromViewport(viewports));
+        } else {
             feature.set(PROPERTIES, properties);
         }
     }
@@ -260,21 +335,37 @@ public class MapService {
      * @return ObjectNode with the right format to be consumed by the front end team
      */
     public ObjectNode getPropertyNode(String title, String description, FlatImage image, ObjectNode category, FlatLink link, String id) {
-        ObjectNode rootNode = mapper.createObjectNode();
+        ObjectNode rootNode = mapper.createObjectNode()
+                .put(ID, id)
+                .put("title", title)
+                .put(DESCRIPTION, description)
+                .set(CATEGORY, category);
 
-        rootNode.put(ID, id);
-        rootNode.put("title", title);
-        rootNode.put(DESCRIPTION, description);
-        rootNode.set(CATEGORY, category);
+        if (!Contract.isNull(image)) {
+            String imageUrl = !Contract.isNull(image.getCmsImage())
+                    ? HippoUtilsService.createUrl(image.getCmsImage())
+                    : image.getExternalImage();
 
-        if (!Contract.isNull(image)){
-            rootNode.put("image", !Contract.isNull(image.getCmsImage())? HippoUtilsService.createUrl(image.getCmsImage()) : image.getExternalImage());
+            if (imageUrl != null) {
+                rootNode.put("image", imageUrl);
+            }
         }
-        if (!Contract.isNull(link)){
+        if (!Contract.isNull(link)) {
+
             ObjectNode linkNode = mapper.createObjectNode();
-            linkNode.put(LABEL, link.getLabel() + " " + title);
-            linkNode.put(LINK, link.getLink());
-            linkNode.put(TYPE, link.getType().name());
+
+            if (link.getLabel() != null) {
+                linkNode.put(LABEL, link.getLabel() + " " + title);
+            }
+
+            if (link.getLink() != null) {
+                linkNode.put(LINK, link.getLink());
+            }
+
+            if (link.getType() != null) {
+                linkNode.put(TYPE, link.getType().name());
+            }
+
             rootNode.set(LINK, linkNode);
         }
 
@@ -393,7 +484,7 @@ public class MapService {
                 concatenatedSubCategories = jsonNodeName.replace(concatenatedSubCategories.lastIndexOf(","), concatenatedSubCategories.lastIndexOf(",") + 1, " &" ).toString();
             }
             rootNode.put ("subtitle", concatenatedSubCategories);
-            rootNode.put(SUBCATEGORY, subcategoryArrayNode);
+            rootNode.set(SUBCATEGORY, subcategoryArrayNode);
 
         }
     }

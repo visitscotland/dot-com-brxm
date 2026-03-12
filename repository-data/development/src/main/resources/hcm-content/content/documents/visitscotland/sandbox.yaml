@@ -300,7 +300,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 94bde36e-54e1-4aee-8d25-28def2719c55
         hippo:name: Casa Jose
-        hippo:versionHistory: 5365da3c-27da-49ed-bff7-a3eca75f538e
+        hippo:versionHistory: 94faf47d-a935-4e0f-b368-aaabfe55e157
         /casa-jose[1]:
           jcr:primaryType: visitscotland:Stop
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -310,13 +310,13 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-16T12:20:46.037Z
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:15:50.012+01:00
+          hippostdpubwf:lastModificationDate: 2026-03-06T12:09:25.606Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-10-13T08:15:52.184+01:00
-          hippotaxonomy:keys: [islands]
+          hippostdpubwf:publicationDate: 2026-03-06T12:09:29.572Z
+          hippotaxonomy:keys: [national-parks]
           hippotranslation:id: 38f7c9ac-27eb-4b02-9bab-16b719f241e4
           hippotranslation:locale: en
-          visitscotland:subtitle: Tenerife
+          visitscotland:subtitle: Edinburgh
           visitscotland:tipsTitle: ''
           visitscotland:title: Casa Jose
           visitscotland:translation: ''
@@ -352,12 +352,12 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-16T12:20:46.037Z
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:15:50.012+01:00
+          hippostdpubwf:lastModificationDate: 2026-03-06T12:09:25.606Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [islands]
+          hippotaxonomy:keys: [national-parks]
           hippotranslation:id: 38f7c9ac-27eb-4b02-9bab-16b719f241e4
           hippotranslation:locale: en
-          visitscotland:subtitle: Tenerife
+          visitscotland:subtitle: Edinburgh
           visitscotland:tipsTitle: ''
           visitscotland:title: Casa Jose
           visitscotland:translation: ''
@@ -393,12 +393,12 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2019-12-16T12:20:46.037Z
-          hippostdpubwf:lastModificationDate: 2022-10-13T08:15:38.427+01:00
+          hippostdpubwf:lastModificationDate: 2026-03-06T12:09:02.314Z
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [islands]
+          hippotaxonomy:keys: [national-parks]
           hippotranslation:id: 38f7c9ac-27eb-4b02-9bab-16b719f241e4
           hippotranslation:locale: en
-          visitscotland:subtitle: Tenerife
+          visitscotland:subtitle: Edinburgh
           visitscotland:tipsTitle: ''
           visitscotland:title: Casa Jose
           visitscotland:translation: ''
@@ -1332,9 +1332,9 @@
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: aca5e20d-3679-4f46-8943-92af37b3c1d2
           hippo:availability: []
-          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-02-10T09:29:58.768Z
           hippostdpubwf:lastModificationDate: 2026-01-15T16:03:47.007Z
@@ -7249,6 +7249,280 @@
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+    /map-cards:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
+        'mix:versionable']
+      jcr:uuid: 70713674-be0e-4589-be4c-59a8861b18fe
+      hippo:name: Map Cards (Back-end Devs)
+      hippostd:foldertype: [new-translated-folder-stops, new-stop]
+      hippotranslation:id: fd3774d3-8ea1-47d3-9b84-7727b3ecb936
+      hippotranslation:locale: en
+      /loch-lomond-and-the-trossachs-national-park:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: bacdbf6c-eabb-4447-996e-16d6d0e2b29f
+        hippo:name: Loch Lomond and The Trossachs National Park
+        hippo:versionHistory: e6b25d80-ec87-4be9-8b9e-2cd3bc754ac6
+        /loch-lomond-and-the-trossachs-national-park[1]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 2b89287f-4a09-4d89-84b1-c4aaec7b750d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T12:11:16.583Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T15:02:11.554Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: 50f6a316-0374-4b3d-9017-164ffd2dbc93
+          hippotranslation:locale: en
+          visitscotland:subtitle: corina
+          visitscotland:title: Loch Lomond and The Trossachs National Park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland's first national park is packed with interesting
+              corners for you to explore, each with its own character. Between 22
+              lochs, 39 miles of coastline around three sea lochs, miles of rivers
+              and paths, 21 Munros (mountains over 3,000 ft) and acres of unspoilt
+              land, there is an endless list of things to see and do in the scenic
+              Loch Lomond &amp; The Trossachs National Park.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            visitscotland:timeToExplore: ''
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 56.010178
+              visitscotland:longitude: -4.584645
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/loch-lomond-trossachs
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /loch-lomond-and-the-trossachs-national-park[2]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 9ac39858-1274-4423-8dad-a83d3ff5dcc0
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T12:11:16.583Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T14:42:32.431Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: 50f6a316-0374-4b3d-9017-164ffd2dbc93
+          hippotranslation:locale: en
+          visitscotland:subtitle: lochlomond-trossachs-national-park
+          visitscotland:title: Loch Lomond and The Trossachs National Park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland's first national park is packed with interesting
+              corners for you to explore, each with its own character. Between 22
+              lochs, 39 miles of coastline around three sea lochs, miles of rivers
+              and paths, 21 Munros (mountains over 3,000 ft) and acres of unspoilt
+              land, there is an endless list of things to see and do in the scenic
+              Loch Lomond &amp; The Trossachs National Park.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 56.010178
+              visitscotland:longitude: -4.584645
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/loch-lomond-trossachs
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /loch-lomond-and-the-trossachs-national-park[3]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 00682e49-66d8-41fd-8086-eeb268d6da58
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T12:11:16.583Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T14:42:32.431Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-03-06T14:42:35.722Z
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: 50f6a316-0374-4b3d-9017-164ffd2dbc93
+          hippotranslation:locale: en
+          visitscotland:subtitle: lochlomond-trossachs-national-park
+          visitscotland:title: Loch Lomond and The Trossachs National Park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Scotland's first national park is packed with interesting
+              corners for you to explore, each with its own character. Between 22
+              lochs, 39 miles of coastline around three sea lochs, miles of rivers
+              and paths, 21 Munros (mountains over 3,000 ft) and acres of unspoilt
+              land, there is an endless list of things to see and do in the scenic
+              Loch Lomond &amp; The Trossachs National Park.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 56.010178
+              visitscotland:longitude: -4.584645
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/loch-lomond-trossachs
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f0fe0f26-489b-4a2e-b6c5-605df1abbdcb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /cairngorms-national-park:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: bb8c8f44-f37e-4a6d-9d58-a303d5254c58
+        hippo:name: Cairngorms national park
+        hippo:versionHistory: c0da487d-6874-4809-8c06-a9aaa33910ab
+        /cairngorms-national-park[1]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: ad604edc-9420-481f-b924-77b56168b3c2
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T15:12:04.760Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T15:12:04.763Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: bbedc9dc-354c-42a2-8c10-e4c8566d2aac
+          hippotranslation:locale: en
+          visitscotland:subtitle: cairngorms-national-park
+          visitscotland:title: Cairngorms national park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The Cairngorms National Park has more mountains,
+              forest paths, rivers, lochs, wildlife hotspots and friendly villages
+              than you can possibly imagine. You can find five of the UK's six highest
+              mountains here, alongside 55 Munros - mountains over 3,000 ft. There
+              is no shortage of things to see and do in the mighty, majestic Cairngorms
+              National Park, from ancient fortresses, wildlife and distilleries to
+              some of the best attractions and museums.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 57.0492
+              visitscotland:longitude: -3.5616
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/cairngorms
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 878bc413-07fe-4c1a-9df6-55514c250a16
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /cairngorms-national-park[2]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: c65e4a6c-f5b7-4911-90cd-e388906e8e35
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T15:12:04.760Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T15:13:38.572Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: bbedc9dc-354c-42a2-8c10-e4c8566d2aac
+          hippotranslation:locale: en
+          visitscotland:subtitle: cairngorms-national-park
+          visitscotland:title: Cairngorms national park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The Cairngorms National Park has more mountains,
+              forest paths, rivers, lochs, wildlife hotspots and friendly villages
+              than you can possibly imagine. You can find five of the UK's six highest
+              mountains here, alongside 55 Munros - mountains over 3,000 ft. There
+              is no shortage of things to see and do in the mighty, majestic Cairngorms
+              National Park, from ancient fortresses, wildlife and distilleries to
+              some of the best attractions and museums.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 57.0492
+              visitscotland:longitude: -3.5616
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/cairngorms
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 878bc413-07fe-4c1a-9df6-55514c250a16
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /cairngorms-national-park[3]:
+          jcr:primaryType: visitscotland:Stop
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: aa286327-5023-47d5-92eb-2fd807e8e215
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-03-06T15:12:04.760Z
+          hippostdpubwf:lastModificationDate: 2026-03-06T15:13:38.572Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-03-06T15:13:41.148Z
+          hippotaxonomy:keys: [national-parks]
+          hippotranslation:id: bbedc9dc-354c-42a2-8c10-e4c8566d2aac
+          hippotranslation:locale: en
+          visitscotland:subtitle: cairngorms-national-park
+          visitscotland:title: Cairngorms national park
+          visitscotland:translation: ''
+          /visitscotland:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>The Cairngorms National Park has more mountains,
+              forest paths, rivers, lochs, wildlife hotspots and friendly villages
+              than you can possibly imagine. You can find five of the UK's six highest
+              mountains here, alongside 55 Munros - mountains over 3,000 ft. There
+              is no shortage of things to see and do in the mighty, majestic Cairngorms
+              National Park, from ancient fortresses, wildlife and distilleries to
+              some of the best attractions and museums.</p>
+          /visitscotland:product:
+            jcr:primaryType: visitscotland:ItineraryExternalLink
+            /visitscotland:Coordinates:
+              jcr:primaryType: visitscotland:Coordinates
+              visitscotland:latitude: 57.0492
+              visitscotland:longitude: -3.5616
+            /visitscotland:ExternalLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: https://www.visitscotland.com/places-to-go/national-parks/cairngorms
+          /visitscotland:media:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 878bc413-07fe-4c1a-9df6-55514c250a16
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -42785,7 +43059,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: c2e720c2-f819-47a4-a269-29b395e328b0
           hippo:name: BREG Form
-          hippo:versionHistory: d5dbc76e-fc4e-40bc-af65-c96f3a0da7a6
+          hippo:versionHistory: 5e6c022d-dcd7-4334-b910-287ab268c679
           /breg-form[1]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
@@ -42795,7 +43069,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2024-05-24T11:59:22.985+01:00
+            hippostdpubwf:lastModificationDate: 2026-02-16T13:49:15.216Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: b6ef5445-e71d-4545-b832-b55c5875c9b7
             hippotranslation:locale: en
@@ -42814,7 +43088,7 @@
               /visitscotland:consents[1]:
                 jcr:primaryType: visitscotland:Entry
                 visitscotland:key: snow
-                visitscotland:value: SKIEMAIL_002
+                visitscotland:value: The snow, is now here; It's snowing now.
               /visitscotland:consents[2]:
                 jcr:primaryType: visitscotland:Entry
                 visitscotland:key: newsletter
@@ -42828,7 +43102,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2024-05-24T12:00:01.079+01:00
+            hippostdpubwf:lastModificationDate: 2026-02-16T13:50:58.780Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: b6ef5445-e71d-4545-b832-b55c5875c9b7
             hippotranslation:locale: en
@@ -42847,7 +43121,7 @@
               /visitscotland:consents[1]:
                 jcr:primaryType: visitscotland:Entry
                 visitscotland:key: snow
-                visitscotland:value: SKIEMAIL_002
+                visitscotland:value: The snow, is now here; It's snowing now.
               /visitscotland:consents[2]:
                 jcr:primaryType: visitscotland:Entry
                 visitscotland:key: newsletter
@@ -42861,9 +43135,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2024-05-24T12:00:01.079+01:00
+            hippostdpubwf:lastModificationDate: 2026-02-16T13:50:58.780Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2024-05-24T12:00:05.348+01:00
+            hippostdpubwf:publicationDate: 2026-02-16T13:51:01.924Z
             hippotranslation:id: b6ef5445-e71d-4545-b832-b55c5875c9b7
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: ''
@@ -42881,7 +43155,7 @@
               /visitscotland:consents[1]:
                 jcr:primaryType: visitscotland:Entry
                 visitscotland:key: snow
-                visitscotland:value: SKIEMAIL_002
+                visitscotland:value: The snow, is now here; It's snowing now.
               /visitscotland:consents[2]:
                 jcr:primaryType: visitscotland:Entry
                 visitscotland:key: newsletter
@@ -52532,6 +52806,570 @@
               /visitscotland:stops[2]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 6f33fa43-9b2b-4c17-b355-df6a60896ccd
+    /product-search:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: f84df1a9-974e-4f1c-8e90-e31fbd910258
+      hippo:name: Product Search (Deprecated)
+      hippostd:foldertype: [new-translated-folder-test, new-document]
+      hippotranslation:id: a3e96dea-1bc4-4d8e-9463-2ec4134d51f5
+      hippotranslation:locale: en
+      /listicle:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: efd1f162-80f2-4eff-afc7-f32a34aed447
+        hippo:name: Listicle
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: e1571b76-fb0e-4d57-8156-4a1b29f2afa0
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 40f88950-63e7-4539-89c0-d2518adbe3a3
+          hippo:name: content
+          hippo:versionHistory: b634586d-462c-4106-a2d3-04fcda334d9f
+          /content[1]:
+            jcr:primaryType: visitscotland:Listicle
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 61cd04ee-a51f-449f-b07f-18956a9c651f
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-24T14:59:45.635+01:00
+            hippostdpubwf:lastModificationDate: 2021-05-27T09:31:05.122+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 82e7793d-4a24-4288-a447-b7b2158f2761
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:descOrder: false
+            visitscotland:newsletter: true
+            visitscotland:seoDescription: Meta description
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Meta title
+            visitscotland:teaser: A listicle shows a number of related items in a
+              list format.
+            visitscotland:title: Listicle page
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c0d67ee5-7a22-4fa8-b0b8-335921c3f0e7
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>A listicle shows a number of related items in a
+                list format.</p>
+            /visitscotland:ListicleClosing:
+              jcr:primaryType: visitscotland:ListicleClosing
+              visitscotland:title: A closing section
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>You can also add a section to close the listicle.&nbsp;Ut
+                  interdum molestie ligula, vel faucibus sem porttitor eget. In sed
+                  ligula turpis. Maecenas a egestas dolor, suscipit suscipit lacus.
+                  Donec molestie, ipsum sed consectetur sollicitudin, lorem felis
+                  fermentum arcu, quis semper nisl arcu at nisl.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:Listicle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 890e3684-d2eb-48e9-bfce-6657d3f065bb
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-24T14:59:45.635+01:00
+            hippostdpubwf:lastModificationDate: 2021-05-27T09:31:05.122+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-02-17T14:04:51.034Z
+            hippotranslation:id: 82e7793d-4a24-4288-a447-b7b2158f2761
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:descOrder: false
+            visitscotland:newsletter: true
+            visitscotland:seoDescription: Meta description
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Meta title
+            visitscotland:teaser: A listicle shows a number of related items in a
+              list format.
+            visitscotland:title: Listicle page
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c0d67ee5-7a22-4fa8-b0b8-335921c3f0e7
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>A listicle shows a number of related items in a
+                list format.</p>
+            /visitscotland:ListicleClosing:
+              jcr:primaryType: visitscotland:ListicleClosing
+              visitscotland:title: A closing section
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>You can also add a section to close the listicle.&nbsp;Ut
+                  interdum molestie ligula, vel faucibus sem porttitor eget. In sed
+                  ligula turpis. Maecenas a egestas dolor, suscipit suscipit lacus.
+                  Donec molestie, ipsum sed consectetur sollicitudin, lorem felis
+                  fermentum arcu, quis semper nisl arcu at nisl.</p>
+        /listicle-item-with-product-search:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 21caffd7-07a3-4287-8212-c2b268acf41d
+          hippo:name: Listicle Item with Product Search
+          hippo:versionHistory: f8418236-da6f-4b01-a71a-1b890bd6bbd8
+          /listicle-item-with-product-search[1]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: d35a3adf-84a1-44f7-b087-b088b3daed86
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2020-03-30T14:46:39.631+01:00
+            hippostdpubwf:lastModificationDate: 2021-06-24T14:10:48.005+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 107c14cf-9321-48b7-adbc-734d52158616
+            hippotranslation:locale: en
+            visitscotland:subtitle: ''
+            visitscotland:title: National Museum of Scotland
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>The National Museum of Scotland is one of the Top 10 UK visitor attractions, and in the Top 20 of the most visited museums and galleries in the world.</p>
+
+                <p>Fresh from a £47 million redevelopment, the museum houses a spectacular array of over 20,000 fascinating artefacts. Our magnificently diverse collections will take you on an inspirational journey through the history of Scotland, the wonders of nature, world cultures and the excitement of science and discovery – all under one roof.</p>
+
+                <p>We are closed on Christmas Day - 25th December.</p>
+
+                <p>Explore this attraction with the&nbsp;<a rel="nofollow" href="https://www.visitscotland.com/app/">ScotlandVR app</a>.</p>
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:DMSLink
+              visitscotland:label: Discover the musseum.
+              visitscotland:product: '246591'
+            /visitscotland:extraLinks:
+              jcr:primaryType: visitscotland:ProductSearchLink
+              visitscotland:label: Find out more museums
+              /visitscotland:search:
+                jcr:primaryType: visitscotland:ProductsSearch
+                visitscotland:distance: 11.3
+                visitscotland:dmsAwards: []
+                visitscotland:dmsCategories: [boathouse]
+                visitscotland:dmsFacilities: []
+                visitscotland:free: false
+                visitscotland:location: Aberchirder
+                visitscotland:offers: false
+                visitscotland:officialrating: ['4']
+                visitscotland:productType: acco
+                visitscotland:producttype: ''
+          /listicle-item-with-product-search[2]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 2751371a-3208-409a-a092-8e10e0e10ce9
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2020-03-30T14:46:39.631+01:00
+            hippostdpubwf:lastModificationDate: 2026-02-17T13:58:18.308Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 107c14cf-9321-48b7-adbc-734d52158616
+            hippotranslation:locale: en
+            visitscotland:subtitle: ''
+            visitscotland:title: National Museum of Scotland
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>The National Museum of Scotland is one of the Top 10 UK visitor attractions, and in the Top 20 of the most visited museums and galleries in the world.</p>
+
+                <p>Fresh from a £47 million redevelopment, the museum houses a spectacular array of over 20,000 fascinating artefacts. Our magnificently diverse collections will take you on an inspirational journey through the history of Scotland, the wonders of nature, world cultures and the excitement of science and discovery – all under one roof.</p>
+
+                <p>We are closed on Christmas Day - 25th December.</p>
+
+                <p>Explore this attraction with the&nbsp;<a rel="nofollow" href="https://www.visitscotland.com/app/">ScotlandVR app</a>.</p>
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:DMSLink
+              visitscotland:label: Discover the musseum.
+              visitscotland:product: '246591'
+            /visitscotland:extraLinks:
+              jcr:primaryType: visitscotland:ProductSearchLink
+              visitscotland:label: Find out more museums
+              /visitscotland:search:
+                jcr:primaryType: visitscotland:ProductsSearch
+                visitscotland:channel: ''
+                visitscotland:daysOut: false
+                visitscotland:distance: 11.3
+                visitscotland:dmsAwards: []
+                visitscotland:dmsCategories: [boathouse]
+                visitscotland:dmsFacilities: []
+                visitscotland:free: false
+                visitscotland:keywords: ''
+                visitscotland:location: Aberchirder
+                visitscotland:offers: false
+                visitscotland:officialrating: ['4']
+                visitscotland:productType: acco
+                visitscotland:producttype: ''
+                visitscotland:safeTravels: false
+          /listicle-item-with-product-search[3]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: e269853e-f4df-4ecc-87e0-505ec5711717
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2020-03-30T14:46:39.631+01:00
+            hippostdpubwf:lastModificationDate: 2021-06-24T14:10:48.005+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-02-17T14:04:51.180Z
+            hippotranslation:id: 107c14cf-9321-48b7-adbc-734d52158616
+            hippotranslation:locale: en
+            visitscotland:subtitle: ''
+            visitscotland:title: National Museum of Scotland
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>The National Museum of Scotland is one of the Top 10 UK visitor attractions, and in the Top 20 of the most visited museums and galleries in the world.</p>
+
+                <p>Fresh from a £47 million redevelopment, the museum houses a spectacular array of over 20,000 fascinating artefacts. Our magnificently diverse collections will take you on an inspirational journey through the history of Scotland, the wonders of nature, world cultures and the excitement of science and discovery – all under one roof.</p>
+
+                <p>We are closed on Christmas Day - 25th December.</p>
+
+                <p>Explore this attraction with the&nbsp;<a rel="nofollow" href="https://www.visitscotland.com/app/">ScotlandVR app</a>.</p>
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:DMSLink
+              visitscotland:label: Discover the musseum.
+              visitscotland:product: '246591'
+            /visitscotland:extraLinks:
+              jcr:primaryType: visitscotland:ProductSearchLink
+              visitscotland:label: Find out more museums
+              /visitscotland:search:
+                jcr:primaryType: visitscotland:ProductsSearch
+                visitscotland:distance: 11.3
+                visitscotland:dmsAwards: []
+                visitscotland:dmsCategories: [boathouse]
+                visitscotland:dmsFacilities: []
+                visitscotland:free: false
+                visitscotland:location: Aberchirder
+                visitscotland:offers: false
+                visitscotland:officialrating: ['4']
+                visitscotland:productType: acco
+                visitscotland:producttype: ''
+      /general:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 4709594e-e44b-4345-a35c-75be43448f21
+        hippo:name: General
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 70b7f2a9-8163-4fbe-b259-e5b60868ff80
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 02782026-aace-41d4-bc91-2862b28754d3
+          hippo:name: content
+          hippo:versionHistory: da0ebf89-5f24-40d0-b31a-25e0462f67e4
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 6f4c8cd5-f9eb-4480-b2e3-fa9fe870149a
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-24T12:32:03.187+01:00
+            hippostdpubwf:lastModificationDate: 2021-05-27T09:30:42.037+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 4c019117-5781-4e42-9cc5-4af2515eb82e
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:newsletter: true
+            visitscotland:seoDescription: Meta description
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Meta title
+            visitscotland:teaser: A general page simple layout has the same CMS fields
+              as the standard one but looks simpler for the user.
+            visitscotland:theme: Simple
+            visitscotland:title: General page - simple layout
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 3ecbbd83-12e3-4ce4-9f0f-7911a799c2b9
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>A general page simple layout has the same CMS fields as the standard one but looks simpler for the user. By default, the standard layout has a hero section, title and intro section. All other content must be added using modules.</p>
+
+                <p>There's no hero image and the title appears at the very top of the page. This should be used for more content-driven simple pages such as about us, terms &amp; conditions or any purely informative cotent.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 8217b68b-5d2d-406d-bc09-79d3721d5fb1
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-05-24T12:32:03.187+01:00
+            hippostdpubwf:lastModificationDate: 2021-05-27T09:30:42.037+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-02-17T14:06:57.704Z
+            hippotranslation:id: 4c019117-5781-4e42-9cc5-4af2515eb82e
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:newsletter: true
+            visitscotland:seoDescription: Meta description
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Meta title
+            visitscotland:teaser: A general page simple layout has the same CMS fields
+              as the standard one but looks simpler for the user.
+            visitscotland:theme: Simple
+            visitscotland:title: General page - simple layout
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 3ecbbd83-12e3-4ce4-9f0f-7911a799c2b9
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>A general page simple layout has the same CMS fields as the standard one but looks simpler for the user. By default, the standard layout has a hero section, title and intro section. All other content must be added using modules.</p>
+
+                <p>There's no hero image and the title appears at the very top of the page. This should be used for more content-driven simple pages such as about us, terms &amp; conditions or any purely informative cotent.</p>
+        /accomodation-copy:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 7312f9e1-4d1a-4652-a45f-23ae4cb06916
+          hippo:name: Accomodation (copy)
+          hippo:versionHistory: edc69502-e11d-4653-8ea3-b89fa6cd9b6d
+          /accomodation-copy[1]:
+            jcr:primaryType: visitscotland:CannedSearch
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 3e14ce4b-9e43-4316-b098-15beae0b0f6c
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-11-23T12:18:08.382Z
+            hippostdpubwf:lastModificationDate: 2021-12-03T11:52:34.318Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 2163cadd-3be6-4993-b1f4-64025c4dafe6
+            hippotranslation:locale: en
+            visitscotland:title: Accomodation
+            visitscotland:translation: ''
+            /visitscotland:criteria:
+              jcr:primaryType: visitscotland:ProductSearchLink
+              visitscotland:label: ''
+              /visitscotland:search:
+                jcr:primaryType: visitscotland:ProductsSearch
+                visitscotland:distance: 10.0
+                visitscotland:dmsAwards: []
+                visitscotland:dmsCategories: []
+                visitscotland:dmsFacilities: []
+                visitscotland:free: false
+                visitscotland:goodToGo: false
+                visitscotland:location: Glasgow
+                visitscotland:offers: false
+                visitscotland:officialrating: []
+                visitscotland:productType: acco
+                visitscotland:producttype: ''
+                visitscotland:safeTravels: false
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Test copy please ignore</p>
+          /accomodation-copy[2]:
+            jcr:primaryType: visitscotland:CannedSearch
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: ef97a938-fe1b-4958-aed0-2a7a43a109e3
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2021-11-23T12:18:08.382Z
+            hippostdpubwf:lastModificationDate: 2021-12-03T11:52:34.318Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-02-17T14:06:57.492Z
+            hippotranslation:id: 2163cadd-3be6-4993-b1f4-64025c4dafe6
+            hippotranslation:locale: en
+            visitscotland:title: Accomodation
+            visitscotland:translation: ''
+            /visitscotland:criteria:
+              jcr:primaryType: visitscotland:ProductSearchLink
+              visitscotland:label: ''
+              /visitscotland:search:
+                jcr:primaryType: visitscotland:ProductsSearch
+                visitscotland:distance: 10.0
+                visitscotland:dmsAwards: []
+                visitscotland:dmsCategories: []
+                visitscotland:dmsFacilities: []
+                visitscotland:free: false
+                visitscotland:goodToGo: false
+                visitscotland:location: Glasgow
+                visitscotland:offers: false
+                visitscotland:officialrating: []
+                visitscotland:productType: acco
+                visitscotland:producttype: ''
+                visitscotland:safeTravels: false
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Test copy please ignore</p>
+        /no-links-copy:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: e929d9df-dc67-4eba-8f24-9980257cbb7a
+          hippo:name: No links (copy)
+          hippo:versionHistory: 1bcecfc9-31ce-45f8-8845-ce8c2cb5d07e
+          /no-links-copy[1]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 2fe7d704-bd2d-496a-bd14-c29d39bcab82
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:48:05.920Z
+            hippostdpubwf:lastModificationDate: 2026-02-17T14:06:51.612Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 407dd8c7-1698-4b76-8749-1adf0688e343
+            hippotranslation:locale: en
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: This module should not appear
+            visitscotland:translation: ''
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This module doesn't have any valid link so it should
+                not appear on the page</p>
+            /visitscotland:megalinkItems:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: d9369667-48f7-441f-b759-8d9843695c67
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ProductSearchLink
+              visitscotland:label: ''
+              /visitscotland:search:
+                jcr:primaryType: visitscotland:ProductsSearch
+                visitscotland:channel: ''
+                visitscotland:daysOut: false
+                visitscotland:distance: 10.0
+                visitscotland:dmsAwards: []
+                visitscotland:dmsCategories: []
+                visitscotland:dmsFacilities: []
+                visitscotland:free: false
+                visitscotland:keywords: ''
+                visitscotland:location: Scotland
+                visitscotland:offers: false
+                visitscotland:officialrating: []
+                visitscotland:productType: acti,attr,reta
+                visitscotland:producttype: ''
+                visitscotland:safeTravels: false
+          /no-links-copy[2]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 784bc3aa-e2ae-40ee-89ab-62df1158621c
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:48:05.920Z
+            hippostdpubwf:lastModificationDate: 2026-02-17T14:15:18.281Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 407dd8c7-1698-4b76-8749-1adf0688e343
+            hippotranslation:locale: en
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: This module should not appear
+            visitscotland:translation: ''
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This module doesn't have any valid link so it should
+                not appear on the page</p>
+            /visitscotland:megalinkItems:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: d9369667-48f7-441f-b759-8d9843695c67
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ProductSearchLink
+              visitscotland:label: ''
+              /visitscotland:search:
+                jcr:primaryType: visitscotland:ProductsSearch
+                visitscotland:channel: ''
+                visitscotland:daysOut: false
+                visitscotland:distance: 10.0
+                visitscotland:dmsAwards: []
+                visitscotland:dmsCategories: []
+                visitscotland:dmsFacilities: []
+                visitscotland:free: false
+                visitscotland:keywords: ''
+                visitscotland:location: Scotland
+                visitscotland:offers: false
+                visitscotland:officialrating: []
+                visitscotland:productType: acti,attr,reta
+                visitscotland:producttype: ''
+                visitscotland:safeTravels: false
+          /no-links-copy[3]:
+            jcr:primaryType: visitscotland:Megalinks
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: c3eed436-bfba-4d81-b291-92c747cf0626
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-11-05T15:48:05.920Z
+            hippostdpubwf:lastModificationDate: 2026-02-17T14:06:51.612Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-02-17T14:06:57.593Z
+            hippotranslation:id: 407dd8c7-1698-4b76-8749-1adf0688e343
+            hippotranslation:locale: en
+            visitscotland:layout: Grid
+            visitscotland:teaserVisible: true
+            visitscotland:title: This module should not appear
+            visitscotland:translation: ''
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>This module doesn't have any valid link so it should
+                not appear on the page</p>
+            /visitscotland:megalinkItems:
+              jcr:primaryType: visitscotland:MegalinkItem
+              visitscotland:feature: false
+              /visitscotland:links:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: d9369667-48f7-441f-b759-8d9843695c67
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ProductSearchLink
+              visitscotland:label: ''
+              /visitscotland:search:
+                jcr:primaryType: visitscotland:ProductsSearch
+                visitscotland:channel: ''
+                visitscotland:daysOut: false
+                visitscotland:distance: 10.0
+                visitscotland:dmsAwards: []
+                visitscotland:dmsCategories: []
+                visitscotland:dmsFacilities: []
+                visitscotland:free: false
+                visitscotland:keywords: ''
+                visitscotland:location: Scotland
+                visitscotland:offers: false
+                visitscotland:officialrating: []
+                visitscotland:productType: acti,attr,reta
+                visitscotland:producttype: ''
+                visitscotland:safeTravels: false
   /experimental:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -54071,7 +54909,7 @@
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 499a384f-a141-4c6d-860a-89408748cdcd
-      hippo:versionHistory: c4247a3a-61c8-4242-a828-336284fb5874
+      hippo:versionHistory: e3e49b7d-0d29-41a5-b428-8f5daf44a674
       /main-map[1]:
         jcr:primaryType: visitscotland:MapModule
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -54081,12 +54919,12 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:54.194Z
+        hippostdpubwf:lastModificationDate: 2026-03-06T10:29:02.646Z
         hippostdpubwf:lastModifiedBy: admin
-        hippotaxonomy:keys: [main-map]
+        hippotaxonomy:keys: [main-map, destinations]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
-        visitscotland:isGoogleMap: true
+        visitscotland:isGoogleMap: false
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
@@ -54100,12 +54938,12 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:59.816Z
+        hippostdpubwf:lastModificationDate: 2026-03-06T10:29:05.459Z
         hippostdpubwf:lastModifiedBy: admin
-        hippotaxonomy:keys: [main-map]
+        hippotaxonomy:keys: [main-map, destinations]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
-        visitscotland:isGoogleMap: true
+        visitscotland:isGoogleMap: false
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
@@ -54119,14 +54957,77 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-11-19T15:58:42.916Z
-        hippostdpubwf:lastModificationDate: 2025-11-28T12:21:59.816Z
+        hippostdpubwf:lastModificationDate: 2026-03-06T10:29:05.459Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-11-28T12:22:02.037Z
-        hippotaxonomy:keys: [main-map]
+        hippostdpubwf:publicationDate: 2026-03-06T10:29:07.421Z
+        hippotaxonomy:keys: [main-map, destinations]
         hippotranslation:id: 83edb51a-40bd-46e6-930e-8ffb9be8fbe2
         hippotranslation:locale: en
-        visitscotland:isGoogleMap: true
+        visitscotland:isGoogleMap: false
         visitscotland:mapType: ''
         visitscotland:tabTitle: Discover your Scotland
         visitscotland:title: Discover your Scotland
         visitscotland:translation: ''
+  /mapa:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 7167d05a-2e71-4639-9efc-7f03f6940128
+    hippo:versionHistory: 39d5f813-cbbe-420d-92bb-7f96e2a181fa
+    /mapa[1]:
+      jcr:primaryType: visitscotland:MapModule
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 6909096f-0ad1-42ae-ac28-b309ab90eaea
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-03-06T10:33:33.245Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T10:33:33.246Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys: [main-map, destinations]
+      hippotranslation:id: fab09e63-b8a9-44f5-a805-68bbecdaa59d
+      hippotranslation:locale: en
+      visitscotland:isGoogleMap: false
+      visitscotland:mapType: ''
+      visitscotland:tabTitle: ''
+      visitscotland:title: mapa
+      visitscotland:translation: ''
+    /mapa[2]:
+      jcr:primaryType: visitscotland:MapModule
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 885da05a-c5dc-42f9-9a89-c874dcec9f37
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-03-06T10:33:33.245Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T10:33:45.978Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys: [main-map, destinations]
+      hippotranslation:id: fab09e63-b8a9-44f5-a805-68bbecdaa59d
+      hippotranslation:locale: en
+      visitscotland:isGoogleMap: false
+      visitscotland:mapType: ''
+      visitscotland:tabTitle: ''
+      visitscotland:title: mapa
+      visitscotland:translation: ''
+    /mapa[3]:
+      jcr:primaryType: visitscotland:MapModule
+      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+      jcr:uuid: 6fe61771-1a1c-4fbb-b115-1b16ca14efa0
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-03-06T10:33:33.245Z
+      hippostdpubwf:lastModificationDate: 2026-03-06T10:33:45.978Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2026-03-06T10:33:48.414Z
+      hippotaxonomy:keys: [main-map, destinations]
+      hippotranslation:id: fab09e63-b8a9-44f5-a805-68bbecdaa59d
+      hippotranslation:locale: en
+      visitscotland:isGoogleMap: false
+      visitscotland:mapType: ''
+      visitscotland:tabTitle: ''
+      visitscotland:title: mapa
+      visitscotland:translation: ''

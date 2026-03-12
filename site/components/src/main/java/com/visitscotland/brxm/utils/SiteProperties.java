@@ -100,10 +100,6 @@ public class SiteProperties extends Properties {
         return readString(GTM_PREVIEW_QUERY_STRING);
     }
 
-    public boolean isProductSearchEnabled() {
-        return readBoolean(PRODUCTS_SEARCH_ENABLED);
-    }
-
     public boolean isTableOfContentsEnabled() {
         return readBoolean(TABLE_OF_CONTENTS_ENABLED);
     }
