@@ -8,20 +8,14 @@ import com.visitscotland.brxm.model.favourites.FavouritesCard;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.core.container.HstContainerURL;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.hippoecm.hst.core.request.ResolvedMount;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.jcr.RepositoryException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Mapper class to create favourites cards from supported page info
- * TODO - this has been modified for testing, clean up once a solution has been found
  */
 @Component
 public class FavouritesCardMapper {
@@ -29,8 +23,11 @@ public class FavouritesCardMapper {
     private static final Logger logger = LoggerFactory.getLogger(FavouritesCardMapper.class);
 
     private static final String GENERAL_PAGE = "visitscotland:General";
-    private static final String ENGLISH_CHANNEL_LOC = "vs-en-loc";
-    private static final String ENGLISH_CHANNEL = "vs-en-dev";
+    private static final String API = "/api/";
+    private static final String HTTP = "http:";
+    private static final String HTTPS = "https:";
+    private static final String LOCALHOST = "localhost";
+    private static final String FWD_SLASH = "/";
 
     // content types can be added here as they are supported (see also PageAssembler)
     private static final ImmutableList<String> FAVOURITABLE_CONTENT = ImmutableList.<String>builder()
@@ -86,15 +83,6 @@ public class FavouritesCardMapper {
      * @param document
      * @return url
      */
-    /*private String toURL(final HippoBean document){
-        final boolean FULLY_QUALIFIED = true;
-        final HstRequestContext context = RequestContextProvider.get();
-        final Mount mount = context.getResolvedMount().getMount();
-
-        return context.getHstLinkCreator().create(document.getNode(), mount)
-                .toUrlForm(context, FULLY_QUALIFIED);
-    }*/
-
     private String toURL(final HippoBean document, final boolean isPageUrl) {
         final boolean FULLY_QUALIFIED = true;
         final HstRequestContext context = RequestContextProvider.get();
@@ -103,10 +91,10 @@ public class FavouritesCardMapper {
         String url = context.getHstLinkCreator().create(document.getNode(), mount)
                 .toUrlForm(context, FULLY_QUALIFIED);
         if (isPageUrl) {
-            url = url.replace("api/", "");
+            url = url.replace(API, FWD_SLASH);
         }
-        if (!context.getVirtualHost().getHostName().contains("localhost")) {
-            url = url.replace("http:", "https:");
+        if (!context.getVirtualHost().getHostName().contains(LOCALHOST)) {
+            url = url.replace(HTTP, HTTPS);
         }
 
         return url;
