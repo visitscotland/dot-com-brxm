@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 90dd34ac-0ad2-4a25-98be-407f33bf3dfa
   hippo:name: Local/Feature - Visitscotland.com
-  hippo:versionHistory: 1fdb1f18-9d60-423d-9bac-8ee60de0e219
+  hippo:versionHistory: 5c43bcf3-9c26-4a7d-b2c0-b701287ab7ae
   /local-feature---visitscotland.com[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-03-10T10:59:40.713Z
+    hippostdpubwf:lastModificationDate: 2026-03-13T09:50:13.219Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -59,7 +59,7 @@
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
       'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, 'http://localhost:3000/favourites', 'true']
+      and, /site/api/favourites/get-favourites, 'true']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '']
@@ -84,9 +84,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-03-10T10:59:40.713Z
+    hippostdpubwf:lastModificationDate: 2026-03-13T09:50:13.219Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-03-10T10:59:54.944Z
+    hippostdpubwf:publicationDate: 2026-03-13T09:50:17.313Z
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -130,7 +130,7 @@
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
       'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, 'http://localhost:3000/favourites', 'true']
+      and, /site/api/favourites/get-favourites, 'true']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '']
@@ -155,7 +155,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-03-10T10:59:17.534Z
+    hippostdpubwf:lastModificationDate: 2026-03-13T09:41:45.130Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -200,7 +200,7 @@
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
       'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, 'http://localhost:3000/favourites', 'true']
+      and, /site/api/favourites/get-favourites, 'true']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '']
