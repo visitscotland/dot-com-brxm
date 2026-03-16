@@ -12,7 +12,6 @@ import java.util.List;
 
 /**
  * should extract pages and information to be used in creating favourite cards
- * TODO - Complete this
  */
 @Component
 public class FavouritesRepository {
@@ -54,6 +53,7 @@ public class FavouritesRepository {
                     }
                } else {
                     logger.info("Invalid uuid provided: {}", uuid);
+                    failedUuids.add(uuid);
                 }
             }
         }
