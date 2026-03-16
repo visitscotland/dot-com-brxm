@@ -17,6 +17,7 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
 
     public static final String LISTICLE_ITEMS = "items";
     private static final String BUNDLE_ID = "listicle";
+    private static final String IS_FAVOURITE = "isFavourite";
 
     private ListicleFactory factory;
 
@@ -33,6 +34,7 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
         PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
 
         super.doBeforeRender(request, response, pageConfig);
+        pageConfig.addProperty(IS_FAVOURITE, true);
 
         addLabels(request);
 
