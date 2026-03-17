@@ -30,7 +30,7 @@ public class FavouritesCardMapper {
     private static final String FWD_SLASH = "/";
 
     // content types can be added here as they are supported (see also PageAssembler)
-    private static final ImmutableList<String> FAVOURITABLE_CONTENT = ImmutableList.<String>builder()
+    private static final ImmutableList<String> FAVOURITE_CONTENT = ImmutableList.<String>builder()
             .add("visitscotland:Itinerary")
             .add("visitscotland:Destination")
             .add("visitscotland:Listicle")
@@ -50,7 +50,7 @@ public class FavouritesCardMapper {
             return null;
         }
 
-        if (!FAVOURITABLE_CONTENT.contains(contentType)) {
+        if (!FAVOURITE_CONTENT.contains(contentType)) {
             if (!(bean instanceof General && GeneralContentComponent.STANDARD.equals((((General) bean).getTheme())))){
                 logger.info("Unsupported content type: {}", bean.getContentType());
                 if (contentType.equals(GENERAL_PAGE)) {
@@ -90,6 +90,10 @@ public class FavouritesCardMapper {
 
         String url = context.getHstLinkCreator().create(document.getNode(), mount)
                 .toUrlForm(context, FULLY_QUALIFIED);
+        if (url == null) {
+            logger.info("Failed to get URL for document.");
+            return null;
+        }
         if (isPageUrl) {
             url = url.replace(API, FWD_SLASH);
         }
