@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO - include field for errors/failed UUIDs
+ * Response object for favourites API
  */
 public class FavouritesCardResponse {
 
