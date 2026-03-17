@@ -1,69 +1,75 @@
-/content/documents/administration/labels/modules/search-widget-events:
-  .meta:order-before: search-widget
+/content/documents/administration/labels/search/search-widget:
+  .meta:order-before: search-events-filters-date
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 3a3ce8f0-e60c-4d23-b7f6-1076bcfdfe92
-  hippo:name: Search Widget Events
-  hippo:versionHistory: 3cf394ad-b3e4-4c81-855e-fae4587732c2
-  /search-widget-events[1]:
+  jcr:uuid: b29e79b5-df98-448c-a494-b8a5c0f492cb
+  hippo:name: Search Widget
+  hippo:versionHistory: 08db572c-816a-46f3-9bf9-1a00ee65af63
+  /search-widget[1]:
     jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 44269071-3cea-4383-b9b0-8a47bf6b000b
-    hippo:availability: []
-    hippostd:retainable: false
-    hippostd:state: draft
-    hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2026-03-11T15:26:30.140Z
-    hippostdpubwf:lastModificationDate: 2026-03-11T15:36:29.359Z
-    hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '']
-    resourcebundle:id: search-widget-events
-    resourcebundle:keys: [title, description, button, placeholder]
-    resourcebundle:messages: [Discover unique events in Scotland, Explore events in
-        scotland, Search events, 'What events are you looking for?']
-    resourcebundle:messages_de: ['', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '']
-  /search-widget-events[2]:
-    jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-    jcr:uuid: be5b916d-cb91-4b82-a402-7ef28baaab57
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 662676fd-9db7-4696-8834-be99dd120edb
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-11T15:26:30.140Z
-    hippostdpubwf:lastModificationDate: 2026-03-11T15:40:45.878Z
+    hippostdpubwf:lastModificationDate: 2026-03-11T16:10:51.134Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '']
-    resourcebundle:id: search-widget-events
+    resourcebundle:id: search-widget
     resourcebundle:keys: [title, description, button, placeholder]
-    resourcebundle:messages: [Discover unique events in Scotland, Explore events in
-        scotland, Search events, 'What events are you looking for?']
+    resourcebundle:messages: [Discover unique experiences in Scotland, 'Discover hidden
+        gems, plan your perfect trip, or find exactly what you need—from scenic hikes
+        and cosy cottages to events and cultural experiences.', Search, 'What are
+        you looking for?']
     resourcebundle:messages_de: ['', '', '', '']
     resourcebundle:messages_es: ['', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '']
     resourcebundle:messages_it: ['', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '']
-  /search-widget-events[3]:
+  /search-widget[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 781f4762-7ef4-4021-bf2e-2c92bcb7ddfa
+    jcr:uuid: 529b1e91-aba1-41d1-857a-c9574fa5b54c
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-11T15:26:30.140Z
+    hippostdpubwf:lastModificationDate: 2026-03-11T16:10:07.401Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: search-widget
+    resourcebundle:keys: [title, description, button, placeholder]
+    resourcebundle:messages: [Discover unique experiences in Scotland, 'Discover hidden
+        gems, plan your perfect trip, or find exactly what you need—from scenic hikes
+        and cosy cottages to events and cultural experiences.', Search, 'What are
+        you looking for?']
+    resourcebundle:messages_de: ['', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '']
+  /search-widget[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 062654ca-db89-4b43-a8ea-b8e7d7572167
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-11T15:26:30.140Z
-    hippostdpubwf:lastModificationDate: 2026-03-11T15:40:45.878Z
+    hippostdpubwf:lastModificationDate: 2026-03-11T16:10:51.134Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-03-11T15:40:48.978Z
+    hippostdpubwf:publicationDate: 2026-03-13T16:09:41.034Z
     resourcebundle:descriptions: ['', '', '', '']
-    resourcebundle:id: search-widget-events
+    resourcebundle:id: search-widget
     resourcebundle:keys: [title, description, button, placeholder]
-    resourcebundle:messages: [Discover unique events in Scotland, Explore events in
-        scotland, Search events, 'What events are you looking for?']
+    resourcebundle:messages: [Discover unique experiences in Scotland, 'Discover hidden
+        gems, plan your perfect trip, or find exactly what you need—from scenic hikes
+        and cosy cottages to events and cultural experiences.', Search, 'What are
+        you looking for?']
     resourcebundle:messages_de: ['', '', '', '']
     resourcebundle:messages_es: ['', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '']
