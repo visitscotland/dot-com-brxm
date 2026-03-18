@@ -11,7 +11,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
 /**
- * TODO - Refine this - committed during development to give Mark an endpoint with test data to work with
+ * REST endpoint for favourites page cards
  */
 @Path("/favourites")
 public class FavouritesRestService extends AbstractResource {
@@ -33,6 +33,12 @@ public class FavouritesRestService extends AbstractResource {
         return Response.ok().entity("Favourites rest service - status OK!").build();
     }
 
+    /*@GetMapping("/share")
+    @Produces("application/json")
+    public Response share(@RequestParam(name = "name", required = false, defaultValue = "Guest")) {
+
+    }*/
+
     @POST
     @Path("/get-favourites")
     @Consumes("application/json")
@@ -48,7 +54,7 @@ public class FavouritesRestService extends AbstractResource {
             } else {
                 return Response.serverError().entity("Could not process request.").build();
             }
-        } catch (Exception e) { // TODO - refine exception handling before merge as this is not braw
+        } catch (Exception e) {
             logger.error("Failed to get favourites cards", e);
             return Response.serverError().entity("Could not process request.").build();
         }
