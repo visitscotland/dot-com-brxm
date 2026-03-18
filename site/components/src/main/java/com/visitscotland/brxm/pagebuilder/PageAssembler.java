@@ -28,7 +28,7 @@ public class PageAssembler {
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
     static final String DEFAULT = "default";
-    private static final String IS_FAVOURITE = "allowFavourite";
+    private static final String ALLOW_FAVOURITE = "allowFavourite";
 
     //Utils
     private final DocumentUtilsService documentUtils;
@@ -103,16 +103,16 @@ public class PageAssembler {
             final String contentType = page.getPage().getContentType();
             if (contentType != null && FAVOURITABLE_CONTENT.contains(page.getPage().getContentType())) {
                 logger.debug("Got favouritable content");
-                page.addProperty(IS_FAVOURITE, true);
+                page.addProperty(ALLOW_FAVOURITE, true);
             } else if (page.getPage() instanceof General && GeneralContentComponent.STANDARD.equals(((General) page.getPage()).getTheme())){
                 logger.debug("Got favouritable General content for standard layout");
-                page.addProperty(IS_FAVOURITE, true);
+                page.addProperty(ALLOW_FAVOURITE, true);
             } else {
-                page.addProperty(IS_FAVOURITE, false);
+                page.addProperty(ALLOW_FAVOURITE, false);
             }
         } catch (PageCompositionException e) {
             logger.warn("Failed to set favourites boolean. Defaulting to false.");
-            page.addProperty(IS_FAVOURITE, false);
+            page.addProperty(ALLOW_FAVOURITE, false);
         }
 
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {

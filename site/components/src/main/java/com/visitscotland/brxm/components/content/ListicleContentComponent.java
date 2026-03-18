@@ -9,15 +9,13 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Locale;
-
 public class ListicleContentComponent extends PageContentComponent<Listicle> {
 
     private static final Logger logger = LoggerFactory.getLogger(ListicleContentComponent.class);
 
     public static final String LISTICLE_ITEMS = "items";
     private static final String BUNDLE_ID = "listicle";
-    private static final String IS_FAVOURITE = "allowFavourite";
+    private static final String ALLOW_FAVOURITE = "allowFavourite";
 
     private ListicleFactory factory;
 
@@ -34,7 +32,7 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
         PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
 
         super.doBeforeRender(request, response, pageConfig);
-        pageConfig.addProperty(IS_FAVOURITE, true);
+        pageConfig.addProperty(ALLOW_FAVOURITE, true);
 
         addLabels(request);
 
