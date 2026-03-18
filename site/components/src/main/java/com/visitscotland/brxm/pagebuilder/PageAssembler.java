@@ -28,7 +28,7 @@ public class PageAssembler {
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
     static final String DEFAULT = "default";
-    private static final String IS_FAVOURITE = "isFavourite";
+    private static final String IS_FAVOURITE = "allowFavourite";
 
     //Utils
     private final DocumentUtilsService documentUtils;
