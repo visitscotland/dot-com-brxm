@@ -24,5 +24,13 @@
       selection:label: Carbon Calculator
     /selection:listitem[4]:
       jcr:primaryType: selection:listitem
+      selection:key: search-widget
+      selection:label: Search Widget
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: search-widget-events
+      selection:label: Search Widget Events
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
       selection:key: favourites-list
       selection:label: Favourites List

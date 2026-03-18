@@ -478,21 +478,20 @@ pipeline {
         stage('Send email') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    // bash execution needs to be aware of the groovy environmental variables
-                    withEnv([
-                            "MAIL_TO_NET=${MAIL_TO_NET}",
-                            "CC_DEV_LIST=${CC_DEV_LIST}",
-                    ]) {
-                        sh '''
-                        bash ci/scripts/release_email_payload.sh --mode=all --out-dir=artifacts
-                    '''
-                    }
                     // Wrap all Groovy logic in a script block
                     script {
+                        def outDir = 'ci/temp'
+                        // bash execution needs to be aware of the groovy environmental variables
+                        withEnv([
+                                "MAIL_TO_NET=${MAIL_TO_NET}",
+                                "CC_DEV_LIST=${CC_DEV_LIST}",
+                        ]) {
+                            sh "bash ci/scripts/release_email_payload.sh --mode=all --out-dir=${outDir}"
+                        }
                         // New approach using files
-                        def emailSubjectFile = 'artifacts/email.subject.txt'
-                        def emailBodyFile = 'artifacts/email.body.txt'
-                        def emailRecipientsFile = 'artifacts/email.recipients.txt'
+                        def emailSubjectFile = "${outDir}/email.subject.txt"
+                        def emailBodyFile = "${outDir}/email.body.html"
+                        def emailRecipientsFile = "${outDir}/email.recipients.txt"
                         emailext(
                                 // trimming, as we might have trailing newlines from printf, or editors
                                 subject: readFile(emailSubjectFile).trim(),
@@ -500,6 +499,16 @@ pipeline {
                                 to: readFile(emailRecipientsFile).trim(),
                                 mimeType: 'text/html'
                         )
+
+                        publishHTML target: [
+                                allowMissing: true,
+                                alwaysLinkToLastBuild: false,
+                                keepAll: false,
+                                reportDir: outDir,
+                                reportFiles: 'email.body.html',
+                                reportName: 'VS Release Details',
+                                reportTitles: ''
+                        ]
                     }
                 }
             }
