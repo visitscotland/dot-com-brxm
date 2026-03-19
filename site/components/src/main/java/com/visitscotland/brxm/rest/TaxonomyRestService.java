@@ -9,6 +9,7 @@ import org.onehippo.taxonomy.api.Taxonomy;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.*;
@@ -29,16 +30,41 @@ public class TaxonomyRestService {
     @GET
     @Path("/synonyms")
     public Object getTaxonomySynonyms(
-            @QueryParam("taxonomy") String taxonomyId,
+            @QueryParam("taxonomy")  String taxonomyId,
             @QueryParam("category") String category,
             @QueryParam("locale") @DefaultValue("en") String locale) {
 
+        if (taxonomyId == null || taxonomyId.isBlank()) {
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity("Query param 'taxonomy' is required")
+                    .build();
+        }
+
+        if (category == null || category.isBlank()) {
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity("Query param 'category' is required")
+                    .build();
+        }
+
+
         Locale loc = Locale.forLanguageTag(locale);
         Taxonomy taxonomy =  hippoUtilsService.getTaxonomy(taxonomyId);
-        List<? extends Category> rootCategories = taxonomy.getCategory(category).getChildren();
+        if (taxonomy == null) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Taxonomy not found: " + taxonomyId)
+                    .build();
+        }
+        Category parentCategory = taxonomy.getCategory(category);
+        if (parentCategory == null) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Category not found: " + category)
+                    .build();
+        }
+
+        List<? extends Category> childrenCategory = parentCategory.getChildren();
 
         List<Map<String, Object>> result = new ArrayList<>();
-        for (Category cat : rootCategories) {
+        for (Category cat : childrenCategory) {
             result.add(mapNodeSynonyms(cat, loc));
         }
 
