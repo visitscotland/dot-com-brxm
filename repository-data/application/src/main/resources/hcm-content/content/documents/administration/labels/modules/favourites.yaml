@@ -1,0 +1,52 @@
+/content/documents/administration/labels/modules/favourites:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 250b5a83-cfba-4b55-bf97-715bf3897409
+  hippo:name: Favourites
+  hippo:versionHistory: 3c9b31d5-ff57-4aaa-b428-f80a1ed1c68c
+  /favourites[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: ef6c4864-e03a-4271-822f-4624a8b3a5c6
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
+    hippostdpubwf:lastModificationDate: 2026-03-19T14:25:41.272Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: favourites
+    resourcebundle:keys: [favourites.no-favourites-saved-message, favourites.favourites-not-retrieved-message]
+    resourcebundle:messages: ['', '']
+  /favourites[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 879657f3-c72f-4456-9fec-100999232a35
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
+    hippostdpubwf:lastModificationDate: 2026-03-19T14:25:40.548Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: favourites
+    resourcebundle:keys: [favourites.no-favourites-saved-message, favourites.favourites-not-retrieved-message]
+    resourcebundle:messages: ['', '']
+  /favourites[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: c6de914a-0928-4515-a1f8-856688183c93
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
+    hippostdpubwf:lastModificationDate: 2026-03-19T14:25:40.548Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-03-19T14:25:49.233Z
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: favourites
+    resourcebundle:keys: [favourites.no-favourites-saved-message, favourites.favourites-not-retrieved-message]
+    resourcebundle:messages: ['', '']
