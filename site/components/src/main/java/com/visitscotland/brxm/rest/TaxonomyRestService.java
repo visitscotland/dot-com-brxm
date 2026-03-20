@@ -23,6 +23,7 @@ import java.util.*;
 public class TaxonomyRestService {
 
     private final HippoUtilsService hippoUtilsService;
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
     private static final int MAX_DEPTH = 3;
 
     public TaxonomyRestService(HippoUtilsService hippoUtilsService) {
@@ -130,6 +131,11 @@ public class TaxonomyRestService {
         LinkedHashMap<String, Object> map = new LinkedHashMap<>();
         CategoryInfo categoryInfo = category.getInfo(locale);
 
+        if (categoryInfo == null) {
+            map.put("name", category.getKey());
+            map.put("synonyms", Collections.emptyList());
+            return map;
+        }
         map.put("name", categoryInfo.getName());
         map.put("synonyms", categoryInfo.getSynonyms());
 
@@ -147,7 +153,7 @@ public class TaxonomyRestService {
      */
     private String getTaxonomyVersion(List<Map<String, Object>> data) {
         try {
-            String json = new ObjectMapper().writeValueAsString(data);
+            String json = OBJECT_MAPPER.writeValueAsString(data);
 
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] digest = md.digest(json.getBytes(StandardCharsets.UTF_8));
@@ -155,7 +161,7 @@ public class TaxonomyRestService {
             return Base64.getEncoder().encodeToString(digest);
 
         } catch (Exception e) {
-            throw new RuntimeException("Cannot generate taxonomy version", e);
+            throw new WebApplicationException("Cannot generate taxonomy version", e, Response.Status.INTERNAL_SERVER_ERROR);
         }
     }
 }
