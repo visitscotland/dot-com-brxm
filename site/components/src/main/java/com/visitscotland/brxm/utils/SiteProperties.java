@@ -109,6 +109,8 @@ public class SiteProperties extends Properties {
         return readString(FAVOURITES_PAGE_URL);
     }
 
+    public String getFavouritesEndpoint() { return readString(FAVOURITES_PAGE_ENDPOINT); }
+
     public boolean isTableOfContentsEnabled() {
         return readBoolean(TABLE_OF_CONTENTS_ENABLED);
     }

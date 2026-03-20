@@ -66,6 +66,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String SEARCH_FILTERS = "search-categories";
     public static final String FAVOURITES_PAGE_ENABLED = "feature.favourites.enable";
     public static final String FAVOURITES_SITE_URL = "feature.favourites.url";
+    public static final String FAVOURITES_SITE_ENDPOINT = "feature.favourites.endpoint";
 
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
@@ -414,6 +415,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         if (properties.isFavouritesEnabled()){
             pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, properties.isFavouritesEnabled());
             pageConfig.addProperty(FAVOURITES_SITE_URL, properties.getFavouritesUrl());
+            pageConfig.addProperty(FAVOURITES_SITE_ENDPOINT, properties.getFavouritesEndpoint());
         }
 
         if (properties.isTableOfContentsEnabled()){
