@@ -121,11 +121,7 @@ public class TaxonomyRestService {
      *
      * @param category the category to map
      * @param locale   the locale used to resolve the category display name
-     * @return a map containing:
-     *         <ul>
-     *             <li><b>name</b>: the localized category name</li>
-     *             <li><b>synonyms</b>: the list of synonyms</li>
-     *         </ul>
+     * @return a map with name and synonyms
      */
     private Map<String, Object> mapNodeSynonyms(Category category, Locale locale) {
         LinkedHashMap<String, Object> map = new LinkedHashMap<>();
