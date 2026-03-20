@@ -540,57 +540,6 @@
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: lowlands-whisky
           locale.en.name: Lowlands Whisky
-      /events:
-        jcr:primaryType: hippotaxonomy:category
-        hippotaxonomy:key: events
-        locale.en.name: Events
-        /locations:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: locations
-          locale.en.name: Locations
-          /aberdeen:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: AB
-            locale.en.name: Aberdeen
-            locale.es.name: Aberdeen spanish
-          /dundee:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: DD
-            locale.en.name: Dundee
-        /category-groups:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: category-groups
-          locale.en.name: Category Groups
-          /dance-group:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: dancegroup
-            locale.en.name: dancegroup
-            locale.fr.name: dancegroup
-            /ballet:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: ballet
-              locale.en.name: Ballet
-            /ceilidh:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: ceilidh
-              locale.en.name: Ceilidh
-            /contemporary:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: contemporary
-              locale.en.name: Contemporary
-              locale.es.name: Contemporanio
-            /dance:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: dance
-              locale.en.name: Dance
-            /international:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: international
-              locale.en.name: International
-            /modern:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: modern
-              locale.en.name: Modern
     /Visitscotland-categories[2]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable', 'mix:versionable']
@@ -600,7 +549,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-19T11:45:25.229Z
+      hippostdpubwf:lastModificationDate: 2026-03-20T12:04:10.824Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -1100,7 +1049,12 @@
         /places:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: places
+          locale.de.name: Reiseziele
           locale.en.name: Places
+          locale.es.name: Lugares
+          locale.fr.name: Lieux
+          locale.it.name: Luoghi
+          locale.nl.name: Bestemmingen
       /whisky-distilleries:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: whisky-distilleries
@@ -1125,57 +1079,6 @@
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: lowlands-whisky
           locale.en.name: Lowlands Whisky
-      /events:
-        jcr:primaryType: hippotaxonomy:category
-        hippotaxonomy:key: events
-        locale.en.name: Events
-        /locations:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: locations
-          locale.en.name: Locations
-          /aberdeen:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: AB
-            locale.en.name: Aberdeen
-            locale.es.name: Aberdeen spanish
-          /dundee:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: DD
-            locale.en.name: Dundee
-        /category-groups:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: category-groups
-          locale.en.name: Category Groups
-          /dance-group:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: dancegroup
-            locale.en.name: dancegroup
-            locale.fr.name: dancegroup
-            /ballet:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: ballet
-              locale.en.name: Ballet
-            /ceilidh:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: ceilidh
-              locale.en.name: Ceilidh
-            /contemporary:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: contemporary
-              locale.en.name: Contemporary
-              locale.es.name: Contemporanio
-            /dance:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: dance
-              locale.en.name: Dance
-            /international:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: international
-              locale.en.name: International
-            /modern:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: modern
-              locale.en.name: Modern
     /Visitscotland-categories[3]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
@@ -1185,7 +1088,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-19T11:43:05.217Z
+      hippostdpubwf:lastModificationDate: 2026-03-20T11:38:42.356Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -1685,7 +1588,12 @@
         /places:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: places
+          locale.de.name: Reiseziele
           locale.en.name: Places
+          locale.es.name: Lugares
+          locale.fr.name: Lieux
+          locale.it.name: Luoghi
+          locale.nl.name: Bestemmingen
       /whisky-distilleries:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: whisky-distilleries
@@ -1710,57 +1618,6 @@
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: lowlands-whisky
           locale.en.name: Lowlands Whisky
-      /events:
-        jcr:primaryType: hippotaxonomy:category
-        hippotaxonomy:key: events
-        locale.en.name: Events
-        /locations:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: locations
-          locale.en.name: Locations
-          /aberdeen:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: AB
-            locale.en.name: Aberdeen
-            locale.es.name: Aberdeen spanish
-          /dundee:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: DD
-            locale.en.name: Dundee
-        /category-groups:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: category-groups
-          locale.en.name: Category Groups
-          /dance-group:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: dancegroup
-            locale.en.name: dancegroup
-            locale.fr.name: dancegroup
-            /ballet:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: ballet
-              locale.en.name: Ballet
-            /ceilidh:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: ceilidh
-              locale.en.name: Ceilidh
-            /contemporary:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: contemporary
-              locale.en.name: Contemporary
-              locale.es.name: Contemporanio
-            /dance:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: dance
-              locale.en.name: Dance
-            /international:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: international
-              locale.en.name: International
-            /modern:
-              jcr:primaryType: hippotaxonomy:category
-              hippotaxonomy:key: modern
-              locale.en.name: Modern
   /events:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo']
@@ -2449,18 +2306,19 @@
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
       jcr:uuid: d384789f-51cf-4b9c-8718-7ddb777a51bb
       hippo:availability: []
+      hippostd:holder: admin
       hippostd:retainable: false
       hippostd:state: draft
-      hippostd:transferable: false
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-08-29T13:12:50.741+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-20T09:21:03.567Z
+      hippostdpubwf:lastModificationDate: 2026-03-20T11:33:21.255Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:defaultLocale: en
       hippotaxonomy:locales: [en, de, es, fr, it, nl]
       /category-groups:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: category-groups
+        locale.de.name: Category groups
         locale.en.description: "Taxonomies ending with Ev are defined by the marketing\
           \ team and should be used for marketing purposes.\r\n\r\nNodes ending with\
           \ group are collections of subcategories of events and are used to organize\
@@ -2471,6 +2329,7 @@
           \ are visible for the user so labels matching these ids with tranlations\
           \ are needed"
         locale.en.name: Category groups
+        locale.es.name: Category groups
         /familyEv:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: familyEv
@@ -2588,9 +2447,14 @@
         /dancegroup:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: dancegroup
+          locale.de.name: dancegroup
           locale.en.name: dancegroup
           locale.en.synonyms: [Ballet, Ceilidh, Contemporary, Dance, International,
             Modern]
+          locale.es.name: dancegroup
+          locale.fr.name: dancegroup
+          locale.it.name: dancegroup
+          locale.nl.name: dancegroup
         /daysoutgroup:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: daysoutgroup
