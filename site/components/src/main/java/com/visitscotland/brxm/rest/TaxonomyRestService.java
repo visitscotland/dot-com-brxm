@@ -2,7 +2,6 @@ package com.visitscotland.brxm.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.services.HippoUtilsService;
-import com.visitscotland.brxm.utils.NonTestable;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.CategoryInfo;
 import org.onehippo.taxonomy.api.Taxonomy;
@@ -27,11 +26,12 @@ public class TaxonomyRestService {
         this.hippoUtilsService = hippoUtilsService;
     }
 
+    //TODO combine both endpoints
     @GET
-    @Path("/synonyms")
-    public Object getTaxonomySynonyms(
+    @Path("/category")
+    public Object getTaxonomyCategoryGroups(
             @QueryParam("taxonomy")  String taxonomyId,
-            @QueryParam("category") String category,
+            @QueryParam("node") String node,
             @QueryParam("locale") @DefaultValue("en") String locale) {
 
         if (taxonomyId == null || taxonomyId.isBlank()) {
@@ -40,9 +40,9 @@ public class TaxonomyRestService {
                     .build();
         }
 
-        if (category == null || category.isBlank()) {
+        if (node == null || node.isBlank()) {
             return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Query param 'category' is required")
+                    .entity("Query param 'node' is required")
                     .build();
         }
 
@@ -54,12 +54,13 @@ public class TaxonomyRestService {
                     .entity("Taxonomy not found: " + taxonomyId)
                     .build();
         }
-        Category parentCategory = taxonomy.getCategory(category);
+        Category parentCategory = taxonomy.getCategory(node);
         if (parentCategory == null) {
             return Response.status(Response.Status.NOT_FOUND)
-                    .entity("Category not found: " + category)
+                    .entity("Category not found: " + node)
                     .build();
         }
+
 
         List<? extends Category> childrenCategory = parentCategory.getChildren();
 
@@ -74,6 +75,51 @@ public class TaxonomyRestService {
 
         return response;
     }
+
+    @GET
+    @Path("/synonyms")
+    public Object getTaxonomySynonyms(
+            @QueryParam("taxonomy")  String taxonomyId,
+            @QueryParam("node") String node,
+            @QueryParam("locale") @DefaultValue("en") String locale) {
+
+        if (taxonomyId == null || taxonomyId.isBlank()) {
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity("Query param 'taxonomy' is required")
+                    .build();
+        }
+
+        if (node == null || node.isBlank()) {
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity("Query param 'category' is required")
+                    .build();
+        }
+
+
+        Locale loc = Locale.forLanguageTag(locale);
+        Taxonomy taxonomy =  hippoUtilsService.getTaxonomy(taxonomyId);
+        if (taxonomy == null) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Taxonomy not found: " + taxonomyId)
+                    .build();
+        }
+        Category parentCategory = taxonomy.getCategory(node);
+        if (parentCategory == null) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("Category not found: " + node)
+                    .build();
+        }
+
+        List<Map<String, Object>> result = new ArrayList<>();
+        result.add(mapNodeSynonyms(parentCategory, loc));
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("version", getTaxonomyVersion(result));
+        response.put("data", result);
+
+        return response;
+    }
+
 
 
     /**
