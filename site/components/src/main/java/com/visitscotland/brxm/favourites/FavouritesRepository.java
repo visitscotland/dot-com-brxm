@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * should extract pages and information to be used in creating favourite cards
+ * Extract pages and information to be used in creating favourite cards
  */
 @Component
 public class FavouritesRepository {
@@ -36,7 +36,7 @@ public class FavouritesRepository {
     /**
      * get page info by uuid
      */
-    public FavouritesCardResponse getFavouritesCards(FavouritesRequest favouritesRequest) {
+    public FavouritesCardResponse getFavouritesCards(final FavouritesRequest favouritesRequest) {
         List<FavouritesCard> cards = new ArrayList<>();
         List<String> failedUuids = new ArrayList<>();
         FavouritesCardResponse response = new FavouritesCardResponse();
@@ -56,6 +56,9 @@ public class FavouritesRepository {
                     failedUuids.add(uuid);
                 }
             }
+        } else {
+            logger.info("FavouritesRequest is null.");
+            return null;
         }
         response.setCards(cards);
         response.setFailedUuids(failedUuids);

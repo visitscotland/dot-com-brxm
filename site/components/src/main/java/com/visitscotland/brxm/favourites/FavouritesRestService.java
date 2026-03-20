@@ -6,12 +6,19 @@ import org.hippoecm.hst.jaxrs.services.AbstractResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.*; // TODO - individual imports
+import javax.ws.rs.Consumes;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.DefaultValue;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.POST;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
+
 /**
- * REST endpoint for favourites page cards
+ * REST endpoint for favourites service
  */
 @Path("/favourites")
 public class FavouritesRestService extends AbstractResource {
@@ -33,12 +40,13 @@ public class FavouritesRestService extends AbstractResource {
         return Response.ok().entity("Favourites rest service - status OK!").build();
     }
 
-    /*@GetMapping("/share")
-    @Produces("application/json")
-    public Response share(@RequestParam(name = "name", required = false, defaultValue = "Guest")) {
-
-    }*/
-
+    /**
+     * Endpoint to return favourites cards based on UUIDs sent
+     * @param request
+     * @param locale
+     * @param favouritesRequest
+     * @return
+     */
     @POST
     @Path("/get-favourites")
     @Consumes("application/json")
