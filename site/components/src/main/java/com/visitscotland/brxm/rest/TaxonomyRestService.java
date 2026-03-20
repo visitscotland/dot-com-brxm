@@ -2,7 +2,6 @@ package com.visitscotland.brxm.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.services.HippoUtilsService;
-import org.hippoecm.hst.site.HstServices;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.CategoryInfo;
 import org.onehippo.taxonomy.api.Taxonomy;
@@ -27,8 +26,8 @@ public class TaxonomyRestService {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
     private static final int MAX_DEPTH = 3;
 
-    public TaxonomyRestService() {
-        this.hippoUtilsService = HstServices.getComponentManager().getComponent(HippoUtilsService.class);
+    public TaxonomyRestService(HippoUtilsService hippoUtilsService) {
+        this.hippoUtilsService = hippoUtilsService;
     }
     /**
      * Retrieves a taxonomy node and its synonyms, including its descendants
