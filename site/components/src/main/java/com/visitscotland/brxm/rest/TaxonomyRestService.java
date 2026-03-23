@@ -36,11 +36,7 @@ public class TaxonomyRestService {
      * @param taxonomyId the taxonomy identifier (path parameter)
      * @param node       the category key (path parameter)
      * @param locale     the locale used to resolve category names (default: "en")
-     * @return a JSON response containing:
-     *         <ul>
-     *             <li><b>version</b>: a hash representing the data version</li>
-     *             <li><b>data</b>: the taxonomy node with synonyms and children (up to 3 levels deep)</li>
-     *         </ul>
+     * @return a JSON response
      */
     @GET
     @Path("{taxonomyId}/{node}")
@@ -81,7 +77,7 @@ public class TaxonomyRestService {
         result.add(mapCategoryRecursive(category, loc, MAX_DEPTH));
 
         Map<String, Object> response = new LinkedHashMap<>();
-        response.put("version", getTaxonomyVersion(result));
+        response.put("hash", getTaxonomyVersion(result));
         response.put("data", result);
 
         return response;
