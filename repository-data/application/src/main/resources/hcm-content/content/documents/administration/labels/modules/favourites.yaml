@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 250b5a83-cfba-4b55-bf97-715bf3897409
   hippo:name: Favourites
-  hippo:versionHistory: 3c9b31d5-ff57-4aaa-b428-f80a1ed1c68c
+  hippo:versionHistory: 96d7a4a5-7e78-4843-b2a2-69a6522657dc
   /favourites[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,12 +13,18 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-03-19T14:25:41.272Z
+    hippostdpubwf:lastModificationDate: 2026-03-23T10:41:25.546Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '']
+    resourcebundle:descriptions: ['', '', '', '', '']
     resourcebundle:id: favourites
-    resourcebundle:keys: [favourites.no-favourites-saved-message, favourites.favourites-not-retrieved-message]
-    resourcebundle:messages: ['', '']
+    resourcebundle:keys: [favourites.no-favourites-saved-message, favourites.favourites-not-retrieved-message,
+      favourites.navigation.text, favourites.button.add, favourites.button.remove]
+    resourcebundle:messages: ['', '', Favourites, Add to favourites, Remove from favourites]
+    resourcebundle:messages_de: ['', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '']
   /favourites[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -28,12 +34,18 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-03-19T14:25:40.548Z
+    hippostdpubwf:lastModificationDate: 2026-03-23T10:44:51.606Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '']
+    resourcebundle:descriptions: ['', '', '', '', '']
     resourcebundle:id: favourites
-    resourcebundle:keys: [favourites.no-favourites-saved-message, favourites.favourites-not-retrieved-message]
-    resourcebundle:messages: ['', '']
+    resourcebundle:keys: [favourites.no-favourites-saved-message, favourites.favourites-not-retrieved-message,
+      favourites.navigation.text, favourites.button.add, favourites.button.remove]
+    resourcebundle:messages: ['', '', Favourites, Add to favourites, Remove from favourites]
+    resourcebundle:messages_de: ['', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '']
   /favourites[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -43,10 +55,16 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-03-19T14:25:40.548Z
+    hippostdpubwf:lastModificationDate: 2026-03-23T10:44:51.606Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-03-19T14:25:49.233Z
-    resourcebundle:descriptions: ['', '']
+    hippostdpubwf:publicationDate: 2026-03-23T10:44:55.884Z
+    resourcebundle:descriptions: ['', '', '', '', '']
     resourcebundle:id: favourites
-    resourcebundle:keys: [favourites.no-favourites-saved-message, favourites.favourites-not-retrieved-message]
-    resourcebundle:messages: ['', '']
+    resourcebundle:keys: [favourites.no-favourites-saved-message, favourites.favourites-not-retrieved-message,
+      favourites.navigation.text, favourites.button.add, favourites.button.remove]
+    resourcebundle:messages: ['', '', Favourites, Add to favourites, Remove from favourites]
+    resourcebundle:messages_de: ['', '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '']
