@@ -7,14 +7,5 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:ArticleStyledSectionCOM")
 @Node(jcrType = "visitscotland:ArticleStyledSectionCOM")
-public class ArticleStyledSectionCOM extends HippoCompound {
-    @HippoEssentialsGenerated(internalName = "visitscotland:heading")
-    public String getHeading() {
-        return getSingleProperty("visitscotland:heading");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:copy")
-    public HippoHtml getCopy() {
-        return getHippoHtml("visitscotland:copy");
-    }
+public class ArticleStyledSectionCOM extends ArticleSection {
 }
