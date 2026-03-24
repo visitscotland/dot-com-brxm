@@ -30,18 +30,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
-/**
- * TODO - check if this needs favs stuff here or if it's already handled in other classes
- * @param <T>
- */
 public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
-
-    //refId of sitemap items
-    public static final String ROOT = "root";
-    public static final String SEARCH_PAGE = "search-page";
-    public static final String FAVOURITES_PAGE = "favourites";
 
     /* Should we use Content Logger instead of Freemarker?
      *
@@ -62,9 +53,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String MEGALINKS_BUNDLE = "megalinks";
     private static final String FAVOURITES_BUNDLE = "favourites";
     //TODO: Review: This constant is not in use
-    private static final String SEARCH_EVENTS_CATEGORIES = "content.categories";
-    private static final String SEARCH_EVENTS_FILTERS = "search-events-filters";
-    private static final String SEARCH_FILTERS = "search-categories";
     public static final String FAVOURITES_PAGE_ENABLED = "feature.favourites.enable";
     public static final String FAVOURITES_SITE_URL = "feature.favourites.url";
     public static final String FAVOURITES_SITE_ENDPOINT = "feature.favourites.endpoint";
@@ -89,10 +77,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
     public static final String VIDEO_HEADER = "videoHeader";
-    public static final String PSR_WIDGET = "psrWidget";
 
-    public static final String INCLUDE_SEARCH_WIDGET = "searchWidget";
-    public static final String SEARCH_LOGIC = "cludoApiOperator";
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
 
@@ -105,6 +90,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final ResourceBundleService bundle;
     private final SiteProperties properties;
     private final Logger contentLogger;
+    private final CludoService cludoService;
 
     private final MetadataFactory metadata;
 
@@ -119,6 +105,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         properties = VsComponentManager.get(SiteProperties.class);
         bundle = VsComponentManager.get(ResourceBundleService.class);
         metadata = VsComponentManager.get(MetadataFactory.class);
+        cludoService = VsComponentManager.get(CludoService.class);
     }
 
     ResourceBundleService getBundle() {
@@ -202,10 +189,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     protected void addSiteSpecificLabels(HstRequest request, String bundleId) {
         labels(request).put(bundleId, bundle.getSiteSpecificLabels(bundleId, request.getLocale()));
-    }
-
-    private boolean isHomepage (HstRequest request){
-        return ROOT.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getRefId());
     }
 
     /**
@@ -410,7 +393,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private void addSiteSpecificConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
 
         if (properties.isFavouritesEnabled()){
-            pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, properties.isFavouritesEnabled());
+            pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, true);
             pageConfig.addProperty(FAVOURITES_SITE_URL, properties.getFavouritesUrl());
             pageConfig.addProperty(FAVOURITES_SITE_ENDPOINT, properties.getFavouritesEndpoint());
             addAllLabels(request, FAVOURITES_BUNDLE);
@@ -420,99 +403,15 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             addAllLabels(request, TABLE_CONTENTS_BUNDLE);
         }
 
-        pageConfig.addProperty(SitePropertyKeys.FEATURE_HERO_SECTION, properties.getFeatureHeroSection()); // use this as ref for url key
+        pageConfig.addProperty(SitePropertyKeys.FEATURE_HERO_SECTION, properties.getFeatureHeroSection());
 
         if (properties.isGlobalSearchEnabled()){
-            if (properties.isGlobalSearchDmsBased()) {
-                //TODO: This method will be removed once the DMS is retired
-                pageConfig.addProperty("dms-based", true);
-                getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("global-search.path", v));
-                setGeneralCludoConfiguration(pageConfig);
-            } else {
-                applyGlobalSearchConfiguration(request, pageConfig);
-            }
-        }
-    }
-
-
-    /**
-     * Set General Cludo Configuration for the Global Search
-     * @param pageConfig the page composition helper to add configuration properties to
-     */
-    private void setGeneralCludoConfiguration(PageCompositionHelper pageConfig) {
-        properties.getCludoCustomerId().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_CUSTOMER_ID, v));
-        properties.getCludoExperienceId().ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_EXPERIENCE_ID, v));
-        properties.getCludoEngineId(pageConfig.getLocale()).ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.CLUDO_ENGINE_ID, v));
-        pageConfig.addProperty("language", pageConfig.getLocale().getLanguage());
-    }
-
-    /**
-     * Apply the site search configuration to the pages where the search component is available
-     * @param request the current HST request
-     * @param pageConfig the page composition helper to add configuration properties to
-     */
-    private void applyGlobalSearchConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
-        final boolean isSearchResultsPage = isSearchResultsPage(request);
-        final boolean isHomepage = isHomepage(request);
-
-        getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("site-search.path", v));
-        properties.getGlobalSearchURL(request.getLocale()).ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.GLOBAL_SEARCH_PATH, v));
-        pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, isHomepage && properties.getFeatureSearchWidget());
-
-        if (isHomepage || isSearchResultsPage) {
-            setGeneralCludoConfiguration(pageConfig);
-            properties.getGlobalSearchEventsEndpoint().ifPresentOrElse(
-                    v -> pageConfig.addProperty("events-endpoint", v),
-                    () -> logger.error("The URL for the events Endpoint hasn't been defined"));
-
-            pageConfig.addAllSiteLabels(SEARCH_FILTERS);
-
-            if (isSearchResultsPage) {
-                pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
-                pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
-                properties.getGlobalSearchLogic().ifPresent(v -> pageConfig.addProperty(SEARCH_LOGIC, v));
-            }
+            cludoService.applyConfiguration(request, pageConfig);
         }
     }
 
     boolean isEditMode(HstRequest request) {
         return Boolean.TRUE.equals(request.getAttribute(EDIT_MODE));
-    }
-
-    private boolean isSearchResultsPage(HstRequest request) {
-        return SEARCH_PAGE.equals(
-                request.getRequestContext()
-                        .getResolvedSiteMapItem()
-                        .getHstSiteMapItem()
-                        .getRefId()
-        );
-    }
-
-    /**
-     * Creates and exposes a locale-aware search page link in the HST request context.
-     * <br>
-     * This method generates an HstLink for the sitemap item with refId "search-page"
-     * and stores it as a request attribute named "searchLink".
-     * <br>
-     * Use this to ensure the search URL is correctly resolved for the current
-     * locale and mount, avoiding hardcoded or relative paths in templates
-     *
-     * @param request the current HstRequest
-     */
-    private Optional<String> getSearchResultsURL(final HstRequest request) {
-        HstRequestContext requestContext = request.getRequestContext();
-
-        HstLink link = requestContext.getHstLinkCreator()
-                .createByRefId(SEARCH_PAGE, requestContext.getResolvedMount().getMount());
-
-        if (link != null) {
-            // Convert the link to a URL and make it available to the template
-            return Optional.of(link.toUrlForm(requestContext, false));
-        } else {
-            logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration.");
-        }
-
-        return Optional.empty();
     }
 }
 
