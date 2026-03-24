@@ -1,9 +1,9 @@
-/content/documents/administration/labels/modules/favourites:
+/content/documents/administration/labels/pages/favourites:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 250b5a83-cfba-4b55-bf97-715bf3897409
   hippo:name: Favourites
-  hippo:versionHistory: bca17b54-0aee-42e0-91e6-7fa6f3633e2d
+  hippo:versionHistory: 838f2413-242f-463e-846c-1d2cb1ba9961
   /favourites[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -69,7 +69,7 @@
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
     hippostdpubwf:lastModificationDate: 2026-03-24T14:39:33.395Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-03-24T14:39:38.784Z
+    hippostdpubwf:publicationDate: 2026-03-24T17:53:23.636Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: favourites
     resourcebundle:keys: [favourites.error.failed-card.heading, favourites.error.failed-card.text,
