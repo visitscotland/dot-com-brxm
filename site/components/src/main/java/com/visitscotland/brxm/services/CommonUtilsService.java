@@ -1,11 +1,14 @@
 package com.visitscotland.brxm.services;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,8 +17,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.Base64;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
@@ -24,6 +29,8 @@ import java.util.Optional;
 public class CommonUtilsService {
 
     private static final Logger logger = LoggerFactory.getLogger(CommonUtilsService.class);
+
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     /**
      * Request a page and return the body as String
@@ -149,5 +156,32 @@ public class CommonUtilsService {
         connection.setConnectTimeout(5000);
 
         return connection;
+    }
+
+    /**
+     * Generates a version identifier for a taxonomy dataset.
+     *
+     * <p>This method serializes the given data structure into JSON,
+     * computes its MD5 hash, and encodes it using Base64.</p>
+     *
+     * @param data the taxonomy data to version
+     * @return a Base64-encoded MD5 hash representing the data version
+     */
+    public String generateJsonVersion(Object data) {
+        try {
+            String json = OBJECT_MAPPER.writeValueAsString(data);
+
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digest = md.digest(json.getBytes(StandardCharsets.UTF_8));
+
+            return Base64.getEncoder().encodeToString(digest);
+
+        } catch (Exception e) {
+            throw new WebApplicationException(
+                    "Cannot generate version",
+                    e,
+                    Response.Status.INTERNAL_SERVER_ERROR
+            );
+        }
     }
 }

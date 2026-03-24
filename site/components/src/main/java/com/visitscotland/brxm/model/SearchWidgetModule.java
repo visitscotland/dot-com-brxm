@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.model;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.visitscotland.brxm.hippobeans.DevModule;
 
 import java.util.Map;
@@ -13,6 +14,7 @@ public class SearchWidgetModule extends Module<DevModule>{
     private String mainCategory;
     private Map<String, String> categories;
     private Map<String, String> subcategories;
+    private JsonNode filters;
     private String id;
 
      public SearchWidgetModule(DevModule hippoBean, String id) {
@@ -74,6 +76,14 @@ public class SearchWidgetModule extends Module<DevModule>{
 
     public void setSubcategories(Map<String, String> subcategories) {
         this.subcategories = subcategories;
+    }
+
+    public JsonNode getFilters() {
+        return filters;
+    }
+
+    public void setFilters(JsonNode filters) {
+        this.filters = filters;
     }
 
     public String getId() {

@@ -1,0 +1,6 @@
+/content/documents/administration/labels/search:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 69b9151b-94b8-4639-b5bd-76a2f79cf76b
+  hippo:name: Search
+  hippostd:foldertype: [new-untranslated-folder-resource-bundle, new-resource-bundle]

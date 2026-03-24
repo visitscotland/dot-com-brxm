@@ -143,10 +143,9 @@ action-lists:
     /content/documents/administration/labels/modules/map: reload
 - 3.2.2:
     /content/documents/administration/options/bespoken-modules: reload
-- 3.2.2.1:
+    /content/taxonomies: reload
+- 3.2.3:
     /content/documents/administration/options/bespoken-modules: reload
-- 3.2.2.2:
     /content/documents/administration/labels/modules/favourites: reload
-- 3.2.2.3:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/configuration/local-feature---visitscotland.com: reload

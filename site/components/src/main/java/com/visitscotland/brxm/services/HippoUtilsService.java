@@ -34,9 +34,7 @@ import org.springframework.stereotype.Component;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 
@@ -327,8 +325,13 @@ public class HippoUtilsService {
 
     @NonTestable(NonTestable.Cause.BRIDGE)
     public Taxonomy getTaxonomy() {
+        return this.getTaxonomy("Visitscotland-categories");
+
+    }
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public Taxonomy getTaxonomy(String taxonomyId) {
         TaxonomyManager taxonomyManager = HstServices.getComponentManager().getComponent("TaxonomyManager", "org.onehippo.taxonomy.contentbean");
-        return taxonomyManager.getTaxonomies().getTaxonomy("Visitscotland-categories");
+        return taxonomyManager.getTaxonomies().getTaxonomy(taxonomyId);
 
     }
 
