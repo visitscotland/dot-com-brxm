@@ -1,6 +1,6 @@
-/content/documents/administration/vs-valuelists/events:
+/content/documents/administration/vs-valuelists/search:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:versionable']
   jcr:uuid: 25963ed7-80e3-4647-88ef-ddde1913a18e
-  hippo:name: Events
+  hippo:name: Search
   hippostd:foldertype: [new-untranslated-folder-value-list, new-value-list]

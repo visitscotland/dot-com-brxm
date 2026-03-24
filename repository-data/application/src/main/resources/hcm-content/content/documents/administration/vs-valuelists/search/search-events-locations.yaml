@@ -1,0 +1,16 @@
+/content/documents/administration/vs-valuelists/search/search-events-locations:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 51b8325c-f26d-497a-a143-c7c87f88d77c
+  hippo:name: Search Events Locations
+  /search-events-locations:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 4d221a31-88e5-4750-a15c-9722ed94160c
+    hippo:availability: [live, preview]
+    hippotranslation:id: 6d100523-28e2-4de7-9071-2544cef03045
+    hippotranslation:locale: inherited - from query
+    /selection:listitem:
+      jcr:primaryType: selection:listitem
+      selection:key: edinburgh
+      selection:label: EH

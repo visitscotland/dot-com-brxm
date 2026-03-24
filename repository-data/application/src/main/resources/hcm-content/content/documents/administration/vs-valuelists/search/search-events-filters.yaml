@@ -1,4 +1,4 @@
-/content/documents/administration/vs-valuelists/events/search-events-filters:
+/content/documents/administration/vs-valuelists/search/search-events-filters:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: 4e63d91e-9156-4183-9c56-7459944383d3

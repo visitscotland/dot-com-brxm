@@ -6,7 +6,6 @@ import com.visitscotland.utils.Contract;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.CategoryInfo;
 import org.onehippo.taxonomy.api.Taxonomy;
-import org.springframework.http.ResponseEntity;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -31,37 +30,30 @@ public class TaxonomyRestService {
     }
     @GET
     @Path("{taxonomyId}/{node}")
-    public ResponseEntity<Map<String, Object>> getTaxonomy(
+    public Map<String, Object> getTaxonomy(
             @PathParam("taxonomyId") String taxonomyId,
             @PathParam("node") String node,
             @QueryParam("locale") @DefaultValue("en") String locale) {
 
         if (Contract.isEmpty(taxonomyId)) {
-            return ResponseEntity
-                    .badRequest()
-                    .body(Map.of("error", "Path param 'taxonomyId' is required"));
+            throw new BadRequestException("Path param 'taxonomyId' is required");
         }
 
         if (Contract.isEmpty(node)) {
-            return ResponseEntity
-                    .badRequest()
-                    .body(Map.of("error", "Path param 'node' is required"));
+            throw new BadRequestException("Path param 'node' is required");
         }
 
         Locale loc = Locale.forLanguageTag(locale);
         Taxonomy taxonomy = hippoUtilsService.getTaxonomy(taxonomyId);
 
         if (taxonomy == null) {
-            return ResponseEntity
-                    .status(404)
-                    .body(Map.of("error", "Taxonomy not found: " + taxonomyId));
+            throw new NotFoundException("Taxonomy not found: " + taxonomyId);
         }
 
         Category category = taxonomy.getCategory(node);
+
         if (category == null) {
-            return ResponseEntity
-                    .status(404)
-                    .body(Map.of("error", "Category not found: " + node));
+            throw new NotFoundException("Category not found: " + node);
         }
 
         List<Map<String, Object>> result = new ArrayList<>();
@@ -71,7 +63,7 @@ public class TaxonomyRestService {
         response.put("hash", utils.generateJsonVersion(result));
         response.put("data", result);
 
-        return ResponseEntity.ok(response);
+        return response;
     }
     /**
      * Recursively maps a category and its children into a JSON-friendly structure.

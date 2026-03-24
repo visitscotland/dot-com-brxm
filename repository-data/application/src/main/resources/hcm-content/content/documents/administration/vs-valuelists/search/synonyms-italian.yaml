@@ -1,0 +1,13 @@
+/content/documents/administration/vs-valuelists/search/synonyms-italian:
+  .meta:order-before: synonyms-dutch
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 757a0faa-8f1f-4938-8e19-a0f2375cd35a
+  hippo:name: Synonyms Italian
+  /synonyms-italian:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 6976e616-1892-478a-bf5a-894e0acf8e12
+    hippo:availability: [live, preview]
+    hippotranslation:id: 8bafa8c0-3626-4f0e-bdef-1bcb6ce195ce
+    hippotranslation:locale: inherited - from query

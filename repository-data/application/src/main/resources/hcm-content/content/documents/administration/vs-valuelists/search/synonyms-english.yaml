@@ -1,5 +1,5 @@
-/content/documents/administration/vs-valuelists/events/synonyms-english:
-  .meta:order-before: search-events-dates
+/content/documents/administration/vs-valuelists/search/synonyms-english:
+  .meta:order-before: synonyms-dutch
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: aebd2a64-e40d-46ee-937b-dd2f2f051845

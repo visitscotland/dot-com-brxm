@@ -1,0 +1,13 @@
+/content/documents/administration/vs-valuelists/search/synonyms-dutch:
+  .meta:order-before: search-events-dates
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 9c992db6-cae4-4c59-80af-1d4f92235bcd
+  hippo:name: Synonyms Dutch
+  /synonyms-dutch:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: af4b7b04-4e4a-4e62-805f-10ff3b33afcb
+    hippo:availability: [live, preview]
+    hippotranslation:id: cb5e6a4c-3700-4c70-882e-96a711066127
+    hippotranslation:locale: inherited - from query

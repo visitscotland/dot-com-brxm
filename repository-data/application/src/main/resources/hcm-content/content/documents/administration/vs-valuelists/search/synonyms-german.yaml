@@ -1,0 +1,13 @@
+/content/documents/administration/vs-valuelists/search/synonyms-german:
+  .meta:order-before: synonyms-french
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 9252238e-54aa-41fe-9bc5-3b7ee6844703
+  hippo:name: Synonyms German
+  /synonyms-german:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: aeb4d3e1-12c3-4042-a32a-0475246d6e92
+    hippo:availability: [live, preview]
+    hippotranslation:id: 2b0d03d9-f5ff-45d7-be62-6e9c35e72ee7
+    hippotranslation:locale: inherited - from query

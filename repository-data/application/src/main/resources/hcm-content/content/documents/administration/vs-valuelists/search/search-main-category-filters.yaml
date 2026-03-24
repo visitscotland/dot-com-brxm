@@ -1,9 +1,10 @@
-/content/documents/administration/vs-valuelists/main-category-filters:
+/content/documents/administration/vs-valuelists/search/search-main-category-filters:
+  .meta:order-before: search-events-locations
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: c8f0031d-662f-42f1-8ac7-0b891042db04
   hippo:name: Search - Main Category Filters
-  /main-category-filters:
+  /search-main-category-filters:
     jcr:primaryType: selection:valuelist
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
     jcr:uuid: cfb1148b-c3af-42ed-a40e-6396815aba1a

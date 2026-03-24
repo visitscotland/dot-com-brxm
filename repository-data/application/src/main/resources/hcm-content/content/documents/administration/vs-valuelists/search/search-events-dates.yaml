@@ -1,8 +1,8 @@
-/content/documents/administration/vs-valuelists/events/search-events-dates:
+/content/documents/administration/vs-valuelists/search/search-events-dates:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: 3cb6ebbd-15aa-4a9d-97b4-f116f7083797
-  hippo:name: Search Filters Dates
+  hippo:name: Search Events Dates
   /search-events-dates:
     jcr:primaryType: selection:valuelist
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']

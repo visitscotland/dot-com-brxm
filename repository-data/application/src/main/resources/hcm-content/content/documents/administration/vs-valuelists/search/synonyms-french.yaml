@@ -1,0 +1,13 @@
+/content/documents/administration/vs-valuelists/search/synonyms-french:
+  .meta:order-before: synonyms-dutch
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: a145540a-506c-4179-b108-64499f9e5192
+  hippo:name: Synonyms French
+  /synonyms-french:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 03df1df5-513b-4c0e-8892-38f97943213a
+    hippo:availability: [live, preview]
+    hippotranslation:id: 035be049-6a88-43af-96fe-845d4d6c1da9
+    hippotranslation:locale: inherited - from query

@@ -14,9 +14,14 @@
                 <entry key="vs-itinerary-transports" value="/content/documents/administration/options/transports"/>
                 <entry key="vs-itinerary-themes" value="/content/documents/administration/options/themes"/>
                 <entry key="vs-itinerary-areas" value="/content/documents/administration/options/areas"/>
-                <entry key="vs-events-filters-dates" value="/content/documents/administration/vs-valuelists/events/search-events-dates"/>
-                <entry key="vs-events-synonyms-en" value="/content/documents/administration/vs-valuelists/events/synonyms-english"/>
-                <entry key="vs-events-synonyms-es" value="/content/documents/administration/vs-valuelists/events/synonyms-spanish"/>
+                <entry key="vs-events-filters-dates" value="/content/documents/administration/vs-valuelists/search/search-events-dates"/>
+                <entry key="vs-events-filters-locations" value="/content/documents/administration/vs-valuelists/search/search-events-locations"/>
+                <entry key="vs-events-synonyms-en" value="/content/documents/administration/vs-valuelists/search/synonyms-english"/>
+                <entry key="vs-events-synonyms-es" value="/content/documents/administration/vs-valuelists/search/synonyms-spanish"/>
+                <entry key="vs-events-synonyms-fr" value="/content/documents/administration/vs-valuelists/search/synonyms-french"/>
+                <entry key="vs-events-synonyms-it" value="/content/documents/administration/vs-valuelists/search/synonyms-italian"/>
+                <entry key="vs-events-synonyms-de" value="/content/documents/administration/vs-valuelists/search/synonyms-german"/>
+                <entry key="vs-events-synonyms-nl" value="/content/documents/administration/vs-valuelists/search/synonyms-dutch"/>
 
                 <entry key="bsh-external-links" value="/content/documents/administration/options/business-support-hub/external-links"/>
                 <entry key="bsh-regions" value="/content/documents/administration/options/business-support-hub/regions"/>
