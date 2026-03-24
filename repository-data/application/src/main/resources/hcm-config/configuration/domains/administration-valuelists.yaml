@@ -1,0 +1,33 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/administration-valuelists:
+      jcr:primaryType: hipposys:domain
+      /admin:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: admin
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.admin
+      /author:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: readonly
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.author
+      /vs-editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: admin
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.editor
+      /administration-valuelists-domain:
+        jcr:primaryType: hipposys:domainrule
+        /valuelists:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/administration/vs-valuelists

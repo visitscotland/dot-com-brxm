@@ -1,6 +1,6 @@
 package com.visitscotland.brxm.rest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.CategoryInfo;
@@ -9,8 +9,6 @@ import org.onehippo.taxonomy.api.Taxonomy;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.util.*;
 
 /**
@@ -23,24 +21,20 @@ import java.util.*;
 public class TaxonomyRestService {
 
     private final HippoUtilsService hippoUtilsService;
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+    private final CommonUtilsService utils;
     private static final int MAX_DEPTH = 3;
 
-    public TaxonomyRestService(HippoUtilsService hippoUtilsService) {
+    public TaxonomyRestService(HippoUtilsService hippoUtilsService, CommonUtilsService utils) {
         this.hippoUtilsService = hippoUtilsService;
+        this.utils = utils;
     }
-    /**
-     * Retrieves a taxonomy node and its synonyms, including its descendants
+     /* Retrieves a taxonomy node and its synonyms, including its descendants
      * up to a maximum depth of 3 levels.
      *
      * @param taxonomyId the taxonomy identifier (path parameter)
      * @param node       the category key (path parameter)
      * @param locale     the locale used to resolve category names (default: "en")
-     * @return a JSON response containing:
-     *         <ul>
-     *             <li><b>version</b>: a hash representing the data version</li>
-     *             <li><b>data</b>: the taxonomy node with synonyms and children (up to 3 levels deep)</li>
-     *         </ul>
+     * @return a JSON response
      */
     @GET
     @Path("{taxonomyId}/{node}")
@@ -81,7 +75,7 @@ public class TaxonomyRestService {
         result.add(mapCategoryRecursive(category, loc, MAX_DEPTH));
 
         Map<String, Object> response = new LinkedHashMap<>();
-        response.put("version", getTaxonomyVersion(result));
+        response.put("hash", utils.generateJsonVersion(result));
         response.put("data", result);
 
         return response;
@@ -135,28 +129,5 @@ public class TaxonomyRestService {
         map.put("synonyms", categoryInfo.getSynonyms());
 
         return map;
-    }
-
-    /**
-     * Generates a version identifier for a taxonomy dataset.
-     *
-     * <p>This method serializes the given data structure into JSON,
-     * computes its MD5 hash, and encodes it using Base64.</p>
-     *
-     * @param data the taxonomy data to version
-     * @return a Base64-encoded MD5 hash representing the data version
-     */
-    private String getTaxonomyVersion(List<Map<String, Object>> data) {
-        try {
-            String json = OBJECT_MAPPER.writeValueAsString(data);
-
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] digest = md.digest(json.getBytes(StandardCharsets.UTF_8));
-
-            return Base64.getEncoder().encodeToString(digest);
-
-        } catch (Exception e) {
-            throw new WebApplicationException("Cannot generate taxonomy version", e, Response.Status.INTERNAL_SERVER_ERROR);
-        }
     }
 }
