@@ -1,5 +1,4 @@
 /content/documents/www.visitscotland.com-de:
-  .meta:order-before: business-events
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
   jcr:uuid: f7001957-a2cf-4ba7-be91-6ed3b187a426
