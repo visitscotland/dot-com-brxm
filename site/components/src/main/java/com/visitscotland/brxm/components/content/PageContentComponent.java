@@ -60,6 +60,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String SEO_BUNDLE = "seo";
     private static final String TABLE_CONTENTS_BUNDLE = "table-contents";
     private static final String MEGALINKS_BUNDLE = "megalinks";
+    private static final String FAVOURITES_BUNDLE = "favourites";
     //TODO: Review: This constant is not in use
     private static final String SEARCH_EVENTS_CATEGORIES = "content.categories";
     private static final String SEARCH_EVENTS_FILTERS = "search-events-filters";
@@ -408,14 +409,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void addSiteSpecificConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
 
-        // look for property isFavsEnabled
-        // add url prop to page for favs
-
-
         if (properties.isFavouritesEnabled()){
             pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, properties.isFavouritesEnabled());
             pageConfig.addProperty(FAVOURITES_SITE_URL, properties.getFavouritesUrl());
             pageConfig.addProperty(FAVOURITES_SITE_ENDPOINT, properties.getFavouritesEndpoint());
+            addAllLabels(request, FAVOURITES_BUNDLE);
         }
 
         if (properties.isTableOfContentsEnabled()){
