@@ -11,10 +11,10 @@
                 <entry key="content-categories-options" value="/content/documents/administration/options/content-categories"/>
                 <entry key="content-content-type" value="/content/documents/administration/options/content-content-type"/>
                 <entry key="maps-google-locations" value="/content/documents/administration/options/maps-google-locations"/>
-                <entry key="search-events-filters-date" value="/content/documents/administration/options/search-events-filters-date"/>
                 <entry key="vs-itinerary-transports" value="/content/documents/administration/options/transports"/>
                 <entry key="vs-itinerary-themes" value="/content/documents/administration/options/themes"/>
                 <entry key="vs-itinerary-areas" value="/content/documents/administration/options/areas"/>
+                <entry key="vs-events-filters-dates" value="/content/documents/administration/vs-valuelists/events/search-events-dates"/>
                 <entry key="vs-events-synonyms-en" value="/content/documents/administration/vs-valuelists/events/synonyms-english"/>
                 <entry key="vs-events-synonyms-es" value="/content/documents/administration/vs-valuelists/events/synonyms-spanish"/>
 

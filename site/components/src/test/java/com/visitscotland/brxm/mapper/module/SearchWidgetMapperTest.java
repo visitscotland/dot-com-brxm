@@ -59,9 +59,9 @@ class SearchWidgetMapperTest {
 
         Map<String, String> filtersMap = new HashMap<>();
         filtersMap.put("today", "1");
-        when(hippoUtilsService.getValueMap("search-events-filters-date")).thenReturn(filtersMap);
+        when(hippoUtilsService.getValueMap("vs-events-filters-dates")).thenReturn(filtersMap);
 
-        when(bundle.getResourceBundle("search-events-filters-date", "today", locale))
+        when(bundle.getResourceBundle("vs-events-filters-dates", "today", locale))
                 .thenReturn("Today");
 
         SearchWidgetModule result = mapper.createModule(document, locale);

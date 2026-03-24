@@ -2,6 +2,8 @@ package com.visitscotland.brxm.rest;
 
 import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.services.HippoUtilsService;
+import com.visitscotland.utils.Contract;
+import org.springframework.http.ResponseEntity;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -33,18 +35,36 @@ public class EventsRestService {
 
     @GET
     @Path("/synonyms")
-    public Object getSynonyms(
+    public ResponseEntity<Map<String, Object>> getSynonyms(
             @QueryParam("locale") @DefaultValue("en") String locale) {
+
+        if (Contract.isEmpty(locale)) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(Map.of("error", "Query param 'locale' is required"));
+        }
 
         String synonymsIndex = getSynonymsIndex(locale);
 
-        Map<String, Object> response = new LinkedHashMap<>();
+        if (Contract.isEmpty(synonymsIndex)) {
+            return ResponseEntity
+                    .status(404)
+                    .body(Map.of("error", "No synonyms index found for locale: " + locale));
+        }
+
         Map<String, String> result = hippoUtilsService.getValueMap(synonymsIndex);
 
+        if (result == null || result.isEmpty()) {
+            return ResponseEntity
+                    .status(404)
+                    .body(Map.of("error", "No synonyms found for locale: " + locale));
+        }
+
+        Map<String, Object> response = new LinkedHashMap<>();
         response.put("hash", utils.generateJsonVersion(result));
         response.put("data", result);
 
-        return response;
+        return ResponseEntity.ok(response);
     }
 
     private String getSynonymsIndex(String locale) {

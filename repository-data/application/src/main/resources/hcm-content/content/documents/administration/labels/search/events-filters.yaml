@@ -1,0 +1,91 @@
+/content/documents/administration/labels/search/events-filters:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 71069128-aecf-40f5-a782-2ab26d06d1e6
+  hippo:name: Events Filters
+  hippo:versionHistory: 7d37eb23-daca-4696-a082-ce7723076e99
+  /events-filters[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 9c944faf-40bb-4714-bd6e-76c4e0854d5c
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-09-26T11:00:11.330+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-24T14:02:14.287Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:id: search-events-filters
+    resourcebundle:keys: [clubs, comedy, festival, film, lgbt, music, theatre, books,
+      dance, daysout, family, sport, visualarts]
+    resourcebundle:messages: [Clubs, Comedy, Festivals, Film, LGBTQIA+, Music, Theatre,
+      Books, Dance, Days Out, Family, Sport, Visual arts]
+    resourcebundle:messages_de: [Clubs, Comedy, Festivals, Film, LGBT, Musik, Theater,
+      Bücher, Tanz, Tagesausflüge, Familie, Sport, Bildende Kunst]
+    resourcebundle:messages_es: [Clubs, Comedia, Festivales, Cine, LGBTIQ+, Música,
+      Teatro, Libros, Danza, Días de excursión, Familia, Deporte, Artes visuales]
+    resourcebundle:messages_fr: [Clubs, Comédie, Festivals, Cinéma, LGBT+, Musique,
+      Théâtre, Livres, Danse, Sorties, Famille, Sport, Arts visuels]
+    resourcebundle:messages_it: [Club, Commedia, Festival, Film, LGBTQ+, Musica, Teatro,
+      Libri, Danza, Gite di un giorno, Famiglia, Sport, Arti visive]
+    resourcebundle:messages_nl: [Clubs, Comedy, Festivals, Film, LHBTI+, Muziek, Theater,
+      Boeken, Dans, Dagjes uit, Familie, Sport, Beeldende kunst]
+  /events-filters[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: f795e0c5-17a1-4924-83ad-22485f1ca076
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-09-26T11:00:11.330+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-24T14:01:16.843Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:id: search-events-filters
+    resourcebundle:keys: [clubs, comedy, festival, film, lgbt, music, theatre, books,
+      dance, daysout, family, sport, visualarts]
+    resourcebundle:messages: [Clubs, Comedy, Festivals, Film, LGBTQIA+, Music, Theatre,
+      Books, Dance, Days Out, Family, Sport, Visual arts]
+    resourcebundle:messages_de: [Clubs, Comedy, Festivals, Film, LGBT, Musik, Theater,
+      Bücher, Tanz, Tagesausflüge, Familie, Sport, Bildende Kunst]
+    resourcebundle:messages_es: [Clubs, Comedia, Festivales, Cine, LGBTIQ+, Música,
+      Teatro, Libros, Danza, Días de excursión, Familia, Deporte, Artes visuales]
+    resourcebundle:messages_fr: [Clubs, Comédie, Festivals, Cinéma, LGBT+, Musique,
+      Théâtre, Livres, Danse, Sorties, Famille, Sport, Arts visuels]
+    resourcebundle:messages_it: [Club, Commedia, Festival, Film, LGBTQ+, Musica, Teatro,
+      Libri, Danza, Gite di un giorno, Famiglia, Sport, Arti visive]
+    resourcebundle:messages_nl: [Clubs, Comedy, Festivals, Film, LHBTI+, Muziek, Theater,
+      Boeken, Dans, Dagjes uit, Familie, Sport, Beeldende kunst]
+  /events-filters[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: e890ed89-88aa-4313-b363-854078ec2ea3
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-09-26T11:00:11.330+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-24T14:02:14.287Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-03-24T14:02:15.797Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '']
+    resourcebundle:id: search-events-filters
+    resourcebundle:keys: [clubs, comedy, festival, film, lgbt, music, theatre, books,
+      dance, daysout, family, sport, visualarts]
+    resourcebundle:messages: [Clubs, Comedy, Festivals, Film, LGBTQIA+, Music, Theatre,
+      Books, Dance, Days Out, Family, Sport, Visual arts]
+    resourcebundle:messages_de: [Clubs, Comedy, Festivals, Film, LGBT, Musik, Theater,
+      Bücher, Tanz, Tagesausflüge, Familie, Sport, Bildende Kunst]
+    resourcebundle:messages_es: [Clubs, Comedia, Festivales, Cine, LGBTIQ+, Música,
+      Teatro, Libros, Danza, Días de excursión, Familia, Deporte, Artes visuales]
+    resourcebundle:messages_fr: [Clubs, Comédie, Festivals, Cinéma, LGBT+, Musique,
+      Théâtre, Livres, Danse, Sorties, Famille, Sport, Arts visuels]
+    resourcebundle:messages_it: [Club, Commedia, Festival, Film, LGBTQ+, Musica, Teatro,
+      Libri, Danza, Gite di un giorno, Famiglia, Sport, Arti visive]
+    resourcebundle:messages_nl: [Clubs, Comedy, Festivals, Film, LHBTI+, Muziek, Theater,
+      Boeken, Dans, Dagjes uit, Familie, Sport, Beeldende kunst]

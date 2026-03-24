@@ -1,8 +1,9 @@
 /content/documents/administration/vs-valuelists/events/synonyms-spanish:
+  .meta:order-before: search-events-dates
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: c9466b57-fabd-43f5-afa6-341388a7ec46
-  hippo:name: synonyms spanish
+  hippo:name: Synonyms Spanish
   /synonyms-spanish:
     jcr:primaryType: selection:valuelist
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']

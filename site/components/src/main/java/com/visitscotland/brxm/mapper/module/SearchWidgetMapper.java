@@ -80,7 +80,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
         if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken())) {
             module.setMainCategory("events");
             module.setSubcategories(bundle.getAllLabels("search-events-filters", locale));
-            module.setFilters(createFiltersJson("search-events-filters-date","when" ,locale));
+            module.setFilters(createFiltersJson("vs-events-filters-dates","when" ,locale));
         } else {
             module.setCategories(bundle.getAllLabels("search-categories", locale));
         }

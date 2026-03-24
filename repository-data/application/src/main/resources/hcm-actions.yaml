@@ -144,3 +144,6 @@ action-lists:
 - 3.2.2:
     /content/documents/administration/options/bespoken-modules: reload
     /content/taxonomies: reload
+- 3.2.3:
+    /content/documents/administration/options/search-events-filters-date: delete
+    /content/taxonomies: reload

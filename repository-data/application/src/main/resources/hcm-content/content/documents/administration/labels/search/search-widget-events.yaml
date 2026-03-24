@@ -1,5 +1,4 @@
 /content/documents/administration/labels/search/search-widget-events:
-  .meta:order-before: search-events-filters-date
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 3a3ce8f0-e60c-4d23-b7f6-1076bcfdfe92
