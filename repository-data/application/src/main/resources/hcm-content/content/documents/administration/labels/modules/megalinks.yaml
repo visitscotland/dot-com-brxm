@@ -1,5 +1,4 @@
 /content/documents/administration/labels/modules/megalinks:
-  .meta:order-before: favourites
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: bcb3583d-955b-44c2-ae93-a95eb2c789a8

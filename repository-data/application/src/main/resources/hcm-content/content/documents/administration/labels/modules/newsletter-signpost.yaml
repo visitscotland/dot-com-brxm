@@ -1,5 +1,4 @@
 /content/documents/administration/labels/modules/newsletter-signpost:
-  .meta:order-before: favourites
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: b3808f93-2c66-4d9d-8d19-14f37c7f2e89
