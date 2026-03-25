@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 250b5a83-cfba-4b55-bf97-715bf3897409
   hippo:name: Favourites
-  hippo:versionHistory: 838f2413-242f-463e-846c-1d2cb1ba9961
+  hippo:versionHistory: ea77937a-5397-4cc4-9aa3-7d96f382a63c
   /favourites[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,24 +13,55 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-03-24T14:36:57.365Z
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2026-03-25T15:19:15.426+01:00
+    hippostdpubwf:lastModifiedBy: kirsten.sierag
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: favourites
     resourcebundle:keys: [favourites.error.failed-card.heading, favourites.error.failed-card.text,
       favourites.error.failed-fetch.text, favourites.error.failed-fetch.header, favourites.error.empty-state.heading,
       favourites.error.empty-state.text, favourites.navigation.link.text, favourites.button.add.text,
       favourites.button.remove.text]
-    resourcebundle:messages: [CMS - failed card error heading, CMS - failed card error
-        text, CMS - failed fetch error text, CMS - failed fetch error heading, CMS
-        - No saved items yet!, CMS - Click the heart icon placed around the site to
-        favourite items! They will be saved here until you remove them., CMS - Favourites,
-      CMS - Add to favourites, CMS - Remove from favourites]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages: [Unable to load this item, We are unable to display this
+        item at this time. Please try again later., We couldn’t load your Favourites
+        right now. Please try again in a moment., Something went wrong, No saved items
+        yet, Click the heart icon found around the site to favourite items. They will
+        be saved here until you remove them., My Favourites, Add to your Favourites,
+      Remove from your Favourites]
+    resourcebundle:messages_de: [Dieser Inhalt kann nicht geladen werden, Dieser Inhalt
+        kann momentan nicht angezeigt werden. Bitte versuchen Sie es später erneut.,
+      Wir können Ihre Favoriten momentan nicht laden. Bitte versuchen Sie es später
+        erneut., Es ist ein Fehler aufgetreten, Noch keine gespeicherten Inhalte,
+      'Klicken Sie auf das Herzsymbol, das Sie auf unseren Seiten finden, um Favoriten
+        zu speichern. Inhalte werden hier gespeichert, bis Sie sie entfernen.', Meine
+        Favoriten, Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten entfernen]
+    resourcebundle:messages_es: [No se puede cargar este artículo, No podemos mostrar
+        este artículo en este momento. Inténtalo de nuevo más tarde., No hemos podido
+        cargar tus Favoritos en este momento. Inténtalo de nuevo más tarde., Ha ocurrido
+        un error, Aún no hay artículos guardados, Haz clic en el icono del corazón
+        que aparece en la página para marcar los artículos como Favoritos. Se guardarán
+        aquí hasta que los elimines., Mis Favoritos, Añadir a tus Favoritos, Eliminar
+        de tus Favoritos]
+    resourcebundle:messages_fr: [Impossible de charger cet élément, Nous ne parvenons
+        pas à afficher cet élément pour le moment. Veuillez réessayer plus tard.,
+      Nous n’avons pas pu charger vos Favoris pour le moment. Veuillez réessayer dans
+        quelques instants., Un problème est survenu, Aucun élément enregistré pour
+        l’instant, Cliquez sur l’icône en forme de cœur sur le site pour ajouter des
+        éléments à vos Favoris. Ils y resteront enregistrés jusqu’à ce que vous les
+        supprimiez., Mes Favoris, Ajouter à mes Favoris, Supprimer de mes Favoris]
+    resourcebundle:messages_it: [Impossibile caricare questo elemento, Al momento
+        non siamo in grado di visualizzare questo elemento., Al momento non siamo
+        riusciti a caricare i tuoi Preferiti. Riprova tra qualche istante., Si è verificato
+        un errore, Nessun elemento salvato, Clicca sull'icona a forma di cuore presente
+        sul sito per aggiungere elementi ai Preferiti. Questi verranno salvati qui
+        finché non li rimuoverai., I miei Preferiti, Aggiungi ai Preferiti, Rimuovi
+        dai Preferiti]
+    resourcebundle:messages_nl: [Deze inhoud kan niet geladen worden, We kunnen dit
+        artikel op dit moment niet weergeven. Probeer het later nog eens., We kunnen
+        je Favorieten momenteel niet laden. Probeer het later nog eens., Er is een
+        fout opgetreden, Nog geen opgeslagen informatie, Klik op het hartje dat je
+        op onze site ziet om artikelen aan je favorieten toe te voegen. Ze blijven
+        hier bewaard totdat je ze verwijdert., Mijn Favorieten, Aan je Favorieten
+        toevoegen, Verwijderen van je Favorieten]
   /favourites[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -40,24 +71,55 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-03-24T14:39:33.395Z
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2026-03-25T18:07:45.064+01:00
+    hippostdpubwf:lastModifiedBy: kirsten.sierag
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: favourites
     resourcebundle:keys: [favourites.error.failed-card.heading, favourites.error.failed-card.text,
       favourites.error.failed-fetch.text, favourites.error.failed-fetch.header, favourites.error.empty-state.heading,
       favourites.error.empty-state.text, favourites.navigation.link.text, favourites.button.add.text,
       favourites.button.remove.text]
-    resourcebundle:messages: [CMS - failed card error heading, CMS - failed card error
-        text, CMS - failed fetch error text, CMS - failed fetch error heading, CMS
-        - No saved items yet!, CMS - Click the heart icon placed around the site to
-        favourite items! They will be saved here until you remove them., CMS - Favourites,
-      CMS - Add to favourites, CMS - Remove from favourites]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages: [Unable to load this item, We are unable to display this
+        item at this time. Please try again later., We couldn’t load your Favourites
+        right now. Please try again in a moment., Something went wrong, No saved items
+        yet, Click the heart icon found around the site to favourite items. They will
+        be saved here until you remove them., My Favourites, Add to your Favourites,
+      Remove from your Favourites]
+    resourcebundle:messages_de: [Dieser Inhalt kann nicht geladen werden, Dieser Inhalt
+        kann momentan nicht angezeigt werden. Bitte versuchen Sie es später erneut.,
+      Wir können Ihre Favoriten momentan nicht laden. Bitte versuchen Sie es später
+        erneut., Es ist ein Fehler aufgetreten, Noch keine gespeicherten Inhalte,
+      'Klicken Sie auf das Herzsymbol, das Sie auf unseren Seiten finden, um Favoriten
+        zu speichern. Inhalte werden hier gespeichert, bis Sie sie entfernen.', Meine
+        Favoriten, Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten entfernen]
+    resourcebundle:messages_es: [No se puede cargar este artículo, No podemos mostrar
+        este artículo en este momento. Inténtalo de nuevo más tarde., No hemos podido
+        cargar tus Favoritos en este momento. Inténtalo de nuevo más tarde., Ha ocurrido
+        un error, Aún no hay artículos guardados, Haz clic en el icono del corazón
+        que aparece en la página para marcar los artículos como Favoritos. Se guardarán
+        aquí hasta que los elimines., Mis Favoritos, Añadir a tus Favoritos, Eliminar
+        de tus Favoritos]
+    resourcebundle:messages_fr: [Impossible de charger cet élément, Nous ne parvenons
+        pas à afficher cet élément pour le moment. Veuillez réessayer plus tard.,
+      Nous n’avons pas pu charger vos Favoris pour le moment. Veuillez réessayer dans
+        quelques instants., Un problème est survenu, Aucun élément enregistré pour
+        l’instant, Cliquez sur l’icône en forme de cœur sur le site pour ajouter des
+        éléments à vos Favoris. Ils y resteront enregistrés jusqu’à ce que vous les
+        supprimiez., Mes Favoris, Ajouter à mes Favoris, Supprimer de mes Favoris]
+    resourcebundle:messages_it: [Impossibile caricare questo elemento, Al momento
+        non siamo in grado di visualizzare questo elemento., Al momento non siamo
+        riusciti a caricare i tuoi Preferiti. Riprova tra qualche istante., Si è verificato
+        un errore, Nessun elemento salvato, Clicca sull'icona a forma di cuore presente
+        sul sito per aggiungere elementi ai Preferiti. Questi verranno salvati qui
+        finché non li rimuoverai., I miei Preferiti, Aggiungi ai Preferiti, Rimuovi
+        dai Preferiti]
+    resourcebundle:messages_nl: [Deze inhoud kan niet geladen worden, We kunnen dit
+        artikel op dit moment niet weergeven. Probeer het later nog eens., We kunnen
+        je Favorieten momenteel niet laden. Probeer het later nog eens., Er is een
+        fout opgetreden, Nog geen opgeslagen informatie, Klik op het hartje dat je
+        op onze site ziet om artikelen aan je favorieten toe te voegen. Ze blijven
+        hier bewaard totdat je ze verwijdert., Mijn Favorieten, Aan je Favorieten
+        toevoegen, Verwijderen van je Favorieten]
   /favourites[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -67,22 +129,53 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-03-24T14:39:33.395Z
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-03-24T17:53:23.636Z
+    hippostdpubwf:lastModificationDate: 2026-03-25T18:07:45.064+01:00
+    hippostdpubwf:lastModifiedBy: kirsten.sierag
+    hippostdpubwf:publicationDate: 2026-03-25T18:07:46.747+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
     resourcebundle:id: favourites
     resourcebundle:keys: [favourites.error.failed-card.heading, favourites.error.failed-card.text,
       favourites.error.failed-fetch.text, favourites.error.failed-fetch.header, favourites.error.empty-state.heading,
       favourites.error.empty-state.text, favourites.navigation.link.text, favourites.button.add.text,
       favourites.button.remove.text]
-    resourcebundle:messages: [CMS - failed card error heading, CMS - failed card error
-        text, CMS - failed fetch error text, CMS - failed fetch error heading, CMS
-        - No saved items yet!, CMS - Click the heart icon placed around the site to
-        favourite items! They will be saved here until you remove them., CMS - Favourites,
-      CMS - Add to favourites, CMS - Remove from favourites]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
+    resourcebundle:messages: [Unable to load this item, We are unable to display this
+        item at this time. Please try again later., We couldn’t load your Favourites
+        right now. Please try again in a moment., Something went wrong, No saved items
+        yet, Click the heart icon found around the site to favourite items. They will
+        be saved here until you remove them., My Favourites, Add to your Favourites,
+      Remove from your Favourites]
+    resourcebundle:messages_de: [Dieser Inhalt kann nicht geladen werden, Dieser Inhalt
+        kann momentan nicht angezeigt werden. Bitte versuchen Sie es später erneut.,
+      Wir können Ihre Favoriten momentan nicht laden. Bitte versuchen Sie es später
+        erneut., Es ist ein Fehler aufgetreten, Noch keine gespeicherten Inhalte,
+      'Klicken Sie auf das Herzsymbol, das Sie auf unseren Seiten finden, um Favoriten
+        zu speichern. Inhalte werden hier gespeichert, bis Sie sie entfernen.', Meine
+        Favoriten, Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten entfernen]
+    resourcebundle:messages_es: [No se puede cargar este artículo, No podemos mostrar
+        este artículo en este momento. Inténtalo de nuevo más tarde., No hemos podido
+        cargar tus Favoritos en este momento. Inténtalo de nuevo más tarde., Ha ocurrido
+        un error, Aún no hay artículos guardados, Haz clic en el icono del corazón
+        que aparece en la página para marcar los artículos como Favoritos. Se guardarán
+        aquí hasta que los elimines., Mis Favoritos, Añadir a tus Favoritos, Eliminar
+        de tus Favoritos]
+    resourcebundle:messages_fr: [Impossible de charger cet élément, Nous ne parvenons
+        pas à afficher cet élément pour le moment. Veuillez réessayer plus tard.,
+      Nous n’avons pas pu charger vos Favoris pour le moment. Veuillez réessayer dans
+        quelques instants., Un problème est survenu, Aucun élément enregistré pour
+        l’instant, Cliquez sur l’icône en forme de cœur sur le site pour ajouter des
+        éléments à vos Favoris. Ils y resteront enregistrés jusqu’à ce que vous les
+        supprimiez., Mes Favoris, Ajouter à mes Favoris, Supprimer de mes Favoris]
+    resourcebundle:messages_it: [Impossibile caricare questo elemento, Al momento
+        non siamo in grado di visualizzare questo elemento., Al momento non siamo
+        riusciti a caricare i tuoi Preferiti. Riprova tra qualche istante., Si è verificato
+        un errore, Nessun elemento salvato, Clicca sull'icona a forma di cuore presente
+        sul sito per aggiungere elementi ai Preferiti. Questi verranno salvati qui
+        finché non li rimuoverai., I miei Preferiti, Aggiungi ai Preferiti, Rimuovi
+        dai Preferiti]
+    resourcebundle:messages_nl: [Deze inhoud kan niet geladen worden, We kunnen dit
+        artikel op dit moment niet weergeven. Probeer het later nog eens., We kunnen
+        je Favorieten momenteel niet laden. Probeer het later nog eens., Er is een
+        fout opgetreden, Nog geen opgeslagen informatie, Klik op het hartje dat je
+        op onze site ziet om artikelen aan je favorieten toe te voegen. Ze blijven
+        hier bewaard totdat je ze verwijdert., Mijn Favorieten, Aan je Favorieten
+        toevoegen, Verwijderen van je Favorieten]
