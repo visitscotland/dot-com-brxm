@@ -32,19 +32,16 @@
             <bean class="com.visitscotland.brxm.favourites.FavouritesRestService"/>
           </constructor-arg>
         </bean>
-            <bean class="com.visitscotland.brxm.rest.TaxonomyRestService">
-              <constructor-arg ref="hippoUtilsService"/>
-            </bean>
+        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+          <constructor-arg>
+            <bean class="com.visitscotland.brxm.rest.TaxonomyRestService" />
           </constructor-arg>
         </bean>
         <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
           <constructor-arg>
-            <bean class="com.visitscotland.brxm.rest.EventsRestService">
-              <constructor-arg ref="hippoUtilsService"/>
-            </bean>
+            <bean class="com.visitscotland.brxm.rest.EventsRestService" />
           </constructor-arg>
         </bean>
-
       </list>
     </property>
   </bean>
