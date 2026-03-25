@@ -11,3 +11,983 @@
     hippo:availability: [live, preview]
     hippotranslation:id: 2b0d03d9-f5ff-45d7-be62-6e9c35e72ee7
     hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: Afternoon Tea
+      selection:label: afternoon tea
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: Angeln
+      selection:label: fishing
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: Aurora
+      selection:label: aurora
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: Aurora Borealis
+      selection:label: aurora
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: Auto mieten
+      selection:label: rent car
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: Autorundreise
+      selection:label: road trip
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: Autorundreisen
+      selection:label: road trip
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: Autoverleih
+      selection:label: rent car
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: Autovermietung
+      selection:label: rent car
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: B & B
+      selection:label: bed and breakfast
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: B & Bs
+      selection:label: bed and breakfast
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: B&B
+      selection:label: bed and breakfast
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: B&Bs
+      selection:label: bed and breakfast
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bahn
+      selection:label: rail
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bahn Tickets
+      selection:label: rail
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bahn tickets
+      selection:label: rail
+    /selection:listitem[17]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bahnfahren
+      selection:label: rail
+    /selection:listitem[18]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bahnfahrt
+      selection:label: rail
+    /selection:listitem[19]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bahnreise
+      selection:label: rail
+    /selection:listitem[20]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bed & Breakfast
+      selection:label: bed and breakfast
+    /selection:listitem[21]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bed & Breakfasts
+      selection:label: bed and breakfast
+    /selection:listitem[22]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bed and breakfast
+      selection:label: bed and breakfast
+    /selection:listitem[23]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bed and breakfasts
+      selection:label: bed and breakfast
+    /selection:listitem[24]:
+      jcr:primaryType: selection:listitem
+      selection:key: Brennerei
+      selection:label: distillery
+    /selection:listitem[25]:
+      jcr:primaryType: selection:listitem
+      selection:key: Brennereien
+      selection:label: distillery
+    /selection:listitem[26]:
+      jcr:primaryType: selection:listitem
+      selection:key: Brexit
+      selection:label: brexit
+    /selection:listitem[27]:
+      jcr:primaryType: selection:listitem
+      selection:key: Burg
+      selection:label: castle
+    /selection:listitem[28]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bus
+      selection:label: bus
+    /selection:listitem[29]:
+      jcr:primaryType: selection:listitem
+      selection:key: Busfahrkarte
+      selection:label: bus
+    /selection:listitem[30]:
+      jcr:primaryType: selection:listitem
+      selection:key: Busfahrkarten
+      selection:label: bus
+    /selection:listitem[31]:
+      jcr:primaryType: selection:listitem
+      selection:key: Busrundreise
+      selection:label: round trip
+    /selection:listitem[32]:
+      jcr:primaryType: selection:listitem
+      selection:key: Busrundreisen
+      selection:label: round trip
+    /selection:listitem[33]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bustarife
+      selection:label: bus
+    /selection:listitem[34]:
+      jcr:primaryType: selection:listitem
+      selection:key: Busticket
+      selection:label: bus
+    /selection:listitem[35]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bustickets
+      selection:label: bus
+    /selection:listitem[36]:
+      jcr:primaryType: selection:listitem
+      selection:key: Bücherveranstaltungen in Edinburgh
+      selection:label: literary events in Edinburgh
+    /selection:listitem[37]:
+      jcr:primaryType: selection:listitem
+      selection:key: Camper
+      selection:label: camping
+    /selection:listitem[38]:
+      jcr:primaryType: selection:listitem
+      selection:key: Camping
+      selection:label: camping
+    /selection:listitem[39]:
+      jcr:primaryType: selection:listitem
+      selection:key: Comedians in Edinburgh
+      selection:label: comedy in Edinburgh
+    /selection:listitem[40]:
+      jcr:primaryType: selection:listitem
+      selection:key: Comedy in Edinburgh
+      selection:label: comedy in Edinburgh
+    /selection:listitem[41]:
+      jcr:primaryType: selection:listitem
+      selection:key: Comedyauftritte in Edinburgh
+      selection:label: comedy in Edinburgh
+    /selection:listitem[42]:
+      jcr:primaryType: selection:listitem
+      selection:key: Comedyshows in Edinburgh
+      selection:label: comedy in Edinburgh
+    /selection:listitem[43]:
+      jcr:primaryType: selection:listitem
+      selection:key: Delfin
+      selection:label: dolphin
+    /selection:listitem[44]:
+      jcr:primaryType: selection:listitem
+      selection:key: Delfinbeobachtung
+      selection:label: dolphin
+    /selection:listitem[45]:
+      jcr:primaryType: selection:listitem
+      selection:key: Delfine
+      selection:label: dolphin
+    /selection:listitem[46]:
+      jcr:primaryType: selection:listitem
+      selection:key: Delfine beobachten
+      selection:label: dolphin
+    /selection:listitem[47]:
+      jcr:primaryType: selection:listitem
+      selection:key: Destillerie
+      selection:label: distillery
+    /selection:listitem[48]:
+      jcr:primaryType: selection:listitem
+      selection:key: Destillerien
+      selection:label: distillery
+    /selection:listitem[49]:
+      jcr:primaryType: selection:listitem
+      selection:key: Dudelsack
+      selection:label: bagpipe
+    /selection:listitem[50]:
+      jcr:primaryType: selection:listitem
+      selection:key: Dudelsackmusik
+      selection:label: bagpipe
+    /selection:listitem[51]:
+      jcr:primaryType: selection:listitem
+      selection:key: Dudelsackspieler
+      selection:label: bagpipe
+    /selection:listitem[52]:
+      jcr:primaryType: selection:listitem
+      selection:key: Dudelsäcke
+      selection:label: bagpipe
+    /selection:listitem[53]:
+      jcr:primaryType: selection:listitem
+      selection:key: Edinburgh
+      selection:label: edinburgh
+    /selection:listitem[54]:
+      jcr:primaryType: selection:listitem
+      selection:key: Edinburgh Military Tatoo
+      selection:label: edinburgh military tattoo
+    /selection:listitem[55]:
+      jcr:primaryType: selection:listitem
+      selection:key: Edinburgh Military Tattoo
+      selection:label: edinburgh military tattoo
+    /selection:listitem[56]:
+      jcr:primaryType: selection:listitem
+      selection:key: Edinburgh Tatoo
+      selection:label: edinburgh military tattoo
+    /selection:listitem[57]:
+      jcr:primaryType: selection:listitem
+      selection:key: Edinburgh Tattoo
+      selection:label: edinburgh military tattoo
+    /selection:listitem[58]:
+      jcr:primaryType: selection:listitem
+      selection:key: Einreise
+      selection:label: entry requirements
+    /selection:listitem[59]:
+      jcr:primaryType: selection:listitem
+      selection:key: Einreiseregelung
+      selection:label: entry requirements
+    /selection:listitem[60]:
+      jcr:primaryType: selection:listitem
+      selection:key: Einreiseregelungen
+      selection:label: entry requirements
+    /selection:listitem[61]:
+      jcr:primaryType: selection:listitem
+      selection:key: Eisenbahn
+      selection:label: rail
+    /selection:listitem[62]:
+      jcr:primaryType: selection:listitem
+      selection:key: Elektroauto
+      selection:label: electric car
+    /selection:listitem[63]:
+      jcr:primaryType: selection:listitem
+      selection:key: Elektroautos
+      selection:label: electric car
+    /selection:listitem[64]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fahrrad leihen
+      selection:label: bicycle
+    /selection:listitem[65]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fahrrad mieten
+      selection:label: bicycle
+    /selection:listitem[66]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fahrradverleih
+      selection:label: bicycle
+    /selection:listitem[67]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fahrzeugverleih
+      selection:label: rent car
+    /selection:listitem[68]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fahrzeugvermietung
+      selection:label: rent car
+    /selection:listitem[69]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fernbus
+      selection:label: bus
+    /selection:listitem[70]:
+      jcr:primaryType: selection:listitem
+      selection:key: Festival
+      selection:label: fringe
+    /selection:listitem[71]:
+      jcr:primaryType: selection:listitem
+      selection:key: Festivals in Edinburgh
+      selection:label: festivals in Edinburgh
+    /selection:listitem[72]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fischen
+      selection:label: fishing
+    /selection:listitem[73]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fliegenfischen
+      selection:label: fishing
+    /selection:listitem[74]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fähre
+      selection:label: ferry
+    /selection:listitem[75]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fähre nach Schottland
+      selection:label: ferry
+    /selection:listitem[76]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fähren nach Schottland
+      selection:label: ferry
+    /selection:listitem[77]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fährreise nach Schottland
+      selection:label: ferry
+    /selection:listitem[78]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fünf Uhr Tee
+      selection:label: afternoon tea
+    /selection:listitem[79]:
+      jcr:primaryType: selection:listitem
+      selection:key: Fünf-Uhr-Tee
+      selection:label: afternoon tea
+    /selection:listitem[80]:
+      jcr:primaryType: selection:listitem
+      selection:key: Gnitzen
+      selection:label: midges
+    /selection:listitem[81]:
+      jcr:primaryType: selection:listitem
+      selection:key: Harry Potter
+      selection:label: harry potter
+    /selection:listitem[82]:
+      jcr:primaryType: selection:listitem
+      selection:key: Highland Games in Edinburgh
+      selection:label: highland games in Edinburgh
+    /selection:listitem[83]:
+      jcr:primaryType: selection:listitem
+      selection:key: Highlands
+      selection:label: highlands
+    /selection:listitem[84]:
+      jcr:primaryType: selection:listitem
+      selection:key: Hogwarts
+      selection:label: harry potter
+    /selection:listitem[85]:
+      jcr:primaryType: selection:listitem
+      selection:key: Informationszentrum
+      selection:label: tourist info
+    /selection:listitem[86]:
+      jcr:primaryType: selection:listitem
+      selection:key: Insektenbiss
+      selection:label: midges
+    /selection:listitem[87]:
+      jcr:primaryType: selection:listitem
+      selection:key: Insektenschutzmittel
+      selection:label: midges
+    /selection:listitem[88]:
+      jcr:primaryType: selection:listitem
+      selection:key: Insektenstich
+      selection:label: midges
+    /selection:listitem[89]:
+      jcr:primaryType: selection:listitem
+      selection:key: Karte
+      selection:label: map
+    /selection:listitem[90]:
+      jcr:primaryType: selection:listitem
+      selection:key: Karte von Schottland
+      selection:label: map
+    /selection:listitem[91]:
+      jcr:primaryType: selection:listitem
+      selection:key: Konzerte in Edinburgh
+      selection:label: concerts in Edinburgh
+    /selection:listitem[92]:
+      jcr:primaryType: selection:listitem
+      selection:key: Kunstausstellungen in Edinburgh
+      selection:label: art events in Edinburgh
+    /selection:listitem[93]:
+      jcr:primaryType: selection:listitem
+      selection:key: Kunstveranstaltungen in Edinburgh
+      selection:label: art events in Edinburgh
+    /selection:listitem[94]:
+      jcr:primaryType: selection:listitem
+      selection:key: LGBT
+      selection:label: LGBT
+    /selection:listitem[95]:
+      jcr:primaryType: selection:listitem
+      selection:key: LGBT+
+      selection:label: LGBT
+    /selection:listitem[96]:
+      jcr:primaryType: selection:listitem
+      selection:key: Ladepunkt
+      selection:label: charging station
+    /selection:listitem[97]:
+      jcr:primaryType: selection:listitem
+      selection:key: Ladestation
+      selection:label: charging station
+    /selection:listitem[98]:
+      jcr:primaryType: selection:listitem
+      selection:key: Ladestation für Elektroauto
+      selection:label: charging station
+    /selection:listitem[99]:
+      jcr:primaryType: selection:listitem
+      selection:key: Ladestation für Elektroautos
+      selection:label: charging station
+    /selection:listitem[100]:
+      jcr:primaryType: selection:listitem
+      selection:key: Landkarte
+      selection:label: map
+    /selection:listitem[101]:
+      jcr:primaryType: selection:listitem
+      selection:key: Leihauto
+      selection:label: rent car
+    /selection:listitem[102]:
+      jcr:primaryType: selection:listitem
+      selection:key: Leihfahrzeug
+      selection:label: rent car
+    /selection:listitem[103]:
+      jcr:primaryType: selection:listitem
+      selection:key: Leihwagen
+      selection:label: rent car
+    /selection:listitem[104]:
+      jcr:primaryType: selection:listitem
+      selection:key: Literaturevents in Edinburgh
+      selection:label: literary events in Edinburgh
+    /selection:listitem[105]:
+      jcr:primaryType: selection:listitem
+      selection:key: Literaturveranstaltungen in Edinburgh
+      selection:label: literary events in Edinburgh
+    /selection:listitem[106]:
+      jcr:primaryType: selection:listitem
+      selection:key: Meerestiere
+      selection:label: marine animals
+    /selection:listitem[107]:
+      jcr:primaryType: selection:listitem
+      selection:key: Midge
+      selection:label: midges
+    /selection:listitem[108]:
+      jcr:primaryType: selection:listitem
+      selection:key: Midges
+      selection:label: midges
+    /selection:listitem[109]:
+      jcr:primaryType: selection:listitem
+      selection:key: Military Tattoo
+      selection:label: edinburgh military tattoo
+    /selection:listitem[110]:
+      jcr:primaryType: selection:listitem
+      selection:key: Mit der Fähre nach Schottland
+      selection:label: ferry
+    /selection:listitem[111]:
+      jcr:primaryType: selection:listitem
+      selection:key: Moskito
+      selection:label: midges
+    /selection:listitem[112]:
+      jcr:primaryType: selection:listitem
+      selection:key: Musikfestivals in Edinburgh
+      selection:label: music festivals in Edinburgh
+    /selection:listitem[113]:
+      jcr:primaryType: selection:listitem
+      selection:key: Mücke
+      selection:label: midges
+    /selection:listitem[114]:
+      jcr:primaryType: selection:listitem
+      selection:key: Mücken
+      selection:label: midges
+    /selection:listitem[115]:
+      jcr:primaryType: selection:listitem
+      selection:key: Mückenmittel
+      selection:label: midges
+    /selection:listitem[116]:
+      jcr:primaryType: selection:listitem
+      selection:key: Mückenschutz
+      selection:label: midges
+    /selection:listitem[117]:
+      jcr:primaryType: selection:listitem
+      selection:key: Mückenspray
+      selection:label: midges
+    /selection:listitem[118]:
+      jcr:primaryType: selection:listitem
+      selection:key: Mückenstich
+      selection:label: midges
+    /selection:listitem[119]:
+      jcr:primaryType: selection:listitem
+      selection:key: Neujahr
+      selection:label: new year
+    /selection:listitem[120]:
+      jcr:primaryType: selection:listitem
+      selection:key: Nordlicht
+      selection:label: aurora
+    /selection:listitem[121]:
+      jcr:primaryType: selection:listitem
+      selection:key: Nordlichter
+      selection:label: aurora
+    /selection:listitem[122]:
+      jcr:primaryType: selection:listitem
+      selection:key: Polarlicht
+      selection:label: aurora
+    /selection:listitem[123]:
+      jcr:primaryType: selection:listitem
+      selection:key: Polarlichter
+      selection:label: aurora
+    /selection:listitem[124]:
+      jcr:primaryType: selection:listitem
+      selection:key: Rad leihen
+      selection:label: bicycle
+    /selection:listitem[125]:
+      jcr:primaryType: selection:listitem
+      selection:key: Rad mieten
+      selection:label: bicycle
+    /selection:listitem[126]:
+      jcr:primaryType: selection:listitem
+      selection:key: Radverleih
+      selection:label: bicycle
+    /selection:listitem[127]:
+      jcr:primaryType: selection:listitem
+      selection:key: Reisebus
+      selection:label: bus
+    /selection:listitem[128]:
+      jcr:primaryType: selection:listitem
+      selection:key: Royal Edinburgh Military Tattoo
+      selection:label: edinburgh military tattoo
+    /selection:listitem[129]:
+      jcr:primaryType: selection:listitem
+      selection:key: Rundreise
+      selection:label: round trip
+    /selection:listitem[130]:
+      jcr:primaryType: selection:listitem
+      selection:key: Rundreisen
+      selection:label: round trip
+    /selection:listitem[131]:
+      jcr:primaryType: selection:listitem
+      selection:key: Schloss
+      selection:label: castle
+    /selection:listitem[132]:
+      jcr:primaryType: selection:listitem
+      selection:key: Schottland ohne Auto
+      selection:label: eco travel
+    /selection:listitem[133]:
+      jcr:primaryType: selection:listitem
+      selection:key: Schottlandkarte
+      selection:label: map
+    /selection:listitem[134]:
+      jcr:primaryType: selection:listitem
+      selection:key: Scottish Highlands
+      selection:label: highlands
+    /selection:listitem[135]:
+      jcr:primaryType: selection:listitem
+      selection:key: Silvester
+      selection:label: hogmanay
+    /selection:listitem[136]:
+      jcr:primaryType: selection:listitem
+      selection:key: Sommerzeit
+      selection:label: timezone
+    /selection:listitem[137]:
+      jcr:primaryType: selection:listitem
+      selection:key: Sportveranstaltungen in Edinburgh
+      selection:label: sports events in Edinburgh
+    /selection:listitem[138]:
+      jcr:primaryType: selection:listitem
+      selection:key: Stadtführung
+      selection:label: city tour
+    /selection:listitem[139]:
+      jcr:primaryType: selection:listitem
+      selection:key: Stadtführungen
+      selection:label: city tour
+    /selection:listitem[140]:
+      jcr:primaryType: selection:listitem
+      selection:key: Stadtrundgang
+      selection:label: city tour
+    /selection:listitem[141]:
+      jcr:primaryType: selection:listitem
+      selection:key: Stadtrundgänge
+      selection:label: city tour
+    /selection:listitem[142]:
+      jcr:primaryType: selection:listitem
+      selection:key: Steckmücken
+      selection:label: midges
+    /selection:listitem[143]:
+      jcr:primaryType: selection:listitem
+      selection:key: Sterling
+      selection:label: stirling
+    /selection:listitem[144]:
+      jcr:primaryType: selection:listitem
+      selection:key: Stirling
+      selection:label: stirling
+    /selection:listitem[145]:
+      jcr:primaryType: selection:listitem
+      selection:key: Sylvester
+      selection:label: hogmanay
+    /selection:listitem[146]:
+      jcr:primaryType: selection:listitem
+      selection:key: Tatoo
+      selection:label: edinburgh military tattoo
+    /selection:listitem[147]:
+      jcr:primaryType: selection:listitem
+      selection:key: Tattoo
+      selection:label: edinburgh military tattoo
+    /selection:listitem[148]:
+      jcr:primaryType: selection:listitem
+      selection:key: The Highlands
+      selection:label: highlands
+    /selection:listitem[149]:
+      jcr:primaryType: selection:listitem
+      selection:key: Theater in Edinburgh
+      selection:label: theatre in Edinburgh
+    /selection:listitem[150]:
+      jcr:primaryType: selection:listitem
+      selection:key: Tourismusinformation
+      selection:label: tourist info
+    /selection:listitem[151]:
+      jcr:primaryType: selection:listitem
+      selection:key: Tourismusinformationen
+      selection:label: tourist info
+    /selection:listitem[152]:
+      jcr:primaryType: selection:listitem
+      selection:key: Touristeninformation
+      selection:label: tourist info
+    /selection:listitem[153]:
+      jcr:primaryType: selection:listitem
+      selection:key: Touristeninformationen
+      selection:label: tourist info
+    /selection:listitem[154]:
+      jcr:primaryType: selection:listitem
+      selection:key: Touristinformation
+      selection:label: tourist info
+    /selection:listitem[155]:
+      jcr:primaryType: selection:listitem
+      selection:key: Touristinformationen
+      selection:label: tourist info
+    /selection:listitem[156]:
+      jcr:primaryType: selection:listitem
+      selection:key: Turniere in Edinburgh
+      selection:label: sports events in Edinburgh
+    /selection:listitem[157]:
+      jcr:primaryType: selection:listitem
+      selection:key: Vorträge in Edinburgh
+      selection:label: talks in Edinburgh
+    /selection:listitem[158]:
+      jcr:primaryType: selection:listitem
+      selection:key: Wal
+      selection:label: whale
+    /selection:listitem[159]:
+      jcr:primaryType: selection:listitem
+      selection:key: Walbeobachtung
+      selection:label: whale
+    /selection:listitem[160]:
+      jcr:primaryType: selection:listitem
+      selection:key: Wale
+      selection:label: whale
+    /selection:listitem[161]:
+      jcr:primaryType: selection:listitem
+      selection:key: Wale beobachten
+      selection:label: whale
+    /selection:listitem[162]:
+      jcr:primaryType: selection:listitem
+      selection:key: Weihnachten
+      selection:label: christmas
+    /selection:listitem[163]:
+      jcr:primaryType: selection:listitem
+      selection:key: Weihnachtsmärkte in Edinburgh
+      selection:label: christmas markets in Edinburgh
+    /selection:listitem[164]:
+      jcr:primaryType: selection:listitem
+      selection:key: Whiskybrennerei
+      selection:label: distillery
+    /selection:listitem[165]:
+      jcr:primaryType: selection:listitem
+      selection:key: Winkelgasse
+      selection:label: harry potter
+    /selection:listitem[166]:
+      jcr:primaryType: selection:listitem
+      selection:key: Winterzeit
+      selection:label: timezone
+    /selection:listitem[167]:
+      jcr:primaryType: selection:listitem
+      selection:key: Wohnmobil
+      selection:label: camping
+    /selection:listitem[168]:
+      jcr:primaryType: selection:listitem
+      selection:key: Wohnwagen
+      selection:label: camping
+    /selection:listitem[169]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zecke
+      selection:label: tick
+    /selection:listitem[170]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zeckenbiss
+      selection:label: tick
+    /selection:listitem[171]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zeckenkarte
+      selection:label: tick
+    /selection:listitem[172]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zeckenstich
+      selection:label: tick
+    /selection:listitem[173]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zeitunterschied
+      selection:label: timezone
+    /selection:listitem[174]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zeitzone
+      selection:label: timezone
+    /selection:listitem[175]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zelten
+      selection:label: camping
+    /selection:listitem[176]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zug
+      selection:label: rail
+    /selection:listitem[177]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zugfahrkarte
+      selection:label: rail
+    /selection:listitem[178]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zugfahrkarten
+      selection:label: rail
+    /selection:listitem[179]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zugfahrt
+      selection:label: rail
+    /selection:listitem[180]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zugnetz
+      selection:label: rail
+    /selection:listitem[181]:
+      jcr:primaryType: selection:listitem
+      selection:key: Zugreise
+      selection:label: rail
+    /selection:listitem[182]:
+      jcr:primaryType: selection:listitem
+      selection:key: allein reisen
+      selection:label: solo travel
+    /selection:listitem[183]:
+      jcr:primaryType: selection:listitem
+      selection:key: alleine reisen
+      selection:label: solo travel
+    /selection:listitem[184]:
+      jcr:primaryType: selection:listitem
+      selection:key: alleinreisend
+      selection:label: solo travel
+    /selection:listitem[185]:
+      jcr:primaryType: selection:listitem
+      selection:key: asexuell
+      selection:label: LGBT
+    /selection:listitem[186]:
+      jcr:primaryType: selection:listitem
+      selection:key: autofrei reisen
+      selection:label: eco travel
+    /selection:listitem[187]:
+      jcr:primaryType: selection:listitem
+      selection:key: autofreies Reisen
+      selection:label: eco travel
+    /selection:listitem[188]:
+      jcr:primaryType: selection:listitem
+      selection:key: bagpipes
+      selection:label: bagpipe
+    /selection:listitem[189]:
+      jcr:primaryType: selection:listitem
+      selection:key: bisexuell
+      selection:label: LGBT
+    /selection:listitem[190]:
+      jcr:primaryType: selection:listitem
+      selection:key: burgen
+      selection:label: castle
+    /selection:listitem[191]:
+      jcr:primaryType: selection:listitem
+      selection:key: camperurlaub
+      selection:label: camping
+    /selection:listitem[192]:
+      jcr:primaryType: selection:listitem
+      selection:key: camping
+      selection:label: camping
+    /selection:listitem[193]:
+      jcr:primaryType: selection:listitem
+      selection:key: caravan
+      selection:label: camping
+    /selection:listitem[194]:
+      jcr:primaryType: selection:listitem
+      selection:key: die Highlands
+      selection:label: highlands
+    /selection:listitem[195]:
+      jcr:primaryType: selection:listitem
+      selection:key: distillery
+      selection:label: distillery
+    /selection:listitem[196]:
+      jcr:primaryType: selection:listitem
+      selection:key: ediborough
+      selection:label: edinburgh
+    /selection:listitem[197]:
+      jcr:primaryType: selection:listitem
+      selection:key: ediburgh
+      selection:label: edinburgh
+    /selection:listitem[198]:
+      jcr:primaryType: selection:listitem
+      selection:key: edimbourg
+      selection:label: edinburgh
+    /selection:listitem[199]:
+      jcr:primaryType: selection:listitem
+      selection:key: edimbur
+      selection:label: edinburgh
+    /selection:listitem[200]:
+      jcr:primaryType: selection:listitem
+      selection:key: edimburgo
+      selection:label: edinburgh
+    /selection:listitem[201]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinb
+      selection:label: edinburgh
+    /selection:listitem[202]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinbirgh
+      selection:label: edinburgh
+    /selection:listitem[203]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinboro
+      selection:label: edinburgh
+    /selection:listitem[204]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinborough
+      selection:label: edinburgh
+    /selection:listitem[205]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinbrugh
+      selection:label: edinburgh
+    /selection:listitem[206]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinbu
+      selection:label: edinburgh
+    /selection:listitem[207]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinburg
+      selection:label: edinburgh
+    /selection:listitem[208]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinburgh city
+      selection:label: edinburgh
+    /selection:listitem[209]:
+      jcr:primaryType: selection:listitem
+      selection:key: edniburgh
+      selection:label: edinburgh
+    /selection:listitem[210]:
+      jcr:primaryType: selection:listitem
+      selection:key: einreisebestimmung
+      selection:label: entry requirements
+    /selection:listitem[211]:
+      jcr:primaryType: selection:listitem
+      selection:key: einreisebestimmungen
+      selection:label: entry requirements
+    /selection:listitem[212]:
+      jcr:primaryType: selection:listitem
+      selection:key: flughäfen
+      selection:label: airport
+    /selection:listitem[213]:
+      jcr:primaryType: selection:listitem
+      selection:key: fährlinien
+      selection:label: ferry
+    /selection:listitem[214]:
+      jcr:primaryType: selection:listitem
+      selection:key: gay
+      selection:label: LGBT
+    /selection:listitem[215]:
+      jcr:primaryType: selection:listitem
+      selection:key: iCentre
+      selection:label: tourist info
+    /selection:listitem[216]:
+      jcr:primaryType: selection:listitem
+      selection:key: iCentres
+      selection:label: tourist info
+    /selection:listitem[217]:
+      jcr:primaryType: selection:listitem
+      selection:key: in der Nähe von
+      selection:label: near
+    /selection:listitem[218]:
+      jcr:primaryType: selection:listitem
+      selection:key: intersexuell
+      selection:label: LGBT
+    /selection:listitem[219]:
+      jcr:primaryType: selection:listitem
+      selection:key: lachsfischen
+      selection:label: fishing
+    /selection:listitem[220]:
+      jcr:primaryType: selection:listitem
+      selection:key: ladesäule
+      selection:label: charging station
+    /selection:listitem[221]:
+      jcr:primaryType: selection:listitem
+      selection:key: ladesäulen
+      selection:label: charging station
+    /selection:listitem[222]:
+      jcr:primaryType: selection:listitem
+      selection:key: lesbisch
+      selection:label: LGBT
+    /selection:listitem[223]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbt
+      selection:label: LGBT
+    /selection:listitem[224]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbt+
+      selection:label: LGBT
+    /selection:listitem[225]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbtiq
+      selection:label: LGBT
+    /selection:listitem[226]:
+      jcr:primaryType: selection:listitem
+      selection:key: lsbt
+      selection:label: LGBT
+    /selection:listitem[227]:
+      jcr:primaryType: selection:listitem
+      selection:key: lsbtq
+      selection:label: LGBT
+    /selection:listitem[228]:
+      jcr:primaryType: selection:listitem
+      selection:key: lsbtqi
+      selection:label: LGBT
+    /selection:listitem[229]:
+      jcr:primaryType: selection:listitem
+      selection:key: lsbtqia
+      selection:label: LGBT
+    /selection:listitem[230]:
+      jcr:primaryType: selection:listitem
+      selection:key: markt
+      selection:label: market
+    /selection:listitem[231]:
+      jcr:primaryType: selection:listitem
+      selection:key: nachmittagstee
+      selection:label: afternoon tea
+    /selection:listitem[232]:
+      jcr:primaryType: selection:listitem
+      selection:key: queer
+      selection:label: LGBT
+    /selection:listitem[233]:
+      jcr:primaryType: selection:listitem
+      selection:key: schlösser
+      selection:label: castle
+    /selection:listitem[234]:
+      jcr:primaryType: selection:listitem
+      selection:key: schottische Highlands
+      selection:label: highlands
+    /selection:listitem[235]:
+      jcr:primaryType: selection:listitem
+      selection:key: schottland
+      selection:label: scotland
+    /selection:listitem[236]:
+      jcr:primaryType: selection:listitem
+      selection:key: schwul
+      selection:label: LGBT
+    /selection:listitem[237]:
+      jcr:primaryType: selection:listitem
+      selection:key: silvesterurlaub
+      selection:label: hogmanay
+    /selection:listitem[238]:
+      jcr:primaryType: selection:listitem
+      selection:key: transgender
+      selection:label: LGBT
+    /selection:listitem[239]:
+      jcr:primaryType: selection:listitem
+      selection:key: transsexuell
+      selection:label: LGBT
+    /selection:listitem[240]:
+      jcr:primaryType: selection:listitem
+      selection:key: umweltfreundlich reisen
+      selection:label: eco travel
+    /selection:listitem[241]:
+      jcr:primaryType: selection:listitem
+      selection:key: umweltfreundliche Verkehrsmittel
+      selection:label: eco travel
+    /selection:listitem[242]:
+      jcr:primaryType: selection:listitem
+      selection:key: veranstaltungen
+      selection:label: events
+    /selection:listitem[243]:
+      jcr:primaryType: selection:listitem
+      selection:key: wdinburgh
+      selection:label: edinburgh
+    /selection:listitem[244]:
+      jcr:primaryType: selection:listitem
+      selection:key: weihnachtsfest
+      selection:label: christmas
+    /selection:listitem[245]:
+      jcr:primaryType: selection:listitem
+      selection:key: öffentliche Verkehrsmittel
+      selection:label: eco travel
