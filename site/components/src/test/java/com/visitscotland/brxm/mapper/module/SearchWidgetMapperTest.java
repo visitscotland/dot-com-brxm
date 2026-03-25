@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.mapper.module;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.model.SearchWidgetModule;
 import com.visitscotland.brxm.services.HippoUtilsService;
@@ -25,6 +26,8 @@ class SearchWidgetMapperTest {
 
     @Mock
     private HippoUtilsService hippoUtilsService;
+    @Mock
+    private ObjectMapper objectMapper;
 
     @InjectMocks
     private SearchWidgetMapper mapper;
@@ -36,7 +39,8 @@ class SearchWidgetMapperTest {
     void setUp() {
         bundle = mock(ResourceBundleService.class);
         hippoUtilsService = mock(HippoUtilsService.class);
-        mapper = new SearchWidgetMapper(bundle, hippoUtilsService);
+        objectMapper = mock(ObjectMapper.class);
+        mapper = new SearchWidgetMapper(bundle, hippoUtilsService,objectMapper);
 
         document = mock(DevModule.class);
         resourceBundle = mock(ResourceBundle.class);
@@ -113,7 +117,6 @@ class SearchWidgetMapperTest {
     @Test
     void shouldCreateFiltersJson_WhenFiltersExist() {
         Locale locale = Locale.UK;
-
         Map<String, String> filtersMap = Map.of(
                 "today", "1",
                 "tomorrow", "2"
@@ -123,7 +126,7 @@ class SearchWidgetMapperTest {
         when(bundle.getResourceBundle("filters-id", "today", locale)).thenReturn("Today");
         when(bundle.getResourceBundle("filters-id", "tomorrow", locale)).thenReturn("Tomorrow");
 
-        JsonNode result = mapper.createFiltersJson("filters-id", "when", "search-events-dates",locale);
+        JsonNode result = mapper.addFilterJson("filters-id", "when", "search-events-dates",objectMapper.createObjectNode() ,locale);
 
         assertNotNull(result);
         assertTrue(result.has("when"));
@@ -136,7 +139,7 @@ class SearchWidgetMapperTest {
 
         when(hippoUtilsService.getValueMap("filters-id")).thenReturn(null);
 
-        JsonNode result = mapper.createFiltersJson("filters-id", "when", "search-events-dates", locale);
+        JsonNode result = mapper.addFilterJson("filters-id", "when", "search-events-dates",objectMapper.createObjectNode(), locale);
 
         assertNotNull(result);
         assertTrue(result.has("when"));

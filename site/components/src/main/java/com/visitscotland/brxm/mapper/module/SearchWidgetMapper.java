@@ -29,10 +29,12 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
 
     private final ResourceBundleService bundle;
     private final HippoUtilsService hippoUtilsService;
+    private final ObjectMapper mapper;
 
-    public SearchWidgetMapper(ResourceBundleService bundle, HippoUtilsService hippoUtilsService) {
+    public SearchWidgetMapper(ResourceBundleService bundle, HippoUtilsService hippoUtilsService, ObjectMapper mapper) {
         this.bundle = bundle;
         this.hippoUtilsService = hippoUtilsService;
+        this.mapper = mapper;
     }
 
     /**
@@ -86,8 +88,10 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
         if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken())) {
             module.setMainCategory("events");
             module.setSubcategories(bundle.getAllLabels(SEARCH_EVENTS_FILTERS, locale));
-            module.setFilters(createFiltersJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, locale));
-            //module.setFilters(createFiltersJson("vs-events-filters-locations","postcodeAreas" ,SEARCH_EVENTS_FILTERS_LOCATIONS, locale));
+
+            ObjectNode filters = mapper.createObjectNode();
+            addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, locale);
+            module.setFilters(addFilterJson("vs-events-filters-locations","postcodeAreas" ,SEARCH_EVENTS_FILTERS_LOCATIONS, filters, locale));
         } else {
             module.setCategories(bundle.getAllLabels(SEARCH_CATEGORIES, locale));
         }
@@ -104,15 +108,13 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
      * @param locale the locale used to resolve filter labels
      * @return a {@link JsonNode} representing the filter structure
      */
-    public JsonNode createFiltersJson (String valueListId, String rootNode, String resourceBundleId, Locale locale) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        ObjectNode filters = objectMapper.createObjectNode();
-        ArrayNode filterType = objectMapper.createArrayNode();
+    public JsonNode addFilterJson (String valueListId, String rootNode, String resourceBundleId, ObjectNode filters, Locale locale) {
+        ArrayNode filterType = mapper.createArrayNode();
         Map<String, String> filtersMap = hippoUtilsService.getValueMap(valueListId);
 
         if (filtersMap != null) {
             for (Map.Entry<String, String> entry : filtersMap.entrySet()) {
-                ObjectNode filterSubnodes = objectMapper.createObjectNode();
+                ObjectNode filterSubnodes = mapper.createObjectNode();
                 filterSubnodes.put("id", entry.getValue());
                 String resourceBundleLabel = bundle.getResourceBundle(resourceBundleId, entry.getKey(), locale);
                 filterSubnodes.put("label", Contract.isEmpty(resourceBundleLabel) ? entry.getKey() : resourceBundleLabel);
