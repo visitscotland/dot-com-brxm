@@ -47,7 +47,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String SOCIAL_SHARE_BUNDLE = "social.share";
     private static final String VIDEO_BUNDLE = "video";
     private static final String SKIP_TO_BUNDLE = "skip-to";
-    private static final String SEARCH_BUNDLE = "search";
+    private static final String SEARCH_BUNDLE = "search-labels";
     private static final String CMS_MESSAGES_BUNDLE = "cms-messages";
     private static final String SEO_BUNDLE = "seo";
     private static final String TABLE_CONTENTS_BUNDLE = "table-contents";

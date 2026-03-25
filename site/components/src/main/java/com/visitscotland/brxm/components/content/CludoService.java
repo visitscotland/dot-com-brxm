@@ -21,9 +21,9 @@ public class CludoService {
     public static final String ROOT_REF_ID = "root";
     public static final String SEARCH_PAGE_REF_ID = "search-page";
 
-    private static final String SEARCH_EVENTS_CATEGORIES = "content.categories";
+    private static final String SEARCH_EVENTS_CATEGORIES = "result-cards-content-types";
     private static final String SEARCH_EVENTS_FILTERS = "search-events-filters";
-    private static final String SEARCH_FILTERS = "search-categories";
+    private static final String SEARCH_FILTERS = "main-category-filters";
 
     public static final String INCLUDE_SEARCH_WIDGET = "searchWidget";
     public static final String SEARCH_LOGIC = "cludoApiOperator";

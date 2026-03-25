@@ -123,7 +123,7 @@ class SearchWidgetMapperTest {
         when(bundle.getResourceBundle("filters-id", "today", locale)).thenReturn("Today");
         when(bundle.getResourceBundle("filters-id", "tomorrow", locale)).thenReturn("Tomorrow");
 
-        JsonNode result = mapper.createFiltersJson("filters-id", "when", locale);
+        JsonNode result = mapper.createFiltersJson("filters-id", "when", "search-events-dates",locale);
 
         assertNotNull(result);
         assertTrue(result.has("when"));
@@ -136,7 +136,7 @@ class SearchWidgetMapperTest {
 
         when(hippoUtilsService.getValueMap("filters-id")).thenReturn(null);
 
-        JsonNode result = mapper.createFiltersJson("filters-id", "when", locale);
+        JsonNode result = mapper.createFiltersJson("filters-id", "when", "search-events-dates", locale);
 
         assertNotNull(result);
         assertTrue(result.has("when"));

@@ -10,6 +10,7 @@ import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.utils.Contract;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -20,7 +21,12 @@ import java.util.ResourceBundle;
 @Component
 public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModule>{
 
+    private static final String SEARCH_CATEGORIES = "main-category-filters";
     private static final String SEARCH_WIDGET_EVENTS = "search-widget-events";
+    private static final String SEARCH_EVENTS_FILTERS = "search-events-filters";
+    private static final String SEARCH_EVENTS_FILTERS_DATES = "search-events-dates";
+    private static final String SEARCH_EVENTS_FILTERS_LOCATIONS = "search-events-locations";
+
     private final ResourceBundleService bundle;
     private final HippoUtilsService hippoUtilsService;
 
@@ -79,10 +85,11 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
 
         if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken())) {
             module.setMainCategory("events");
-            module.setSubcategories(bundle.getAllLabels("search-events-filters", locale));
-            module.setFilters(createFiltersJson("vs-events-filters-dates","when" ,locale));
+            module.setSubcategories(bundle.getAllLabels(SEARCH_EVENTS_FILTERS, locale));
+            module.setFilters(createFiltersJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, locale));
+            //module.setFilters(createFiltersJson("vs-events-filters-locations","postcodeAreas" ,SEARCH_EVENTS_FILTERS_LOCATIONS, locale));
         } else {
-            module.setCategories(bundle.getAllLabels("search-categories", locale));
+            module.setCategories(bundle.getAllLabels(SEARCH_CATEGORIES, locale));
         }
 
         return module;
@@ -90,28 +97,25 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
 
     /**
      * Creates a JSON structure representing search filters.
-     *
-     * <p>The filters are built dynamically from a value map retrieved via
-     * {@link HippoUtilsService}. Each entry is converted into a JSON object
-     * containing an {@code id} and a localised {@code label}.</p>
-     *
-     * @param filtersId identifier used to retrieve filter values and labels
+
+     * @param valueListId identifier used to retrieve filter values and labels
      * @param rootNode the root JSON node name under which filters are grouped
+     * @param resourceBundleId the resource bundle name under which filters are grouped
      * @param locale the locale used to resolve filter labels
      * @return a {@link JsonNode} representing the filter structure
      */
-    public JsonNode createFiltersJson (String filtersId, String rootNode ,Locale locale) {
+    public JsonNode createFiltersJson (String valueListId, String rootNode, String resourceBundleId, Locale locale) {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectNode filters = objectMapper.createObjectNode();
         ArrayNode filterType = objectMapper.createArrayNode();
-        Map<String, String> filtersMap = hippoUtilsService.getValueMap(filtersId);
+        Map<String, String> filtersMap = hippoUtilsService.getValueMap(valueListId);
 
         if (filtersMap != null) {
             for (Map.Entry<String, String> entry : filtersMap.entrySet()) {
                 ObjectNode filterSubnodes = objectMapper.createObjectNode();
                 filterSubnodes.put("id", entry.getValue());
-                //TODO try to order nodes based on prox dates
-                filterSubnodes.put("label", bundle.getResourceBundle(filtersId, entry.getKey(), locale));
+                String resourceBundleLabel = bundle.getResourceBundle(resourceBundleId, entry.getKey(), locale);
+                filterSubnodes.put("label", Contract.isEmpty(resourceBundleLabel) ? entry.getKey() : resourceBundleLabel);
                 filterType.add(filterSubnodes);
             }
         }
