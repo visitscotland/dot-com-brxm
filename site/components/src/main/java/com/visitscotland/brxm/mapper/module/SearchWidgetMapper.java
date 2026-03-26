@@ -91,7 +91,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
 
             ObjectNode filters = mapper.createObjectNode();
             addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, locale);
-            module.setFilters(addFilterJson("vs-events-filters-locations","postcodeareas" ,SEARCH_EVENTS_FILTERS_LOCATIONS, filters, locale));
+            module.setFilters(addFilterJson("vs-events-filters-locations","postcodeareas", SEARCH_EVENTS_FILTERS_LOCATIONS, filters, locale));
         } else {
             module.setCategories(bundle.getAllLabels(SEARCH_CATEGORIES, locale));
         }
