@@ -3,7 +3,7 @@
   /Visitscotland-categories:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo']
-    hippo:versionHistory: 25ac5817-2942-482b-b8ef-09f651301707
+    hippo:versionHistory: cee05f33-612c-43d1-96a3-b3ba2870206c
     /Visitscotland-categories[1]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
@@ -14,9 +14,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-20T12:08:31.636Z
+      hippostdpubwf:lastModificationDate: 2026-03-26T14:07:31.153Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-03-20T12:08:36.819Z
+      hippostdpubwf:publicationDate: 2026-03-26T14:11:41.074Z
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
         jcr:primaryType: hippotaxonomy:category
@@ -308,6 +308,15 @@
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
         locale.en.name: Main map
+        /places:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: places
+          locale.de.name: Orte
+          locale.en.name: Places
+          locale.es.name: Lugares
+          locale.fr.name: Lieux
+          locale.it.name: Luoghi
+          locale.nl.name: Plaatsen
         /accommodation:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: accommodation
@@ -512,15 +521,6 @@
             locale.fr.name: Infrastructures
             locale.it.name: Infrastrutture
             locale.nl.name: Faciliteiten
-        /places:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: places
-          locale.de.name: Orte
-          locale.en.name: Places
-          locale.es.name: Lugares
-          locale.fr.name: Lieux
-          locale.it.name: Luoghi
-          locale.nl.name: Plaatsen
       /whisky-distilleries:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: whisky-distilleries
@@ -554,7 +554,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-20T12:08:31.636Z
+      hippostdpubwf:lastModificationDate: 2026-03-26T14:07:31.153Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -847,6 +847,15 @@
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
         locale.en.name: Main map
+        /places:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: places
+          locale.de.name: Orte
+          locale.en.name: Places
+          locale.es.name: Lugares
+          locale.fr.name: Lieux
+          locale.it.name: Luoghi
+          locale.nl.name: Plaatsen
         /accommodation:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: accommodation
@@ -1051,15 +1060,6 @@
             locale.fr.name: Infrastructures
             locale.it.name: Infrastrutture
             locale.nl.name: Faciliteiten
-        /places:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: places
-          locale.de.name: Orte
-          locale.en.name: Places
-          locale.es.name: Lugares
-          locale.fr.name: Lieux
-          locale.it.name: Luoghi
-          locale.nl.name: Plaatsen
       /whisky-distilleries:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: whisky-distilleries
@@ -1091,10 +1091,9 @@
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
-      hippostd:transferable: false
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-20T12:20:17.866Z
+      hippostdpubwf:lastModificationDate: 2026-03-26T14:06:41.807Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -1387,6 +1386,15 @@
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
         locale.en.name: Main map
+        /places:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: places
+          locale.de.name: Orte
+          locale.en.name: Places
+          locale.es.name: Lugares
+          locale.fr.name: Lieux
+          locale.it.name: Luoghi
+          locale.nl.name: Plaatsen
         /accommodation:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: accommodation
@@ -1591,15 +1599,6 @@
             locale.fr.name: Infrastructures
             locale.it.name: Infrastrutture
             locale.nl.name: Faciliteiten
-        /places:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: places
-          locale.de.name: Orte
-          locale.en.name: Places
-          locale.es.name: Lugares
-          locale.fr.name: Lieux
-          locale.it.name: Luoghi
-          locale.nl.name: Plaatsen
       /whisky-distilleries:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: whisky-distilleries
