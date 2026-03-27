@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.brxm.utils.SitePropertyKeys;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -21,17 +22,21 @@ public class CludoService {
     public static final String ROOT_REF_ID = "root";
     public static final String SEARCH_PAGE_REF_ID = "search-page";
 
-    private static final String SEARCH_EVENTS_CATEGORIES = "result-cards-content-types";
-    private static final String SEARCH_EVENTS_FILTERS = "search-events-filters";
-    private static final String SEARCH_FILTERS = "main-category-filters";
+    private static final String SEARCH_CARDS_CATEGORIES = "result-cards-content-types";
+    private static final String SEARCH_EVENTS_FILTERS= "vs-events-filters";
+    private static final String SEARCH_FILTERS= "vs-search-filters";
+    private static final String SEARCH_EVENTS_FILTERS_LABELS = "search-events-filters";
+    private static final String SEARCH_FILTERS_LABELS = "main-category-filters";
 
     public static final String INCLUDE_SEARCH_WIDGET = "searchWidget";
     public static final String SEARCH_LOGIC = "cludoApiOperator";
 
     private final SiteProperties properties;
+    private final HippoUtilsService hippoUtilsService;
 
-    public CludoService(SiteProperties properties) {
+    public CludoService(SiteProperties properties, HippoUtilsService hippoUtilsService) {
         this.properties = properties;
+        this.hippoUtilsService = hippoUtilsService;
     }
 
     public void applyConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
@@ -75,11 +80,11 @@ public class CludoService {
                     v -> pageConfig.addProperty("events-endpoint", v),
                     () -> logger.error("The URL for the events Endpoint hasn't been defined"));
 
-            pageConfig.addAllSiteLabels(SEARCH_FILTERS);
+            pageConfig.addValueListLabels(SEARCH_FILTERS_LABELS, hippoUtilsService.getValueMap(SEARCH_FILTERS),"search-categories");
 
             if (isSearchResultsPage) {
-                pageConfig.addAllSiteLabels(SEARCH_EVENTS_FILTERS);
-                pageConfig.addAllSiteLabels(SEARCH_EVENTS_CATEGORIES);
+                pageConfig.addValueListLabels(SEARCH_EVENTS_FILTERS_LABELS, hippoUtilsService.getValueMap(SEARCH_EVENTS_FILTERS), "search-events-filters");
+                pageConfig.addAllSiteLabels(SEARCH_CARDS_CATEGORIES);
                 properties.getGlobalSearchLogic().ifPresent(v -> pageConfig.addProperty(SEARCH_LOGIC, v));
             }
         }

@@ -14,6 +14,8 @@
                 <entry key="vs-itinerary-transports" value="/content/documents/administration/options/transports"/>
                 <entry key="vs-itinerary-themes" value="/content/documents/administration/options/themes"/>
                 <entry key="vs-itinerary-areas" value="/content/documents/administration/options/areas"/>
+                <entry key="vs-search-filters" value="/content/documents/administration/vs-valuelists/search/search-main-category-filters"/>
+                <entry key="vs-events-filters" value="/content/documents/administration/vs-valuelists/search/search-events-filters"/>
                 <entry key="vs-events-filters-dates" value="/content/documents/administration/vs-valuelists/search/search-events-dates"/>
                 <entry key="vs-events-filters-locations" value="/content/documents/administration/vs-valuelists/search/search-events-locations"/>
                 <entry key="vs-events-synonyms-en" value="/content/documents/administration/vs-valuelists/search/synonyms-english"/>

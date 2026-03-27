@@ -47,7 +47,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String SOCIAL_SHARE_BUNDLE = "social.share";
     private static final String VIDEO_BUNDLE = "video";
     private static final String SKIP_TO_BUNDLE = "skip-to";
-    private static final String SEARCH_BUNDLE = "search-labels";
+    private static final String SEARCH_BUNDLE = "search";
     private static final String CMS_MESSAGES_BUNDLE = "cms-messages";
     private static final String SEO_BUNDLE = "seo";
     private static final String TABLE_CONTENTS_BUNDLE = "table-contents";
@@ -56,7 +56,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
 
-    private static final String SEARCH = "search";
     private static final String NAVIGATION_STATIC = "navigation.static";
     private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
 
@@ -168,7 +167,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private void addNavigationLabels(HstRequest request) {
-        addAllLabels(request, SEARCH);
         addAllLabels(request, NAVIGATION_STATIC);
         addAllLabels(request, NAVIGATION_SOCIAL_MEDIA);
         addSiteSpecificLabels(request, NAVIGATION_SOCIAL_MEDIA);
