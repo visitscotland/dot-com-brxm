@@ -5,6 +5,7 @@ import com.visitscotland.brxm.comparator.ComparatorMapper;
 import com.visitscotland.brxm.comparator.VsContractException;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.hippobeans.SimpleDevModule;
+import com.visitscotland.brxm.model.FavouriteModule;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
@@ -67,7 +68,7 @@ private final SearchWidgetMapper searchWidgetMapper;
             } else if (FAVOURITES_LIST.equals(document.getBespoken())) {
                 compositionHelper.addProperty(API, FAVOURITES_API);
                 compositionHelper.addAllSiteLabels(FAVOURITES);
-                return new SimpleDevModule(document, document.getBespoken());
+                return new FavouriteModule(document, document.getBespoken());
             }
 
 
