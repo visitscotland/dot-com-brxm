@@ -101,8 +101,8 @@ public class SiteProperties extends Properties {
     }
 
     // enable/disable favourites for each site
-    public boolean isFavouritesEnabled() {
-        return readBoolean(FAVOURITES_PAGE_ENABLED);
+    public boolean isFavouritesEnabled(Locale locale) {
+        return readBoolean(FAVOURITES_PAGE_ENABLED, locale);
     }
 
     public String getFavouritesUrl() {

@@ -4,6 +4,7 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.ListicleFactory;
 import com.visitscotland.brxm.hippobeans.Listicle;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
@@ -16,13 +17,14 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
     public static final String LISTICLE_ITEMS = "items";
     private static final String BUNDLE_ID = "listicle";
     private static final String ALLOW_FAVOURITE = "allowFavourite";
+    private final SiteProperties siteProperties;
 
     private ListicleFactory factory;
 
-    public ListicleContentComponent(){
+    public ListicleContentComponent(SiteProperties siteProperties){
         logger.debug("ListicleContentComponent initialized");
-
-        factory = VsComponentManager.get(ListicleFactory.class);
+        this.siteProperties = siteProperties;
+                factory = VsComponentManager.get(ListicleFactory.class);
     }
 
 
@@ -32,7 +34,7 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
         PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
 
         super.doBeforeRender(request, response, pageConfig);
-        pageConfig.addProperty(ALLOW_FAVOURITE, true);
+        pageConfig.addProperty(ALLOW_FAVOURITE, siteProperties.isFavouritesEnabled(request.getLocale()));
 
         addLabels(request);
 

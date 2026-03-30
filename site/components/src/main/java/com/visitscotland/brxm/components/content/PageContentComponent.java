@@ -392,7 +392,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void addSiteSpecificConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
 
-        if (properties.isFavouritesEnabled()){
+        if (properties.isFavouritesEnabled(request.getLocale())){
             pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, true);
             pageConfig.addProperty(FAVOURITES_SITE_URL, properties.getFavouritesUrl());
             pageConfig.addProperty(FAVOURITES_SITE_ENDPOINT, properties.getFavouritesEndpoint());

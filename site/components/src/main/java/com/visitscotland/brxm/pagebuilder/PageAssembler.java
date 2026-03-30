@@ -11,6 +11,7 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
@@ -52,6 +53,7 @@ public class PageAssembler {
     private final EventsListingMapper eventsListingMapper;
     private final SpotlightMapper spotlightMapper;
     private final DayMapper dayMapper;
+    private final SiteProperties siteProperties;
 
     private final Logger contentLogger;
 
@@ -70,7 +72,7 @@ public class PageAssembler {
                          LongCopyMapper longCopyMapper, CannedSearchMapper cannedSearchMapper,
                          CannedSearchDMSMapper cannedSearchDMSMapper, FormMapper formMapper,
                          CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper,
-                         SpotlightMapper spotlightMapper, DayMapper dayMapper, Logger contentLogger) {
+                         SpotlightMapper spotlightMapper, DayMapper dayMapper, Logger contentLogger, SiteProperties siteProperties) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
         this.iCentreMapper = iCentreMapper;
@@ -91,6 +93,7 @@ public class PageAssembler {
         this.spotlightMapper = spotlightMapper;
         this.dayMapper = dayMapper;
         this.contentLogger = contentLogger;
+        this.siteProperties = siteProperties;
     }
 
     private Page getDocument(HstRequest request) {
@@ -103,12 +106,12 @@ public class PageAssembler {
             final String contentType = page.getPage().getContentType();
             if (contentType != null && FAVOURITABLE_CONTENT.contains(page.getPage().getContentType())) {
                 logger.debug("Got favouritable content");
-                page.addProperty(ALLOW_FAVOURITE, true);
+                page.addProperty(ALLOW_FAVOURITE, siteProperties.isFavouritesEnabled(request.getLocale()));
             } else if (page.getPage() instanceof General && GeneralContentComponent.STANDARD.equals(((General) page.getPage()).getTheme())){
                 logger.debug("Got favouritable General content for standard layout");
-                page.addProperty(ALLOW_FAVOURITE, true);
+                page.addProperty(ALLOW_FAVOURITE, siteProperties.isFavouritesEnabled(request.getLocale()));
             } else {
-                page.addProperty(ALLOW_FAVOURITE, false);
+                page.addProperty(ALLOW_FAVOURITE, siteProperties.isFavouritesEnabled(request.getLocale()));
             }
         } catch (PageCompositionException e) {
             logger.warn("Failed to set favourites boolean. Defaulting to false.");

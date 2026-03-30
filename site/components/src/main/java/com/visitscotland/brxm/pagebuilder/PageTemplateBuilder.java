@@ -3,7 +3,7 @@ package com.visitscotland.brxm.pagebuilder;
 import com.visitscotland.brxm.mapper.*;
 import com.visitscotland.brxm.mapper.module.*;
 import com.visitscotland.brxm.services.DocumentUtilsService;
-import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.SiteProperties;
 import org.slf4j.Logger;
 
 /**
@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 @Deprecated(forRemoval = true, since = "2.10.2")
 public final class PageTemplateBuilder extends PageAssembler {
 
-    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper, ArticleMapper articleMapper, UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper, PreviewWarningMapper previewWarningMapper, MapModuleMapper mapModuleMapper, SkiCentreMapper skiCentreMapper, SkiCentreListMapper skiCentreListMapper, DevModuleMapper devModuleMapper, LongCopyMapper longCopyMapper, CannedSearchMapper cannedSearchMapper, CannedSearchDMSMapper cannedSearchDMSMapper, FormMapper formMapper, CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper, SpotlightMapper spotlightMapper, DayMapper dayMapper, Logger contentLogger) {
-        super(documentUtils, megalinkMapper, iCentreMapper, articleMapper, userGeneratedContentMapper, travelInformationMapper, previewWarningMapper, mapModuleMapper, skiCentreMapper, skiCentreListMapper, devModuleMapper, longCopyMapper, cannedSearchMapper, cannedSearchDMSMapper, formMapper, ctaBannerMapper, eventsListingMapper, spotlightMapper, dayMapper, contentLogger);
+    public PageTemplateBuilder(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper, ArticleMapper articleMapper, UserGeneratedContentMapper userGeneratedContentMapper, TravelInformationMapper travelInformationMapper, PreviewWarningMapper previewWarningMapper, MapModuleMapper mapModuleMapper, SkiCentreMapper skiCentreMapper, SkiCentreListMapper skiCentreListMapper, DevModuleMapper devModuleMapper, LongCopyMapper longCopyMapper, CannedSearchMapper cannedSearchMapper, CannedSearchDMSMapper cannedSearchDMSMapper, FormMapper formMapper, CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper, SpotlightMapper spotlightMapper, DayMapper dayMapper, Logger contentLogger, SiteProperties siteProperties) {
+        super(documentUtils, megalinkMapper, iCentreMapper, articleMapper, userGeneratedContentMapper, travelInformationMapper, previewWarningMapper, mapModuleMapper, skiCentreMapper, skiCentreListMapper, devModuleMapper, longCopyMapper, cannedSearchMapper, cannedSearchDMSMapper, formMapper, ctaBannerMapper, eventsListingMapper, spotlightMapper, dayMapper, contentLogger, siteProperties);
     }
 }
