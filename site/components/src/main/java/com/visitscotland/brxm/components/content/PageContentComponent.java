@@ -1,21 +1,21 @@
 package com.visitscotland.brxm.components.content;
 
-import com.google.common.collect.ImmutableList;
+import com.visitscotland.brxm.components.content.service.CludoService;
+import com.visitscotland.brxm.components.content.service.FavouritesService;
 import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.factory.*;
-import com.visitscotland.brxm.hippobeans.General;
+import com.visitscotland.brxm.factory.BlogFactory;
+import com.visitscotland.brxm.factory.NewsletterFactory;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.mapper.ImageMapper;
-import com.visitscotland.brxm.mapper.module.MegalinkMapper;
 import com.visitscotland.brxm.mapper.PreviewWarningMapper;
+import com.visitscotland.brxm.mapper.module.MegalinkMapper;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
-import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -52,12 +52,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String SEO_BUNDLE = "seo";
     private static final String TABLE_CONTENTS_BUNDLE = "table-contents";
     private static final String MEGALINKS_BUNDLE = "megalinks";
-    private static final String FAVOURITES_BUNDLE = "favourites";
-    private static final String FAVOURITES_BUTTON_BUNDLE = "favourites";
-    //TODO: Review: This constant is not in use
-    public static final String FAVOURITES_PAGE_ENABLED = "feature.favourites.enable";
-    public static final String FAVOURITES_SITE_URL = "feature.favourites.url";
-    public static final String FAVOURITES_SITE_ENDPOINT = "feature.favourites.endpoint";
 
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
@@ -93,6 +87,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final SiteProperties properties;
     private final Logger contentLogger;
     private final CludoService cludoService;
+    private final FavouritesService favouritesService;
 
     private final MetadataFactory metadata;
 
@@ -108,6 +103,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         bundle = VsComponentManager.get(ResourceBundleService.class);
         metadata = VsComponentManager.get(MetadataFactory.class);
         cludoService = VsComponentManager.get(CludoService.class);
+        favouritesService = VsComponentManager.get(FavouritesService.class);
     }
 
     ResourceBundleService getBundle() {
@@ -388,36 +384,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
-    // content thatcan be favourited can be added here (see also FavouritesCardMapper)
-    private static final ImmutableList<String> FAVOURITABLE_CONTENT = ImmutableList.<String>builder()
-            .add("visitscotland:Itinerary")
-            .add("visitscotland:Destination")
-            .add("visitscotland:Listicle")
-            .build();
-    private static final String ALLOW_FAVOURITE = "allowFavourite";
 
-    private boolean isFavouritable(Page page) {
-        return !(page instanceof General) || GeneralContentComponent.STANDARD.equals(((General) page).getTheme());
-    }
 
-    private void addFavourites(HstRequest request, PageCompositionHelper pageConfig){
-        pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, true);
-        pageConfig.addProperty(FAVOURITES_SITE_URL, properties.getFavouritesUrl(request.getLocale()));
-        pageConfig.addProperty(FAVOURITES_SITE_ENDPOINT, properties.getFavouritesEndpoint());
-        addAllLabels(request, FAVOURITES_BUNDLE);
 
-        addFavouritesButton(pageConfig);
-    }
-
-    private void addFavouritesButton(PageCompositionHelper pageConfig) {
-        try {
-            pageConfig.addProperty(ALLOW_FAVOURITE, isFavouritable(pageConfig.getPage()));
-            logger.debug("Favourites button enabled for page {}", pageConfig.getPage().getPath());
-        } catch (PageCompositionException e) {
-            logger.error("Failed to set favourites boolean. Defaulting to false.", e);
-            pageConfig.addProperty(ALLOW_FAVOURITE, false);
-        }
-    }
 
     /**
      * Add Configuration specific to the VisitScotland.com or businessevents site
@@ -426,7 +395,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private void addSiteSpecificConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
 
         if (properties.isFavouritesEnabled(request.getLocale())){
-            addFavourites(request, pageConfig);
+            favouritesService.applyConfiguration(request, pageConfig);
         }
 
         if (properties.isTableOfContentsEnabled()){

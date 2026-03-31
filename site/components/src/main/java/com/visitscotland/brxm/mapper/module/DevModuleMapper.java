@@ -9,6 +9,7 @@ import com.visitscotland.brxm.model.FavouriteModule;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,13 +32,18 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
     private static final String FAVOURITES = "favourites";
     private static final String FORMS_BUNDLE = "forms";
     private static final String FAVOURITES_API = "/site/api/favourites";
+    private static final String FAVOURITES_PAGE = "favourites-page";
+    private static final String FAVOURITES_SITE_ENDPOINT = "feature.favourites.endpoint";
 
     private final ComparatorMapper comparisonMapper;
-private final SearchWidgetMapper searchWidgetMapper;
+    private final SearchWidgetMapper searchWidgetMapper;
+    private final SiteProperties properties;
 
-    public DevModuleMapper(ComparatorMapper comparisonMapper,SearchWidgetMapper searchWidgetMapper) {
+    public DevModuleMapper(ComparatorMapper comparisonMapper, SearchWidgetMapper searchWidgetMapper,
+                           SiteProperties properties) {
         this.comparisonMapper = comparisonMapper;
         this.searchWidgetMapper = searchWidgetMapper;
+        this.properties = properties;
     }
 
     @Override
@@ -66,8 +72,12 @@ private final SearchWidgetMapper searchWidgetMapper;
             } else if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken()) || SEARCH_WIDGET.equals(document.getBespoken())  ) {
                 return searchWidgetMapper.map(document,compositionHelper);
             } else if (FAVOURITES_LIST.equals(document.getBespoken())) {
+                //TODO This property should be removed
                 compositionHelper.addProperty(API, FAVOURITES_API);
+                compositionHelper.addProperty(FAVOURITES_SITE_ENDPOINT, properties.getFavouritesEndpoint());
+                compositionHelper.addProperty(FAVOURITES_PAGE, true);
                 compositionHelper.addAllSiteLabels(FAVOURITES);
+
                 return new FavouriteModule(document, document.getBespoken());
             }
 
