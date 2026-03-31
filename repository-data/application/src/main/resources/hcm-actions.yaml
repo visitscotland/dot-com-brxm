@@ -153,3 +153,5 @@ action-lists:
 - 3.2.3.2:
     /content/documents/administration/labels/pages/favourites: reload
     /content/documents/administration/labels/navigation/static: reload
+- 3.2.3.3:
+    /content/documents/administration/configuration/local-feature---visitscotland.com: reload
