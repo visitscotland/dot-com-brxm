@@ -150,3 +150,6 @@ action-lists:
     /content/documents/administration/configuration/local-feature---visitscotland.com: reload
 - 3.2.3.1:
     /content/documents/administration/labels/pages/favourites: reload
+- 3.2.3.2:
+    /content/documents/administration/labels/pages/favourites: reload
+    /content/documents/administration/labels/navigation/static: reload

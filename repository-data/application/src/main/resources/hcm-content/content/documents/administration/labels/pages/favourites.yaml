@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 250b5a83-cfba-4b55-bf97-715bf3897409
   hippo:name: Favourites
-  hippo:versionHistory: ea77937a-5397-4cc4-9aa3-7d96f382a63c
+  hippo:versionHistory: 6e582589-dccd-4057-bfaa-56ca98a87594
   /favourites[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,9 +13,12 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-03-25T15:19:15.426+01:00
-    hippostdpubwf:lastModifiedBy: kirsten.sierag
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2026-03-31T13:18:22.164+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', "Deprecated. Use the following\
+        \ instead\r\n\r\n/administration/labels/navigation/static", "Deprecated. Use\
+        \ the following instead\r\n\r\n/administration/labels/global/favourites-button",
+      "Deprecated. Use the following instead\r\n\r\n/administration/labels/global/favourites-button"]
     resourcebundle:id: favourites
     resourcebundle:keys: [favourites.error.failed-card.heading, favourites.error.failed-card.text,
       favourites.error.failed-fetch.text, favourites.error.failed-fetch.header, favourites.error.empty-state.heading,
@@ -71,9 +74,12 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-03-25T18:07:45.064+01:00
-    hippostdpubwf:lastModifiedBy: kirsten.sierag
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2026-03-31T13:20:51.076+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', "Deprecated. Use the following\
+        \ instead\r\n\r\n/administration/labels/navigation/static", "Deprecated. Use\
+        \ the following instead\r\n\r\n/administration/labels/global/favourites-button",
+      "Deprecated. Use the following instead\r\n\r\n/administration/labels/global/favourites-button"]
     resourcebundle:id: favourites
     resourcebundle:keys: [favourites.error.failed-card.heading, favourites.error.failed-card.text,
       favourites.error.failed-fetch.text, favourites.error.failed-fetch.header, favourites.error.empty-state.heading,
@@ -129,10 +135,13 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-03-25T18:07:45.064+01:00
-    hippostdpubwf:lastModifiedBy: kirsten.sierag
-    hippostdpubwf:publicationDate: 2026-03-25T18:07:46.747+01:00
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
+    hippostdpubwf:lastModificationDate: 2026-03-31T13:20:51.076+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-03-31T13:21:03.836+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', "Deprecated. Use the following\
+        \ instead\r\n\r\n/administration/labels/navigation/static", "Deprecated. Use\
+        \ the following instead\r\n\r\n/administration/labels/global/favourites-button",
+      "Deprecated. Use the following instead\r\n\r\n/administration/labels/global/favourites-button"]
     resourcebundle:id: favourites
     resourcebundle:keys: [favourites.error.failed-card.heading, favourites.error.failed-card.text,
       favourites.error.failed-fetch.text, favourites.error.failed-fetch.header, favourites.error.empty-state.heading,
