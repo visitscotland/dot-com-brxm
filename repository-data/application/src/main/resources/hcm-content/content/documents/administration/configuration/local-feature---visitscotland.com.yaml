@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 90dd34ac-0ad2-4a25-98be-407f33bf3dfa
   hippo:name: Local/Feature - Visitscotland.com
-  hippo:versionHistory: 14a611f7-a614-4daf-a97c-fd7b275328b2
+  hippo:versionHistory: 5944e62c-73cf-4dfe-b57a-30370b0e04dc
   /local-feature---visitscotland.com[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-03-20T11:08:10.910Z
+    hippostdpubwf:lastModificationDate: 2026-03-31T10:44:31.025+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -62,19 +62,24 @@
       and, /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14976',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /es-es/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14975',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /fr-fr/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14972',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /it-it/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14974',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /nl-nl/sandbox/pages/favourites,
+      '', '']
   /local-feature---visitscotland.com[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -84,9 +89,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-03-20T11:08:10.910Z
+    hippostdpubwf:lastModificationDate: 2026-03-31T10:44:31.025+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-03-20T11:08:24.568Z
+    hippostdpubwf:publicationDate: 2026-03-31T10:44:33.967+01:00
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -133,19 +138,24 @@
       and, /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14976',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /es-es/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14975',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /fr-fr/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14972',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /it-it/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14974',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /nl-nl/sandbox/pages/favourites,
+      '', '']
   /local-feature---visitscotland.com[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -155,7 +165,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-03-20T11:06:50.081Z
+    hippostdpubwf:lastModificationDate: 2026-03-31T10:43:25.922+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -203,16 +213,21 @@
       and, /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14976',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /es-es/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14975',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /fr-fr/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14972',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /it-it/sandbox/pages/favourites,
+      '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14974',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', /nl-nl/sandbox/pages/favourites,
+      '', '']

@@ -108,6 +108,9 @@ public class SiteProperties extends Properties {
     public String getFavouritesUrl() {
         return readString(FAVOURITES_PAGE_URL);
     }
+    public String getFavouritesUrl(Locale locale) {
+        return readString(FAVOURITES_PAGE_URL, locale);
+    }
 
     public String getFavouritesEndpoint() { return readString(FAVOURITES_PAGE_ENDPOINT); }
 

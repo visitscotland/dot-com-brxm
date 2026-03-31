@@ -26,8 +26,6 @@ import com.visitscotland.brxm.utils.SitePropertyKeys;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.linking.HstLink;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -404,7 +402,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private void addFavourites(HstRequest request, PageCompositionHelper pageConfig){
         pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, true);
-        pageConfig.addProperty(FAVOURITES_SITE_URL, properties.getFavouritesUrl());
+        pageConfig.addProperty(FAVOURITES_SITE_URL, properties.getFavouritesUrl(request.getLocale()));
         pageConfig.addProperty(FAVOURITES_SITE_ENDPOINT, properties.getFavouritesEndpoint());
         addAllLabels(request, FAVOURITES_BUNDLE);
 
