@@ -1,24 +1,23 @@
 package com.visitscotland.brxm.pagebuilder;
 
-import com.google.common.collect.ImmutableList;
-import com.visitscotland.brxm.components.content.GeneralContentComponent;
-import com.visitscotland.brxm.mapper.module.SpotlightMapper;
 import com.visitscotland.brxm.hippobeans.*;
-import com.visitscotland.brxm.mapper.*;
+import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.mapper.module.*;
-import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
+import com.visitscotland.brxm.model.PersonalisationModule;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
 import com.visitscotland.brxm.model.megalinks.SingleImageLinksModule;
 import com.visitscotland.brxm.services.DocumentUtilsService;
-import com.visitscotland.brxm.utils.SiteProperties;
+import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Component
 public class PageAssembler {
@@ -53,7 +52,6 @@ public class PageAssembler {
     private final EventsListingMapper eventsListingMapper;
     private final SpotlightMapper spotlightMapper;
     private final DayMapper dayMapper;
-    private final SiteProperties siteProperties;
 
     private final Logger contentLogger;
 
@@ -67,7 +65,7 @@ public class PageAssembler {
                          LongCopyMapper longCopyMapper, CannedSearchMapper cannedSearchMapper,
                          CannedSearchDMSMapper cannedSearchDMSMapper, FormMapper formMapper,
                          CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper,
-                         SpotlightMapper spotlightMapper, DayMapper dayMapper, Logger contentLogger, SiteProperties siteProperties) {
+                         SpotlightMapper spotlightMapper, DayMapper dayMapper, ContentLogger contentLogger) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
         this.iCentreMapper = iCentreMapper;
@@ -88,7 +86,6 @@ public class PageAssembler {
         this.spotlightMapper = spotlightMapper;
         this.dayMapper = dayMapper;
         this.contentLogger = contentLogger;
-        this.siteProperties = siteProperties;
     }
 
     private Page getDocument(HstRequest request) {
