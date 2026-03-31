@@ -29,7 +29,7 @@ public class PageAssembler {
     static final String INTRO_THEME = "introTheme";
     static final String PAGE_ITEMS = "pageItems";
     static final String DEFAULT = "default";
-    private static final String ALLOW_FAVOURITE = "allowFavourite";
+
 
     //Utils
     private final DocumentUtilsService documentUtils;
@@ -57,12 +57,7 @@ public class PageAssembler {
 
     private final Logger contentLogger;
 
-    // content thatcan be favourited can be added here (see also FavouritesCardMapper)
-    private static final ImmutableList<String> FAVOURITABLE_CONTENT = ImmutableList.<String>builder()
-            .add("visitscotland:Itinerary")
-            .add("visitscotland:Destination")
-            .add("visitscotland:Listicle")
-            .build();
+
 
     public PageAssembler(DocumentUtilsService documentUtils, MegalinkMapper megalinkMapper, ICentreMapper iCentreMapper,
                          ArticleMapper articleMapper, UserGeneratedContentMapper userGeneratedContentMapper,
@@ -101,22 +96,6 @@ public class PageAssembler {
     }
 
     public void addModules(HstRequest request, PageCompositionHelper page)  {
-
-        try {
-            final String contentType = page.getPage().getContentType();
-            if (contentType != null && FAVOURITABLE_CONTENT.contains(page.getPage().getContentType())) {
-                logger.debug("Got favouritable content");
-                page.addProperty(ALLOW_FAVOURITE, siteProperties.isFavouritesEnabled(request.getLocale()));
-            } else if (page.getPage() instanceof General && GeneralContentComponent.STANDARD.equals(((General) page.getPage()).getTheme())){
-                logger.debug("Got favouritable General content for standard layout");
-                page.addProperty(ALLOW_FAVOURITE, siteProperties.isFavouritesEnabled(request.getLocale()));
-            } else {
-                page.addProperty(ALLOW_FAVOURITE, siteProperties.isFavouritesEnabled(request.getLocale()));
-            }
-        } catch (PageCompositionException e) {
-            logger.warn("Failed to set favourites boolean. Defaulting to false.");
-            page.addProperty(ALLOW_FAVOURITE, false);
-        }
 
         for (BaseDocument item : documentUtils.getAllowedDocuments(getDocument(request))) {
             try {

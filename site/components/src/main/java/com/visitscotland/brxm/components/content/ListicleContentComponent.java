@@ -16,15 +16,13 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
 
     public static final String LISTICLE_ITEMS = "items";
     private static final String BUNDLE_ID = "listicle";
-    private static final String ALLOW_FAVOURITE = "allowFavourite";
-    private final SiteProperties siteProperties;
+
 
     private ListicleFactory factory;
 
-    public ListicleContentComponent(SiteProperties siteProperties){
+    public ListicleContentComponent(){
         logger.debug("ListicleContentComponent initialized");
-        this.siteProperties = siteProperties;
-                factory = VsComponentManager.get(ListicleFactory.class);
+        factory = VsComponentManager.get(ListicleFactory.class);
     }
 
 
@@ -34,15 +32,9 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
         PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
 
         super.doBeforeRender(request, response, pageConfig);
-        pageConfig.addProperty(ALLOW_FAVOURITE, siteProperties.isFavouritesEnabled(request.getLocale()));
 
-        addLabels(request);
-
+        pageConfig.addAllSiteLabels(BUNDLE_ID);
         request.setModel(LISTICLE_ITEMS, factory.generateItems(request.getLocale(), getDocument(request)));
-    }
-
-    private void addLabels(HstRequest request){
-        addAllLabels(request, BUNDLE_ID);
     }
 
 }
