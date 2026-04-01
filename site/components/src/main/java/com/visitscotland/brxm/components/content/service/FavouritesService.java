@@ -18,7 +18,7 @@ public class FavouritesService {
 
     static final String FAVOURITES_BUNDLE = "favourites";
     static final String FAVOURITES_BUTTON_BUNDLE = "favourites-button";
-    static final String ALLOW_FAVOURITE = "allowFavourite";
+    static final String ALLOW_FAVOURITE = "allow-favourite";
     static final String FAVOURITES_PAGE_ENABLED = "feature.favourites.enable";
     static final String FAVOURITES_SITE_URL = "feature.favourites.url";
 
