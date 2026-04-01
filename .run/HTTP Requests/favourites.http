@@ -1,0 +1,12 @@
+### GET request to example server
+GET http://localhost:8080/site/api/favourites/
+
+###
+POST http://localhost:8080/site/api/favourites/get-favourites
+Content-Type: application/json
+
+{
+  "uuids": [
+    "8b4a3c11-8b84-4aa0-bccf-f407d18c1c44"
+  ]
+}
