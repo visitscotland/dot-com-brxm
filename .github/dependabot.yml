@@ -6,25 +6,25 @@ updates:
     schedule:
       interval: "daily"
     ​​cooldown:
-      default-days: 2
+      default-days: 7
   - package-ecosystem: "npm"
     open-pull-requests-limit: 0
     directory: "/ui-integration"
     schedule:
       interval: "daily"
     ​​cooldown:
-      default-days: 2
+      default-days: 7
   - package-ecosystem: "maven"
     open-pull-requests-limit: 30
     directory: "/"
     schedule:
       interval: "daily"
     ​​cooldown:
-      default-days: 2
+      default-days: 7
   - package-ecosystem: "maven"
     open-pull-requests-limit: 30
     directory: "/cms"
     schedule:
       interval: "daily"
     ​​cooldown:
-      default-days: 2
+      default-days: 7
