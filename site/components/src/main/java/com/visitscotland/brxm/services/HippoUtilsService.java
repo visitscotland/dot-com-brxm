@@ -2,6 +2,7 @@ package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.NonTestable;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -235,6 +236,30 @@ public class HippoUtilsService {
 
         logger.warn("The mount {} could not be resolver for the following request: {}", mount, request.getRequestURI());
         return request.getRequestContext().getResolvedMount();
+    }
+
+    /**
+     * Retrieves the mount corresponding to the specified locale.
+     *
+     * @param locale the locale for which to find the mount
+     * @return the Mount object for the given locale
+     */
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public Mount getMountForLocale(Locale locale) {
+        try {
+            final HstRequestContext context = RequestContextProvider.get();
+
+            String mountPath = Language.getLanguageForLocale(locale).getCmsMount();
+
+            ResolvedVirtualHost resolvedVirtualHost = (ResolvedVirtualHost) context.getServletRequest()
+                    .getAttribute(ContainerConstants.VIRTUALHOSTS_REQUEST_ATTR);
+        } catch (NullPointerException e) {
+            //TODO: This is a bad practice. Do proper null handling
+            logger.warn("Failed to retrieve mount for locale {}: {}", locale, e.getMessage());
+            return null;
+        }
+
+        return  (resolvedVirtualHost.matchMount(mountPath)).getMount();
     }
 
     /**
