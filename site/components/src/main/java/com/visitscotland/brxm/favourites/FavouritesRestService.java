@@ -33,7 +33,7 @@ public class FavouritesRestService extends AbstractResource {
 
     @GET
     @Path("/")
-    @Produces("text/plain")
+    @Produces(MediaType.TEXT_PLAIN)
     public Response health() {
         return Response.ok().entity("Favourites rest service - status OK!").build();
     }
