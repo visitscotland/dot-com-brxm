@@ -35,14 +35,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
 
-    /* Should we use Content Logger instead of Freemarker?
-     *
-     * TODO: Verify usage of this logger and decide what to do with this
-     *
-     * Note: This freemarker logger is not available to SPA SDK
-     */
-    private final Logger freemarkerLogger = LoggerFactory.getLogger("freemarker");
-
     //Resource Bundle
     private static final String SOCIAL_SHARE_BUNDLE = "social.share";
     private static final String VIDEO_BUNDLE = "video";
@@ -125,7 +117,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         addOTYML(request);
         addNewsletterSignup(request);
-        addLogging(request);
         addBlog(request);
         addGtmConfiguration(request);
         addLabels(request);
