@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.favourites;
 
-import com.visitscotland.brxm.services.CommonUtilsService;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.jaxrs.services.AbstractResource;
 import org.slf4j.Logger;
@@ -14,6 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
@@ -26,11 +26,9 @@ public class FavouritesRestService extends AbstractResource {
     private static final Logger logger = LoggerFactory.getLogger(FavouritesRestService.class);
 
     private final FavouritesRepository favouritesRepository;
-    private final CommonUtilsService utils;
 
-    public FavouritesRestService(final FavouritesRepository favouritesRepository, final CommonUtilsService utils) {
+    public FavouritesRestService(final FavouritesRepository favouritesRepository) {
         this.favouritesRepository = favouritesRepository;
-        this.utils = utils;
     }
 
     @GET
@@ -49,8 +47,8 @@ public class FavouritesRestService extends AbstractResource {
      */
     @POST
     @Path("/get-favourites")
-    @Consumes("application/json")
-    @Produces("application/json")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getFavouritesPostReq(@Context final HstRequest request,
                                   @DefaultValue("hst:root") @QueryParam("channel")
                                   final String locale, final FavouritesRequest favouritesRequest) {
