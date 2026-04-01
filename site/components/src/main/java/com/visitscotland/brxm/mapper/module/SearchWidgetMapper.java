@@ -21,9 +21,10 @@ import java.util.ResourceBundle;
 @Component
 public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModule>{
 
+
     private static final String SEARCH_CATEGORIES = "main-category-filters";
     private static final String SEARCH_WIDGET_EVENTS = "search-widget-events";
-    private static final String SEARCH_EVENTS_FILTERS = "search-events-filters";
+    private static final String SEARCH_EVENTS_SUBCATEGORIES = "search-events-subcategories";
     private static final String SEARCH_EVENTS_FILTERS_DATES = "search-events-dates";
     private static final String SEARCH_EVENTS_FILTERS_LOCATIONS = "search-events-locations";
 
@@ -87,7 +88,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
 
         if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken())) {
             module.setMainCategory("events");
-            module.setSubcategories(bundle.getAllLabels(SEARCH_EVENTS_FILTERS, locale));
+            module.setSubcategories(bundle.getAllLabels(SEARCH_EVENTS_SUBCATEGORIES, locale));
 
             ObjectNode filters = mapper.createObjectNode();
             addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, locale);

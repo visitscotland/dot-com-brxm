@@ -81,7 +81,7 @@ class SearchWidgetMapperTest {
 
         when(resourceBundle.getString(anyString())).thenReturn("value");
 
-        when(bundle.getAllLabels("search-events-filters", locale))
+        when(bundle.getAllLabels("search-events-subcategories", locale))
                 .thenReturn(Map.of("music", "Music"));
 
         // Mock filter maps
