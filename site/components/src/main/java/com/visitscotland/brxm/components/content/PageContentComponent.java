@@ -56,7 +56,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
 
-    private static final String SEARCH = "search";
+    private static final String SEARCH = "search-labels";
     private static final String NAVIGATION_STATIC = "navigation.static";
     private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
 
