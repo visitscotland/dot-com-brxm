@@ -4,14 +4,8 @@ import com.visitscotland.brxm.components.content.service.FavouritesService;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.favourites.FavouritesCard;
 import com.visitscotland.brxm.services.HippoUtilsService;
-import org.hippoecm.hst.configuration.hosting.Mount;
-import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoDocument;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.springframework.stereotype.Component;
-
-import java.util.Locale;
 
 
 /**
@@ -29,9 +23,11 @@ public class FavouritesCardMapper {
     private static final String FWD_SLASH = "/";
 
     private final FavouritesService favouritesService;
+    private final HippoUtilsService hippoUtilsService;
 
-    public FavouritesCardMapper(FavouritesService favouritesService) {
+    public FavouritesCardMapper(FavouritesService favouritesService, HippoUtilsService hippoUtilsService) {
         this.favouritesService = favouritesService;
+        this.hippoUtilsService = hippoUtilsService;
     }
 
     public FavouritesCard getFavouritesCard(HippoBean bean) throws FavouritesException {
@@ -41,7 +37,7 @@ public class FavouritesCardMapper {
         card.setUuid(page.getCanonicalHandleUUID());
         card.setTitle(page.getTitle());
         card.setTeaser(page.getTeaser());
-        card.setImage(toURL(page.getHeroImage()));
+        card.setImage(hippoUtilsService.createUrl(page.getHeroImage()));
         card.setUrl(toURL(page));
 
         return card;
@@ -75,20 +71,7 @@ public class FavouritesCardMapper {
      */
     private String toURL(final HippoBean document) throws FavouritesException {
 
-        final HstRequestContext context = RequestContextProvider.get();
-        final Mount mount;
-
-        if (document instanceof HippoDocument){
-            Locale locale = ((HippoDocument) document).getLocale();
-            mount = new HippoUtilsService().getMountForLocale(locale);
-        } else {
-            mount = context.getResolvedMount().getMount();
-        }
-
-        String url = context.getHstLinkCreator().create(document.getNode(), mount)
-                .toUrlForm(context, FULLY_QUALIFIED_URL);
-
-
+        String url = hippoUtilsService.createUrl(document, FULLY_QUALIFIED_URL);
 
         if (url == null) {
             throw new FavouritesException(String.format("Failed to get URL for document: %s", document.getPath()));
