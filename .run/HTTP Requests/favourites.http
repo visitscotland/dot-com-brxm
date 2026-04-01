@@ -1,12 +1,49 @@
 ### GET request to example server
 GET http://localhost:8080/site/api/favourites/
 
-###
+### get-favourites - Simple Request
 POST http://localhost:8080/site/api/favourites/get-favourites
 Content-Type: application/json
 
 {
   "uuids": [
     "8b4a3c11-8b84-4aa0-bccf-f407d18c1c44"
+  ]
+}
+
+### get-favourites - Multiple Documents
+POST http://localhost:8080/site/api/favourites/get-favourites
+Content-Type: application/json
+
+{
+  "uuids": [
+    "8b4a3c11-8b84-4aa0-bccf-f407d18c1c44",
+    "4d302e29-93dd-4157-9df9-bbd741bb12a0",
+    "ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3",
+    "bc5bec32-9cbc-45a7-855b-342008ad8ef9",
+    "a2ca775b-0df5-4e2c-900c-c51c9f2e5d47"
+  ]
+}
+
+### get-favourites - Spanish Language
+POST http://localhost:8080/site/api/favourites/get-favourites
+Content-Type: application/json
+
+{
+  "uuids": [
+    "ae3f6897-ae12-4e53-8b59-f211b46eca3a",
+    "b2c77201-6643-465e-aac8-43be9cb05c50"
+  ]
+}
+
+### get-favourites - Non-existing content
+POST http://localhost:8080/site/api/favourites/get-favourites
+Content-Type: application/json
+
+{
+  "uuids": [
+    "deadbeef-abba-baba-daba-decadefacade",
+    "facefeed-abba-baba-daba-decadefacade",
+    "cafebabe-abba-baba-daba-decadefacade"
   ]
 }
