@@ -16,16 +16,15 @@ import java.util.List;
 @Component
 public class FavouritesRepository {
 
-    private final FavouritesCardMapper favouritesCardMapper;
-    private final SiteProperties siteProperties;
-    private final HippoUtilsService hippoUtilsService;
+    private static final Logger logger = LoggerFactory.getLogger(FavouritesRepository.class);
 
     // matches any hexadecimal character (a-f and 0-9)
     private static final String HEX_REGEX = "[a-fA-F0-9]";
     private static final String UUID_REGEX = HEX_REGEX + "{8}-" + HEX_REGEX + "{4}-"+ HEX_REGEX + "{4}-" + HEX_REGEX + "{4}-" + HEX_REGEX + "{12}";
 
-    private static final Logger logger = LoggerFactory.getLogger(FavouritesRepository.class);
-
+    private final FavouritesCardMapper favouritesCardMapper;
+    private final SiteProperties siteProperties;
+    private final HippoUtilsService hippoUtilsService;
 
     public FavouritesRepository(FavouritesCardMapper favouritesCardMapper, SiteProperties siteProperties, HippoUtilsService hippoUtilsService) {
         this.favouritesCardMapper = favouritesCardMapper;
