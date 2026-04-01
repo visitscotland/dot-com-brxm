@@ -106,7 +106,7 @@ public class HippoUtilsService {
      *
      *
      */
-    public static String createUrl(Image image) {
+    public String createUrl(Image image) {
         if (image == null) {
             logger.info("The linked image does not exist.");
             return null;
