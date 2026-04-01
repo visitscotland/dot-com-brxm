@@ -246,18 +246,13 @@ public class HippoUtilsService {
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
     public Mount getMountForLocale(Locale locale) {
-        try {
-            final HstRequestContext context = RequestContextProvider.get();
+        //TODO: Do proper null handling
+        final HstRequestContext context = RequestContextProvider.get();
 
-            String mountPath = Language.getLanguageForLocale(locale).getCmsMount();
+        String mountPath = Language.getLanguageForLocale(locale).getCmsMount();
 
-            ResolvedVirtualHost resolvedVirtualHost = (ResolvedVirtualHost) context.getServletRequest()
-                    .getAttribute(ContainerConstants.VIRTUALHOSTS_REQUEST_ATTR);
-        } catch (NullPointerException e) {
-            //TODO: This is a bad practice. Do proper null handling
-            logger.warn("Failed to retrieve mount for locale {}: {}", locale, e.getMessage());
-            return null;
-        }
+        ResolvedVirtualHost resolvedVirtualHost = (ResolvedVirtualHost) context.getServletRequest()
+                .getAttribute(ContainerConstants.VIRTUALHOSTS_REQUEST_ATTR);
 
         return  (resolvedVirtualHost.matchMount(mountPath)).getMount();
     }
