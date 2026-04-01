@@ -32,7 +32,7 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
     private static final String FAVOURITES = "favourites";
     private static final String FORMS_BUNDLE = "forms";
     private static final String FAVOURITES_API = "/site/api/favourites";
-    private static final String FAVOURITES_PAGE = "favourites-page";
+    private static final String IS_FAVOURITES_PAGE = "is-favourites-page";
     private static final String FAVOURITES_SITE_ENDPOINT = "feature.favourites.endpoint";
 
     private final ComparatorMapper comparisonMapper;
@@ -75,7 +75,7 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
                 //TODO This property should be removed
                 compositionHelper.addProperty(API, FAVOURITES_API);
                 compositionHelper.addProperty(FAVOURITES_SITE_ENDPOINT, properties.getFavouritesEndpoint());
-                compositionHelper.addProperty(FAVOURITES_PAGE, true);
+                compositionHelper.addProperty(IS_FAVOURITES_PAGE, true);
                 compositionHelper.addAllSiteLabels(FAVOURITES);
 
                 return new FavouriteModule(document, document.getBespoken());
