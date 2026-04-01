@@ -10,7 +10,7 @@
     jcr:uuid: aeb4d3e1-12c3-4042-a32a-0475246d6e92
     hippo:availability: [live, preview]
     hippotranslation:id: 2b0d03d9-f5ff-45d7-be62-6e9c35e72ee7
-    hippotranslation:locale: inherited - from query
+    hippotranslation:locale: de
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
       selection:key: Afternoon Tea

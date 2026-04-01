@@ -10,7 +10,7 @@
     jcr:uuid: 7d47d82f-fcc0-4236-81da-5d46e3c3143d
     hippo:availability: [live, preview]
     hippotranslation:id: d26706d0-2e93-4fb1-964a-e8353090a2f3
-    hippotranslation:locale: inherited - from query
+    hippotranslation:locale: es
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
       selection:key: Tatoo

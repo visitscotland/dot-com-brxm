@@ -10,7 +10,7 @@
     jcr:uuid: 03df1df5-513b-4c0e-8892-38f97943213a
     hippo:availability: [live, preview]
     hippotranslation:id: 035be049-6a88-43af-96fe-845d4d6c1da9
-    hippotranslation:locale: inherited - from query
+    hippotranslation:locale: fr
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
       selection:key: abbazia d'arbroath
