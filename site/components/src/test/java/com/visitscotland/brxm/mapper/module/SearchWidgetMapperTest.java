@@ -1,145 +1,158 @@
 package com.visitscotland.brxm.mapper.module;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.visitscotland.brxm.components.content.CludoService;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.model.SearchWidgetModule;
+import com.visitscotland.brxm.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class SearchWidgetMapperTest {
 
+    private static final String BESPOKEN_EVENTS = "search-widget-events";
+
     @Mock
-    private ResourceBundleService bundle;
+    private ResourceBundleService bundleService;
 
     @Mock
     private HippoUtilsService hippoUtilsService;
 
-    @InjectMocks
-    private SearchWidgetMapper mapper;
+    @Mock
+    private CludoService cludoService;
 
+    @Mock
     private DevModule document;
+
+    @Mock
+    private PageCompositionHelper compositionHelper;
+
+    @Mock
     private ResourceBundle resourceBundle;
+
+    private ObjectMapper objectMapper;
+
+    private SearchWidgetMapper mapper;
 
     @BeforeEach
     void setUp() {
-        bundle = mock(ResourceBundleService.class);
-        hippoUtilsService = mock(HippoUtilsService.class);
-        mapper = new SearchWidgetMapper(bundle, hippoUtilsService);
-
-        document = mock(DevModule.class);
-        resourceBundle = mock(ResourceBundle.class);
+        objectMapper = new ObjectMapper();
+        mapper = new SearchWidgetMapper(bundleService, hippoUtilsService, objectMapper, cludoService);
     }
 
     @Test
-    void shouldCreateModule_ForEventsBespoken() {
+    void shouldMapBasicFieldsFromResourceBundle() {
         Locale locale = Locale.UK;
 
-        when(document.getBespoken()).thenReturn("search-widget-events");
+        when(document.getBespoken()).thenReturn("default");
+        when(bundleService.getResourceBundle("default", locale)).thenReturn(resourceBundle);
 
-        when(bundle.getResourceBundle("search-widget-events", locale)).thenReturn(resourceBundle);
         when(resourceBundle.getString("title")).thenReturn("Title");
         when(resourceBundle.getString("description")).thenReturn("Description");
         when(resourceBundle.getString("placeholder")).thenReturn("Placeholder");
         when(resourceBundle.getString("button")).thenReturn("Button");
 
-        when(bundle.getAllLabels("search-events-filters", locale))
-                .thenReturn(Map.of("music", "Music"));
+        when(bundleService.getAllLabels(anyString(), eq(locale))).thenReturn(Map.of());
 
-        Map<String, String> filtersMap = new HashMap<>();
-        filtersMap.put("today", "1");
-        when(hippoUtilsService.getValueMap("search-events-filters-date")).thenReturn(filtersMap);
-
-        when(bundle.getResourceBundle("search-events-filters-date", "today", locale))
-                .thenReturn("Today");
-
-        SearchWidgetModule result = mapper.createModule(document, locale);
+        SearchWidgetModule result = mapper.createModule(document, locale, compositionHelper);
 
         assertNotNull(result);
         assertEquals("Title", result.getTitle());
         assertEquals("Description", result.getDescription());
         assertEquals("Placeholder", result.getPlaceholder());
         assertEquals("Button", result.getButton());
+    }
 
+    @Test
+    void shouldMapEventSpecificFieldsWhenBespokenIsEvents() {
+        Locale locale = Locale.UK;
+
+        when(document.getBespoken()).thenReturn(BESPOKEN_EVENTS);
+        when(bundleService.getResourceBundle(BESPOKEN_EVENTS, locale)).thenReturn(resourceBundle);
+
+        when(resourceBundle.getString(anyString())).thenReturn("value");
+
+        when(hippoUtilsService.getValueMap(anyString())).thenReturn(Map.of());
+
+        when(compositionHelper.addValueListLabels(anyString(), any(), anyString()))
+                .thenReturn(Map.of("key", "label"));
+
+        ObjectNode filtersNode = new ObjectMapper().createObjectNode();
+
+        when(cludoService.addFilterJson(anyString(), anyString(), anyString(), any(ObjectNode.class), eq(locale)))
+                .thenReturn(filtersNode);
+
+        SearchWidgetModule result = mapper.createModule(document, locale, compositionHelper);
+
+        assertNotNull(result);
         assertEquals("events", result.getMainCategory());
         assertNotNull(result.getSubcategories());
         assertNotNull(result.getFilters());
 
-        JsonNode filters = result.getFilters();
-        assertTrue(filters.has("when"));
-        assertEquals(1, filters.get("when").size());
-        assertEquals("1", filters.get("when").get(0).get("id").asText());
-        assertEquals("Today", filters.get("when").get(0).get("label").asText());
+        verify(hippoUtilsService).getValueMap("vs-events-filters");
+        verify(compositionHelper).addValueListLabels(eq("search-events-subcategories"), any(), eq("search-events-filters"));
+
+        verify(cludoService, times(2))
+                .addFilterJson(anyString(), anyString(), anyString(), any(ObjectNode.class), eq(locale));
     }
 
     @Test
-    void shouldCreateModule_ForNonEventsBespoken() {
+    void shouldMapCategoriesWhenNotEvents() {
         Locale locale = Locale.UK;
 
-        when(document.getBespoken()).thenReturn("other");
+        when(document.getBespoken()).thenReturn("default");
+        when(bundleService.getResourceBundle("default", locale)).thenReturn(resourceBundle);
 
-        when(bundle.getResourceBundle("other", locale)).thenReturn(resourceBundle);
-        when(resourceBundle.getString("title")).thenReturn("Title");
-        when(resourceBundle.getString("description")).thenReturn("Description");
-        when(resourceBundle.getString("placeholder")).thenReturn("Placeholder");
-        when(resourceBundle.getString("button")).thenReturn("Button");
+        when(resourceBundle.getString(anyString())).thenReturn("value");
 
-        when(bundle.getAllLabels("search-categories", locale))
-                .thenReturn(Map.of("stay", "Stay"));
+        Map<String, String> categories = Map.of("cat1", "Category 1");
+        when(bundleService.getAllLabels("main-category-filters", locale)).thenReturn(categories);
 
-        SearchWidgetModule result = mapper.createModule(document, locale);
+        SearchWidgetModule result = mapper.createModule(document, locale, compositionHelper);
 
         assertNotNull(result);
-        assertEquals("Title", result.getTitle());
-        assertEquals("Description", result.getDescription());
+        assertEquals(categories, result.getCategories());
 
-        assertNotNull(result.getCategories());
-        assertEquals("Stay", result.getCategories().get("stay"));
-
-        assertNull(result.getFilters());
+        verify(bundleService).getAllLabels("main-category-filters", locale);
+        verifyNoInteractions(cludoService);
     }
 
     @Test
-    void shouldCreateFiltersJson_WhenFiltersExist() {
+    void map_shouldDelegateToCreateModule() {
         Locale locale = Locale.UK;
 
-        Map<String, String> filtersMap = Map.of(
-                "today", "1",
-                "tomorrow", "2"
-        );
+        when(compositionHelper.getLocale()).thenReturn(locale);
+        when(document.getBespoken()).thenReturn("default");
+        when(bundleService.getResourceBundle(anyString(), eq(locale))).thenReturn(resourceBundle);
 
-        when(hippoUtilsService.getValueMap("filters-id")).thenReturn(filtersMap);
-        when(bundle.getResourceBundle("filters-id", "today", locale)).thenReturn("Today");
-        when(bundle.getResourceBundle("filters-id", "tomorrow", locale)).thenReturn("Tomorrow");
+        when(resourceBundle.getString(anyString())).thenReturn("value");
+        when(bundleService.getAllLabels(anyString(), eq(locale))).thenReturn(Map.of());
 
-        JsonNode result = mapper.createFiltersJson("filters-id", "when", locale);
-
-        assertNotNull(result);
-        assertTrue(result.has("when"));
-        assertEquals(2, result.get("when").size());
-    }
-
-    @Test
-    void shouldCreateFiltersJson_WhenNoFilters() {
-        Locale locale = Locale.UK;
-
-        when(hippoUtilsService.getValueMap("filters-id")).thenReturn(null);
-
-        JsonNode result = mapper.createFiltersJson("filters-id", "when", locale);
+        SearchWidgetModule result = null;
+        try {
+            result = mapper.map(document, compositionHelper);
+        } catch (PageCompositionException e) {
+            throw new RuntimeException(e);
+        }
 
         assertNotNull(result);
-        assertTrue(result.has("when"));
-        assertEquals(0, result.get("when").size());
+
+        verify(compositionHelper).getLocale();
     }
 }
