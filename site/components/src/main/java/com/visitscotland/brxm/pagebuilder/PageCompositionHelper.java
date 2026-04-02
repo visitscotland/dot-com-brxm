@@ -90,12 +90,11 @@ public class PageCompositionHelper {
     }
 
     //TODO review and move to Cludoservice if possible
-    public void addValueListLabels(String bundleName, Map<String, String> valueList, String nodeName) {
-        if (valueList == null || valueList.isEmpty()) {
-            return;
-        }
-
+    public Map<String, String> addValueListLabels(String bundleName, Map<String, String> valueList, String nodeName) {
         Map<String, String> resolvedLabels = new HashMap<>();
+        if (valueList == null || valueList.isEmpty()) {
+            return resolvedLabels;
+        }
 
         for (Map.Entry<String, String> entry : valueList.entrySet()) {
             String value = entry.getValue();
@@ -119,6 +118,7 @@ public class PageCompositionHelper {
                 ));
 
         labels().put(nodeName, sorted);
+        return sorted;
     }
 
     private Map<String, Object> pageConfiguration() {

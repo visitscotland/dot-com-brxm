@@ -55030,7 +55030,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 4ef9b436-533a-429f-831f-2f53f6b80074
     hippo:name: Search events
-    hippo:versionHistory: 022bb00f-0d34-4724-b97e-3c96621400f3
+    hippo:versionHistory: 059a0025-4ead-430f-80de-9fc2418c83eb
     /search-events[1]:
       jcr:primaryType: visitscotland:DevModule
       jcr:mixinTypes: ['mix:versionable']
@@ -55040,11 +55040,11 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2026-03-11T11:33:34.450Z
-      hippostdpubwf:lastModificationDate: 2026-03-11T16:12:13.343Z
+      hippostdpubwf:lastModificationDate: 2026-04-02T16:24:52.304+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 9fc1c5e3-dafd-4bac-ab62-e98acc6b20fc
       hippotranslation:locale: en
-      visitscotland:bespoken: search-widget
+      visitscotland:bespoken: search-widget-events
       visitscotland:footerContributions: []
       visitscotland:headContributions: []
       visitscotland:html: ''
@@ -55058,11 +55058,11 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2026-03-11T11:33:34.450Z
-      hippostdpubwf:lastModificationDate: 2026-03-11T16:12:07.925Z
+      hippostdpubwf:lastModificationDate: 2026-04-02T16:24:46.119+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 9fc1c5e3-dafd-4bac-ab62-e98acc6b20fc
       hippotranslation:locale: en
-      visitscotland:bespoken: search-widget
+      visitscotland:bespoken: search-widget-events
       visitscotland:footerContributions: []
       visitscotland:headContributions: []
       visitscotland:html: ''
@@ -55076,12 +55076,12 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2026-03-11T11:33:34.450Z
-      hippostdpubwf:lastModificationDate: 2026-03-11T16:12:13.343Z
+      hippostdpubwf:lastModificationDate: 2026-04-02T16:24:52.304+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-03-11T16:12:16.255Z
+      hippostdpubwf:publicationDate: 2026-04-02T16:24:56.187+01:00
       hippotranslation:id: 9fc1c5e3-dafd-4bac-ab62-e98acc6b20fc
       hippotranslation:locale: en
-      visitscotland:bespoken: search-widget
+      visitscotland:bespoken: search-widget-events
       visitscotland:footerContributions: []
       visitscotland:headContributions: []
       visitscotland:html: ''

@@ -1,9 +1,15 @@
 package com.visitscotland.brxm.components.content;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.HippoUtilsService;
+import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.brxm.utils.SitePropertyKeys;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -11,6 +17,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 
 @Component
@@ -29,16 +37,23 @@ public class CludoService {
     private static final String SEARCH_EVENTS_FILTERS_LABELS = "search-events-subcategories";
     private static final String SEARCH_FILTERS_LABELS = "main-category-filters";
 
+    private static final String SEARCH_EVENTS_FILTERS_DATES = "search-events-dates";
+    private static final String SEARCH_EVENTS_FILTERS_LOCATIONS = "search-events-locations";
+
 
     public static final String INCLUDE_SEARCH_WIDGET = "searchWidget";
     public static final String SEARCH_LOGIC = "cludoApiOperator";
 
     private final SiteProperties properties;
     private final HippoUtilsService hippoUtilsService;
+    private final ResourceBundleService bundle;
+    private final ObjectMapper mapper;
 
-    public CludoService(SiteProperties properties, HippoUtilsService hippoUtilsService) {
+    public CludoService(SiteProperties properties, HippoUtilsService hippoUtilsService, ResourceBundleService bundle, ObjectMapper mapper) {
         this.properties = properties;
         this.hippoUtilsService = hippoUtilsService;
+        this.bundle = bundle;
+        this.mapper = mapper;
     }
 
     public void applyConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
@@ -85,10 +100,17 @@ public class CludoService {
             pageConfig.addAllLabelsSpecificName(SEARCH_FILTERS_LABELS,"search-categories");
 
             if (isSearchResultsPage) {
-                pageConfig.addValueListLabels(SEARCH_EVENTS_FILTERS_LABELS, hippoUtilsService.getValueMap(SEARCH_EVENTS_FILTERS), "search-events-filters");
                 pageConfig.addAllLabelsSpecificName(SEARCH_CARDS_CATEGORIES, "content.categories");
 
                 properties.getGlobalSearchLogic().ifPresent(v -> pageConfig.addProperty(SEARCH_LOGIC, v));
+
+                //TODO duplicate in mapper refactor to use widget and 1 solution pageConfig.addValueListLabels(SEARCH_EVENTS_SUBCATEGORIES, hippoUtilsService.getValueMap(SEARCH_EVENTS_FILTERS_VALUE_LIST), "search-events-filters");
+                pageConfig.addProperty("search-events-filters", pageConfig.addValueListLabels(SEARCH_EVENTS_FILTERS_LABELS, hippoUtilsService.getValueMap(SEARCH_EVENTS_FILTERS), "search-events-filters"));
+
+                ObjectNode filters = mapper.createObjectNode();
+                addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, pageConfig.getLocale());
+                addFilterJson("vs-events-filters-locations","postcodeareas", SEARCH_EVENTS_FILTERS_LOCATIONS, filters, pageConfig.getLocale());
+                pageConfig.addProperty("filters", filters);
             }
         }
     }
@@ -131,5 +153,34 @@ public class CludoService {
 
     private boolean isHomepage (HstRequest request){
         return ROOT_REF_ID.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getRefId());
+    }
+
+    //TODO review if this method goes here
+    /**
+     * Creates a JSON structure representing search filters.
+
+     * @param valueListId identifier used to retrieve filter values and labels
+     * @param rootNode the root JSON node name under which filters are grouped
+     * @param resourceBundleId the resource bundle name under which filters are grouped
+     * @param locale the locale used to resolve filter labels
+     * @return a {@link JsonNode} representing the filter structure
+     */
+    public JsonNode addFilterJson (String valueListId, String rootNode, String resourceBundleId, ObjectNode filters, Locale locale) {
+        ArrayNode filterType = mapper.createArrayNode();
+        Map<String, String> filtersMap = hippoUtilsService.getValueMap(valueListId);
+
+        if (filtersMap != null) {
+            for (Map.Entry<String, String> entry : filtersMap.entrySet()) {
+                ObjectNode filterSubnodes = mapper.createObjectNode();
+                filterSubnodes.put("id", entry.getValue());
+                String resourceBundleLabel = bundle.getResourceBundle(resourceBundleId, entry.getKey(), locale);
+                filterSubnodes.put("label", Contract.isEmpty(resourceBundleLabel) ? entry.getKey() : resourceBundleLabel);
+                filterType.add(filterSubnodes);
+            }
+        }
+
+        filters.set(rootNode, filterType);
+
+        return filters;
     }
 }
