@@ -56,7 +56,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
 
-    private static final String SEARCH = "search-labels";
+    private static final String SEARCH = "search";
     private static final String NAVIGATION_STATIC = "navigation.static";
     private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
 
@@ -129,6 +129,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGtmConfiguration(request);
         addLabels(request);
         addSiteSpecificConfiguration(request, pageConfig);
+        pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
     }
 
 
@@ -157,7 +158,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addNavigationLabels(request);
 
         addAllLabels(request, SOCIAL_SHARE_BUNDLE);
-        addAllLabels(request, SEARCH_BUNDLE);
         addAllLabels(request, VIDEO_BUNDLE);
         addAllLabels(request, SEO_BUNDLE);
         addAllLabels(request, SKIP_TO_BUNDLE);
@@ -168,7 +168,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private void addNavigationLabels(HstRequest request) {
-        addAllLabels(request, SEARCH);
         addAllLabels(request, NAVIGATION_STATIC);
         addAllLabels(request, NAVIGATION_SOCIAL_MEDIA);
         addSiteSpecificLabels(request, NAVIGATION_SOCIAL_MEDIA);
@@ -187,8 +186,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     protected void addSiteSpecificLabels(HstRequest request, String bundleId) {
         labels(request).put(bundleId, bundle.getSiteSpecificLabels(bundleId, request.getLocale()));
     }
-
-
 
     /**
      * Include GTM Configuration to the {@link HstRequest}

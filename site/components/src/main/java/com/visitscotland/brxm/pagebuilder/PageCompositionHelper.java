@@ -4,6 +4,7 @@ import com.visitscotland.brxm.components.content.PageContentComponent;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 
 import java.util.*;
@@ -72,6 +73,9 @@ public class PageCompositionHelper {
     public void addAllSiteLabels(String bundleName) {
         labels().put(bundleName, bundle.getAllLabels(bundleName, getLocale()));
     }
+    public void addAllLabelsSpecificName(String bundleName, String nodeName) {
+        labels().put(nodeName, bundle.getAllLabels(bundleName, getLocale()));
+    }
 
     private Map<String, Map<String, String>> labels() {
         Map<String, Map<String, String>> labels = request.getModel(LABELS);
@@ -82,6 +86,26 @@ public class PageCompositionHelper {
         }
 
         return labels;
+    }
+
+    public void addValueListLabels(String bundleName, Map<String, String> valueList, String nodeName) {
+        if (valueList == null || valueList.isEmpty()) {
+            return;
+        }
+
+        Map<String, String> resolvedLabels = new HashMap<>();
+        for (Map.Entry<String, String> entry : valueList.entrySet()) {
+            String value = entry.getValue();
+            String label = bundle.getResourceBundle(bundleName, entry.getKey(), getLocale());
+
+            if (Contract.isEmpty(label)) {
+                label = value;
+            }
+
+            resolvedLabels.put(value, label);
+        }
+
+        labels().put(nodeName, resolvedLabels);
     }
 
     private Map<String, Object> pageConfiguration() {
