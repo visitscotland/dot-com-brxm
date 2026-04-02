@@ -1,5 +1,9 @@
 package com.visitscotland.brxm.model.form;
 
+import com.visitscotland.brxm.model.SimpleEntry;
+
+import java.util.List;
+
 public class BregConfiguration implements  FormConfiguration {
 
     /**
@@ -14,6 +18,7 @@ public class BregConfiguration implements  FormConfiguration {
     private String activityDescription;
     private String activitySource;
     private String consents;
+    private List<SimpleEntry> consentList;
     private String legalBasis;
 
     public String getRecaptcha() {
@@ -83,5 +88,13 @@ public class BregConfiguration implements  FormConfiguration {
 
     public void setLegalBasis(String legalBasis) {
         this.legalBasis = legalBasis;
+    }
+
+    public List<SimpleEntry> getConsentList() {
+        return consentList;
+    }
+
+    public void setConsentList(List<SimpleEntry> consentList) {
+        this.consentList = consentList;
     }
 }
