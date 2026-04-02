@@ -88,6 +88,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
 
         if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken())) {
             module.setMainCategory("events");
+            //TODO review addAllLabelsSpecificName and move to Cludoservice if possible
             compositionHelper.addAllLabelsSpecificName(SEARCH_EVENTS_SUBCATEGORIES, "search-events-filters");
 
             ObjectNode filters = mapper.createObjectNode();
@@ -95,6 +96,14 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
             module.setFilters(addFilterJson("vs-events-filters-locations","postcodeareas", SEARCH_EVENTS_FILTERS_LOCATIONS, filters, locale));
         } else {
             module.setCategories(bundle.getAllLabels(SEARCH_CATEGORIES, locale));
+            /*  TODO if (isSearchResultsPage) then we need to load the event fiters:
+            compositionHelper.addAllLabelsSpecificName(SEARCH_EVENTS_SUBCATEGORIES, "search-events-filters");
+
+            ObjectNode filters = mapper.createObjectNode();
+            addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, locale);
+            module.setFilters(addFilterJson("vs-events-filters-locations","postcodeareas", SEARCH_EVENTS_FILTERS_LOCATIONS, filters, locale));
+            */
+
         }
 
         return module;

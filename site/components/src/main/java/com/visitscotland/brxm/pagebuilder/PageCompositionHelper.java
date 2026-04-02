@@ -88,6 +88,7 @@ public class PageCompositionHelper {
         return labels;
     }
 
+    //TODO review and move to Cludoservice if possible
     public void addValueListLabels(String bundleName, Map<String, String> valueList, String nodeName) {
         if (valueList == null || valueList.isEmpty()) {
             return;
