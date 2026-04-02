@@ -1,0 +1,6 @@
+/content/documents/administration/vs-valuelists:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 3a55e526-ffe5-429f-a322-cca183248fb3
+  hippo:name: VisitScotland - Value Lists
+  hippostd:foldertype: [new-untranslated-folder-value-list, new-value-list]

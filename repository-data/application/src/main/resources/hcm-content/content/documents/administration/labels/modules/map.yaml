@@ -1,19 +1,19 @@
 /content/documents/administration/labels/modules/map:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: ac89a8cf-a2c8-4cd6-bf14-91afb3d68e3e
+  jcr:uuid: 8a0db61f-3565-427d-8db5-6243caaa915b
   hippo:name: Map
   hippo:versionHistory: c0d355c1-838d-4358-ac07-c53cb3a24b18
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 90019e06-1c38-4a8a-bb1f-8864b87dc97e
+    jcr:uuid: 4616e02f-eaff-41d6-b733-14562fd9cea7
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-03-10T12:38:27.424+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-18T15:37:36.285+01:00
     hippostdpubwf:lastModifiedBy: juanluis.hurtado
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -40,7 +40,8 @@
       Search, Search Results for, Cookies need to be enabled to show this map, Refine
         your results, We couldn't find anything here. Try zooming out to explore more
         locations., Search the map, A selection of places matching your search is
-        shown below., Showing places matching your search. Up to 20 results are displayed.]
+        shown below. Up to 20 results are displayed., Showing places matching your
+        search. Up to 20 results are displayed.]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -55,7 +56,10 @@
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
       Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
-        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, '', '']
+        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, 'Es werden
+        Orte angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20 Ergebnisse
+        angezeigt.', 'Es werden Orte angezeigt, die Ihrer Suche entsprechen. Es werden
+        bis zu 20 Ergebnisse angezeigt.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer Mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú del mapa, Retroceder un paso, Restablecer filtros,
@@ -69,7 +73,9 @@
       Destilerías, Escribe tu palabra clave, Buscar, Resultados de búsqueda para,
       Las cookies deben estar habilitadas para mostrar este mapa, Refinar resultados
         de búsqueda, No hemos encontrado nada aquí. Intenta alejar el zoom para explorar
-        más ubicaciones., Buscar en el mapa, '', '']
+        más ubicaciones., Buscar en el mapa, Aquí se muestran lugares que coinciden
+        con tu búsqueda. Se muestran un máximo de 20 resultados., Aquí se muestran
+        lugares que coinciden con tu búsqueda. Se muestran un máximo de 20 resultados.]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez :', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -85,7 +91,9 @@
       Afficher les résultats pour, Les cookies doivent être activés pour afficher
         cette carte, Affiner vos résultats de recherche, Nous n’avons rien trouvé
         dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres zones.,
-      Rechercher sur la carte, '', '']
+      Rechercher sur la carte, Affichage des lieux correspondant à votre recherche.
+        Un maximum de 20 résultats sont affichés., Affichage des lieux correspondant
+        à votre recherche. Un maximum de 20 résultats sont affichés.]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, Scopri ora, Chiudi il pannello
         di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta filtri, Alloggi,
@@ -99,7 +107,10 @@
         è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola chiave,
       Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
         questa mappa, Affina i tuoi risultati, Non abbiamo trovato niente qui. Prova
-        a zoomare indietro per vedere altri luoghi., Cerca sulla mappa, '', '']
+        a zoomare indietro per vedere altri luoghi., Cerca sulla mappa, Vengono visualizzati
+        i luoghi corrispondenti alla tua ricerca. Vengono visualizzati fino a 20 risultati.,
+      Vengono visualizzati i luoghi corrispondenti alla tua ricerca. Vengono visualizzati
+        fino a 20 risultati.]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm afsluiten,
       Heroriënteren, Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek-
         en filtervenster, Legenda, Ga een stap terug, Filters herstellen, Accommodatie,
@@ -112,17 +123,20 @@
         kunt niet verder inzoomen', Ontdek, Distilleerderijen, Typ je zoekterm in,
       Zoeken, Zoekresultaten voor, Er zijn cookies nodig om deze kaart te tonen, Verfijn
         je zoekresultaten, Er zijn helaas geen resultaten gevonden. Zoom uit om meerdere
-        locaties te ontdekken., Zoek op de kaart, '', '']
+        locaties te ontdekken., Zoek op de kaart, Hier vind je plekken die bij je
+        zoekopdracht passen. Er worden maximaal 20 resultaten getoond., Hier vind
+        je plekken die bij je zoekopdracht passen. Er worden maximaal 20 resultaten
+        getoond.]
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 3a26f6ea-a52e-465e-b9c4-052603ed8185
+    jcr:uuid: 7da45ec0-b92d-4cc8-8638-a01c768c5c56
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-03-10T12:38:39.111+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-18T15:39:10.980+01:00
     hippostdpubwf:lastModifiedBy: juanluis.hurtado
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -149,7 +163,8 @@
       Search, Search Results for, Cookies need to be enabled to show this map, Refine
         your results, We couldn't find anything here. Try zooming out to explore more
         locations., Search the map, A selection of places matching your search is
-        shown below., Showing places matching your search. Up to 20 results are displayed.]
+        shown below. Up to 20 results are displayed., Showing places matching your
+        search. Up to 20 results are displayed.]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -164,7 +179,10 @@
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
       Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
-        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, '', '']
+        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, 'Es werden
+        Orte angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20 Ergebnisse
+        angezeigt.', 'Es werden Orte angezeigt, die Ihrer Suche entsprechen. Es werden
+        bis zu 20 Ergebnisse angezeigt.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer Mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú del mapa, Retroceder un paso, Restablecer filtros,
@@ -178,7 +196,9 @@
       Destilerías, Escribe tu palabra clave, Buscar, Resultados de búsqueda para,
       Las cookies deben estar habilitadas para mostrar este mapa, Refinar resultados
         de búsqueda, No hemos encontrado nada aquí. Intenta alejar el zoom para explorar
-        más ubicaciones., Buscar en el mapa, '', '']
+        más ubicaciones., Buscar en el mapa, Aquí se muestran lugares que coinciden
+        con tu búsqueda. Se muestran un máximo de 20 resultados., Aquí se muestran
+        lugares que coinciden con tu búsqueda. Se muestran un máximo de 20 resultados.]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez :', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -194,7 +214,9 @@
       Afficher les résultats pour, Les cookies doivent être activés pour afficher
         cette carte, Affiner vos résultats de recherche, Nous n’avons rien trouvé
         dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres zones.,
-      Rechercher sur la carte, '', '']
+      Rechercher sur la carte, Affichage des lieux correspondant à votre recherche.
+        Un maximum de 20 résultats sont affichés., Affichage des lieux correspondant
+        à votre recherche. Un maximum de 20 résultats sont affichés.]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, Scopri ora, Chiudi il pannello
         di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta filtri, Alloggi,
@@ -208,7 +230,10 @@
         è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola chiave,
       Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
         questa mappa, Affina i tuoi risultati, Non abbiamo trovato niente qui. Prova
-        a zoomare indietro per vedere altri luoghi., Cerca sulla mappa, '', '']
+        a zoomare indietro per vedere altri luoghi., Cerca sulla mappa, Vengono visualizzati
+        i luoghi corrispondenti alla tua ricerca. Vengono visualizzati fino a 20 risultati.,
+      Vengono visualizzati i luoghi corrispondenti alla tua ricerca. Vengono visualizzati
+        fino a 20 risultati.]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm afsluiten,
       Heroriënteren, Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek-
         en filtervenster, Legenda, Ga een stap terug, Filters herstellen, Accommodatie,
@@ -221,19 +246,22 @@
         kunt niet verder inzoomen', Ontdek, Distilleerderijen, Typ je zoekterm in,
       Zoeken, Zoekresultaten voor, Er zijn cookies nodig om deze kaart te tonen, Verfijn
         je zoekresultaten, Er zijn helaas geen resultaten gevonden. Zoom uit om meerdere
-        locaties te ontdekken., Zoek op de kaart, '', '']
+        locaties te ontdekken., Zoek op de kaart, Hier vind je plekken die bij je
+        zoekopdracht passen. Er worden maximaal 20 resultaten getoond., Hier vind
+        je plekken die bij je zoekopdracht passen. Er worden maximaal 20 resultaten
+        getoond.]
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 37b341ab-b63d-4e18-9ad4-3d541d473f22
+    jcr:uuid: 1b8a4597-b3c7-4bd4-8df0-8492d44e19a3
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-03-10T12:38:39.111+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-18T15:39:10.980+01:00
     hippostdpubwf:lastModifiedBy: juanluis.hurtado
-    hippostdpubwf:publicationDate: 2026-03-10T12:38:42.350+01:00
+    hippostdpubwf:publicationDate: 2026-03-18T15:39:12.693+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
@@ -259,7 +287,8 @@
       Search, Search Results for, Cookies need to be enabled to show this map, Refine
         your results, We couldn't find anything here. Try zooming out to explore more
         locations., Search the map, A selection of places matching your search is
-        shown below., Showing places matching your search. Up to 20 results are displayed.]
+        shown below. Up to 20 results are displayed., Showing places matching your
+        search. Up to 20 results are displayed.]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
@@ -274,7 +303,10 @@
         vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
       Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
       Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
-        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, '', '']
+        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, 'Es werden
+        Orte angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20 Ergebnisse
+        angezeigt.', 'Es werden Orte angezeigt, die Ihrer Suche entsprechen. Es werden
+        bis zu 20 Ergebnisse angezeigt.']
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer Mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú del mapa, Retroceder un paso, Restablecer filtros,
@@ -288,7 +320,9 @@
       Destilerías, Escribe tu palabra clave, Buscar, Resultados de búsqueda para,
       Las cookies deben estar habilitadas para mostrar este mapa, Refinar resultados
         de búsqueda, No hemos encontrado nada aquí. Intenta alejar el zoom para explorar
-        más ubicaciones., Buscar en el mapa, '', '']
+        más ubicaciones., Buscar en el mapa, Aquí se muestran lugares que coinciden
+        con tu búsqueda. Se muestran un máximo de 20 resultados., Aquí se muestran
+        lugares que coinciden con tu búsqueda. Se muestran un máximo de 20 resultados.]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez :', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -304,7 +338,9 @@
       Afficher les résultats pour, Les cookies doivent être activés pour afficher
         cette carte, Affiner vos résultats de recherche, Nous n’avons rien trouvé
         dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres zones.,
-      Rechercher sur la carte, '', '']
+      Rechercher sur la carte, Affichage des lieux correspondant à votre recherche.
+        Un maximum de 20 résultats sont affichés., Affichage des lieux correspondant
+        à votre recherche. Un maximum de 20 résultats sont affichés.]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, Scopri ora, Chiudi il pannello
         di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta filtri, Alloggi,
@@ -318,7 +354,10 @@
         è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola chiave,
       Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
         questa mappa, Affina i tuoi risultati, Non abbiamo trovato niente qui. Prova
-        a zoomare indietro per vedere altri luoghi., Cerca sulla mappa, '', '']
+        a zoomare indietro per vedere altri luoghi., Cerca sulla mappa, Vengono visualizzati
+        i luoghi corrispondenti alla tua ricerca. Vengono visualizzati fino a 20 risultati.,
+      Vengono visualizzati i luoghi corrispondenti alla tua ricerca. Vengono visualizzati
+        fino a 20 risultati.]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm afsluiten,
       Heroriënteren, Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek-
         en filtervenster, Legenda, Ga een stap terug, Filters herstellen, Accommodatie,
@@ -331,4 +370,7 @@
         kunt niet verder inzoomen', Ontdek, Distilleerderijen, Typ je zoekterm in,
       Zoeken, Zoekresultaten voor, Er zijn cookies nodig om deze kaart te tonen, Verfijn
         je zoekresultaten, Er zijn helaas geen resultaten gevonden. Zoom uit om meerdere
-        locaties te ontdekken., Zoek op de kaart, '', '']
+        locaties te ontdekken., Zoek op de kaart, Hier vind je plekken die bij je
+        zoekopdracht passen. Er worden maximaal 20 resultaten getoond., Hier vind
+        je plekken die bij je zoekopdracht passen. Er worden maximaal 20 resultaten
+        getoond.]

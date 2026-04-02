@@ -1,9 +1,10 @@
-/content/documents/administration/labels/modules/search-widget:
+/content/documents/administration/labels/search/search-widget:
+  .meta:order-before: search-events-filters-date
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: b29e79b5-df98-448c-a494-b8a5c0f492cb
   hippo:name: Search Widget
-  hippo:versionHistory: caf795ce-8153-455d-8abb-de5da0d61132
+  hippo:versionHistory: 08db572c-816a-46f3-9bf9-1a00ee65af63
   /search-widget[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -61,7 +62,7 @@
     hippostdpubwf:creationDate: 2026-03-11T15:26:30.140Z
     hippostdpubwf:lastModificationDate: 2026-03-11T16:10:51.134Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-03-11T16:10:54.274Z
+    hippostdpubwf:publicationDate: 2026-03-13T16:09:41.034Z
     resourcebundle:descriptions: ['', '', '', '']
     resourcebundle:id: search-widget
     resourcebundle:keys: [title, description, button, placeholder]

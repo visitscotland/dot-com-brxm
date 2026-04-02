@@ -1,0 +1,113 @@
+/content/documents/administration/labels/search/search-widget-events:
+  .meta:order-before: search-events-filters-date
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 3a3ce8f0-e60c-4d23-b7f6-1076bcfdfe92
+  hippo:name: Search Widget Events
+  hippo:versionHistory: 49dc45b7-c6cb-4ce3-aaea-861911e1ecfa
+  /search-widget-events[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 44269071-3cea-4383-b9b0-8a47bf6b000b
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-11T15:26:30.140Z
+    hippostdpubwf:lastModificationDate: 2026-03-30T10:06:52.020+02:00
+    hippostdpubwf:lastModifiedBy: elena.pederiva
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: search-widget-events
+    resourcebundle:keys: [title, description, button, placeholder]
+    resourcebundle:messages: [Discover unique events in Scotland, Explore events in
+        Scotland. From local days out to national festivals – choose your next adventure!,
+      Search events, 'What events are you looking for?']
+    resourcebundle:messages_de: [Entdecken Sie einzigartige Events in Schottland,
+      Entdecken Sie Veranstaltungen in Schottland. Von regionalen Events bis hin zu
+        nationalen Festivals – wählen Sie Ihr nächstes Abenteuer!, Veranstaltungen
+        suchen, 'Nach welchen Veranstaltungen suchen Sie?']
+    resourcebundle:messages_es: [Descubre eventos únicos en Escocia, 'Descubre los
+        eventos que se celebran en Escocia. Desde excursiones locales hasta festivales
+        nacionales: ¡elige tu próxima aventura!', Buscar eventos, '¿Qué eventos estás
+        buscando?']
+    resourcebundle:messages_fr: [Découvrez des événements uniques en Écosse, 'Découvrez
+        des événements en Écosse, des excursions locales aux festivals nationaux :
+        choisissez votre prochaine aventure !', Rechercher des événements, 'Quels
+        événements recherchez-vous ?']
+    resourcebundle:messages_it: [Scopri eventi unici in Scozia, 'Scopri gli eventi
+        in Scozia. Dalle gite nei dintorni ai festival nazionali: scegli la tua prossima
+        avventura!', Cerca eventi, 'Quali eventi stai cercando?']
+    resourcebundle:messages_nl: [Ontdek unieke evenementen in Schotland, Ontdek evenementen
+        in Schotand. Van lokale uitstapjes tot nationale festivals – kies jouw volgende
+        avontuur!, Evenementen zoeken, 'Naar welke evenementen ben je op zoek?']
+  /search-widget-events[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: be5b916d-cb91-4b82-a402-7ef28baaab57
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-11T15:26:30.140Z
+    hippostdpubwf:lastModificationDate: 2026-03-30T10:07:37.268+02:00
+    hippostdpubwf:lastModifiedBy: elena.pederiva
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: search-widget-events
+    resourcebundle:keys: [title, description, button, placeholder]
+    resourcebundle:messages: [Discover unique events in Scotland, Explore events in
+        Scotland. From local days out to national festivals – choose your next adventure!,
+      Search events, 'What events are you looking for?']
+    resourcebundle:messages_de: [Entdecken Sie einzigartige Events in Schottland,
+      Entdecken Sie Veranstaltungen in Schottland. Von regionalen Events bis hin zu
+        nationalen Festivals – wählen Sie Ihr nächstes Abenteuer!, Veranstaltungen
+        suchen, 'Nach welchen Veranstaltungen suchen Sie?']
+    resourcebundle:messages_es: [Descubre eventos únicos en Escocia, 'Descubre los
+        eventos que se celebran en Escocia. Desde excursiones locales hasta festivales
+        nacionales: ¡elige tu próxima aventura!', Buscar eventos, '¿Qué eventos estás
+        buscando?']
+    resourcebundle:messages_fr: [Découvrez des événements uniques en Écosse, 'Découvrez
+        des événements en Écosse, des excursions locales aux festivals nationaux :
+        choisissez votre prochaine aventure !', Rechercher des événements, 'Quels
+        événements recherchez-vous ?']
+    resourcebundle:messages_it: [Scopri eventi unici in Scozia, 'Scopri gli eventi
+        in Scozia. Dalle gite nei dintorni ai festival nazionali: scegli la tua prossima
+        avventura!', Cerca eventi, 'Quali eventi stai cercando?']
+    resourcebundle:messages_nl: [Ontdek unieke evenementen in Schotland, Ontdek evenementen
+        in Schotand. Van lokale uitstapjes tot nationale festivals – kies jouw volgende
+        avontuur!, Evenementen zoeken, 'Naar welke evenementen ben je op zoek?']
+  /search-widget-events[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 781f4762-7ef4-4021-bf2e-2c92bcb7ddfa
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-11T15:26:30.140Z
+    hippostdpubwf:lastModificationDate: 2026-03-30T10:07:37.268+02:00
+    hippostdpubwf:lastModifiedBy: elena.pederiva
+    hippostdpubwf:publicationDate: 2026-03-30T10:07:38.867+02:00
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: search-widget-events
+    resourcebundle:keys: [title, description, button, placeholder]
+    resourcebundle:messages: [Discover unique events in Scotland, Explore events in
+        Scotland. From local days out to national festivals – choose your next adventure!,
+      Search events, 'What events are you looking for?']
+    resourcebundle:messages_de: [Entdecken Sie einzigartige Events in Schottland,
+      Entdecken Sie Veranstaltungen in Schottland. Von regionalen Events bis hin zu
+        nationalen Festivals – wählen Sie Ihr nächstes Abenteuer!, Veranstaltungen
+        suchen, 'Nach welchen Veranstaltungen suchen Sie?']
+    resourcebundle:messages_es: [Descubre eventos únicos en Escocia, 'Descubre los
+        eventos que se celebran en Escocia. Desde excursiones locales hasta festivales
+        nacionales: ¡elige tu próxima aventura!', Buscar eventos, '¿Qué eventos estás
+        buscando?']
+    resourcebundle:messages_fr: [Découvrez des événements uniques en Écosse, 'Découvrez
+        des événements en Écosse, des excursions locales aux festivals nationaux :
+        choisissez votre prochaine aventure !', Rechercher des événements, 'Quels
+        événements recherchez-vous ?']
+    resourcebundle:messages_it: [Scopri eventi unici in Scozia, 'Scopri gli eventi
+        in Scozia. Dalle gite nei dintorni ai festival nazionali: scegli la tua prossima
+        avventura!', Cerca eventi, 'Quali eventi stai cercando?']
+    resourcebundle:messages_nl: [Ontdek unieke evenementen in Schotland, Ontdek evenementen
+        in Schotand. Van lokale uitstapjes tot nationale festivals – kies jouw volgende
+        avontuur!, Evenementen zoeken, 'Naar welke evenementen ben je op zoek?']

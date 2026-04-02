@@ -1,0 +1,48 @@
+/content/documents/administration/options/search-events-filters-date:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 3cb6ebbd-15aa-4a9d-97b4-f116f7083797
+  hippo:name: Search - Events dates
+  /search-events-filters-date:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: f5259895-93e0-4651-93b7-1692e977ee8f
+    hippo:availability: [live, preview]
+    hippotranslation:id: bd0966e6-7c3d-4de1-ab19-d49d81133b8d
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: today
+      selection:label: today
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: tomorrow
+      selection:label: tomorrow
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: weekend
+      selection:label: weekend
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: nextweek
+      selection:label: nextweek
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: spring
+      selection:label: 2103-2006
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: summer
+      selection:label: 2106-2209
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: autumn
+      selection:label: 2309-2012
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: winter
+      selection:label: 2112-2003
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: christmas
+      selection:label: 2011-0601
