@@ -23,8 +23,6 @@ import com.visitscotland.brxm.utils.SitePropertyKeys;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.linking.HstLink;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,6 +54,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
 
+    private static final String MAIN_MAP_PATH = "main-map-path";
+
     private static final String SEARCH = "search";
     private static final String NAVIGATION_STATIC = "navigation.static";
     private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
@@ -73,7 +73,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
     public static final String VIDEO_HEADER = "videoHeader";
-    public static final String PSR_WIDGET = "psrWidget";
 
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
@@ -129,9 +128,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGtmConfiguration(request);
         addLabels(request);
         addSiteSpecificConfiguration(request, pageConfig);
+        if (!Contract.isEmpty(properties.getSiteMap())) {
+            request.setModel(MAIN_MAP_PATH, properties.getSiteMap());
+        }
     }
-
-
 
     /**
      * Adds Metadata about the application to the request
