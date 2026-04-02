@@ -4,12 +4,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.visitscotland.brxm.components.content.CludoService;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.model.SearchWidgetModule;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.utils.Contract;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -20,13 +22,24 @@ import java.util.ResourceBundle;
 @Component
 public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModule>{
 
+
+    private static final String SEARCH_CATEGORIES = "main-category-filters";
     private static final String SEARCH_WIDGET_EVENTS = "search-widget-events";
+    private static final String SEARCH_EVENTS_SUBCATEGORIES = "search-events-subcategories";
+    private static final String SEARCH_EVENTS_FILTERS_VALUE_LIST = "vs-events-filters";
+    private static final String SEARCH_EVENTS_FILTERS_DATES = "search-events-dates";
+    private static final String SEARCH_EVENTS_FILTERS_LOCATIONS = "search-events-locations";
+
     private final ResourceBundleService bundle;
     private final HippoUtilsService hippoUtilsService;
+    private final ObjectMapper mapper;
+    private final CludoService cludoService;
 
-    public SearchWidgetMapper(ResourceBundleService bundle, HippoUtilsService hippoUtilsService) {
+    public SearchWidgetMapper(ResourceBundleService bundle, HippoUtilsService hippoUtilsService, ObjectMapper mapper, CludoService cludoService) {
         this.bundle = bundle;
         this.hippoUtilsService = hippoUtilsService;
+        this.mapper = mapper;
+        this.cludoService = cludoService;
     }
 
     /**
@@ -54,7 +67,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
      */
     @Override
     SearchWidgetModule map(DevModule document, PageCompositionHelper compositionHelper) throws PageCompositionException {
-        return createModule(document, compositionHelper.getLocale());
+        return createModule(document, compositionHelper.getLocale(), compositionHelper);
     }
 
     /**
@@ -68,7 +81,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
      * @param locale the locale used to resolve labels
      * @return populated {@link SearchWidgetModule}
      */
-    public SearchWidgetModule createModule(DevModule document, Locale locale) {
+    public SearchWidgetModule createModule(DevModule document, Locale locale, PageCompositionHelper compositionHelper) {
 
         SearchWidgetModule module = new SearchWidgetModule(document, document.getBespoken());
         ResourceBundle resourceBundle = bundle.getResourceBundle(document.getBespoken(), locale);
@@ -79,45 +92,24 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
 
         if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken())) {
             module.setMainCategory("events");
-            module.setSubcategories(bundle.getAllLabels("search-events-filters", locale));
-            module.setFilters(createFiltersJson("search-events-filters-date","when" ,locale));
+            //TODO review addAllLabelsSpecificName and move to Cludoservice if possible
+            module.setSubcategories(compositionHelper.addValueListLabels(SEARCH_EVENTS_SUBCATEGORIES, hippoUtilsService.getValueMap(SEARCH_EVENTS_FILTERS_VALUE_LIST), "search-events-filters"));
+
+            ObjectNode filters = mapper.createObjectNode();
+            cludoService.addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, locale);
+            module.setFilters(cludoService.addFilterJson("vs-events-filters-locations","postcodeareas", SEARCH_EVENTS_FILTERS_LOCATIONS, filters, locale));
         } else {
-            module.setCategories(bundle.getAllLabels("search-categories", locale));
+            module.setCategories(bundle.getAllLabels(SEARCH_CATEGORIES, locale));
+            /*  TODO if (isSearchResultsPage) then we need to load the event filters:
+            compositionHelper.addAllLabelsSpecificName(SEARCH_EVENTS_SUBCATEGORIES, "search-events-filters");
+
+            ObjectNode filters = mapper.createObjectNode();
+            addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, locale);
+            module.setFilters(addFilterJson("vs-events-filters-locations","postcodeareas", SEARCH_EVENTS_FILTERS_LOCATIONS, filters, locale));
+            */
+
         }
 
         return module;
-    }
-
-    /**
-     * Creates a JSON structure representing search filters.
-     *
-     * <p>The filters are built dynamically from a value map retrieved via
-     * {@link HippoUtilsService}. Each entry is converted into a JSON object
-     * containing an {@code id} and a localised {@code label}.</p>
-     *
-     * @param filtersId identifier used to retrieve filter values and labels
-     * @param rootNode the root JSON node name under which filters are grouped
-     * @param locale the locale used to resolve filter labels
-     * @return a {@link JsonNode} representing the filter structure
-     */
-    public JsonNode createFiltersJson (String filtersId, String rootNode ,Locale locale) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        ObjectNode filters = objectMapper.createObjectNode();
-        ArrayNode filterType = objectMapper.createArrayNode();
-        Map<String, String> filtersMap = hippoUtilsService.getValueMap(filtersId);
-
-        if (filtersMap != null) {
-            for (Map.Entry<String, String> entry : filtersMap.entrySet()) {
-                ObjectNode filterSubnodes = objectMapper.createObjectNode();
-                filterSubnodes.put("id", entry.getValue());
-                //TODO try to order nodes based on prox dates
-                filterSubnodes.put("label", bundle.getResourceBundle(filtersId, entry.getKey(), locale));
-                filterType.add(filterSubnodes);
-            }
-        }
-
-        filters.set(rootNode, filterType);
-
-        return filters;
     }
 }

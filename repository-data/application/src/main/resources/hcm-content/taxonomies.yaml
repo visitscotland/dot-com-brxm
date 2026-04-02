@@ -3,7 +3,7 @@
   /Visitscotland-categories:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo']
-    hippo:versionHistory: 25ac5817-2942-482b-b8ef-09f651301707
+    hippo:versionHistory: cee05f33-612c-43d1-96a3-b3ba2870206c
     /Visitscotland-categories[1]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
@@ -14,9 +14,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-20T12:08:31.636Z
+      hippostdpubwf:lastModificationDate: 2026-03-26T14:07:31.153Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-03-20T12:08:36.819Z
+      hippostdpubwf:publicationDate: 2026-03-26T14:11:41.074Z
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
         jcr:primaryType: hippotaxonomy:category
@@ -308,6 +308,15 @@
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
         locale.en.name: Main map
+        /places:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: places
+          locale.de.name: Orte
+          locale.en.name: Places
+          locale.es.name: Lugares
+          locale.fr.name: Lieux
+          locale.it.name: Luoghi
+          locale.nl.name: Plaatsen
         /accommodation:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: accommodation
@@ -512,15 +521,6 @@
             locale.fr.name: Infrastructures
             locale.it.name: Infrastrutture
             locale.nl.name: Faciliteiten
-        /places:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: places
-          locale.de.name: Orte
-          locale.en.name: Places
-          locale.es.name: Lugares
-          locale.fr.name: Lieux
-          locale.it.name: Luoghi
-          locale.nl.name: Plaatsen
       /whisky-distilleries:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: whisky-distilleries
@@ -554,7 +554,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-20T12:08:31.636Z
+      hippostdpubwf:lastModificationDate: 2026-03-26T14:07:31.153Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -847,6 +847,15 @@
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
         locale.en.name: Main map
+        /places:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: places
+          locale.de.name: Orte
+          locale.en.name: Places
+          locale.es.name: Lugares
+          locale.fr.name: Lieux
+          locale.it.name: Luoghi
+          locale.nl.name: Plaatsen
         /accommodation:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: accommodation
@@ -1051,15 +1060,6 @@
             locale.fr.name: Infrastructures
             locale.it.name: Infrastrutture
             locale.nl.name: Faciliteiten
-        /places:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: places
-          locale.de.name: Orte
-          locale.en.name: Places
-          locale.es.name: Lugares
-          locale.fr.name: Lieux
-          locale.it.name: Luoghi
-          locale.nl.name: Plaatsen
       /whisky-distilleries:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: whisky-distilleries
@@ -1091,10 +1091,9 @@
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
-      hippostd:transferable: false
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-20T12:20:17.866Z
+      hippostdpubwf:lastModificationDate: 2026-03-26T14:06:41.807Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -1387,6 +1386,15 @@
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
         locale.en.name: Main map
+        /places:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: places
+          locale.de.name: Orte
+          locale.en.name: Places
+          locale.es.name: Lugares
+          locale.fr.name: Lieux
+          locale.it.name: Luoghi
+          locale.nl.name: Plaatsen
         /accommodation:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: accommodation
@@ -1591,15 +1599,6 @@
             locale.fr.name: Infrastructures
             locale.it.name: Infrastrutture
             locale.nl.name: Faciliteiten
-        /places:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: places
-          locale.de.name: Orte
-          locale.en.name: Places
-          locale.es.name: Lugares
-          locale.fr.name: Lieux
-          locale.it.name: Luoghi
-          locale.nl.name: Plaatsen
       /whisky-distilleries:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: whisky-distilleries
@@ -1628,7 +1627,7 @@
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo']
     hippo:name: Visitscotland-events
-    hippo:versionHistory: c88e7e36-e1ab-4ca4-abfc-943c6c483fa9
+    hippo:versionHistory: 30bd7deb-932a-4bb9-9030-270cf5e34905
     /events[1]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
@@ -1639,9 +1638,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-08-29T13:12:50.741+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-19T16:43:12.269Z
+      hippostdpubwf:lastModificationDate: 2026-03-24T13:50:04.448Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-03-20T12:23:07.011Z
+      hippostdpubwf:publicationDate: 2026-03-24T13:50:08.797Z
       hippotaxonomy:defaultLocale: en
       hippotaxonomy:locales: [en, de, es, fr, it, nl]
       /category-groups:
@@ -1837,138 +1836,6 @@
               Design, Arts, Ceramics, Contemporary, Crafts, Installation, Mixed media,
             Painting & Drawing, Performance Arts, Photography, Prints, Sashiko, Sculpture,
             Textiles, Video art, Visual art, Visual arts]
-      /synonyms:
-        jcr:primaryType: hippotaxonomy:category
-        hippotaxonomy:key: synonyms
-        hippotaxonomy:locales: [en, de, es, fr, it, nl]
-        locale.de.description: "GERMAN\r\nThis list works as a bilingual mapping for\
-          \ keywords. Each entry consists of a word or phrase in the source language,\
-          \ followed by its correct English equivalent, separated by a vertical bar\
-          \ |\r\n\r\nThe part before the | is the original term, and the part after\
-          \ the | is the standardized English term. Matching is case-insensitive,\
-          \ so it does not matter whether the input is upper case, lower case, or\
-          \ mixed. This allows you to quickly look up translations, normalize search\
-          \ queries, or categorize content consistently."
-        locale.de.name: synonyms-de
-        locale.de.synonyms: [Afternoon Tea|afternoon tea, allein reisen|solo travel,
-          alleine reisen|solo travel, alleinreisend|solo travel, Angeln|fishing, asexuell|LGBT,
-          Aurora|aurora, Aurora Borealis|aurora, Bagpipes|bagpipe, B & B|bed and breakfast,
-          B & Bs|bed and breakfast, B&B|bed and breakfast, B&Bs|bed and breakfast,
-          Bahn|rail, Bahn Tickets|rail, Bahnfahren|rail, Bahnfahrt|rail, Bahnreise|rail,
-          Bahn tickets|rail, Busrundreise|round trip, Busrundreisen|round trip, Brexit|brexit,
-          Brexit|brexit, Brennerei|distillery, Brennereien|distillery, Bus|bus, Busfahrkarte|bus,
-          Busfahrkarten|bus, Bustarife|bus, Busticket|bus, Bustickets|bus, Camper|camping,
-          camperurlaub|camping, Camping|camping, camping|camping, caravan|camping,
-          Comedy in Edinburgh|comedy in Edinburgh, Comedyauftritte in Edinburgh|comedy
-            in Edinburgh, Comedyshows in Edinburgh|comedy in Edinburgh, Comedians
-            in Edinburgh|comedy in Edinburgh, Delfin|dolphin, Delfinbeobachtung|dolphin,
-          Delfine|dolphin, Delfine beobachten|dolphin, Die Highlands|highlands, Edinburgh|edinburgh,
-          Edinburgh City|edinburgh, Edinburgh Military Tatoo|edinburgh military tattoo,
-          Edinburgh Military Tattoo|edinburgh military tattoo, Edinburgh Tatoo|edinburgh
-            military tattoo, Edinburgh Tattoo|edinburgh military tattoo, ediburgh|edinburgh,
-          Edimbourg|edinburgh, Edimbur|edinburgh, Edimburgo|edinburgh, Edinb|edinburgh,
-          Edinbirgh|edinburgh, Edinboro|edinburgh, Edinborough|edinburgh, Edinbrugh|edinburgh,
-          Edinbu|edinburgh, Edinburg|edinburgh, edniburgh|edinburgh, wdinburgh|edinburgh,
-          Einreise|entry requirements, einreisebestimmung|entry requirements, einreisebestimmungen|entry
-            requirements, Einreiseregelung|entry requirements, Einreiseregelungen|entry
-            requirements, Edelburh|edinburgh, Eisenbahn|rail, Elektroauto|electric
-            car, Elektroautos|electric car, Fahrrad leihen|bicycle, Fahrrad mieten|bicycle,
-          Fahrradverleih|bicycle, Fliegenfischen|fishing, Fähre|ferry, Fähre nach
-            Schottland|ferry, Fähren nach Schottland|ferry, fährlinien|ferry, Fährreise
-            nach Schottland|ferry, Festivals in Edinburgh|festivals in Edinburgh,
-          Festival|fringe, Flughäfen|airport, Highland Games in Edinburgh|highland
-            games in Edinburgh, Highlands|highlands, Harry Potter|harry potter, Hogwarts|harry
-            potter, Konzerte in Edinburgh|concerts in Edinburgh, Ladepunkt|charging
-            station, ladesäule|charging station, ladesäulen|charging station, Ladestation|charging
-            station, Ladestation für Elektroauto|charging station, Ladestation für
-            Elektroautos|charging station, Landkarte|map, lachsfischen|fishing, LGBT|LGBT,
-          LGBT+|LGBT, lgbtiq|LGBT, lsbt|LGBT, lsbtq|LGBT, lsbtqi|LGBT, lsbtqia|LGBT,
-          Lesbisch|LGBT, Midge|midges, Midges|midges, Midges|midges, Mit der Fähre
-            nach Schottland|ferry, Markt|market, Meerestiere|marine animals, Military
-            Tattoo|edinburgh military tattoo, Musikfestivals in Edinburgh|music festivals
-            in Edinburgh, Neujahr|new year, Nordlicht|aurora, Nordlichter|aurora,
-          Rundreise|round trip, Rundreisen|round trip, Schloss|castle, Schlösser|castle,
-          Schottland|scotland, Schottlandkarte|map, Silvester|hogmanay, silvesterurlaub|hogmanay,
-          Sommerzeit|timezone, Stadtführung|city tour, Stadtführungen|city tour, Stadtrundgang|city
-            tour, Stadtrundgänge|city tour, Sterling|stirling, Stirling|stirling,
-          Turniere in Edinburgh|sports events in Edinburgh, Sportveranstaltungen in
-            Edinburgh|sports events in Edinburgh, The Highlands|highlands, Vorträge
-            in Edinburgh|talks in Edinburgh, Weihnachten|christmas, weihnachtsfest|christmas,
-          Weihnachtsmärkte in Edinburgh|christmas markets in Edinburgh, Wohnmobil|camping,
-          Wohnwagen|camping, Zelten|camping, Zug|rail, Zugfahrkarte|rail, Zugfahrkarten|rail,
-          Zugfahrt|rail, Zugnetz|rail, Zugreise|rail, Zecke|tick, Zeckenbiss|tick,
-          Zeckenkarte|tick, Zeckenstich|tick, in der Nähe von|near, autofrei reisen|eco
-            travel, autofreies Reisen|eco travel, öffentliche Verkehrsmittel|eco travel,
-          Schottland ohne Auto|eco travel, umweltfreundlich reisen|eco travel, umweltfreundliche
-            Verkehrsmittel|eco travel, bagpipes|bagpipe]
-        locale.en.description: "ENGLISH\r\nThis list works as a bilingual mapping\
-          \ for keywords. Each entry consists of a word or phrase in the source language,\
-          \ followed by its correct English equivalent, separated by a vertical bar\
-          \ |\r\n\r\nThe part before the | is the original term, and the part after\
-          \ the | is the standardized English term. Matching is case-insensitive,\
-          \ so it does not matter whether the input is upper case, lower case, or\
-          \ mixed. This allows you to quickly look up translations, normalize search\
-          \ queries, or categorize content consistently."
-        locale.en.name: synonyms
-        locale.en.synonyms: [a erdeenshire|Aberdeenshire, Aberdeenshire|Aberdeenshire,
-          abazziaarbroat|Abbazia di Arbroath, aberfoely|aberfoyle, adrians wall|hadrians
-            wall, aileen donan|eilean donan castle, andrew|St Andrews, arthur seat|Arthur's
-            Seat, area|area, area|region, auctamuchtie|auchtermuchty, autumncolurs|autumn
-            colours, ballaindoloch|ballindalloch, balleter|ballater, balmora castle|Balmoral
-            Castle, bigger|biggar, bicycle|bicycle, bicycle|Cycling, bik hire|bike
-            hire, bike hir|bike hire, bisexual|LGBT, bobby greyfriars|Greyfriars Bobby,
-          borders rilywaqy|Borders Railway, bridgeoforchy|bridge of orchy, bridgeofweir|Bridge
-            of Weir, bro dear orkney|ring of brodgar orkney, broschüre|brochure, cattle|cattle,
-          cattle|cows, caeraverock castle|Caerlaverock Castle, caingorms|cairngorms,
-          campbeltow|campbeltown, campeltown|campbeltown, cangoirns|cairngorms, casltes|castles,
-          clamis castle|Glamis Castle, clan mcdonald|Clan MacDonald, cliffrock|cliff
-            rock, colludon|Culloden, career|job, career|vacancies, destilary|distillery,
-          destilary tours|distillery tours, distllery|distillery, drumferline|Dunfermline,
-          dumferlin|dunfermline, dunde|Dundee, dunnotar|dunnottar castle, distribution
-            partner|distribution partner, distribution partner|travel trade, distribution
-            partner|TT, eberdeen|aberdeen, edinbrugh dungon|edinburgh dungeon, edinburgh
-            castel|edinburgh castle, edinburgh zo|edinburgh zoo, edinburghbcastle|edinburgh
-            castle, eileen donan|eilean donan castle, eileen dunan|eilean donan castle,
-          eiliindonovan|Eilean Donan Castle, eindburgerscotland|Edinburgh, eindenberg|Edinburgh,
-          estivals|festivals, eyemoyth|Eyemouth, fa;kirk wheel|falkirk wheel, finhorn|findhorn,
-          children|Kids, teenagers|Kids, fishibg|fishing, flak irk wheel|falkirk wheel,
-          flenfinnan monument|Glenfinnan Monument, fort sugustus|fort augustus, fort
-            williams|Fort William, fortwilliam|Fort William, fot william|Fort William,
-          ft. william|fort william, funblane|Dunblane, gareloch|gairloch, gin disti|gin
-            distillery, glams castle|glamis castle, glascow|Glasgow, glasgwo film
-            festival|glasgow film festival, gleen cloe|Glencoe, glen noe|glencoe,
-          glendiffich|glenfiddich, glenfinhannan|Glenfinnan, glenn coe|glencoe, gln
-            coe|Glencoe, gln navis|Glen Nevis, green tourism|green tourism, green
-            tourism|net zero, green tourism|responsible tourism, green tourism|sustainability,
-          green tourism|sustainable tourism, greta glen|Gretna, hausboat|houseboat,
-          highganlgames|Highland Games, higlandgames|highland games, hlamping|glamping,
-          hlasglow|Glasgow, holly rude|Holyrood, hollyrood|holyrood, hollyrood palace|Holyrood
-            Palace, htistmas|Christmas, innerverness|inverness, inveness|Inverness,
-          inver|Inverness, inverary|Inveraray, inveray castle|Inveraray Castle, isle
-            of aran|isle of arran, isle of aren|Isle of Arran, isle of sky|isle of
-            skye, isle of skye accomidation|isle of skye accommodation, iteneries|itineraries,
-          ivernerness|inverness, iverness|inverness, joan o goats|john o groats, job
-            vacnvies|job vacancies, kallander|Callander, kelvingrove srt gallery|kelvingrove
-            art gallery, kicardly|kirkcaldy, kirkcaldy|kirkcaldy, kirkaldy|Kirkcaldy,
-          kilmanarock|kilmarnock, kinkardn|kincardine, koch lommond|Loch Lomond, kolodin|Culloden,
-          ĺinlithgow palace|Linlithgow Palace, linthigow palace|linlithgow palace,
-          loc leven|loch leven, loc ness|Loch Ness, loch boisdale|Lochboisdale, lochgillpinhead|Lochgilphead,
-          lock mess|Loch Ness, log lamond|Loch Lomond, mappa orkady|mappa Orcadi,
-          naistpoint|Neist Point, national wallis memorial|national wallace monument,
-          ne250|north east 250, ñõrth çöäßt|North Coast 500, north cost 500|north
-            coast 500, northern|northern lights, okrney|Orkney, oo7|007, outer jebrides|Outer
-            Hebrides, outlanderdrehorte|outlander drehorte, pagpipes|bagpipes, personeagi
-            famosi|personaggi famosi, pet ffriendly|pet friendly, pilchory|Pitlochry,
-          pitemween|pittenweem, port of montieth|Port of Menteith, port patric|Portpatrick,
-          ring og brodgar|Ring of Brodgar, rosalyn chapel|Rosslyn Chapel, rosalyn
-            chaple|Rosslyn Chapel, roseland chapel|Rosslyn Chapel, roseline chappel|Rosslyn
-            Chapel, roslyn chapel|rosslyn chapel, scone pala|Scone Palace, scoot monument|scott
-            monument, skarae bra|skara brae, st. andrews golf coarse|St Andrews Golf
-            Course, st.andrew|St Andrews, starvrating|star rating, sterling castle|stirling
-            castle, striling catle|stirling castle, the quaraining|The Quiraing, thursoorcadi|Thurso
-            Orcadi, Tatoo|tattoo, urquart|urquhart, vacancices|vacancies, weindernere|windermere,
-          westhighlandway|West Highland Way, whiskey|whiskey, whiskey|whisky, windermere|windermere,
-          writters musseum|writers museum]
     /events[2]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable', 'mix:versionable']
@@ -1978,7 +1845,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-08-29T13:12:50.741+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-19T16:43:12.269Z
+      hippostdpubwf:lastModificationDate: 2026-03-24T13:50:04.448Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:defaultLocale: en
       hippotaxonomy:locales: [en, de, es, fr, it, nl]
@@ -2175,138 +2042,6 @@
               Design, Arts, Ceramics, Contemporary, Crafts, Installation, Mixed media,
             Painting & Drawing, Performance Arts, Photography, Prints, Sashiko, Sculpture,
             Textiles, Video art, Visual art, Visual arts]
-      /synonyms:
-        jcr:primaryType: hippotaxonomy:category
-        hippotaxonomy:key: synonyms
-        hippotaxonomy:locales: [en, de, es, fr, it, nl]
-        locale.de.description: "GERMAN\r\nThis list works as a bilingual mapping for\
-          \ keywords. Each entry consists of a word or phrase in the source language,\
-          \ followed by its correct English equivalent, separated by a vertical bar\
-          \ |\r\n\r\nThe part before the | is the original term, and the part after\
-          \ the | is the standardized English term. Matching is case-insensitive,\
-          \ so it does not matter whether the input is upper case, lower case, or\
-          \ mixed. This allows you to quickly look up translations, normalize search\
-          \ queries, or categorize content consistently."
-        locale.de.name: synonyms-de
-        locale.de.synonyms: [Afternoon Tea|afternoon tea, allein reisen|solo travel,
-          alleine reisen|solo travel, alleinreisend|solo travel, Angeln|fishing, asexuell|LGBT,
-          Aurora|aurora, Aurora Borealis|aurora, Bagpipes|bagpipe, B & B|bed and breakfast,
-          B & Bs|bed and breakfast, B&B|bed and breakfast, B&Bs|bed and breakfast,
-          Bahn|rail, Bahn Tickets|rail, Bahnfahren|rail, Bahnfahrt|rail, Bahnreise|rail,
-          Bahn tickets|rail, Busrundreise|round trip, Busrundreisen|round trip, Brexit|brexit,
-          Brexit|brexit, Brennerei|distillery, Brennereien|distillery, Bus|bus, Busfahrkarte|bus,
-          Busfahrkarten|bus, Bustarife|bus, Busticket|bus, Bustickets|bus, Camper|camping,
-          camperurlaub|camping, Camping|camping, camping|camping, caravan|camping,
-          Comedy in Edinburgh|comedy in Edinburgh, Comedyauftritte in Edinburgh|comedy
-            in Edinburgh, Comedyshows in Edinburgh|comedy in Edinburgh, Comedians
-            in Edinburgh|comedy in Edinburgh, Delfin|dolphin, Delfinbeobachtung|dolphin,
-          Delfine|dolphin, Delfine beobachten|dolphin, Die Highlands|highlands, Edinburgh|edinburgh,
-          Edinburgh City|edinburgh, Edinburgh Military Tatoo|edinburgh military tattoo,
-          Edinburgh Military Tattoo|edinburgh military tattoo, Edinburgh Tatoo|edinburgh
-            military tattoo, Edinburgh Tattoo|edinburgh military tattoo, ediburgh|edinburgh,
-          Edimbourg|edinburgh, Edimbur|edinburgh, Edimburgo|edinburgh, Edinb|edinburgh,
-          Edinbirgh|edinburgh, Edinboro|edinburgh, Edinborough|edinburgh, Edinbrugh|edinburgh,
-          Edinbu|edinburgh, Edinburg|edinburgh, edniburgh|edinburgh, wdinburgh|edinburgh,
-          Einreise|entry requirements, einreisebestimmung|entry requirements, einreisebestimmungen|entry
-            requirements, Einreiseregelung|entry requirements, Einreiseregelungen|entry
-            requirements, Edelburh|edinburgh, Eisenbahn|rail, Elektroauto|electric
-            car, Elektroautos|electric car, Fahrrad leihen|bicycle, Fahrrad mieten|bicycle,
-          Fahrradverleih|bicycle, Fliegenfischen|fishing, Fähre|ferry, Fähre nach
-            Schottland|ferry, Fähren nach Schottland|ferry, fährlinien|ferry, Fährreise
-            nach Schottland|ferry, Festivals in Edinburgh|festivals in Edinburgh,
-          Festival|fringe, Flughäfen|airport, Highland Games in Edinburgh|highland
-            games in Edinburgh, Highlands|highlands, Harry Potter|harry potter, Hogwarts|harry
-            potter, Konzerte in Edinburgh|concerts in Edinburgh, Ladepunkt|charging
-            station, ladesäule|charging station, ladesäulen|charging station, Ladestation|charging
-            station, Ladestation für Elektroauto|charging station, Ladestation für
-            Elektroautos|charging station, Landkarte|map, lachsfischen|fishing, LGBT|LGBT,
-          LGBT+|LGBT, lgbtiq|LGBT, lsbt|LGBT, lsbtq|LGBT, lsbtqi|LGBT, lsbtqia|LGBT,
-          Lesbisch|LGBT, Midge|midges, Midges|midges, Midges|midges, Mit der Fähre
-            nach Schottland|ferry, Markt|market, Meerestiere|marine animals, Military
-            Tattoo|edinburgh military tattoo, Musikfestivals in Edinburgh|music festivals
-            in Edinburgh, Neujahr|new year, Nordlicht|aurora, Nordlichter|aurora,
-          Rundreise|round trip, Rundreisen|round trip, Schloss|castle, Schlösser|castle,
-          Schottland|scotland, Schottlandkarte|map, Silvester|hogmanay, silvesterurlaub|hogmanay,
-          Sommerzeit|timezone, Stadtführung|city tour, Stadtführungen|city tour, Stadtrundgang|city
-            tour, Stadtrundgänge|city tour, Sterling|stirling, Stirling|stirling,
-          Turniere in Edinburgh|sports events in Edinburgh, Sportveranstaltungen in
-            Edinburgh|sports events in Edinburgh, The Highlands|highlands, Vorträge
-            in Edinburgh|talks in Edinburgh, Weihnachten|christmas, weihnachtsfest|christmas,
-          Weihnachtsmärkte in Edinburgh|christmas markets in Edinburgh, Wohnmobil|camping,
-          Wohnwagen|camping, Zelten|camping, Zug|rail, Zugfahrkarte|rail, Zugfahrkarten|rail,
-          Zugfahrt|rail, Zugnetz|rail, Zugreise|rail, Zecke|tick, Zeckenbiss|tick,
-          Zeckenkarte|tick, Zeckenstich|tick, in der Nähe von|near, autofrei reisen|eco
-            travel, autofreies Reisen|eco travel, öffentliche Verkehrsmittel|eco travel,
-          Schottland ohne Auto|eco travel, umweltfreundlich reisen|eco travel, umweltfreundliche
-            Verkehrsmittel|eco travel, bagpipes|bagpipe]
-        locale.en.description: "ENGLISH\r\nThis list works as a bilingual mapping\
-          \ for keywords. Each entry consists of a word or phrase in the source language,\
-          \ followed by its correct English equivalent, separated by a vertical bar\
-          \ |\r\n\r\nThe part before the | is the original term, and the part after\
-          \ the | is the standardized English term. Matching is case-insensitive,\
-          \ so it does not matter whether the input is upper case, lower case, or\
-          \ mixed. This allows you to quickly look up translations, normalize search\
-          \ queries, or categorize content consistently."
-        locale.en.name: synonyms
-        locale.en.synonyms: [a erdeenshire|Aberdeenshire, Aberdeenshire|Aberdeenshire,
-          abazziaarbroat|Abbazia di Arbroath, aberfoely|aberfoyle, adrians wall|hadrians
-            wall, aileen donan|eilean donan castle, andrew|St Andrews, arthur seat|Arthur's
-            Seat, area|area, area|region, auctamuchtie|auchtermuchty, autumncolurs|autumn
-            colours, ballaindoloch|ballindalloch, balleter|ballater, balmora castle|Balmoral
-            Castle, bigger|biggar, bicycle|bicycle, bicycle|Cycling, bik hire|bike
-            hire, bike hir|bike hire, bisexual|LGBT, bobby greyfriars|Greyfriars Bobby,
-          borders rilywaqy|Borders Railway, bridgeoforchy|bridge of orchy, bridgeofweir|Bridge
-            of Weir, bro dear orkney|ring of brodgar orkney, broschüre|brochure, cattle|cattle,
-          cattle|cows, caeraverock castle|Caerlaverock Castle, caingorms|cairngorms,
-          campbeltow|campbeltown, campeltown|campbeltown, cangoirns|cairngorms, casltes|castles,
-          clamis castle|Glamis Castle, clan mcdonald|Clan MacDonald, cliffrock|cliff
-            rock, colludon|Culloden, career|job, career|vacancies, destilary|distillery,
-          destilary tours|distillery tours, distllery|distillery, drumferline|Dunfermline,
-          dumferlin|dunfermline, dunde|Dundee, dunnotar|dunnottar castle, distribution
-            partner|distribution partner, distribution partner|travel trade, distribution
-            partner|TT, eberdeen|aberdeen, edinbrugh dungon|edinburgh dungeon, edinburgh
-            castel|edinburgh castle, edinburgh zo|edinburgh zoo, edinburghbcastle|edinburgh
-            castle, eileen donan|eilean donan castle, eileen dunan|eilean donan castle,
-          eiliindonovan|Eilean Donan Castle, eindburgerscotland|Edinburgh, eindenberg|Edinburgh,
-          estivals|festivals, eyemoyth|Eyemouth, fa;kirk wheel|falkirk wheel, finhorn|findhorn,
-          children|Kids, teenagers|Kids, fishibg|fishing, flak irk wheel|falkirk wheel,
-          flenfinnan monument|Glenfinnan Monument, fort sugustus|fort augustus, fort
-            williams|Fort William, fortwilliam|Fort William, fot william|Fort William,
-          ft. william|fort william, funblane|Dunblane, gareloch|gairloch, gin disti|gin
-            distillery, glams castle|glamis castle, glascow|Glasgow, glasgwo film
-            festival|glasgow film festival, gleen cloe|Glencoe, glen noe|glencoe,
-          glendiffich|glenfiddich, glenfinhannan|Glenfinnan, glenn coe|glencoe, gln
-            coe|Glencoe, gln navis|Glen Nevis, green tourism|green tourism, green
-            tourism|net zero, green tourism|responsible tourism, green tourism|sustainability,
-          green tourism|sustainable tourism, greta glen|Gretna, hausboat|houseboat,
-          highganlgames|Highland Games, higlandgames|highland games, hlamping|glamping,
-          hlasglow|Glasgow, holly rude|Holyrood, hollyrood|holyrood, hollyrood palace|Holyrood
-            Palace, htistmas|Christmas, innerverness|inverness, inveness|Inverness,
-          inver|Inverness, inverary|Inveraray, inveray castle|Inveraray Castle, isle
-            of aran|isle of arran, isle of aren|Isle of Arran, isle of sky|isle of
-            skye, isle of skye accomidation|isle of skye accommodation, iteneries|itineraries,
-          ivernerness|inverness, iverness|inverness, joan o goats|john o groats, job
-            vacnvies|job vacancies, kallander|Callander, kelvingrove srt gallery|kelvingrove
-            art gallery, kicardly|kirkcaldy, kirkcaldy|kirkcaldy, kirkaldy|Kirkcaldy,
-          kilmanarock|kilmarnock, kinkardn|kincardine, koch lommond|Loch Lomond, kolodin|Culloden,
-          ĺinlithgow palace|Linlithgow Palace, linthigow palace|linlithgow palace,
-          loc leven|loch leven, loc ness|Loch Ness, loch boisdale|Lochboisdale, lochgillpinhead|Lochgilphead,
-          lock mess|Loch Ness, log lamond|Loch Lomond, mappa orkady|mappa Orcadi,
-          naistpoint|Neist Point, national wallis memorial|national wallace monument,
-          ne250|north east 250, ñõrth çöäßt|North Coast 500, north cost 500|north
-            coast 500, northern|northern lights, okrney|Orkney, oo7|007, outer jebrides|Outer
-            Hebrides, outlanderdrehorte|outlander drehorte, pagpipes|bagpipes, personeagi
-            famosi|personaggi famosi, pet ffriendly|pet friendly, pilchory|Pitlochry,
-          pitemween|pittenweem, port of montieth|Port of Menteith, port patric|Portpatrick,
-          ring og brodgar|Ring of Brodgar, rosalyn chapel|Rosslyn Chapel, rosalyn
-            chaple|Rosslyn Chapel, roseland chapel|Rosslyn Chapel, roseline chappel|Rosslyn
-            Chapel, roslyn chapel|rosslyn chapel, scone pala|Scone Palace, scoot monument|scott
-            monument, skarae bra|skara brae, st. andrews golf coarse|St Andrews Golf
-            Course, st.andrew|St Andrews, starvrating|star rating, sterling castle|stirling
-            castle, striling catle|stirling castle, the quaraining|The Quiraing, thursoorcadi|Thurso
-            Orcadi, Tatoo|tattoo, urquart|urquhart, vacancices|vacancies, weindernere|windermere,
-          westhighlandway|West Highland Way, whiskey|whiskey, whiskey|whisky, windermere|windermere,
-          writters musseum|writers museum]
     /events[3]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
@@ -2314,10 +2049,9 @@
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
-      hippostd:transferable: false
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-08-29T13:12:50.741+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-20T12:33:17.632Z
+      hippostdpubwf:lastModificationDate: 2026-03-24T13:50:05.163Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:defaultLocale: en
       hippotaxonomy:locales: [en, de, es, fr, it, nl]
@@ -2514,135 +2248,3 @@
               Design, Arts, Ceramics, Contemporary, Crafts, Installation, Mixed media,
             Painting & Drawing, Performance Arts, Photography, Prints, Sashiko, Sculpture,
             Textiles, Video art, Visual art, Visual arts]
-      /synonyms:
-        jcr:primaryType: hippotaxonomy:category
-        hippotaxonomy:key: synonyms
-        hippotaxonomy:locales: [en, de, es, fr, it, nl]
-        locale.de.description: "GERMAN\r\nThis list works as a bilingual mapping for\
-          \ keywords. Each entry consists of a word or phrase in the source language,\
-          \ followed by its correct English equivalent, separated by a vertical bar\
-          \ |\r\n\r\nThe part before the | is the original term, and the part after\
-          \ the | is the standardized English term. Matching is case-insensitive,\
-          \ so it does not matter whether the input is upper case, lower case, or\
-          \ mixed. This allows you to quickly look up translations, normalize search\
-          \ queries, or categorize content consistently."
-        locale.de.name: synonyms-de
-        locale.de.synonyms: [Afternoon Tea|afternoon tea, allein reisen|solo travel,
-          alleine reisen|solo travel, alleinreisend|solo travel, Angeln|fishing, asexuell|LGBT,
-          Aurora|aurora, Aurora Borealis|aurora, Bagpipes|bagpipe, B & B|bed and breakfast,
-          B & Bs|bed and breakfast, B&B|bed and breakfast, B&Bs|bed and breakfast,
-          Bahn|rail, Bahn Tickets|rail, Bahnfahren|rail, Bahnfahrt|rail, Bahnreise|rail,
-          Bahn tickets|rail, Busrundreise|round trip, Busrundreisen|round trip, Brexit|brexit,
-          Brexit|brexit, Brennerei|distillery, Brennereien|distillery, Bus|bus, Busfahrkarte|bus,
-          Busfahrkarten|bus, Bustarife|bus, Busticket|bus, Bustickets|bus, Camper|camping,
-          camperurlaub|camping, Camping|camping, camping|camping, caravan|camping,
-          Comedy in Edinburgh|comedy in Edinburgh, Comedyauftritte in Edinburgh|comedy
-            in Edinburgh, Comedyshows in Edinburgh|comedy in Edinburgh, Comedians
-            in Edinburgh|comedy in Edinburgh, Delfin|dolphin, Delfinbeobachtung|dolphin,
-          Delfine|dolphin, Delfine beobachten|dolphin, Die Highlands|highlands, Edinburgh|edinburgh,
-          Edinburgh City|edinburgh, Edinburgh Military Tatoo|edinburgh military tattoo,
-          Edinburgh Military Tattoo|edinburgh military tattoo, Edinburgh Tatoo|edinburgh
-            military tattoo, Edinburgh Tattoo|edinburgh military tattoo, ediburgh|edinburgh,
-          Edimbourg|edinburgh, Edimbur|edinburgh, Edimburgo|edinburgh, Edinb|edinburgh,
-          Edinbirgh|edinburgh, Edinboro|edinburgh, Edinborough|edinburgh, Edinbrugh|edinburgh,
-          Edinbu|edinburgh, Edinburg|edinburgh, edniburgh|edinburgh, wdinburgh|edinburgh,
-          Einreise|entry requirements, einreisebestimmung|entry requirements, einreisebestimmungen|entry
-            requirements, Einreiseregelung|entry requirements, Einreiseregelungen|entry
-            requirements, Edelburh|edinburgh, Eisenbahn|rail, Elektroauto|electric
-            car, Elektroautos|electric car, Fahrrad leihen|bicycle, Fahrrad mieten|bicycle,
-          Fahrradverleih|bicycle, Fliegenfischen|fishing, Fähre|ferry, Fähre nach
-            Schottland|ferry, Fähren nach Schottland|ferry, fährlinien|ferry, Fährreise
-            nach Schottland|ferry, Festivals in Edinburgh|festivals in Edinburgh,
-          Festival|fringe, Flughäfen|airport, Highland Games in Edinburgh|highland
-            games in Edinburgh, Highlands|highlands, Harry Potter|harry potter, Hogwarts|harry
-            potter, Konzerte in Edinburgh|concerts in Edinburgh, Ladepunkt|charging
-            station, ladesäule|charging station, ladesäulen|charging station, Ladestation|charging
-            station, Ladestation für Elektroauto|charging station, Ladestation für
-            Elektroautos|charging station, Landkarte|map, lachsfischen|fishing, LGBT|LGBT,
-          LGBT+|LGBT, lgbtiq|LGBT, lsbt|LGBT, lsbtq|LGBT, lsbtqi|LGBT, lsbtqia|LGBT,
-          Lesbisch|LGBT, Midge|midges, Midges|midges, Midges|midges, Mit der Fähre
-            nach Schottland|ferry, Markt|market, Meerestiere|marine animals, Military
-            Tattoo|edinburgh military tattoo, Musikfestivals in Edinburgh|music festivals
-            in Edinburgh, Neujahr|new year, Nordlicht|aurora, Nordlichter|aurora,
-          Rundreise|round trip, Rundreisen|round trip, Schloss|castle, Schlösser|castle,
-          Schottland|scotland, Schottlandkarte|map, Silvester|hogmanay, silvesterurlaub|hogmanay,
-          Sommerzeit|timezone, Stadtführung|city tour, Stadtführungen|city tour, Stadtrundgang|city
-            tour, Stadtrundgänge|city tour, Sterling|stirling, Stirling|stirling,
-          Turniere in Edinburgh|sports events in Edinburgh, Sportveranstaltungen in
-            Edinburgh|sports events in Edinburgh, The Highlands|highlands, Vorträge
-            in Edinburgh|talks in Edinburgh, Weihnachten|christmas, weihnachtsfest|christmas,
-          Weihnachtsmärkte in Edinburgh|christmas markets in Edinburgh, Wohnmobil|camping,
-          Wohnwagen|camping, Zelten|camping, Zug|rail, Zugfahrkarte|rail, Zugfahrkarten|rail,
-          Zugfahrt|rail, Zugnetz|rail, Zugreise|rail, Zecke|tick, Zeckenbiss|tick,
-          Zeckenkarte|tick, Zeckenstich|tick, in der Nähe von|near, autofrei reisen|eco
-            travel, autofreies Reisen|eco travel, öffentliche Verkehrsmittel|eco travel,
-          Schottland ohne Auto|eco travel, umweltfreundlich reisen|eco travel, umweltfreundliche
-            Verkehrsmittel|eco travel, bagpipes|bagpipe]
-        locale.en.description: "ENGLISH\r\nThis list works as a bilingual mapping\
-          \ for keywords. Each entry consists of a word or phrase in the source language,\
-          \ followed by its correct English equivalent, separated by a vertical bar\
-          \ |\r\n\r\nThe part before the | is the original term, and the part after\
-          \ the | is the standardized English term. Matching is case-insensitive,\
-          \ so it does not matter whether the input is upper case, lower case, or\
-          \ mixed. This allows you to quickly look up translations, normalize search\
-          \ queries, or categorize content consistently."
-        locale.en.name: synonyms
-        locale.en.synonyms: [a erdeenshire|Aberdeenshire, Aberdeenshire|Aberdeenshire,
-          abazziaarbroat|Abbazia di Arbroath, aberfoely|aberfoyle, adrians wall|hadrians
-            wall, aileen donan|eilean donan castle, andrew|St Andrews, arthur seat|Arthur's
-            Seat, area|area, area|region, auctamuchtie|auchtermuchty, autumncolurs|autumn
-            colours, ballaindoloch|ballindalloch, balleter|ballater, balmora castle|Balmoral
-            Castle, bigger|biggar, bicycle|bicycle, bicycle|Cycling, bik hire|bike
-            hire, bike hir|bike hire, bisexual|LGBT, bobby greyfriars|Greyfriars Bobby,
-          borders rilywaqy|Borders Railway, bridgeoforchy|bridge of orchy, bridgeofweir|Bridge
-            of Weir, bro dear orkney|ring of brodgar orkney, broschüre|brochure, cattle|cattle,
-          cattle|cows, caeraverock castle|Caerlaverock Castle, caingorms|cairngorms,
-          campbeltow|campbeltown, campeltown|campbeltown, cangoirns|cairngorms, casltes|castles,
-          clamis castle|Glamis Castle, clan mcdonald|Clan MacDonald, cliffrock|cliff
-            rock, colludon|Culloden, career|job, career|vacancies, destilary|distillery,
-          destilary tours|distillery tours, distllery|distillery, drumferline|Dunfermline,
-          dumferlin|dunfermline, dunde|Dundee, dunnotar|dunnottar castle, distribution
-            partner|distribution partner, distribution partner|travel trade, distribution
-            partner|TT, eberdeen|aberdeen, edinbrugh dungon|edinburgh dungeon, edinburgh
-            castel|edinburgh castle, edinburgh zo|edinburgh zoo, edinburghbcastle|edinburgh
-            castle, eileen donan|eilean donan castle, eileen dunan|eilean donan castle,
-          eiliindonovan|Eilean Donan Castle, eindburgerscotland|Edinburgh, eindenberg|Edinburgh,
-          estivals|festivals, eyemoyth|Eyemouth, fa;kirk wheel|falkirk wheel, finhorn|findhorn,
-          children|Kids, teenagers|Kids, fishibg|fishing, flak irk wheel|falkirk wheel,
-          flenfinnan monument|Glenfinnan Monument, fort sugustus|fort augustus, fort
-            williams|Fort William, fortwilliam|Fort William, fot william|Fort William,
-          ft. william|fort william, funblane|Dunblane, gareloch|gairloch, gin disti|gin
-            distillery, glams castle|glamis castle, glascow|Glasgow, glasgwo film
-            festival|glasgow film festival, gleen cloe|Glencoe, glen noe|glencoe,
-          glendiffich|glenfiddich, glenfinhannan|Glenfinnan, glenn coe|glencoe, gln
-            coe|Glencoe, gln navis|Glen Nevis, green tourism|green tourism, green
-            tourism|net zero, green tourism|responsible tourism, green tourism|sustainability,
-          green tourism|sustainable tourism, greta glen|Gretna, hausboat|houseboat,
-          highganlgames|Highland Games, higlandgames|highland games, hlamping|glamping,
-          hlasglow|Glasgow, holly rude|Holyrood, hollyrood|holyrood, hollyrood palace|Holyrood
-            Palace, htistmas|Christmas, innerverness|inverness, inveness|Inverness,
-          inver|Inverness, inverary|Inveraray, inveray castle|Inveraray Castle, isle
-            of aran|isle of arran, isle of aren|Isle of Arran, isle of sky|isle of
-            skye, isle of skye accomidation|isle of skye accommodation, iteneries|itineraries,
-          ivernerness|inverness, iverness|inverness, joan o goats|john o groats, job
-            vacnvies|job vacancies, kallander|Callander, kelvingrove srt gallery|kelvingrove
-            art gallery, kicardly|kirkcaldy, kirkcaldy|kirkcaldy, kirkaldy|Kirkcaldy,
-          kilmanarock|kilmarnock, kinkardn|kincardine, koch lommond|Loch Lomond, kolodin|Culloden,
-          ĺinlithgow palace|Linlithgow Palace, linthigow palace|linlithgow palace,
-          loc leven|loch leven, loc ness|Loch Ness, loch boisdale|Lochboisdale, lochgillpinhead|Lochgilphead,
-          lock mess|Loch Ness, log lamond|Loch Lomond, mappa orkady|mappa Orcadi,
-          naistpoint|Neist Point, national wallis memorial|national wallace monument,
-          ne250|north east 250, ñõrth çöäßt|North Coast 500, north cost 500|north
-            coast 500, northern|northern lights, okrney|Orkney, oo7|007, outer jebrides|Outer
-            Hebrides, outlanderdrehorte|outlander drehorte, pagpipes|bagpipes, personeagi
-            famosi|personaggi famosi, pet ffriendly|pet friendly, pilchory|Pitlochry,
-          pitemween|pittenweem, port of montieth|Port of Menteith, port patric|Portpatrick,
-          ring og brodgar|Ring of Brodgar, rosalyn chapel|Rosslyn Chapel, rosalyn
-            chaple|Rosslyn Chapel, roseland chapel|Rosslyn Chapel, roseline chappel|Rosslyn
-            Chapel, roslyn chapel|rosslyn chapel, scone pala|Scone Palace, scoot monument|scott
-            monument, skarae bra|skara brae, st. andrews golf coarse|St Andrews Golf
-            Course, st.andrew|St Andrews, starvrating|star rating, sterling castle|stirling
-            castle, striling catle|stirling castle, the quaraining|The Quiraing, thursoorcadi|Thurso
-            Orcadi, Tatoo|tattoo, urquart|urquhart, vacancices|vacancies, weindernere|windermere,
-          westhighlandway|West Highland Way, whiskey|whiskey, whiskey|whisky, windermere|windermere,
-          writters musseum|writers museum]
