@@ -129,6 +129,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGtmConfiguration(request);
         addLabels(request);
         addSiteSpecificConfiguration(request, pageConfig);
+        //TODO review labels for search once we have time to delete current bundles
         pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
     }
 

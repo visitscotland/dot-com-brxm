@@ -63,7 +63,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
      */
     @Override
     SearchWidgetModule map(DevModule document, PageCompositionHelper compositionHelper) throws PageCompositionException {
-        return createModule(document, compositionHelper.getLocale());
+        return createModule(document, compositionHelper.getLocale(), compositionHelper);
     }
 
     /**
@@ -77,7 +77,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
      * @param locale the locale used to resolve labels
      * @return populated {@link SearchWidgetModule}
      */
-    public SearchWidgetModule createModule(DevModule document, Locale locale) {
+    public SearchWidgetModule createModule(DevModule document, Locale locale, PageCompositionHelper compositionHelper) {
 
         SearchWidgetModule module = new SearchWidgetModule(document, document.getBespoken());
         ResourceBundle resourceBundle = bundle.getResourceBundle(document.getBespoken(), locale);
@@ -88,7 +88,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
 
         if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken())) {
             module.setMainCategory("events");
-            module.setSubcategories(bundle.getAllLabels(SEARCH_EVENTS_SUBCATEGORIES, locale));
+            compositionHelper.addAllLabelsSpecificName(SEARCH_EVENTS_SUBCATEGORIES, "search-events-filters");
 
             ObjectNode filters = mapper.createObjectNode();
             addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, locale);
