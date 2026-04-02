@@ -48,6 +48,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
 
+    private static final String MAIN_MAP_PATH = "main-map-path";
+
     private static final String SEARCH = "search";
     private static final String NAVIGATION_STATIC = "navigation.static";
     private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
@@ -122,8 +124,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addLabels(request);
         addSiteSpecificConfiguration(request, pageConfig);
     }
-
-
 
     /**
      * Adds Metadata about the application to the request
@@ -385,6 +385,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
 
         pageConfig.addProperty(SitePropertyKeys.FEATURE_HERO_SECTION, properties.getFeatureHeroSection());
+
+        if (!Contract.isEmpty(properties.getSiteMap())) {
+            request.setModel(MAIN_MAP_PATH, properties.getSiteMap());
+        }
 
         if (properties.isGlobalSearchEnabled()){
             cludoService.applyConfiguration(request, pageConfig);
