@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 9427bf34-b140-43d8-9cb6-72a8c533189c
   hippo:name: Static Texts
-  hippo:versionHistory: 29b5f2ed-c11c-4616-909e-809e022022ab
+  hippo:versionHistory: ea63fa1d-5e9f-4d27-9198-b124292f399a
   /static[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,7 +14,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-07-22T16:18:57.603+01:00
-    hippostdpubwf:lastModificationDate: 2026-04-01T16:09:29.273+01:00
+    hippostdpubwf:lastModificationDate: 2026-04-02T11:53:20.233+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '']
@@ -31,22 +31,30 @@
         menu, Map of Scotland]
     resourcebundle:messages_de: ['%s sehen', Finden Sie uns auf, Unsere Webseiten,
       '', VisitScotland. Alle Rechte vorbehalten., Sprache, Menü ein-/ausblenden,
-      Kontaktieren Sie uns, Besucherinformationen, VisitScotland Startseite, '', '',
-      '', '', '', '', '', '']
+      Kontaktieren Sie uns, Besucherinformationen, VisitScotland Startseite, '', Navigationsmenü
+        schließen, Hauptmenü, Navigationsmenü, Hauptnavigationsmenü, Hilfsmenü, Seitenleistenmenü,
+      Schottlandkarte]
     resourcebundle:messages_es: [Ver %s, Encuéntranos en, Nuestras páginas web, '',
       VisitScotland. Todos los derechos reservados., Idioma, Mostrar/Ocultar menú,
       Contacta con nosotros, Información para visitantes, Página web de VisitScotland,
-      '', '', '', '', '', '', '', '']
+      '', Cerrar el menú de navegación, Menú principal, Menú de navegación, Menú de
+        navegación principal, Menú de herramientas, Menú lateral de herramientas,
+      Mapa de Escocia]
     resourcebundle:messages_fr: ['%s', Rejoignez-nous sur, Nos sites web, '', VisitScotland.
         Tous droits réservés., Langue, Afficher/Masquer le menu, Nous contacter, Infos
-        visiteurs, VisitScotland Accueil, '', '', '', '', '', '', '', '']
+        visiteurs, VisitScotland Accueil, '', Fermer le menu de navigation, Menu principal,
+      Menu de navigation, Menu de navigation principal, Menu Outils, Menu Outils latéral,
+      Carte de l’Écosse]
     resourcebundle:messages_it: [Vedi %s, Trovaci su, I nostri siti web, '', VisitScotland.
         Tutti I diritti riservati., Lingua, Attiva/disattiva menu, Mettiti in contatto,
-      Informazioni per i visitatori, Pagina Iniziale di VisitScotland, '', '', '',
-      '', '', '', '', '']
+      Informazioni per i visitatori, Pagina Iniziale di VisitScotland, '', Chiudi
+        menu di navigazione, Menu principale, Menu di navigazione, Menu di navigazione
+        principale, Menu di servizio, Menu della barra laterale, Mappa della Scozia]
     resourcebundle:messages_nl: [Alle %s, Je vindt ons op, Onze websites, '', VisitScotland.
         Alle rechten voorbehouden, Taal, Menu uitvouwen, Neem contact met ons op,
-      Bezoekersinfo, VisitScotland Startpagina, '', '', '', '', '', '', '', '']
+      Bezoekersinfo, VisitScotland Startpagina, '', Navigatiemenu sluiten, Hoofdmenu,
+      Navigatiemenu, Hoofdnavigatiemenu, Hulpprogrammamenu, Zijbalkmenu, Kaart van
+        Schotland]
   /static[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -56,7 +64,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-07-22T16:18:57.603+01:00
-    hippostdpubwf:lastModificationDate: 2026-04-01T16:13:16.574+01:00
+    hippostdpubwf:lastModificationDate: 2026-04-02T11:56:03.166+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '']
@@ -73,22 +81,30 @@
         menu, Map of Scotland]
     resourcebundle:messages_de: ['%s sehen', Finden Sie uns auf, Unsere Webseiten,
       '', VisitScotland. Alle Rechte vorbehalten., Sprache, Menü ein-/ausblenden,
-      Kontaktieren Sie uns, Besucherinformationen, VisitScotland Startseite, '', '',
-      '', '', '', '', '', '']
+      Kontaktieren Sie uns, Besucherinformationen, VisitScotland Startseite, '', Navigationsmenü
+        schließen, Hauptmenü, Navigationsmenü, Hauptnavigationsmenü, Hilfsmenü, Seitenleistenmenü,
+      Schottlandkarte]
     resourcebundle:messages_es: [Ver %s, Encuéntranos en, Nuestras páginas web, '',
       VisitScotland. Todos los derechos reservados., Idioma, Mostrar/Ocultar menú,
       Contacta con nosotros, Información para visitantes, Página web de VisitScotland,
-      '', '', '', '', '', '', '', '']
+      '', Cerrar el menú de navegación, Menú principal, Menú de navegación, Menú de
+        navegación principal, Menú de herramientas, Menú lateral de herramientas,
+      Mapa de Escocia]
     resourcebundle:messages_fr: ['%s', Rejoignez-nous sur, Nos sites web, '', VisitScotland.
         Tous droits réservés., Langue, Afficher/Masquer le menu, Nous contacter, Infos
-        visiteurs, VisitScotland Accueil, '', '', '', '', '', '', '', '']
+        visiteurs, VisitScotland Accueil, '', Fermer le menu de navigation, Menu principal,
+      Menu de navigation, Menu de navigation principal, Menu Outils, Menu Outils latéral,
+      Carte de l’Écosse]
     resourcebundle:messages_it: [Vedi %s, Trovaci su, I nostri siti web, '', VisitScotland.
         Tutti I diritti riservati., Lingua, Attiva/disattiva menu, Mettiti in contatto,
-      Informazioni per i visitatori, Pagina Iniziale di VisitScotland, '', '', '',
-      '', '', '', '', '']
+      Informazioni per i visitatori, Pagina Iniziale di VisitScotland, '', Chiudi
+        menu di navigazione, Menu principale, Menu di navigazione, Menu di navigazione
+        principale, Menu di servizio, Menu della barra laterale, Mappa della Scozia]
     resourcebundle:messages_nl: [Alle %s, Je vindt ons op, Onze websites, '', VisitScotland.
         Alle rechten voorbehouden, Taal, Menu uitvouwen, Neem contact met ons op,
-      Bezoekersinfo, VisitScotland Startpagina, '', '', '', '', '', '', '', '']
+      Bezoekersinfo, VisitScotland Startpagina, '', Navigatiemenu sluiten, Hoofdmenu,
+      Navigatiemenu, Hoofdnavigatiemenu, Hulpprogrammamenu, Zijbalkmenu, Kaart van
+        Schotland]
   /static[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -98,9 +114,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-07-22T16:18:57.603+01:00
-    hippostdpubwf:lastModificationDate: 2026-04-01T16:13:16.574+01:00
+    hippostdpubwf:lastModificationDate: 2026-04-02T11:56:03.166+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-04-01T16:14:09.387+01:00
+    hippostdpubwf:publicationDate: 2026-04-02T11:56:07.741+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '']
     resourcebundle:id: navigation.static
@@ -116,19 +132,27 @@
         menu, Map of Scotland]
     resourcebundle:messages_de: ['%s sehen', Finden Sie uns auf, Unsere Webseiten,
       '', VisitScotland. Alle Rechte vorbehalten., Sprache, Menü ein-/ausblenden,
-      Kontaktieren Sie uns, Besucherinformationen, VisitScotland Startseite, '', '',
-      '', '', '', '', '', '']
+      Kontaktieren Sie uns, Besucherinformationen, VisitScotland Startseite, '', Navigationsmenü
+        schließen, Hauptmenü, Navigationsmenü, Hauptnavigationsmenü, Hilfsmenü, Seitenleistenmenü,
+      Schottlandkarte]
     resourcebundle:messages_es: [Ver %s, Encuéntranos en, Nuestras páginas web, '',
       VisitScotland. Todos los derechos reservados., Idioma, Mostrar/Ocultar menú,
       Contacta con nosotros, Información para visitantes, Página web de VisitScotland,
-      '', '', '', '', '', '', '', '']
+      '', Cerrar el menú de navegación, Menú principal, Menú de navegación, Menú de
+        navegación principal, Menú de herramientas, Menú lateral de herramientas,
+      Mapa de Escocia]
     resourcebundle:messages_fr: ['%s', Rejoignez-nous sur, Nos sites web, '', VisitScotland.
         Tous droits réservés., Langue, Afficher/Masquer le menu, Nous contacter, Infos
-        visiteurs, VisitScotland Accueil, '', '', '', '', '', '', '', '']
+        visiteurs, VisitScotland Accueil, '', Fermer le menu de navigation, Menu principal,
+      Menu de navigation, Menu de navigation principal, Menu Outils, Menu Outils latéral,
+      Carte de l’Écosse]
     resourcebundle:messages_it: [Vedi %s, Trovaci su, I nostri siti web, '', VisitScotland.
         Tutti I diritti riservati., Lingua, Attiva/disattiva menu, Mettiti in contatto,
-      Informazioni per i visitatori, Pagina Iniziale di VisitScotland, '', '', '',
-      '', '', '', '', '']
+      Informazioni per i visitatori, Pagina Iniziale di VisitScotland, '', Chiudi
+        menu di navigazione, Menu principale, Menu di navigazione, Menu di navigazione
+        principale, Menu di servizio, Menu della barra laterale, Mappa della Scozia]
     resourcebundle:messages_nl: [Alle %s, Je vindt ons op, Onze websites, '', VisitScotland.
         Alle rechten voorbehouden, Taal, Menu uitvouwen, Neem contact met ons op,
-      Bezoekersinfo, VisitScotland Startpagina, '', '', '', '', '', '', '', '']
+      Bezoekersinfo, VisitScotland Startpagina, '', Navigatiemenu sluiten, Hoofdmenu,
+      Navigatiemenu, Hoofdnavigatiemenu, Hulpprogrammamenu, Zijbalkmenu, Kaart van
+        Schotland]

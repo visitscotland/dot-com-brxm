@@ -128,9 +128,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGtmConfiguration(request);
         addLabels(request);
         addSiteSpecificConfiguration(request, pageConfig);
-        if (!Contract.isEmpty(properties.getSiteMap())) {
-            request.setModel(MAIN_MAP_PATH, properties.getSiteMap());
-        }
     }
 
     /**
@@ -395,6 +392,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
 
         pageConfig.addProperty(SitePropertyKeys.FEATURE_HERO_SECTION, properties.getFeatureHeroSection());
+
+        if (!Contract.isEmpty(properties.getSiteMap())) {
+            request.setModel(MAIN_MAP_PATH, properties.getSiteMap());
+        }
 
         if (properties.isGlobalSearchEnabled()){
            cludoService.applyConfiguration(request, pageConfig);
