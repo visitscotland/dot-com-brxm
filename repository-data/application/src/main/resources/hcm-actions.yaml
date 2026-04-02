@@ -144,3 +144,7 @@ action-lists:
 - 3.2.2:
     /content/documents/administration/options/bespoken-modules: reload
     /content/taxonomies: reload
+- 3.2.3:
+    /content/documents/administration/labels/navigation/static: reload
+- 3.2.3.1:
+    /content/documents/administration/labels/navigation/static: reload
