@@ -8,6 +8,7 @@ import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static com.visitscotland.brxm.components.content.PageContentComponent.LABELS;
 import static com.visitscotland.brxm.components.content.PageContentComponent.PAGE_CONFIGURATION;
@@ -95,6 +96,7 @@ public class PageCompositionHelper {
         }
 
         Map<String, String> resolvedLabels = new HashMap<>();
+
         for (Map.Entry<String, String> entry : valueList.entrySet()) {
             String value = entry.getValue();
             String label = bundle.getResourceBundle(bundleName, entry.getKey(), getLocale());
@@ -106,7 +108,17 @@ public class PageCompositionHelper {
             resolvedLabels.put(value, label);
         }
 
-        labels().put(nodeName, resolvedLabels);
+        Map<String, String> sorted = resolvedLabels.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue(String.CASE_INSENSITIVE_ORDER))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (a, b) -> a,
+                        LinkedHashMap::new
+                ));
+
+        labels().put(nodeName, sorted);
     }
 
     private Map<String, Object> pageConfiguration() {

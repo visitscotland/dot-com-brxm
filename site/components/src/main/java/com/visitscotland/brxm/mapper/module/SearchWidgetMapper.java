@@ -25,6 +25,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
     private static final String SEARCH_CATEGORIES = "main-category-filters";
     private static final String SEARCH_WIDGET_EVENTS = "search-widget-events";
     private static final String SEARCH_EVENTS_SUBCATEGORIES = "search-events-subcategories";
+    private static final String SEARCH_EVENTS_FILTERS_VALUE_LIST = "vs-events-filters";
     private static final String SEARCH_EVENTS_FILTERS_DATES = "search-events-dates";
     private static final String SEARCH_EVENTS_FILTERS_LOCATIONS = "search-events-locations";
 
@@ -89,14 +90,15 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
         if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken())) {
             module.setMainCategory("events");
             //TODO review addAllLabelsSpecificName and move to Cludoservice if possible
-            compositionHelper.addAllLabelsSpecificName(SEARCH_EVENTS_SUBCATEGORIES, "search-events-filters");
+            compositionHelper.addValueListLabels(SEARCH_EVENTS_SUBCATEGORIES, hippoUtilsService.getValueMap(SEARCH_EVENTS_FILTERS_VALUE_LIST), "search-events-filters");
+
 
             ObjectNode filters = mapper.createObjectNode();
             addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, locale);
             module.setFilters(addFilterJson("vs-events-filters-locations","postcodeareas", SEARCH_EVENTS_FILTERS_LOCATIONS, filters, locale));
         } else {
             module.setCategories(bundle.getAllLabels(SEARCH_CATEGORIES, locale));
-            /*  TODO if (isSearchResultsPage) then we need to load the event fiters:
+            /*  TODO if (isSearchResultsPage) then we need to load the event filters:
             compositionHelper.addAllLabelsSpecificName(SEARCH_EVENTS_SUBCATEGORIES, "search-events-filters");
 
             ObjectNode filters = mapper.createObjectNode();

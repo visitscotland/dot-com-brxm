@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.model.SearchWidgetModule;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,6 +41,9 @@ class SearchWidgetMapperTest {
     @Mock
     private ResourceBundle resourceBundle;
 
+    @Mock
+    private PageCompositionHelper compositionHelper;
+
     private final Locale locale = Locale.UK;
 
     @BeforeEach
@@ -62,7 +66,7 @@ class SearchWidgetMapperTest {
         Map<String, String> categories = Map.of("cat1", "Category 1");
         when(bundle.getAllLabels("main-category-filters", locale)).thenReturn(categories);
 
-        SearchWidgetModule result = mapper.createModule(document, locale);
+        SearchWidgetModule result = mapper.createModule(document, locale, compositionHelper);
 
         assertNotNull(result);
         assertEquals("Title", result.getTitle());
@@ -94,7 +98,7 @@ class SearchWidgetMapperTest {
         when(bundle.getResourceBundle(anyString(), anyString(), eq(locale)))
                 .thenReturn("Label");
 
-        SearchWidgetModule result = mapper.createModule(document, locale);
+        SearchWidgetModule result = mapper.createModule(document, locale, compositionHelper);
 
         assertNotNull(result);
         assertEquals("events", result.getMainCategory());
