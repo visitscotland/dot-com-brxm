@@ -1,0 +1,70 @@
+/content/documents/administration/labels/global/favourites-button:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: b4942a9e-fc80-4fff-b3aa-fa178ead5b12
+  hippo:name: Favourites Button
+  hippo:versionHistory: ad0e7d2b-3c6b-407b-ac2f-3a2edb9a7be8
+  /favourites-button[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: bb2dc184-c27c-4ad8-a895-e2e6417bc5e6
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
+    hippostdpubwf:lastModificationDate: 2026-03-31T13:19:21.130+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: favourites-button
+    resourcebundle:keys: [button.add.text, button.remove.text]
+    resourcebundle:messages: [Add to your Favourites, Remove from your Favourites]
+    resourcebundle:messages_de: [Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten
+        entfernen]
+    resourcebundle:messages_es: [Añadir a tus Favoritos, Eliminar de tus Favoritos]
+    resourcebundle:messages_fr: [Ajouter à mes Favoris, Supprimer de mes Favoris]
+    resourcebundle:messages_it: [Aggiungi ai Preferiti, Rimuovi dai Preferiti]
+    resourcebundle:messages_nl: [Aan je Favorieten toevoegen, Verwijderen van je Favorieten]
+  /favourites-button[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 9b305b1b-512e-41e7-b566-feece2f938c5
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
+    hippostdpubwf:lastModificationDate: 2026-03-31T12:26:41.401+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: favourites-button
+    resourcebundle:keys: [button.add.text, button.remove.text]
+    resourcebundle:messages: [Add to your Favourites, Remove from your Favourites]
+    resourcebundle:messages_de: [Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten
+        entfernen]
+    resourcebundle:messages_es: [Añadir a tus Favoritos, Eliminar de tus Favoritos]
+    resourcebundle:messages_fr: [Ajouter à mes Favoris, Supprimer de mes Favoris]
+    resourcebundle:messages_it: [Aggiungi ai Preferiti, Rimuovi dai Preferiti]
+    resourcebundle:messages_nl: [Aan je Favorieten toevoegen, Verwijderen van je Favorieten]
+  /favourites-button[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 1dc5540f-f0aa-4e3e-abee-65582093640f
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
+    hippostdpubwf:lastModificationDate: 2026-03-31T13:19:21.130+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-03-31T13:21:09.242+01:00
+    resourcebundle:descriptions: ['', '']
+    resourcebundle:id: favourites-button
+    resourcebundle:keys: [button.add.text, button.remove.text]
+    resourcebundle:messages: [Add to your Favourites, Remove from your Favourites]
+    resourcebundle:messages_de: [Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten
+        entfernen]
+    resourcebundle:messages_es: [Añadir a tus Favoritos, Eliminar de tus Favoritos]
+    resourcebundle:messages_fr: [Ajouter à mes Favoris, Supprimer de mes Favoris]
+    resourcebundle:messages_it: [Aggiungi ai Preferiti, Rimuovi dai Preferiti]
+    resourcebundle:messages_nl: [Aan je Favorieten toevoegen, Verwijderen van je Favorieten]

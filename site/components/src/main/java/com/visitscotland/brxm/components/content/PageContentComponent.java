@@ -1,12 +1,15 @@
 package com.visitscotland.brxm.components.content;
 
+import com.visitscotland.brxm.components.content.service.CludoService;
+import com.visitscotland.brxm.components.content.service.FavouritesService;
 import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.factory.*;
+import com.visitscotland.brxm.factory.BlogFactory;
+import com.visitscotland.brxm.factory.NewsletterFactory;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.mapper.ImageMapper;
-import com.visitscotland.brxm.mapper.module.MegalinkMapper;
 import com.visitscotland.brxm.mapper.PreviewWarningMapper;
+import com.visitscotland.brxm.mapper.module.MegalinkMapper;
 import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
@@ -28,18 +31,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
-
 public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
-
-    /* Should we use Content Logger instead of Freemarker?
-     *
-     * TODO: Verify usage of this logger and decide what to do with this
-     *
-     * Note: This freemarker logger is not available to SPA SDK
-     */
-    private final Logger freemarkerLogger = LoggerFactory.getLogger("freemarker");
 
     //Resource Bundle
     private static final String SOCIAL_SHARE_BUNDLE = "social.share";
@@ -87,6 +81,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final SiteProperties properties;
     private final Logger contentLogger;
     private final CludoService cludoService;
+    private final FavouritesService favouritesService;
 
     private final MetadataFactory metadata;
 
@@ -102,6 +97,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         bundle = VsComponentManager.get(ResourceBundleService.class);
         metadata = VsComponentManager.get(MetadataFactory.class);
         cludoService = VsComponentManager.get(CludoService.class);
+        favouritesService = VsComponentManager.get(FavouritesService.class);
     }
 
     ResourceBundleService getBundle() {
@@ -123,7 +119,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         addOTYML(request);
         addNewsletterSignup(request);
-        addLogging(request);
         addBlog(request);
         addGtmConfiguration(request);
         addLabels(request);
@@ -184,8 +179,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     protected void addSiteSpecificLabels(HstRequest request, String bundleId) {
         labels(request).put(bundleId, bundle.getSiteSpecificLabels(bundleId, request.getLocale()));
     }
-
-
 
     /**
      * Include GTM Configuration to the {@link HstRequest}
@@ -344,15 +337,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     /**
-     * Adds the logging object to the request.
-     *
-     * @param request HstRequest
-     */
-    public void addLogging(HstRequest request) {
-        request.setModel("Logger", freemarkerLogger);
-    }
-
-    /**
      * Return the document from the request
      *
      * @param request HstRequest
@@ -382,11 +366,20 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
+
+
+
+
     /**
      * Add Configuration specific to the VisitScotland.com or businessevents site
      * @param request HSt request
      */
     private void addSiteSpecificConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
+
+        if (properties.isFavouritesEnabled(request.getLocale())){
+            favouritesService.applyConfiguration(request, pageConfig);
+        }
+
         if (properties.isTableOfContentsEnabled()){
             addAllLabels(request, TABLE_CONTENTS_BUNDLE);
         }
@@ -398,13 +391,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
 
         if (properties.isGlobalSearchEnabled()){
-           cludoService.applyConfiguration(request, pageConfig);
+            cludoService.applyConfiguration(request, pageConfig);
         }
     }
 
     boolean isEditMode(HstRequest request) {
         return Boolean.TRUE.equals(request.getAttribute(EDIT_MODE));
     }
-
 }
 

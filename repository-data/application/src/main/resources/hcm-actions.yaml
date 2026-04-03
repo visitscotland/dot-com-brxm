@@ -146,5 +146,7 @@ action-lists:
     /content/taxonomies: reload
 - 3.2.3:
     /content/documents/administration/labels/navigation/static: reload
-- 3.2.3.1:
-    /content/documents/administration/labels/navigation/static: reload
+    /content/documents/administration/options/bespoken-modules: reload
+    /content/documents/administration/configuration/default-site-properties: reload
+    /content/documents/administration/configuration/local-feature---visitscotland.com: reload
+    /content/documents/administration/labels/pages/favourites: reload
