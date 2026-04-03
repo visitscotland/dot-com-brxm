@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.favourites;
+package com.visitscotland.brxm.favourites.dto;
 
 import java.util.List;
 

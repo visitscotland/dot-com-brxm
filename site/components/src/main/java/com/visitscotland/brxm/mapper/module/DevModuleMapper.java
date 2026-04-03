@@ -28,10 +28,8 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
     private static final String SEARCH_WIDGET = "search-widget";
     private static final String SEARCH_WIDGET_EVENTS = "search-widget-events";
     private static final String FAVOURITES_LIST = "favourites-list";
-    private static final String API = "api";
     private static final String FAVOURITES = "favourites";
     private static final String FORMS_BUNDLE = "forms";
-    private static final String FAVOURITES_API = "/site/api/favourites";
     private static final String IS_FAVOURITES_PAGE = "is-favourites-page";
     private static final String FAVOURITES_SITE_ENDPOINT = "feature.favourites.endpoint";
 
@@ -72,8 +70,6 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
             } else if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken()) || SEARCH_WIDGET.equals(document.getBespoken())  ) {
                 return searchWidgetMapper.map(document,compositionHelper);
             } else if (FAVOURITES_LIST.equals(document.getBespoken())) {
-                //TODO This property should be removed
-                compositionHelper.addProperty(API, FAVOURITES_API);
                 compositionHelper.addProperty(FAVOURITES_SITE_ENDPOINT, properties.getFavouritesEndpoint());
                 compositionHelper.addProperty(IS_FAVOURITES_PAGE, true);
                 compositionHelper.addAllSiteLabels(FAVOURITES);
