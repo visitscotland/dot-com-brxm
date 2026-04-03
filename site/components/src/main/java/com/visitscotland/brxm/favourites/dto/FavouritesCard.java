@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.model.favourites;
+package com.visitscotland.brxm.favourites.dto;
 
 
 /**

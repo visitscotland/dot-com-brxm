@@ -2,7 +2,7 @@ package com.visitscotland.brxm.favourites;
 
 import com.visitscotland.brxm.components.content.service.FavouritesService;
 import com.visitscotland.brxm.hippobeans.Page;
-import com.visitscotland.brxm.model.favourites.FavouritesCard;
+import com.visitscotland.brxm.favourites.dto.FavouritesCard;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.springframework.stereotype.Component;

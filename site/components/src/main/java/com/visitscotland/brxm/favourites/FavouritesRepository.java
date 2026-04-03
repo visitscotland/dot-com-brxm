@@ -1,6 +1,8 @@
 package com.visitscotland.brxm.favourites;
 
-import com.visitscotland.brxm.model.favourites.FavouritesCard;
+import com.visitscotland.brxm.favourites.dto.FavouritesResponse;
+import com.visitscotland.brxm.favourites.dto.FavouritesRequest;
+import com.visitscotland.brxm.favourites.dto.FavouritesCard;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.slf4j.Logger;
@@ -33,10 +35,10 @@ public class FavouritesRepository {
     /**
      * get page info by uuid
      */
-    public FavouritesCardResponse getFavouritesCards(final FavouritesRequest favouritesRequest) {
+    public FavouritesResponse getFavouritesCards(final FavouritesRequest favouritesRequest) {
         List<FavouritesCard> cards = new ArrayList<>();
         List<String> failedUuids = new ArrayList<>();
-        FavouritesCardResponse response = new FavouritesCardResponse();
+        FavouritesResponse response = new FavouritesResponse();
 
         if (favouritesRequest == null || favouritesRequest.getUuids() == null) {
             logger.warn("FavouritesRequest or its UUID list cannot be null.");

@@ -1,5 +1,7 @@
 package com.visitscotland.brxm.favourites;
 
+import com.visitscotland.brxm.favourites.dto.FavouritesResponse;
+import com.visitscotland.brxm.favourites.dto.FavouritesRequest;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.jaxrs.services.AbstractResource;
 import org.slf4j.Logger;
@@ -54,7 +56,7 @@ public class FavouritesRestService extends AbstractResource {
                                   final String locale, final FavouritesRequest favouritesRequest) {
 
         try {
-            FavouritesCardResponse response = favouritesRepository.getFavouritesCards(favouritesRequest);
+            FavouritesResponse response = favouritesRepository.getFavouritesCards(favouritesRequest);
             if (response != null) {
                 return Response.ok().entity(response).build();
             } else {
