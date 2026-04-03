@@ -407,6 +407,7 @@ public class HippoUtilsService {
     public HippoBean getContentByUuid(final String uuid) {
 
         try {
+            // TODO: Null Checking
             final ObjectBeanManager objectBeanManager = RequestContextProvider.get().getObjectBeanManager();
             if (uuid != null) {
                 HippoBean bean = (HippoBean) objectBeanManager.getObjectByUuid(uuid);
