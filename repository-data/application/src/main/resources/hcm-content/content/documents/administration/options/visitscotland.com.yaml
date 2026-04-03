@@ -1,0 +1,7 @@
+/content/documents/administration/options/visitscotland.com:
+  .meta:order-before: transports
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 22655938-13be-4b97-81e9-cf360b0581d1
+  hippo:name: VisitScotland.com
+  hippostd:foldertype: [new-untranslated-folder-value-list, new-value-list]

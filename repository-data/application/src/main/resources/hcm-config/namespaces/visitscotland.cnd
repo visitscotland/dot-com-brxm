@@ -24,10 +24,16 @@
 [visitscotland:ArticleSection] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:ArticleStyled] > hippostd:relaxed, hippotranslation:translated, visitscotland:Article
+  orderable
+
 [visitscotland:ArticleStyledBSH] > hippostd:relaxed, hippotranslation:translated, visitscotland:Article
   orderable
 
 [visitscotland:ArticleStyledSection] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:ArticleStyledSectionCOM] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:Asset] > hippo:compound, hippostd:relaxed
