@@ -2,19 +2,15 @@ package com.visitscotland.brxm.favourites;
 
 import com.visitscotland.brxm.favourites.dto.FavouritesResponse;
 import com.visitscotland.brxm.favourites.dto.FavouritesRequest;
-import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.jaxrs.services.AbstractResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -42,8 +38,6 @@ public class FavouritesRestService extends AbstractResource {
 
     /**
      * Endpoint to return favourites cards based on UUIDs sent
-     * @param request
-     * @param locale
      * @param favouritesRequest
      * @return
      */
@@ -51,9 +45,7 @@ public class FavouritesRestService extends AbstractResource {
     @Path("/get-favourites")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getFavouritesPostReq(@Context final HstRequest request,
-                                  @DefaultValue("hst:root") @QueryParam("channel")
-                                  final String locale, final FavouritesRequest favouritesRequest) {
+    public Response getFavourites(final FavouritesRequest favouritesRequest) {
 
         try {
             FavouritesResponse response = favouritesRepository.getFavouritesCards(favouritesRequest);
