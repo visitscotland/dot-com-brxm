@@ -148,3 +148,5 @@ action-lists:
     /content/documents/administration/labels/navigation/static: reload
 - 3.2.3.1:
     /content/documents/administration/labels/navigation/static: reload
+- 3.2.4:
+    /content/taxonomies: reload
