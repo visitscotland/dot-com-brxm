@@ -22,6 +22,7 @@ definitions:
             hst:pagemodelapi: resourceapi
             hst:responseheaders: ['Access-Control-Allow-Origin: *']
             visitscotland:siteProperties: vs.site.config
+            visitscotland:cmsProperties: cms.local.config
             /es-es:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
@@ -29,6 +30,8 @@ definitions:
               hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-es
               hst:pagemodelapi: resourceapi
               hst:responseheaders: ['Access-Control-Allow-Origin: *']
+              visitscotland:cmsProperties: cms.local.config
+              visitscotland:siteProperties: vs.site.config
             /de-de:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
@@ -36,6 +39,9 @@ definitions:
               hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-de
               hst:pagemodelapi: resourceapi
               hst:responseheaders: ['Access-Control-Allow-Origin: *']
+              jcr:mixinTypes: ['visitscotland:hosts']
+              visitscotland:cmsProperties: cms.local.config
+              visitscotland:siteProperties: vs.site.config
             /it-it:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
@@ -43,6 +49,8 @@ definitions:
               hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-it
               hst:pagemodelapi: resourceapi
               hst:responseheaders: ['Access-Control-Allow-Origin: *']
+              visitscotland:cmsProperties: cms.local.config
+              visitscotland:siteProperties: vs.site.config
             /fr-fr:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
@@ -50,6 +58,8 @@ definitions:
               hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-fr
               hst:pagemodelapi: resourceapi
               hst:responseheaders: ['Access-Control-Allow-Origin: *']
+              visitscotland:cmsProperties: cms.local.config
+              visitscotland:siteProperties: vs.site.config
             /nl-nl:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
@@ -57,6 +67,8 @@ definitions:
               hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-nl
               hst:pagemodelapi: resourceapi
               hst:responseheaders: ['Access-Control-Allow-Origin: *']
+              visitscotland:cmsProperties: cms.local.config
+              visitscotland:siteProperties: vs.site.config
             /api:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount

@@ -4,12 +4,11 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.ListicleFactory;
 import com.visitscotland.brxm.hippobeans.Listicle;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Locale;
 
 public class ListicleContentComponent extends PageContentComponent<Listicle> {
 
@@ -18,11 +17,11 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
     public static final String LISTICLE_ITEMS = "items";
     private static final String BUNDLE_ID = "listicle";
 
+
     private ListicleFactory factory;
 
     public ListicleContentComponent(){
         logger.debug("ListicleContentComponent initialized");
-
         factory = VsComponentManager.get(ListicleFactory.class);
     }
 
@@ -34,13 +33,8 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
 
         super.doBeforeRender(request, response, pageConfig);
 
-        addLabels(request);
-
+        pageConfig.addAllSiteLabels(BUNDLE_ID);
         request.setModel(LISTICLE_ITEMS, factory.generateItems(request.getLocale(), getDocument(request)));
-    }
-
-    private void addLabels(HstRequest request){
-        addAllLabels(request, BUNDLE_ID);
     }
 
 }

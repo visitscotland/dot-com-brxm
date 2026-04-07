@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.components.content;
+package com.visitscotland.brxm.components.content.service;
 
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.utils.SiteProperties;

@@ -1091,9 +1091,10 @@
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
+      hippostd:transferable: false
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-20T12:08:24.002Z
+      hippostdpubwf:lastModificationDate: 2026-03-20T12:20:17.866Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -1627,7 +1628,7 @@
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo']
     hippo:name: Visitscotland-events
-    hippo:versionHistory: 6ba659c3-a416-432c-bb13-8e55d6b42433
+    hippo:versionHistory: c88e7e36-e1ab-4ca4-abfc-943c6c483fa9
     /events[1]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
@@ -1640,7 +1641,7 @@
       hippostdpubwf:creationDate: 2024-08-29T13:12:50.741+01:00
       hippostdpubwf:lastModificationDate: 2026-03-19T16:43:12.269Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-03-20T09:11:58.025Z
+      hippostdpubwf:publicationDate: 2026-03-20T12:23:07.011Z
       hippotaxonomy:defaultLocale: en
       hippotaxonomy:locales: [en, de, es, fr, it, nl]
       /category-groups:
@@ -2311,19 +2312,18 @@
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
       jcr:uuid: d384789f-51cf-4b9c-8718-7ddb777a51bb
       hippo:availability: []
-      hippostd:holder: admin
       hippostd:retainable: false
       hippostd:state: draft
+      hippostd:transferable: false
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-08-29T13:12:50.741+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-20T11:33:21.255Z
+      hippostdpubwf:lastModificationDate: 2026-03-20T12:33:17.632Z
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:defaultLocale: en
       hippotaxonomy:locales: [en, de, es, fr, it, nl]
       /category-groups:
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: category-groups
-        locale.de.name: Category groups
         locale.en.description: "Taxonomies ending with Ev are defined by the marketing\
           \ team and should be used for marketing purposes.\r\n\r\nNodes ending with\
           \ group are collections of subcategories of events and are used to organize\
@@ -2334,7 +2334,6 @@
           \ are visible for the user so labels matching these ids with tranlations\
           \ are needed"
         locale.en.name: Category groups
-        locale.es.name: Category groups
         /familyEv:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: familyEv
@@ -2452,14 +2451,9 @@
         /dancegroup:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: dancegroup
-          locale.de.name: dancegroup
           locale.en.name: dancegroup
           locale.en.synonyms: [Ballet, Ceilidh, Contemporary, Dance, International,
             Modern]
-          locale.es.name: dancegroup
-          locale.fr.name: dancegroup
-          locale.it.name: dancegroup
-          locale.nl.name: dancegroup
         /daysoutgroup:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: daysoutgroup

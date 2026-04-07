@@ -184,7 +184,7 @@ public class DocumentUtilsService {
         // in availableTranslations will not be placed in the sortedTranslations list
         if (sortedTranslations.size() != availableTranslations.size()) {
             contentLog.warn("Failed to order translations as property channel.seo.alternate-link-locale-orders is set incorrectly");
-            return (List<B>)availableTranslations;
+            return (List<B>) availableTranslations;
         }
         return sortedTranslations;
     }

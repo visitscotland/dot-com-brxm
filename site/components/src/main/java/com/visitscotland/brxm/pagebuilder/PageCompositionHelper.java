@@ -69,8 +69,28 @@ public class PageCompositionHelper {
                 .put(key, bundle.getResourceBundle(GLOBAL_BUNDLE_FILE, key, getLocale()));
     }
 
+    /**
+     * Add all the labels related to a Resource Bundle file from the CMS
+     *
+     * @param bundleName the name of the resource bundle to process
+     */
     public void addAllSiteLabels(String bundleName) {
         labels().put(bundleName, bundle.getAllLabels(bundleName, getLocale()));
+    }
+
+    /**
+     * Adds only the keys and values explicitly defined by the site, without falling back to the default version.
+     *
+     * <p>In contrast, {@code addAllSiteLabels} reads keys from the default version and values from the site.
+     * If a value does not exist for a key, it falls back to the default version, ensuring a text is always available.
+     *
+     * <p>In some edge cases (such as social channels), the absence of a specific label indicates it is not applicable
+     * to the site, so the fallback value must not be used.
+     *
+     * @param bundleName the name of the resource bundle to process
+     */
+    public void addSiteSpecificLabels(String bundleName) {
+        labels().put(bundleName, bundle.getSiteSpecificLabels(bundleName, getLocale()));
     }
 
     private Map<String, Map<String, String>> labels() {
