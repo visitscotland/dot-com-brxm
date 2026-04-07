@@ -59,7 +59,7 @@ public class FavouritesRepository {
                     final FavouritesCard card = favouritesCardMapper.getFavouritesCard(page);
                     cards.add(card);
                 } catch (FavouritesException e) {
-                    logger.info("Unable to get favourites card content for UUID {}: {}}", uuid, e.getMessage());
+                    logger.info("Unable to get favourites card content for UUID {}: {}", uuid, e.getMessage());
                     failedUuids.add(uuid);
                 }
             } else {
