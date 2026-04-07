@@ -128,7 +128,7 @@ public class HippoUtilsService {
 
         if (document instanceof HippoDocument){
             Locale locale = ((HippoDocument) document).getLocale();
-            mount = new HippoUtilsService().getMountForLocale(locale);
+            mount = getMountForLocale(locale).orElse(context.getResolvedMount().getMount());
         } else {
             mount = context.getResolvedMount().getMount();
         }
@@ -265,18 +265,30 @@ public class HippoUtilsService {
      *
      * @param locale the locale for which to find the mount
      * @return the Mount object for the given locale
+     *
      */
     @NonTestable(NonTestable.Cause.BRIDGE)
-    public Mount getMountForLocale(Locale locale) {
-        //TODO: Do proper null handling
-        final HstRequestContext context = RequestContextProvider.get();
+    public Optional<Mount> getMountForLocale(Locale locale) {
 
-        String mountPath = Language.getLanguageForLocale(locale).getCmsMount();
+        if (locale != null) {
+            logger.warn("The locale has not been provided to get the mount for the request");
+        } else if (RequestContextProvider.get() == null) {
+            logger.warn("The RequestContextProvider has not been initialized");
+        } else {
+            HstRequestContext context = RequestContextProvider.get();
+            String mountPath = Language.getLanguageForLocale(locale).getCmsMount();
+            ResolvedVirtualHost resolvedVirtualHost = (ResolvedVirtualHost) context.getServletRequest()
+                    .getAttribute(ContainerConstants.VIRTUALHOSTS_REQUEST_ATTR);
 
-        ResolvedVirtualHost resolvedVirtualHost = (ResolvedVirtualHost) context.getServletRequest()
-                .getAttribute(ContainerConstants.VIRTUALHOSTS_REQUEST_ATTR);
+            if (resolvedVirtualHost == null) {
+                logger.warn("ResolvedVirtualHost is not present on the context",
+                        new IllegalStateException("ResolvedVirtualHost is not present on the context"));
+            } else {
+                return Optional.of(resolvedVirtualHost.matchMount(mountPath).getMount());
+            }
+        }
 
-        return  (resolvedVirtualHost.matchMount(mountPath)).getMount();
+        return Optional.empty();
     }
 
     /**
@@ -424,3 +436,5 @@ public class HippoUtilsService {
     }
 
 }
+
+
