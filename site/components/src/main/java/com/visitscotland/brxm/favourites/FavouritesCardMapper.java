@@ -76,7 +76,7 @@ public class FavouritesCardMapper {
         if (url == null) {
             throw new FavouritesException(String.format("Failed to get URL for document: %s", document.getPath()));
         } else if (url.endsWith("/content")){
-            return url.substring(0, url.length()-8-1);
+            return url.substring(0, url.length()-8);
         }
 
 //        if (isPageUrl) {
