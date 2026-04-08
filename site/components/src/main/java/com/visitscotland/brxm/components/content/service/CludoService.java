@@ -35,9 +35,10 @@ public class CludoService {
     }
 
     public void applyConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
+        //This property is still used for bsh and be to apply search configuration to all pages.
+        //TODO: Rename this property. It is misleading
         if (properties.isGlobalSearchDmsBased()) {
-            //This property is still used for bsh and be to apply search configuration to all pages.
-            //TODO: Rename this property. It is misleading
+            //TODO: The following property is not in use for the front-end. Remove
             pageConfig.addProperty("dms-based", true);
             getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("global-search.path", v));
             setGeneralCludoConfiguration(pageConfig);
