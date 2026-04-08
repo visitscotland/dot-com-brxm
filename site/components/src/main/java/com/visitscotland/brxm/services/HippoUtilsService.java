@@ -128,7 +128,10 @@ public class HippoUtilsService {
 
         if (document instanceof HippoDocument){
             Locale locale = ((HippoDocument) document).getLocale();
-            mount = getMountForLocale(locale).orElse(context.getResolvedMount().getMount());
+            mount = getMountForLocale(locale).orElseGet(() -> {
+                logger.warn("No mount found for locale {}. Falling back to request mount.", locale);
+                return context.getResolvedMount().getMount();
+            });
         } else {
             mount = context.getResolvedMount().getMount();
         }
@@ -270,7 +273,7 @@ public class HippoUtilsService {
     @NonTestable(NonTestable.Cause.BRIDGE)
     public Optional<Mount> getMountForLocale(Locale locale) {
 
-        if (locale != null) {
+        if (locale == null) {
             logger.warn("The locale has not been provided to get the mount for the request");
         } else if (RequestContextProvider.get() == null) {
             logger.warn("The RequestContextProvider has not been initialized");
