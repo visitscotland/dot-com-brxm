@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ea5611a6-5160-4713-86e9-52334587567c
   hippo:name: Default - Site Properties
-  hippo:versionHistory: 5c752017-8ee9-48ef-a501-86ccb9d9c5a0
+  hippo:versionHistory: f728f960-aa9b-4db8-b396-3e77f9849b60
   /default-site-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-02-17T16:31:48.930Z
+    hippostdpubwf:lastModificationDate: 2026-03-20T11:09:40.567Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -32,10 +32,11 @@
         Script required for the form to work, '', '', '', '', This property is used
         to set up the Cludo Chatbox functionality, This property is used to set up
         the Cludo Chatbox functionality and for the Site Search Results, This property
-        is used to set up the Cludo Chatbox functionality, '', '', '', '', '', '',
-      '', '', Endpoint for the Events service., This property switches between the
-        DMS‑based search and the Google‑based search., Show or hide the Product Search
-        widget for the homepage, "values in lowercase:\r\nor\r\nand"]
+        is used to set up the Cludo Chatbox functionality, Show or hide the Product
+        Search widget for the entire site, '', '', '', '', '', '', '', '', Endpoint
+        for the Events service., This property switches between the DMS‑based search
+        and the Google‑based search., Show or hide the Product Search widget for the
+        homepage, "values in lowercase:\r\nor\r\nand", '', '', '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -45,10 +46,11 @@
       form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
       form.marketo.scripts, form.marketo.script, links.download.extensions, events-listings.page-size,
       form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.engine-id,
-      cludo.experience-id, feature.table-of-contents.enable, feature.global-search.enable,
-      form.breg.legal-basis.text, site.path.icentre-landing, site-id, google-maps.api-key,
-      site.path.map, feature.hero-section.enable, feature.global-search.events-endpoint,
-      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic]
+      cludo.experience-id, feature.products-search.enable, feature.table-of-contents.enable,
+      feature.global-search.enable, form.breg.legal-basis.text, site.path.icentre-landing,
+      site-id, google-maps.api-key, site.path.map, feature.hero-section.enable, feature.global-search.events-endpoint,
+      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic,
+      feature.favourites.enable, feature.favourites.url, feature.favourites.endpoint]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, 'en,fr,de,nl,it,es', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
@@ -57,25 +59,25 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '623', '14069', abba43e006424824befb855918e2b9db, 'true', 'true', Consent, /test/examples/icentres/content,
-      vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, /test/examples/map-examples, 'true',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and]
+      '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', 'true', Consent,
+      /test/examples/icentres/content, vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E,
+      /test/examples/map-examples, 'true', 'https://api.visitscotland.com/dev/data/products/events/search',
+      'false', 'true', and, 'false', '', '']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-site-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -85,7 +87,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-02-17T16:31:33.993Z
+    hippostdpubwf:lastModificationDate: 2026-03-20T10:51:00.430Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -103,10 +105,11 @@
         Script required for the form to work, '', '', '', '', This property is used
         to set up the Cludo Chatbox functionality, This property is used to set up
         the Cludo Chatbox functionality and for the Site Search Results, This property
-        is used to set up the Cludo Chatbox functionality, '', '', '', '', '', '',
-      '', '', Endpoint for the Events service., This property switches between the
-        DMS‑based search and the Google‑based search., Show or hide the Product Search
-        widget for the homepage, "values in lowercase:\r\nor\r\nand"]
+        is used to set up the Cludo Chatbox functionality, Show or hide the Product
+        Search widget for the entire site, '', '', '', '', '', '', '', '', Endpoint
+        for the Events service., This property switches between the DMS‑based search
+        and the Google‑based search., Show or hide the Product Search widget for the
+        homepage, "values in lowercase:\r\nor\r\nand", '', '', '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -116,10 +119,11 @@
       form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
       form.marketo.scripts, form.marketo.script, links.download.extensions, events-listings.page-size,
       form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.engine-id,
-      cludo.experience-id, feature.table-of-contents.enable, feature.global-search.enable,
-      form.breg.legal-basis.text, site.path.icentre-landing, site-id, google-maps.api-key,
-      site.path.map, feature.hero-section.enable, feature.global-search.events-endpoint,
-      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic]
+      cludo.experience-id, feature.products-search.enable, feature.table-of-contents.enable,
+      feature.global-search.enable, form.breg.legal-basis.text, site.path.icentre-landing,
+      site-id, google-maps.api-key, site.path.map, feature.hero-section.enable, feature.global-search.events-endpoint,
+      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic,
+      feature.favourites.enable, feature.favourites.url, feature.favourites.endpoint]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, 'en,fr,de,nl,it,es', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
@@ -128,25 +132,25 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '623', '14069', abba43e006424824befb855918e2b9db, 'true', 'true', Consent, /test/examples/icentres/content,
-      vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, /test/examples/map-examples, 'true',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and]
+      '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', 'true', Consent,
+      /test/examples/icentres/content, vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E,
+      /test/examples/map-examples, 'true', 'https://api.visitscotland.com/dev/data/products/events/search',
+      'false', 'true', and, 'false', '', '']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
   /default-site-properties[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -156,9 +160,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-02-17T16:31:48.930Z
+    hippostdpubwf:lastModificationDate: 2026-03-20T11:09:40.567Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-02-17T16:31:53.271Z
+    hippostdpubwf:publicationDate: 2026-03-20T11:09:52.623Z
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -175,10 +179,11 @@
         Script required for the form to work, '', '', '', '', This property is used
         to set up the Cludo Chatbox functionality, This property is used to set up
         the Cludo Chatbox functionality and for the Site Search Results, This property
-        is used to set up the Cludo Chatbox functionality, '', '', '', '', '', '',
-      '', '', Endpoint for the Events service., This property switches between the
-        DMS‑based search and the Google‑based search., Show or hide the Product Search
-        widget for the homepage, "values in lowercase:\r\nor\r\nand"]
+        is used to set up the Cludo Chatbox functionality, Show or hide the Product
+        Search widget for the entire site, '', '', '', '', '', '', '', '', Endpoint
+        for the Events service., This property switches between the DMS‑based search
+        and the Google‑based search., Show or hide the Product Search widget for the
+        homepage, "values in lowercase:\r\nor\r\nand", '', '', '']
     resourcebundle:id: default.site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -188,10 +193,11 @@
       form.json.messages, form.marketo.munchkin, form.maketo.instance-url, form.recaptcha-key,
       form.marketo.scripts, form.marketo.script, links.download.extensions, events-listings.page-size,
       form.breg.legal-basis.enable, site.path.banner, cludo.customer-id, cludo.engine-id,
-      cludo.experience-id, feature.table-of-contents.enable, feature.global-search.enable,
-      form.breg.legal-basis.text, site.path.icentre-landing, site-id, google-maps.api-key,
-      site.path.map, feature.hero-section.enable, feature.global-search.events-endpoint,
-      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic]
+      cludo.experience-id, feature.products-search.enable, feature.table-of-contents.enable,
+      feature.global-search.enable, form.breg.legal-basis.text, site.path.icentre-landing,
+      site-id, google-maps.api-key, site.path.map, feature.hero-section.enable, feature.global-search.events-endpoint,
+      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic,
+      feature.favourites.enable, feature.favourites.url, feature.favourites.endpoint]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, 'en,fr,de,nl,it,es', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
@@ -200,22 +206,22 @@
       'https://static.visitscotland.com/forms/common/messaging.json', 830-QYE-256,
       //830-QYE-256.mktoweb.com, 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe, //e.visitscotland.com/js/forms2/js/forms2.min.js,
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
-      '623', '14069', abba43e006424824befb855918e2b9db, 'true', 'true', Consent, /test/examples/icentres/content,
-      vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, /test/examples/map-examples, 'true',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and]
+      '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', 'true', Consent,
+      /test/examples/icentres/content, vs, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E,
+      /test/examples/map-examples, 'true', 'https://api.visitscotland.com/dev/data/products/events/search',
+      'false', 'true', and, 'false', '', '']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '12812', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14973', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '12814', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14976', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '12811', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14975', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '12813', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14972', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '12810', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '14974', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']

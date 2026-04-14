@@ -87,6 +87,15 @@ public abstract class Properties {
         }));
     }
 
+    public boolean readBoolean(String key, Locale locale) {
+        return Boolean.parseBoolean(
+                getProperty(key, locale).orElseGet(() -> {
+                    logIssueWithProperty(key);
+                    return "false";
+                })
+        );
+    }
+
     /**
      * Calculates the properties document defined in the environment (i.e. /hst:visitscotland/hst:hosts/dev-localhost/localhost/)
      * and when none is defined returns the default one.

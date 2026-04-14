@@ -5,10 +5,14 @@ import com.visitscotland.brxm.comparator.ComparatorMapper;
 import com.visitscotland.brxm.comparator.VsContractException;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.hippobeans.SimpleDevModule;
+import com.visitscotland.brxm.model.FavouriteModule;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.MissingResourceException;
@@ -16,19 +20,30 @@ import java.util.MissingResourceException;
 @Component
 public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> {
 
+    private static final Logger logger = LoggerFactory.getLogger(DevModuleMapper.class);
+
     private static final String OBS_BUNDLE = "online-booking-system-comparator";
     private static final String OBS_MODULE = "online-booking-system";
     private static final String CARBON_CALCULATOR = "carbon-calculator";
     private static final String SEARCH_WIDGET = "search-widget";
     private static final String SEARCH_WIDGET_EVENTS = "search-widget-events";
+    private static final String FAVOURITES_LIST = "favourites-list";
+    private static final String API = "api";
+    private static final String FAVOURITES = "favourites";
     private static final String FORMS_BUNDLE = "forms";
+    private static final String FAVOURITES_API = "/site/api/favourites";
+    private static final String IS_FAVOURITES_PAGE = "is-favourites-page";
+    private static final String FAVOURITES_SITE_ENDPOINT = "feature.favourites.endpoint";
 
     private final ComparatorMapper comparisonMapper;
     private final SearchWidgetMapper searchWidgetMapper;
+    private final SiteProperties properties;
 
-    public DevModuleMapper(ComparatorMapper comparisonMapper,SearchWidgetMapper searchWidgetMapper) {
+    public DevModuleMapper(ComparatorMapper comparisonMapper, SearchWidgetMapper searchWidgetMapper,
+                           SiteProperties properties) {
         this.comparisonMapper = comparisonMapper;
         this.searchWidgetMapper = searchWidgetMapper;
+        this.properties = properties;
     }
 
     @Override
@@ -42,6 +57,8 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
             return new SimpleDevModule(document);
         }
 
+        logger.debug("Bespoke module: {}", document.getBespoken());
+
         try {
             if (OBS_MODULE.equals(document.getBespoken())) {
                 var module = comparisonMapper.map(document);
@@ -54,6 +71,14 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
                 return new SimpleDevModule(document, document.getBespoken());
             } else if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken()) || SEARCH_WIDGET.equals(document.getBespoken())  ) {
                 return searchWidgetMapper.map(document,compositionHelper);
+            } else if (FAVOURITES_LIST.equals(document.getBespoken())) {
+                //TODO This property should be removed
+                compositionHelper.addProperty(API, FAVOURITES_API);
+                compositionHelper.addProperty(FAVOURITES_SITE_ENDPOINT, properties.getFavouritesEndpoint());
+                compositionHelper.addProperty(IS_FAVOURITES_PAGE, true);
+                compositionHelper.addAllSiteLabels(FAVOURITES);
+
+                return new FavouriteModule(document, document.getBespoken());
             }
 
 

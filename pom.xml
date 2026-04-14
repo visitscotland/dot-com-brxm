@@ -12,7 +12,7 @@
   <name>www.visitscotland.com CMS Pages</name>
   <description>www.visitscotland.com CMS Pages</description>
   <artifactId>dot-com-brxm</artifactId>
-  <version>3.2.2-SNAPSHOT</version>
+  <version>3.2.4-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -174,7 +174,7 @@
         <plugin>
           <groupId>org.owasp</groupId>
           <artifactId>dependency-check-maven</artifactId>
-          <version>10.0.4</version>
+          <version>12.2.1</version>
           <configuration>
             <outputDirectory>report/owasp</outputDirectory>
             <suppressionFiles>

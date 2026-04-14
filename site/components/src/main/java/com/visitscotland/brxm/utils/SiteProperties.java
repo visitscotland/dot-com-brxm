@@ -100,6 +100,20 @@ public class SiteProperties extends Properties {
         return readString(GTM_PREVIEW_QUERY_STRING);
     }
 
+    // enable/disable favourites for each site
+    public boolean isFavouritesEnabled(Locale locale) {
+        return readBoolean(FAVOURITES_PAGE_ENABLED, locale);
+    }
+
+    public String getFavouritesUrl() {
+        return readString(FAVOURITES_PAGE_URL);
+    }
+    public String getFavouritesUrl(Locale locale) {
+        return readString(FAVOURITES_PAGE_URL, locale);
+    }
+
+    public String getFavouritesEndpoint() { return readString(FAVOURITES_PAGE_ENDPOINT); }
+
     public boolean isTableOfContentsEnabled() {
         return readBoolean(TABLE_OF_CONTENTS_ENABLED);
     }
