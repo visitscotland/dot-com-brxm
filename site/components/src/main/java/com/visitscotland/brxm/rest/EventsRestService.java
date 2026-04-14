@@ -3,8 +3,8 @@ package com.visitscotland.brxm.rest;
 import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.services.HippoUtilsService;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
 import java.util.*;
 
 /**

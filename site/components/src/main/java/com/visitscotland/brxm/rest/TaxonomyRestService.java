@@ -6,9 +6,9 @@ import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.CategoryInfo;
 import org.onehippo.taxonomy.api.Taxonomy;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import java.util.*;
 
 /**
