@@ -40,8 +40,8 @@ public class MountLocalizationValve extends AbstractOrderableValve {
 
             requestContext.setPreferredLocale(requestLocale);
             requestContext.setLocales(Collections.singletonList(requestLocale));
-            requestContext.setAttribute("javax.servlet.jsp.jstl.fmt.locale.application", requestLocale);
-            valveContext.getServletRequest().setAttribute("javax.servlet.jsp.jstl.fmt.locale.request", requestLocale);
+            requestContext.setAttribute("jakarta.servlet.jsp.jstl.fmt.locale.application", requestLocale);
+            valveContext.getServletRequest().setAttribute("jakarta.servlet.jsp.jstl.fmt.locale.request", requestLocale);
         } finally {
             valveContext.invokeNext();
         }
