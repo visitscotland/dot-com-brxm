@@ -137,6 +137,14 @@
       <version>1.2</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket-tester</artifactId>
+      <!-- TODO find the dependency version from the parent pom -->
+      <version>10.0.0</version>
+      <scope>test</scope>
+    </dependency>
+
 <!--    <dependency>-->
 <!--      <groupId>org.bloomreach.forge.ipfilter</groupId>-->
 <!--      <artifactId>bloomreach-ipfilter-cms</artifactId>-->

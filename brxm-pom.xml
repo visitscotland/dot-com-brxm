@@ -5,14 +5,14 @@
   <parent>
     <groupId>com.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-enterprise-release</artifactId>
-    <version>15.7.7</version>
+    <version>16.0.0</version>
   </parent>
 
   <name>Parent POM</name>
   <description>BloomReach default pom. It makes it easier to workout differences from the Archetypes</description>
   <groupId>com.visitscotland</groupId>
   <artifactId>brxm-parent-enterprise-pom</artifactId>
-  <version>1.0</version>
+  <version>2.0</version>
   <packaging>pom</packaging>
 
   <!--
@@ -62,7 +62,6 @@
     <!-- ***END temporary override of versions*** -->
 
     <essentials.version>${hippo.release.version}</essentials.version>
-    <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.5</taglibs.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
@@ -75,15 +74,10 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>javax.servlet.jsp</groupId>
-        <artifactId>jsp-api</artifactId>
-        <version>${jsp-api.version}</version>
-        <scope>provided</scope>
-      </dependency>
-
       <!-- other predefined runtime scope versioned dependencies -->
+
       <dependency>
+        <!-- TODO: This dependency can be removed after we fully retire freemarker -->
         <groupId>org.apache.taglibs</groupId>
         <artifactId>taglibs-standard-spec</artifactId>
         <version>${taglibs.version}</version>

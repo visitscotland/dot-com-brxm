@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.visitscotland</groupId>
     <artifactId>brxm-parent-enterprise-pom</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
     <relativePath>brxm-pom.xml</relativePath>
   </parent>
 
@@ -355,12 +355,11 @@
 
   <profiles>
     <profile>
+      <!-- This profile has been defined by BloomReach as the default profile for development. -->
+      <!-- Reference: https://xmdocumentation.bloomreach.com/library/enterprise/enterprise-developer-information/bloomreach-maven-enterprise-repository-manual.html -->
       <id>default</id>
       <activation>
         <activeByDefault>true</activeByDefault>
-        <property>
-          <name>jrebel</name>
-        </property>
       </activation>
       <properties>
         <spring.profiles.active>${cliOptions}</spring.profiles.active>
