@@ -61,7 +61,7 @@ definitions:
       jcr:primaryType: hipposys:resourcebundles
       /en:
         jcr:primaryType: hipposys:resourcebundle
-        jcr:name: Section
+        jcr:name: Section (Standard Article)
     /hippo:configuration/hippo:translations/hippo:types/visitscotland:CannedSearchTours:
       jcr:primaryType: hipposys:resourcebundles
       /en:
@@ -241,9 +241,19 @@ definitions:
       jcr:primaryType: hipposys:resourcebundles
       /en:
         jcr:primaryType: hipposys:resourcebundle
-        jcr:name: Section
+        jcr:name: Section (Styled Article)
     /hippo:configuration/hippo:translations/hippo:types/visitscotland:ArticleStyled:
       jcr:primaryType: hipposys:resourcebundles
       /en:
         jcr:primaryType: hipposys:resourcebundle
         jcr:name: Styled Article
+    /hippo:configuration/hippo:translations/hippo:types/visitscotland:Article:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Standard Article
+    /hippo:configuration/hippo:translations/hippo:types/visitscotland:ArticleStyledSection:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Section (Styled Article) (BSH)
