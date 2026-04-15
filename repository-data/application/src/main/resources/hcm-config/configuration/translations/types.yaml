@@ -216,12 +216,12 @@ definitions:
       jcr:primaryType: hipposys:resourcebundles
       /en:
         jcr:primaryType: hipposys:resourcebundle
-        jcr:name: Standard Article
+        jcr:name: Standard Article (BSH)
     /hippo:configuration/hippo:translations/hippo:types/visitscotland:ArticleStyledBSH:
       jcr:primaryType: hipposys:resourcebundles
       /en:
         jcr:primaryType: hipposys:resourcebundle
-        jcr:name: Styled Article
+        jcr:name: Styled Article (BSH)
     /hippo:configuration/hippo:translations/hippo:types/visitscotland:CTABanner:
       jcr:primaryType: hipposys:resourcebundles
       /en:
@@ -237,3 +237,13 @@ definitions:
       /en:
         jcr:primaryType: hipposys:resourcebundle
         jcr:name: Events Listing
+    /hippo:configuration/hippo:translations/hippo:types/visitscotland:ArticleStyledSectionCOM:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Section
+    /hippo:configuration/hippo:translations/hippo:types/visitscotland:ArticleStyled:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Styled Article
