@@ -25,6 +25,7 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
     public static final String ITINERARY = "itinerary";
     public static final String PAGE_INTRO = "pageIntro";
     public static final String HAS_STOPS = "hasStops";
+    private static final String ALLOW_FAVOURITE = "allowFavourite";
 
     private final ItineraryMapper itineraryMapper;
     private final PageAssembler builder;
@@ -42,6 +43,7 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         super.doBeforeRender(request, response, pageConfig);
 
         includeLabels(request);
+        pageConfig.addProperty(ALLOW_FAVOURITE, true);
         if (itineraryMapper.isStopBasedItinerary(getDocument(request))){
             pageConfig.addProperty(HAS_STOPS, true);
             buildStopBasedItinerary(request);

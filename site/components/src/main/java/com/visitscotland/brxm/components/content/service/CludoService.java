@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.components.content;
+package com.visitscotland.brxm.components.content.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

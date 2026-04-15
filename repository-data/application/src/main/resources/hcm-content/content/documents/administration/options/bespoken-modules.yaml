@@ -30,3 +30,7 @@
       jcr:primaryType: selection:listitem
       selection:key: search-widget-events
       selection:label: Search Widget Events
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: favourites-list
+      selection:label: Favourites List

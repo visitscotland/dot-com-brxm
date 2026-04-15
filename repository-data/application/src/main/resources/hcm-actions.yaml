@@ -146,8 +146,11 @@ action-lists:
     /content/taxonomies: reload
 - 3.2.3:
     /content/documents/administration/labels/navigation/static: reload
-- 3.2.3.1:
+    /content/documents/administration/options/bespoken-modules: reload
+    /content/documents/administration/configuration/default-site-properties: reload
+    /content/documents/administration/configuration/local-feature---visitscotland.com: reload
+    /content/documents/administration/labels/pages/favourites: reload
+- 3.2.4:
     /content/documents/administration/labels/navigation/static: reload
-- 3.2.3.2:
     /content/documents/administration/options/search-events-filters-date: delete
     /content/taxonomies: reload

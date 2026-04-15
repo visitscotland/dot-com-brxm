@@ -1,0 +1,190 @@
+/content/documents/administration/labels/pages/favourites:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 250b5a83-cfba-4b55-bf97-715bf3897409
+  hippo:name: Favourites
+  hippo:versionHistory: 6e582589-dccd-4057-bfaa-56ca98a87594
+  /favourites[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: ef6c4864-e03a-4271-822f-4624a8b3a5c6
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
+    hippostdpubwf:lastModificationDate: 2026-03-31T13:18:22.164+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', "Deprecated. Use the following\
+        \ instead\r\n\r\n/administration/labels/navigation/static", "Deprecated. Use\
+        \ the following instead\r\n\r\n/administration/labels/global/favourites-button",
+      "Deprecated. Use the following instead\r\n\r\n/administration/labels/global/favourites-button"]
+    resourcebundle:id: favourites
+    resourcebundle:keys: [favourites.error.failed-card.heading, favourites.error.failed-card.text,
+      favourites.error.failed-fetch.text, favourites.error.failed-fetch.header, favourites.error.empty-state.heading,
+      favourites.error.empty-state.text, favourites.navigation.link.text, favourites.button.add.text,
+      favourites.button.remove.text]
+    resourcebundle:messages: [Unable to load this item, We are unable to display this
+        item at this time. Please try again later., We couldn’t load your Favourites
+        right now. Please try again in a moment., Something went wrong, No saved items
+        yet, Click the heart icon found around the site to favourite items. They will
+        be saved here until you remove them., My Favourites, Add to your Favourites,
+      Remove from your Favourites]
+    resourcebundle:messages_de: [Dieser Inhalt kann nicht geladen werden, Dieser Inhalt
+        kann momentan nicht angezeigt werden. Bitte versuchen Sie es später erneut.,
+      Wir können Ihre Favoriten momentan nicht laden. Bitte versuchen Sie es später
+        erneut., Es ist ein Fehler aufgetreten, Noch keine gespeicherten Inhalte,
+      'Klicken Sie auf das Herzsymbol, das Sie auf unseren Seiten finden, um Favoriten
+        zu speichern. Inhalte werden hier gespeichert, bis Sie sie entfernen.', Meine
+        Favoriten, Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten entfernen]
+    resourcebundle:messages_es: [No se puede cargar este artículo, No podemos mostrar
+        este artículo en este momento. Inténtalo de nuevo más tarde., No hemos podido
+        cargar tus Favoritos en este momento. Inténtalo de nuevo más tarde., Ha ocurrido
+        un error, Aún no hay artículos guardados, Haz clic en el icono del corazón
+        que aparece en la página para marcar los artículos como Favoritos. Se guardarán
+        aquí hasta que los elimines., Mis Favoritos, Añadir a tus Favoritos, Eliminar
+        de tus Favoritos]
+    resourcebundle:messages_fr: [Impossible de charger cet élément, Nous ne parvenons
+        pas à afficher cet élément pour le moment. Veuillez réessayer plus tard.,
+      Nous n’avons pas pu charger vos Favoris pour le moment. Veuillez réessayer dans
+        quelques instants., Un problème est survenu, Aucun élément enregistré pour
+        l’instant, Cliquez sur l’icône en forme de cœur sur le site pour ajouter des
+        éléments à vos Favoris. Ils y resteront enregistrés jusqu’à ce que vous les
+        supprimiez., Mes Favoris, Ajouter à mes Favoris, Supprimer de mes Favoris]
+    resourcebundle:messages_it: [Impossibile caricare questo elemento, Al momento
+        non siamo in grado di visualizzare questo elemento., Al momento non siamo
+        riusciti a caricare i tuoi Preferiti. Riprova tra qualche istante., Si è verificato
+        un errore, Nessun elemento salvato, Clicca sull'icona a forma di cuore presente
+        sul sito per aggiungere elementi ai Preferiti. Questi verranno salvati qui
+        finché non li rimuoverai., I miei Preferiti, Aggiungi ai Preferiti, Rimuovi
+        dai Preferiti]
+    resourcebundle:messages_nl: [Deze inhoud kan niet geladen worden, We kunnen dit
+        artikel op dit moment niet weergeven. Probeer het later nog eens., We kunnen
+        je Favorieten momenteel niet laden. Probeer het later nog eens., Er is een
+        fout opgetreden, Nog geen opgeslagen informatie, Klik op het hartje dat je
+        op onze site ziet om artikelen aan je favorieten toe te voegen. Ze blijven
+        hier bewaard totdat je ze verwijdert., Mijn Favorieten, Aan je Favorieten
+        toevoegen, Verwijderen van je Favorieten]
+  /favourites[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 879657f3-c72f-4456-9fec-100999232a35
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
+    hippostdpubwf:lastModificationDate: 2026-03-31T13:20:51.076+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', "Deprecated. Use the following\
+        \ instead\r\n\r\n/administration/labels/navigation/static", "Deprecated. Use\
+        \ the following instead\r\n\r\n/administration/labels/global/favourites-button",
+      "Deprecated. Use the following instead\r\n\r\n/administration/labels/global/favourites-button"]
+    resourcebundle:id: favourites
+    resourcebundle:keys: [favourites.error.failed-card.heading, favourites.error.failed-card.text,
+      favourites.error.failed-fetch.text, favourites.error.failed-fetch.header, favourites.error.empty-state.heading,
+      favourites.error.empty-state.text, favourites.navigation.link.text, favourites.button.add.text,
+      favourites.button.remove.text]
+    resourcebundle:messages: [Unable to load this item, We are unable to display this
+        item at this time. Please try again later., We couldn’t load your Favourites
+        right now. Please try again in a moment., Something went wrong, No saved items
+        yet, Click the heart icon found around the site to favourite items. They will
+        be saved here until you remove them., My Favourites, Add to your Favourites,
+      Remove from your Favourites]
+    resourcebundle:messages_de: [Dieser Inhalt kann nicht geladen werden, Dieser Inhalt
+        kann momentan nicht angezeigt werden. Bitte versuchen Sie es später erneut.,
+      Wir können Ihre Favoriten momentan nicht laden. Bitte versuchen Sie es später
+        erneut., Es ist ein Fehler aufgetreten, Noch keine gespeicherten Inhalte,
+      'Klicken Sie auf das Herzsymbol, das Sie auf unseren Seiten finden, um Favoriten
+        zu speichern. Inhalte werden hier gespeichert, bis Sie sie entfernen.', Meine
+        Favoriten, Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten entfernen]
+    resourcebundle:messages_es: [No se puede cargar este artículo, No podemos mostrar
+        este artículo en este momento. Inténtalo de nuevo más tarde., No hemos podido
+        cargar tus Favoritos en este momento. Inténtalo de nuevo más tarde., Ha ocurrido
+        un error, Aún no hay artículos guardados, Haz clic en el icono del corazón
+        que aparece en la página para marcar los artículos como Favoritos. Se guardarán
+        aquí hasta que los elimines., Mis Favoritos, Añadir a tus Favoritos, Eliminar
+        de tus Favoritos]
+    resourcebundle:messages_fr: [Impossible de charger cet élément, Nous ne parvenons
+        pas à afficher cet élément pour le moment. Veuillez réessayer plus tard.,
+      Nous n’avons pas pu charger vos Favoris pour le moment. Veuillez réessayer dans
+        quelques instants., Un problème est survenu, Aucun élément enregistré pour
+        l’instant, Cliquez sur l’icône en forme de cœur sur le site pour ajouter des
+        éléments à vos Favoris. Ils y resteront enregistrés jusqu’à ce que vous les
+        supprimiez., Mes Favoris, Ajouter à mes Favoris, Supprimer de mes Favoris]
+    resourcebundle:messages_it: [Impossibile caricare questo elemento, Al momento
+        non siamo in grado di visualizzare questo elemento., Al momento non siamo
+        riusciti a caricare i tuoi Preferiti. Riprova tra qualche istante., Si è verificato
+        un errore, Nessun elemento salvato, Clicca sull'icona a forma di cuore presente
+        sul sito per aggiungere elementi ai Preferiti. Questi verranno salvati qui
+        finché non li rimuoverai., I miei Preferiti, Aggiungi ai Preferiti, Rimuovi
+        dai Preferiti]
+    resourcebundle:messages_nl: [Deze inhoud kan niet geladen worden, We kunnen dit
+        artikel op dit moment niet weergeven. Probeer het later nog eens., We kunnen
+        je Favorieten momenteel niet laden. Probeer het later nog eens., Er is een
+        fout opgetreden, Nog geen opgeslagen informatie, Klik op het hartje dat je
+        op onze site ziet om artikelen aan je favorieten toe te voegen. Ze blijven
+        hier bewaard totdat je ze verwijdert., Mijn Favorieten, Aan je Favorieten
+        toevoegen, Verwijderen van je Favorieten]
+  /favourites[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: c6de914a-0928-4515-a1f8-856688183c93
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
+    hippostdpubwf:lastModificationDate: 2026-03-31T13:20:51.076+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-03-31T13:21:03.836+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', "Deprecated. Use the following\
+        \ instead\r\n\r\n/administration/labels/navigation/static", "Deprecated. Use\
+        \ the following instead\r\n\r\n/administration/labels/global/favourites-button",
+      "Deprecated. Use the following instead\r\n\r\n/administration/labels/global/favourites-button"]
+    resourcebundle:id: favourites
+    resourcebundle:keys: [favourites.error.failed-card.heading, favourites.error.failed-card.text,
+      favourites.error.failed-fetch.text, favourites.error.failed-fetch.header, favourites.error.empty-state.heading,
+      favourites.error.empty-state.text, favourites.navigation.link.text, favourites.button.add.text,
+      favourites.button.remove.text]
+    resourcebundle:messages: [Unable to load this item, We are unable to display this
+        item at this time. Please try again later., We couldn’t load your Favourites
+        right now. Please try again in a moment., Something went wrong, No saved items
+        yet, Click the heart icon found around the site to favourite items. They will
+        be saved here until you remove them., My Favourites, Add to your Favourites,
+      Remove from your Favourites]
+    resourcebundle:messages_de: [Dieser Inhalt kann nicht geladen werden, Dieser Inhalt
+        kann momentan nicht angezeigt werden. Bitte versuchen Sie es später erneut.,
+      Wir können Ihre Favoriten momentan nicht laden. Bitte versuchen Sie es später
+        erneut., Es ist ein Fehler aufgetreten, Noch keine gespeicherten Inhalte,
+      'Klicken Sie auf das Herzsymbol, das Sie auf unseren Seiten finden, um Favoriten
+        zu speichern. Inhalte werden hier gespeichert, bis Sie sie entfernen.', Meine
+        Favoriten, Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten entfernen]
+    resourcebundle:messages_es: [No se puede cargar este artículo, No podemos mostrar
+        este artículo en este momento. Inténtalo de nuevo más tarde., No hemos podido
+        cargar tus Favoritos en este momento. Inténtalo de nuevo más tarde., Ha ocurrido
+        un error, Aún no hay artículos guardados, Haz clic en el icono del corazón
+        que aparece en la página para marcar los artículos como Favoritos. Se guardarán
+        aquí hasta que los elimines., Mis Favoritos, Añadir a tus Favoritos, Eliminar
+        de tus Favoritos]
+    resourcebundle:messages_fr: [Impossible de charger cet élément, Nous ne parvenons
+        pas à afficher cet élément pour le moment. Veuillez réessayer plus tard.,
+      Nous n’avons pas pu charger vos Favoris pour le moment. Veuillez réessayer dans
+        quelques instants., Un problème est survenu, Aucun élément enregistré pour
+        l’instant, Cliquez sur l’icône en forme de cœur sur le site pour ajouter des
+        éléments à vos Favoris. Ils y resteront enregistrés jusqu’à ce que vous les
+        supprimiez., Mes Favoris, Ajouter à mes Favoris, Supprimer de mes Favoris]
+    resourcebundle:messages_it: [Impossibile caricare questo elemento, Al momento
+        non siamo in grado di visualizzare questo elemento., Al momento non siamo
+        riusciti a caricare i tuoi Preferiti. Riprova tra qualche istante., Si è verificato
+        un errore, Nessun elemento salvato, Clicca sull'icona a forma di cuore presente
+        sul sito per aggiungere elementi ai Preferiti. Questi verranno salvati qui
+        finché non li rimuoverai., I miei Preferiti, Aggiungi ai Preferiti, Rimuovi
+        dai Preferiti]
+    resourcebundle:messages_nl: [Deze inhoud kan niet geladen worden, We kunnen dit
+        artikel op dit moment niet weergeven. Probeer het later nog eens., We kunnen
+        je Favorieten momenteel niet laden. Probeer het later nog eens., Er is een
+        fout opgetreden, Nog geen opgeslagen informatie, Klik op het hartje dat je
+        op onze site ziet om artikelen aan je favorieten toe te voegen. Ze blijven
+        hier bewaard totdat je ze verwijdert., Mijn Favorieten, Aan je Favorieten
+        toevoegen, Verwijderen van je Favorieten]

@@ -7,20 +7,20 @@
   /online-booking-system:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 1a574b72-eebe-49ea-8300-e672436594c9
+    jcr:uuid: b0210266-760a-4617-ac62-9a339d232898
     hippo:name: Online Booking System
-    hippo:versionHistory: 3ddac9cb-d68d-4cc7-b18e-fd86b6c701d2
+    hippo:versionHistory: 645d8c3f-9e58-4d29-bf55-834956a0180f
     /online-booking-system[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 08ed9dfc-8a0e-42a7-994d-aea29db7654f
+      jcr:uuid: e1aff205-1686-4360-a618-24a1a9b46e31
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2025-07-24T15:27:45.589+01:00
-      hippostdpubwf:lastModificationDate: 2025-09-08T14:43:50.604+01:00
-      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:lastModificationDate: 2025-09-17T10:20:32.955+02:00
+      hippostdpubwf:lastModifiedBy: mark.mitchell
       resourcebundle:descriptions: ['', 'Deprecated: waiting for UI to confirm removal',
         'Deprecated: waiting for UI to confirm removal', '', 'Deprecated: waiting
           for UI to confirm removal', 'Deprecated: waiting for UI to confirm removal',
@@ -30,29 +30,29 @@
       resourcebundle:keys: [cta, viewToggle_features, viewToggle_results, results_heading,
         alert_no_selections, alert_result_count, alert_no_matches, alert-no-matches,
         alert-no-selections, alert-result-count, results-heading, viewToggle-features,
-        viewToggle-results, form-config, submit-url, form-title, next-steps-text]
+        viewToggle-results, form-config, form-title, next-steps-text, submit-url]
       resourcebundle:messages: [Visit Website, Select features, View results, Results,
         Select at least one feature, results found, No matched found — select fewer
-          options, No matched found — select fewer options, Select at least one feature,
-        results found, Results, Select features, View results, 'https://static.visitscotland.com/forms/testing/BSHUB-968.json',
-        'https://api.visitscotland.com/test/submit/ssg/obs/submit', Get a tailored
-          worksheet to compare system providers, '<p>You should now arrange a demonstration
-          of each system – provide us with your business details and we will send
-          you a tailored worksheet to help you calculate your best-fit provider.</p><p>Please
-          read our <a href="https://www.visitscotland.org/what-we-do/privacy-centre/notices/industry">privacy
+          options, No matches found — select fewer options, Select at least one feature,
+        results found, Results, Select features, View results, 'https://static.visitscotland.com/forms/OBS-workbook-request.json',
+        Get a tailored worksheet to compare system providers, '<p>You should now arrange
+          a demonstration of each system – provide us with your business details and
+          we will send you a tailored worksheet to help you calculate your best-fit
+          provider.</p><p>Please read our <a href="https://www.visitscotland.org/what-we-do/privacy-centre/notices/industry">privacy
           notice</a> before proceeding. If you require assistance or have any questions,
-          please email <a href="mailto:business.support@visitscotland.com">business.support@visitscotland.com</a></p>']
+          please email <a href="mailto:business.support@visitscotland.com">business.support@visitscotland.com</a></p>',
+        'https://api.visitscotland.com/test/submit/ssg/obs/submit']
     /online-booking-system[2]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: a6c4f351-539d-48a9-996c-2a5fcbe688ed
+      jcr:uuid: d86943a3-02d1-4ab2-b3b1-3593f942505c
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2025-07-24T15:27:45.589+01:00
-      hippostdpubwf:lastModificationDate: 2025-09-08T14:44:03.336+01:00
-      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:lastModificationDate: 2025-09-17T10:22:17.097+02:00
+      hippostdpubwf:lastModifiedBy: mark.mitchell
       resourcebundle:descriptions: ['', 'Deprecated: waiting for UI to confirm removal',
         'Deprecated: waiting for UI to confirm removal', '', 'Deprecated: waiting
           for UI to confirm removal', 'Deprecated: waiting for UI to confirm removal',
@@ -62,30 +62,30 @@
       resourcebundle:keys: [cta, viewToggle_features, viewToggle_results, results_heading,
         alert_no_selections, alert_result_count, alert_no_matches, alert-no-matches,
         alert-no-selections, alert-result-count, results-heading, viewToggle-features,
-        viewToggle-results, form-config, submit-url, form-title, next-steps-text]
+        viewToggle-results, form-config, form-title, next-steps-text, submit-url]
       resourcebundle:messages: [Visit Website, Select features, View results, Results,
         Select at least one feature, results found, No matched found — select fewer
-          options, No matched found — select fewer options, Select at least one feature,
-        results found, Results, Select features, View results, 'https://static.visitscotland.com/forms/testing/BSHUB-968.json',
-        'https://api.visitscotland.com/test/submit/ssg/obs/submit', Get a tailored
-          worksheet to compare system providers, '<p>You should now arrange a demonstration
-          of each system – provide us with your business details and we will send
-          you a tailored worksheet to help you calculate your best-fit provider.</p><p>Please
-          read our <a href="https://www.visitscotland.org/what-we-do/privacy-centre/notices/industry">privacy
+          options, No matches found — select fewer options, Select at least one feature,
+        results found, Results, Select features, View results, 'https://static.visitscotland.com/forms/OBS-workbook-request.json',
+        Get a tailored worksheet to compare system providers, '<p>You should now arrange
+          a demonstration of each system – provide us with your business details and
+          we will send you a tailored worksheet to help you calculate your best-fit
+          provider.</p><p>Please read our <a href="https://www.visitscotland.org/what-we-do/privacy-centre/notices/industry">privacy
           notice</a> before proceeding. If you require assistance or have any questions,
-          please email <a href="mailto:business.support@visitscotland.com">business.support@visitscotland.com</a></p>']
+          please email <a href="mailto:business.support@visitscotland.com">business.support@visitscotland.com</a></p>',
+        'https://api.visitscotland.com/test/submit/ssg/obs/submit']
     /online-booking-system[3]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 2640e75a-d670-405b-972d-4a33ae9b1f7f
+      jcr:uuid: cc913edc-046c-4169-9ea9-e3f1db52d890
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2025-07-24T15:27:45.589+01:00
-      hippostdpubwf:lastModificationDate: 2025-09-08T14:44:03.336+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-09-08T14:44:05.316+01:00
+      hippostdpubwf:lastModificationDate: 2025-09-17T10:22:17.097+02:00
+      hippostdpubwf:lastModifiedBy: mark.mitchell
+      hippostdpubwf:publicationDate: 2025-09-17T10:22:19.482+02:00
       resourcebundle:descriptions: ['', 'Deprecated: waiting for UI to confirm removal',
         'Deprecated: waiting for UI to confirm removal', '', 'Deprecated: waiting
           for UI to confirm removal', 'Deprecated: waiting for UI to confirm removal',
@@ -95,15 +95,15 @@
       resourcebundle:keys: [cta, viewToggle_features, viewToggle_results, results_heading,
         alert_no_selections, alert_result_count, alert_no_matches, alert-no-matches,
         alert-no-selections, alert-result-count, results-heading, viewToggle-features,
-        viewToggle-results, form-config, submit-url, form-title, next-steps-text]
+        viewToggle-results, form-config, form-title, next-steps-text, submit-url]
       resourcebundle:messages: [Visit Website, Select features, View results, Results,
         Select at least one feature, results found, No matched found — select fewer
-          options, No matched found — select fewer options, Select at least one feature,
-        results found, Results, Select features, View results, 'https://static.visitscotland.com/forms/testing/BSHUB-968.json',
-        'https://api.visitscotland.com/test/submit/ssg/obs/submit', Get a tailored
-          worksheet to compare system providers, '<p>You should now arrange a demonstration
-          of each system – provide us with your business details and we will send
-          you a tailored worksheet to help you calculate your best-fit provider.</p><p>Please
-          read our <a href="https://www.visitscotland.org/what-we-do/privacy-centre/notices/industry">privacy
+          options, No matches found — select fewer options, Select at least one feature,
+        results found, Results, Select features, View results, 'https://static.visitscotland.com/forms/OBS-workbook-request.json',
+        Get a tailored worksheet to compare system providers, '<p>You should now arrange
+          a demonstration of each system – provide us with your business details and
+          we will send you a tailored worksheet to help you calculate your best-fit
+          provider.</p><p>Please read our <a href="https://www.visitscotland.org/what-we-do/privacy-centre/notices/industry">privacy
           notice</a> before proceeding. If you require assistance or have any questions,
-          please email <a href="mailto:business.support@visitscotland.com">business.support@visitscotland.com</a></p>']
+          please email <a href="mailto:business.support@visitscotland.com">business.support@visitscotland.com</a></p>',
+        'https://api.visitscotland.com/test/submit/ssg/obs/submit']

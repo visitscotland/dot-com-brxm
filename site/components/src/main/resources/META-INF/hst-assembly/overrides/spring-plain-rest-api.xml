@@ -30,6 +30,11 @@
         </bean>
         <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
           <constructor-arg>
+              <bean class="com.visitscotland.brxm.favourites.FavouritesRestService"/>
+          </constructor-arg>
+        </bean>
+        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+          <constructor-arg>
             <bean class="com.visitscotland.brxm.rest.TaxonomyRestService">
               <constructor-arg index="0" ref="hippoUtilsService"/>
               <constructor-arg index="1" ref="commonUtilsService"/>
@@ -44,7 +49,6 @@
             </bean>
           </constructor-arg>
         </bean>
-
       </list>
     </property>
   </bean>
