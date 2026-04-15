@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 7bb0add0-0f66-4adf-baa2-0203a6994019
+          jcr:uuid: 537a394d-7de3-46cc-a373-8021f2f7d1e6
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:validators: ['visitscotland:article-image-validator', 'visitscotland:article-heading-validator']
@@ -49,7 +49,7 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: visitscotland:paragraph
             hipposysedit:primary: false
-            hipposysedit:type: visitscotland:ArticleStyledSection
+            hipposysedit:type: visitscotland:ArticleStyledSectionCOM
           /theme:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -64,7 +64,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:ArticleStyled
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 23569d3b-4382-42ce-a906-bac6f1090888
+          jcr:uuid: 272e22de-0a2a-4063-afc1-b99028a6f472
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -80,7 +80,7 @@ definitions:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
           /visitscotland:paragraph:
-            jcr:primaryType: visitscotland:ArticleStyledSection
+            jcr:primaryType: visitscotland:ArticleStyledSectionCOM
             visitscotland:heading: ''
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
