@@ -2,7 +2,7 @@ package com.visitscotland.brxm.mapper.module;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.visitscotland.brxm.components.content.CludoService;
+import com.visitscotland.brxm.components.content.service.CludoService;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.model.SearchWidgetModule;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;

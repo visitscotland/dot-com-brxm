@@ -1,21 +1,17 @@
 package com.visitscotland.brxm.mapper.module;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.visitscotland.brxm.components.content.CludoService;
+import com.visitscotland.brxm.components.content.service.CludoService;
 import com.visitscotland.brxm.hippobeans.DevModule;
 import com.visitscotland.brxm.model.SearchWidgetModule;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.utils.Contract;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
-import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
