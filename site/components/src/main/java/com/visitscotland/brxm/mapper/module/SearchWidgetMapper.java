@@ -89,23 +89,21 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
         if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken())) {
             module.setMainCategory("events");
             //TODO review addAllLabelsSpecificName and move to Cludoservice if possible
-            module.setSubcategories(compositionHelper.addValueListLabels(SEARCH_EVENTS_SUBCATEGORIES, hippoUtilsService.getValueMap(SEARCH_EVENTS_FILTERS_VALUE_LIST), "search-events-filters"));
-
-            ObjectNode filters = mapper.createObjectNode();
-            cludoService.addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, locale);
-            module.setFilters(cludoService.addFilterJson("vs-events-filters-locations","postcodeareas", SEARCH_EVENTS_FILTERS_LOCATIONS, filters, locale));
+            addEventsFilters(locale, compositionHelper, module);
         } else {
             module.setCategories(bundle.getAllLabels(SEARCH_CATEGORIES, locale));
-            /*  TODO if (isSearchResultsPage) then we need to load the event filters:
-            compositionHelper.addAllLabelsSpecificName(SEARCH_EVENTS_SUBCATEGORIES, "search-events-filters");
-
-            ObjectNode filters = mapper.createObjectNode();
-            addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, locale);
-            module.setFilters(addFilterJson("vs-events-filters-locations","postcodeareas", SEARCH_EVENTS_FILTERS_LOCATIONS, filters, locale));
-            */
-
+            if (cludoService.isSearchResultsPage()) {
+                addEventsFilters(locale, compositionHelper, module);
+            }
         }
 
         return module;
+    }
+
+    private void addEventsFilters(Locale locale, PageCompositionHelper compositionHelper, SearchWidgetModule module) {
+        module.setSubcategories(compositionHelper.addValueListLabels(SEARCH_EVENTS_SUBCATEGORIES, hippoUtilsService.getValueMap(SEARCH_EVENTS_FILTERS_VALUE_LIST), "search-events-filters"));
+        ObjectNode filters = mapper.createObjectNode();
+        cludoService.addFilterJson("vs-events-filters-dates","when" ,SEARCH_EVENTS_FILTERS_DATES, filters, locale);
+        module.setFilters(cludoService.addFilterJson("vs-events-filters-locations","postcodeareas", SEARCH_EVENTS_FILTERS_LOCATIONS, filters, locale));
     }
 }

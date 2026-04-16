@@ -10,6 +10,7 @@ import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.brxm.utils.SitePropertyKeys;
 import com.visitscotland.utils.Contract;
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -84,7 +85,7 @@ public class CludoService {
      * @param pageConfig the page composition helper to add configuration properties to
      */
     private void applyGlobalSearchConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
-        final boolean isSearchResultsPage = isSearchResultsPage(request);
+        final boolean isSearchResultsPage = isSearchResultsPage();
         final boolean isHomepage = isHomepage(request);
 
         getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("site-search.path", v));
@@ -142,9 +143,9 @@ public class CludoService {
         return Optional.empty();
     }
 
-    private boolean isSearchResultsPage(HstRequest request) {
+    public boolean isSearchResultsPage() {
         return SEARCH_PAGE_REF_ID.equals(
-                request.getRequestContext()
+                RequestContextProvider.get()
                         .getResolvedSiteMapItem()
                         .getHstSiteMapItem()
                         .getRefId()
