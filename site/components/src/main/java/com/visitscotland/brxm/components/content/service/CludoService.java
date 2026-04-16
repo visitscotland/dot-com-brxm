@@ -172,7 +172,8 @@ public class CludoService {
         if (filtersMap != null) {
             for (Map.Entry<String, String> entry : filtersMap.entrySet()) {
                 ObjectNode filterSubnodes = mapper.createObjectNode();
-                filterSubnodes.put("id", entry.getValue());
+                filterSubnodes.put("id", entry.getKey());
+                filterSubnodes.put("parameter", entry.getValue());
                 String resourceBundleLabel = bundle.getResourceBundle(resourceBundleId, entry.getKey(), locale);
                 filterSubnodes.put("label", Contract.isEmpty(resourceBundleLabel) ? entry.getKey() : resourceBundleLabel);
                 filterType.add(filterSubnodes);
