@@ -66,7 +66,7 @@ public class DownloadLinkMapper {
 
         downloadLink.setLabel(sharedLink.getTitle());
         downloadLink.setTeaser(sharedLink.getTeaser());
-        downloadLink.setPublishedDate(addPublishDate(sharedLink, locale));
+        downloadLink.setPublishedDate(addPublishDate(sharedLink));
 
         return downloadLink;
     }
@@ -80,14 +80,14 @@ public class DownloadLinkMapper {
         downloadLink.setExtension(FilenameUtils.getExtension(downloadLink.getLink()));
 
         downloadLink.setTeaser(sharedLink.getTeaser());
-        downloadLink.setPublishedDate(addPublishDate(sharedLink, locale));
+        downloadLink.setPublishedDate(addPublishDate(sharedLink));
 
         return downloadLink;
     }
 
 
 
-    private String addPublishDate (SharedLinkBSH sharedLink, Locale locale) {
+    private String addPublishDate (SharedLinkBSH sharedLink) {
         Calendar publishDate = null;
 
         if (sharedLink.getLinkType() instanceof FileLink){
