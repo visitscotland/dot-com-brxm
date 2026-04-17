@@ -25,8 +25,6 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
     private static final String OBS_BUNDLE = "online-booking-system-comparator";
     private static final String OBS_MODULE = "online-booking-system";
     private static final String CARBON_CALCULATOR = "carbon-calculator";
-    private static final String SEARCH_WIDGET = "search-widget";
-    private static final String SEARCH_WIDGET_EVENTS = "search-widget-events";
     private static final String FAVOURITES_LIST = "favourites-list";
     private static final String API = "api";
     private static final String FAVOURITES = "favourites";
@@ -36,13 +34,10 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
     private static final String FAVOURITES_SITE_ENDPOINT = "feature.favourites.endpoint";
 
     private final ComparatorMapper comparisonMapper;
-    private final SearchWidgetMapper searchWidgetMapper;
     private final SiteProperties properties;
 
-    public DevModuleMapper(ComparatorMapper comparisonMapper, SearchWidgetMapper searchWidgetMapper,
-                           SiteProperties properties) {
+    public DevModuleMapper(ComparatorMapper comparisonMapper, SiteProperties properties) {
         this.comparisonMapper = comparisonMapper;
-        this.searchWidgetMapper = searchWidgetMapper;
         this.properties = properties;
     }
 
@@ -69,8 +64,6 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
             } else if (CARBON_CALCULATOR.equals(document.getBespoken())) {
                 compositionHelper.addAllSiteLabels(CARBON_CALCULATOR);
                 return new SimpleDevModule(document, document.getBespoken());
-            } else if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken()) || SEARCH_WIDGET.equals(document.getBespoken())  ) {
-                return searchWidgetMapper.map(document,compositionHelper);
             } else if (FAVOURITES_LIST.equals(document.getBespoken())) {
                 //TODO This property should be removed
                 compositionHelper.addProperty(API, FAVOURITES_API);
