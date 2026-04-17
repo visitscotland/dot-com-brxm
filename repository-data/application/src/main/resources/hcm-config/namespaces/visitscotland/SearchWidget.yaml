@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c2623dc1-51dc-41e4-ac2d-6e5e8bd5c585
+          jcr:uuid: 344ceb79-689d-4658-b98e-2456bfe799fe
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -34,15 +34,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
             hipposysedit:validators: [required]
-          /description:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:description
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            hipposysedit:validators: [required]
           /placeholder:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -52,12 +43,21 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
-          /buttonText:
+          /copy:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:buttonText
+            hipposysedit:path: visitscotland:copy
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+            hipposysedit:validators: [required]
+          /ctaLabel:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:ctaLabel
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
@@ -75,11 +75,11 @@ definitions:
           visitscotland:title: ''
           visitscotland:type: ''
           visitscotland:placeholder: ''
-          visitscotland:buttonText: ''
-          jcr:uuid: 99bd7459-b8e1-4f0d-a8f5-49dc599dc115
+          jcr:uuid: 75ef54ce-d38f-439e-ab04-d4df19647e1e
           hippostdpubwf:lastModificationDate: 2026-04-17T08:37:43.959+01:00
           hippostdpubwf:creationDate: 2026-04-17T08:37:43.959+01:00
-          /visitscotland:description:
+          visitscotland:ctaLabel: ''
+          /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
       /editor:templates:
@@ -125,21 +125,6 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               valuelistProvider: ''
               source: /content/documents/administration/options/search-widget-types
-          /description:
-            jcr:primaryType: frontend:plugin
-            caption: Description
-            field: description
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', stylesSet:
-                ''general_intro:./vs_styles.js'',toolbarGroups: [{name: ''basicstyles''},{name:
-                ''styles''},{name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
-                ] , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
-              ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
-                {countSpacesAsChars: true, showCharCount: true, maxCharCount:120}}'
           /placeholder:
             jcr:primaryType: frontend:plugin
             caption: Placeholder
@@ -148,12 +133,27 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /buttonText:
+          /copy:
             jcr:primaryType: frontend:plugin
-            caption: Button Text
-            field: buttonText
+            caption: Lede
+            field: copy
             hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+              ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
+                \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:375\
+                \   }  }"
+          /ctaLabel:
+            jcr:primaryType: frontend:plugin
+            caption: CTA text
+            field: ctaLabel
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
