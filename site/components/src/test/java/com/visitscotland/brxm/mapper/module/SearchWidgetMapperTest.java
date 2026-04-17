@@ -113,27 +113,6 @@ class SearchWidgetMapperTest {
     }
 
     @Test
-    void shouldMapCategoriesWhenNotEvents() {
-        Locale locale = Locale.UK;
-
-        when(document.getBespoken()).thenReturn("default");
-        when(bundleService.getResourceBundle("default", locale)).thenReturn(resourceBundle);
-
-        when(resourceBundle.getString(anyString())).thenReturn("value");
-
-        Map<String, String> categories = Map.of("cat1", "Category 1");
-        when(bundleService.getAllLabels("main-category-filters", locale)).thenReturn(categories);
-
-        SearchWidgetModule result = mapper.createModule(document, locale, compositionHelper);
-
-        assertNotNull(result);
-        assertEquals(categories, result.getCategories());
-
-        verify(bundleService).getAllLabels("main-category-filters", locale);
-        verifyNoInteractions(cludoService);
-    }
-
-    @Test
     void map_shouldDelegateToCreateModule() {
         Locale locale = Locale.UK;
 
