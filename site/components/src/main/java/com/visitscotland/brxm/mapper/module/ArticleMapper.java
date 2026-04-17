@@ -88,6 +88,8 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
         } else if (document instanceof  ArticleStyledBSH) {
             module.setLayout(((ArticleStyledBSH) document).getTheme());
             module.setNested(Boolean.TRUE.equals(((ArticleStyledBSH) document).getNested()));
+        } else if (document instanceof ArticleStyled) {
+            module.setLayout(((ArticleStyled) document).getTheme());
         }
     }
 
