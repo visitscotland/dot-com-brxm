@@ -200,6 +200,9 @@
 [visitscotland:Quote] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:SearchWidget] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
 [visitscotland:SharedLink] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
