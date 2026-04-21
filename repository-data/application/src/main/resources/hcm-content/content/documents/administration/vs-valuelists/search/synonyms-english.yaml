@@ -1,4 +1,5 @@
-/content/documents/administration/vs-valuelists/events/synonyms-english:
+/content/documents/administration/vs-valuelists/search/synonyms-english:
+  .meta:order-before: synonyms-dutch
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: aebd2a64-e40d-46ee-937b-dd2f2f051845
@@ -9,7 +10,7 @@
     jcr:uuid: 04103c4a-dba5-4fb1-b92f-a2537ece4b29
     hippo:availability: [live, preview]
     hippotranslation:id: 5763fd34-0f3d-4064-902e-c9247eb63fdd
-    hippotranslation:locale: inherited - from query
+    hippotranslation:locale: en
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
       selection:key: Aberdeenshire

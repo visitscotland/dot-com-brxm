@@ -150,3 +150,7 @@ action-lists:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/configuration/local-feature---visitscotland.com: reload
     /content/documents/administration/labels/pages/favourites: reload
+- 3.2.4:
+    /content/documents/administration/labels/navigation/static: reload
+    /content/documents/administration/options/search-events-filters-date: delete
+    /content/taxonomies: reload
