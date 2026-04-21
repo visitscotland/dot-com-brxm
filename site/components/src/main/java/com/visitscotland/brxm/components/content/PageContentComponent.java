@@ -44,6 +44,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String SEO_BUNDLE = "seo";
     private static final String TABLE_CONTENTS_BUNDLE = "table-contents";
     private static final String MEGALINKS_BUNDLE = "megalinks";
+    private static final String AMBIENT_VIDEO_BUNDLE = "ambient-video";
 
     //TODO Duplicate where it is used
     protected static final String OTYML_BUNDLE = "otyml";
@@ -67,6 +68,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String HERO_IMAGE = "heroImage";
     public static final String HERO_VIDEO = "heroVideo";
     public static final String VIDEO_HEADER = "videoHeader";
+    public static final String HERO_AMBIENT_VIDEO = "hero-ambient-video";
 
     public static final String METADATA_MODEL = "metadata";
     public static final String GTM = "gtm";
@@ -115,7 +117,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         super.doBeforeRender(request, response);
 
         addMetadata(request);
-        addHeroImage(request);
+        addHeroImage(request, pageConfig);
 
         addOTYML(request);
         addNewsletterSignup(request);
@@ -234,7 +236,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * - Alerts are only used for issues related with the hero image at the moment
      * - Hero Image is not necessary for all document types. Is it better to add the field in order to keep consistency?
      */
-    private void addHeroImage(HstRequest request) {
+    private void addHeroImage(HstRequest request, PageCompositionHelper pageConfig) {
         Module<T> introModule = new Module<>();
 
         FlatImage heroImage = imageMapper.createImage(getDocument(request).getHeroImage(), introModule, request.getLocale());
@@ -246,17 +248,25 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
         request.setModel(HERO_IMAGE, heroImage);
 
-        VideoLink videoDocument = getDocument(request).getHeroVideo();
-        if (videoDocument != null && videoDocument.getVideoLink() != null) {
-            EnhancedLink video = linksService.createVideo(videoDocument.getVideoLink(), introModule, request.getLocale());
-            if (Contract.isEmpty((video.getYoutubeId()))) {
-                request.setModel(VIDEO_HEADER, true);
-            }
-            request.setModel(HERO_VIDEO, video);
-        }
+        includeHeroVideo(request, introModule, pageConfig);
 
         if (!Contract.isEmpty(introModule.getErrorMessages())) {
             setErrorMessages(request, introModule.getErrorMessages());
+        }
+    }
+
+    private void includeHeroVideo(HstRequest request, Module<T> introModule, PageCompositionHelper pageConfig) {
+        VideoLink videoDocument = getDocument(request).getHeroVideo();
+        if (videoDocument != null && videoDocument.getVideoLink() != null) {
+            EnhancedLink video = linksService.createVideo(videoDocument.getVideoLink(), introModule, request.getLocale());
+            if (Contract.isEmpty(video.getYoutubeId())) {
+                request.setModel(VIDEO_HEADER, true);
+                pageConfig.addProperty(HERO_AMBIENT_VIDEO, true);
+                pageConfig.addAllSiteLabels(AMBIENT_VIDEO_BUNDLE);
+            } else {
+                pageConfig.addAllSiteLabels(VIDEO_BUNDLE);
+            }
+            request.setModel(HERO_VIDEO, video);
         }
     }
 
