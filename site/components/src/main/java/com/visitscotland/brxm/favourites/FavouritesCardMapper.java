@@ -16,12 +16,6 @@ public class FavouritesCardMapper {
 
     private static final boolean FULLY_QUALIFIED_URL = false;
 
-    private static final String API = "/api/";
-    private static final String HTTP = "http:";
-    private static final String HTTPS = "https:";
-    private static final String LOCALHOST = "localhost";
-    private static final String FWD_SLASH = "/";
-
     private final FavouritesService favouritesService;
     private final HippoUtilsService hippoUtilsService;
 
@@ -41,7 +35,6 @@ public class FavouritesCardMapper {
         card.setUrl(toURL(page));
 
         return card;
-
     }
 
     private Page getPage(HippoBean bean) throws FavouritesException {
@@ -78,15 +71,6 @@ public class FavouritesCardMapper {
         } else if (url.endsWith("/content")){
             return url.substring(0, url.length()-8);
         }
-
-//        if (isPageUrl) {
-//            url = url.replace(API, FWD_SLASH);
-//        }
-
-        // TODO: This if block might not be required
-//        if (!context.getVirtualHost().getHostName().contains(LOCALHOST)) {
-//            url = url.replace(HTTP, HTTPS);
-//        }
 
         return url;
     }
