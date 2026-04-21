@@ -431,16 +431,20 @@ public class HippoUtilsService {
     public HippoBean getContentByUuid(final String uuid) {
 
         try {
-            // TODO: Null Checking
-            final ObjectBeanManager objectBeanManager = RequestContextProvider.get().getObjectBeanManager();
-            if (uuid != null) {
-                HippoBean bean = (HippoBean) objectBeanManager.getObjectByUuid(uuid);
-                if (bean != null) {
-                    return bean;
+            final HstRequestContext context = RequestContextProvider.get();
+
+            if (context != null) {
+                final ObjectBeanManager objectBeanManager = context.getObjectBeanManager();
+                if (uuid != null) {
+                    HippoBean bean = (HippoBean) objectBeanManager.getObjectByUuid(uuid);
+                    if (bean != null) {
+                        return bean;
+                    }
+                } else {
+                    logger.info("Null UUID provided. Skipping...");
                 }
-            } else {
-                logger.info("Null UUID provided. Skipping...");
             }
+
         } catch (ObjectBeanManagerException e) {
             logger.error("An ObjectBeanManagerException occurred while getting content for UUID {}: {}", uuid, e.getCause());
         }
