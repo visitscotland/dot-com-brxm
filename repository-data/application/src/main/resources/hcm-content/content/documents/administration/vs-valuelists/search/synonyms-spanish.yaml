@@ -1,15 +1,16 @@
-/content/documents/administration/vs-valuelists/events/synonyms-spanish:
+/content/documents/administration/vs-valuelists/search/synonyms-spanish:
+  .meta:order-before: synonyms-french
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: c9466b57-fabd-43f5-afa6-341388a7ec46
-  hippo:name: synonyms spanish
+  hippo:name: Synonyms Spanish
   /synonyms-spanish:
     jcr:primaryType: selection:valuelist
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
     jcr:uuid: 7d47d82f-fcc0-4236-81da-5d46e3c3143d
     hippo:availability: [live, preview]
     hippotranslation:id: d26706d0-2e93-4fb1-964a-e8353090a2f3
-    hippotranslation:locale: inherited - from query
+    hippotranslation:locale: es
     /selection:listitem[1]:
       jcr:primaryType: selection:listitem
       selection:key: Tatoo

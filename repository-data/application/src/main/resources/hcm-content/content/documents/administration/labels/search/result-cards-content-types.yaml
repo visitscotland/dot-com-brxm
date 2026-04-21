@@ -1,0 +1,88 @@
+/content/documents/administration/labels/search/result-cards-content-types:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 432c2119-b10a-4834-ad25-f42571f181da
+  hippo:name: Result Cards Content Types
+  hippo:versionHistory: 7ea9c8e4-5d9d-494a-b423-44ed4317291c
+  /result-cards-content-types[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 355cd9e2-6f0d-4b9e-839a-7ad1d1e434b9
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-17T13:28:50.411+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-24T14:05:04.639Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    resourcebundle:id: result-cards-content-types
+    resourcebundle:keys: [article, destination, itinerary, event, tours, accommodation,
+      travel, about]
+    resourcebundle:messages: [Article, Destination, Itinerary, Event, Tour, Accommodation,
+      Travel, About us]
+    resourcebundle:messages_de: [Artikel, Reiseziel, Reisevorschlag, Veranstaltung,
+      Tour, Unterkunft, Reisen, Über uns]
+    resourcebundle:messages_es: [Artículo, Destino, Itinerario, Evento, Excursión,
+      Alojamiento, Viajes, Sobre nosotros]
+    resourcebundle:messages_fr: [Article, Destination, Itinéraire, Événement, Circuit,
+      Hébergements, Voyage, À propos]
+    resourcebundle:messages_it: [Articolo, Destinazione, Itinerario, Evento, Tour,
+      Alloggi, Viaggi, Chi siamo]
+    resourcebundle:messages_nl: [Artikel, Reisbestemming, Reisschema, Evenement, Tour,
+      Accommodatie, Reizen, Over ons]
+  /result-cards-content-types[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 4e6c0444-3018-40eb-880e-71163a2c6292
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-17T13:28:50.411+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-24T14:05:01.870Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    resourcebundle:id: result-cards-content-types
+    resourcebundle:keys: [article, destination, itinerary, event, tours, accommodation,
+      travel, about]
+    resourcebundle:messages: [Article, Destination, Itinerary, Event, Tour, Accommodation,
+      Travel, About us]
+    resourcebundle:messages_de: [Artikel, Reiseziel, Reisevorschlag, Veranstaltung,
+      Tour, Unterkunft, Reisen, Über uns]
+    resourcebundle:messages_es: [Artículo, Destino, Itinerario, Evento, Excursión,
+      Alojamiento, Viajes, Sobre nosotros]
+    resourcebundle:messages_fr: [Article, Destination, Itinéraire, Événement, Circuit,
+      Hébergements, Voyage, À propos]
+    resourcebundle:messages_it: [Articolo, Destinazione, Itinerario, Evento, Tour,
+      Alloggi, Viaggi, Chi siamo]
+    resourcebundle:messages_nl: [Artikel, Reisbestemming, Reisschema, Evenement, Tour,
+      Accommodatie, Reizen, Over ons]
+  /result-cards-content-types[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 14dd0e7d-23c6-4e82-8aaa-fe2a483cb0e9
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-17T13:28:50.411+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-24T14:05:04.639Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-03-24T14:05:06.855Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+    resourcebundle:id: result-cards-content-types
+    resourcebundle:keys: [article, destination, itinerary, event, tours, accommodation,
+      travel, about]
+    resourcebundle:messages: [Article, Destination, Itinerary, Event, Tour, Accommodation,
+      Travel, About us]
+    resourcebundle:messages_de: [Artikel, Reiseziel, Reisevorschlag, Veranstaltung,
+      Tour, Unterkunft, Reisen, Über uns]
+    resourcebundle:messages_es: [Artículo, Destino, Itinerario, Evento, Excursión,
+      Alojamiento, Viajes, Sobre nosotros]
+    resourcebundle:messages_fr: [Article, Destination, Itinéraire, Événement, Circuit,
+      Hébergements, Voyage, À propos]
+    resourcebundle:messages_it: [Articolo, Destinazione, Itinerario, Evento, Tour,
+      Alloggi, Viaggi, Chi siamo]
+    resourcebundle:messages_nl: [Artikel, Reisbestemming, Reisschema, Evenement, Tour,
+      Accommodatie, Reizen, Over ons]
