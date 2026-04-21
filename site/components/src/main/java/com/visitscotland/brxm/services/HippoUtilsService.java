@@ -289,7 +289,14 @@ public class HippoUtilsService {
                 logger.warn("ResolvedVirtualHost is not present on the context",
                         new IllegalStateException("ResolvedVirtualHost is not present on the context"));
             } else {
-                return Optional.of(resolvedVirtualHost.matchMount(mountPath).getMount());
+                ResolvedMount resolvedMount = resolvedVirtualHost.matchMount(mountPath);
+                if (resolvedMount == null) {
+                    String message = String.format("The mount '%s' could not be resolved", mountPath);
+                    logger.warn(message, new IllegalStateException(message));
+                } else {
+                    return Optional.of(resolvedVirtualHost.matchMount(mountPath).getMount());
+                }
+
             }
         }
 
