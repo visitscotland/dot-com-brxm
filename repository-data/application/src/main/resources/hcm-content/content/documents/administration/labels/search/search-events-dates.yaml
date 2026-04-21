@@ -1,10 +1,11 @@
-/content/documents/administration/labels/search/search-events-filters-date:
+/content/documents/administration/labels/search/search-events-dates:
+  .meta:order-before: result-cards-content-types
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ee279e1f-32f1-4fe7-85df-ab66dc53d4e3
-  hippo:name: Search events filters date
-  hippo:versionHistory: a81855bc-5ca1-4420-8447-572620ae2931
-  /search-events-filters-date[1]:
+  hippo:name: Events Filters Dates
+  hippo:versionHistory: c488b6ec-be70-4486-8bd8-3d2647aba36d
+  /search-events-dates[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: dfb606f7-4393-4e02-bf0a-6b5c1972d9e9
@@ -13,10 +14,10 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-13T16:15:39.153Z
-    hippostdpubwf:lastModificationDate: 2026-03-13T16:53:48.738Z
+    hippostdpubwf:lastModificationDate: 2026-03-24T13:59:46.515Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:id: search-events-filters-date
+    resourcebundle:id: search-events-dates
     resourcebundle:keys: [today, tomorrow, weekend, summer, winter, spring, autumn,
       christmas, nextweek]
     resourcebundle:messages: [Today, Tomorrow, This weekend, Summer, Winter, Spring,
@@ -26,7 +27,7 @@
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
-  /search-events-filters-date[2]:
+  /search-events-dates[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
     jcr:uuid: 07e3780e-9860-4900-abb0-02e1e5eb3855
@@ -35,10 +36,10 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-13T16:15:39.153Z
-    hippostdpubwf:lastModificationDate: 2026-03-13T16:54:03.668Z
+    hippostdpubwf:lastModificationDate: 2026-03-24T13:59:58.670Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:id: search-events-filters-date
+    resourcebundle:id: search-events-dates
     resourcebundle:keys: [today, tomorrow, weekend, summer, winter, spring, autumn,
       christmas, nextweek]
     resourcebundle:messages: [Today, Tomorrow, This weekend, Summer, Winter, Spring,
@@ -48,7 +49,7 @@
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '']
-  /search-events-filters-date[3]:
+  /search-events-dates[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: 0f282a24-87fd-4c93-92e6-4961e1f7226c
@@ -57,11 +58,11 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-13T16:15:39.153Z
-    hippostdpubwf:lastModificationDate: 2026-03-13T16:54:03.668Z
+    hippostdpubwf:lastModificationDate: 2026-03-24T13:59:58.670Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-03-13T16:54:05.869Z
+    hippostdpubwf:publicationDate: 2026-03-24T14:00:00.586Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '']
-    resourcebundle:id: search-events-filters-date
+    resourcebundle:id: search-events-dates
     resourcebundle:keys: [today, tomorrow, weekend, summer, winter, spring, autumn,
       christmas, nextweek]
     resourcebundle:messages: [Today, Tomorrow, This weekend, Summer, Winter, Spring,

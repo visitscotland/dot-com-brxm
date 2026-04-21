@@ -4,9 +4,11 @@ import com.visitscotland.brxm.components.content.PageContentComponent;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static com.visitscotland.brxm.components.content.PageContentComponent.LABELS;
 import static com.visitscotland.brxm.components.content.PageContentComponent.PAGE_CONFIGURATION;
@@ -77,6 +79,9 @@ public class PageCompositionHelper {
     public void addAllSiteLabels(String bundleName) {
         labels().put(bundleName, bundle.getAllLabels(bundleName, getLocale()));
     }
+    public void addAllLabelsSpecificName(String bundleName, String nodeName) {
+        labels().put(nodeName, bundle.getAllLabels(bundleName, getLocale()));
+    }
 
     /**
      * Adds only the keys and values explicitly defined by the site, without falling back to the default version.
@@ -102,6 +107,38 @@ public class PageCompositionHelper {
         }
 
         return labels;
+    }
+
+    //TODO review and move to Cludoservice if possible
+    public Map<String, String> addValueListLabels(String bundleName, Map<String, String> valueList, String nodeName) {
+        Map<String, String> resolvedLabels = new HashMap<>();
+        if (valueList == null || valueList.isEmpty()) {
+            return resolvedLabels;
+        }
+
+        for (Map.Entry<String, String> entry : valueList.entrySet()) {
+            String value = entry.getValue();
+            String label = bundle.getResourceBundle(bundleName, entry.getKey(), getLocale());
+
+            if (Contract.isEmpty(label)) {
+                label = value;
+            }
+
+            resolvedLabels.put(value, label);
+        }
+
+        Map<String, String> sorted = resolvedLabels.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue(String.CASE_INSENSITIVE_ORDER))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (a, b) -> a,
+                        LinkedHashMap::new
+                ));
+
+        labels().put(nodeName, sorted);
+        return sorted;
     }
 
     private Map<String, Object> pageConfiguration() {
