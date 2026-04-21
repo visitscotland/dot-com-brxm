@@ -53,7 +53,6 @@ public class FavouritesCardMapper {
             throw new FavouritesException(String.format("Only pages are supported at the moment. Document path =%s",
                     bean.getPath()));
         }
-
     }
 
     /**

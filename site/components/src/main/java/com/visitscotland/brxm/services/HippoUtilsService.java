@@ -126,7 +126,9 @@ public class HippoUtilsService {
         final HstRequestContext context = RequestContextProvider.get();
         final Mount mount;
 
-        if (document instanceof HippoDocument){
+        if (document == null) {
+            return null;
+        } else if (document instanceof HippoDocument){
             Locale locale = ((HippoDocument) document).getLocale();
             mount = getMountForLocale(locale).orElseGet(() -> {
                 logger.warn("No mount found for locale {}. Falling back to request mount.", locale);
