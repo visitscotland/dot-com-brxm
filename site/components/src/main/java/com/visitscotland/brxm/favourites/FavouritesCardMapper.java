@@ -40,7 +40,7 @@ public class FavouritesCardMapper {
     private Page getPage(HippoBean bean) throws FavouritesException {
 
         if (bean == null) {
-            throw new FavouritesException(String.format("Cannot find an item with UUID = %s", bean));
+            throw new FavouritesException("The link for this item was not resolved");
         }
 
         if (!favouritesService.isFavouritable(bean)) {
