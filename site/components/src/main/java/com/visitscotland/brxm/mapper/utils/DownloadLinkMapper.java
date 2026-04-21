@@ -54,7 +54,7 @@ public class DownloadLinkMapper {
         return null;
     }
 
-    public DownloadLink createDownloadFromAsset(SharedLinkBSH sharedLink, Locale locale) {
+    private DownloadLink createDownloadFromAsset(SharedLinkBSH sharedLink, Locale locale) {
         AssetLink assetLink = assetLinkFactory.create(sharedLink, locale);
         if (assetLink.getLink() == null) {
             return null;
@@ -71,7 +71,7 @@ public class DownloadLinkMapper {
         return downloadLink;
     }
 
-    public DownloadLink createDownloadFromExternalDocument(SharedLinkBSH sharedLink, ArticleModule module, Locale locale) {
+    private DownloadLink createDownloadFromExternalDocument(SharedLinkBSH sharedLink, ArticleModule module, Locale locale) {
         DownloadLink downloadLink = new DownloadLink(linkService.createSimpleLink(sharedLink, module, locale));
         if (downloadLink.getLink() == null){
             return null;
