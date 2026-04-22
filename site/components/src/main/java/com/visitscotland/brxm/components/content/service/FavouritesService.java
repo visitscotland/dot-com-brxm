@@ -6,6 +6,7 @@ import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.utils.SiteProperties;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +48,9 @@ public class FavouritesService {
         }
     }
 
-    private boolean isFavouritable(Page page) {
-        return !(page instanceof General) || GeneralContentComponent.STANDARD.equals(((General) page).getTheme());
+    public boolean isFavouritable(HippoBean page) {
+        return  page instanceof Page
+                && (!(page instanceof General)
+                        || GeneralContentComponent.STANDARD.equals(((General) page).getTheme()));
     }
 }

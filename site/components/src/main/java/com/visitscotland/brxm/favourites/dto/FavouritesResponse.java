@@ -1,6 +1,4 @@
-package com.visitscotland.brxm.favourites;
-
-import com.visitscotland.brxm.model.favourites.FavouritesCard;
+package com.visitscotland.brxm.favourites.dto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +6,7 @@ import java.util.List;
 /**
  * Response object for favourites API
  */
-public class FavouritesCardResponse {
+public class FavouritesResponse {
 
     private List<FavouritesCard> cards = new ArrayList<>();
     private List<String> failedUuids = new ArrayList<>(); // UUIDs of cards we failed to generate content for

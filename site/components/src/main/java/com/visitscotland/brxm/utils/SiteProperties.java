@@ -105,9 +105,6 @@ public class SiteProperties extends Properties {
         return readBoolean(FAVOURITES_PAGE_ENABLED, locale);
     }
 
-    public String getFavouritesUrl() {
-        return readString(FAVOURITES_PAGE_URL);
-    }
     public String getFavouritesUrl(Locale locale) {
         return readString(FAVOURITES_PAGE_URL, locale);
     }
