@@ -1,10 +1,13 @@
 package com.visitscotland.brxm.mapper.module;
 
 import com.visitscotland.brxm.hippobeans.Spotlight;
+import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.SpotlightModule;
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.pagebuilder.InvalidContentException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
@@ -17,9 +20,12 @@ import org.springframework.stereotype.Component;
 
 import java.util.Locale;
 import java.util.MissingResourceException;
+import java.util.Optional;
 
 @Component
-public class SpotlightMapper extends ModuleMapper<Spotlight, SpotlightModule>{
+public class SpotlightMapper extends ModuleMapper<Spotlight, SpotlightModule> {
+
+    private static final String AMBIENT_VIDEO_BUNDLE = "ambient-video";
 
     private final Logger contentLogger;
     private final LinkService linkService;
@@ -35,13 +41,13 @@ public class SpotlightMapper extends ModuleMapper<Spotlight, SpotlightModule>{
 
     @Override
     SpotlightModule map(Spotlight document, PageCompositionHelper compositionHelper) throws PageCompositionException {
-        return createModule(document, compositionHelper.getLocale());
+        return createModule(document, compositionHelper);
     }
 
-    public SpotlightModule createModule(Spotlight spotlight, Locale locale) throws InvalidContentException {
+    public SpotlightModule createModule(Spotlight spotlight, PageCompositionHelper compositionHelper) throws InvalidContentException {
         SpotlightModule module = new SpotlightModule();
         Linkable linkable = (Linkable) spotlight.getCtaLink().getLink();
-        FlatLink cta = linkService.createSimpleLink(linkable, module, locale);
+        FlatLink cta = linkService.createSimpleLink(linkable, module, compositionHelper.getLocale());
 
         if (Contract.isNull(cta.getLink())) {
             throw new InvalidContentException(spotlight.getPath(),
@@ -61,9 +67,28 @@ public class SpotlightMapper extends ModuleMapper<Spotlight, SpotlightModule>{
         module.setCopy(spotlight.getCopy());
         module.setLayout(spotlight.getLayout());
         module.setHippoBean(spotlight);
+
         module.setAnchor(anchorFormatter.getAnchorOrFallback(spotlight.getAnchor(), spotlight::getTitle));
 
+        module.setAmbientVideo(getVideo(spotlight, module, compositionHelper).orElse(null));
+
         return module;
+    }
+
+    private Optional<String> getVideo(Spotlight document, Module<?> introModule, PageCompositionHelper compositionHelper) {
+        VideoLink videoDocument = document.getVideo();
+        if (videoDocument != null && videoDocument.getVideoLink() != null) {
+            EnhancedLink video = linkService.createVideo(videoDocument.getVideoLink(), introModule, compositionHelper.getLocale());
+            if (Contract.isEmpty((video.getYoutubeId()))) {
+                compositionHelper.addAllSiteLabels(AMBIENT_VIDEO_BUNDLE);
+            } else {
+                introModule.addErrorMessage("The video type is not compatible with this module");
+            }
+
+            return Optional.of(video.getLink());
+        }
+
+        return Optional.empty();
     }
 
     @Override
