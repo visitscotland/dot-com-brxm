@@ -51,6 +51,7 @@ public class FavouritesService {
     public boolean isFavouritable(HippoBean page) {
         return  page instanceof Page
                 && (!(page instanceof General)
-                        || GeneralContentComponent.STANDARD.equals(((General) page).getTheme()));
+                        || GeneralContentComponent.STANDARD.equals(((General) page).getTheme())
+                        || GeneralContentComponent.TOP_LEVEL.equals(((General) page).getTheme()));
     }
 }
