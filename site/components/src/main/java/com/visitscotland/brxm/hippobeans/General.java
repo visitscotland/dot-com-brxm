@@ -7,6 +7,7 @@ import com.visitscotland.brxm.hippobeans.PageLinksSectionCompound;
 @HippoEssentialsGenerated(internalName = "visitscotland:General")
 @Node(jcrType = "visitscotland:General")
 public class General extends Page {
+
     @HippoEssentialsGenerated(internalName = "visitscotland:theme")
     public String getTheme() {
         return getSingleProperty("visitscotland:theme");
@@ -14,11 +15,24 @@ public class General extends Page {
 
     @Override
     public String[] getChildJcrTypes() {
-        return new String[] { "visitscotland:Megalinks", "visitscotland:TourismInformation", "visitscotland:LongCopy",
-                "visitscotland:Article", "visitscotland:Stackla", "visitscotland:CannedSearchTours",
-                "visitscotland:Form", "visitscotland:MapModule",
-                "visitscotland:DevModule", "visitscotland:MarketoForm", "visitscotland:SkiCentre",
-                "visitscotland:SkiCentreList", "visitscotland:CTABanner", "visitscotland:Spotlight", "visitscotland:SearchWidget"};
+        return new String[] {
+                "visitscotland:Megalinks",
+                "visitscotland:TourismInformation",
+                "visitscotland:LongCopy",
+                "visitscotland:Article",
+                "visitscotland:Stackla",
+                "visitscotland:CannedSearchTours",
+                "visitscotland:Form",
+                "visitscotland:MapModule",
+                "visitscotland:DevModule",
+                "visitscotland:MarketoForm",
+                "visitscotland:SkiCentre",
+                "visitscotland:SkiCentreList",
+                "visitscotland:CTABanner",
+                "visitscotland:Spotlight",
+                "visitscotland:SearchWidget",
+                "visitscotland:ArticleStyled"
+        };
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:otherThings")
