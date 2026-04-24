@@ -23,7 +23,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class SpotlightMapperTest {
+class CTABannerMapperTest {
 
     private static final String BUNDLE_ID = "newsletter-signpost";
 
@@ -94,5 +94,4 @@ class SpotlightMapperTest {
         Assertions.assertNotNull(signpostModule.getImage());
         Assertions.assertInstanceOf(Image.class, signpostModule.getImage().getCmsImage());
     }
-
 }
