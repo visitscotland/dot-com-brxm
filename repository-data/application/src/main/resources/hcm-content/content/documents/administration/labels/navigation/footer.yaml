@@ -1,4 +1,4 @@
-/footer:
+/content/documents/administration/labels/navigation/footer:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: b7d3af6f-ea38-4337-94fb-93bd7c2d8812
