@@ -119,11 +119,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addMetadata(request);
         addHeroImage(request, pageConfig);
 
-        addOTYML(request);
+        addOTYML(request, pageConfig);
         addNewsletterSignup(request);
         addBlog(request);
         addGtmConfiguration(request);
-        addLabels(request);
+        addLabels(request, pageConfig);
         addSiteSpecificConfiguration(request, pageConfig);
         //TODO review labels for search once we have time to delete current bundles
         pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
@@ -147,39 +147,25 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      *
      * @param request HstRequest
      */
-    private void addLabels(HstRequest request) {
-        labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, getGlobalLabels(request.getLocale()));
+    private void addLabels(HstRequest request, PageCompositionHelper pageConfig) {
+        setCommonGlobalLabels(pageConfig);
 
-        addNavigationLabels(request);
+        addNavigationLabels(request, pageConfig);
 
-        addAllLabels(request, SOCIAL_SHARE_BUNDLE);
-        addAllLabels(request, VIDEO_BUNDLE);
-        addAllLabels(request, SEO_BUNDLE);
-        addAllLabels(request, SKIP_TO_BUNDLE);
+        pageConfig.addAllSiteLabels(SOCIAL_SHARE_BUNDLE);
+        pageConfig.addAllSiteLabels(VIDEO_BUNDLE);
+        pageConfig.addAllSiteLabels(SEO_BUNDLE);
+        pageConfig.addAllSiteLabels(SKIP_TO_BUNDLE);
 
         if (isEditMode(request)) {
-             addAllLabels(request, CMS_MESSAGES_BUNDLE);
+            pageConfig.addAllSiteLabels(CMS_MESSAGES_BUNDLE);
         }
     }
 
-    private void addNavigationLabels(HstRequest request) {
-        addAllLabels(request, NAVIGATION_STATIC);
-        addAllLabels(request, NAVIGATION_SOCIAL_MEDIA);
-        addSiteSpecificLabels(request, NAVIGATION_SOCIAL_MEDIA);
-    }
-
-    /**
-     * Add all label from a Hippo Resource Bundle File to the {@code label} request attribute
-     *
-     * @param request Current Request
-     * @param bundleId Hippo Resource Bundle id (from the CMS)
-     */
-    protected void addAllLabels(HstRequest request, String bundleId) {
-        labels(request).put(bundleId, bundle.getAllLabels(bundleId, request.getLocale()));
-    }
-
-    protected void addSiteSpecificLabels(HstRequest request, String bundleId) {
-        labels(request).put(bundleId, bundle.getSiteSpecificLabels(bundleId, request.getLocale()));
+    private void addNavigationLabels(HstRequest request, PageCompositionHelper pageConfig) {
+        pageConfig.addAllSiteLabels(NAVIGATION_STATIC);
+        pageConfig.addAllSiteLabels(NAVIGATION_SOCIAL_MEDIA);
+        pageConfig.addSiteSpecificLabels(NAVIGATION_SOCIAL_MEDIA);
     }
 
     /**
@@ -198,38 +184,24 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         request.setModel(GTM, gtmProperties);
     }
     /**
-     * Returns a subset of labels that are requires for all pages
-     * @param locale Locale of the request
-     * @return subset of labels that are requires for all pages
-     */
-    private Map<String, String> getGlobalLabels(Locale locale) {
-        Map<String, String> globalLabels = new HashMap<>();
-
-        addGlobalLabel(globalLabels, "close", locale);
-        addGlobalLabel(globalLabels, "cookie.link-message", locale);
-        addGlobalLabel(globalLabels, "third-party-error", locale);
-        addGlobalLabel(globalLabels, "default.alt-text", locale);
-        addGlobalLabel(globalLabels, "image.title", locale);
-        addGlobalLabel(globalLabels, "image.no.credit", locale);
-        addGlobalLabel(globalLabels, "image.toggle.text", locale);
-        addGlobalLabel(globalLabels, "home", locale);
-        addGlobalLabel(globalLabels, "page.next", locale);
-        addGlobalLabel(globalLabels, "page.previous", locale);
-        addGlobalLabel(globalLabels, "back-to-top", locale);
-        addGlobalLabel(globalLabels, "last-update", locale);
-
-        return globalLabels;
-    }
-
-    /**
-     * Gets a label from the General resource bundle and adds it to a map
+     * Add global labels to the request. Global labels are those that are used in multiple places across the site and
+     * are not specific to a page type or module.
      *
-     * @param map: Map where the labels will be added to
-     * @param key: Resource bundle key
-     * @param locale: Locale of the request
+     * @param pageConfig PageCompositionHelper where the labels will be added to
      */
-    private void addGlobalLabel(Map<String, String> map, String key, Locale locale) {
-        map.put(key, bundle.getResourceBundle(ResourceBundleService.GLOBAL_BUNDLE_FILE, key, locale));
+    private void setCommonGlobalLabels(PageCompositionHelper pageConfig) {
+        pageConfig.addGlobalLabel("close");
+        pageConfig.addGlobalLabel("cookie.link-message");
+        pageConfig.addGlobalLabel("third-party-error");
+        pageConfig.addGlobalLabel("default.alt-text");
+        pageConfig.addGlobalLabel("image.title");
+        pageConfig.addGlobalLabel("image.no.credit");
+        pageConfig.addGlobalLabel("image.toggle.text");
+        pageConfig.addGlobalLabel("home");
+        pageConfig.addGlobalLabel("page.next");
+        pageConfig.addGlobalLabel("page.previous");
+        pageConfig.addGlobalLabel("back-to-top");
+        pageConfig.addGlobalLabel("last-update");
     }
 
     /**
@@ -273,7 +245,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     /**
      * Set the OTYML module if present
      */
-    protected void addOTYML(HstRequest request) {
+    protected void addOTYML(HstRequest request, PageCompositionHelper pageConfig) {
         final String PAGINATION_BUNDLE = "essentials.pagination";
 
         Page page = getDocument(request);
@@ -291,9 +263,9 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel(OTYML_BUNDLE, otyml);
         }
 
-         addAllLabels(request, OTYML_BUNDLE);
-         addAllLabels(request, MEGALINKS_BUNDLE);
-         addAllLabels(request, PAGINATION_BUNDLE);
+        pageConfig.addAllSiteLabels(OTYML_BUNDLE);
+        pageConfig.addAllSiteLabels(MEGALINKS_BUNDLE);
+        pageConfig.addAllSiteLabels(PAGINATION_BUNDLE);
     }
 
     /**
@@ -391,7 +363,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
 
         if (properties.isTableOfContentsEnabled()){
-            addAllLabels(request, TABLE_CONTENTS_BUNDLE);
+            pageConfig.addAllSiteLabels(TABLE_CONTENTS_BUNDLE);
         }
 
         pageConfig.addProperty(SitePropertyKeys.FEATURE_HERO_SECTION, properties.getFeatureHeroSection());
