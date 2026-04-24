@@ -1,4 +1,4 @@
-/content/documents/administration/labels/navigation/footer:
+/footer:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: b7d3af6f-ea38-4337-94fb-93bd7c2d8812
@@ -18,32 +18,32 @@
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.footer
     resourcebundle:keys: [footer.visitor-information, footer.get-touch, footer.media-centre,
-      footer.business-events, footer.corporate, footer.other-sites, footer.scotland-is-now,
+      footer.business-events, footer.corporate, footer.other-sites, footer.brand-scotland,
       footer.travel-trade, footer.complaints, footer.free-business, footer.business-support-hub,
       footer.asset-library]
     resourcebundle:messages: [Visitor information, Get in touch, Media Centre, Business
-        Events, Corporate, Our other sites, Scotland is Now, Travel Trade, Feedback
+        Events, Corporate, Our other sites, Brand Scotland, Travel Trade, Feedback
         & Complaints, Get a free business listing, Business Support Hub, Asset library]
     resourcebundle:messages_de: [Besucherinformationen, Kontaktieren Sie uns, Mediencenter,
-      Geschäftliche Veranstaltungen, Unternehmen, Unsere anderen Webseiten, Scotland
-        is Now, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen,
+      Geschäftliche Veranstaltungen, Unternehmen, Unsere anderen Webseiten, Brand
+        Scotland, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen,
       '', Bilderdatenbank]
     resourcebundle:messages_es: [Información para visitantes, Contacta con nosotros,
-      Sala mediática, Eventos de negocios, Empresas, Nuestras otras páginas web, Scotland
-        is Now, Industria turística, Comentarios y reclamaciones, Obtén un listado
+      Sala mediática, Eventos de negocios, Empresas, Nuestras otras páginas web, Brand
+        Scotland, Industria turística, Comentarios y reclamaciones, Obtén un listado
         gratuito de empresas, '', Mediateca]
     resourcebundle:messages_footer.asset-library: ['', '', '', '', '', '', '', '',
       '', '', '', Asset library]
     resourcebundle:messages_fr: [Infos visiteurs, Nous contacter, Media Centre, Événements
-        professionnels, Entreprises, Nos autres sites, Scotland is Now, L’industrie
+        professionnels, Entreprises, Nos autres sites, Brand Scotland, L’industrie
         du tourisme, Commentaires et plaintes, Obtenir une page gratuite pour votre
         entreprise, '', Médiathèque]
     resourcebundle:messages_it: [Informazioni per i visitatori, Mettiti in contatto,
-      Centro Multimediale, Eventi Aziendali, Aziendale, Altri nostri siti, Scotland
-        is Now, Industria turistica, Feedback e reclami, Ottenere un'inserzione commerciale
+      Centro Multimediale, Eventi Aziendali, Aziendale, Altri nostri siti, Brand Scotland,
+      Industria turistica, Feedback e reclami, Ottenere un'inserzione commerciale
         gratuita, '', Asset library]
     resourcebundle:messages_nl: [Bezoekersinfo, Neem contact met ons op, Mediacentrum,
-      Branche-evenementen, Ondernemingen, Onze andere websites, Scotland is Now, Reisbranche,
+      Branche-evenementen, Ondernemingen, Onze andere websites, Brand Scotland, Reisbranche,
       Feedback & klachten, Gratis vermelding voor bedrijven, '', Beeldbank]
   /footer[2]:
     jcr:primaryType: resourcebundle:resourcebundle
@@ -59,32 +59,32 @@
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.footer
     resourcebundle:keys: [footer.visitor-information, footer.get-touch, footer.media-centre,
-      footer.business-events, footer.corporate, footer.other-sites, footer.scotland-is-now,
+      footer.business-events, footer.corporate, footer.other-sites, footer.brand-scotland,
       footer.travel-trade, footer.complaints, footer.free-business, footer.business-support-hub,
       footer.asset-library]
     resourcebundle:messages: [Visitor information, Get in touch, Media Centre, Business
-        Events, Corporate, Our other sites, Scotland is Now, Travel Trade, Feedback
+        Events, Corporate, Our other sites, Brand Scotland, Travel Trade, Feedback
         & Complaints, Get a free business listing, Business Support Hub, Asset library]
     resourcebundle:messages_de: [Besucherinformationen, Kontaktieren Sie uns, Mediencenter,
-      Geschäftliche Veranstaltungen, Unternehmen, Unsere anderen Webseiten, Scotland
-        is Now, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen,
+      Geschäftliche Veranstaltungen, Unternehmen, Unsere anderen Webseiten, Brand
+        Scotland, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen,
       '', Bilderdatenbank]
     resourcebundle:messages_es: [Información para visitantes, Contacta con nosotros,
-      Sala mediática, Eventos de negocios, Empresas, Nuestras otras páginas web, Scotland
-        is Now, Industria turística, Comentarios y reclamaciones, Obtén un listado
+      Sala mediática, Eventos de negocios, Empresas, Nuestras otras páginas web, Brand
+        Scotland, Industria turística, Comentarios y reclamaciones, Obtén un listado
         gratuito de empresas, '', Mediateca]
     resourcebundle:messages_footer.asset-library: ['', '', '', '', '', '', '', '',
       '', '', '', Asset library]
     resourcebundle:messages_fr: [Infos visiteurs, Nous contacter, Media Centre, Événements
-        professionnels, Entreprises, Nos autres sites, Scotland is Now, L’industrie
+        professionnels, Entreprises, Nos autres sites, Brand Scotland, L’industrie
         du tourisme, Commentaires et plaintes, Obtenir une page gratuite pour votre
         entreprise, '', Médiathèque]
     resourcebundle:messages_it: [Informazioni per i visitatori, Mettiti in contatto,
-      Centro Multimediale, Eventi Aziendali, Aziendale, Altri nostri siti, Scotland
-        is Now, Industria turistica, Feedback e reclami, Ottenere un'inserzione commerciale
+      Centro Multimediale, Eventi Aziendali, Aziendale, Altri nostri siti, Brand Scotland,
+      Industria turistica, Feedback e reclami, Ottenere un'inserzione commerciale
         gratuita, '', Asset library]
     resourcebundle:messages_nl: [Bezoekersinfo, Neem contact met ons op, Mediacentrum,
-      Branche-evenementen, Ondernemingen, Onze andere websites, Scotland is Now, Reisbranche,
+      Branche-evenementen, Ondernemingen, Onze andere websites, Brand Scotland, Reisbranche,
       Feedback & klachten, Gratis vermelding voor bedrijven, '', Beeldbank]
   /footer[3]:
     jcr:primaryType: resourcebundle:resourcebundle
@@ -101,30 +101,30 @@
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.footer
     resourcebundle:keys: [footer.visitor-information, footer.get-touch, footer.media-centre,
-      footer.business-events, footer.corporate, footer.other-sites, footer.scotland-is-now,
+      footer.business-events, footer.corporate, footer.other-sites, footer.brand-scotland,
       footer.travel-trade, footer.complaints, footer.free-business, footer.business-support-hub,
       footer.asset-library]
     resourcebundle:messages: [Visitor information, Get in touch, Media Centre, Business
-        Events, Corporate, Our other sites, Scotland is Now, Travel Trade, Feedback
+        Events, Corporate, Our other sites, Brand Scotland, Travel Trade, Feedback
         & Complaints, Get a free business listing, Business Support Hub, Asset library]
     resourcebundle:messages_de: [Besucherinformationen, Kontaktieren Sie uns, Mediencenter,
-      Geschäftliche Veranstaltungen, Unternehmen, Unsere anderen Webseiten, Scotland
-        is Now, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen,
+      Geschäftliche Veranstaltungen, Unternehmen, Unsere anderen Webseiten, Brand
+        Scotland, Reisevertrieb, Feedback & Beschwerden, Kostenlose Einträge für Unternehmen,
       '', Bilderdatenbank]
     resourcebundle:messages_es: [Información para visitantes, Contacta con nosotros,
-      Sala mediática, Eventos de negocios, Empresas, Nuestras otras páginas web, Scotland
-        is Now, Industria turística, Comentarios y reclamaciones, Obtén un listado
+      Sala mediática, Eventos de negocios, Empresas, Nuestras otras páginas web, Brand
+        Scotland, Industria turística, Comentarios y reclamaciones, Obtén un listado
         gratuito de empresas, '', Mediateca]
     resourcebundle:messages_footer.asset-library: ['', '', '', '', '', '', '', '',
       '', '', '', Asset library]
     resourcebundle:messages_fr: [Infos visiteurs, Nous contacter, Media Centre, Événements
-        professionnels, Entreprises, Nos autres sites, Scotland is Now, L’industrie
+        professionnels, Entreprises, Nos autres sites, Brand Scotland, L’industrie
         du tourisme, Commentaires et plaintes, Obtenir une page gratuite pour votre
         entreprise, '', Médiathèque]
     resourcebundle:messages_it: [Informazioni per i visitatori, Mettiti in contatto,
-      Centro Multimediale, Eventi Aziendali, Aziendale, Altri nostri siti, Scotland
-        is Now, Industria turistica, Feedback e reclami, Ottenere un'inserzione commerciale
+      Centro Multimediale, Eventi Aziendali, Aziendale, Altri nostri siti, Brand Scotland,
+      Industria turistica, Feedback e reclami, Ottenere un'inserzione commerciale
         gratuita, '', Asset library]
     resourcebundle:messages_nl: [Bezoekersinfo, Neem contact met ons op, Mediacentrum,
-      Branche-evenementen, Ondernemingen, Onze andere websites, Scotland is Now, Reisbranche,
+      Branche-evenementen, Ondernemingen, Onze andere websites, Brand Scotland, Reisbranche,
       Feedback & klachten, Gratis vermelding voor bedrijven, '', Beeldbank]

@@ -1,4 +1,4 @@
-/hst:hst/hst:configurations/visitscotland/hst:workspace/hst:sitemenus/footer/footer.other-sites:
+/footer.other-sites:
   jcr:primaryType: hst:sitemenuitem
   jcr:uuid: 56ada9ee-b959-40b6-813c-32a954994555
   hst:repobased: false
@@ -27,7 +27,7 @@
     jcr:uuid: d7e93dfc-a505-48f8-876d-b264f0393c1f
     hst:externallink: https://www.visitscotland.org/
     hst:repobased: false
-  /footer.scotland-is-now:
+  /footer.brand-scotland:
     jcr:primaryType: hst:sitemenuitem
     jcr:uuid: b5f9d909-2ecb-43d3-bfb8-2f09204e7165
     hst:externallink: https://www.scotland.org/
