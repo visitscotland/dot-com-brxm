@@ -81,7 +81,7 @@ public class SpotlightMapper extends ModuleMapper<Spotlight, SpotlightModule> {
             EnhancedLink video = linkService.createVideo(videoDocument.getVideoLink(), introModule, compositionHelper.getLocale());
             if (Contract.isEmpty((video.getYoutubeId()))) {
                 compositionHelper.addAllSiteLabels(AMBIENT_VIDEO_BUNDLE);
-                return Optional.of(video.getLink());
+                return Optional.ofNullable(video.getLink());
             } else {
                 introModule.addErrorMessage("The video type is not compatible with this module");
                 contentLogger.warn("The video type is not compatible with the Spotlight module. Document: {}", document.getPath());
