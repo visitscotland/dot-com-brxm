@@ -2,6 +2,7 @@ package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.components.content.service.CludoService;
 import com.visitscotland.brxm.components.content.service.FavouritesService;
+import com.visitscotland.brxm.components.content.service.PageLabels;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.BlogFactory;
 import com.visitscotland.brxm.factory.NewsletterFactory;
@@ -36,12 +37,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
 
     //Resource Bundle
-    private static final String SOCIAL_SHARE_BUNDLE = "social.share";
     private static final String VIDEO_BUNDLE = "video";
-    private static final String SKIP_TO_BUNDLE = "skip-to";
     private static final String SEARCH_BUNDLE = "search-labels";
-    private static final String CMS_MESSAGES_BUNDLE = "cms-messages";
-    private static final String SEO_BUNDLE = "seo";
     private static final String TABLE_CONTENTS_BUNDLE = "table-contents";
     private static final String MEGALINKS_BUNDLE = "megalinks";
     private static final String AMBIENT_VIDEO_BUNDLE = "ambient-video";
@@ -52,8 +49,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String MAIN_MAP_PATH = "main-map-path";
 
     private static final String SEARCH = "search";
-    private static final String NAVIGATION_STATIC = "navigation.static";
-    private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
 
     //Objects injected in the page payload
     public static final String DOCUMENT = "document";
@@ -62,7 +57,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
-    public static final String LABELS = "labels";
     public static final String PAGE_CONFIGURATION = "pageConfiguration";
 
     public static final String HERO_IMAGE = "heroImage";
@@ -84,6 +78,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final Logger contentLogger;
     private final CludoService cludoService;
     private final FavouritesService favouritesService;
+    private final PageLabels pageLabels;
 
     private final MetadataFactory metadata;
 
@@ -100,6 +95,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         metadata = VsComponentManager.get(MetadataFactory.class);
         cludoService = VsComponentManager.get(CludoService.class);
         favouritesService = VsComponentManager.get(FavouritesService.class);
+        pageLabels = VsComponentManager.get(PageLabels.class);
     }
 
     ResourceBundleService getBundle() {
@@ -123,7 +119,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addNewsletterSignup(request);
         addBlog(request);
         addGtmConfiguration(request);
-        addLabels(request, pageConfig);
+        pageLabels.includeGeneralLabels(pageConfig, isEditMode(request));
+//        addLabels(request, pageConfig);
         addSiteSpecificConfiguration(request, pageConfig);
         //TODO review labels for search once we have time to delete current bundles
         pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
@@ -136,36 +133,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void addMetadata(HstRequest request){
         request.setModel(METADATA_MODEL, metadata.getMetadata());
-    }
-
-    /**
-     * Adds labels that are necessary for type of pages. Please notice that there are two strategies for including properties
-     * <br>
-     * When all labels are required you should use {@code bundle.getAllLabels(...)}. However, in the case that only
-     * some of them are needed we can create a new {@code Map} object and include them one by one. (i.e. global labels)
-     * </ul>
-     *
-     * @param request HstRequest
-     */
-    private void addLabels(HstRequest request, PageCompositionHelper pageConfig) {
-        setCommonGlobalLabels(pageConfig);
-
-        addNavigationLabels(request, pageConfig);
-
-        pageConfig.addAllSiteLabels(SOCIAL_SHARE_BUNDLE);
-        pageConfig.addAllSiteLabels(VIDEO_BUNDLE);
-        pageConfig.addAllSiteLabels(SEO_BUNDLE);
-        pageConfig.addAllSiteLabels(SKIP_TO_BUNDLE);
-
-        if (isEditMode(request)) {
-            pageConfig.addAllSiteLabels(CMS_MESSAGES_BUNDLE);
-        }
-    }
-
-    private void addNavigationLabels(HstRequest request, PageCompositionHelper pageConfig) {
-        pageConfig.addAllSiteLabels(NAVIGATION_STATIC);
-        pageConfig.addAllSiteLabels(NAVIGATION_SOCIAL_MEDIA);
-        pageConfig.addSiteSpecificLabels(NAVIGATION_SOCIAL_MEDIA);
     }
 
     /**
@@ -183,26 +150,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         request.setModel(GTM, gtmProperties);
     }
-    /**
-     * Add global labels to the request. Global labels are those that are used in multiple places across the site and
-     * are not specific to a page type or module.
-     *
-     * @param pageConfig PageCompositionHelper where the labels will be added to
-     */
-    private void setCommonGlobalLabels(PageCompositionHelper pageConfig) {
-        pageConfig.addGlobalLabel("close");
-        pageConfig.addGlobalLabel("cookie.link-message");
-        pageConfig.addGlobalLabel("third-party-error");
-        pageConfig.addGlobalLabel("default.alt-text");
-        pageConfig.addGlobalLabel("image.title");
-        pageConfig.addGlobalLabel("image.no.credit");
-        pageConfig.addGlobalLabel("image.toggle.text");
-        pageConfig.addGlobalLabel("home");
-        pageConfig.addGlobalLabel("page.next");
-        pageConfig.addGlobalLabel("page.previous");
-        pageConfig.addGlobalLabel("back-to-top");
-        pageConfig.addGlobalLabel("last-update");
-    }
+
 
     /**
      * - Alerts are only used for issues related with the hero image at the moment
@@ -267,21 +215,21 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         pageConfig.addAllSiteLabels(MEGALINKS_BUNDLE);
         pageConfig.addAllSiteLabels(PAGINATION_BUNDLE);
     }
-
-    /**
-     * Returns the labels object from the request if it exists, otherwise, creates a new one and adds it to the request
-     * @param request HstRequest
-     * @return labels object from the request
-     */
-    protected Map<String, Map<String, String>> labels(HstRequest request) {
-        if (request.getModel(LABELS) == null) {
-            Map<String, Map<String, String>> labels = new HashMap<>();
-            request.setModel(LABELS, labels);
-            return labels;
-        }
-
-        return request.getModel(LABELS);
-    }
+//
+//    /**
+//     * Returns the labels object from the request if it exists, otherwise, creates a new one and adds it to the request
+//     * @param request HstRequest
+//     * @return labels object from the request
+//     */
+//    protected Map<String, Map<String, String>> labels(HstRequest request) {
+//        if (request.getModel(LABELS) == null) {
+//            Map<String, Map<String, String>> labels = new HashMap<>();
+//            request.setModel(LABELS, labels);
+//            return labels;
+//        }
+//
+//        return request.getModel(LABELS);
+//    }
 
     /**
      * Set the blog if present
