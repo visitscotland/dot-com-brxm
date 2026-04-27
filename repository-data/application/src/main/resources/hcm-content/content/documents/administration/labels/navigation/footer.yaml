@@ -18,7 +18,7 @@
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.footer
     resourcebundle:keys: [footer.visitor-information, footer.get-touch, footer.media-centre,
-      footer.business-events, footer.corporate, footer.other-sites, footer.brand-scotland,
+      footer.business-events, footer.corporate, footer.other-sites, footer.scotland-is-now,
       footer.travel-trade, footer.complaints, footer.free-business, footer.business-support-hub,
       footer.asset-library]
     resourcebundle:messages: [Visitor information, Get in touch, Media Centre, Business
@@ -59,7 +59,7 @@
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.footer
     resourcebundle:keys: [footer.visitor-information, footer.get-touch, footer.media-centre,
-      footer.business-events, footer.corporate, footer.other-sites, footer.brand-scotland,
+      footer.business-events, footer.corporate, footer.other-sites, footer.scotland-is-now,
       footer.travel-trade, footer.complaints, footer.free-business, footer.business-support-hub,
       footer.asset-library]
     resourcebundle:messages: [Visitor information, Get in touch, Media Centre, Business
@@ -101,7 +101,7 @@
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: navigation.footer
     resourcebundle:keys: [footer.visitor-information, footer.get-touch, footer.media-centre,
-      footer.business-events, footer.corporate, footer.other-sites, footer.brand-scotland,
+      footer.business-events, footer.corporate, footer.other-sites, footer.scotland-is-now,
       footer.travel-trade, footer.complaints, footer.free-business, footer.business-support-hub,
       footer.asset-library]
     resourcebundle:messages: [Visitor information, Get in touch, Media Centre, Business

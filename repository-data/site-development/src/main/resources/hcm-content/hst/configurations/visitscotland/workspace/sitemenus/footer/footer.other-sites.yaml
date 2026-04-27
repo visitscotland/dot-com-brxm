@@ -27,7 +27,7 @@
     jcr:uuid: d7e93dfc-a505-48f8-876d-b264f0393c1f
     hst:externallink: https://www.visitscotland.org/
     hst:repobased: false
-  /footer.brand-scotland:
+  /footer.scotland-is-now:
     jcr:primaryType: hst:sitemenuitem
     jcr:uuid: b5f9d909-2ecb-43d3-bfb8-2f09204e7165
     hst:externallink: https://www.scotland.org/
