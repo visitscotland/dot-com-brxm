@@ -41,7 +41,7 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
         super.doBeforeRender(request, response, pageConfig);
 
-        includeLabels(request);
+        includeLabels(pageConfig);
         if (itineraryMapper.isStopBasedItinerary(getDocument(request))){
             pageConfig.addProperty(HAS_STOPS, true);
             buildStopBasedItinerary(request);
@@ -88,11 +88,9 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
 
     /**
      * Adds labels that are necessary for itineraries.
-     *
-     * @param request HstRequest Current Request
      */
-    private void includeLabels(HstRequest request) {
-        addAllLabels(request, "itinerary");
+    private void includeLabels(PageCompositionHelper pageConfig) {
+        pageConfig.addAllSiteLabels( "itinerary");
     }
 
 }
