@@ -25,7 +25,7 @@ import java.util.Optional;
 @Component
 public class SpotlightMapper extends ModuleMapper<Spotlight, SpotlightModule> {
 
-    private static final String AMBIENT_VIDEO_BUNDLE = "ambient-video";
+    static final String AMBIENT_VIDEO_BUNDLE = "ambient-video";
 
     private final Logger contentLogger;
     private final LinkService linkService;

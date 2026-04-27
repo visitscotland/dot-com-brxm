@@ -109,7 +109,7 @@ class SpotlightMapperTest {
         SpotlightModule module = mapper.createModule(spotlight, compositionHelper);
 
         verify(linkService).createVideo(any(Video.class), any(), any());
-        verify(compositionHelper).addAllSiteLabels("ambient-video");
+        verify(compositionHelper).addAllSiteLabels(SpotlightMapper.AMBIENT_VIDEO_BUNDLE);
         assertEquals("https://static/video.mp4", module.getAmbientVideo());
     }
 
