@@ -83,14 +83,22 @@
     </dependency>
 
     <dependency>
+      <!-- This dependecy has been included for compatibility between BloomReach CMS and Spring actuators
+        https://xmdocumentation.bloomreach.com/library/concepts/integration/spring-boot-integration.html
+        -->
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
-      <version>1.5.5</version>
+      <!-- Note: on versions lower than 15.3.0, use version 1.5.5 -->
+      <version>1.9.7</version>
     </dependency>
     <dependency>
+      <!-- This dependecy has been included for compatibility between BloomReach CMS and Spring actuators
+        https://xmdocumentation.bloomreach.com/library/concepts/integration/spring-boot-integration.html
+        -->
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-jmx</artifactId>
-      <version>1.5.5</version>
+      <!-- Note: on versions lower than 15.3.0, use version 1.5.5 -->
+      <version>1.9.7</version>
       <exclusions>
         <exclusion>
           <groupId>org.slf4j</groupId>
@@ -98,6 +106,7 @@
         </exclusion>
       </exclusions>
     </dependency>
+
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-plugin-taxonomy-api</artifactId>
