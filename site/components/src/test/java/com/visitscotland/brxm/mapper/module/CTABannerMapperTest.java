@@ -25,8 +25,6 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class CTABannerMapperTest {
 
-    private static final String BUNDLE_ID = "newsletter-signpost";
-
     @Mock
     ResourceBundleService bundle;
     @Mock
@@ -46,7 +44,7 @@ class CTABannerMapperTest {
     @Test
     @DisplayName("Should throw InvalidContentException when CTA link is not available")
     void when_ctaLinkIsNull_then_ErrorModuleIsReturned(){
-        CTABanner ctaBanner = mock(CTABanner.class, RETURNS_DEEP_STUBS);
+        CTABanner ctaBanner = mock(CTABanner.class);
 
         Assertions.assertThrows(InvalidContentException.class, () -> ctaBannerMapper.createModule(ctaBanner));
     }
