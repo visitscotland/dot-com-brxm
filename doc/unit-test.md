@@ -37,7 +37,7 @@ Logging is an intentional communication mechanism and part of the system’s con
 
 ### A failing unit test is a signal, not a nuisance
 
-When a unit test fails, do not immediately change the test to make it pass.First investigate **why** the failure 
+When a unit test fails, do not immediately change the test to make it pass. First investigate **why** the failure 
 occurred. A failing test may indicate: 
 - A regression
 - An unintended side effect
@@ -93,9 +93,7 @@ Each unit test should make its purpose clear **without reading the test body**.
 
 - Test names should describe *behaviour*, not method calls.
 - Use `@DisplayName` to reinforce context and intent.
-
-
-
+- 
 ---
 
 ## References
