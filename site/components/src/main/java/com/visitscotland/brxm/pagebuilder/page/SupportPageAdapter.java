@@ -15,6 +15,7 @@ public class SupportPageAdapter implements PageAdapter<GeneralBSH> {
         
     }
 
+    @Override
     public PageIntro getPageIntro(Locale locale, GeneralBSH page) {
         return new PageIntro(page);
     }

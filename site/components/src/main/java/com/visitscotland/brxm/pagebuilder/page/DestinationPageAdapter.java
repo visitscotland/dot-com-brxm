@@ -14,6 +14,7 @@ public class DestinationPageAdapter implements PageAdapter<Destination> {
     public DestinationPageAdapter() {
     }
 
+    @Override
     public PageIntro getPageIntro(Locale locale, Destination page) {
         return new PageIntro(page);
     }

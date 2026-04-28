@@ -15,6 +15,7 @@ public class ItineraryPageAdapter implements PageAdapter<Itinerary> {
 
     }
 
+    @Override
     public PageIntro getPageIntro(Locale locale, Itinerary page) {
         return new PageIntro(page);
     }

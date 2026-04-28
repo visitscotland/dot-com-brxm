@@ -14,6 +14,7 @@ public class ListiclePageAdapter implements PageAdapter<Listicle> {
     public ListiclePageAdapter() {
     }
 
+    @Override
     public PageIntro getPageIntro(Locale locale, Listicle page) {
         return new PageIntro(page);
     }
