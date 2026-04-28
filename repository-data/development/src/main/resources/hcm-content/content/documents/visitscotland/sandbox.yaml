@@ -7177,8 +7177,8 @@
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 367a959d-985e-463d-94d1-13bb603ab044
-        hippo:name: Orkney
-        hippo:versionHistory: 7b20cae5-54cd-4b79-abeb-bf9bc5d2085a
+        hippo:name: Ambient -Video - Arran
+        hippo:versionHistory: c17434fb-993d-4f0e-ac75-d23e4c4c56b7
         /orkney[1]:
           jcr:primaryType: visitscotland:Video
           jcr:mixinTypes: ['mix:referenceable']
@@ -7188,18 +7188,18 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-06-17T14:07:38.089+01:00
-          hippostdpubwf:lastModificationDate: 2025-11-14T13:22:07.370Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T12:58:05.937+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 1630db00-ac9e-4f67-b9a2-6db2ea18b339
           hippotranslation:locale: en
-          visitscotland:label: ''
-          visitscotland:teaser: Orkney
-          visitscotland:title: Orkney.mp4
+          visitscotland:label: CTA (not in use for this type of videos)
+          visitscotland:teaser: Arran - Teaser (not in use for this type of videos)
+          visitscotland:title: Arran - Title (not in use for this type of videos)
           visitscotland:translation: ''
           visitscotland:url: https://static.visitscotland.com/video/www/25_041_ArranScenics_Webheader.mp4
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -7212,18 +7212,18 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-06-17T14:07:38.089+01:00
-          hippostdpubwf:lastModificationDate: 2025-11-14T13:22:10.561Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T12:59:08.278+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 1630db00-ac9e-4f67-b9a2-6db2ea18b339
           hippotranslation:locale: en
-          visitscotland:label: ''
-          visitscotland:teaser: Orkney
-          visitscotland:title: Orkney.mp4
+          visitscotland:label: CTA (not in use for this type of videos)
+          visitscotland:teaser: Arran - Teaser (not in use for this type of videos)
+          visitscotland:title: Arran - Title (not in use for this type of videos)
           visitscotland:translation: ''
           visitscotland:url: https://static.visitscotland.com/video/www/25_041_ArranScenics_Webheader.mp4
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -7236,16 +7236,101 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-06-17T14:07:38.089+01:00
-          hippostdpubwf:lastModificationDate: 2025-11-14T13:22:10.561Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T12:59:08.278+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-11-14T13:22:12.567Z
+          hippostdpubwf:publicationDate: 2026-04-23T12:59:13.645+01:00
           hippotranslation:id: 1630db00-ac9e-4f67-b9a2-6db2ea18b339
           hippotranslation:locale: en
-          visitscotland:label: ''
-          visitscotland:teaser: Orkney
-          visitscotland:title: Orkney.mp4
+          visitscotland:label: CTA (not in use for this type of videos)
+          visitscotland:teaser: Arran - Teaser (not in use for this type of videos)
+          visitscotland:title: Arran - Title (not in use for this type of videos)
           visitscotland:translation: ''
           visitscotland:url: https://static.visitscotland.com/video/www/25_041_ArranScenics_Webheader.mp4
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /orkney-youtube:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 7b7bac4e-ab99-4133-b66a-95e6718cd4b0
+        hippo:name: Orkney Youtube
+        hippo:versionHistory: e5f43994-1150-4bdc-ba78-d5f75d173173
+        /orkney-youtube[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 1c6e16b9-27cc-4753-8b26-d293a432a8d8
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-17T14:07:38.089+01:00
+          hippostdpubwf:lastModificationDate: 2026-04-23T12:58:04.088+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 6a42335d-d3a3-4a31-b617-6d7a176cc834
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Discover the ancient standing stones of Brodgar and
+            the prehistoric village of Skara Brae, and in the remote northern Highlands
+            and more
+          visitscotland:title: Islands Walking Tour
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=5tZne2wU9s0
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /orkney-youtube[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b9ee64db-7523-4239-8d15-ed104aa14c93
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-17T14:07:38.089+01:00
+          hippostdpubwf:lastModificationDate: 2026-04-23T12:57:44.489+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 6a42335d-d3a3-4a31-b617-6d7a176cc834
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Discover the ancient standing stones of Brodgar and
+            the prehistoric village of Skara Brae, and in the remote northern Highlands
+            and more
+          visitscotland:title: Islands Walking Tour
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=5tZne2wU9s0
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /orkney-youtube[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 1ef9c025-babc-4e44-a927-4ee5ee37ffab
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-17T14:07:38.089+01:00
+          hippostdpubwf:lastModificationDate: 2026-04-23T12:58:04.088+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-04-23T12:59:18.762+01:00
+          hippotranslation:id: 6a42335d-d3a3-4a31-b617-6d7a176cc834
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Discover the ancient standing stones of Brodgar and
+            the prehistoric village of Skara Brae, and in the remote northern Highlands
+            and more
+          visitscotland:title: Islands Walking Tour
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=5tZne2wU9s0
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
@@ -45771,32 +45856,32 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 191da414-2b36-40eb-85bc-0a1730f5a5da
-      /spotlight-test:
+      /spotlight-test-copy:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: eb3876cb-2b18-4de6-b9a3-ae3221583ae1
-        hippo:versionHistory: 8ccd0fe0-b8d3-4092-bccf-ca98ca3dc9ff
-        /spotlight-test[1]:
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: adb86c92-d250-45a1-a93e-230dc3d6608b
+        hippo:name: spotlight
+        hippo:versionHistory: 37a8500d-58a4-47f0-b975-c30db1fe13bb
+        /spotlight-test-copy[1]:
           jcr:primaryType: visitscotland:Spotlight
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: b4c4ad80-581e-4cae-b790-954d2bcb0710
-          hippo:availability: []
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 941cf3ad-a136-4c5c-b805-679923182649
+          hippo:availability: [preview]
           hippostd:retainable: false
-          hippostd:state: draft
-          hippostd:transferable: false
+          hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
-          hippostdpubwf:lastModificationDate: 2025-11-06T10:15:13.265Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:02:14.822+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 7c060e78-53d4-44af-b7a8-faf68f5cc340
+          hippotranslation:id: 65840432-c371-4790-956b-d94ac1aecc17
           hippotranslation:locale: en
-          visitscotland:anchor: hdhdsjsjs
-          visitscotland:layout: compact
-          visitscotland:title: title2test
+          visitscotland:anchor: spot-anchor
+          visitscotland:layout: default
+          visitscotland:title: This is a spotlight module
           visitscotland:translation: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p><em>copy</em> test</p>
+            hippostd:content: <p>This is a regular&nbsp;<em>spotlight&nbsp;</em>module.</p>
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
@@ -45809,7 +45894,110 @@
             /visitscotland:link:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
-        /spotlight-test[2]:
+        /spotlight-test-copy[2]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b4c0239f-57eb-4df4-8e5f-3dceb7dfe5b7
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:01:52.560+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 65840432-c371-4790-956b-d94ac1aecc17
+          hippotranslation:locale: en
+          visitscotland:anchor: spot-anchor
+          visitscotland:layout: default
+          visitscotland:title: This is a spotlight module
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This is a regular&nbsp;<em>spotlight&nbsp;</em>module.</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /spotlight-test-copy[3]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: ee82f20d-12b5-4492-b598-d6074da0165c
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:02:14.822+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-04-23T13:04:15.853+01:00
+          hippotranslation:id: 65840432-c371-4790-956b-d94ac1aecc17
+          hippotranslation:locale: en
+          visitscotland:anchor: spot-anchor
+          visitscotland:layout: default
+          visitscotland:title: This is a spotlight module
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This is a regular&nbsp;<em>spotlight&nbsp;</em>module.</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+      /spotlight-compact:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: eb3876cb-2b18-4de6-b9a3-ae3221583ae1
+        hippo:name: spotlight compact
+        hippo:versionHistory: 2d81d8be-936a-40ed-8832-5f9bb47791a2
+        /spotlight-compact[1]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b4c4ad80-581e-4cae-b790-954d2bcb0710
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:03:06.418+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 7c060e78-53d4-44af-b7a8-faf68f5cc340
+          hippotranslation:locale: en
+          visitscotland:anchor: anchor
+          visitscotland:layout: compact
+          visitscotland:title: This is a spotlight compact
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This is a regular&nbsp;<em>spotlight&nbsp;</em>module.</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+        /spotlight-compact[2]:
           jcr:primaryType: visitscotland:Spotlight
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
           jcr:uuid: a9bd0259-bc32-4031-98d5-20c9d64ffb64
@@ -45818,17 +46006,17 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
-          hippostdpubwf:lastModificationDate: 2025-11-05T14:45:55.839Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:03:12.250+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 7c060e78-53d4-44af-b7a8-faf68f5cc340
           hippotranslation:locale: en
-          visitscotland:anchor: hdhdsjsjs
+          visitscotland:anchor: anchor
           visitscotland:layout: compact
-          visitscotland:title: title2test
+          visitscotland:title: This is a spotlight compact
           visitscotland:translation: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p><em>copy</em> test</p>
+            hippostd:content: <p>This is a regular&nbsp;<em>spotlight&nbsp;</em>module.</p>
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
@@ -45841,7 +46029,7 @@
             /visitscotland:link:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
-        /spotlight-test[3]:
+        /spotlight-compact[3]:
           jcr:primaryType: visitscotland:Spotlight
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 802e740c-8cd5-49b4-befc-9fbcab3a65ba
@@ -45850,18 +46038,18 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
-          hippostdpubwf:lastModificationDate: 2025-11-05T14:45:55.839Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:03:12.250+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-11-05T14:46:01.648Z
+          hippostdpubwf:publicationDate: 2026-04-23T13:04:15.922+01:00
           hippotranslation:id: 7c060e78-53d4-44af-b7a8-faf68f5cc340
           hippotranslation:locale: en
-          visitscotland:anchor: hdhdsjsjs
+          visitscotland:anchor: anchor
           visitscotland:layout: compact
-          visitscotland:title: title2test
+          visitscotland:title: This is a spotlight compact
           visitscotland:translation: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
-            hippostd:content: <p><em>copy</em> test</p>
+            hippostd:content: <p>This is a regular&nbsp;<em>spotlight&nbsp;</em>module.</p>
           /visitscotland:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: 17f9d549-ba5f-48a2-b234-3a3daf0f5766
@@ -45874,6 +46062,323 @@
             /visitscotland:link:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+      /spotlight-with-ambient-video:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 2a2741d5-88c0-49c3-9a63-a81d2a929af4
+        hippo:name: spotlight with Ambient Video
+        hippo:versionHistory: 40f956b9-9962-4024-b3dc-48c5a94b90bb
+        /spotlight-with-ambient-video[1]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 74b887f7-0320-4958-a40b-e0d2cbd570d6
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:00:26.318+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: fca9689e-f1e1-456d-8af8-ede49c56b3a3
+          hippotranslation:locale: en
+          visitscotland:layout: default
+          visitscotland:title: This is a spotlight module
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This <em>spotlight&nbsp;</em>module has an ambient
+              video. Sit back and chill</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 43c4e6d8-5284-444c-be54-4f251f34fa9b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+          /visitscotland:video:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
+        /spotlight-with-ambient-video[2]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 63d28f15-e36d-4a5f-9c22-aa499f9b1798
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:00:22.496+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: fca9689e-f1e1-456d-8af8-ede49c56b3a3
+          hippotranslation:locale: en
+          visitscotland:layout: default
+          visitscotland:title: This is a spotlight module
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This <em>spotlight&nbsp;</em>module has an ambient
+              video. Sit back and chill</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 43c4e6d8-5284-444c-be54-4f251f34fa9b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+          /visitscotland:video:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
+        /spotlight-with-ambient-video[3]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 25182c6b-9b3e-479c-b2e9-5d0ce5207e8f
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:00:26.318+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-04-23T13:04:15.618+01:00
+          hippotranslation:id: fca9689e-f1e1-456d-8af8-ede49c56b3a3
+          hippotranslation:locale: en
+          visitscotland:layout: default
+          visitscotland:title: This is a spotlight module
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This <em>spotlight&nbsp;</em>module has an ambient
+              video. Sit back and chill</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 43c4e6d8-5284-444c-be54-4f251f34fa9b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+          /visitscotland:video:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
+      /spotlight-with-ambient-video-compact:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: bbd11f3a-5789-4cf8-90a1-14d47da1f154
+        hippo:name: spotlight with Ambient Video Compact
+        hippo:versionHistory: d909037a-a34a-4afa-acf6-29a4e407a6bf
+        /spotlight-with-ambient-video-compact[1]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 6d63eb23-3ef7-42ba-a678-b7fa2dd7807c
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T12:59:51.476+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 32e55f7e-2949-49ee-90a7-09b64768e339
+          hippotranslation:locale: en
+          visitscotland:layout: compact
+          visitscotland:title: This is a spotlight module
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This <em>spotlight&nbsp;</em>module has an ambient
+              video. Sit back and chill</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 43c4e6d8-5284-444c-be54-4f251f34fa9b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+          /visitscotland:video:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
+        /spotlight-with-ambient-video-compact[2]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b3a5071e-1fee-4a5a-945d-45c6dbe4b6e6
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T12:59:51.476+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-04-23T13:04:15.724+01:00
+          hippotranslation:id: 32e55f7e-2949-49ee-90a7-09b64768e339
+          hippotranslation:locale: en
+          visitscotland:layout: compact
+          visitscotland:title: This is a spotlight module
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This <em>spotlight&nbsp;</em>module has an ambient
+              video. Sit back and chill</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 43c4e6d8-5284-444c-be54-4f251f34fa9b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+          /visitscotland:video:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
+      /spotlight-with-youtube-video-wrong:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: f98967be-d6b9-4d55-8a8b-073d5de57dcd
+        hippo:name: spotlight with Youtube video (wrong)
+        hippo:versionHistory: 0795559f-75ea-4bd3-9b4f-179d13b5d238
+        /spotlight-with-youtube-video-wrong[1]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 7d915362-faac-41cf-9acb-3e0a07cf6617
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:06:02.008+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: f25c97f8-6240-4dd7-bda1-866dce33e680
+          hippotranslation:locale: en
+          visitscotland:layout: default
+          visitscotland:title: This is a spotlight module
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This <em>spotlight&nbsp;</em>has a Youtube video
+              which it shouldn't display</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+          /visitscotland:video:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 27faea1f-b49a-49ec-a0d8-a58a614d1c82
+        /spotlight-with-youtube-video-wrong[2]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: bea29377-441f-42eb-ba97-3fbb002247ce
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:05:43.293+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: f25c97f8-6240-4dd7-bda1-866dce33e680
+          hippotranslation:locale: en
+          visitscotland:layout: default
+          visitscotland:title: This is a spotlight module
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This <em>spotlight&nbsp;</em>has a Youtube video
+              which it shouldn't display</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+          /visitscotland:video:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 27faea1f-b49a-49ec-a0d8-a58a614d1c82
+        /spotlight-with-youtube-video-wrong[3]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 2078b691-d8b7-4e46-be16-1f70dbc9c96b
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-04-23T13:06:02.008+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-04-23T13:06:04.627+01:00
+          hippotranslation:id: f25c97f8-6240-4dd7-bda1-866dce33e680
+          hippotranslation:locale: en
+          visitscotland:layout: default
+          visitscotland:title: This is a spotlight module
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This <em>spotlight&nbsp;</em>has a Youtube video
+              which it shouldn't display</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+          /visitscotland:video:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 27faea1f-b49a-49ec-a0d8-a58a614d1c82
     /article-styled:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']

@@ -41,4 +41,9 @@ public class Spotlight extends BaseDocument {
     public String getLayout() {
         return getSingleProperty("visitscotland:layout");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:video")
+    public VideoLink getVideo() {
+        return getBean("visitscotland:video", VideoLink.class);
+    }
 }
