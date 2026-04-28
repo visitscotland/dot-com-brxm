@@ -343,7 +343,7 @@ public class MapService {
 
         if (!Contract.isNull(image)) {
             String imageUrl = !Contract.isNull(image.getCmsImage())
-                    ? HippoUtilsService.createUrl(image.getCmsImage())
+                    ? hippoUtilsService.createUrl(image.getCmsImage())
                     : image.getExternalImage();
 
             if (imageUrl != null) {

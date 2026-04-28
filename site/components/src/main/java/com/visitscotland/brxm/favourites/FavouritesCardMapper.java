@@ -1,16 +1,10 @@
 package com.visitscotland.brxm.favourites;
 
-import com.google.common.collect.ImmutableList;
-import com.visitscotland.brxm.components.content.GeneralContentComponent;
-import com.visitscotland.brxm.hippobeans.General;
+import com.visitscotland.brxm.components.content.service.FavouritesService;
 import com.visitscotland.brxm.hippobeans.Page;
-import com.visitscotland.brxm.model.favourites.FavouritesCard;
-import org.hippoecm.hst.configuration.hosting.Mount;
-import org.hippoecm.hst.container.RequestContextProvider;
+import com.visitscotland.brxm.favourites.dto.FavouritesCard;
+import com.visitscotland.brxm.services.HippoUtilsService;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.core.request.HstRequestContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 
@@ -20,61 +14,45 @@ import org.springframework.stereotype.Component;
 @Component
 public class FavouritesCardMapper {
 
-    private static final Logger logger = LoggerFactory.getLogger(FavouritesCardMapper.class);
+    private static final boolean FULLY_QUALIFIED_URL = false;
 
-    private static final String GENERAL_PAGE = "visitscotland:General";
-    private static final String API = "/api/";
-    private static final String HTTP = "http:";
-    private static final String HTTPS = "https:";
-    private static final String LOCALHOST = "localhost";
-    private static final String FWD_SLASH = "/";
+    private final FavouritesService favouritesService;
+    private final HippoUtilsService hippoUtilsService;
 
-    // content types can be added here as they are supported (see also PageAssembler)
-    private static final ImmutableList<String> FAVOURITE_CONTENT = ImmutableList.<String>builder()
-            .add("visitscotland:Itinerary")
-            .add("visitscotland:Destination")
-            .add("visitscotland:Listicle")
-            .build();
+    public FavouritesCardMapper(FavouritesService favouritesService, HippoUtilsService hippoUtilsService) {
+        this.favouritesService = favouritesService;
+        this.hippoUtilsService = hippoUtilsService;
+    }
 
-
-    public FavouritesCard getFavouritesCard(HippoBean bean) {
-
-        if (bean == null) {
-            logger.info("Cannot parse favourites card from bean.");
-            return null;
-        }
-
-        final String contentType = bean.getContentType();
-        if (contentType == null || contentType.isEmpty()) {
-            logger.info("Cannot extract content type from bean.");
-            return null;
-        }
-
-        if (!FAVOURITE_CONTENT.contains(contentType)) {
-            if (!(bean instanceof General && GeneralContentComponent.STANDARD.equals((((General) bean).getTheme())))){
-                logger.info("Unsupported content type: {}", bean.getContentType());
-                if (contentType.equals(GENERAL_PAGE)) {
-                    logger.info("General pages are only supported for 'Standard' layout.");
-                }
-                return null;
-            }
-        }
-
-        final Page page = ((Page) bean);
-        if (page == null) {
-            logger.info("Could not parse page from HippoBean.");
-            return null;
-        }
+    public FavouritesCard getFavouritesCard(HippoBean bean) throws FavouritesException {
+        Page page = getPage(bean);
 
         FavouritesCard card = new FavouritesCard();
         card.setUuid(page.getCanonicalHandleUUID());
         card.setTitle(page.getTitle());
         card.setTeaser(page.getTeaser());
-        card.setImage(toURL(page.getHeroImage(), false));
-        card.setUrl(toURL(page, true));
+        card.setImage(hippoUtilsService.createUrl(page.getHeroImage()));
+        card.setUrl(toURL(page));
 
         return card;
+    }
 
+    private Page getPage(HippoBean bean) throws FavouritesException {
+
+        if (bean == null) {
+            throw new FavouritesException("The link for this item was not resolved");
+        }
+
+        if (!favouritesService.isFavouritable(bean)) {
+            throw new FavouritesException(String.format("Unsupported page type: %s", bean.getPath()));
+        }
+
+        if (bean instanceof Page) {
+            return (Page) bean;
+        } else {
+            throw new FavouritesException(String.format("Only pages are supported at the moment. Document path =%s",
+                    bean.getPath()));
+        }
     }
 
     /**
@@ -83,25 +61,20 @@ public class FavouritesCardMapper {
      * @param document
      * @return url
      */
-    private String toURL(final HippoBean document, final boolean isPageUrl) {
-        final boolean FULLY_QUALIFIED = true;
-        final HstRequestContext context = RequestContextProvider.get();
-        final Mount mount = context.getResolvedMount().getMount();
+    private String toURL(final HippoBean document) throws FavouritesException {
 
-        String url = context.getHstLinkCreator().create(document.getNode(), mount)
-                .toUrlForm(context, FULLY_QUALIFIED);
+        String url = hippoUtilsService.createUrl(document, FULLY_QUALIFIED_URL);
+
         if (url == null) {
-            logger.info("Failed to get URL for document.");
-            return null;
-        }
-        if (isPageUrl) {
-            url = url.replace(API, FWD_SLASH);
-        }
-        if (!context.getVirtualHost().getHostName().contains(LOCALHOST)) {
-            url = url.replace(HTTP, HTTPS);
+            throw new FavouritesException(String.format("Failed to get URL for document: %s", document.getPath()));
+        } else if (url.endsWith("/content")){
+            return url.substring(0, url.length()-8);
         }
 
         return url;
     }
-}
 
+
+
+
+}

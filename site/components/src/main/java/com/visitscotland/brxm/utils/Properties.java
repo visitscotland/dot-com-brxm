@@ -81,19 +81,16 @@ public abstract class Properties {
     }
 
     public boolean readBoolean(String key){
-        return Boolean.parseBoolean(getProperty(key).orElseGet(() -> {
-            logIssueWithProperty(key);
-            return "false";
-        }));
+        return readBoolean(key, DEFAULT_LOCALE);
     }
 
     public boolean readBoolean(String key, Locale locale) {
-        return Boolean.parseBoolean(
-                getProperty(key, locale).orElseGet(() -> {
+        return getProperty(key, locale)
+                .map(Boolean::parseBoolean)
+                .orElseGet(() -> {
                     logIssueWithProperty(key);
-                    return "false";
-                })
-        );
+                    return false;
+                });
     }
 
     /**
