@@ -11777,12 +11777,13 @@
               hippostd:transferable: false
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2020-03-09T13:18:03.936Z
-              hippostdpubwf:lastModificationDate: 2021-06-24T14:40:21.108+01:00
+              hippostdpubwf:lastModificationDate: 2026-04-28T17:20:44.904+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotranslation:id: 97546e89-0d3f-4b72-816b-fd23247d9c2c
               hippotranslation:locale: en
               visitscotland:breadcrumb: ''
               visitscotland:descOrder: true
+              visitscotland:hideNewsletter: false
               visitscotland:newsletter: true
               visitscotland:seoDescription: Discover relaxing breaks in Scotland,
                 including accommodation beside lochs and canals, lighthouses, boating
@@ -11817,6 +11818,13 @@
                   hippostd:content: <p>Here are just a few ideas for some lovely waterside
                     locations and accommodation suggestions for holidays on or by
                     the water, perfect for a relaxing break.</p>
+              /visitscotland:blog:
+                jcr:primaryType: visitscotland:Blog
+                visitscotland:publishDate: 2026-04-28T17:22:00+01:00
+                visitscotland:readingTime: 0
+                /visitscotland:author:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             /content[2]:
               jcr:primaryType: visitscotland:Listicle
               jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -13250,6 +13258,591 @@
             /visitscotland:images:
               jcr:primaryType: hippogallerypicker:imagelink
               hippo:docbase: d607431a-46f7-4ed1-a288-de6458bbdc97
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+      /amazing-walks:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 330b9ca3-7fb8-4746-a4fa-6fb6d6448858
+        hippo:name: Amazing Walks
+        hippostd:foldertype: [new-translated-folder, new-page, new-module]
+        hippotranslation:id: 1b41069d-ec32-405b-8d1f-e2a5f8be77b0
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: a68a3356-9903-47ac-b2b9-23ddd51311d9
+          hippo:name: 7 Easy hill walks with amazing views
+          hippo:versionHistory: e35b32b7-ed15-4b0e-8768-4902f693b94a
+          /content[1]:
+            jcr:primaryType: visitscotland:Listicle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: b84595f8-b1c5-4f45-b284-33a0251f9aa4
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:34:46.786+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T08:34:46.786+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: aff1aaa7-e9a8-4d93-9e89-e029295e52c2
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:descOrder: false
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Here are some Scotland's smaller sized hills
+              you can fit into a day or afternoon, all measuring approximately 500
+              m and under.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: 7 Easy hill walks with amazing views
+            visitscotland:teaser: Here are some Scotland's smaller sized hills you
+              can fit into a day or afternoon, all measuring approximately 500 m and
+              under.
+            visitscotland:title: 7 Easy hill walks with amazing views
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ece9b7e3-75e0-4817-8b83-6fd2f06ccd7e
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Here are some Scotland's smaller sized hills you
+                can fit into a day or afternoon, all measuring approximately 500 m
+                and under.</p>
+            /visitscotland:ListicleClosing:
+              jcr:primaryType: visitscotland:ListicleClosing
+              visitscotland:title: Info
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>The following list was created by VisitScotland
+                  to showcase a range of experiences. It isn't ranked in any specific
+                  order.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:Listicle
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 569b58eb-9285-4e32-a2ff-73e0391b16d1
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:34:46.786+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T08:37:14.968+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: aff1aaa7-e9a8-4d93-9e89-e029295e52c2
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:descOrder: false
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Here are some Scotland's smaller sized hills
+              you can fit into a day or afternoon, all measuring approximately 500
+              m and under.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: 7 Easy hill walks with amazing views
+            visitscotland:teaser: Here are some Scotland's smaller sized hills you
+              can fit into a day or afternoon, all measuring approximately 500 m and
+              under.
+            visitscotland:title: 7 Easy hill walks with amazing views
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ece9b7e3-75e0-4817-8b83-6fd2f06ccd7e
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Here are some Scotland's smaller sized hills you
+                can fit into a day or afternoon, all measuring approximately 500 m
+                and under.</p>
+            /visitscotland:ListicleClosing:
+              jcr:primaryType: visitscotland:ListicleClosing
+              visitscotland:title: Info
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>The following list was created by VisitScotland
+                  to showcase a range of experiences. It isn't ranked in any specific
+                  order.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:Listicle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 81c25a54-64de-48d0-a8c7-b419259a7177
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:34:46.786+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T08:37:14.968+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T09:03:39.148+01:00
+            hippotranslation:id: aff1aaa7-e9a8-4d93-9e89-e029295e52c2
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:descOrder: false
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Here are some Scotland's smaller sized hills
+              you can fit into a day or afternoon, all measuring approximately 500
+              m and under.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: 7 Easy hill walks with amazing views
+            visitscotland:teaser: Here are some Scotland's smaller sized hills you
+              can fit into a day or afternoon, all measuring approximately 500 m and
+              under.
+            visitscotland:title: 7 Easy hill walks with amazing views
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ece9b7e3-75e0-4817-8b83-6fd2f06ccd7e
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Here are some Scotland's smaller sized hills you
+                can fit into a day or afternoon, all measuring approximately 500 m
+                and under.</p>
+            /visitscotland:ListicleClosing:
+              jcr:primaryType: visitscotland:ListicleClosing
+              visitscotland:title: Info
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>The following list was created by VisitScotland
+                  to showcase a range of experiences. It isn't ranked in any specific
+                  order.</p>
+        /corstorphine-hill-edinburgh:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: f462f7db-cbf5-48ca-a9dd-6cff5195c903
+          hippo:name: Corstorphine Hill, Edinburgh
+          hippo:versionHistory: 306d1368-194a-412b-9be5-c3e29cab7a95
+          /corstorphine-hill-edinburgh[1]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: fa77b863-50a2-44f7-8a65-f9a0711fc29a
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:38:15.049+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T08:38:15.049+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 5ab5c9fd-d1fe-4c16-92c1-071dfeee3ac7
+            hippotranslation:locale: en
+            visitscotland:subtitle: Location - Mandatory
+            visitscotland:title: Corstorphine Hill, Edinburgh
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>A labyrinth of hill paths leads high above the
+                leafy suburbs to the west of Edinburgh. As you climb higher, you’ll
+                reach the outskirts of a golf course which reveals sweeping views
+                of the capital. Continue along the high metal boundary of Edinburgh
+                Zoo while keeping your ears and eyes peeled for cries and glimpses
+                of the zoo’s exotic creatures. The Rest and Be Thankful viewpoint
+                bench marks the end of the trail. The view below is the same which
+                features in Robert Louis Stevenson’s novel Kidnapped.</p>
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Explore the route to Corstorphine Hill
+              visitscotland:link: https://www.walkhighlands.co.uk/lothian/corstorphine-hill.shtml
+            /visitscotland:images:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /corstorphine-hill-edinburgh[2]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: bb0d2ed7-d536-4edb-a78a-11664ee3721e
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:38:15.049+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T08:42:15.316+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 5ab5c9fd-d1fe-4c16-92c1-071dfeee3ac7
+            hippotranslation:locale: en
+            visitscotland:subtitle: Location - Mandatory
+            visitscotland:title: Corstorphine Hill, Edinburgh
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>A labyrinth of hill paths leads high above the
+                leafy suburbs to the west of Edinburgh. As you climb higher, you’ll
+                reach the outskirts of a golf course which reveals sweeping views
+                of the capital. Continue along the high metal boundary of Edinburgh
+                Zoo while keeping your ears and eyes peeled for cries and glimpses
+                of the zoo’s exotic creatures. The Rest and Be Thankful viewpoint
+                bench marks the end of the trail. The view below is the same which
+                features in Robert Louis Stevenson’s novel Kidnapped.</p>
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Explore the route to Corstorphine Hill
+              visitscotland:link: https://www.walkhighlands.co.uk/lothian/corstorphine-hill.shtml
+            /visitscotland:images:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /corstorphine-hill-edinburgh[3]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 597b08a7-49f0-45a3-930a-c0c823aa48e6
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:38:15.049+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T08:42:15.316+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T09:03:39.339+01:00
+            hippotranslation:id: 5ab5c9fd-d1fe-4c16-92c1-071dfeee3ac7
+            hippotranslation:locale: en
+            visitscotland:subtitle: Location - Mandatory
+            visitscotland:title: Corstorphine Hill, Edinburgh
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>A labyrinth of hill paths leads high above the
+                leafy suburbs to the west of Edinburgh. As you climb higher, you’ll
+                reach the outskirts of a golf course which reveals sweeping views
+                of the capital. Continue along the high metal boundary of Edinburgh
+                Zoo while keeping your ears and eyes peeled for cries and glimpses
+                of the zoo’s exotic creatures. The Rest and Be Thankful viewpoint
+                bench marks the end of the trail. The view below is the same which
+                features in Robert Louis Stevenson’s novel Kidnapped.</p>
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Explore the route to Corstorphine Hill
+              visitscotland:link: https://www.walkhighlands.co.uk/lothian/corstorphine-hill.shtml
+            /visitscotland:images:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: c3eafb5b-6c18-4caa-9c9a-63279b816630
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /hill-of-tarvit-cupar:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: beb103ba-f64d-4839-9361-05174239944d
+          hippo:name: Hill of Tarvit, Cupar
+          /hill-of-tarvit-cupar[1]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 9530a483-a605-493b-a084-bf9ba6b472b1
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:52:24.870+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T09:02:30.356+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a4771c26-8f5b-4881-9ebb-f1965e7a8ca3
+            hippotranslation:locale: en
+            visitscotland:subtitle: Location - Mandatory
+            visitscotland:title: Hill of Tarvit, Cupar
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>The Edwardian Hill of Tarvit Mansion is closed
+                in the winter, but you can still enjoy the three looped pathways on
+                its estate, including Hilltop Walk. Follow the signs for Woodland
+                Walk and at the junction next to the wrought iron garden gate, turn
+                right to start walking uphill. After reaching end of the woods, head
+                up a grassy slope to the summit of Hill of Tarvit (Wemyss Hill) with
+                a monument topped with <a href="" id="id4f4">Done </a>a spire, surrounded
+                by views of the Lammermuirs and beyond to the Cairngorms.</p>
+            /visitscotland:images:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Explore the Hill of Tarvit walking trails
+              visitscotland:link: https://www.walkhighlands.co.uk/fife-stirling/hill-of-tarvit.shtml
+          /hill-of-tarvit-cupar[2]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 454336fa-5bfa-4f02-8068-28e6dc789805
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:52:24.870+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T08:54:44.969+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a4771c26-8f5b-4881-9ebb-f1965e7a8ca3
+            hippotranslation:locale: en
+            visitscotland:subtitle: Location - Mandatory
+            visitscotland:title: Hill of Tarvit, Cupar
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>The Edwardian Hill of Tarvit Mansion is closed
+                in the winter, but you can still enjoy the three looped pathways on
+                its estate, including Hilltop Walk. Follow the signs for Woodland
+                Walk and at the junction next to the wrought iron garden gate, turn
+                right to start walking uphill. After reaching end of the woods, head
+                up a grassy slope to the summit of Hill of Tarvit (Wemyss Hill) with
+                a monument topped with <a href="" id="id4f4">Done </a>a spire, surrounded
+                by views of the Lammermuirs and beyond to the Cairngorms.</p>
+            /visitscotland:images:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Explore the Hill of Tarvit walking trails
+              visitscotland:link: https://www.walkhighlands.co.uk/fife-stirling/hill-of-tarvit.shtml
+        /deer-hill-carradale:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: f68dcef6-3a3f-4a45-9108-5211b96c2f40
+          hippo:name: Deer Hill, Carradale
+          hippo:versionHistory: 7e28e232-a2aa-4269-a45e-fc9e93200d15
+          /deer-hill-carradale[1]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 96cedf25-4c65-4d62-b61e-ecbbe927f9b0
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:52:24.870+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T08:55:37.878+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a83df208-9ea3-483c-a070-210c9a71fbea
+            hippotranslation:locale: en
+            visitscotland:subtitle: Location - Mandatory
+            visitscotland:title: Deer Hill, Carradale
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Cnoc Nan Gabhar means ‘Rock of the Goat’ in Gaelic,
+                but this wee hill set on a peninsula is better known as Deer Hill.
+                True to its name, deer of all kinds are seen darting among the trees
+                and glades including red, roe, fallow, and sika. Simply follow the
+                red waymarkers and hug the edge of the woodland which makes up part
+                of the Kintyre Way. As the path climbs, catch glimpses across the
+                Kilbrannan Sound to the Isle of Arran and the peak of Ailsa Craig
+                through the gaps in the trees. The route eventually gives way to open
+                moorland, then a short track to the summit with its majestic view
+                of Kintyre’s east coast.</p>
+            /visitscotland:images:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Explore the route to Deer Hill
+              visitscotland:link: https://www.walkhighlands.co.uk/fife-stirling/hill-of-tarvit.shtml
+          /deer-hill-carradale[2]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: f6b8354c-03b4-40dd-946c-49f74c2a59f6
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:52:24.870+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T08:55:09.725+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a83df208-9ea3-483c-a070-210c9a71fbea
+            hippotranslation:locale: en
+            visitscotland:subtitle: Location - Mandatory
+            visitscotland:title: Deer Hill, Carradale
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Cnoc Nan Gabhar means ‘Rock of the Goat’ in Gaelic,
+                but this wee hill set on a peninsula is better known as Deer Hill.
+                True to its name, deer of all kinds are seen darting among the trees
+                and glades including red, roe, fallow, and sika. Simply follow the
+                red waymarkers and hug the edge of the woodland which makes up part
+                of the Kintyre Way. As the path climbs, catch glimpses across the
+                Kilbrannan Sound to the Isle of Arran and the peak of Ailsa Craig
+                through the gaps in the trees. The route eventually gives way to open
+                moorland, then a short track to the summit with its majestic view
+                of Kintyre’s east coast.</p>
+            /visitscotland:images:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Explore the route to Deer Hill
+              visitscotland:link: https://www.walkhighlands.co.uk/fife-stirling/hill-of-tarvit.shtml
+          /deer-hill-carradale[3]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 3dee3322-d2af-4343-943a-678c66e9135b
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:52:24.870+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T08:55:37.878+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T09:03:39.436+01:00
+            hippotranslation:id: a83df208-9ea3-483c-a070-210c9a71fbea
+            hippotranslation:locale: en
+            visitscotland:subtitle: Location - Mandatory
+            visitscotland:title: Deer Hill, Carradale
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Cnoc Nan Gabhar means ‘Rock of the Goat’ in Gaelic,
+                but this wee hill set on a peninsula is better known as Deer Hill.
+                True to its name, deer of all kinds are seen darting among the trees
+                and glades including red, roe, fallow, and sika. Simply follow the
+                red waymarkers and hug the edge of the woodland which makes up part
+                of the Kintyre Way. As the path climbs, catch glimpses across the
+                Kilbrannan Sound to the Isle of Arran and the peak of Ailsa Craig
+                through the gaps in the trees. The route eventually gives way to open
+                moorland, then a short track to the summit with its majestic view
+                of Kintyre’s east coast.</p>
+            /visitscotland:images:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: dbcdddc3-5586-4188-85a7-fcd5e7e3c29a
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Explore the route to Deer Hill
+              visitscotland:link: https://www.walkhighlands.co.uk/fife-stirling/hill-of-tarvit.shtml
+        /deer-hill-carradale-copy:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: cbf792ae-d85e-4913-8611-eb83cae627f2
+          hippo:name: Deer Hill, Carradale (copy)
+          hippo:versionHistory: 9cbfefc9-a4af-4948-9c85-09fdb04125f5
+          /deer-hill-carradale-copy[1]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 8e9547ae-13ce-4ba1-8cd1-916a3886ebd1
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:52:24.870+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T09:03:27.158+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 5d302b29-1c53-4594-a6ea-ba27df438d73
+            hippotranslation:locale: en
+            visitscotland:subtitle: Location - Mandatory
+            visitscotland:title: Deer Hill, Carradale 2
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Cnoc Nan Gabhar means ‘Rock of the Goat’ in Gaelic,
+                but this wee hill set on a peninsula is better known as Deer Hill.
+                True to its name, deer of all kinds are seen darting among the trees
+                and glades including red, roe, fallow, and sika. Simply follow the
+                red waymarkers and hug the edge of the woodland which makes up part
+                of the Kintyre Way. As the path climbs, catch glimpses across the
+                Kilbrannan Sound to the Isle of Arran and the peak of Ailsa Craig
+                through the gaps in the trees. The route eventually gives way to open
+                moorland, then a short track to the summit with its majestic view
+                of Kintyre’s east coast.</p>
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Explore the route to Deer Hill 2
+              visitscotland:link: https://www.walkhighlands.co.uk/fife-stirling/hill-of-tarvit.shtml
+            /visitscotland:images:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /deer-hill-carradale-copy[2]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 6518c2e7-99d8-4ffa-af4c-46974a3ebac8
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:52:24.870+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T09:02:48.407+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 5d302b29-1c53-4594-a6ea-ba27df438d73
+            hippotranslation:locale: en
+            visitscotland:subtitle: Location - Mandatory
+            visitscotland:title: Deer Hill, Carradale 2
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Cnoc Nan Gabhar means ‘Rock of the Goat’ in Gaelic,
+                but this wee hill set on a peninsula is better known as Deer Hill.
+                True to its name, deer of all kinds are seen darting among the trees
+                and glades including red, roe, fallow, and sika. Simply follow the
+                red waymarkers and hug the edge of the woodland which makes up part
+                of the Kintyre Way. As the path climbs, catch glimpses across the
+                Kilbrannan Sound to the Isle of Arran and the peak of Ailsa Craig
+                through the gaps in the trees. The route eventually gives way to open
+                moorland, then a short track to the summit with its majestic view
+                of Kintyre’s east coast.</p>
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Explore the route to Deer Hill 2
+              visitscotland:link: https://www.walkhighlands.co.uk/fife-stirling/hill-of-tarvit.shtml
+            /visitscotland:images:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /deer-hill-carradale-copy[3]:
+            jcr:primaryType: visitscotland:ListicleItem
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 1f282cd9-3f42-4814-8d0d-286b53ffa573
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T08:52:24.870+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T09:03:27.158+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T09:03:39.280+01:00
+            hippotranslation:id: 5d302b29-1c53-4594-a6ea-ba27df438d73
+            hippotranslation:locale: en
+            visitscotland:subtitle: Location - Mandatory
+            visitscotland:title: Deer Hill, Carradale 2
+            visitscotland:translation: ''
+            /visitscotland:description:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Cnoc Nan Gabhar means ‘Rock of the Goat’ in Gaelic,
+                but this wee hill set on a peninsula is better known as Deer Hill.
+                True to its name, deer of all kinds are seen darting among the trees
+                and glades including red, roe, fallow, and sika. Simply follow the
+                red waymarkers and hug the edge of the woodland which makes up part
+                of the Kintyre Way. As the path climbs, catch glimpses across the
+                Kilbrannan Sound to the Isle of Arran and the peak of Ailsa Craig
+                through the gaps in the trees. The route eventually gives way to open
+                moorland, then a short track to the summit with its majestic view
+                of Kintyre’s east coast.</p>
+            /visitscotland:products:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: Explore the route to Deer Hill 2
+              visitscotland:link: https://www.walkhighlands.co.uk/fife-stirling/hill-of-tarvit.shtml
+            /visitscotland:images:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: ecede5a4-326c-4ce5-b9be-bcdf32c3f2c2
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
@@ -20647,7 +21240,7 @@
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
       jcr:uuid: e1f6355d-80a2-4023-8299-dd4ae893019e
-      hippo:name: Pages
+      hippo:name: General Pages
       hippostd:foldertype: [new-translated-folder-test, new-document]
       hippotranslation:id: 6e598ee0-7b5e-451d-b0b0-b4a48ff21a82
       hippotranslation:locale: en
@@ -24517,6 +25110,820 @@
                 /visitscotland:links:
                   jcr:primaryType: hippo:mirror
                   hippo:docbase: 00a7484c-8509-42be-8735-f93d68ab331a
+      /rich-article:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 0bb702f0-3a3a-49be-9f0d-d87403dc47cd
+        hippo:name: Rich Article
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: dc1edfd3-f11e-4e7b-9093-c8620a355c25
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: aeddec2b-b02e-41a9-840d-0d15cdbe3638
+          hippo:name: Highland Games in Scotland
+          hippo:versionHistory: d4ff9731-ca8c-4855-84db-3fec6dc8de76
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: d1dce38e-2649-4d75-bf62-3390ccac7ab2
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:04:47.034+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:08:52.927+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: ddc5203d-db45-41e9-92f0-eee721f1c39c
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Highland games have been a part of Scotland's
+              culture for hundreds of years and are just as popular today as they've
+              ever been.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Highland Games in Scotland
+            visitscotland:teaser: Highland games have been a part of Scotland's culture
+              for hundreds of years and are just as popular today as they've ever
+              been.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Highland Games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Highland games have been a part of Scotland's culture
+                for hundreds of years and are just as popular today as they've ever
+                been.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 761173bb-13f3-44e2-94ba-0242383d5b60
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:04:47.034+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:09:01.156+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: ddc5203d-db45-41e9-92f0-eee721f1c39c
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Highland games have been a part of Scotland's
+              culture for hundreds of years and are just as popular today as they've
+              ever been.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Highland Games in Scotland
+            visitscotland:teaser: Highland games have been a part of Scotland's culture
+              for hundreds of years and are just as popular today as they've ever
+              been.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Highland Games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Highland games have been a part of Scotland's culture
+                for hundreds of years and are just as popular today as they've ever
+                been.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 7fadd7f6-bc4e-4e04-8fa8-93e41c6867b7
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:04:47.034+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:09:01.156+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T11:15:27.828+01:00
+            hippotranslation:id: ddc5203d-db45-41e9-92f0-eee721f1c39c
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Highland games have been a part of Scotland's
+              culture for hundreds of years and are just as popular today as they've
+              ever been.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Highland Games in Scotland
+            visitscotland:teaser: Highland games have been a part of Scotland's culture
+              for hundreds of years and are just as popular today as they've ever
+              been.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Highland Games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Highland games have been a part of Scotland's culture
+                for hundreds of years and are just as popular today as they've ever
+                been.</p>
+        /get-to-know-the-highland-games-in-scotland:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 2e669850-2e7e-4653-b482-a8e212e95c62
+          hippo:name: Get to know the highland games in Scotland
+          hippo:versionHistory: 202d086b-4e8c-40b8-acf5-9a97d66e8639
+          /get-to-know-the-highland-games-in-scotland[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: ee4e7a86-b574-423d-aae0-c4f84d1e0090
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:09:52.713+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 447cadf1-1a94-4f6d-954b-e6f0ecc044b8
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /get-to-know-the-highland-games-in-scotland[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 908ebfc3-63ce-42c2-9b3e-793975b78dea
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:10:09.004+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 447cadf1-1a94-4f6d-954b-e6f0ecc044b8
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /get-to-know-the-highland-games-in-scotland[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: fb8c110b-f691-43e4-994e-4983d5621361
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:10:09.004+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T11:15:27.937+01:00
+            hippotranslation:id: 447cadf1-1a94-4f6d-954b-e6f0ecc044b8
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+        /highland-games-events-in-2026:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: d160d210-2da0-4f76-be4d-52c6f40d4fac
+          hippo:name: Highland Games events in 2026
+          hippo:versionHistory: f128a069-8b18-455a-bbdb-bd3f33b02dc1
+          /highland-games-events-in-2026[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 6791e46c-4f4e-4254-bb76-bb6eae67aa4c
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:42.514+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 7b71061d-59ca-4773-85d2-a5d7a5ad39ea
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Every Highland games event in Scotland has a unique character and tradition and many are held in simply stunning locations. Make new friends with the locals and other visitors as you enjoy our Scottish hospitality and watch a gripping spectacle of champions, with dancing, music and more.</p>
+
+                  <p>Experience the Highland games in all its glory and enjoy the amazing atmosphere that the games offer.</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">Find a full list of dates on the Scottish Royal Highland Games Association </a></p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /highland-games-events-in-2026[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 15e1c071-13d1-42ad-96c8-db1fea868510
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:28.594+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 7b71061d-59ca-4773-85d2-a5d7a5ad39ea
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Every Highland games event in Scotland has a unique character and tradition and many are held in simply stunning locations. Make new friends with the locals and other visitors as you enjoy our Scottish hospitality and watch a gripping spectacle of champions, with dancing, music and more.</p>
+
+                  <p>Experience the Highland games in all its glory and enjoy the amazing atmosphere that the games offer.</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">Find a full list of dates on the Scottish Royal Highland Games Association </a></p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /highland-games-events-in-2026[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: fe1f072f-34d1-4650-a20d-48fba7ac79ca
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:42.514+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T11:17:46.370+01:00
+            hippotranslation:id: 7b71061d-59ca-4773-85d2-a5d7a5ad39ea
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Every Highland games event in Scotland has a unique character and tradition and many are held in simply stunning locations. Make new friends with the locals and other visitors as you enjoy our Scottish hospitality and watch a gripping spectacle of champions, with dancing, music and more.</p>
+
+                  <p>Experience the Highland games in all its glory and enjoy the amazing atmosphere that the games offer.</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">Find a full list of dates on the Scottish Royal Highland Games Association </a></p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /whats-the-history-of-the-highland-games:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 50219419-9adc-490a-84b3-138c0c5ed17d
+          hippo:name: What's the history of the Highland Games?
+          hippo:versionHistory: e4c06150-91a9-4ff5-b467-c0bdfa7948b2
+          /whats-the-history-of-the-highland-games[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 42ef8b0b-965f-449f-a7d4-77af6d21fb73
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:55.657+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 1e57d139-ecd2-427a-b7e0-da9943e31dfd
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Some believe the roots of the Highland games date as far back as the 11th century. King Malcolm III needed a personal courier, so he called a foot race to the summit of&nbsp;Creag Chòinnich, near Braemar, in the hopes of finding the fastest runner. Many games still include a hill race, although the winner is no longer destined for a life of servitude!</p>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>Highland games as we know them today have been celebrated around Scotland since the 1800s and regularly draw in enthusiastic crowds.</p>
+
+                  <p>Amongst the most historic is the Braemar Gathering, which was awarded Royal Patronage by Queen Victoria and is still regularly attended by the reigning monarch and other members of the Royal Family.</p>
+
+                  <p>&nbsp;</p>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Did you know?</h3>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>The Highland games were so impressive, that the founder of the modern Olympics, Baron de Coubertin, introduced the hammer throw, shot put and the tug o' war after watching the Highland display at the 1889 Paris Exhibition. The hammer throw and shot put are still included to this day.</p>
+
+                  <p>Haggis hurling began as a practical joke in the 1970s, but is now a popular event at many Highland games - there's even a World Haggis Hurling Association dedicated to the sport! The current world record was set at the Milngavie Highland Games in 2011, when Lorne Coltart hurled a haggis at an impressive 217 ft.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /whats-the-history-of-the-highland-games[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 3241d8bb-095a-4841-9d10-f39723a77555
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:53.575+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 1e57d139-ecd2-427a-b7e0-da9943e31dfd
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Some believe the roots of the Highland games date as far back as the 11th century. King Malcolm III needed a personal courier, so he called a foot race to the summit of&nbsp;Creag Chòinnich, near Braemar, in the hopes of finding the fastest runner. Many games still include a hill race, although the winner is no longer destined for a life of servitude!</p>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>Highland games as we know them today have been celebrated around Scotland since the 1800s and regularly draw in enthusiastic crowds.</p>
+
+                  <p>Amongst the most historic is the Braemar Gathering, which was awarded Royal Patronage by Queen Victoria and is still regularly attended by the reigning monarch and other members of the Royal Family.</p>
+
+                  <p>&nbsp;</p>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Did you know?</h3>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>The Highland games were so impressive, that the founder of the modern Olympics, Baron de Coubertin, introduced the hammer throw, shot put and the tug o' war after watching the Highland display at the 1889 Paris Exhibition. The hammer throw and shot put are still included to this day.</p>
+
+                  <p>Haggis hurling began as a practical joke in the 1970s, but is now a popular event at many Highland games - there's even a World Haggis Hurling Association dedicated to the sport! The current world record was set at the Milngavie Highland Games in 2011, when Lorne Coltart hurled a haggis at an impressive 217 ft.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /whats-the-history-of-the-highland-games[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 0b599db7-59be-416f-84d5-47dceb3afc49
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:55.657+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T11:17:58.072+01:00
+            hippotranslation:id: 1e57d139-ecd2-427a-b7e0-da9943e31dfd
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Some believe the roots of the Highland games date as far back as the 11th century. King Malcolm III needed a personal courier, so he called a foot race to the summit of&nbsp;Creag Chòinnich, near Braemar, in the hopes of finding the fastest runner. Many games still include a hill race, although the winner is no longer destined for a life of servitude!</p>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>Highland games as we know them today have been celebrated around Scotland since the 1800s and regularly draw in enthusiastic crowds.</p>
+
+                  <p>Amongst the most historic is the Braemar Gathering, which was awarded Royal Patronage by Queen Victoria and is still regularly attended by the reigning monarch and other members of the Royal Family.</p>
+
+                  <p>&nbsp;</p>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Did you know?</h3>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>The Highland games were so impressive, that the founder of the modern Olympics, Baron de Coubertin, introduced the hammer throw, shot put and the tug o' war after watching the Highland display at the 1889 Paris Exhibition. The hammer throw and shot put are still included to this day.</p>
+
+                  <p>Haggis hurling began as a practical joke in the 1970s, but is now a popular event at many Highland games - there's even a World Haggis Hurling Association dedicated to the sport! The current world record was set at the Milngavie Highland Games in 2011, when Lorne Coltart hurled a haggis at an impressive 217 ft.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+        /what-events-are-in-the-scottish-highland-games:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 361d16cb-f11a-4be7-805b-c46830cbf217
+          hippo:name: What events are in the Scottish Highland Games?
+          hippo:versionHistory: 4c8c7aaf-f0f9-4eb6-85b2-49d1cd948829
+          /what-events-are-in-the-scottish-highland-games[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 9d1cce9f-0910-458f-99c2-9a82568beb41
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T11:13:54.348+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:14:41.719+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 83a1ea6d-6555-4834-a598-da86dba505d7
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: What events are in the Scottish Highland Games?
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>There's plenty to do to fill the whole day, as
+                you'll be watching the heavy events and Highland dancing, enjoying
+                fun fairs and stalls and sampling delicious Scottish food and drink.</p>
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Heavy contests and field events</h3>
+
+                  <p>See competitors put their muscles to the test in the heavy contests, including the hammer throw and weight for height.</p>
+
+                  <p>Competitors in the heavy events use a range of techniques to improve their chances of winning. One movement in the weight for height event goes by the somewhat surprising nickname of "the handbag technique", because the starting position is similar to where one would hold a handbag.</p>
+
+                  <p>The Scottish Highland games' most iconic event, the caber toss, is rumoured to have stemmed from the need to toss logs over chasms. Nowadays it is judged on style rather than distance - competitors aim to flip a log weighing up to 11 stone so that it falls away from them in the 12 o'clock position. The length it travels is entirely unimportant.</p>
+
+                  <p>Look out for the field events such as the hill race and cycling competition which test speed and stamina.</p>
+
+                  <h3>Scottish Highland Games training</h3>
+
+                  <p>Ever wondered how you would fare in a Highland games competition? Whether you're a local or a visitor to Scotland, people of all ages are invited to toss the caber, attempt the stone throw and other iconic heavy events. You can even try your hand at curling!</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">What events are in the Highland Games? </a></p>
+
+                  <h3>Music</h3>
+
+                  <p>For many, one of the most memorable sights of the Highland games is the massed bands, when hundreds of pipers and drummers from different groups come together to play and march in unison. Look out for the solo piping competitions, where competitors play in a range of styles, including the Pibroch, which is considered the classical music of the bagpipe. Pibrochs tend to be slow, stately and complex.</p>
+
+                  <h3>Highland dancing</h3>
+
+                  <p>Dancers give dazzling displays of fancy footwork in Scottish dances, such as the sword dance and the famous Highland Fling. Competing for titles both individually and in groups, their colourful outfits and infectious energy will leave you in high spirits. The Cowal Highland Gathering is renowned for the quality of its Highland dancing, drawing in the best performers from around the globe as they compete in the Scottish and World Championships.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Highland clans</h3>
+
+                  <p>Highland games once saw clan members go head-to-head in fierce competition - and you'll still see this enthusiasm when clans muster all their might in a tug o' war. These days, clan attendance at games is now more of a social and ceremonial affair. Some Highland games are part of a wider clan gathering - a celebratory get-together featuring parades, Scottish music and dancing, feasts, heritage events and much joviality.</p>
+
+                  <h3>Chieftains</h3>
+
+                  <p>The ceremonial role of chieftain is bestowed upon a member of the local community or clan chief, who then leads processions, opens the games and oversees the whole event with aplomb.</p>
+
+                  <p>Did you know that several games have boasted famous celebrity chieftains, including singer Susan Boyle and actors Ewan McGregor and Dougray Scott?</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /what-events-are-in-the-scottish-highland-games[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 82a9d444-a808-4faa-aecf-e49cae6c87a4
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T11:13:54.348+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:15:14.082+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 83a1ea6d-6555-4834-a598-da86dba505d7
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: What events are in the Scottish Highland Games?
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>There's plenty to do to fill the whole day, as
+                you'll be watching the heavy events and Highland dancing, enjoying
+                fun fairs and stalls and sampling delicious Scottish food and drink.</p>
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Heavy contests and field events</h3>
+
+                  <p>See competitors put their muscles to the test in the heavy contests, including the hammer throw and weight for height.</p>
+
+                  <p>Competitors in the heavy events use a range of techniques to improve their chances of winning. One movement in the weight for height event goes by the somewhat surprising nickname of "the handbag technique", because the starting position is similar to where one would hold a handbag.</p>
+
+                  <p>The Scottish Highland games' most iconic event, the caber toss, is rumoured to have stemmed from the need to toss logs over chasms. Nowadays it is judged on style rather than distance - competitors aim to flip a log weighing up to 11 stone so that it falls away from them in the 12 o'clock position. The length it travels is entirely unimportant.</p>
+
+                  <p>Look out for the field events such as the hill race and cycling competition which test speed and stamina.</p>
+
+                  <h3>Scottish Highland Games training</h3>
+
+                  <p>Ever wondered how you would fare in a Highland games competition? Whether you're a local or a visitor to Scotland, people of all ages are invited to toss the caber, attempt the stone throw and other iconic heavy events. You can even try your hand at curling!</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">What events are in the Highland Games? </a></p>
+
+                  <h3>Music</h3>
+
+                  <p>For many, one of the most memorable sights of the Highland games is the massed bands, when hundreds of pipers and drummers from different groups come together to play and march in unison. Look out for the solo piping competitions, where competitors play in a range of styles, including the Pibroch, which is considered the classical music of the bagpipe. Pibrochs tend to be slow, stately and complex.</p>
+
+                  <h3>Highland dancing</h3>
+
+                  <p>Dancers give dazzling displays of fancy footwork in Scottish dances, such as the sword dance and the famous Highland Fling. Competing for titles both individually and in groups, their colourful outfits and infectious energy will leave you in high spirits. The Cowal Highland Gathering is renowned for the quality of its Highland dancing, drawing in the best performers from around the globe as they compete in the Scottish and World Championships.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Highland clans</h3>
+
+                  <p>Highland games once saw clan members go head-to-head in fierce competition - and you'll still see this enthusiasm when clans muster all their might in a tug o' war. These days, clan attendance at games is now more of a social and ceremonial affair. Some Highland games are part of a wider clan gathering - a celebratory get-together featuring parades, Scottish music and dancing, feasts, heritage events and much joviality.</p>
+
+                  <h3>Chieftains</h3>
+
+                  <p>The ceremonial role of chieftain is bestowed upon a member of the local community or clan chief, who then leads processions, opens the games and oversees the whole event with aplomb.</p>
+
+                  <p>Did you know that several games have boasted famous celebrity chieftains, including singer Susan Boyle and actors Ewan McGregor and Dougray Scott?</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /what-events-are-in-the-scottish-highland-games[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: dd1431e0-d327-4b0f-837f-6a6ab0d34908
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T11:13:54.348+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:15:14.082+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T11:15:28.009+01:00
+            hippotranslation:id: 83a1ea6d-6555-4834-a598-da86dba505d7
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: What events are in the Scottish Highland Games?
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>There's plenty to do to fill the whole day, as
+                you'll be watching the heavy events and Highland dancing, enjoying
+                fun fairs and stalls and sampling delicious Scottish food and drink.</p>
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Heavy contests and field events</h3>
+
+                  <p>See competitors put their muscles to the test in the heavy contests, including the hammer throw and weight for height.</p>
+
+                  <p>Competitors in the heavy events use a range of techniques to improve their chances of winning. One movement in the weight for height event goes by the somewhat surprising nickname of "the handbag technique", because the starting position is similar to where one would hold a handbag.</p>
+
+                  <p>The Scottish Highland games' most iconic event, the caber toss, is rumoured to have stemmed from the need to toss logs over chasms. Nowadays it is judged on style rather than distance - competitors aim to flip a log weighing up to 11 stone so that it falls away from them in the 12 o'clock position. The length it travels is entirely unimportant.</p>
+
+                  <p>Look out for the field events such as the hill race and cycling competition which test speed and stamina.</p>
+
+                  <h3>Scottish Highland Games training</h3>
+
+                  <p>Ever wondered how you would fare in a Highland games competition? Whether you're a local or a visitor to Scotland, people of all ages are invited to toss the caber, attempt the stone throw and other iconic heavy events. You can even try your hand at curling!</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">What events are in the Highland Games? </a></p>
+
+                  <h3>Music</h3>
+
+                  <p>For many, one of the most memorable sights of the Highland games is the massed bands, when hundreds of pipers and drummers from different groups come together to play and march in unison. Look out for the solo piping competitions, where competitors play in a range of styles, including the Pibroch, which is considered the classical music of the bagpipe. Pibrochs tend to be slow, stately and complex.</p>
+
+                  <h3>Highland dancing</h3>
+
+                  <p>Dancers give dazzling displays of fancy footwork in Scottish dances, such as the sword dance and the famous Highland Fling. Competing for titles both individually and in groups, their colourful outfits and infectious energy will leave you in high spirits. The Cowal Highland Gathering is renowned for the quality of its Highland dancing, drawing in the best performers from around the globe as they compete in the Scottish and World Championships.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Highland clans</h3>
+
+                  <p>Highland games once saw clan members go head-to-head in fierce competition - and you'll still see this enthusiasm when clans muster all their might in a tug o' war. These days, clan attendance at games is now more of a social and ceremonial affair. Some Highland games are part of a wider clan gathering - a celebratory get-together featuring parades, Scottish music and dancing, feasts, heritage events and much joviality.</p>
+
+                  <h3>Chieftains</h3>
+
+                  <p>The ceremonial role of chieftain is bestowed upon a member of the local community or clan chief, who then leads processions, opens the games and oversees the whole event with aplomb.</p>
+
+                  <p>Did you know that several games have boasted famous celebrity chieftains, including singer Susan Boyle and actors Ewan McGregor and Dougray Scott?</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
     /examples:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -43603,7 +45010,7 @@
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
       jcr:uuid: 533f4f25-5163-486f-a903-b8312026cb22
-      hippo:name: Article
+      hippo:name: Article (Standard)
       hippostd:foldertype: [new-translated-folder-test, new-document]
       hippotranslation:id: c74f22a0-78c7-4843-b4fe-4c0b6e2bf47b
       hippotranslation:locale: en
@@ -44940,6 +46347,815 @@
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: <p>Form copy</p>
+      /rich-article:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 7189b1f7-2e82-4cd6-bca8-8981b8ab7646
+        hippo:name: Rich Article
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: eb20376f-afca-43f9-a090-f39dbf995ade
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: a90dfbba-d4bb-4ebe-8cdd-e02c16abeaae
+          hippo:name: Highland Games in Scotland
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 99c1f967-8336-4af6-a5d0-e0dd4710dd9c
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:04:47.034+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:08:52.927+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b4eeaa7e-2518-47c6-b3d0-1bd3c3ada135
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Highland games have been a part of Scotland's
+              culture for hundreds of years and are just as popular today as they've
+              ever been.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Highland Games in Scotland
+            visitscotland:teaser: Highland games have been a part of Scotland's culture
+              for hundreds of years and are just as popular today as they've ever
+              been.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Highland Games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Highland games have been a part of Scotland's culture
+                for hundreds of years and are just as popular today as they've ever
+                been.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: de9ff5ad-6eab-4b60-8a7a-341ec9e9290a
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:04:47.034+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:09:01.156+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b4eeaa7e-2518-47c6-b3d0-1bd3c3ada135
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Highland games have been a part of Scotland's
+              culture for hundreds of years and are just as popular today as they've
+              ever been.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Highland Games in Scotland
+            visitscotland:teaser: Highland games have been a part of Scotland's culture
+              for hundreds of years and are just as popular today as they've ever
+              been.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Highland Games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Highland games have been a part of Scotland's culture
+                for hundreds of years and are just as popular today as they've ever
+                been.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 8419720d-7ff8-4f52-9009-0660bceeec1f
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:04:47.034+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:09:01.156+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T11:15:27.828+01:00
+            hippotranslation:id: b4eeaa7e-2518-47c6-b3d0-1bd3c3ada135
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Highland games have been a part of Scotland's
+              culture for hundreds of years and are just as popular today as they've
+              ever been.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Highland Games in Scotland
+            visitscotland:teaser: Highland games have been a part of Scotland's culture
+              for hundreds of years and are just as popular today as they've ever
+              been.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Highland Games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Highland games have been a part of Scotland's culture
+                for hundreds of years and are just as popular today as they've ever
+                been.</p>
+        /get-to-know-the-highland-games-in-scotland:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: b45752d8-e9c7-4607-b709-85acae619d02
+          hippo:name: Get to know the highland games in Scotland
+          /get-to-know-the-highland-games-in-scotland[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 395782cd-107e-4784-9a9e-2e6cfdc0460d
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:09:52.713+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 03e15a5b-41f4-4866-9ed3-5fd68b3c950a
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /get-to-know-the-highland-games-in-scotland[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 2a5907f2-9f6d-4521-a1ab-ad93f356df3a
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:10:09.004+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 03e15a5b-41f4-4866-9ed3-5fd68b3c950a
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /get-to-know-the-highland-games-in-scotland[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 70a7747c-ac08-4d20-8e12-9bdac0eb3270
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:10:09.004+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T11:15:27.937+01:00
+            hippotranslation:id: 03e15a5b-41f4-4866-9ed3-5fd68b3c950a
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+        /highland-games-events-in-2026:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 18b46d62-ed9f-4a48-a72b-7c79c17f5bda
+          hippo:name: Highland Games events in 2026
+          /highland-games-events-in-2026[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 1935887e-273c-48b5-a950-4e6433d1441b
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:42.514+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: e809b3d7-d4f8-4c17-8fa7-3e5f9460b51b
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Every Highland games event in Scotland has a unique character and tradition and many are held in simply stunning locations. Make new friends with the locals and other visitors as you enjoy our Scottish hospitality and watch a gripping spectacle of champions, with dancing, music and more.</p>
+
+                  <p>Experience the Highland games in all its glory and enjoy the amazing atmosphere that the games offer.</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">Find a full list of dates on the Scottish Royal Highland Games Association </a></p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /highland-games-events-in-2026[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 2ee01d63-0d8f-44ea-ae42-b48c38245c3e
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:28.594+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: e809b3d7-d4f8-4c17-8fa7-3e5f9460b51b
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Every Highland games event in Scotland has a unique character and tradition and many are held in simply stunning locations. Make new friends with the locals and other visitors as you enjoy our Scottish hospitality and watch a gripping spectacle of champions, with dancing, music and more.</p>
+
+                  <p>Experience the Highland games in all its glory and enjoy the amazing atmosphere that the games offer.</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">Find a full list of dates on the Scottish Royal Highland Games Association </a></p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+          /highland-games-events-in-2026[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 5ae784bc-6ba3-4ce4-a5a4-ee063cfd97cc
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:42.514+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T11:17:46.370+01:00
+            hippotranslation:id: e809b3d7-d4f8-4c17-8fa7-3e5f9460b51b
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Every Highland games event in Scotland has a unique character and tradition and many are held in simply stunning locations. Make new friends with the locals and other visitors as you enjoy our Scottish hospitality and watch a gripping spectacle of champions, with dancing, music and more.</p>
+
+                  <p>Experience the Highland games in all its glory and enjoy the amazing atmosphere that the games offer.</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">Find a full list of dates on the Scottish Royal Highland Games Association </a></p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /whats-the-history-of-the-highland-games:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 3a934ad3-54b4-42e0-aa68-f8082e25b92b
+          hippo:name: What's the history of the Highland Games?
+          /whats-the-history-of-the-highland-games[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 62929433-e1f0-4559-8b92-b5e7dabe8503
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:55.657+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 050243f9-ed96-40a4-81fd-048497d21e34
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Some believe the roots of the Highland games date as far back as the 11th century. King Malcolm III needed a personal courier, so he called a foot race to the summit of&nbsp;Creag Chòinnich, near Braemar, in the hopes of finding the fastest runner. Many games still include a hill race, although the winner is no longer destined for a life of servitude!</p>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>Highland games as we know them today have been celebrated around Scotland since the 1800s and regularly draw in enthusiastic crowds.</p>
+
+                  <p>Amongst the most historic is the Braemar Gathering, which was awarded Royal Patronage by Queen Victoria and is still regularly attended by the reigning monarch and other members of the Royal Family.</p>
+
+                  <p>&nbsp;</p>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Did you know?</h3>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>The Highland games were so impressive, that the founder of the modern Olympics, Baron de Coubertin, introduced the hammer throw, shot put and the tug o' war after watching the Highland display at the 1889 Paris Exhibition. The hammer throw and shot put are still included to this day.</p>
+
+                  <p>Haggis hurling began as a practical joke in the 1970s, but is now a popular event at many Highland games - there's even a World Haggis Hurling Association dedicated to the sport! The current world record was set at the Milngavie Highland Games in 2011, when Lorne Coltart hurled a haggis at an impressive 217 ft.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /whats-the-history-of-the-highland-games[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: bdf09051-ba43-4d99-bb79-794e9111b33e
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:53.575+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 050243f9-ed96-40a4-81fd-048497d21e34
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Some believe the roots of the Highland games date as far back as the 11th century. King Malcolm III needed a personal courier, so he called a foot race to the summit of&nbsp;Creag Chòinnich, near Braemar, in the hopes of finding the fastest runner. Many games still include a hill race, although the winner is no longer destined for a life of servitude!</p>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>Highland games as we know them today have been celebrated around Scotland since the 1800s and regularly draw in enthusiastic crowds.</p>
+
+                  <p>Amongst the most historic is the Braemar Gathering, which was awarded Royal Patronage by Queen Victoria and is still regularly attended by the reigning monarch and other members of the Royal Family.</p>
+
+                  <p>&nbsp;</p>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Did you know?</h3>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>The Highland games were so impressive, that the founder of the modern Olympics, Baron de Coubertin, introduced the hammer throw, shot put and the tug o' war after watching the Highland display at the 1889 Paris Exhibition. The hammer throw and shot put are still included to this day.</p>
+
+                  <p>Haggis hurling began as a practical joke in the 1970s, but is now a popular event at many Highland games - there's even a World Haggis Hurling Association dedicated to the sport! The current world record was set at the Milngavie Highland Games in 2011, when Lorne Coltart hurled a haggis at an impressive 217 ft.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /whats-the-history-of-the-highland-games[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: bf1dcbd8-8420-42f3-81a3-d1b55d999d47
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:55.657+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T11:17:58.072+01:00
+            hippotranslation:id: 050243f9-ed96-40a4-81fd-048497d21e34
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Highland Games events in 2026
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Some believe the roots of the Highland games date as far back as the 11th century. King Malcolm III needed a personal courier, so he called a foot race to the summit of&nbsp;Creag Chòinnich, near Braemar, in the hopes of finding the fastest runner. Many games still include a hill race, although the winner is no longer destined for a life of servitude!</p>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>Highland games as we know them today have been celebrated around Scotland since the 1800s and regularly draw in enthusiastic crowds.</p>
+
+                  <p>Amongst the most historic is the Braemar Gathering, which was awarded Royal Patronage by Queen Victoria and is still regularly attended by the reigning monarch and other members of the Royal Family.</p>
+
+                  <p>&nbsp;</p>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Did you know?</h3>
+
+                  <p>The games evolved into a test not only of strength and stamina, but also of creative dance and music skills to keep kings, queens and clan chiefs entertained.</p>
+
+                  <p>The Highland games were so impressive, that the founder of the modern Olympics, Baron de Coubertin, introduced the hammer throw, shot put and the tug o' war after watching the Highland display at the 1889 Paris Exhibition. The hammer throw and shot put are still included to this day.</p>
+
+                  <p>Haggis hurling began as a practical joke in the 1970s, but is now a popular event at many Highland games - there's even a World Haggis Hurling Association dedicated to the sport! The current world record was set at the Milngavie Highland Games in 2011, when Lorne Coltart hurled a haggis at an impressive 217 ft.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+        /what-events-are-in-the-scottish-highland-games:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 59486557-2a20-47fe-82c8-6fe70da2e970
+          hippo:name: What events are in the Scottish Highland Games?
+          /what-events-are-in-the-scottish-highland-games[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: a2b22ad7-0f92-4598-9f09-10a48f8909d6
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T11:13:54.348+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:14:41.719+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b82f14bc-76ab-407d-a1c9-ec59426905e6
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: What events are in the Scottish Highland Games?
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>There's plenty to do to fill the whole day, as
+                you'll be watching the heavy events and Highland dancing, enjoying
+                fun fairs and stalls and sampling delicious Scottish food and drink.</p>
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Heavy contests and field events</h3>
+
+                  <p>See competitors put their muscles to the test in the heavy contests, including the hammer throw and weight for height.</p>
+
+                  <p>Competitors in the heavy events use a range of techniques to improve their chances of winning. One movement in the weight for height event goes by the somewhat surprising nickname of "the handbag technique", because the starting position is similar to where one would hold a handbag.</p>
+
+                  <p>The Scottish Highland games' most iconic event, the caber toss, is rumoured to have stemmed from the need to toss logs over chasms. Nowadays it is judged on style rather than distance - competitors aim to flip a log weighing up to 11 stone so that it falls away from them in the 12 o'clock position. The length it travels is entirely unimportant.</p>
+
+                  <p>Look out for the field events such as the hill race and cycling competition which test speed and stamina.</p>
+
+                  <h3>Scottish Highland Games training</h3>
+
+                  <p>Ever wondered how you would fare in a Highland games competition? Whether you're a local or a visitor to Scotland, people of all ages are invited to toss the caber, attempt the stone throw and other iconic heavy events. You can even try your hand at curling!</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">What events are in the Highland Games? </a></p>
+
+                  <h3>Music</h3>
+
+                  <p>For many, one of the most memorable sights of the Highland games is the massed bands, when hundreds of pipers and drummers from different groups come together to play and march in unison. Look out for the solo piping competitions, where competitors play in a range of styles, including the Pibroch, which is considered the classical music of the bagpipe. Pibrochs tend to be slow, stately and complex.</p>
+
+                  <h3>Highland dancing</h3>
+
+                  <p>Dancers give dazzling displays of fancy footwork in Scottish dances, such as the sword dance and the famous Highland Fling. Competing for titles both individually and in groups, their colourful outfits and infectious energy will leave you in high spirits. The Cowal Highland Gathering is renowned for the quality of its Highland dancing, drawing in the best performers from around the globe as they compete in the Scottish and World Championships.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Highland clans</h3>
+
+                  <p>Highland games once saw clan members go head-to-head in fierce competition - and you'll still see this enthusiasm when clans muster all their might in a tug o' war. These days, clan attendance at games is now more of a social and ceremonial affair. Some Highland games are part of a wider clan gathering - a celebratory get-together featuring parades, Scottish music and dancing, feasts, heritage events and much joviality.</p>
+
+                  <h3>Chieftains</h3>
+
+                  <p>The ceremonial role of chieftain is bestowed upon a member of the local community or clan chief, who then leads processions, opens the games and oversees the whole event with aplomb.</p>
+
+                  <p>Did you know that several games have boasted famous celebrity chieftains, including singer Susan Boyle and actors Ewan McGregor and Dougray Scott?</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /what-events-are-in-the-scottish-highland-games[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: d109e28b-1c04-401d-b7cb-519ea3aba358
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T11:13:54.348+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:15:14.082+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b82f14bc-76ab-407d-a1c9-ec59426905e6
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: What events are in the Scottish Highland Games?
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>There's plenty to do to fill the whole day, as
+                you'll be watching the heavy events and Highland dancing, enjoying
+                fun fairs and stalls and sampling delicious Scottish food and drink.</p>
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Heavy contests and field events</h3>
+
+                  <p>See competitors put their muscles to the test in the heavy contests, including the hammer throw and weight for height.</p>
+
+                  <p>Competitors in the heavy events use a range of techniques to improve their chances of winning. One movement in the weight for height event goes by the somewhat surprising nickname of "the handbag technique", because the starting position is similar to where one would hold a handbag.</p>
+
+                  <p>The Scottish Highland games' most iconic event, the caber toss, is rumoured to have stemmed from the need to toss logs over chasms. Nowadays it is judged on style rather than distance - competitors aim to flip a log weighing up to 11 stone so that it falls away from them in the 12 o'clock position. The length it travels is entirely unimportant.</p>
+
+                  <p>Look out for the field events such as the hill race and cycling competition which test speed and stamina.</p>
+
+                  <h3>Scottish Highland Games training</h3>
+
+                  <p>Ever wondered how you would fare in a Highland games competition? Whether you're a local or a visitor to Scotland, people of all ages are invited to toss the caber, attempt the stone throw and other iconic heavy events. You can even try your hand at curling!</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">What events are in the Highland Games? </a></p>
+
+                  <h3>Music</h3>
+
+                  <p>For many, one of the most memorable sights of the Highland games is the massed bands, when hundreds of pipers and drummers from different groups come together to play and march in unison. Look out for the solo piping competitions, where competitors play in a range of styles, including the Pibroch, which is considered the classical music of the bagpipe. Pibrochs tend to be slow, stately and complex.</p>
+
+                  <h3>Highland dancing</h3>
+
+                  <p>Dancers give dazzling displays of fancy footwork in Scottish dances, such as the sword dance and the famous Highland Fling. Competing for titles both individually and in groups, their colourful outfits and infectious energy will leave you in high spirits. The Cowal Highland Gathering is renowned for the quality of its Highland dancing, drawing in the best performers from around the globe as they compete in the Scottish and World Championships.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Highland clans</h3>
+
+                  <p>Highland games once saw clan members go head-to-head in fierce competition - and you'll still see this enthusiasm when clans muster all their might in a tug o' war. These days, clan attendance at games is now more of a social and ceremonial affair. Some Highland games are part of a wider clan gathering - a celebratory get-together featuring parades, Scottish music and dancing, feasts, heritage events and much joviality.</p>
+
+                  <h3>Chieftains</h3>
+
+                  <p>The ceremonial role of chieftain is bestowed upon a member of the local community or clan chief, who then leads processions, opens the games and oversees the whole event with aplomb.</p>
+
+                  <p>Did you know that several games have boasted famous celebrity chieftains, including singer Susan Boyle and actors Ewan McGregor and Dougray Scott?</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /what-events-are-in-the-scottish-highland-games[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 824f2f98-286e-465e-a30c-ee8510c63f08
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T11:13:54.348+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:15:14.082+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T11:15:28.009+01:00
+            hippotranslation:id: b82f14bc-76ab-407d-a1c9-ec59426905e6
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: What events are in the Scottish Highland Games?
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>There's plenty to do to fill the whole day, as
+                you'll be watching the heavy events and Highland dancing, enjoying
+                fun fairs and stalls and sampling delicious Scottish food and drink.</p>
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Heavy contests and field events</h3>
+
+                  <p>See competitors put their muscles to the test in the heavy contests, including the hammer throw and weight for height.</p>
+
+                  <p>Competitors in the heavy events use a range of techniques to improve their chances of winning. One movement in the weight for height event goes by the somewhat surprising nickname of "the handbag technique", because the starting position is similar to where one would hold a handbag.</p>
+
+                  <p>The Scottish Highland games' most iconic event, the caber toss, is rumoured to have stemmed from the need to toss logs over chasms. Nowadays it is judged on style rather than distance - competitors aim to flip a log weighing up to 11 stone so that it falls away from them in the 12 o'clock position. The length it travels is entirely unimportant.</p>
+
+                  <p>Look out for the field events such as the hill race and cycling competition which test speed and stamina.</p>
+
+                  <h3>Scottish Highland Games training</h3>
+
+                  <p>Ever wondered how you would fare in a Highland games competition? Whether you're a local or a visitor to Scotland, people of all ages are invited to toss the caber, attempt the stone throw and other iconic heavy events. You can even try your hand at curling!</p>
+
+                  <p><a tabindex="0" href="https://visitscotland.github.io/vs-component-library/iframe.html?viewMode=story&amp;id=pages-article--rich-article&amp;args=&amp;globals=#" target="_self">What events are in the Highland Games? </a></p>
+
+                  <h3>Music</h3>
+
+                  <p>For many, one of the most memorable sights of the Highland games is the massed bands, when hundreds of pipers and drummers from different groups come together to play and march in unison. Look out for the solo piping competitions, where competitors play in a range of styles, including the Pibroch, which is considered the classical music of the bagpipe. Pibrochs tend to be slow, stately and complex.</p>
+
+                  <h3>Highland dancing</h3>
+
+                  <p>Dancers give dazzling displays of fancy footwork in Scottish dances, such as the sword dance and the famous Highland Fling. Competing for titles both individually and in groups, their colourful outfits and infectious energy will leave you in high spirits. The Cowal Highland Gathering is renowned for the quality of its Highland dancing, drawing in the best performers from around the globe as they compete in the Scottish and World Championships.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>Highland clans</h3>
+
+                  <p>Highland games once saw clan members go head-to-head in fierce competition - and you'll still see this enthusiasm when clans muster all their might in a tug o' war. These days, clan attendance at games is now more of a social and ceremonial affair. Some Highland games are part of a wider clan gathering - a celebratory get-together featuring parades, Scottish music and dancing, feasts, heritage events and much joviality.</p>
+
+                  <h3>Chieftains</h3>
+
+                  <p>The ceremonial role of chieftain is bestowed upon a member of the local community or clan chief, who then leads processions, opens the games and oversees the whole event with aplomb.</p>
+
+                  <p>Did you know that several games have boasted famous celebrity chieftains, including singer Susan Boyle and actors Ewan McGregor and Dougray Scott?</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
     /long-copy:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
