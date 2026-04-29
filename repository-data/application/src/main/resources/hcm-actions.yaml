@@ -154,3 +154,5 @@ action-lists:
     /content/documents/administration/labels/navigation/static: reload
     /content/documents/administration/options/search-events-filters-date: delete
     /content/taxonomies: reload
+- 3.4.1:
+    /content/documents/administration/labels/search/search-labels: reload
