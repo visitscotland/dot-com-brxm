@@ -74,9 +74,9 @@ class PageIntroAssemblerTest {
         verify(secondAdapter, never()).getPageIntro(any(), any());
     }
 
-    private class TestPage extends Page {}
+    private static class TestPage extends Page {}
 
-    private class TestAdapter implements PageAdapter<TestPage> {
+    private static class TestAdapter implements PageAdapter<TestPage> {
 
         @Override
         public PageIntro getPageIntro(Locale locale, TestPage page) {

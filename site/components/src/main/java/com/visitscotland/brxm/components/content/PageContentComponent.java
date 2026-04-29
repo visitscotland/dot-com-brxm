@@ -120,7 +120,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addBlog(request);
         addGtmConfiguration(request);
         pageLabels.includeGeneralLabels(pageConfig, isEditMode(request));
-//        addLabels(request, pageConfig);
         addSiteSpecificConfiguration(request, pageConfig);
         //TODO review labels for search once we have time to delete current bundles
         pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);

@@ -23,6 +23,7 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
     private static final Logger logger = LoggerFactory.getLogger(ItineraryContentComponent.class);
 
     public static final String ITINERARY = "itinerary";
+    public static final String ITINERARY_BUNDLE = "itinerary";
     public static final String PAGE_INTRO = "pageIntro";
     public static final String HAS_STOPS = "hasStops";
 
@@ -90,7 +91,7 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
      * Adds labels that are necessary for itineraries.
      */
     private void includeLabels(PageCompositionHelper pageConfig) {
-        pageConfig.addAllSiteLabels( "itinerary");
+        pageConfig.addAllSiteLabels( ITINERARY_BUNDLE);
     }
 
 }
