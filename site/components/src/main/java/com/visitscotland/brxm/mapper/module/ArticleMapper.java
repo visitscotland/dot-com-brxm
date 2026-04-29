@@ -121,8 +121,12 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
                 }
             }
 
-            if (paragraph instanceof ArticleStyledSection) {
+            //TODO: Create Interface for to abstract these hippo beans
+            if (paragraph instanceof ArticleStyledSection ) {
                 ArticleStyledSection styledParagraph = (ArticleStyledSection) paragraph;
+                section.setHeading(styledParagraph.getHeading());
+            } else if (paragraph instanceof ArticleStyledSectionCOM) {
+                ArticleStyledSectionCOM styledParagraph = (ArticleStyledSectionCOM) paragraph;
                 section.setHeading(styledParagraph.getHeading());
             }
 

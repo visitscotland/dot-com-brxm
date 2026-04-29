@@ -12,7 +12,7 @@
   <name>www.visitscotland.com CMS Pages</name>
   <description>www.visitscotland.com CMS Pages</description>
   <artifactId>dot-com-brxm</artifactId>
-  <version>3.3.1-SNAPSHOT</version>
+  <version>3.4.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
