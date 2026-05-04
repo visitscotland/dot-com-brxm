@@ -10,11 +10,12 @@ public class PageLabels {
     private static final String SOCIAL_SHARE_BUNDLE = "social.share";
     private static final String VIDEO_BUNDLE = "video";
     private static final String SKIP_TO_BUNDLE = "skip-to";
-    private static final String CMS_MESSAGES_BUNDLE = "cms-messages";
     private static final String SEO_BUNDLE = "seo";
 
     private static final String NAVIGATION_STATIC = "navigation.static";
-    private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
+    
+    static final String CMS_MESSAGES_BUNDLE = "cms-messages";
+    static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
 
     /**
      * Adds labels that are necessary for type of pages. Please notice that there are two strategies for including properties
@@ -63,8 +64,6 @@ public class PageLabels {
 
     private void addNavigationLabels(PageCompositionHelper pageConfig) {
         pageConfig.addAllSiteLabels(NAVIGATION_STATIC);
-        //TODO: The following labels seemed to be duplicated?
-//        pageConfig.addAllSiteLabels(NAVIGATION_SOCIAL_MEDIA);
         pageConfig.addSiteSpecificLabels(NAVIGATION_SOCIAL_MEDIA);
     }
 }
