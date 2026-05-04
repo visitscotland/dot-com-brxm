@@ -11,7 +11,6 @@ import java.util.List;
 public class PageIntro extends Module<Page> {
 
     LinksModule<EnhancedLink> categorySection;
-    private List<String> errorMessages = new ArrayList<>();
 
     public PageIntro(Page page) {
         setHippoBean(page);
@@ -30,13 +29,4 @@ public class PageIntro extends Module<Page> {
         this.categorySection = categorySection;
     }
 
-    @Override
-    public List<String> getErrorMessages() {
-        return errorMessages;
-    }
-
-    @Override
-    public void setErrorMessages(List<String> errorMessages) {
-        this.errorMessages = errorMessages;
-    }
 }
