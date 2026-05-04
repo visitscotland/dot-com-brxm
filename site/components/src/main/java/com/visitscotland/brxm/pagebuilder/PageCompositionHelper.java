@@ -3,6 +3,8 @@ package com.visitscotland.brxm.pagebuilder;
 import com.visitscotland.brxm.components.content.PageContentComponent;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.Module;
+import com.visitscotland.brxm.pagebuilder.model.PageIntro;
+import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -11,25 +13,81 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-import static com.visitscotland.brxm.components.content.PageContentComponent.PAGE_CONFIGURATION;
 import static com.visitscotland.brxm.services.ResourceBundleService.GLOBAL_BUNDLE_FILE;
 
 public class PageCompositionHelper {
 
     public static final String LABELS = "labels";
+    public static final String PAGE_CONFIGURATION = PageContentComponent.PAGE_CONFIGURATION;
+    public static final String PAGE_TEMPLATE = "pageTemplate";
 
+    private final PageIntroAssembler pageIntroAssembler;
     private final ResourceBundleService bundle;
     private final HstRequest request;
     private final CompositionModel model;
+    private PageIntro pageTemplate;
 
-    public PageCompositionHelper(ResourceBundleService bundle, HstRequest request) {
+    public PageCompositionHelper(ResourceBundleService bundle, PageIntroAssembler pageIntroAssembler, HstRequest request) {
         this.bundle = Objects.requireNonNull(bundle,  "bundle must not be null");
+        this.pageIntroAssembler = pageIntroAssembler;
         this.request = Objects.requireNonNull(request, "request must not be null");
         this.model = new CompositionModel();
     }
 
     public Locale getLocale(){
         return request.getLocale();
+    }
+
+    public void initPageTemplate() {
+        getPageTemplate();
+    }
+
+    //TODO: Review usage of this method
+    public PageIntro getPageTemplate() {
+        if (pageTemplate != null) {
+            return pageTemplate;
+        } else if (request.getModel(PAGE_TEMPLATE) != null) {
+            pageTemplate = request.getModel(PAGE_TEMPLATE);
+            return request.getModel(PAGE_TEMPLATE);
+        } else {
+            return setupPageIntro();
+        }
+    }
+
+
+    /**
+     * Sets up the page intro template by assembling it from the page document.
+     * If the pageIntroAssembler is null, creates a basic PageIntro with an error message.
+     * Caches the result in both "pageIntro" and PAGE_TEMPLATE model attributes.
+     *
+     * @return the assembled PageIntro template
+     */
+    private PageIntro setupPageIntro() {
+        PageIntro template;
+        Page page = null;
+
+        try {
+            page = getPage();
+
+            if (pageIntroAssembler == null) {
+                template = new PageIntro(page);
+                //TODO: Log a more descriptive error message and add it to the logger
+                template.addErrorMessage("There has been an internal error");
+            } else {
+                template = pageIntroAssembler.from(getLocale(), page);
+            }
+        } catch (PageCompositionException e) {
+            template = new PageIntro(page);
+            template.addErrorMessage(e.getMessage());
+        }
+
+        //TODO: pageIntro might be replaced by pageTemplate
+        request.setModel("pageIntro", template);
+        request.setModel(PAGE_TEMPLATE, template);
+
+        this.pageTemplate = template;
+
+        return template;
     }
 
     public Page getPage() throws PageCompositionException {
@@ -160,10 +218,6 @@ public class PageCompositionHelper {
         } else {
             pageConfiguration().put(key, value);
         }
-    }
-
-    public void addRequestModel(String key, Object value) {
-        request.setModel(key, value);
     }
 
     public String calculateAlignment(){
