@@ -19,7 +19,7 @@ public class VsEventsRestService {
     private final CommonUtilsService utils;
 
     private static final String DEFAULT_SYNONYMS_INDEX = "vs-events-synonyms-en";
-    private static final String LOCATIONS_INDEX = "vs-events-locations";
+    private static final String LOCATIONS_INDEX = "vs-events-filters-locations";
     private static final Map<String, String> LOCALE_MAP = Map.of(
             "de", "vs-events-synonyms-de",
             "fr", "vs-events-synonyms-fr",
