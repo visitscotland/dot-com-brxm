@@ -4,6 +4,7 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.ListicleFactory;
 import com.visitscotland.brxm.hippobeans.Listicle;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
 import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -19,17 +20,19 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
 
 
     private ListicleFactory factory;
+    private final PageIntroAssembler pageIntroAssembler;
 
     public ListicleContentComponent(){
         logger.debug("ListicleContentComponent initialized");
-        factory = VsComponentManager.get(ListicleFactory.class);
+        this.factory = VsComponentManager.get(ListicleFactory.class);
+        this.pageIntroAssembler = VsComponentManager.get(PageIntroAssembler.class);
     }
 
 
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageIntroAssembler, request);
 
         super.doBeforeRender(request, response, pageConfig);
 
