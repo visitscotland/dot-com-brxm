@@ -10,11 +10,13 @@ import org.hippoecm.hst.core.component.HstRequest;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.visitscotland.brxm.components.content.PageContentComponent.LABELS;
+
 import static com.visitscotland.brxm.components.content.PageContentComponent.PAGE_CONFIGURATION;
 import static com.visitscotland.brxm.services.ResourceBundleService.GLOBAL_BUNDLE_FILE;
 
 public class PageCompositionHelper {
+
+    public static final String LABELS = "labels";
 
     private final ResourceBundleService bundle;
     private final HstRequest request;
