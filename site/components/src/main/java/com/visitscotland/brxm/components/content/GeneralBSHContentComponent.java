@@ -40,7 +40,7 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
     }
 
     @Override
-    protected void addOTYML(HstRequest request) {
+    protected void addOTYML(HstRequest request, PageCompositionHelper pageConfig) {
         GeneralBSH page = getDocument(request);
         if (!Contract.isEmpty(page.getLinks())) {
             HorizontalListLinksModule otyml = megalinkMapper.horizontalListLayout(page, request.getLocale());

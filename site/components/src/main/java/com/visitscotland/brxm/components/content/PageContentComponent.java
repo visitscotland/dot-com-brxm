@@ -2,6 +2,7 @@ package com.visitscotland.brxm.components.content;
 
 import com.visitscotland.brxm.components.content.service.CludoService;
 import com.visitscotland.brxm.components.content.service.FavouritesService;
+import com.visitscotland.brxm.components.content.service.PageLabels;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.BlogFactory;
 import com.visitscotland.brxm.factory.NewsletterFactory;
@@ -36,12 +37,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
 
     //Resource Bundle
-    private static final String SOCIAL_SHARE_BUNDLE = "social.share";
     private static final String VIDEO_BUNDLE = "video";
-    private static final String SKIP_TO_BUNDLE = "skip-to";
     private static final String SEARCH_BUNDLE = "search-labels";
-    private static final String CMS_MESSAGES_BUNDLE = "cms-messages";
-    private static final String SEO_BUNDLE = "seo";
     private static final String TABLE_CONTENTS_BUNDLE = "table-contents";
     private static final String MEGALINKS_BUNDLE = "megalinks";
     private static final String AMBIENT_VIDEO_BUNDLE = "ambient-video";
@@ -52,8 +49,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String MAIN_MAP_PATH = "main-map-path";
 
     private static final String SEARCH = "search";
-    private static final String NAVIGATION_STATIC = "navigation.static";
-    private static final String NAVIGATION_SOCIAL_MEDIA = "navigation.social-media";
 
     //Objects injected in the page payload
     public static final String DOCUMENT = "document";
@@ -62,7 +57,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public static final String AUTHOR = "author";
     public static final String NEWSLETTER_SIGNPOST = "newsletterSignpost";
     public static final String PREVIEW_ALERTS = "alerts";
-    public static final String LABELS = "labels";
     public static final String PAGE_CONFIGURATION = "pageConfiguration";
 
     public static final String HERO_IMAGE = "heroImage";
@@ -84,6 +78,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final Logger contentLogger;
     private final CludoService cludoService;
     private final FavouritesService favouritesService;
+    private final PageLabels pageLabels;
 
     private final MetadataFactory metadata;
 
@@ -100,6 +95,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         metadata = VsComponentManager.get(MetadataFactory.class);
         cludoService = VsComponentManager.get(CludoService.class);
         favouritesService = VsComponentManager.get(FavouritesService.class);
+        pageLabels = VsComponentManager.get(PageLabels.class);
     }
 
     ResourceBundleService getBundle() {
@@ -119,11 +115,11 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addMetadata(request);
         addHeroImage(request, pageConfig);
 
-        addOTYML(request);
+        addOTYML(request, pageConfig);
         addNewsletterSignup(request);
         addBlog(request);
         addGtmConfiguration(request);
-        addLabels(request);
+        pageLabels.includeGeneralLabels(pageConfig, isEditMode(request));
         addSiteSpecificConfiguration(request, pageConfig);
         //TODO review labels for search once we have time to delete current bundles
         pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
@@ -136,50 +132,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void addMetadata(HstRequest request){
         request.setModel(METADATA_MODEL, metadata.getMetadata());
-    }
-
-    /**
-     * Adds labels that are necessary for type of pages. Please notice that there are two strategies for including properties
-     * <br>
-     * When all labels are required you should use {@code bundle.getAllLabels(...)}. However, in the case that only
-     * some of them are needed we can create a new {@code Map} object and include them one by one. (i.e. global labels)
-     * </ul>
-     *
-     * @param request HstRequest
-     */
-    private void addLabels(HstRequest request) {
-        labels(request).put(ResourceBundleService.GLOBAL_BUNDLE_FILE, getGlobalLabels(request.getLocale()));
-
-        addNavigationLabels(request);
-
-        addAllLabels(request, SOCIAL_SHARE_BUNDLE);
-        addAllLabels(request, VIDEO_BUNDLE);
-        addAllLabels(request, SEO_BUNDLE);
-        addAllLabels(request, SKIP_TO_BUNDLE);
-
-        if (isEditMode(request)) {
-             addAllLabels(request, CMS_MESSAGES_BUNDLE);
-        }
-    }
-
-    private void addNavigationLabels(HstRequest request) {
-        addAllLabels(request, NAVIGATION_STATIC);
-        addAllLabels(request, NAVIGATION_SOCIAL_MEDIA);
-        addSiteSpecificLabels(request, NAVIGATION_SOCIAL_MEDIA);
-    }
-
-    /**
-     * Add all label from a Hippo Resource Bundle File to the {@code label} request attribute
-     *
-     * @param request Current Request
-     * @param bundleId Hippo Resource Bundle id (from the CMS)
-     */
-    protected void addAllLabels(HstRequest request, String bundleId) {
-        labels(request).put(bundleId, bundle.getAllLabels(bundleId, request.getLocale()));
-    }
-
-    protected void addSiteSpecificLabels(HstRequest request, String bundleId) {
-        labels(request).put(bundleId, bundle.getSiteSpecificLabels(bundleId, request.getLocale()));
     }
 
     /**
@@ -197,40 +149,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         request.setModel(GTM, gtmProperties);
     }
-    /**
-     * Returns a subset of labels that are requires for all pages
-     * @param locale Locale of the request
-     * @return subset of labels that are requires for all pages
-     */
-    private Map<String, String> getGlobalLabels(Locale locale) {
-        Map<String, String> globalLabels = new HashMap<>();
 
-        addGlobalLabel(globalLabels, "close", locale);
-        addGlobalLabel(globalLabels, "cookie.link-message", locale);
-        addGlobalLabel(globalLabels, "third-party-error", locale);
-        addGlobalLabel(globalLabels, "default.alt-text", locale);
-        addGlobalLabel(globalLabels, "image.title", locale);
-        addGlobalLabel(globalLabels, "image.no.credit", locale);
-        addGlobalLabel(globalLabels, "image.toggle.text", locale);
-        addGlobalLabel(globalLabels, "home", locale);
-        addGlobalLabel(globalLabels, "page.next", locale);
-        addGlobalLabel(globalLabels, "page.previous", locale);
-        addGlobalLabel(globalLabels, "back-to-top", locale);
-        addGlobalLabel(globalLabels, "last-update", locale);
-
-        return globalLabels;
-    }
-
-    /**
-     * Gets a label from the General resource bundle and adds it to a map
-     *
-     * @param map: Map where the labels will be added to
-     * @param key: Resource bundle key
-     * @param locale: Locale of the request
-     */
-    private void addGlobalLabel(Map<String, String> map, String key, Locale locale) {
-        map.put(key, bundle.getResourceBundle(ResourceBundleService.GLOBAL_BUNDLE_FILE, key, locale));
-    }
 
     /**
      * - Alerts are only used for issues related with the hero image at the moment
@@ -273,7 +192,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     /**
      * Set the OTYML module if present
      */
-    protected void addOTYML(HstRequest request) {
+    protected void addOTYML(HstRequest request, PageCompositionHelper pageConfig) {
         final String PAGINATION_BUNDLE = "essentials.pagination";
 
         Page page = getDocument(request);
@@ -291,25 +210,25 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
             request.setModel(OTYML_BUNDLE, otyml);
         }
 
-         addAllLabels(request, OTYML_BUNDLE);
-         addAllLabels(request, MEGALINKS_BUNDLE);
-         addAllLabels(request, PAGINATION_BUNDLE);
+        pageConfig.addAllSiteLabels(OTYML_BUNDLE);
+        pageConfig.addAllSiteLabels(MEGALINKS_BUNDLE);
+        pageConfig.addAllSiteLabels(PAGINATION_BUNDLE);
     }
-
-    /**
-     * Returns the labels object from the request if it exists, otherwise, creates a new one and adds it to the request
-     * @param request HstRequest
-     * @return labels object from the request
-     */
-    protected Map<String, Map<String, String>> labels(HstRequest request) {
-        if (request.getModel(LABELS) == null) {
-            Map<String, Map<String, String>> labels = new HashMap<>();
-            request.setModel(LABELS, labels);
-            return labels;
-        }
-
-        return request.getModel(LABELS);
-    }
+//
+//    /**
+//     * Returns the labels object from the request if it exists, otherwise, creates a new one and adds it to the request
+//     * @param request HstRequest
+//     * @return labels object from the request
+//     */
+//    protected Map<String, Map<String, String>> labels(HstRequest request) {
+//        if (request.getModel(LABELS) == null) {
+//            Map<String, Map<String, String>> labels = new HashMap<>();
+//            request.setModel(LABELS, labels);
+//            return labels;
+//        }
+//
+//        return request.getModel(LABELS);
+//    }
 
     /**
      * Set the blog if present
@@ -391,7 +310,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
 
         if (properties.isTableOfContentsEnabled()){
-            addAllLabels(request, TABLE_CONTENTS_BUNDLE);
+            pageConfig.addAllSiteLabels(TABLE_CONTENTS_BUNDLE);
         }
 
         pageConfig.addProperty(SitePropertyKeys.FEATURE_HERO_SECTION, properties.getFeatureHeroSection());

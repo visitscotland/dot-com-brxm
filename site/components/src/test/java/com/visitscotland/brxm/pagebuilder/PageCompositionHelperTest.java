@@ -1,16 +1,17 @@
 package com.visitscotland.brxm.pagebuilder;
 
 import com.visitscotland.brxm.model.Module;
-import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
-import static com.visitscotland.brxm.components.content.PageContentComponent.LABELS;
+import static com.visitscotland.brxm.pagebuilder.PageCompositionHelper.LABELS;
 import static com.visitscotland.brxm.services.ResourceBundleService.GLOBAL_BUNDLE_FILE;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
