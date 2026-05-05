@@ -8,6 +8,7 @@ import com.visitscotland.brxm.hippobeans.Itinerary;
 import com.visitscotland.brxm.model.ItineraryPage;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
 import com.visitscotland.utils.Contract;
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.template.TemplateHashModel;
@@ -23,25 +24,28 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
     private static final Logger logger = LoggerFactory.getLogger(ItineraryContentComponent.class);
 
     public static final String ITINERARY = "itinerary";
+    public static final String ITINERARY_BUNDLE = "itinerary";
     public static final String PAGE_INTRO = "pageIntro";
     public static final String HAS_STOPS = "hasStops";
 
     private final ItineraryMapper itineraryMapper;
     private final PageAssembler builder;
+    private final PageIntroAssembler pageIntroAssembler;
 
     public ItineraryContentComponent() {
         logger.debug("ItineraryContentComponent initialized");
 
         this.itineraryMapper = VsComponentManager.get(ItineraryMapper.class);
         this.builder = VsComponentManager.get(PageAssembler.class);
+        this.pageIntroAssembler = VsComponentManager.get(PageIntroAssembler.class);
     }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageIntroAssembler, request);
         super.doBeforeRender(request, response, pageConfig);
 
-        includeLabels(request);
+        includeLabels(pageConfig);
         if (itineraryMapper.isStopBasedItinerary(getDocument(request))){
             pageConfig.addProperty(HAS_STOPS, true);
             buildStopBasedItinerary(request);
@@ -88,11 +92,9 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
 
     /**
      * Adds labels that are necessary for itineraries.
-     *
-     * @param request HstRequest Current Request
      */
-    private void includeLabels(HstRequest request) {
-        addAllLabels(request, "itinerary");
+    private void includeLabels(PageCompositionHelper pageConfig) {
+        pageConfig.addAllSiteLabels( ITINERARY_BUNDLE);
     }
 
 }

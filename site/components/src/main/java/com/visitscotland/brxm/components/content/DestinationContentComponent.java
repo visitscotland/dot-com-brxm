@@ -6,6 +6,7 @@ import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
@@ -19,16 +20,18 @@ public class DestinationContentComponent extends PageContentComponent<Destinatio
 
     private final PageAssembler builder;
     private final LocationLoader locationLoader;
+    private final PageIntroAssembler pageIntroAssembler;
 
     public DestinationContentComponent(){
         logger.debug("DestinationContentComponent initialized");
         this.builder = VsComponentManager.get(PageAssembler.class);
         this.locationLoader = VsComponentManager.get(LocationLoader.class);
+        this.pageIntroAssembler = VsComponentManager.get(PageIntroAssembler.class);
     }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageIntroAssembler, request);
 
         super.doBeforeRender(request, response, pageConfig);
 

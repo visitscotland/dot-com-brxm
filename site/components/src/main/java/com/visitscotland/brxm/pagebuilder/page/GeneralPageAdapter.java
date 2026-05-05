@@ -3,29 +3,40 @@ package com.visitscotland.brxm.pagebuilder.page;
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.mapper.page.CategoryCardsMapper;
-import com.visitscotland.brxm.model.megalinks.EnhancedLink;
-import com.visitscotland.brxm.model.megalinks.LinksModule;
+import com.visitscotland.brxm.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.model.PageIntro;
 import org.springframework.stereotype.Component;
-
-import java.util.Locale;
 
 @Component
 public class GeneralPageAdapter implements PageAdapter<General> {
 
     private final CategoryCardsMapper categoryCardsMapper;
+    private final PageTemplateInitializer pageTemplateInitializer;
 
-    public GeneralPageAdapter(CategoryCardsMapper categoryCardsMapper) {
+    public GeneralPageAdapter(CategoryCardsMapper categoryCardsMapper, PageTemplateInitializer pageTemplateInitializer) {
         this.categoryCardsMapper = categoryCardsMapper;
+        this.pageTemplateInitializer = pageTemplateInitializer;
     }
 
-    public PageIntro getPageIntro(Locale locale, General page) {
-        LinksModule<EnhancedLink> categorySection = null;
-        if (page.getCategoryLinks() != null){
-            categorySection = categoryCardsMapper.getCategoryCards(locale, page.getCategoryLinks());
-        }
+    @Override
+    public PageIntro getPageIntro(PageCompositionHelper pageConfig)  {
 
-        return new PageIntro(page, categorySection);
+        try {
+            General page = pageConfig.getPage();
+            PageIntro template = pageTemplateInitializer.getPageIntro(pageConfig);
+
+            if (page.getCategoryLinks() != null) {
+                template.setCategorySection(
+                        categoryCardsMapper.getCategoryCards(pageConfig.getLocale(), page.getCategoryLinks()));
+            }
+
+            return template;
+        } catch (PageCompositionException e) {
+            //TODO:
+//            logger.error("Error while composing page intro for General page with id: " + pageConfig.getPage().getId(), e);
+            return null;
+        }
     }
 
     @Override
