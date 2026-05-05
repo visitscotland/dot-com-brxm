@@ -162,3 +162,4 @@ action-lists:
     /content/documentsadministration/labels/search/search-widget: delete
     /content/documents/administration/labels/search/search-widget-events: delete
     /content/documents/administration/options/bespoken-modules: reload
+    /content/taxonomies: reload
