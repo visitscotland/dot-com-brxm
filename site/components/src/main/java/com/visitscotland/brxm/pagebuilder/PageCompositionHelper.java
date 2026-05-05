@@ -74,7 +74,7 @@ public class PageCompositionHelper {
                 //TODO: Log a more descriptive error message and add it to the logger
                 template.addErrorMessage("There has been an internal error");
             } else {
-                template = pageIntroAssembler.from(getLocale(), page);
+                template = pageIntroAssembler.from(this);
             }
         } catch (PageCompositionException e) {
             template = new PageIntro(page);
@@ -90,12 +90,13 @@ public class PageCompositionHelper {
         return template;
     }
 
-    public Page getPage() throws PageCompositionException {
+    @SuppressWarnings("unchecked")
+    public <P extends Page> P getPage() throws PageCompositionException {
         Object page = request.getAttribute(PageContentComponent.DOCUMENT);
         if (page == null){
             throw new PageCompositionException("The page document hasn't been defined");
-        } else if (page  instanceof Page){
-            return (Page) page;
+        } else if (page instanceof Page){
+            return (P) page;
         } else  {
             throw new PageCompositionException("The main document is not a Page instance. Class = " + page.getClass().getSimpleName());
         }
