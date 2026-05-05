@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.visitscotland.brxm.components.content.service.CludoService;
 import com.visitscotland.brxm.hippobeans.DevModule;
+import com.visitscotland.brxm.hippobeans.SearchWidget;
 import com.visitscotland.brxm.model.SearchWidgetModule;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
@@ -13,10 +14,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Locale;
 import java.util.MissingResourceException;
-import java.util.ResourceBundle;
 
 @Component
-public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModule>{
+public class SearchWidgetMapper extends ModuleMapper<SearchWidget, SearchWidgetModule>{
 
 
     private static final String SEARCH_CATEGORIES = "main-category-filters";
@@ -62,7 +62,7 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
      * @throws PageCompositionException if mapping fails
      */
     @Override
-    SearchWidgetModule map(DevModule document, PageCompositionHelper compositionHelper) throws PageCompositionException {
+    SearchWidgetModule map(SearchWidget document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         return createModule(document, compositionHelper.getLocale(), compositionHelper);
     }
 
@@ -77,16 +77,15 @@ public class SearchWidgetMapper extends ModuleMapper<DevModule, SearchWidgetModu
      * @param locale the locale used to resolve labels
      * @return populated {@link SearchWidgetModule}
      */
-    public SearchWidgetModule createModule(DevModule document, Locale locale, PageCompositionHelper compositionHelper) {
+    public SearchWidgetModule createModule(SearchWidget document, Locale locale, PageCompositionHelper compositionHelper) {
 
-        SearchWidgetModule module = new SearchWidgetModule(document, document.getBespoken());
-        ResourceBundle resourceBundle = bundle.getResourceBundle(document.getBespoken(), locale);
-        module.setTitle(resourceBundle.getString( "title"));
-        module.setDescription(resourceBundle.getString( "description"));
-        module.setPlaceholder(resourceBundle.getString( "placeholder"));
-        module.setButton(resourceBundle.getString( "button"));
+        SearchWidgetModule module = new SearchWidgetModule(document, document.getType());
+        module.setTitle(document.getTitle());
+        module.setIntroduction(document.getCopy());
+        module.setPlaceholder(document.getPlaceholder());
+        module.setButton(document.getCtaLabel());
 
-        if (SEARCH_WIDGET_EVENTS.equals(document.getBespoken())) {
+        if (SEARCH_WIDGET_EVENTS.equals(document.getType())) {
             module.setMainCategory("events");
             //TODO review addAllLabelsSpecificName and move to Cludoservice if possible
             addEventsFilters(locale, compositionHelper, module);

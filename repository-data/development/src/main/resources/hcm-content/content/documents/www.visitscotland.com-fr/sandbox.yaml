@@ -1213,3 +1213,155 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+  /modules:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 24131609-7ca3-4331-8114-03280355b66f
+    hippo:name: Document Types
+    hippostd:foldertype: [new-translated-folder-test, new-document]
+    hippotranslation:id: 089c5584-ef84-4e7f-9033-bb81b7fc19c1
+    hippotranslation:locale: fr
+    /article-styled:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 0e52f195-c09c-485b-9d6c-ab1a7db0f53e
+      hippo:name: Article (Styled)
+      hippostd:foldertype: [new-translated-folder-test, new-document]
+      hippotranslation:id: ba496974-da1a-48fa-871c-30937e9398ff
+      hippotranslation:locale: fr
+      /accordion:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: ede9f229-0545-400a-9882-3ccaa55d4de1
+        hippo:name: Accordion
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 5e329d07-813c-4d39-a0b5-8b5280c7a189
+        hippotranslation:locale: fr
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: eab066c2-b796-44c1-b12d-dc875df3b161
+          hippo:name: Ben Nevis (Accommodation in Scotland) (FR)
+          /content:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: ea278f33-c975-4668-b245-0890b741230d
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-05-04T09:26:17.379+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-04T09:26:17.313+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 0bf60013-46ac-4886-bcf1-1f2b07dd9d46
+            hippotranslation:locale: fr
+            visitscotland:breadcrumb: ''
+            visitscotland:diff: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:newsletter: true
+            visitscotland:seoDescription: Ben Nevis
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Ben Nevis
+            visitscotland:teaser: The Article module is used when there is significant
+              amount of content to display about a particular topic.
+            visitscotland:theme: Simple
+            visitscotland:title: Article
+            visitscotland:translation: ''
+            visitscotland:translationFlag: true
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 4cdd0883-80e6-4f4f-9fa1-4feec593a22e
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>The article component should be used when there is significant amount of content to display about a particular topic. Within an article, the content can be split up into multiple sections which can have a sidebar containing an image and/or a quote.</p>
+
+                <p>Multiple articles can be used on a page to help break lots of content up into bigger parts or topics. Each article must have a title and can include optional introduction text and cover image.</p>
+        /faq:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 24ee40e0-7fd5-47f0-b473-a346ae19195a
+          hippo:name: FAQ (FR)
+          /faq:
+            jcr:primaryType: visitscotland:ArticleStyled
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: d2b5e197-a0d8-4cf7-85df-4ef6647dba57
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-05-04T09:26:17.766+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-04T09:26:17.477+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: bd0c6639-d4d5-4246-a3d7-50075dd3e727
+            hippotranslation:locale: fr
+            visitscotland:anchor: faq
+            visitscotland:diff: ''
+            visitscotland:theme: accordion
+            visitscotland:title: FAQs on accommodation in Scotland
+            visitscotland:translationFlag: true
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /visitscotland:paragraph[1]:
+              jcr:primaryType: visitscotland:ArticleStyledSection
+              visitscotland:heading: When is the best time to book accommodation?
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Scotland is a popular year‑round destination,
+                  but the summer months, June to August, are especially busy. To make
+                  the most of your trip, we recommend booking your accommodation in
+                  advance. Securing your stay early means you’ll have the best choice
+                  of places and price options.</p>
+            /visitscotland:paragraph[2]:
+              jcr:primaryType: visitscotland:ArticleStyledSection
+              visitscotland:heading: What's the price of accommodation in Scotland?
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>This can vary depending on the type of accommodation you’re staying at and the location. Hotels can differ widely in price depending on their standard and facilities. For more budget-friendly options such as B&amp;Bs and guesthouses, prices tend to be lower than traditional hotels. Self‑catering accommodation can also vary greatly depending on the size of the property and the amenities provided, while short‑break stays typically offer flexible nightly rates based on the season and availability.</p>
+
+                  <p>In addition, some local authorities may apply a visitor levy charge on overnight stays. The amount may vary depending on the local authority area.</p>
+
+                  <p><a tabindex="0" href="https://www.visitscotland.org/tourism-events-industry/visitor-levy#proposed" target="_self">Find more information on VisitScotland.org</a></p>
+
+                  <p>Please remember that pricing can vary throughout the year.&nbsp;Off‑peak season (November–March) often offers excellent value, with many places providing lower rates. Mid‑week breaks (Sunday–Thursday) can also be a great way to enjoy Scotland for less, with quieter attractions and more availability.</p>
+
+                  <p>During the summer months, prices naturally rise due to higher demand, but you can still secure great value by booking early and checking directly with accommodation providers for the best rates.</p>
+            /visitscotland:paragraph[3]:
+              jcr:primaryType: visitscotland:ArticleStyledSection
+              visitscotland:heading: Is dog-friendly accommodation common in Scotland?
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Yes. Across Scotland, many hotels, self-catering
+                  cottages and caravan parks catering for your beloved pooch with
+                  lots of&nbsp;<a tabindex="0" rel="noopener noreferrer" href="https://www.visitscotland.com/accommodation/pet-friendly"
+                  target="_blank">pet-friendly</a>&nbsp;amenities. Expect welcome
+                  kits filled with toys and biscuits to dog beds and water bowls.
+                  Depending on where you stay, a small fee may be applied, but your
+                  pet can enjoy the same home comforts as you while on holiday.</p>
+            /visitscotland:paragraph[4]:
+              jcr:primaryType: visitscotland:ArticleStyledSection
+              visitscotland:heading: What accommodation is best for a romantic break?
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>If&nbsp;you’re&nbsp;looking to swoon your partner
+                  with an extravagant&nbsp;<a tabindex="0" href="https://www.visitscotland.com/accommodation/romantic"
+                  target="_self">romantic stay</a> without any distractions, there
+                  are lots of options to choose from. Including hot tub breaks in
+                  a secluded forest location, relaxing spa hotel stays to cosy cottages perfect
+                  for hosting candle-lit dinners with floor to ceiling window views.</p>
+            /visitscotland:paragraph[5]:
+              jcr:primaryType: visitscotland:ArticleStyledSection
+              visitscotland:heading: Can I stay in a castle?
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Yes, you can live the ultimate fairytale dream
+                  of staying in a&nbsp;Scottish&nbsp;castle.&nbsp;Inside&nbsp;you’ll&nbsp;find
+                  unique period-styled bedrooms&nbsp;with four-poster beds, roaring&nbsp;fireplaces&nbsp;and
+                  grand dining rooms for&nbsp;big banquet meals. To&nbsp;enhance your
+                  stay, get stuck into a range of activities including horse riding,
+                  falconry, woodland&nbsp;walks&nbsp;and spa treatments.</p>
