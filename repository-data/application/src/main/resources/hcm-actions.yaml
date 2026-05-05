@@ -156,3 +156,5 @@ action-lists:
     /content/taxonomies: reload
 - 3.4.1:
     /content/documents/administration/labels/search/search-labels: reload
+- 3.4.2:
+    /content/documents/administration/labels/modules/map: reload
