@@ -158,3 +158,7 @@ action-lists:
     /content/documents/administration/labels/search/search-labels: reload
 - 3.4.2:
     /content/documents/administration/labels/modules/map: reload
+- 3.5.1:
+    /content/documentsadministration/labels/search/search-widget: delete
+    /content/documents/administration/labels/search/search-widget-events: delete
+    /content/documents/administration/options/bespoken-modules: reload
