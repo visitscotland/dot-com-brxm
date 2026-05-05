@@ -2,23 +2,10 @@ package com.visitscotland.brxm.pagebuilder.page;
 
 import com.visitscotland.brxm.hippobeans.GeneralBSH;
 import com.visitscotland.brxm.hippobeans.Page;
-import com.visitscotland.brxm.pagebuilder.model.PageIntro;
 import org.springframework.stereotype.Component;
 
-import java.util.Locale;
-
 @Component
-public class SupportPageAdapter implements PageAdapter<GeneralBSH> {
-
-
-    public SupportPageAdapter() {
-        
-    }
-
-    @Override
-    public PageIntro getPageIntro(Locale locale, GeneralBSH page) {
-        return new PageIntro(page);
-    }
+public class SupportPageAdapter extends CommonPageAdapter<GeneralBSH> {
 
     @Override
     public boolean supports(Page page) {
