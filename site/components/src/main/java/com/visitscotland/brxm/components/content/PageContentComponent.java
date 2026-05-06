@@ -219,25 +219,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         pageConfig.addAllSiteLabels(MEGALINKS_BUNDLE);
         pageConfig.addAllSiteLabels(PAGINATION_BUNDLE);
     }
-//
-//    /**
-//     * Returns the labels object from the request if it exists, otherwise, creates a new one and adds it to the request
-//     * @param request HstRequest
-//     * @return labels object from the request
-//     */
-//    protected Map<String, Map<String, String>> labels(HstRequest request) {
-//        if (request.getModel(LABELS) == null) {
-//            Map<String, Map<String, String>> labels = new HashMap<>();
-//            request.setModel(LABELS, labels);
-//            return labels;
-//        }
-//
-//        return request.getModel(LABELS);
-//    }
 
-
-    //TODO: The author object should be eliminated in future iterations
-
+    //TODO: VS-1556: The author object should be eliminated in future iterations
     /**
      * @deprecated It is discourage to put add objects on the root of thethe payload. This object has been duplicated
      * into the pageIntro object
