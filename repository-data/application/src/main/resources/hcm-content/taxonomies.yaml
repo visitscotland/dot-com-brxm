@@ -3,7 +3,7 @@
   /Visitscotland-categories:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo']
-    hippo:versionHistory: cee05f33-612c-43d1-96a3-b3ba2870206c
+    hippo:versionHistory: ebb6846a-179e-4d20-aa40-5af1dfc8574a
     /Visitscotland-categories[1]:
       jcr:primaryType: hippotaxonomy:taxonomy
       jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
@@ -14,9 +14,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-26T14:07:31.153Z
+      hippostdpubwf:lastModificationDate: 2026-05-05T15:06:57.325+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-03-26T14:11:41.074Z
+      hippostdpubwf:publicationDate: 2026-05-05T15:07:02.559+01:00
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
         jcr:primaryType: hippotaxonomy:category
@@ -308,6 +308,78 @@
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
         locale.en.name: Main map
+        /things-to-do:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: things-to-do
+          locale.de.name: Aktivitäten & Sehenswürdigkeiten
+          locale.en.name: Things to do
+          locale.es.name: Cosas que hacer
+          locale.fr.name: Activités et attractions
+          locale.it.name: Cose da fare
+          locale.nl.name: Activiteiten & Bezienswaardigheden
+          /nature---outdoors:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: nature-outdoors
+            locale.de.name: Natur & Outdoor
+            locale.en.name: Nature & Outdoors
+            locale.es.name: Naturaleza y actividades al aire libre
+            locale.fr.name: Nature et activités en extérieur
+            locale.it.name: Natura e attività all'aperto
+            locale.nl.name: Natuur & Outdoor
+          /culture---history:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: culture-history
+            locale.de.name: Kultur & Geschichte
+            locale.en.name: Culture & History
+            locale.es.name: Cultura e historia
+            locale.fr.name: Culture et histoire
+            locale.it.name: Cultura e storia
+            locale.nl.name: Cultuur & Geschiedenis
+          /entertainment:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: entertainment
+            locale.de.name: Unterhaltung
+            locale.en.name: Entertainment
+            locale.es.name: Entretenimiento
+            locale.fr.name: Divertissement
+            locale.it.name: Intrattenimento
+            locale.nl.name: Amusement
+          /active---adventure:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: active-adventure
+            locale.de.name: Aktiv & Abenteuer
+            locale.en.name: Active & Adventure
+            locale.es.name: Actividades y aventura
+            locale.fr.name: Sports et aventure
+            locale.it.name: Sport e avventura
+            locale.nl.name: Actief & Avontuur
+          /shopping:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: shopping
+            locale.de.name: Shopping
+            locale.en.name: Shopping
+            locale.es.name: Compras
+            locale.fr.name: Shopping
+            locale.it.name: Shopping
+            locale.nl.name: Winkelen
+          /health---wellness:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: health-wellness
+            locale.de.name: Gesundheit & Wellness
+            locale.en.name: Health & Wellness
+            locale.es.name: Salud y bienestar
+            locale.fr.name: Santé et bien-être
+            locale.it.name: Salute e benessere
+            locale.nl.name: Gezondheid & Wellness
+          /tours:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: tours
+            locale.de.name: Touren
+            locale.en.name: Tours
+            locale.es.name: Excursiones
+            locale.fr.name: Excursions
+            locale.it.name: Tour
+            locale.nl.name: Tours
         /places:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: places
@@ -413,78 +485,6 @@
             locale.fr.name: Bars et pubs
             locale.it.name: Bar e pub
             locale.nl.name: Bars & Pubs
-        /things-to-do:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: things-to-do
-          locale.de.name: Aktivitäten & Sehenswürdigkeiten
-          locale.en.name: Things to do
-          locale.es.name: Cosas que hacer
-          locale.fr.name: Activités et attractions
-          locale.it.name: Cose da fare
-          locale.nl.name: Activiteiten & Bezienswaardigheden
-          /nature---outdoors:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: nature-outdoors
-            locale.de.name: Natur & Outdoor
-            locale.en.name: Nature & Outdoors
-            locale.es.name: Naturaleza y actividades al aire libre
-            locale.fr.name: Nature et activités en extérieur
-            locale.it.name: Natura e attività all'aperto
-            locale.nl.name: Natuur & Outdoor
-          /culture---history:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: culture-history
-            locale.de.name: Kultur & Geschichte
-            locale.en.name: Culture & History
-            locale.es.name: Cultura e historia
-            locale.fr.name: Culture et histoire
-            locale.it.name: Cultura e storia
-            locale.nl.name: Cultuur & Geschiedenis
-          /entertainment:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: entertainment
-            locale.de.name: Unterhaltung
-            locale.en.name: Entertainment
-            locale.es.name: Entretenimiento
-            locale.fr.name: Divertissement
-            locale.it.name: Intrattenimento
-            locale.nl.name: Amusement
-          /active---adventure:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: active-adventure
-            locale.de.name: Aktiv & Abenteuer
-            locale.en.name: Active & Adventure
-            locale.es.name: Actividades y aventura
-            locale.fr.name: Sports et aventure
-            locale.it.name: Sport e avventura
-            locale.nl.name: Actief & Avontuur
-          /shopping:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: shopping
-            locale.de.name: Shopping
-            locale.en.name: Shopping
-            locale.es.name: Compras
-            locale.fr.name: Shopping
-            locale.it.name: Shopping
-            locale.nl.name: Winkelen
-          /health---wellness:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: health-wellness
-            locale.de.name: Gesundheit & Wellness
-            locale.en.name: Health & Wellness
-            locale.es.name: Salud y bienestar
-            locale.fr.name: Santé et bien-être
-            locale.it.name: Salute e benessere
-            locale.nl.name: Gezondheid & Wellness
-          /tours:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: tours
-            locale.de.name: Touren
-            locale.en.name: Tours
-            locale.es.name: Excursiones
-            locale.fr.name: Excursions
-            locale.it.name: Tour
-            locale.nl.name: Tours
         /travel-information:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: travel-information
@@ -554,7 +554,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-26T14:07:31.153Z
+      hippostdpubwf:lastModificationDate: 2026-05-05T15:06:57.325+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -847,6 +847,78 @@
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
         locale.en.name: Main map
+        /things-to-do:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: things-to-do
+          locale.de.name: Aktivitäten & Sehenswürdigkeiten
+          locale.en.name: Things to do
+          locale.es.name: Cosas que hacer
+          locale.fr.name: Activités et attractions
+          locale.it.name: Cose da fare
+          locale.nl.name: Activiteiten & Bezienswaardigheden
+          /nature---outdoors:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: nature-outdoors
+            locale.de.name: Natur & Outdoor
+            locale.en.name: Nature & Outdoors
+            locale.es.name: Naturaleza y actividades al aire libre
+            locale.fr.name: Nature et activités en extérieur
+            locale.it.name: Natura e attività all'aperto
+            locale.nl.name: Natuur & Outdoor
+          /culture---history:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: culture-history
+            locale.de.name: Kultur & Geschichte
+            locale.en.name: Culture & History
+            locale.es.name: Cultura e historia
+            locale.fr.name: Culture et histoire
+            locale.it.name: Cultura e storia
+            locale.nl.name: Cultuur & Geschiedenis
+          /entertainment:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: entertainment
+            locale.de.name: Unterhaltung
+            locale.en.name: Entertainment
+            locale.es.name: Entretenimiento
+            locale.fr.name: Divertissement
+            locale.it.name: Intrattenimento
+            locale.nl.name: Amusement
+          /active---adventure:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: active-adventure
+            locale.de.name: Aktiv & Abenteuer
+            locale.en.name: Active & Adventure
+            locale.es.name: Actividades y aventura
+            locale.fr.name: Sports et aventure
+            locale.it.name: Sport e avventura
+            locale.nl.name: Actief & Avontuur
+          /shopping:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: shopping
+            locale.de.name: Shopping
+            locale.en.name: Shopping
+            locale.es.name: Compras
+            locale.fr.name: Shopping
+            locale.it.name: Shopping
+            locale.nl.name: Winkelen
+          /health---wellness:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: health-wellness
+            locale.de.name: Gesundheit & Wellness
+            locale.en.name: Health & Wellness
+            locale.es.name: Salud y bienestar
+            locale.fr.name: Santé et bien-être
+            locale.it.name: Salute e benessere
+            locale.nl.name: Gezondheid & Wellness
+          /tours:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: tours
+            locale.de.name: Touren
+            locale.en.name: Tours
+            locale.es.name: Excursiones
+            locale.fr.name: Excursions
+            locale.it.name: Tour
+            locale.nl.name: Tours
         /places:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: places
@@ -952,78 +1024,6 @@
             locale.fr.name: Bars et pubs
             locale.it.name: Bar e pub
             locale.nl.name: Bars & Pubs
-        /things-to-do:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: things-to-do
-          locale.de.name: Aktivitäten & Sehenswürdigkeiten
-          locale.en.name: Things to do
-          locale.es.name: Cosas que hacer
-          locale.fr.name: Activités et attractions
-          locale.it.name: Cose da fare
-          locale.nl.name: Activiteiten & Bezienswaardigheden
-          /nature---outdoors:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: nature-outdoors
-            locale.de.name: Natur & Outdoor
-            locale.en.name: Nature & Outdoors
-            locale.es.name: Naturaleza y actividades al aire libre
-            locale.fr.name: Nature et activités en extérieur
-            locale.it.name: Natura e attività all'aperto
-            locale.nl.name: Natuur & Outdoor
-          /culture---history:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: culture-history
-            locale.de.name: Kultur & Geschichte
-            locale.en.name: Culture & History
-            locale.es.name: Cultura e historia
-            locale.fr.name: Culture et histoire
-            locale.it.name: Cultura e storia
-            locale.nl.name: Cultuur & Geschiedenis
-          /entertainment:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: entertainment
-            locale.de.name: Unterhaltung
-            locale.en.name: Entertainment
-            locale.es.name: Entretenimiento
-            locale.fr.name: Divertissement
-            locale.it.name: Intrattenimento
-            locale.nl.name: Amusement
-          /active---adventure:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: active-adventure
-            locale.de.name: Aktiv & Abenteuer
-            locale.en.name: Active & Adventure
-            locale.es.name: Actividades y aventura
-            locale.fr.name: Sports et aventure
-            locale.it.name: Sport e avventura
-            locale.nl.name: Actief & Avontuur
-          /shopping:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: shopping
-            locale.de.name: Shopping
-            locale.en.name: Shopping
-            locale.es.name: Compras
-            locale.fr.name: Shopping
-            locale.it.name: Shopping
-            locale.nl.name: Winkelen
-          /health---wellness:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: health-wellness
-            locale.de.name: Gesundheit & Wellness
-            locale.en.name: Health & Wellness
-            locale.es.name: Salud y bienestar
-            locale.fr.name: Santé et bien-être
-            locale.it.name: Salute e benessere
-            locale.nl.name: Gezondheid & Wellness
-          /tours:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: tours
-            locale.de.name: Touren
-            locale.en.name: Tours
-            locale.es.name: Excursiones
-            locale.fr.name: Excursions
-            locale.it.name: Tour
-            locale.nl.name: Tours
         /travel-information:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: travel-information
@@ -1093,7 +1093,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-06-10T13:52:12.043+01:00
-      hippostdpubwf:lastModificationDate: 2026-03-26T14:06:41.807Z
+      hippostdpubwf:lastModificationDate: 2026-05-05T15:05:36.568+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotaxonomy:locales: [en, fr, de, es, it, nl]
       /destinations:
@@ -1386,6 +1386,78 @@
         jcr:primaryType: hippotaxonomy:category
         hippotaxonomy:key: main-map
         locale.en.name: Main map
+        /things-to-do:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: things-to-do
+          locale.de.name: Aktivitäten & Sehenswürdigkeiten
+          locale.en.name: Things to do
+          locale.es.name: Cosas que hacer
+          locale.fr.name: Activités et attractions
+          locale.it.name: Cose da fare
+          locale.nl.name: Activiteiten & Bezienswaardigheden
+          /nature---outdoors:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: nature-outdoors
+            locale.de.name: Natur & Outdoor
+            locale.en.name: Nature & Outdoors
+            locale.es.name: Naturaleza y actividades al aire libre
+            locale.fr.name: Nature et activités en extérieur
+            locale.it.name: Natura e attività all'aperto
+            locale.nl.name: Natuur & Outdoor
+          /culture---history:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: culture-history
+            locale.de.name: Kultur & Geschichte
+            locale.en.name: Culture & History
+            locale.es.name: Cultura e historia
+            locale.fr.name: Culture et histoire
+            locale.it.name: Cultura e storia
+            locale.nl.name: Cultuur & Geschiedenis
+          /entertainment:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: entertainment
+            locale.de.name: Unterhaltung
+            locale.en.name: Entertainment
+            locale.es.name: Entretenimiento
+            locale.fr.name: Divertissement
+            locale.it.name: Intrattenimento
+            locale.nl.name: Amusement
+          /active---adventure:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: active-adventure
+            locale.de.name: Aktiv & Abenteuer
+            locale.en.name: Active & Adventure
+            locale.es.name: Actividades y aventura
+            locale.fr.name: Sports et aventure
+            locale.it.name: Sport e avventura
+            locale.nl.name: Actief & Avontuur
+          /shopping:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: shopping
+            locale.de.name: Shopping
+            locale.en.name: Shopping
+            locale.es.name: Compras
+            locale.fr.name: Shopping
+            locale.it.name: Shopping
+            locale.nl.name: Winkelen
+          /health---wellness:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: health-wellness
+            locale.de.name: Gesundheit & Wellness
+            locale.en.name: Health & Wellness
+            locale.es.name: Salud y bienestar
+            locale.fr.name: Santé et bien-être
+            locale.it.name: Salute e benessere
+            locale.nl.name: Gezondheid & Wellness
+          /tours:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: tours
+            locale.de.name: Touren
+            locale.en.name: Tours
+            locale.es.name: Excursiones
+            locale.fr.name: Excursions
+            locale.it.name: Tour
+            locale.nl.name: Tours
         /places:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: places
@@ -1491,78 +1563,6 @@
             locale.fr.name: Bars et pubs
             locale.it.name: Bar e pub
             locale.nl.name: Bars & Pubs
-        /things-to-do:
-          jcr:primaryType: hippotaxonomy:category
-          hippotaxonomy:key: things-to-do
-          locale.de.name: Aktivitäten & Sehenswürdigkeiten
-          locale.en.name: Things to do
-          locale.es.name: Cosas que hacer
-          locale.fr.name: Activités et attractions
-          locale.it.name: Cose da fare
-          locale.nl.name: Activiteiten & Bezienswaardigheden
-          /nature---outdoors:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: nature-outdoors
-            locale.de.name: Natur & Outdoor
-            locale.en.name: Nature & Outdoors
-            locale.es.name: Naturaleza y actividades al aire libre
-            locale.fr.name: Nature et activités en extérieur
-            locale.it.name: Natura e attività all'aperto
-            locale.nl.name: Natuur & Outdoor
-          /culture---history:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: culture-history
-            locale.de.name: Kultur & Geschichte
-            locale.en.name: Culture & History
-            locale.es.name: Cultura e historia
-            locale.fr.name: Culture et histoire
-            locale.it.name: Cultura e storia
-            locale.nl.name: Cultuur & Geschiedenis
-          /entertainment:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: entertainment
-            locale.de.name: Unterhaltung
-            locale.en.name: Entertainment
-            locale.es.name: Entretenimiento
-            locale.fr.name: Divertissement
-            locale.it.name: Intrattenimento
-            locale.nl.name: Amusement
-          /active---adventure:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: active-adventure
-            locale.de.name: Aktiv & Abenteuer
-            locale.en.name: Active & Adventure
-            locale.es.name: Actividades y aventura
-            locale.fr.name: Sports et aventure
-            locale.it.name: Sport e avventura
-            locale.nl.name: Actief & Avontuur
-          /shopping:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: shopping
-            locale.de.name: Shopping
-            locale.en.name: Shopping
-            locale.es.name: Compras
-            locale.fr.name: Shopping
-            locale.it.name: Shopping
-            locale.nl.name: Winkelen
-          /health---wellness:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: health-wellness
-            locale.de.name: Gesundheit & Wellness
-            locale.en.name: Health & Wellness
-            locale.es.name: Salud y bienestar
-            locale.fr.name: Santé et bien-être
-            locale.it.name: Salute e benessere
-            locale.nl.name: Gezondheid & Wellness
-          /tours:
-            jcr:primaryType: hippotaxonomy:category
-            hippotaxonomy:key: tours
-            locale.de.name: Touren
-            locale.en.name: Tours
-            locale.es.name: Excursiones
-            locale.fr.name: Excursions
-            locale.it.name: Tour
-            locale.nl.name: Tours
         /travel-information:
           jcr:primaryType: hippotaxonomy:category
           hippotaxonomy:key: travel-information
