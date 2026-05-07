@@ -8,7 +8,7 @@ import com.visitscotland.brxm.pagebuilder.model.PageIntro;
 import org.springframework.stereotype.Component;
 
 @Component
-public abstract class PageTemplateInitializer  {
+public class PageTemplateInitializer  {
 
     private final AuthorService authorService;
 
@@ -16,17 +16,7 @@ public abstract class PageTemplateInitializer  {
         this.authorService = authorService;
     }
 
-    public PageIntro getPageIntro(PageCompositionHelper pageCompositionHelper) {
-
-        try {
-            return initPageIntro(pageCompositionHelper);
-        } catch (PageCompositionException e) {
-            //TODO: handle exception
-            throw new RuntimeException(e);
-        }
-    }
-
-    private PageIntro initPageIntro(PageCompositionHelper pageCompositionHelper) throws PageCompositionException {
+    public PageIntro getPageIntro(PageCompositionHelper pageCompositionHelper) throws PageCompositionException {
         final Page page = pageCompositionHelper.getPage();
         final PageIntro pageTemplate = new PageIntro(page);
 
@@ -34,5 +24,4 @@ public abstract class PageTemplateInitializer  {
 
         return pageTemplate;
     }
-
 }

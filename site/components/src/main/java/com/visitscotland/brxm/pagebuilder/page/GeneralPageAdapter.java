@@ -6,10 +6,16 @@ import com.visitscotland.brxm.mapper.page.CategoryCardsMapper;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.model.PageIntro;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
-public class GeneralPageAdapter implements PageAdapter<General> {
+public class GeneralPageAdapter implements PageAdapter {
+
+    private static final Logger log = LoggerFactory.getLogger(GeneralPageAdapter.class);
 
     private final CategoryCardsMapper categoryCardsMapper;
     private final PageTemplateInitializer pageTemplateInitializer;
@@ -20,23 +26,23 @@ public class GeneralPageAdapter implements PageAdapter<General> {
     }
 
     @Override
-    public PageIntro getPageIntro(PageCompositionHelper pageConfig)  {
+    public Optional<PageIntro> getPageIntro(PageCompositionHelper pageConfig)  {
 
         try {
-            General page = pageConfig.getPage();
             PageIntro template = pageTemplateInitializer.getPageIntro(pageConfig);
+            General page = pageConfig.getPage();
 
             if (page.getCategoryLinks() != null) {
                 template.setCategorySection(
                         categoryCardsMapper.getCategoryCards(pageConfig.getLocale(), page.getCategoryLinks()));
             }
 
-            return template;
+            return Optional.of(template);
         } catch (PageCompositionException e) {
-            //TODO:
-//            logger.error("Error while composing page intro for General page with id: " + pageConfig.getPage().getId(), e);
-            return null;
+            log.error("Error while composing page intro for General page: {}" , e.getMessage());
         }
+
+        return Optional.empty();
     }
 
     @Override

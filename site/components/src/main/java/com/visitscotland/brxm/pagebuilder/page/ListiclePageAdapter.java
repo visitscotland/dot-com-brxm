@@ -7,13 +7,15 @@ import com.visitscotland.brxm.pagebuilder.model.PageIntro;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
-public class ListiclePageAdapter implements PageAdapter<Listicle> {
+public class ListiclePageAdapter implements PageAdapter {
 
     private final Logger log = org.slf4j.LoggerFactory.getLogger(ListiclePageAdapter.class);
 
     @Override
-    public PageIntro getPageIntro(PageCompositionHelper pageConfig) {
+    public Optional<PageIntro> getPageIntro(PageCompositionHelper pageConfig) {
         log.warn("Page intro composition for Listicle is not implemented yet.");
 
         return null;

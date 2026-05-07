@@ -8,13 +8,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
-public class DestinationPageAdapter implements PageAdapter<Destination>{
+public class DestinationPageAdapter implements PageAdapter {
 
     private final Logger log = LoggerFactory.getLogger(DestinationPageAdapter.class);
 
     @Override
-    public PageIntro getPageIntro(PageCompositionHelper pageConfig) {
+    public Optional<PageIntro> getPageIntro(PageCompositionHelper pageConfig) {
         log.warn("Page intro composition for Destination is not implemented yet.");
         return null;
     }
