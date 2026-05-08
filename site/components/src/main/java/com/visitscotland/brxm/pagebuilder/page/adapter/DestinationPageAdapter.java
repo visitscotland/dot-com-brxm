@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.pagebuilder.page;
+package com.visitscotland.brxm.pagebuilder.page.adapter;
 
 import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.hippobeans.Page;

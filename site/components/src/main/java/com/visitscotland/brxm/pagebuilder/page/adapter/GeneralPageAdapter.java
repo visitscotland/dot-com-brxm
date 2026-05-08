@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.pagebuilder.page;
+package com.visitscotland.brxm.pagebuilder.page.adapter;
 
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.Page;
@@ -6,6 +6,7 @@ import com.visitscotland.brxm.mapper.page.CategoryCardsMapper;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.model.PageIntro;
+import com.visitscotland.brxm.pagebuilder.page.PageTemplateInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

@@ -1,29 +1,28 @@
-package com.visitscotland.brxm.pagebuilder.page;
+package com.visitscotland.brxm.pagebuilder.page.adapter;
 
-import com.visitscotland.brxm.hippobeans.Itinerary;
+import com.visitscotland.brxm.hippobeans.Listicle;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.model.PageIntro;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
 @Component
-public class ItineraryPageAdapter implements PageAdapter {
+public class ListiclePageAdapter implements PageAdapter {
 
-    private final Logger log = LoggerFactory.getLogger(ItineraryPageAdapter.class);
+    private final Logger log = org.slf4j.LoggerFactory.getLogger(ListiclePageAdapter.class);
 
     @Override
     public Optional<PageIntro> getPageIntro(PageCompositionHelper pageConfig) {
-        log.warn("Page intro composition for Itinerary is not implemented yet.");
+        log.warn("Page intro composition for Listicle is not implemented yet.");
 
         return null;
     }
 
     @Override
     public boolean supports(Page page) {
-        return page instanceof Itinerary;
+        return page instanceof Listicle;
     }
 }
