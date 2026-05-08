@@ -36,6 +36,9 @@
 [visitscotland:ArticleStyledSectionCOM] > hippo:compound, hippostd:relaxed
   orderable
 
+[visitscotland:ArticleWithMedia] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
 [visitscotland:Asset] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -171,6 +174,15 @@
   orderable
 
 [visitscotland:MarketoForm] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
+  orderable
+
+[visitscotland:MediaCollection] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
+[visitscotland:MediaCollectionWithCompound] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
+  orderable
+
+[visitscotland:MediaCompound] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:MegalinkItem] > hippo:compound, hippostd:relaxed
