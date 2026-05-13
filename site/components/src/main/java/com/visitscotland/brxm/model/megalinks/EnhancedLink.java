@@ -16,6 +16,7 @@ public class EnhancedLink extends FlatLink {
     private String itineraryTransport;
     private Entry itineraryMainTransport;
     private String youtubeId;
+    private String ambientVideo;
     private int itineraryDays;
     private Date publishedDate;
     private String source;
@@ -162,5 +163,13 @@ public class EnhancedLink extends FlatLink {
 
     public void setSector(List<String> sector) {
         this.sector = sector;
+    }
+
+    public String getAmbientVideo() {
+        return ambientVideo;
+    }
+
+    public void setAmbientVideo(String ambientVideo) {
+        this.ambientVideo = ambientVideo;
     }
 }

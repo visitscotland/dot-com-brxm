@@ -14,7 +14,6 @@ definitions:
         hst:responseheaders: ['Access-Control-Allow-Origin: *']
         hst:pagemodelapi: resourceapi
         visitscotland:siteProperties: vs.site.config
-        hst:alias: vs-en
         /de-de:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:mount

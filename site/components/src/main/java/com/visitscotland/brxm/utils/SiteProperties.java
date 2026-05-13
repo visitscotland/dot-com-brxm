@@ -84,8 +84,8 @@ public class SiteProperties extends Properties {
     public String getSiteICentre() {
         return readString(PATH_ICENTRE);
     }
-    public String getSiteMap() {
-        return readString(PATH_MAP);
+    public String getSiteMap(Locale locale) {
+        return readString(PATH_MAP, locale);
     }
     public String getSiteBanner() {
         return readString(PATH_BANNER);

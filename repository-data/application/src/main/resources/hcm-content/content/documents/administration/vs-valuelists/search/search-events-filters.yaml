@@ -1,0 +1,64 @@
+/content/documents/administration/vs-valuelists/search/search-events-filters:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 4e63d91e-9156-4183-9c56-7459944383d3
+  hippo:name: Search Events Filters
+  /search-events-filters:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 6809d43c-9fd8-46f6-a8ee-112b72f78b95
+    hippo:availability: [live, preview]
+    hippotranslation:id: 0cc5fd2a-9ad5-45d2-acbd-3e3f7904a848
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: books
+      selection:label: booksgroup
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: clubs
+      selection:label: clubs
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: comedy
+      selection:label: comedy
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: dance
+      selection:label: dancegroup
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: daysout
+      selection:label: daysoutgroup
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: family
+      selection:label: familygroup
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: festival
+      selection:label: festival
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: film
+      selection:label: film
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbt
+      selection:label: lgbt
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: music
+      selection:label: music
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: sport
+      selection:label: sportgroup
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: theatre
+      selection:label: theatre
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: visualarts
+      selection:label: visualartsgroup

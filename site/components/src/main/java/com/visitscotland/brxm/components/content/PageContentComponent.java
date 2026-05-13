@@ -39,7 +39,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private static final String SOCIAL_SHARE_BUNDLE = "social.share";
     private static final String VIDEO_BUNDLE = "video";
     private static final String SKIP_TO_BUNDLE = "skip-to";
-    private static final String SEARCH_BUNDLE = "search";
+    private static final String SEARCH_BUNDLE = "search-labels";
     private static final String CMS_MESSAGES_BUNDLE = "cms-messages";
     private static final String SEO_BUNDLE = "seo";
     private static final String TABLE_CONTENTS_BUNDLE = "table-contents";
@@ -125,6 +125,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addGtmConfiguration(request);
         addLabels(request);
         addSiteSpecificConfiguration(request, pageConfig);
+        //TODO review labels for search once we have time to delete current bundles
+        pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
     }
 
     /**
@@ -151,7 +153,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         addNavigationLabels(request);
 
         addAllLabels(request, SOCIAL_SHARE_BUNDLE);
-        addAllLabels(request, SEARCH_BUNDLE);
         addAllLabels(request, VIDEO_BUNDLE);
         addAllLabels(request, SEO_BUNDLE);
         addAllLabels(request, SKIP_TO_BUNDLE);
@@ -162,7 +163,6 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     private void addNavigationLabels(HstRequest request) {
-        addAllLabels(request, SEARCH);
         addAllLabels(request, NAVIGATION_STATIC);
         addAllLabels(request, NAVIGATION_SOCIAL_MEDIA);
         addSiteSpecificLabels(request, NAVIGATION_SOCIAL_MEDIA);
@@ -259,7 +259,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         VideoLink videoDocument = getDocument(request).getHeroVideo();
         if (videoDocument != null && videoDocument.getVideoLink() != null) {
             EnhancedLink video = linksService.createVideo(videoDocument.getVideoLink(), introModule, request.getLocale());
-            if (Contract.isEmpty((video.getYoutubeId()))) {
+            if (Contract.isEmpty(video.getYoutubeId())) {
                 request.setModel(VIDEO_HEADER, true);
                 pageConfig.addProperty(HERO_AMBIENT_VIDEO, true);
                 pageConfig.addAllSiteLabels(AMBIENT_VIDEO_BUNDLE);
@@ -396,8 +396,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         pageConfig.addProperty(SitePropertyKeys.FEATURE_HERO_SECTION, properties.getFeatureHeroSection());
 
-        if (!Contract.isEmpty(properties.getSiteMap())) {
-            request.setModel(MAIN_MAP_PATH, properties.getSiteMap());
+        if (!Contract.isEmpty(properties.getSiteMap(request.getLocale()))) {
+            //TODO remove this request setModel once fed are not using it
+            request.setModel(MAIN_MAP_PATH, properties.getSiteMap(request.getLocale()));
+            pageConfig.addProperty(MAIN_MAP_PATH, properties.getSiteMap(request.getLocale()));
         }
 
         if (properties.isGlobalSearchEnabled()){
