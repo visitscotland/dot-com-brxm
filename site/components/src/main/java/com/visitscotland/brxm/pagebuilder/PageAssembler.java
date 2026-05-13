@@ -50,6 +50,7 @@ public class PageAssembler {
     private final FormMapper formMapper;
     private final CTABannerMapper ctaBannerMapper;
     private final EventsListingMapper eventsListingMapper;
+    private final SearchWidgetMapper searchWidgetMapper;
     private final SpotlightMapper spotlightMapper;
     private final DayMapper dayMapper;
 
@@ -64,7 +65,7 @@ public class PageAssembler {
                          SkiCentreListMapper skiCentreListMapper, DevModuleMapper devModuleMapper,
                          LongCopyMapper longCopyMapper, CannedSearchMapper cannedSearchMapper,
                          CannedSearchDMSMapper cannedSearchDMSMapper, FormMapper formMapper,
-                         CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper,
+                         CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper, SearchWidgetMapper searchWidgetMapper,
                          SpotlightMapper spotlightMapper, DayMapper dayMapper, ContentLogger contentLogger) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
@@ -83,6 +84,7 @@ public class PageAssembler {
         this.formMapper = formMapper;
         this.ctaBannerMapper = ctaBannerMapper;
         this.eventsListingMapper = eventsListingMapper;
+        this.searchWidgetMapper = searchWidgetMapper;
         this.spotlightMapper = spotlightMapper;
         this.dayMapper = dayMapper;
         this.contentLogger = contentLogger;
@@ -157,7 +159,10 @@ public class PageAssembler {
             eventsListingMapper.include((EventsListing) item, compositionHelper);
         } else if (item instanceof Day){
             dayMapper.include((Day) item, compositionHelper);
-        } else {
+        } else if (item instanceof SearchWidget){
+            searchWidgetMapper.include((SearchWidget) item, compositionHelper);
+        }
+        else {
             throw new PageCompositionException(item.getPath(), String.format("Unrecognized Module Type: %s", item.getClass()));
         }
     }
