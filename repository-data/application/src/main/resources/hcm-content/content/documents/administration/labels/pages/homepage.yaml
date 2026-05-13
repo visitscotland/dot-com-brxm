@@ -1,4 +1,5 @@
 /content/documents/administration/labels/pages/homepage:
+  .meta:order-before: favourites
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 3016b607-a90c-4bad-93a0-2898de21e9b6

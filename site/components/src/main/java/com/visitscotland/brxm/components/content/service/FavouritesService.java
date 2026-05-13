@@ -21,6 +21,8 @@ public class FavouritesService {
     static final String ALLOW_FAVOURITE = "allow-favourite";
     static final String FAVOURITES_PAGE_ENABLED = "feature.favourites.enable";
     static final String FAVOURITES_SITE_URL = "feature.favourites.url";
+    static final String FAVOURITES_BASE_URL = "feature.favourites.share-service-base-url";
+    static final String FAVOURITES_SHARE_URL = "feature.favourites.share-url";
 
     private final SiteProperties properties;
 
@@ -31,6 +33,8 @@ public class FavouritesService {
     public void applyConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
         pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, true);
         pageConfig.addProperty(FAVOURITES_SITE_URL, properties.getFavouritesUrl(request.getLocale()));
+        pageConfig.addProperty(FAVOURITES_BASE_URL, properties.getFavouritesBaseUrl());
+        pageConfig.addProperty(FAVOURITES_SHARE_URL, properties.getFavouritesShareUrl());
         pageConfig.addAllSiteLabels(FAVOURITES_BUNDLE);
 
         addFavouritesButton(pageConfig);
