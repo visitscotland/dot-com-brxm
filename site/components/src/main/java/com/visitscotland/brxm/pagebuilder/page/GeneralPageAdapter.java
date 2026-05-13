@@ -19,6 +19,7 @@ public class GeneralPageAdapter implements PageAdapter<General> {
         this.categoryCardsMapper = categoryCardsMapper;
     }
 
+    @Override
     public PageIntro getPageIntro(Locale locale, General page) {
         LinksModule<EnhancedLink> categorySection = null;
         if (page.getCategoryLinks() != null){
