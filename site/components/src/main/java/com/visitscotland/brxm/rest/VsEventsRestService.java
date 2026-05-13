@@ -2,6 +2,7 @@ package com.visitscotland.brxm.rest;
 
 import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.services.HippoUtilsService;
+import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.utils.Contract;
 
 import javax.ws.rs.*;
@@ -17,6 +18,7 @@ public class VsEventsRestService {
 
     private final HippoUtilsService hippoUtilsService;
     private final CommonUtilsService utils;
+    private final ResourceBundleService bundle;
 
     private static final String DEFAULT_SYNONYMS_INDEX = "vs-events-synonyms-en";
     private static final String LOCATIONS_INDEX = "vs-events-filters-locations";
@@ -28,9 +30,10 @@ public class VsEventsRestService {
             "es", "vs-events-synonyms-es"
     );
 
-    public VsEventsRestService(HippoUtilsService hippoUtilsService, CommonUtilsService utils) {
+    public VsEventsRestService(HippoUtilsService hippoUtilsService, CommonUtilsService utils, ResourceBundleService bundle) {
         this.hippoUtilsService = hippoUtilsService;
         this.utils = utils;
+        this.bundle = bundle;
     }
 
     @GET
@@ -67,19 +70,25 @@ public class VsEventsRestService {
 
     @GET
     @Path("/locations")
-    public Map<String, Object> getLocations(){
-
+    public Map<String, Object> getLocations( @QueryParam("locale") @DefaultValue("en") String locale){
         Map<String, String> result = hippoUtilsService.getValueMap(LOCATIONS_INDEX);
 
         if (result == null || result.isEmpty()) {
-            throw new NotFoundException("No locations found for events ");
+            throw new NotFoundException("No locations found for events");
+        }
+
+        Map<String, String> transformedData = new LinkedHashMap<>();
+
+        for (Map.Entry<String, String> entry : result.entrySet()) {
+            String code = entry.getValue();
+            String label = bundle.getResourceBundle("search-events-locations", entry.getKey(), locale);
+            transformedData.put(code, label != null ? label : entry.getKey());
         }
 
         Map<String, Object> response = new LinkedHashMap<>();
-        response.put("hash", utils.generateJsonVersion(result));
-        response.put("data", result);
+        response.put("hash", utils.generateJsonVersion(transformedData));
+        response.put("data", transformedData);
 
         return response;
     }
-
 }
