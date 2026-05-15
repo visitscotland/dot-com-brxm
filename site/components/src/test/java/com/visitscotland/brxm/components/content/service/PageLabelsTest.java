@@ -36,7 +36,7 @@ class PageLabelsTest {
 
     @Test
     @DisplayName("Should exclude cms-messages bundle when outside edit mode")
-    void excludeGeneralLabels_edit_mode() {
+    void excludeCMSMessages() {
         // Behavior: In edit mode, CMS_MESSAGES bundle should be added along with all others
         pageLabels.includeGeneralLabels(pageConfig, false);
 
