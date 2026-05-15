@@ -6,6 +6,7 @@ import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
 
 public class PageIntro extends Module<Page> {
@@ -15,6 +16,7 @@ public class PageIntro extends Module<Page> {
     private FlatBlog author;
     private FlatImage heroImage;
     private EnhancedLink video;
+    private HorizontalListLinksModule otyml;
 
     public PageIntro(Page page) {
         setHippoBean(page);
@@ -58,5 +60,13 @@ public class PageIntro extends Module<Page> {
 
     public void setVideo(EnhancedLink video) {
         this.video = video;
+    }
+
+    public HorizontalListLinksModule getOtyml() {
+        return otyml;
+    }
+
+    public void setOtyml(HorizontalListLinksModule otyml) {
+        this.otyml = otyml;
     }
 }

@@ -117,15 +117,17 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     public void doBeforeRender(HstRequest request, HstResponse response, PageCompositionHelper pageConfig) {
         super.doBeforeRender(request, response);
 
-        addMetadata(request);
         addHeroImage(request, pageConfig);
-
         addOTYML(request, pageConfig);
         addNewsletterSignup(request);
         addBlog(pageConfig);
+
+        addMetadata(request);
         addGtmConfiguration(request);
+
         pageLabels.includeGeneralLabels(pageConfig, isEditMode(request));
         addSiteSpecificConfiguration(request, pageConfig);
+
         //TODO review labels for search once we have time to delete current bundles
         pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
     }
@@ -199,6 +201,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     /**
      * Set the OTYML module if present
      */
+    @Deprecated(forRemoval = true)
     protected void addOTYML(HstRequest request, PageCompositionHelper pageConfig) {
         final String PAGINATION_BUNDLE = "essentials.pagination";
 
