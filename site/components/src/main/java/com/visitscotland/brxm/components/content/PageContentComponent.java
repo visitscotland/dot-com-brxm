@@ -160,6 +160,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      * - Alerts are only used for issues related with the hero image at the moment
      * - Hero Image is not necessary for all document types. Is it better to add the field in order to keep consistency?
      */
+    @Deprecated(forRemoval = true)
     private void addHeroImage(HstRequest request, PageCompositionHelper pageConfig) {
         Module<T> introModule = new Module<>();
 
@@ -179,6 +180,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         }
     }
 
+    @Deprecated(forRemoval = true)
     private void includeHeroVideo(HstRequest request, Module<T> introModule, PageCompositionHelper pageConfig) {
         VideoLink videoDocument = getDocument(request).getHeroVideo();
         if (videoDocument != null && videoDocument.getVideoLink() != null) {
@@ -222,7 +224,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
     //TODO: VS-1556: The author object should be eliminated in future iterations
     /**
-     * @deprecated It is discourage to put add objects on the root of thethe payload. This object has been duplicated
+     * @deprecated It is discourage to put add objects on the root of the payload. This object has been duplicated
      * into the pageIntro object
      *
      */
@@ -238,6 +240,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      *
      * @param request HstRequest
      */
+    @Deprecated(forRemoval = true)
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
         if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
