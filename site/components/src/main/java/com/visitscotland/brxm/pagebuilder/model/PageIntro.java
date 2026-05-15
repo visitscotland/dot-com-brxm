@@ -2,17 +2,19 @@ package com.visitscotland.brxm.pagebuilder.model;
 
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.FlatBlog;
+import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
-import org.jetbrains.annotations.NotNull;
 
 public class PageIntro extends Module<Page> {
 
-    LinksModule<EnhancedLink> categorySection;
-    SignpostModule newsletter;
-    FlatBlog author;
+    private LinksModule<EnhancedLink> categorySection;
+    private SignpostModule newsletter;
+    private FlatBlog author;
+    private FlatImage heroImage;
+    private EnhancedLink video;
 
     public PageIntro(Page page) {
         setHippoBean(page);
@@ -40,5 +42,21 @@ public class PageIntro extends Module<Page> {
 
     public void setNewsletter(SignpostModule newsletter) {
         this.newsletter = newsletter;
+    }
+
+    public FlatImage getHeroImage() {
+        return heroImage;
+    }
+
+    public void setHeroImage(FlatImage heroImage) {
+        this.heroImage = heroImage;
+    }
+
+    public EnhancedLink getVideo() {
+        return video;
+    }
+
+    public void setVideo(EnhancedLink video) {
+        this.video = video;
     }
 }
