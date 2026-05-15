@@ -29,7 +29,7 @@ public class PageCompositionHelper {
 
     public PageCompositionHelper(ResourceBundleService bundle, PageIntroAssembler pageIntroAssembler, HstRequest request) {
         this.bundle = Objects.requireNonNull(bundle,  "bundle must not be null");
-        this.pageIntroAssembler = pageIntroAssembler;
+        this.pageIntroAssembler = Objects.requireNonNull(pageIntroAssembler,  "pageIntroAssembler must not be null");
         this.request = Objects.requireNonNull(request, "request must not be null");
         this.model = new CompositionModel();
     }
@@ -108,6 +108,10 @@ public class PageCompositionHelper {
     @Deprecated(forRemoval = true)
     public HstRequest getRequest() {
         return request;
+    }
+
+    public String getRequestPathInfo(){
+        return request.getPathInfo();
     }
 
     public void addModule(Module<?> module){

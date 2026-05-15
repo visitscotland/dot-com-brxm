@@ -31,7 +31,7 @@ public class PageTemplateInitializer  {
         final PageIntro pageTemplate = new PageIntro(page);
 
         authorService.getBlog(pageCompositionHelper).ifPresent(pageTemplate::setAuthor);
-        addNewsletterSignup(pageCompositionHelper);
+        addNewsletterSignup(pageCompositionHelper).ifPresent(pageTemplate::setNewsletter);
 
         return pageTemplate;
     }
