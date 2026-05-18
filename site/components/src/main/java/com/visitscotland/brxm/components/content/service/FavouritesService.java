@@ -20,6 +20,7 @@ public class FavouritesService {
     static final String FAVOURITES_BUNDLE = "favourites";
     static final String FAVOURITES_BUTTON_BUNDLE = "favourites-button";
     static final String ALLOW_FAVOURITE = "allow-favourite";
+    static final String IS_SHARE_PAGE = "is-favourites-share-page";
     static final String FAVOURITES_PAGE_ENABLED = "feature.favourites.enable";
     static final String FAVOURITES_SITE_URL = "feature.favourites.url";
     static final String FAVOURITES_BASE_URL = "feature.favourites.share-service-base-url";
@@ -37,6 +38,7 @@ public class FavouritesService {
         pageConfig.addProperty(FAVOURITES_BASE_URL, properties.getFavouritesBaseUrl());
         pageConfig.addProperty(FAVOURITES_SHARE_URL, properties.getFavouritesShareUrl());
         pageConfig.addAllSiteLabels(FAVOURITES_BUNDLE);
+        pageConfig.addProperty(IS_SHARE_PAGE, properties.getFavouritesShareUrl().contains(request.getPathInfo()));
 
         addFavouritesButton(pageConfig);
     }
