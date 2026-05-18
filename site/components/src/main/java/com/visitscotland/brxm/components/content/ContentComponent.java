@@ -3,7 +3,7 @@ package com.visitscotland.brxm.components.content;
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
+import com.visitscotland.brxm.pagebuilder.page.PageTemplateAssembler;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.LocalizationComponent;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -29,7 +29,7 @@ public abstract class ContentComponent extends EssentialsContentComponent {
     private final HippoUtilsService hippoUtilsService;
     private final LocalizationComponent localizationComponent;
     private final ResourceBundleService bundle;
-    private final PageIntroAssembler pageIntroAssembler;
+    private final PageTemplateAssembler pageTemplateAssembler;
 
     public static final String PAGE_PATH = "content";
     private static final String ERROR_CODE = "errorCode";
@@ -38,7 +38,7 @@ public abstract class ContentComponent extends EssentialsContentComponent {
         hippoUtilsService = VsComponentManager.get(HippoUtilsService.class);
         localizationComponent = VsComponentManager.get(LocalizationComponent.class);
         bundle = VsComponentManager.get(ResourceBundleService.class);
-        this.pageIntroAssembler = VsComponentManager.get(PageIntroAssembler.class);
+        this.pageTemplateAssembler = VsComponentManager.get(PageTemplateAssembler.class);
     }
 
     @Override
@@ -54,7 +54,7 @@ public abstract class ContentComponent extends EssentialsContentComponent {
 
     @Override
     public void prepareBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(bundle, pageIntroAssembler, request);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(bundle, pageTemplateAssembler, request);
 
         super.prepareBeforeRender(request, response);
 

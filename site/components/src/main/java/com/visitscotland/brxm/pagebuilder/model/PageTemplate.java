@@ -9,7 +9,7 @@ import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
 
-public class PageIntro extends Module<Page> {
+public class PageTemplate extends Module<Page> {
 
     private LinksModule<EnhancedLink> categorySection;
     private SignpostModule newsletter;
@@ -18,7 +18,7 @@ public class PageIntro extends Module<Page> {
     private EnhancedLink video;
     private HorizontalListLinksModule otyml;
 
-    public PageIntro(Page page) {
+    public PageTemplate(Page page) {
         setHippoBean(page);
     }
 

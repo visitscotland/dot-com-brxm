@@ -3,7 +3,7 @@ package com.visitscotland.brxm.pagebuilder.page.adapter;
 import com.visitscotland.brxm.hippobeans.Listicle;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.pagebuilder.model.PageIntro;
+import com.visitscotland.brxm.pagebuilder.model.PageTemplate;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ public class ListiclePageAdapter implements PageAdapter {
     private final Logger log = org.slf4j.LoggerFactory.getLogger(ListiclePageAdapter.class);
 
     @Override
-    public Optional<PageIntro> getPageIntro(PageCompositionHelper pageConfig) {
+    public Optional<PageTemplate> getPageIntro(PageCompositionHelper pageConfig) {
         log.warn("Page intro composition for Listicle is not implemented yet.");
 
         return null;

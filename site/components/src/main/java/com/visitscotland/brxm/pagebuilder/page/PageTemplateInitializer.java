@@ -12,13 +12,12 @@ import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.pagebuilder.model.PageIntro;
+import com.visitscotland.brxm.pagebuilder.model.PageTemplate;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.brxm.utils.SitePropertyKeys;
 import com.visitscotland.utils.Contract;
-import org.hippoecm.hst.core.component.HstRequest;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
@@ -62,9 +61,9 @@ public class PageTemplateInitializer  {
         this.contentLogger = contentLogger;
     }
 
-    public PageIntro getPageIntro(PageCompositionHelper pageCompositionHelper) throws PageCompositionException {
+    public PageTemplate getPageTemplate(PageCompositionHelper pageCompositionHelper) throws PageCompositionException {
         final Page page = pageCompositionHelper.getPage();
-        final PageIntro pageTemplate = new PageIntro(page);
+        final PageTemplate pageTemplate = new PageTemplate(page);
 
         setHeroImage(pageCompositionHelper, pageTemplate);
         setVideo(pageCompositionHelper, pageTemplate);
@@ -82,7 +81,7 @@ public class PageTemplateInitializer  {
      * - Alerts are only used for issues related with the hero image at the moment
      * - Hero Image is not necessary for all document types. Is it better to add the field in order to keep consistency?
      */
-    private void setHeroImage(PageCompositionHelper pageConfig, PageIntro pageTemplate) throws PageCompositionException {
+    private void setHeroImage(PageCompositionHelper pageConfig, PageTemplate pageTemplate) throws PageCompositionException {
         Page page = pageConfig.getPage();
 
         if (page.getHeroImage() == null) {
@@ -96,7 +95,7 @@ public class PageTemplateInitializer  {
         }
     }
 
-    private void setVideo(PageCompositionHelper pageConfig, PageIntro pageTemplate) throws PageCompositionException {
+    private void setVideo(PageCompositionHelper pageConfig, PageTemplate pageTemplate) throws PageCompositionException {
         VideoLink videoDocument = pageConfig.getPage().getHeroVideo();
         if (videoDocument != null && videoDocument.getVideoLink() != null) {
             EnhancedLink video = linksService.createVideo(videoDocument.getVideoLink(), pageTemplate, pageConfig.getLocale());
@@ -113,7 +112,7 @@ public class PageTemplateInitializer  {
     /**
      * Set the OTYML module if present
      */
-    protected void addOTYML(PageCompositionHelper pageConfig, PageIntro pageTemplate) throws PageCompositionException {
+    protected void addOTYML(PageCompositionHelper pageConfig, PageTemplate pageTemplate) throws PageCompositionException {
         Page page = pageConfig.getPage();
         if (page.getOtherThings() != null) {
             pageTemplate.setOtyml(megalinkMapper.horizontalListLayout(page.getOtherThings(), pageConfig.getLocale()));
