@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.components.content;
 
+import com.visitscotland.brxm.components.content.service.AuthorService;
 import com.visitscotland.brxm.components.content.service.CludoService;
 import com.visitscotland.brxm.components.content.service.FavouritesService;
 import com.visitscotland.brxm.components.content.service.PageLabels;
@@ -11,7 +12,6 @@ import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.mapper.module.MegalinkMapper;
-import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.SignpostModule;
@@ -30,7 +30,10 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 public class PageContentComponent<T extends Page> extends ContentComponent {
 
@@ -79,10 +82,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     private final CludoService cludoService;
     private final FavouritesService favouritesService;
     private final PageLabels pageLabels;
+    private final AuthorService authorService;
 
     private final MetadataFactory metadata;
 
     public PageContentComponent() {
+        authorService = VsComponentManager.get(AuthorService.class);
         blogFactory = VsComponentManager.get(BlogFactory.class);
         megalinkMapper = VsComponentManager.get(MegalinkMapper.class);
         imageMapper = VsComponentManager.get(ImageMapper.class);
@@ -117,7 +122,7 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
 
         addOTYML(request, pageConfig);
         addNewsletterSignup(request);
-        addBlog(request);
+        addBlog(pageConfig);
         addGtmConfiguration(request);
         pageLabels.includeGeneralLabels(pageConfig, isEditMode(request));
         addSiteSpecificConfiguration(request, pageConfig);
@@ -214,36 +219,18 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         pageConfig.addAllSiteLabels(MEGALINKS_BUNDLE);
         pageConfig.addAllSiteLabels(PAGINATION_BUNDLE);
     }
-//
-//    /**
-//     * Returns the labels object from the request if it exists, otherwise, creates a new one and adds it to the request
-//     * @param request HstRequest
-//     * @return labels object from the request
-//     */
-//    protected Map<String, Map<String, String>> labels(HstRequest request) {
-//        if (request.getModel(LABELS) == null) {
-//            Map<String, Map<String, String>> labels = new HashMap<>();
-//            request.setModel(LABELS, labels);
-//            return labels;
-//        }
-//
-//        return request.getModel(LABELS);
-//    }
 
+    //TODO: VS-1556: The author object should be eliminated in future iterations
     /**
-     * Set the blog if present
+     * @deprecated It is discourage to put add objects on the root of thethe payload. This object has been duplicated
+     * into the pageIntro object
+     *
      */
-    protected void addBlog(HstRequest request) {
-        Page page = getDocument(request);
-        if (page.getBlog() != null) {
-            Collection<String> errorMessages = new ArrayList<>();
-
-            FlatBlog blog = blogFactory.getBlog(page.getBlog(), request.getLocale(), errorMessages);
-
-            request.setModel(AUTHOR, blog);
-
-            setErrorMessages(request, errorMessages);
-        }
+    @Deprecated(forRemoval = true)
+    protected void addBlog(PageCompositionHelper pageConfig) {
+        authorService.getBlog(pageConfig).ifPresent( blog ->
+            pageConfig.getRequest().setModel(AUTHOR, blog)
+        );
     }
 
     /**

@@ -35,19 +35,12 @@ public class GeneralContentComponent extends PageContentComponent<General> {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageIntroAssembler, request);
 
         super.doBeforeRender(request, response, pageConfig);
 
-        addNavigationCards(request);
+        pageConfig.initPageTemplate();
         builder.addModules(request, pageConfig);
     }
 
-    private void addNavigationCards(HstRequest request){
-        try {
-            request.setModel("pageIntro", pageIntroAssembler.from(request.getLocale(), getDocument(request)));
-        } catch (PageCompositionException e) {
-            logger.error("The pageIntro object could not be calculated for this page", e);
-        }
-    }
 }
