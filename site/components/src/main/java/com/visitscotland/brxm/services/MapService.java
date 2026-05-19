@@ -237,16 +237,6 @@ public class MapService {
             addSubcategories(properties, listKeys, locale);
         }
 
-        if (!Contract.isEmpty(stop.getSubtitle())) {
-            JsonNode boundsNode = dmsData.getLocationBorders(stop.getSubtitle(), false);
-            if (boundsNode != null) {
-                properties.put(PLACEID, hippoUtilsService.getValueFromList(MAPS_GOOGLE_LOCATIONS, stop.getSubtitle()));
-                JsonNode viewports = geometryViewportService.extractViewportFromGeometry(boundsNode);
-                properties.set(VIEWPORT, viewports);
-                properties.set(LOCATION_CENTRE, geometryViewportService.calculateCenterFromViewport(viewports));
-            }
-        }
-
         return properties;
     }
 
