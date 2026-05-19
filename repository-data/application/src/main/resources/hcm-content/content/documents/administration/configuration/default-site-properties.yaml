@@ -1,5 +1,5 @@
 /content/documents/administration/configuration/default-site-properties:
-  .meta:order-before: default-cms-properties
+  .meta:order-before: business-events-local-properties
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ea5611a6-5160-4713-86e9-52334587567c
