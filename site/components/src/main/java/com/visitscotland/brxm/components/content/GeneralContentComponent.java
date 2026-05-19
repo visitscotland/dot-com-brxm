@@ -33,13 +33,15 @@ public class GeneralContentComponent extends PageContentComponent<General> {
     }
 
     @Override
-    public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
-
-        super.doBeforeRender(request, response, pageConfig);
-
-        pageConfig.initPageTemplate();
-        builder.addModules(request, pageConfig);
+    public PageCompositionHelper createPageCompositionHelper(HstRequest request) {
+        return new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
     }
+
+    @Override
+    public void addPageAttributes(PageCompositionHelper pageConfig) {
+        //pageConfig.initPageTemplate();
+        builder.addModules(pageConfig.getRequest(), pageConfig);
+    }
+
 
 }

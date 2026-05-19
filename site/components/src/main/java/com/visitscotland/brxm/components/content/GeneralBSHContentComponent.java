@@ -32,13 +32,14 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
     }
 
     @Override
-    public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
+    public PageCompositionHelper createPageCompositionHelper(HstRequest request) {
+        return new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
+    }
 
-        super.doBeforeRender(request, response, pageConfig);
-
+    @Override
+    public void addPageAttributes(PageCompositionHelper pageConfig) {
+        HstRequest request = pageConfig.getRequest();
         addReadData(request);
-
         builder.addModules(request, pageConfig);
     }
 

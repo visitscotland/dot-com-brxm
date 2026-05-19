@@ -41,10 +41,13 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
     }
 
     @Override
-    public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
-        super.doBeforeRender(request, response, pageConfig);
+    public PageCompositionHelper createPageCompositionHelper(HstRequest request) {
+        return new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
+    }
 
+    @Override
+    public void addPageAttributes(PageCompositionHelper pageConfig) {
+        HstRequest request = pageConfig.getRequest();
         includeLabels(pageConfig);
         if (itineraryMapper.isStopBasedItinerary(getDocument(request))){
             pageConfig.addProperty(HAS_STOPS, true);

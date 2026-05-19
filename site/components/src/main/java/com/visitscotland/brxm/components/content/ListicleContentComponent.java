@@ -27,13 +27,14 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
         this.pageTemplateAssembler = VsComponentManager.get(PageTemplateAssembler.class);
     }
 
-
+    @Override
+    public PageCompositionHelper createPageCompositionHelper(HstRequest request) {
+        return new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
+    }
 
     @Override
-    public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
-
-        super.doBeforeRender(request, response, pageConfig);
+    public void addPageAttributes(PageCompositionHelper pageConfig) {
+        HstRequest request = pageConfig.getRequest();
 
         pageConfig.addAllSiteLabels(BUNDLE_ID);
         request.setModel(LISTICLE_ITEMS, factory.generateItems(request.getLocale(), getDocument(request)));
