@@ -8,49 +8,53 @@ import com.visitscotland.brxm.pagebuilder.page.PageTemplateAssembler;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.stream.Collectors;
-
 
 import static com.visitscotland.brxm.services.ResourceBundleService.GLOBAL_BUNDLE_FILE;
 
 public class PageCompositionHelper {
 
+    private static final Logger logger = LoggerFactory.getLogger(PageCompositionHelper.class);
+
     public static final String LABELS = "labels";
     public static final String PAGE_CONFIGURATION = PageContentComponent.PAGE_CONFIGURATION;
     public static final String PAGE_TEMPLATE = "pageTemplate";
 
-    private final PageTemplateAssembler pageTemplateAssembler;
     private final ResourceBundleService bundle;
     private final HstRequest request;
     private final CompositionModel model;
     private PageTemplate pageTemplate;
 
+    public PageCompositionHelper(ResourceBundleService bundle, HstRequest request) {
+        this(bundle, null, request);
+    }
+
     public PageCompositionHelper(ResourceBundleService bundle, PageTemplateAssembler pageTemplateAssembler, HstRequest request) {
-        this.bundle = Objects.requireNonNull(bundle,  "bundle must not be null");
-        this.pageTemplateAssembler = Objects.requireNonNull(pageTemplateAssembler,  "pageTemplateAssembler must not be null");
+        this.bundle = Objects.requireNonNull(bundle, "bundle must not be null");
         this.request = Objects.requireNonNull(request, "request must not be null");
         this.model = new CompositionModel();
+
+        if (pageTemplateAssembler != null) {
+            setupPageTemplate(pageTemplateAssembler);
+        }
     }
 
     public Locale getLocale(){
         return request.getLocale();
     }
 
-    public void initPageTemplate() {
-        getPageTemplate();
-    }
-
-    //TODO: Review usage of this method
-    public PageTemplate getPageTemplate() {
+    public Optional<PageTemplate> getPageTemplate() {
         if (pageTemplate != null) {
-            return pageTemplate;
+            return Optional.of(pageTemplate);
         } else if (request.getModel(PAGE_TEMPLATE) != null) {
             pageTemplate = request.getModel(PAGE_TEMPLATE);
-            return request.getModel(PAGE_TEMPLATE);
+            return Optional.of(request.getModel(PAGE_TEMPLATE));
         } else {
-            return setupPageTemplate();
+            return Optional.empty();
         }
     }
 
@@ -62,20 +66,18 @@ public class PageCompositionHelper {
      *
      * @return the assembled PageTemplate template
      */
-    private PageTemplate setupPageTemplate() {
+    private void setupPageTemplate(PageTemplateAssembler pageTemplateAssembler) {
+        if (getPageTemplate().isPresent()) {
+            logger.warn("Page template already exists and some data might have been lost.");
+            return;
+        }
+
         PageTemplate template;
         Page page = null;
 
         try {
             page = getPage();
-
-            if (pageTemplateAssembler == null) {
-                template = new PageTemplate(page);
-                //TODO: Log a more descriptive error message and add it to the logger
-                template.addErrorMessage("There has been an internal error");
-            } else {
-                template = pageTemplateAssembler.from(this);
-            }
+            template = pageTemplateAssembler.from(this);
         } catch (PageCompositionException e) {
             template = new PageTemplate(page);
             template.addErrorMessage(e.getMessage());
@@ -86,8 +88,6 @@ public class PageCompositionHelper {
         request.setModel(PAGE_TEMPLATE, template);
 
         this.pageTemplate = template;
-
-        return template;
     }
 
     @SuppressWarnings("unchecked")

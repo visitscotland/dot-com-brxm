@@ -29,7 +29,6 @@ public abstract class ContentComponent extends EssentialsContentComponent {
     private final HippoUtilsService hippoUtilsService;
     private final LocalizationComponent localizationComponent;
     private final ResourceBundleService bundle;
-    private final PageTemplateAssembler pageTemplateAssembler;
 
     public static final String PAGE_PATH = "content";
     private static final String ERROR_CODE = "errorCode";
@@ -38,7 +37,6 @@ public abstract class ContentComponent extends EssentialsContentComponent {
         hippoUtilsService = VsComponentManager.get(HippoUtilsService.class);
         localizationComponent = VsComponentManager.get(LocalizationComponent.class);
         bundle = VsComponentManager.get(ResourceBundleService.class);
-        this.pageTemplateAssembler = VsComponentManager.get(PageTemplateAssembler.class);
     }
 
     @Override
@@ -54,9 +52,9 @@ public abstract class ContentComponent extends EssentialsContentComponent {
 
     @Override
     public void prepareBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(bundle, pageTemplateAssembler, request);
-
         super.prepareBeforeRender(request, response);
+
+        PageCompositionHelper pageConfig = new PageCompositionHelper(bundle, request);
 
         localizationComponent.setLocale(pageConfig);
         setStatusCode(request, response);

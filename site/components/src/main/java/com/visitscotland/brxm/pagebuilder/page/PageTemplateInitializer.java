@@ -62,8 +62,7 @@ public class PageTemplateInitializer  {
     }
 
     public PageTemplate getPageTemplate(PageCompositionHelper pageCompositionHelper) throws PageCompositionException {
-        final Page page = pageCompositionHelper.getPage();
-        final PageTemplate pageTemplate = new PageTemplate(page);
+        final PageTemplate pageTemplate = pageCompositionHelper.getPageTemplate();
 
         setHeroImage(pageCompositionHelper, pageTemplate);
         setVideo(pageCompositionHelper, pageTemplate);

@@ -43,6 +43,7 @@ public class AuthorService {
      * @see BlogFactory#getBlog(com.visitscotland.brxm.hippobeans.Blog, java.util.Locale, Collection)
      */
     public Optional<FlatBlog> getBlog(PageCompositionHelper helper) {
+
         try {
             Page page = helper.getPage();
             if (page.getBlog() != null) {
@@ -51,13 +52,15 @@ public class AuthorService {
                 FlatBlog blog = blogFactory.getBlog(page.getBlog(), helper.getLocale(), errorMessages);
 
                 for (String errorMessage : errorMessages) {
-                    helper.getPageTemplate().addErrorMessage(errorMessage);
+                    helper.getPageTemplate().ifPresent(template ->
+                            template.addErrorMessage(errorMessage));
                 }
 
                 return Optional.of(blog);
             }
         } catch (PageCompositionException e) {
-            helper.getPageTemplate().addErrorMessage("The blog section threw an error and cannot be included in this page");
+            helper.getPageTemplate().ifPresent(template ->
+                    template.addErrorMessage("The blog section threw an error and cannot be included in this page"));
             logger.warn(e.getMessage(), e);
         }
         return Optional.empty();
