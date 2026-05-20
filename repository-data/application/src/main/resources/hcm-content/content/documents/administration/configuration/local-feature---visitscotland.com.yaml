@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 90dd34ac-0ad2-4a25-98be-407f33bf3dfa
   hippo:name: Local/Feature - Visitscotland.com
-  hippo:versionHistory: d1dd9c29-2e62-4102-b6da-70827d2e2033
+  hippo:versionHistory: 0ac4b902-899c-434e-9670-efd57e222f5f
   /local-feature---visitscotland.com[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-05-14T15:31:17.456+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-20T10:53:34.828+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -60,8 +60,8 @@
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
       'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, /sandbox/pages/favourites, 'true', /api/favourites/get-favourites,
-      /site/sandbox/pages/share-favourites, 'https://api.visitscotland.com/dev/data/favourites']
+      and, /sandbox/pages/favourites, 'true', /api/favourites/get-favourites, /sandbox/pages/share-favourites/content,
+      'https://api.visitscotland.com/dev/data/favourites']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
       '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
@@ -91,9 +91,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-05-14T15:31:17.456+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-20T10:53:34.828+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-05-14T15:31:20.847+01:00
+    hippostdpubwf:publicationDate: 2026-05-20T10:53:41.807+01:00
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -138,8 +138,8 @@
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
       'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, /sandbox/pages/favourites, 'true', /api/favourites/get-favourites,
-      /site/sandbox/pages/share-favourites, 'https://api.visitscotland.com/dev/data/favourites']
+      and, /sandbox/pages/favourites, 'true', /api/favourites/get-favourites, /sandbox/pages/share-favourites/content,
+      'https://api.visitscotland.com/dev/data/favourites']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
       '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
@@ -169,7 +169,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-05-14T13:45:47.325+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-20T10:53:15.295+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -215,8 +215,8 @@
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
       'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, /sandbox/pages/favourites, 'true', /api/favourites/get-favourites,
-      /site/sandbox/pages/share-favourites, 'https://api.visitscotland.com/dev/data/favourites']
+      and, /sandbox/pages/favourites, 'true', /api/favourites/get-favourites, /sandbox/pages/share-favourites/content,
+      'https://api.visitscotland.com/dev/data/favourites']
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
       '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
