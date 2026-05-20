@@ -17,11 +17,11 @@
     /selection:listitem[2]:
       jcr:primaryType: selection:listitem
       selection:key: clubs
-      selection:label: clubs
+      selection:label: clubsgroup
     /selection:listitem[3]:
       jcr:primaryType: selection:listitem
       selection:key: comedy
-      selection:label: comedy
+      selection:label: comedygroup
     /selection:listitem[4]:
       jcr:primaryType: selection:listitem
       selection:key: dance
@@ -41,7 +41,7 @@
     /selection:listitem[8]:
       jcr:primaryType: selection:listitem
       selection:key: film
-      selection:label: film
+      selection:label: filmgroup
     /selection:listitem[9]:
       jcr:primaryType: selection:listitem
       selection:key: lgbt
@@ -49,7 +49,7 @@
     /selection:listitem[10]:
       jcr:primaryType: selection:listitem
       selection:key: music
-      selection:label: music
+      selection:label: musicgroup
     /selection:listitem[11]:
       jcr:primaryType: selection:listitem
       selection:key: sport
@@ -57,7 +57,7 @@
     /selection:listitem[12]:
       jcr:primaryType: selection:listitem
       selection:key: theatre
-      selection:label: theatre
+      selection:label: theatregroup
     /selection:listitem[13]:
       jcr:primaryType: selection:listitem
       selection:key: visualarts
