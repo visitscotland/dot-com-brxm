@@ -3,8 +3,8 @@
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 90dd34ac-0ad2-4a25-98be-407f33bf3dfa
-  hippo:name: Local/Feature - Visitscotland.com
-  hippo:versionHistory: 5944e62c-73cf-4dfe-b57a-30370b0e04dc
+  hippo:name: Feature - Visitscotland.com
+  hippo:versionHistory: 7919e594-08d8-4178-8409-c3102f9a6e36
   /local-feature---visitscotland.com[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-03-31T10:44:31.025+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-12T15:09:53.414+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -35,7 +35,7 @@
         \ 12812\r\nes 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is
         used to set up the Cludo Chatbox functionality, '', '', '', '', '', '', '',
       '', '', '', "values in lowercase:\r\nor\r\nand", '', '', '']
-    resourcebundle:id: vs.site.config
+    resourcebundle:id: feature.vs-site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
       gtm.is-production, gtm.container-id, gtm.preview-query-string, form.is-production,
@@ -59,7 +59,7 @@
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
       'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
+      and, /sandbox/pages/favourites, 'true', /api/favourites/get-favourites]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
       '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
@@ -89,9 +89,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-03-31T10:44:31.025+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-12T15:09:53.414+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-03-31T10:44:33.967+01:00
+    hippostdpubwf:publicationDate: 2026-05-12T15:10:02.094+01:00
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -111,7 +111,7 @@
         \ 12812\r\nes 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is
         used to set up the Cludo Chatbox functionality, '', '', '', '', '', '', '',
       '', '', '', "values in lowercase:\r\nor\r\nand", '', '', '']
-    resourcebundle:id: vs.site.config
+    resourcebundle:id: feature.vs-site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
       gtm.is-production, gtm.container-id, gtm.preview-query-string, form.is-production,
@@ -135,7 +135,7 @@
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
       'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
+      and, /sandbox/pages/favourites, 'true', /api/favourites/get-favourites]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
       '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
@@ -165,7 +165,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-03-31T10:43:25.922+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-12T14:44:59.087+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -186,7 +186,7 @@
         \ 12812\r\nes 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is
         used to set up the Cludo Chatbox functionality, '', '', '', '', '', '', '',
       '', '', '', "values in lowercase:\r\nor\r\nand", '', '', '']
-    resourcebundle:id: vs.site.config
+    resourcebundle:id: feature.vs-site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
       gtm.is-production, gtm.container-id, gtm.preview-query-string, form.is-production,
@@ -210,7 +210,7 @@
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
       'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
+      and, /sandbox/pages/favourites, 'true', /api/favourites/get-favourites]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
       '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,

@@ -1,0 +1,110 @@
+/content/documents/administration/labels/search/main-category-filters:
+  .meta:order-before: events-filters
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: e52f6fbc-bb55-49e8-931d-368b26ee82d3
+  hippo:name: Main Category Filters
+  hippo:versionHistory: d3b85475-39fd-485b-88a5-1d1e7f86c884
+  /main-category-filters[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: d2ffda42-5ef0-47f6-af05-8d11174010d8
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-23T15:39:04.905+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-24T14:05:17.351Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: main-category-filters
+    resourcebundle:keys: [accommodation, events, tours, culture-history, family-friendly,
+      food-drink, active-adventure, city-break, travel-information, nature-outdoors,
+      wellness]
+    resourcebundle:messages: [Accommodation, Events & Festivals, Tours, Culture &
+        History, Family, Food & Drink, Adventure, City Break, Travel, Nature & Outdoors,
+      Wellness]
+    resourcebundle:messages_de: [Unterkünfte, Veranstaltungen & Festivals, Touren,
+      Kultur & Geschichte, Familie, Essen & Trinken, Abenteuer, Städtetrip, Reisen,
+      Natur & Outdoor, Wellness]
+    resourcebundle:messages_es: [Alojamiento, Eventos y festivales, Excursiones, Cultura
+        e historia, Familia, Gastronomía, Aventura, Escapada urbana, Viajes, Naturaleza
+        y actividades al aire libre, Bienestar]
+    resourcebundle:messages_fr: [Hébergements, Événements & Festivals, Excursions,
+      Culture & Histoire, Famille, Gastronomie, Aventure, City trip, Voyage, Nature
+        & Activités en extérieur, Bien-être]
+    resourcebundle:messages_it: [Alloggi, Eventi e festival, Tour, Cultura e storia,
+      Famiglia, Cibo e bevande, Avventura, Vacanza in città, Viaggi, Natura e attività
+        all'aperto, Benessere]
+    resourcebundle:messages_nl: [Accommodatie, Evenementen & Festivals, Tours, Cultuur
+        & Geschiedenis, Familie, Eten & Drinken, Avontuur, Stedentrip, Reizen, Natuur
+        & Outdoor, Wellness]
+  /main-category-filters[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 14b174b3-9361-4259-a4f2-804bdcb6ddca
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-23T15:39:04.905+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-24T14:05:17.351Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-03-24T14:05:19.088Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: main-category-filters
+    resourcebundle:keys: [accommodation, events, tours, culture-history, family-friendly,
+      food-drink, active-adventure, city-break, travel-information, nature-outdoors,
+      wellness]
+    resourcebundle:messages: [Accommodation, Events & Festivals, Tours, Culture &
+        History, Family, Food & Drink, Adventure, City Break, Travel, Nature & Outdoors,
+      Wellness]
+    resourcebundle:messages_de: [Unterkünfte, Veranstaltungen & Festivals, Touren,
+      Kultur & Geschichte, Familie, Essen & Trinken, Abenteuer, Städtetrip, Reisen,
+      Natur & Outdoor, Wellness]
+    resourcebundle:messages_es: [Alojamiento, Eventos y festivales, Excursiones, Cultura
+        e historia, Familia, Gastronomía, Aventura, Escapada urbana, Viajes, Naturaleza
+        y actividades al aire libre, Bienestar]
+    resourcebundle:messages_fr: [Hébergements, Événements & Festivals, Excursions,
+      Culture & Histoire, Famille, Gastronomie, Aventure, City trip, Voyage, Nature
+        & Activités en extérieur, Bien-être]
+    resourcebundle:messages_it: [Alloggi, Eventi e festival, Tour, Cultura e storia,
+      Famiglia, Cibo e bevande, Avventura, Vacanza in città, Viaggi, Natura e attività
+        all'aperto, Benessere]
+    resourcebundle:messages_nl: [Accommodatie, Evenementen & Festivals, Tours, Cultuur
+        & Geschiedenis, Familie, Eten & Drinken, Avontuur, Stedentrip, Reizen, Natuur
+        & Outdoor, Wellness]
+  /main-category-filters[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 6f0b62b4-33b8-4289-8916-3817aeba571d
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2025-10-23T15:39:04.905+01:00
+    hippostdpubwf:lastModificationDate: 2026-03-24T14:05:15.135Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: main-category-filters
+    resourcebundle:keys: [accommodation, events, tours, culture-history, family-friendly,
+      food-drink, active-adventure, city-break, travel-information, nature-outdoors,
+      wellness]
+    resourcebundle:messages: [Accommodation, Events & Festivals, Tours, Culture &
+        History, Family, Food & Drink, Adventure, City Break, Travel, Nature & Outdoors,
+      Wellness]
+    resourcebundle:messages_de: [Unterkünfte, Veranstaltungen & Festivals, Touren,
+      Kultur & Geschichte, Familie, Essen & Trinken, Abenteuer, Städtetrip, Reisen,
+      Natur & Outdoor, Wellness]
+    resourcebundle:messages_es: [Alojamiento, Eventos y festivales, Excursiones, Cultura
+        e historia, Familia, Gastronomía, Aventura, Escapada urbana, Viajes, Naturaleza
+        y actividades al aire libre, Bienestar]
+    resourcebundle:messages_fr: [Hébergements, Événements & Festivals, Excursions,
+      Culture & Histoire, Famille, Gastronomie, Aventure, City trip, Voyage, Nature
+        & Activités en extérieur, Bien-être]
+    resourcebundle:messages_it: [Alloggi, Eventi e festival, Tour, Cultura e storia,
+      Famiglia, Cibo e bevande, Avventura, Vacanza in città, Viaggi, Natura e attività
+        all'aperto, Benessere]
+    resourcebundle:messages_nl: [Accommodatie, Evenementen & Festivals, Tours, Cultuur
+        & Geschiedenis, Familie, Eten & Drinken, Avontuur, Stedentrip, Reizen, Natuur
+        & Outdoor, Wellness]

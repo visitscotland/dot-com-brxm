@@ -150,3 +150,16 @@ action-lists:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/configuration/local-feature---visitscotland.com: reload
     /content/documents/administration/labels/pages/favourites: reload
+- 3.2.4:
+    /content/documents/administration/labels/navigation/static: reload
+    /content/documents/administration/options/search-events-filters-date: delete
+    /content/taxonomies: reload
+- 3.4.1:
+    /content/documents/administration/labels/search/search-labels: reload
+- 3.4.2:
+    /content/documents/administration/labels/modules/map: reload
+- 3.5.1:
+    /content/documentsadministration/labels/search/search-widget: delete
+    /content/documents/administration/labels/search/search-widget-events: delete
+    /content/documents/administration/options/bespoken-modules: reload
+    /content/taxonomies: reload

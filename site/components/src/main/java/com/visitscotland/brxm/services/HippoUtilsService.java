@@ -2,6 +2,7 @@ package com.visitscotland.brxm.services;
 
 import com.visitscotland.brxm.hippobeans.Image;
 import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.brxm.utils.Language;
 import com.visitscotland.brxm.utils.NonTestable;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -13,6 +14,7 @@ import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.container.ContainerConstants;
 import org.hippoecm.hst.core.linking.HstLink;
@@ -34,7 +36,10 @@ import org.springframework.stereotype.Component;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import java.util.*;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Optional;
 
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 
@@ -73,6 +78,8 @@ public class HippoUtilsService {
         }
     }
 
+
+
     public String createUrl(Page document, boolean localize) {
         if (document == null) {
             logger.info("The linked page does not exist.");
@@ -102,10 +109,8 @@ public class HippoUtilsService {
      * @param image CMS image
      *
      * @return URL for the image that renders the document's image or null when it cannot be rendered the image.
-     *
-     *
      */
-    public static String createUrl(Image image) {
+    public String createUrl(Image image) {
         if (image == null) {
             logger.info("The linked image does not exist.");
             return null;
@@ -115,6 +120,26 @@ public class HippoUtilsService {
             HstLink link = requestContext.getHstLinkCreator().create(image, requestContext);
             return link.toUrlForm(requestContext, FULLY_QUALIFIED);
         }
+    }
+
+    public String createUrl(HippoBean document, boolean fullyQualified) {
+        final HstRequestContext context = RequestContextProvider.get();
+        final Mount mount;
+
+        if (document == null) {
+            return null;
+        } else if (document instanceof HippoDocument){
+            Locale locale = ((HippoDocument) document).getLocale();
+            mount = getMountForLocale(locale).orElseGet(() -> {
+                logger.warn("No mount found for locale {}. Falling back to request mount.", locale);
+                return context.getResolvedMount().getMount();
+            });
+        } else {
+            mount = context.getResolvedMount().getMount();
+        }
+
+        return context.getHstLinkCreator().create(document.getNode(), mount)
+                .toUrlForm(context, fullyQualified);
     }
 
     private HippoBean getLocalizedDocument(@NotNull Page document) {
@@ -149,6 +174,7 @@ public class HippoUtilsService {
     /**
      * Return a HippoBean from the Node
      */
+    @SuppressWarnings("unchecked")
     @NonTestable(NonTestable.Cause.BRIDGE)
     public <T extends HippoBean> T getDocumentFromNode(Node jcrNode) throws QueryException, ObjectBeanManagerException {
         HstQueryResult result = RequestContextProvider.get().getQueryManager().createQuery(jcrNode).execute();
@@ -166,6 +192,7 @@ public class HippoUtilsService {
      * @param jcrNode CMS node
      * @param includeUnavailable If true, then the bean will be found even if hippo:availability is not set to 'live'
      */
+    @SuppressWarnings("unchecked")
     @NonTestable(NonTestable.Cause.BRIDGE)
     public <T extends HippoBean> T getDocumentFromNode(Node jcrNode, boolean includeUnavailable) throws QueryException, ObjectBeanManagerException {
         if (!includeUnavailable) {
@@ -224,7 +251,8 @@ public class HippoUtilsService {
      *
      * @return Resolved BR Mount
      */
-    public ResolvedMount getMount(HstRequest request, String mount) {
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public ResolvedMount getMount(HttpServletRequest request, String mount) {
         ResolvedVirtualHost resolvedVirtualHost = (ResolvedVirtualHost) request.getAttribute(ContainerConstants.VIRTUALHOSTS_REQUEST_ATTR);
         if (resolvedVirtualHost != null) {
             ResolvedMount resolvedMount = resolvedVirtualHost.matchMount(mount);
@@ -234,7 +262,45 @@ public class HippoUtilsService {
         }
 
         logger.warn("The mount {} could not be resolver for the following request: {}", mount, request.getRequestURI());
-        return request.getRequestContext().getResolvedMount();
+        return RequestContextProvider.get().getResolvedMount();
+    }
+
+    /**
+     * Retrieves the mount corresponding to the specified locale.
+     *
+     * @param locale the locale for which to find the mount
+     * @return the Mount object for the given locale
+     *
+     */
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public Optional<Mount> getMountForLocale(Locale locale) {
+
+        if (locale == null) {
+            logger.warn("The locale has not been provided to get the mount for the request");
+        } else if (RequestContextProvider.get() == null) {
+            logger.warn("The RequestContextProvider has not been initialized");
+        } else {
+            HstRequestContext context = RequestContextProvider.get();
+            String mountPath = Language.getLanguageForLocale(locale).getCmsMount();
+            ResolvedVirtualHost resolvedVirtualHost = (ResolvedVirtualHost) context.getServletRequest()
+                    .getAttribute(ContainerConstants.VIRTUALHOSTS_REQUEST_ATTR);
+
+            if (resolvedVirtualHost == null) {
+                logger.warn("ResolvedVirtualHost is not present on the context",
+                        new IllegalStateException("ResolvedVirtualHost is not present on the context"));
+            } else {
+                ResolvedMount resolvedMount = resolvedVirtualHost.matchMount(mountPath);
+                if (resolvedMount == null) {
+                    String message = String.format("The mount '%s' could not be resolved", mountPath);
+                    logger.warn(message, new IllegalStateException(message));
+                } else {
+                    return Optional.of(resolvedVirtualHost.matchMount(mountPath).getMount());
+                }
+
+            }
+        }
+
+        return Optional.empty();
     }
 
     /**
@@ -365,15 +431,20 @@ public class HippoUtilsService {
     public HippoBean getContentByUuid(final String uuid) {
 
         try {
-            final ObjectBeanManager objectBeanManager = RequestContextProvider.get().getObjectBeanManager();
-            if (uuid != null) {
-                HippoBean bean = (HippoBean) objectBeanManager.getObjectByUuid(uuid);
-                if (bean != null) {
-                    return bean;
+            final HstRequestContext context = RequestContextProvider.get();
+
+            if (context != null) {
+                final ObjectBeanManager objectBeanManager = context.getObjectBeanManager();
+                if (uuid != null) {
+                    HippoBean bean = (HippoBean) objectBeanManager.getObjectByUuid(uuid);
+                    if (bean != null) {
+                        return bean;
+                    }
+                } else {
+                    logger.info("Null UUID provided. Skipping...");
                 }
-            } else {
-                logger.info("Null UUID provided. Skipping...");
             }
+
         } catch (ObjectBeanManagerException e) {
             logger.error("An ObjectBeanManagerException occurred while getting content for UUID {}: {}", uuid, e.getCause());
         }
@@ -381,3 +452,5 @@ public class HippoUtilsService {
     }
 
 }
+
+
