@@ -1,9 +1,11 @@
 package com.visitscotland.brxm.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class MediaSection {
 
     private String type;
@@ -18,7 +20,11 @@ public class MediaSection {
     }
 
     public List<Object> getItems() {
-        return items;
+        if (items != null && items.size() > 1) {
+            return items;
+        } else {
+            return null;
+        }
     }
 
     public void setItems(List<Object> items) {
