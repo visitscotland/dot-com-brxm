@@ -163,6 +163,7 @@ action-lists:
     /content/documents/administration/labels/search/search-widget-events: delete
     /content/documents/administration/options/bespoken-modules: reload
     /content/taxonomies: reload
+- 3.6.0:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/configuration/local-feature---visitscotland.com: reload
 - 3.5.2:
