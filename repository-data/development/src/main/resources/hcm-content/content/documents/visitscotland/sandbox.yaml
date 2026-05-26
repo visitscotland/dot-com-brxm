@@ -38360,6 +38360,174 @@
           visitscotland:headContributions: []
           visitscotland:html: ''
           visitscotland:notes: ''
+    /share-favourites:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: ab5707bc-5ee9-4812-a08e-83327c4901f4
+      hippostd:foldertype: [new-translated-folder-test, new-document]
+      hippotranslation:id: f52dc741-58f7-4765-bd38-a594a3870aad
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 9b64c3e6-1937-4b53-8cb0-4896f8289b27
+        hippo:name: share-favourites
+        hippo:versionHistory: 5f94fa27-1b04-4413-bf80-4a96c5d6eecc
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 55a2f6ef-9ba8-41a6-933a-4f6d622ef99f
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-05-14T14:27:51.699+01:00
+          hippostdpubwf:lastModificationDate: 2026-05-14T14:27:51.701+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: beaac211-c4f6-434a-ae73-189fab882e99
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: share-favourites meta description
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: share-favourites meta title
+          visitscotland:teaser: share-favourites teaser
+          visitscotland:theme: Simple
+          visitscotland:title: share-favourites heading
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>share-favourites introduction</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: f1e5678e-9603-4bdc-841e-47f9a39af573
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-05-14T14:27:51.699+01:00
+          hippostdpubwf:lastModificationDate: 2026-05-14T14:29:26.663+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: beaac211-c4f6-434a-ae73-189fab882e99
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: share-favourites meta description
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: share-favourites meta title
+          visitscotland:teaser: share-favourites teaser
+          visitscotland:theme: Simple
+          visitscotland:title: share-favourites heading
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>share-favourites introduction</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f44f9670-8b34-4a89-968f-36fc287a3f3d
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-05-14T14:27:51.699+01:00
+          hippostdpubwf:lastModificationDate: 2026-05-14T14:29:26.663+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-05-14T14:33:38.032+01:00
+          hippotranslation:id: beaac211-c4f6-434a-ae73-189fab882e99
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: share-favourites meta description
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: share-favourites meta title
+          visitscotland:teaser: share-favourites teaser
+          visitscotland:theme: Simple
+          visitscotland:title: share-favourites heading
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>share-favourites introduction</p>
+      /share-favourites-dev-module:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: a5cd6dde-e2f7-4cc4-9d8d-0558ad187101
+        hippo:name: share-favourites dev module
+        hippo:versionHistory: 132f3305-04c3-4594-9110-feeb8f50006e
+        /share-favourites-dev-module[1]:
+          jcr:primaryType: visitscotland:DevModule
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 4fb14300-adfd-422f-b0f4-e97376856f70
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-05-14T14:29:56.952+01:00
+          hippostdpubwf:lastModificationDate: 2026-05-14T14:29:56.952+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 0cfb767e-f1c5-4e19-aa94-6f76b8084e63
+          hippotranslation:locale: en
+          visitscotland:bespoken: favourites-list
+          visitscotland:footerContributions: []
+          visitscotland:headContributions: []
+          visitscotland:html: ''
+          visitscotland:notes: ''
+        /share-favourites-dev-module[2]:
+          jcr:primaryType: visitscotland:DevModule
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 7e60ae3b-2a38-4e23-98eb-0084fa02dfeb
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-05-14T14:29:56.952+01:00
+          hippostdpubwf:lastModificationDate: 2026-05-14T14:30:26.620+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 0cfb767e-f1c5-4e19-aa94-6f76b8084e63
+          hippotranslation:locale: en
+          visitscotland:bespoken: favourites-list
+          visitscotland:footerContributions: []
+          visitscotland:headContributions: []
+          visitscotland:html: ''
+          visitscotland:notes: ''
+        /share-favourites-dev-module[3]:
+          jcr:primaryType: visitscotland:DevModule
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: e7175dd0-2d52-40ad-9dec-bf87fa19e439
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-05-14T14:29:56.952+01:00
+          hippostdpubwf:lastModificationDate: 2026-05-14T14:30:26.620+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-05-14T14:30:30.448+01:00
+          hippotranslation:id: 0cfb767e-f1c5-4e19-aa94-6f76b8084e63
+          hippotranslation:locale: en
+          visitscotland:bespoken: favourites-list
+          visitscotland:footerContributions: []
+          visitscotland:headContributions: []
+          visitscotland:html: ''
+          visitscotland:notes: ''
   /modules:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']

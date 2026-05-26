@@ -11,6 +11,7 @@ import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.*;
 import com.visitscotland.brxm.mock.MegalinksMockBuilder;
+import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
@@ -66,6 +67,9 @@ class PageAssemblerTest {
 
     @Mock
     ResourceBundleService bundle;
+    
+    @Mock
+    PageIntroAssembler pageIntroAssembler;
 
     @InjectMocks
     PageAssembler builder;
@@ -86,7 +90,7 @@ class PageAssemblerTest {
     void pageWithoutElements() {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
 
         List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
@@ -105,7 +109,7 @@ class PageAssemblerTest {
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(megalinks));
         doReturn(module).when(megalinkMapper).getMegalinkModule(megalinks, Locale.UK);
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
         List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
         assertEquals(1, items.size());
@@ -127,7 +131,7 @@ class PageAssemblerTest {
         when(previewModeFactory.createErrorModule(any())).thenReturn(new Module<>());
 
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
         List<?> items = (List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS);
 
         assertEquals(1, items.size());
@@ -156,7 +160,7 @@ class PageAssemblerTest {
         doReturn(module3).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(2), Locale.UK);
         doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
         List<LinksModule<?>> items = request.getModel(PageAssembler.PAGE_ITEMS);
 
         assertEquals(4, items.size());
@@ -191,7 +195,7 @@ class PageAssemblerTest {
         doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
         List<?> items = request.getModel(PageAssembler.PAGE_ITEMS);
 
         assertEquals(4, items.size());
@@ -216,11 +220,11 @@ class PageAssemblerTest {
         LinksModule<?> module2 = new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).title("h2").build();
         doReturn(module1).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
 
         // Build the second case where the first element has a title
         doReturn(module2).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
 
         verify(module1).setThemeIndex(0);
         verify(module2).setThemeIndex(0);
@@ -251,7 +255,7 @@ class PageAssemblerTest {
         doReturn(module4).when(megalinkMapper).getMegalinkModule((Megalinks) list.get(3), Locale.UK);
 
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
         List<?> items = request.getModel(PageAssembler.PAGE_ITEMS);
         assertEquals(4, items.size());
 
@@ -270,7 +274,7 @@ class PageAssemblerTest {
 
         doReturn(new LinksModuleMockBuilder().withLink(mock(EnhancedLink.class)).build()).when(megalinkMapper).getMegalinkModule(mega, Locale.UK);
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
         LinksModule<?> module = (LinksModule<?>) ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).get(0);
 
         assertNotNull(request.getAttribute(PageAssembler.INTRO_THEME));
@@ -282,62 +286,62 @@ class PageAssemblerTest {
     void setIntroTheme_forNonMegalinks(){
         when(utils.getAllowedDocuments(page)).thenReturn(Collections.emptyList());
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
 
         assertNull(request.getAttribute(PageAssembler.INTRO_THEME));
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @Disabled("This unit test is to be moved to LongCopyMapper")
     @DisplayName("VS-2132 - Happy Path create a module that contains the basic information")
     void createLongCopy_basic(){
-        General page = mock(General.class);
+        General generalPage = mock(General.class);
         LongCopy longCopy = mock(LongCopy.class);
 
         //The module is only allowed got general pages.
-        when(page.getTheme()).thenReturn("Simple");
-        request.setModel("document", page);
+        when(generalPage.getTheme()).thenReturn("Simple");
+        request.setModel("document", generalPage);
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
+        when(utils.getAllowedDocuments(generalPage)).thenReturn(Collections.singletonList(longCopy));
         when(longCopyMapper.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
 
-        //List<Module> items = (List<Module>) request.getAttribute(PageTemplateBuilder.PAGE_ITEMS);
-        LongCopyModule module = (LongCopyModule) ((List<Module>) request.getModel(PageAssembler.PAGE_ITEMS)).get(0);
+        LongCopyModule module = (LongCopyModule) ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).get(0);
         assertNotNull(module);
     }
 
     @Test
     @DisplayName("VS-2132 - This item allowed on general page type - simple theme pages only (Document types)")
     void createLongCopy_forbidden_destinations(){
-        Destination page = mock(Destination.class);
+        Destination destinationPage = mock(Destination.class);
         LongCopy longCopy = mock(LongCopy.class);
 
         //The module is only allowed got general pages.
-        request.setModel("document", page);
+        request.setModel("document", destinationPage);
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
+        when(utils.getAllowedDocuments(destinationPage)).thenReturn(Collections.singletonList(longCopy));
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
 
-        assertEquals(0, ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
+        assertEquals(0, ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).stream().filter(LongCopyModule.class::isInstance).count());
     }
 
     @Test
     @Disabled("This unit test is to be moved to LongCopyMapper")
     @DisplayName("VS-2132 - This item allowed on general page type - simple theme pages only (Themes)")
     void createLongCopy_forbidden_generalStandard(){
-        General page = mock(General.class);
+        General generalPage = mock(General.class);
         LongCopy longCopy = mock(LongCopy.class);
 
         //The module is only allowed got general pages.
-        when(page.getTheme()).thenReturn("Standard");
-        request.setModel("document", page);
+        when(generalPage.getTheme()).thenReturn("Standard");
+        request.setModel("document", generalPage);
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Collections.singletonList(longCopy));
+        when(utils.getAllowedDocuments(generalPage)).thenReturn(Collections.singletonList(longCopy));
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
 
         assertEquals(0,((List<?>) request.getAttribute(PageAssembler.PAGE_ITEMS)).stream().filter(m -> !(m instanceof ErrorModule)).count());
     }
@@ -346,17 +350,17 @@ class PageAssemblerTest {
     @Disabled("This unit test is to be moved to LongCopyMapper")
     @DisplayName("VS-2132 - This item could be used only ... as a single instance")
     void createLongCopy_forbidden_multiple(){
-        General page = mock(General.class);
+        General generalPage = mock(General.class);
 
         //The module is only allowed got general pages.
-        when(page.getTheme()).thenReturn("Simple");
-        request.setModel("document", page);
+        when(generalPage.getTheme()).thenReturn("Simple");
+        request.setModel("document", generalPage);
 
-        when(utils.getAllowedDocuments(page)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
+        when(utils.getAllowedDocuments(generalPage)).thenReturn(Arrays.asList(mock(LongCopy.class), mock(LongCopy.class), mock(LongCopy.class)));
         when(longCopyMapper.getModule(any(LongCopy.class))).thenReturn(new LongCopyModule());
 
-        builder.addModules(request, new PageCompositionHelper(bundle, request));
+        builder.addModules(request, new PageCompositionHelper(bundle, pageIntroAssembler, request));
 
-        assertEquals(1, ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).stream().filter(m -> m instanceof LongCopyModule).count());
+        assertEquals(1, ((List<?>) request.getModel(PageAssembler.PAGE_ITEMS)).stream().filter(LongCopyModule.class::isInstance).count());
     }
 }
