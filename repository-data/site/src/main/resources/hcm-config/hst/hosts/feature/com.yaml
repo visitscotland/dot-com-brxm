@@ -18,11 +18,11 @@ definitions:
             hst:homepage: root
             hst:locale: en_GB
             hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland
-            visitscotland:siteProperties: vs.site.config
+            visitscotland:siteProperties: feature.vs-site.config
             jcr:mixinTypes: ['visitscotland:hosts']
             hst:pagemodelapi: resourceapi
             hst:responseheaders: ['Access-Control-Allow-Origin: *']
-            visitscotland:cmsProperties: cms.local.config
+            visitscotland:cmsProperties: feature.cms.config
             /de-de:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
@@ -31,8 +31,8 @@ definitions:
               hst:pagemodelapi: resourceapi
               hst:responseheaders: ['Access-Control-Allow-Origin: *']
               jcr:mixinTypes: ['visitscotland:hosts']
-              visitscotland:cmsProperties: cms.local.config
-              visitscotland:siteProperties: vs.site.config
+              visitscotland:cmsProperties: feature.cms.config
+              visitscotland:siteProperties: feature.vs-site.config
             /fr-fr:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
@@ -40,8 +40,8 @@ definitions:
               hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-fr
               hst:pagemodelapi: resourceapi
               hst:responseheaders: ['Access-Control-Allow-Origin: *']
-              visitscotland:cmsProperties: cms.local.config
-              visitscotland:siteProperties: vs.site.config
+              visitscotland:cmsProperties: feature.cms.config
+              visitscotland:siteProperties: feature.vs-site.config
             /nl-nl:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
@@ -49,8 +49,8 @@ definitions:
               hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-nl
               hst:pagemodelapi: resourceapi
               hst:responseheaders: ['Access-Control-Allow-Origin: *']
-              visitscotland:cmsProperties: cms.local.config
-              visitscotland:siteProperties: vs.site.config
+              visitscotland:cmsProperties: feature.cms.config
+              visitscotland:siteProperties: feature.vs-site.config
             /it-it:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
@@ -58,8 +58,8 @@ definitions:
               hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-it
               hst:pagemodelapi: resourceapi
               hst:responseheaders: ['Access-Control-Allow-Origin: *']
-              visitscotland:cmsProperties: cms.local.config
-              visitscotland:siteProperties: vs.site.config
+              visitscotland:cmsProperties: feature.cms.config
+              visitscotland:siteProperties: feature.vs-site.config
             /es-es:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
@@ -67,8 +67,8 @@ definitions:
               hst:mountpoint: /hst:visitscotland/hst:sites/visitscotland-es
               hst:pagemodelapi: resourceapi
               hst:responseheaders: ['Access-Control-Allow-Origin: *']
-              visitscotland:cmsProperties: cms.local.config
-              visitscotland:siteProperties: vs.site.config
+              visitscotland:cmsProperties: feature.cms.config
+              visitscotland:siteProperties: feature.vs-site.config
             /api:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount
@@ -87,7 +87,7 @@ definitions:
             hst:mountpoint: /hst:visitscotland/hst:sites/business-events
             hst:pagemodelapi: resourceapi
             hst:responseheaders: ['Access-Control-Allow-Origin: *']
-            visitscotland:siteProperties: be.local.config
+            visitscotland:siteProperties: local.be-site.config
             /api:
               .meta:residual-child-node-category: content
               jcr:primaryType: hst:mount

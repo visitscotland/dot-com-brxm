@@ -1,68 +1,19 @@
-/content/documents/administration/configuration/local-environment:
-  .meta:order-before: feature---cms-properties
+/content/documents/administration/configuration/feature---cms-properties:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: 45278688-f372-4427-8e15-6b177cf51cc1
-  hippo:name: Local - CMS Properties
-  hippo:versionHistory: 8be118bd-bcbc-4908-ba48-23f636fa097b
-  /local-environment[1]:
-    jcr:primaryType: resourcebundle:resourcebundle
-    jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: cafcb863-9c1f-4d5f-81d9-c652dc023fcd
-    hippo:availability: []
-    hippostd:retainable: false
-    hippostd:state: draft
-    hippostdpubwf:createdBy: admin
-    hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-05-12T14:57:57.446+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
-        \ identifies calls made to vs-dms-products as internal calls giving access\
-        \ to wider data\r\n\r\nThis token is configured by the environment variable\
-        \ VS_API_KEY, but it can be overriden here if needed.\r\n\r\nDo not commit\
-        \ a value for this variable to the repository!!", App Id for Instagram request,
-      "When this property is set to true it nullifies links.vs-dms-products.url AND\
-        \ links.cms-base-path.url\r\n\r\nFor instance, this allows local environments\
-        \ to use the default server (http://172.28.81.65:8089)  and feature environments\
-        \ to use relative urls", "This path is prepend to the URL any time a non existing\
-        \ URL needs to be composed.\r\n\r\nCan be nullified by links.use-relative-urls\r\
-        \n\r\nlinks.use-relative-urls", "UI for vs-dms-products.\r\n\r\nThis value\
-        \ will be used to compose urls to vs-dms-products and Canned Search", '',
-      '', '', "Path of the Header & Footer endpoints which is used for identify URLs\
-        \ able to process the override locale parameter (vs-locale-ctx)\r\n\r\nOverriding\
-        \ the locale parameter allows to use a different language for the labels\r\
-        \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
-      '', '', '', '', '']
-    resourcebundle:id: local.cms.config
-    resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
-      links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
-      dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
-      global-search.path, dms.default-distance, snippet-cache.enable, navigation.cms.cache,
-      content-cache.enabled]
-    resourcebundle:messages: [$INSTAGRAM_TOKEN, $VS_DMS_PRODUCT_KEY, '1293271387429443',
-      'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089', 'http://172.28.81.65:8089/data',
-      'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY, /site/data/internal, /site/site-search-results,
-      '10.0', 'false', 'false', 'false']
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
-      '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,
-      '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /site/fr-fr/site-search-results,
-      '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /site/it-it/site-search-results,
-      '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /site/nl-nl/site-search-results,
-      '', '', '', '']
-  /local-environment[2]:
+  jcr:uuid: f26d88ef-c18a-469b-b475-1dcff72413dc
+  hippo:name: Feature - CMS Properties
+  hippo:versionHistory: bbe0f230-4269-47ac-94b8-a7c1ba5f95c2
+  /feature---cms-properties[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 802cabcf-570b-4b96-a2f3-c57d595f9635
+    jcr:uuid: 2fffc5ec-db7e-4ce5-b4f5-b5ad7aee9760
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-05-12T14:58:06.107+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-12T15:09:53.179+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -81,38 +32,86 @@
         \ the locale parameter allows to use a different language for the labels\r\
         \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
       '', '', '', '', '']
-    resourcebundle:id: local.cms.config
+    resourcebundle:id: feature.cms.config
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
       global-search.path, dms.default-distance, snippet-cache.enable, navigation.cms.cache,
       content-cache.enabled]
     resourcebundle:messages: [$INSTAGRAM_TOKEN, $VS_DMS_PRODUCT_KEY, '1293271387429443',
-      'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089', 'http://172.28.81.65:8089/data',
-      'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY, /site/data/internal, /site/site-search-results,
-      '10.0', 'false', 'false', 'false']
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
+      'false', '', 'http://172.28.81.65:8089', 'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data',
+      $YOUTUBE_API_KEY, /data/internal, /site-search-results, '10.0', 'false', 'false',
+      'false']
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /site/fr-fr/site-search-results,
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /site/it-it/site-search-results,
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /site/nl-nl/site-search-results,
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '', '', '', '']
-  /local-environment[3]:
+  /feature---cms-properties[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 058e53b1-cd96-4779-9ab4-944509c28427
+    jcr:uuid: aca4f013-23d8-4ee0-ad7f-dd62f411fbfb
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
+    hippostdpubwf:lastModificationDate: 2026-05-12T14:58:39.626+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
+        \ identifies calls made to vs-dms-products as internal calls giving access\
+        \ to wider data\r\n\r\nThis token is configured by the environment variable\
+        \ VS_API_KEY, but it can be overriden here if needed.\r\n\r\nDo not commit\
+        \ a value for this variable to the repository!!", App Id for Instagram request,
+      "When this property is set to true it nullifies links.vs-dms-products.url AND\
+        \ links.cms-base-path.url\r\n\r\nFor instance, this allows local environments\
+        \ to use the default server (http://172.28.81.65:8089)  and feature environments\
+        \ to use relative urls", "This path is prepend to the URL any time a non existing\
+        \ URL needs to be composed.\r\n\r\nCan be nullified by links.use-relative-urls\r\
+        \n\r\nlinks.use-relative-urls", "UI for vs-dms-products.\r\n\r\nThis value\
+        \ will be used to compose urls to vs-dms-products and Canned Search", '',
+      '', '', "Path of the Header & Footer endpoints which is used for identify URLs\
+        \ able to process the override locale parameter (vs-locale-ctx)\r\n\r\nOverriding\
+        \ the locale parameter allows to use a different language for the labels\r\
+        \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
+      '', '', '', '', '']
+    resourcebundle:id: feature.cms.config
+    resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
+      links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
+      dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
+      global-search.path, dms.default-distance, snippet-cache.enable, navigation.cms.cache,
+      content-cache.enabled]
+    resourcebundle:messages: [$INSTAGRAM_TOKEN, $VS_DMS_PRODUCT_KEY, '1293271387429443',
+      'false', '', 'http://172.28.81.65:8089', 'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data',
+      $YOUTUBE_API_KEY, /data/internal, /site-search-results, '10.0', 'false', 'false',
+      'false']
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /de-de/site-search-results,
+      '', '', '', '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /es-es/site-search-results,
+      '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
+      '', '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /it-it/site-search-results,
+      '', '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
+      '', '', '', '']
+  /feature---cms-properties[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 51bac341-d341-4673-9d72-be7be841aa2a
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-05-12T14:58:06.107+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-12T15:09:53.179+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-05-12T15:03:31.976+01:00
+    hippostdpubwf:publicationDate: 2026-05-12T15:10:02.690+01:00
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
         \ to wider data\r\n\r\nThis token is configured by the environment variable\
@@ -130,23 +129,23 @@
         \ the locale parameter allows to use a different language for the labels\r\
         \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
       '', '', '', '', '']
-    resourcebundle:id: local.cms.config
+    resourcebundle:id: feature.cms.config
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
       global-search.path, dms.default-distance, snippet-cache.enable, navigation.cms.cache,
       content-cache.enabled]
     resourcebundle:messages: [$INSTAGRAM_TOKEN, $VS_DMS_PRODUCT_KEY, '1293271387429443',
-      'false', 'http://localhost:8080/site', 'http://172.28.81.65:8089', 'http://172.28.81.65:8089/data',
-      'http://172.28.81.65:8089/data', $YOUTUBE_API_KEY, /site/data/internal, /site/site-search-results,
-      '10.0', 'false', 'false', 'false']
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /site/de-de/site-search-results,
+      'false', '', 'http://172.28.81.65:8089', 'http://172.28.81.65:8089/data', 'http://172.28.81.65:8089/data',
+      $YOUTUBE_API_KEY, /data/internal, /site-search-results, '10.0', 'false', 'false',
+      'false']
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /site/es-es/site-search-results,
+    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /site/fr-fr/site-search-results,
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '', '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /site/it-it/site-search-results,
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '', '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /site/nl-nl/site-search-results,
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '', '', '', '']
