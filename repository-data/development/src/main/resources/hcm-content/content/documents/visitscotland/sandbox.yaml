@@ -37666,11 +37666,12 @@
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 0bcd555d-1d70-485b-8eeb-ab0c7025cbf6
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2026-05-28T12:31:23.456+01:00
+          hippostdpubwf:lastModificationDate: 2026-05-28T12:41:51.184+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
           hippotranslation:locale: en
@@ -37680,7 +37681,7 @@
           visitscotland:finish: ''
           visitscotland:hideNewsletter: false
           visitscotland:highlights: ['']
-          visitscotland:locations: [Map of Scotland]
+          visitscotland:locations: [Mull, Iona]
           visitscotland:popular: false
           visitscotland:seasons: [spring, summer]
           visitscotland:seoDescription: Mull & Iona west coast island itinerary
@@ -37719,7 +37720,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2026-05-28T12:38:28.715+01:00
+          hippostdpubwf:lastModificationDate: 2026-05-28T12:41:27.570+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
           hippotranslation:locale: en
@@ -37729,7 +37730,7 @@
           visitscotland:finish: ''
           visitscotland:hideNewsletter: false
           visitscotland:highlights: ['']
-          visitscotland:locations: [Map of Scotland]
+          visitscotland:locations: [Mull, Iona]
           visitscotland:popular: false
           visitscotland:seasons: [spring, summer]
           visitscotland:seoDescription: Mull & Iona west coast island itinerary
@@ -37768,9 +37769,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2026-05-28T12:38:28.715+01:00
+          hippostdpubwf:lastModificationDate: 2026-05-28T12:41:27.570+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2026-05-28T12:38:33.591+01:00
+          hippostdpubwf:publicationDate: 2026-05-28T12:41:32.339+01:00
           hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
           hippotranslation:locale: en
           visitscotland:areas: [dundee, edinburgh, fife]
@@ -37779,7 +37780,7 @@
           visitscotland:finish: ''
           visitscotland:hideNewsletter: false
           visitscotland:highlights: ['']
-          visitscotland:locations: [Map of Scotland]
+          visitscotland:locations: [Mull, Iona]
           visitscotland:popular: false
           visitscotland:seasons: [spring, summer]
           visitscotland:seoDescription: Mull & Iona west coast island itinerary
