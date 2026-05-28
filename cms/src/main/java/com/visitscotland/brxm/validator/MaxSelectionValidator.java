@@ -18,7 +18,7 @@ import java.util.Optional;
 public class MaxSelectionValidator implements Validator<Node> {
 
     static final String MAX_SELECTIONS = "maxSelections";
-    private final String propertyName = "visitscotland:transports";
+    private static final String propertyName = "visitscotland:transports";
     private final long maxSelections;
 
     public MaxSelectionValidator(final Node config) {

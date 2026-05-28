@@ -18,8 +18,8 @@ import java.util.Optional;
  */
 public class ExclusiveSelectionValidator implements Validator<Node> {
 
-    static final String EXCLUSIVE_VALUE = "exclusiveValue";
-    private final String propertyName = "visitscotland:seasons";
+    private static final String EXCLUSIVE_VALUE = "exclusiveValue";
+    private static final String propertyName = "visitscotland:seasons";
 
     private final String exclusiveValue;
 
