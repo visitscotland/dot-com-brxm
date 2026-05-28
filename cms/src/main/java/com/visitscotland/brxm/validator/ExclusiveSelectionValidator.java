@@ -19,7 +19,7 @@ import java.util.Optional;
 public class ExclusiveSelectionValidator implements Validator<Node> {
 
     private static final String EXCLUSIVE_VALUE = "exclusiveValue";
-    private static final String propertyName = "visitscotland:seasons";
+    private static final String VISITSCOTLAND_SEASONS = "visitscotland:seasons";
 
     private final String exclusiveValue;
 
@@ -39,11 +39,11 @@ public class ExclusiveSelectionValidator implements Validator<Node> {
 
         try {
 
-            if (!node.hasProperty(propertyName)) {
+            if (!node.hasProperty(VISITSCOTLAND_SEASONS)) {
                 return Optional.empty();
             }
 
-            var property = node.getProperty(propertyName);
+            var property = node.getProperty(VISITSCOTLAND_SEASONS);
 
             if (!property.isMultiple()) {
                 return Optional.empty();

@@ -18,7 +18,7 @@ import java.util.Optional;
 public class MaxSelectionValidator implements Validator<Node> {
 
     static final String MAX_SELECTIONS = "maxSelections";
-    private static final String propertyName = "visitscotland:transports";
+    private static final String TRANSPORTS = "visitscotland:transports";
     private final long maxSelections;
 
     public MaxSelectionValidator(final Node config) {
@@ -37,11 +37,11 @@ public class MaxSelectionValidator implements Validator<Node> {
 
         try {
 
-            if (!node.hasProperty(propertyName)) {
+            if (!node.hasProperty(TRANSPORTS)) {
                 return Optional.empty();
             }
 
-            var property = node.getProperty(propertyName);
+            var property = node.getProperty(TRANSPORTS);
 
             if (!property.isMultiple()) {
                 return Optional.empty();
