@@ -7650,7 +7650,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2019-12-06T12:48:04.149Z
-            hippostdpubwf:lastModificationDate: 2022-01-20T18:34:33.589Z
+            hippostdpubwf:lastModificationDate: 2026-05-28T08:58:23.373+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 56cf92c8-5887-4146-ad53-eaa062f4e07a
             hippotranslation:locale: en
@@ -7661,13 +7661,16 @@
             visitscotland:hideNewsletter: false
             visitscotland:highlights: [Glenfinnan Viaduct, Jacobite Steam Train, Glen
                 Etive, The Elephant House]
+            visitscotland:locations: [glasgow]
             visitscotland:newsletter: true
             visitscotland:popular: true
+            visitscotland:seasons: [summer]
             visitscotland:seoDescription: It was in Scotland's capital city that JK
               Rowling started to plot the adventures
             visitscotland:seoNoIndex: false
             visitscotland:seoTitle: Iconic Harry Potter Film Locations - An Itinerary
             visitscotland:start: ''
+            visitscotland:subheading: ''
             visitscotland:summary: ''
             visitscotland:teaser: It was in Scotland's capital city that JK Rowling
               started to plot the adventures of Harry and his friends
@@ -7677,7 +7680,7 @@
             visitscotland:title: Harry Potter film and book locations itinerary
             visitscotland:translation: ''
             visitscotland:transport: [boat]
-            visitscotland:transports: [car, public, train]
+            visitscotland:transports: [bus, cycling, walking]
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
               hippo:docbase: ea857cd5-2d45-4f7c-9da9-503b2be8f382
@@ -7725,6 +7728,10 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: b3a03184-6cf7-4186-bf5f-2c7f4e8c64b6
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: ''
           /content[2]:
             jcr:primaryType: visitscotland:Itinerary
             jcr:mixinTypes: ['mix:referenceable']
@@ -7817,10 +7824,9 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
-            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2019-12-06T12:48:04.149Z
-            hippostdpubwf:lastModificationDate: 2022-05-31T17:09:43.411+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-28T09:22:30.449+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 56cf92c8-5887-4146-ad53-eaa062f4e07a
             hippotranslation:locale: en
@@ -7831,13 +7837,16 @@
             visitscotland:hideNewsletter: false
             visitscotland:highlights: [Glenfinnan Viaduct, Jacobite Steam Train, Glen
                 Etive, The Elephant House]
+            visitscotland:locations: [glasgow]
             visitscotland:newsletter: true
             visitscotland:popular: true
+            visitscotland:seasons: [summer]
             visitscotland:seoDescription: It was in Scotland's capital city that JK
               Rowling started to plot the adventures
             visitscotland:seoNoIndex: false
             visitscotland:seoTitle: Iconic Harry Potter Film Locations - An Itinerary
             visitscotland:start: ''
+            visitscotland:subheading: ''
             visitscotland:summary: ''
             visitscotland:teaser: It was in Scotland's capital city that JK Rowling
               started to plot the adventures of Harry and his friends
@@ -7847,7 +7856,7 @@
             visitscotland:title: Harry Potter film and book locations itinerary
             visitscotland:translation: ''
             visitscotland:transport: [boat]
-            visitscotland:transports: [car, public, train]
+            visitscotland:transports: [bus, cycling, walking]
             /visitscotland:heroImage:
               jcr:primaryType: hippogallerypicker:imagelink
               hippo:docbase: ea857cd5-2d45-4f7c-9da9-503b2be8f382
@@ -7856,8 +7865,17 @@
               hippo:values: []
             /visitscotland:introduction:
               jcr:primaryType: hippostd:html
-              hippostd:content: <p>Module map (will be added to general pages or Destinations,
-                having different behaviour</p>
+              hippostd:content: <p>It was in Scotland's capital city that JK Rowling
+                started to plot the adventures of Harry and his friends. With cobbled
+                streets, winding alleys and medieval architecture, the city certainly
+                have a few things in common with the settings from the books and films.
+                She wrote the early chapters in various cafés around the city's Old
+                Town, before coming back to finish off the series from a peaceful
+                suite in The Balmoral Hotel. It is also said that Hogwarts School
+                was styled on Edinburgh’s Fettes College, a private school on the
+                outskirts of Edinburgh’s west end new town. You could also try the
+                <a href="https://www.visitscotland.com/info/tours/wizarding-world-of-edinburgh-03e61189">Wizarding
+                World of Edinburgh</a> tour.</p>
             /visitscotland:ProductsSearch:
               jcr:primaryType: visitscotland:ProductsSearch
               visitscotland:distance: 0
@@ -7886,6 +7904,10 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: b3a03184-6cf7-4186-bf5f-2c7f4e8c64b6
+            /visitscotland:mapLink:
+              jcr:primaryType: visitscotland:ExternalLink
+              visitscotland:label: ''
+              visitscotland:link: ''
         /edinburgh:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -37638,7 +37660,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 0cf7c5e5-5b4e-4d78-8ca2-6b3c52b02172
         hippo:name: Mull & Iona west coast island itinerary
-        hippo:versionHistory: 075628bd-6885-41f4-a84a-0b2acd198e50
+        hippo:versionHistory: e32813ea-34af-4aed-8e17-181fe1b4611d
         /mull--iona-west-coast-island-itinerary[1]:
           jcr:primaryType: visitscotland:Itinerary
           jcr:mixinTypes: ['mix:referenceable']
@@ -37648,7 +37670,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2026-01-20T08:38:26.098Z
+          hippostdpubwf:lastModificationDate: 2026-05-28T12:31:23.456+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
           hippotranslation:locale: en
@@ -37658,7 +37680,9 @@
           visitscotland:finish: ''
           visitscotland:hideNewsletter: false
           visitscotland:highlights: ['']
+          visitscotland:locations: [Map of Scotland]
           visitscotland:popular: false
+          visitscotland:seasons: [spring, summer]
           visitscotland:seoDescription: Mull & Iona west coast island itinerary
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Mull & Iona west coast island itinerary
@@ -37669,7 +37693,7 @@
           visitscotland:theme: sightseeing
           visitscotland:title: Mull & Iona west coast island itinerary
           visitscotland:translation: ''
-          visitscotland:transports: [car]
+          visitscotland:transports: [ferry]
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
@@ -37685,7 +37709,7 @@
           /visitscotland:mapLink:
             jcr:primaryType: visitscotland:ExternalLink
             visitscotland:label: View Itinerary in Google Maps
-            visitscotland:link: https://maps.app.goo.gl/r9A7i4NYMXas1isF7
+            visitscotland:link: https://www.google.com/maps/@56.5045053,-5.6483568,9z/data=!4m3!11m2!2sAm1reMiHRyuFm49dzeOgog!3e3?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D
         /mull--iona-west-coast-island-itinerary[2]:
           jcr:primaryType: visitscotland:Itinerary
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -37695,7 +37719,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2025-12-17T14:15:36.660Z
+          hippostdpubwf:lastModificationDate: 2026-05-28T12:38:28.715+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
           hippotranslation:locale: en
@@ -37705,7 +37729,9 @@
           visitscotland:finish: ''
           visitscotland:hideNewsletter: false
           visitscotland:highlights: ['']
+          visitscotland:locations: [Map of Scotland]
           visitscotland:popular: false
+          visitscotland:seasons: [spring, summer]
           visitscotland:seoDescription: Mull & Iona west coast island itinerary
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Mull & Iona west coast island itinerary
@@ -37716,7 +37742,7 @@
           visitscotland:theme: sightseeing
           visitscotland:title: Mull & Iona west coast island itinerary
           visitscotland:translation: ''
-          visitscotland:transports: [car]
+          visitscotland:transports: [ferry]
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
@@ -37732,7 +37758,7 @@
           /visitscotland:mapLink:
             jcr:primaryType: visitscotland:ExternalLink
             visitscotland:label: View Itinerary in Google Maps
-            visitscotland:link: https://maps.app.goo.gl/r9A7i4NYMXas1isF7
+            visitscotland:link: https://www.google.com/maps/@56.5045053,-5.6483568,9z/data=!4m3!11m2!2sAm1reMiHRyuFm49dzeOgog!3e3?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D
         /mull--iona-west-coast-island-itinerary[3]:
           jcr:primaryType: visitscotland:Itinerary
           jcr:mixinTypes: ['mix:referenceable']
@@ -37742,9 +37768,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2025-12-17T14:15:36.660Z
+          hippostdpubwf:lastModificationDate: 2026-05-28T12:38:28.715+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-12-17T14:15:40.918Z
+          hippostdpubwf:publicationDate: 2026-05-28T12:38:33.591+01:00
           hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
           hippotranslation:locale: en
           visitscotland:areas: [dundee, edinburgh, fife]
@@ -37753,7 +37779,9 @@
           visitscotland:finish: ''
           visitscotland:hideNewsletter: false
           visitscotland:highlights: ['']
+          visitscotland:locations: [Map of Scotland]
           visitscotland:popular: false
+          visitscotland:seasons: [spring, summer]
           visitscotland:seoDescription: Mull & Iona west coast island itinerary
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Mull & Iona west coast island itinerary
@@ -37764,7 +37792,7 @@
           visitscotland:theme: sightseeing
           visitscotland:title: Mull & Iona west coast island itinerary
           visitscotland:translation: ''
-          visitscotland:transports: [car]
+          visitscotland:transports: [ferry]
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
@@ -37780,7 +37808,7 @@
           /visitscotland:mapLink:
             jcr:primaryType: visitscotland:ExternalLink
             visitscotland:label: View Itinerary in Google Maps
-            visitscotland:link: https://maps.app.goo.gl/r9A7i4NYMXas1isF7
+            visitscotland:link: https://www.google.com/maps/@56.5045053,-5.6483568,9z/data=!4m3!11m2!2sAm1reMiHRyuFm49dzeOgog!3e3?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D
       /day-1---dunkeld:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -58425,3 +58453,104 @@
       visitscotland:tabTitle: ''
       visitscotland:title: mapa
       visitscotland:translation: ''
+  /jl:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 073af1b1-690c-48ec-af00-814029e32c7b
+    hippostd:foldertype: [new-translated-folder-test, new-document]
+    hippotranslation:id: 753ab50b-21a9-4a7f-b5ac-70c8675ae3bc
+    hippotranslation:locale: en
+    /jlitinera:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: ee8a6ba1-7b67-423d-b8a8-23a4dcc10b51
+      /jlitinera[1]:
+        jcr:primaryType: visitscotland:Itinerary
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 8e1022c6-1819-45ec-9566-5faf5f9ee3f7
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2026-05-28T09:23:59.442+01:00
+        hippostdpubwf:lastModificationDate: 2026-05-28T10:55:21.407+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 13825c4b-ad12-4447-a1c4-67330cc0aa09
+        hippotranslation:locale: en
+        visitscotland:areas: [dumfries]
+        visitscotland:breadcrumb: ''
+        visitscotland:distance: 0.0
+        visitscotland:finish: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:highlights: ['']
+        visitscotland:locations: [Accommodation]
+        visitscotland:popular: false
+        visitscotland:seasons: [summer, all]
+        visitscotland:seoDescription: ad
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: asd
+        visitscotland:start: ''
+        visitscotland:subheading: asd
+        visitscotland:teaser: ad
+        visitscotland:theme: sightseeing
+        visitscotland:title: asd
+        visitscotland:translation: ''
+        visitscotland:transports: [boat, bus, car, cycling, public]
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>asdasd</p>
+        /visitscotland:mapLink:
+          jcr:primaryType: visitscotland:ExternalLink
+          visitscotland:label: ''
+          visitscotland:link: https://www.google.com/maps/@56.5045053,-5.6483568,9z/data=!4m3!11m2!2sAm1reMiHRyuFm49dzeOgog!3e3?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D
+      /jlitinera[2]:
+        jcr:primaryType: visitscotland:Itinerary
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: e41364b0-e385-449d-93d3-b50223c92b90
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2026-05-28T09:23:59.442+01:00
+        hippostdpubwf:lastModificationDate: 2026-05-28T10:49:10.397+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 13825c4b-ad12-4447-a1c4-67330cc0aa09
+        hippotranslation:locale: en
+        visitscotland:areas: [dumfries]
+        visitscotland:breadcrumb: ''
+        visitscotland:distance: 0.0
+        visitscotland:finish: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:highlights: ['']
+        visitscotland:locations: [Accommodation]
+        visitscotland:popular: false
+        visitscotland:seasons: [summer, all]
+        visitscotland:seoDescription: ad
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: asd
+        visitscotland:start: ''
+        visitscotland:subheading: asd
+        visitscotland:teaser: ad
+        visitscotland:theme: sightseeing
+        visitscotland:title: asd
+        visitscotland:translation: ''
+        visitscotland:transports: [boat, bus, car, cycling, public]
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>asdasd</p>
+        /visitscotland:mapLink:
+          jcr:primaryType: visitscotland:ExternalLink
+          visitscotland:label: ''
+          visitscotland:link: https://www.google.com/maps/@56.5045053,-5.6483568,9z/data=!4m3!11m2!2sAm1reMiHRyuFm49dzeOgog!3e3?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D

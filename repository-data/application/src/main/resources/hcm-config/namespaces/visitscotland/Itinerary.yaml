@@ -11,122 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: abb46624-c7a8-44cb-96f2-583791eed238
+          jcr:uuid: a3badebf-45f3-483c-a158-ea0b8ad0bc87
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          /start:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:start
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: ['visitscotland:short-string-validator']
-          /finish:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:finish
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: ['visitscotland:short-string-validator']
-          /distance:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:distance
-            hipposysedit:primary: false
-            hipposysedit:type: Double
-          /theme:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:theme
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            hipposysedit:validators: [required]
-          /transports:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:transports
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /areas:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:areas
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /popular:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:popular
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
-          /highlights:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: visitscotland:highlights
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: ['visitscotland:short-string-validator']
-          /mapLink:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:mapLink
-            hipposysedit:primary: false
-            hipposysedit:type: visitscotland:ExternalLink
-            hipposysedit:validators: [required, 'visitscotland:google-maps-link-validator']
-          /subheading:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:subheading
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /locations:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: visitscotland:locations
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required, 'visitscotland:short-string-validator']
-          /seasons:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:seasons
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-        /hipposysedit:nodetype[2]:
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 91c97c63-173b-49c0-a19f-18a07b506dce
-          hipposysedit:node: true
-          hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
+          hipposysedit:validators: ['visitscotland:season-exclusive-validator', 'visitscotland:max-two-checkbox-validator']
           /start:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -252,7 +141,7 @@ definitions:
           visitscotland:start: ''
           visitscotland:distance: 0.0
           visitscotland:theme: ''
-          jcr:uuid: 63e4cb9a-2ed5-498b-9f59-b01360c64667
+          jcr:uuid: 0fcda917-81f9-4f59-8c1b-89c41881f8cd
           hippostdpubwf:creationDate: 2019-12-06T11:10:08.311Z
           hippostdpubwf:lastModificationDate: 2019-12-06T11:10:08.310Z
           visitscotland:areas: []
@@ -266,51 +155,6 @@ definitions:
           visitscotland:subheading: ''
           visitscotland:locations: ['']
           visitscotland:seasons: []
-          /visitscotland:heroImage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /visitscotland:mapLink:
-            jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: ''
-            visitscotland:link: ''
-        /hipposysedit:prototype[2]:
-          jcr:primaryType: nt:unstructured
-          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
-            'hippotranslation:translated', 'mix:referenceable', 'visitscotland:translatable']
-          jcr:uuid: ddf3b176-ad74-46f5-bc1d-54fc1217f875
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2019-12-06T11:10:08.311Z
-          hippostdpubwf:lastModificationDate: 2019-12-06T11:10:08.310Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          visitscotland:areas: []
-          visitscotland:breadcrumb: ''
-          visitscotland:distance: 0.0
-          visitscotland:finish: ''
-          visitscotland:hideNewsletter: false
-          visitscotland:highlights: ['']
-          visitscotland:locations: ['']
-          visitscotland:popular: false
-          visitscotland:seasons: []
-          visitscotland:seoDescription: ''
-          visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: ''
-          visitscotland:start: ''
-          visitscotland:subheading: ''
-          visitscotland:teaser: ''
-          visitscotland:theme: ''
-          visitscotland:title: ''
-          visitscotland:translation: ''
-          visitscotland:transports: []
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
