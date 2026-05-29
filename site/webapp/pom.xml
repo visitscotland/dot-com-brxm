@@ -18,15 +18,15 @@
       <artifactId>dot-com-brxm-repository-data-site</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
-      <groupId>com.visitscotland</groupId>
-      <artifactId>dot-com-brxm-repository-data-webfiles</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>com.visitscotland</groupId>-->
+<!--      <artifactId>dot-com-brxm-repository-data-webfiles</artifactId>-->
+<!--      <version>${project.version}</version>-->
+<!--    </dependency>-->
     <dependency>
       <groupId>com.visitscotland</groupId>
       <artifactId>dot-com-brxm-components</artifactId>
-      <version>3.6.1-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.onehippo.cms7.hst.toolkit-resources.addon</groupId>
