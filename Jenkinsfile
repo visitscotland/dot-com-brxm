@@ -237,7 +237,7 @@ pipeline {
 				}
 			}
 			steps {
-				sh 'mvn test -Pdefault -P!fed-build'
+				sh 'mvn test -Pdefault'
 			}
 		} //end stage
 
@@ -251,7 +251,7 @@ pipeline {
 			}
 			steps {
 				// -- 20200712: QUESTION FOR SE, "brC does not recognise the package, maybe it needs Enterprise Features?"
-				sh 'mvn verify && mvn -Pdist-with-development-data -P!fed-build -DskipTests'
+				sh 'mvn verify && mvn -Pdist-with-development-data -DskipTests'
 			}
 			post {
 				success {
