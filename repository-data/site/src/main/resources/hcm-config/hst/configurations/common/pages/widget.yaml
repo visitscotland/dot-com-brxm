@@ -5,7 +5,6 @@ definitions:
       hst:referencecomponent: hst:abstractpages/base
       /main:
         jcr:primaryType: hst:component
-        hst:template: pagenotfound-main
         /container:
           jcr:primaryType: hst:containercomponentreference
           hst:referencecomponent: pagenotfound/main
