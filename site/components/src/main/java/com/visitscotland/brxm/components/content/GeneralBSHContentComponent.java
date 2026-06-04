@@ -7,6 +7,7 @@ import com.visitscotland.brxm.model.FlatBlog;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -22,15 +23,17 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
     private static final String READ_DATA = "readData";
 
     private final PageAssembler builder;
+    private final PageIntroAssembler pageIntroAssembler;
 
     public GeneralBSHContentComponent(){
         logger.debug("GeneralBSHContentComponent initialized");
         this.builder = VsComponentManager.get(PageAssembler.class);
+        this.pageIntroAssembler = VsComponentManager.get(PageIntroAssembler.class);
     }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), request);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageIntroAssembler, request);
 
         super.doBeforeRender(request, response, pageConfig);
 
@@ -40,7 +43,7 @@ public class GeneralBSHContentComponent extends PageContentComponent<GeneralBSH>
     }
 
     @Override
-    protected void addOTYML(HstRequest request) {
+    protected void addOTYML(HstRequest request, PageCompositionHelper pageConfig) {
         GeneralBSH page = getDocument(request);
         if (!Contract.isEmpty(page.getLinks())) {
             HorizontalListLinksModule otyml = megalinkMapper.horizontalListLayout(page, request.getLocale());

@@ -3,17 +3,13 @@ package com.visitscotland.brxm.mapper.module;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.mapper.QuoteMapper;
+import com.visitscotland.brxm.mapper.utils.DownloadLinkMapper;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
-import com.visitscotland.brxm.model.AssetLink;
-import com.visitscotland.brxm.model.DownloadLink;
-import com.visitscotland.brxm.services.AssetLinkService;
-import com.visitscotland.brxm.services.FileMetaDataCalculator;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
-import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -38,22 +34,18 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
     private final LinkService linkService;
     private final QuoteMapper quoteEmbedder;
     private final AnchorFormatter anchorFormatter;
-    private final FileMetaDataCalculator fileMetaDataCalculator;
-    private final AssetLinkService assetLinkFactory;
-    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+    private final DownloadLinkMapper downloadLinkMapper;
 
     public ArticleMapper(ImageMapper imageMapper,
                          QuoteMapper quoteEmbedder,
                          LinkService linkService,
                          AnchorFormatter anchorFormatter,
-                         FileMetaDataCalculator fileMetaDataCalculator,
-                         AssetLinkService assetLinkFactory) {
+                         DownloadLinkMapper downloadLinkMapper) {
         this.imageMapper = imageMapper;
         this.quoteEmbedder = quoteEmbedder;
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
-        this.fileMetaDataCalculator = fileMetaDataCalculator;
-        this.assetLinkFactory = assetLinkFactory;
+        this.downloadLinkMapper = downloadLinkMapper;
     }
 
     @Override
@@ -96,6 +88,8 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
         } else if (document instanceof  ArticleStyledBSH) {
             module.setLayout(((ArticleStyledBSH) document).getTheme());
             module.setNested(Boolean.TRUE.equals(((ArticleStyledBSH) document).getNested()));
+        } else if (document instanceof ArticleStyled) {
+            module.setLayout(((ArticleStyled) document).getTheme());
         }
     }
 
@@ -127,13 +121,17 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
                 }
             }
 
-            if (paragraph instanceof ArticleStyledSection) {
+            //TODO: Create Interface for to abstract these hippo beans
+            if (paragraph instanceof ArticleStyledSection ) {
                 ArticleStyledSection styledParagraph = (ArticleStyledSection) paragraph;
+                section.setHeading(styledParagraph.getHeading());
+            } else if (paragraph instanceof ArticleStyledSectionCOM) {
+                ArticleStyledSectionCOM styledParagraph = (ArticleStyledSectionCOM) paragraph;
                 section.setHeading(styledParagraph.getHeading());
             }
 
             if (paragraph.getCmsLink() != null){
-                section.setLink(setDownload(paragraph, module, locale));
+                section.setLink(downloadLinkMapper.getDownloadLink(paragraph, module, locale));
             }
 
             if (paragraph.getQuote() != null) {
@@ -201,6 +199,12 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
         }
     }
 
+    /**
+     * TODO: This method doesn't seem to be in use, should we remove it?
+     *
+     * @deprecated not in use
+     */
+    @Deprecated(forRemoval = true)
     private String getPublishDate(SharedLink sharedLink, Locale locale) {
         try {
             Property property = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
@@ -213,56 +217,6 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
         return null;
     }
 
-    private DownloadLink createDownloadFromAsset(SharedLinkBSH sharedLink, Locale locale) {
-        AssetLink assetLink = assetLinkFactory.create(sharedLink, locale);
-        if (assetLink.getLink() == null) {
-            return null;
-        }
-        DownloadLink downloadLink = new DownloadLink(assetLink);
-        downloadLink.setSize(fileMetaDataCalculator.getAssetSize(assetLink.getSize(), locale).orElse(null));
-        downloadLink.setExtension(fileMetaDataCalculator.getFileType(
-                assetLink.getMimeType(), downloadLink.getLink()).orElse(null));
-
-        downloadLink.setLabel(sharedLink.getTitle());
-        downloadLink.setTeaser(sharedLink.getTeaser());
-        downloadLink.setPublishedDate(addPublishDate(sharedLink, locale));
-
-        return downloadLink;
-    }
-
-    private DownloadLink createDownloadFromExternalDocument(SharedLinkBSH sharedLink, ArticleModule module, Locale locale) {
-        DownloadLink downloadLink = new DownloadLink(linkService.createSimpleLink(sharedLink, module, locale));
-        if (downloadLink.getLink() == null){
-            return null;
-        }
-        downloadLink.setSize(fileMetaDataCalculator.getDownloadSize(downloadLink.getLink(), locale).orElse(null));
-        downloadLink.setExtension(FilenameUtils.getExtension(downloadLink.getLink()));
-
-        downloadLink.setTeaser(sharedLink.getTeaser());
-        downloadLink.setPublishedDate(addPublishDate(sharedLink, locale));
-
-        return downloadLink;
-    }
-
-    private DownloadLink setDownload(ArticleSection paragraph, ArticleModule module, Locale locale) {
-        if (paragraph.getCmsLink().getLink() instanceof SharedLinkBSH) {
-            SharedLinkBSH sharedLink = (SharedLinkBSH) paragraph.getCmsLink().getLink();
-
-            if (sharedLink.getLinkType() instanceof ExternalDocument
-                    || sharedLink.getLinkType() instanceof FileLink){
-                return createDownloadFromExternalDocument(sharedLink, module, locale);
-            } else if (sharedLink.getLinkType() instanceof Asset){
-                return createDownloadFromAsset(sharedLink, locale);
-            } else {
-                log.warn("Unsupported link type: {}", sharedLink.getLinkType());
-                module.addErrorMessage("The section for the Article only allows File Links or Assets");
-            }
-        } else {
-            module.addErrorMessage("The section for the Article only allows Shared Links");
-        }
-        return null;
-    }
-
     private boolean in (String field, String... values) {
         for (String value: values) {
             if (field.equals(value)) {
@@ -270,27 +224,5 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
             }
         }
         return false;
-    }
-
-    private String addPublishDate (SharedLinkBSH sharedLink, Locale locale) {
-        Calendar publishDate = null;
-
-        if (sharedLink.getLinkType() instanceof FileLink){
-            publishDate = ((FileLink) sharedLink.getLinkType()).getPublishDate();
-        } else if (sharedLink.getLinkType() instanceof Asset){
-            publishDate = ((Asset) sharedLink.getLinkType()).getPublishDate();
-        }
-        if (publishDate == null) {
-            try {
-                Property p;
-                p = sharedLink.getNode().getProperty("hippostdpubwf:creationDate");
-                publishDate = p.getDate();
-            } catch (RepositoryException e) {
-                log.error("An error has occurred while calculating the publish Date link. Path: {}. Error Message {}",
-                        sharedLink.getPath(), e.getMessage());
-                return "";
-            }
-        }
-        return dateFormat.format(publishDate.getTime());
     }
 }

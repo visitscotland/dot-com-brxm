@@ -1,0 +1,76 @@
+/content/documents/administration/vs-valuelists/search/search-events-locations:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 51b8325c-f26d-497a-a143-c7c87f88d77c
+  hippo:name: Search Events Locations
+  /search-events-locations:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 4d221a31-88e5-4750-a15c-9722ed94160c
+    hippo:availability: [live, preview]
+    hippotranslation:id: 6d100523-28e2-4de7-9071-2544cef03045
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: aberdeen
+      selection:label: AB
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: dundee
+      selection:label: DD
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: dumfries-galloway
+      selection:label: DG
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinburgh
+      selection:label: EH
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: falkirk-stirling
+      selection:label: FK
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: glasgow
+      selection:label: G
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: outer-hebrides
+      selection:label: HS
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: inverness
+      selection:label: IV
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: kilmarnock
+      selection:label: KA
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: kirkwall
+      selection:label: KW
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: kirkcaldy
+      selection:label: KY
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: motherwell
+      selection:label: ML
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: paisley
+      selection:label: PA
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: perth
+      selection:label: PH
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: scottish-borders
+      selection:label: TD
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: shetland-islands
+      selection:label: ZE

@@ -1,0 +1,97 @@
+/content/documents/administration/labels/search/events-filters-locations:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 590341f5-2c69-480d-a26b-589626c28567
+  hippo:name: Events Filters Locations
+  hippo:versionHistory: 9ef7b490-c98d-4e44-b52b-710f48f7fdb7
+  /events-filters-locations[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 44caff9d-ce53-4c52-856a-b07091807cfb
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-13T16:15:39.153Z
+    hippostdpubwf:lastModificationDate: 2026-04-01T13:57:45.695+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '']
+    resourcebundle:id: search-events-locations
+    resourcebundle:keys: [edinburgh, aberdeen, dundee, dumfries-galloway, falkirk-stirling,
+      glasgow, outer-hebrides, inverness, kilmarnock, kirkwall, kirkcaldy, motherwell,
+      paisley, perth, scottish-borders, shetland-islands]
+    resourcebundle:messages: [Edinburgh, Aberdeen, Dundee, Dumfries and Galloway,
+      Falkirk and Stirling, Glasgow, Outer Hebrides, Inverness, Kilmarnock, Kirkwall,
+      Kirkcaldy, Motherwell, Paisley, Perth, Scottish Borders, Shetland Islands]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
+    resourcebundle:messages_es: [Edimburgo, '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
+  /events-filters-locations[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 2dbd4675-89cc-4ec4-8206-8a1acf81d2cb
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-13T16:15:39.153Z
+    hippostdpubwf:lastModificationDate: 2026-04-01T13:43:42.285+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '']
+    resourcebundle:id: search-events-locations
+    resourcebundle:keys: [edinburgh, aberdeen, dundee, dumfries-galloway, falkirk-stirling,
+      glasgow, outer-hebrides, inverness, kilmarnock, kirkwall, kirkcaldy, motherwell,
+      paisley, perth, scottish-borders, shetland-islands]
+    resourcebundle:messages: [Edinburgh, Aberdeen, Dundee, Dumfries and Galloway,
+      Falkirk and Stirling, Glasgow, Outer Hebrides, Inverness, Kilmarnock, Kirkwall,
+      Kirkcaldy, Motherwell, Paisley, Perth, Scottish Borders, Shetland Islands]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
+    resourcebundle:messages_es: [Edimburgo, '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
+  /events-filters-locations[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 74981727-5af9-4fb5-88d6-6dd7bb207c4c
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-03-13T16:15:39.153Z
+    hippostdpubwf:lastModificationDate: 2026-04-01T13:57:45.695+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-04-01T13:57:49.989+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '']
+    resourcebundle:id: search-events-locations
+    resourcebundle:keys: [edinburgh, aberdeen, dundee, dumfries-galloway, falkirk-stirling,
+      glasgow, outer-hebrides, inverness, kilmarnock, kirkwall, kirkcaldy, motherwell,
+      paisley, perth, scottish-borders, shetland-islands]
+    resourcebundle:messages: [Edinburgh, Aberdeen, Dundee, Dumfries and Galloway,
+      Falkirk and Stirling, Glasgow, Outer Hebrides, Inverness, Kilmarnock, Kirkwall,
+      Kirkcaldy, Motherwell, Paisley, Perth, Scottish Borders, Shetland Islands]
+    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
+    resourcebundle:messages_es: [Edimburgo, '', '', '', '', '', '', '', '', '', '',
+      '', '', '', '', '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']

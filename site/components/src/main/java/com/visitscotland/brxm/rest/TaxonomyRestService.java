@@ -2,13 +2,13 @@ package com.visitscotland.brxm.rest;
 
 import com.visitscotland.brxm.services.CommonUtilsService;
 import com.visitscotland.brxm.services.HippoUtilsService;
+import com.visitscotland.utils.Contract;
 import org.onehippo.taxonomy.api.Category;
 import org.onehippo.taxonomy.api.CategoryInfo;
 import org.onehippo.taxonomy.api.Taxonomy;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.*;
 
 /**
@@ -28,47 +28,32 @@ public class TaxonomyRestService {
         this.hippoUtilsService = hippoUtilsService;
         this.utils = utils;
     }
-     /* Retrieves a taxonomy node and its synonyms, including its descendants
-     * up to a maximum depth of 3 levels.
-     *
-     * @param taxonomyId the taxonomy identifier (path parameter)
-     * @param node       the category key (path parameter)
-     * @param locale     the locale used to resolve category names (default: "en")
-     * @return a JSON response
-     */
     @GET
     @Path("{taxonomyId}/{node}")
-    public Object getTaxonomy(
+    public Map<String, Object> getTaxonomy(
             @PathParam("taxonomyId") String taxonomyId,
             @PathParam("node") String node,
             @QueryParam("locale") @DefaultValue("en") String locale) {
 
-        if (taxonomyId == null || taxonomyId.isBlank()) {
-            return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Path param 'taxonomyId' is required")
-                    .build();
+        if (Contract.isEmpty(taxonomyId)) {
+            throw new BadRequestException("Path param 'taxonomyId' is required");
         }
 
-        if (node == null || node.isBlank()) {
-            return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Path param 'node' is required")
-                    .build();
+        if (Contract.isEmpty(node)) {
+            throw new BadRequestException("Path param 'node' is required");
         }
 
         Locale loc = Locale.forLanguageTag(locale);
         Taxonomy taxonomy = hippoUtilsService.getTaxonomy(taxonomyId);
 
         if (taxonomy == null) {
-            return Response.status(Response.Status.NOT_FOUND)
-                    .entity("Taxonomy not found: " + taxonomyId)
-                    .build();
+            throw new NotFoundException("Taxonomy not found: " + taxonomyId);
         }
 
         Category category = taxonomy.getCategory(node);
+
         if (category == null) {
-            return Response.status(Response.Status.NOT_FOUND)
-                    .entity("Category not found: " + node)
-                    .build();
+            throw new NotFoundException("Category not found: " + node);
         }
 
         List<Map<String, Object>> result = new ArrayList<>();
@@ -91,7 +76,6 @@ public class TaxonomyRestService {
      */
     private Map<String, Object> mapCategoryRecursive(Category category, Locale locale, int depth) {
         Map<String, Object> map = mapNodeSynonyms(category, locale);
-
         if (depth == 0) {
             return map;
         }
