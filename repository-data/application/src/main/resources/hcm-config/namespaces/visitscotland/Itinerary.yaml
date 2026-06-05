@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a3badebf-45f3-483c-a158-ea0b8ad0bc87
+          jcr:uuid: 427a315e-d03a-46e4-b828-3b6f270b80a2
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
@@ -122,6 +122,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
+          /embeddedMap:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:embeddedMap
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -141,7 +150,7 @@ definitions:
           visitscotland:start: ''
           visitscotland:distance: 0.0
           visitscotland:theme: ''
-          jcr:uuid: 0fcda917-81f9-4f59-8c1b-89c41881f8cd
+          jcr:uuid: 4e42c313-aed7-469a-8460-d05307424286
           hippostdpubwf:creationDate: 2019-12-06T11:10:08.311Z
           hippostdpubwf:lastModificationDate: 2019-12-06T11:10:08.310Z
           visitscotland:areas: []
@@ -155,6 +164,7 @@ definitions:
           visitscotland:subheading: ''
           visitscotland:locations: ['']
           visitscotland:seasons: []
+          visitscotland:embeddedMap: ''
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -303,21 +313,15 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /introduction:
+          /embeddedMap:
             jcr:primaryType: frontend:plugin
-            caption: Introduction
-            field: introduction
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            caption: iframe Map
+            field: embeddedMap
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.left.item
-            hint: Max length suggestion is 500.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
-                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
-                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
-              ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
-                \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:750\
-                \   }  }"
           /breadcrumb:
             jcr:primaryType: frontend:plugin
             caption: Override Navigation & Breadcrumb
@@ -346,6 +350,21 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /introduction:
+            jcr:primaryType: frontend:plugin
+            caption: Introduction
+            field: introduction
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            hint: Max length suggestion is 500.
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'', toolbarGroups:
+                [{ name: ''basicstyles''},{ name: ''links'' },{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}]
+                , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
+              ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
+                \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:750\
+                \   }  }"
           /distance:
             jcr:primaryType: frontend:plugin
             caption: Override Miles
@@ -364,15 +383,6 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /highlights:
-            jcr:primaryType: frontend:plugin
-            caption: Highlights (Deprecated)
-            field: highlights
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /popular:
             jcr:primaryType: frontend:plugin
             caption: Popular (Deprecated)
@@ -380,6 +390,15 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
             hint: To feature this itinerary in the popular category.
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /highlights:
+            jcr:primaryType: frontend:plugin
+            caption: Highlights (Deprecated)
+            field: highlights
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /start:
@@ -398,16 +417,6 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /translation:
-            jcr:primaryType: frontend:plugin
-            caption: Translation
-            field: openuistring
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              ui.extension: translationDiff
           /theme:
             jcr:primaryType: frontend:plugin
             caption: Theme (Deprecated)
@@ -434,3 +443,13 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/areas
+          /translation:
+            jcr:primaryType: frontend:plugin
+            caption: Translation
+            field: openuistring
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ui.extension: translationDiff
