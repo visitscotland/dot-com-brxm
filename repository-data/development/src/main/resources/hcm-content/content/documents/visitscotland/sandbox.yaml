@@ -46035,7 +46035,7 @@
             hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-01-11T14:27:02.137Z
-            hippostdpubwf:lastModificationDate: 2022-05-31T17:38:52.042+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T10:20:22.231+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 5334df0e-22f9-4166-996d-5d461420769a
             hippotranslation:locale: en
@@ -46083,6 +46083,12 @@
                   hippostd:content: <p>Scotland's largest mountain was once a massive
                     active volcano which exploded and collapsed inwards on itself
                     millions of years ago.</p>
+                /visitscotland:product:
+                  jcr:primaryType: visitscotland:CMSLink
+                  visitscotland:label: ''
+                  /visitscotland:link:
+                    jcr:primaryType: hippo:mirror
+                    hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /visitscotland:media:
                 jcr:primaryType: hippogallerypicker:imagelink
                 hippo:docbase: dd3e5e22-111b-41f1-aac6-0c8fcf4bc954
@@ -46681,9 +46687,10 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
-            hippostdpubwf:lastModificationDate: 2026-04-29T11:09:52.713+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T11:05:40.743+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 03e15a5b-41f4-4866-9ed3-5fd68b3c950a
             hippotranslation:locale: en
@@ -46869,9 +46876,10 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
-            hippostdpubwf:lastModificationDate: 2026-04-29T11:17:28.594+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T10:05:12.982+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: e809b3d7-d4f8-4c17-8fa7-3e5f9460b51b
             hippotranslation:locale: en
@@ -47353,6 +47361,1221 @@
                 hippo:facets: []
                 hippo:modes: []
                 hippo:values: []
+      /routes-to-the-summit-copy:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 91bcbdc1-bf75-49c7-8745-3e305fe65cb1
+        hippo:name: Routes to the Summit (copy)
+        /routes-to-the-summit-copy[1]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: e19e5188-ee52-4379-9987-1ff1e671ea06
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-01-11T14:15:20.689Z
+          hippostdpubwf:lastModificationDate: 2026-05-21T09:43:07.811+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: cafc74fd-1a49-42fa-8b59-0331d097a008
+          hippotranslation:locale: en
+          visitscotland:anchor: routes
+          visitscotland:title: Routes to the summit
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>There are two main walking routes up Ben Nevis. The
+              Mountain Track (sometimes called the Tourist Track or the Pony Track)
+              is used by most walkers, whilst the Carn Mor Dearg Arête route presents
+              a more challenging climb for more experienced hikers.</p>
+        /routes-to-the-summit-copy[2]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 3b448c12-cda0-4bbe-bfe3-ca36346f08e4
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-01-11T14:15:20.689Z
+          hippostdpubwf:lastModificationDate: 2026-05-21T09:42:53.232+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: cafc74fd-1a49-42fa-8b59-0331d097a008
+          hippotranslation:locale: en
+          visitscotland:anchor: routes
+          visitscotland:title: Routes to the summit
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>There are two main walking routes up Ben Nevis. The
+              Mountain Track (sometimes called the Tourist Track or the Pony Track)
+              is used by most walkers, whilst the Carn Mor Dearg Arête route presents
+              a more challenging climb for more experienced hikers.</p>
+      /media-collection:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: f1ab581a-4895-4da8-9713-870e7c63b82c
+        hippo:name: Media Collection
+        hippostd:foldertype: [new-translated-folder-test, new-document]
+        hippotranslation:id: 1ad2a5cd-94bc-489e-90db-5d9a3110c853
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 5ba15967-e871-49d0-82f9-5f54b157caf9
+          hippo:name: Highland Games in Scotland
+          /content[1]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 1c1b7c5e-4717-4c45-9a6a-6985dcb4fa26
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:04:47.034+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:08:52.927+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b4239178-13a5-47cf-a160-e28511d5b485
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Highland games have been a part of Scotland's
+              culture for hundreds of years and are just as popular today as they've
+              ever been.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Highland Games in Scotland
+            visitscotland:teaser: Highland games have been a part of Scotland's culture
+              for hundreds of years and are just as popular today as they've ever
+              been.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Highland Games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Highland games have been a part of Scotland's culture
+                for hundreds of years and are just as popular today as they've ever
+                been.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 0d57ede4-f13c-48ca-b5ad-e05940d30056
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:04:47.034+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:09:01.156+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b4239178-13a5-47cf-a160-e28511d5b485
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Highland games have been a part of Scotland's
+              culture for hundreds of years and are just as popular today as they've
+              ever been.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Highland Games in Scotland
+            visitscotland:teaser: Highland games have been a part of Scotland's culture
+              for hundreds of years and are just as popular today as they've ever
+              been.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Highland Games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Highland games have been a part of Scotland's culture
+                for hundreds of years and are just as popular today as they've ever
+                been.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:General
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: a6ba8e41-7d6f-4ea8-9bfc-0d7cb56bee8b
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:04:47.034+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:09:01.156+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-04-29T11:15:27.828+01:00
+            hippotranslation:id: b4239178-13a5-47cf-a160-e28511d5b485
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: ''
+            visitscotland:hideNewsletter: false
+            visitscotland:seoDescription: Highland games have been a part of Scotland's
+              culture for hundreds of years and are just as popular today as they've
+              ever been.
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Highland Games in Scotland
+            visitscotland:teaser: Highland games have been a part of Scotland's culture
+              for hundreds of years and are just as popular today as they've ever
+              been.
+            visitscotland:theme: Top-Level
+            visitscotland:title: Highland Games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Highland games have been a part of Scotland's culture
+                for hundreds of years and are just as popular today as they've ever
+                been.</p>
+        /get-to-know-the-highland-games-in-scotland:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: cb972ea0-291c-4406-8e38-e71997e92db7
+          hippo:name: Get to know the highland games in Scotland
+          hippo:versionHistory: 386a41bb-d735-4435-8483-3321d741e3fe
+          /get-to-know-the-highland-games-in-scotland[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 51f8794a-b91a-40bc-9f13-b32aadd17d68
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostd:transferable: false
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T14:41:17.588+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 0a011aee-e240-4550-a817-e911115a854d
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /get-to-know-the-highland-games-in-scotland[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: a520c2a3-d00d-4ce0-9f02-8ba528b2b42b
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:10:09.004+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 0a011aee-e240-4550-a817-e911115a854d
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /get-to-know-the-highland-games-in-scotland[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: b1dba1f2-03c0-4ee1-b931-7af5caefc414
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-04-29T11:10:09.004+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-05-21T14:28:06.150+01:00
+            hippotranslation:id: 0a011aee-e240-4550-a817-e911115a854d
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+        /with-fullbleed-image:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: a311dce7-eb96-4541-9016-27140e581761
+          hippo:name: With Carousel (Content Swipe)
+          hippo:versionHistory: 229e5ed5-8fb8-4a9c-a03c-7caeaa895ef1
+          /with-fullbleed-image[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 6520c0b7-c9db-4402-8c93-4172114b0ce0
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T14:26:52.926+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 07982270-97cd-49db-9fa3-ce1d63eba4d0
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media[1]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[2]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[3]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[4]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[5]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[6]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[7]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[8]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /with-fullbleed-image[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 08b91ba3-d660-48da-ab98-95d155501681
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T14:25:45.909+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 07982270-97cd-49db-9fa3-ce1d63eba4d0
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media[1]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[2]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[3]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[4]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[5]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[6]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[7]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[8]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /with-fullbleed-image[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: b75688c7-57f7-4958-862a-a50a211be2d7
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T14:26:52.926+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-05-21T14:27:17.068+01:00
+            hippotranslation:id: 07982270-97cd-49db-9fa3-ce1d63eba4d0
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media[1]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[2]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[3]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[4]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 5b375a60-f027-4300-89f7-32147e2256ec
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[5]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[6]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[7]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[8]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+        /with-wide-image:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 923ea134-3f64-44b0-a749-8b54c24efd96
+          hippo:name: With Wide Image
+          hippo:versionHistory: 7dd970d1-7e11-4619-946f-cc91b3f5d313
+          /with-wide-image[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 3b9f6030-2f9d-46f2-81a6-42876f070d8e
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T14:27:58.953+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b7e9fefc-0649-45b5-b1f5-81962edfb82e
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /with-wide-image[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 349c3913-6b3e-4ba7-b56b-c4bae8198062
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T14:38:08.495+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: b7e9fefc-0649-45b5-b1f5-81962edfb82e
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+          /with-wide-image[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 4ffed068-b18d-424d-a9ec-796802275ce8
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T14:27:58.953+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-05-21T14:28:01.172+01:00
+            hippotranslation:id: b7e9fefc-0649-45b5-b1f5-81962edfb82e
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+        /with-video:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: cdb835ad-e63e-4654-8fec-1496c4b25d2c
+          hippo:name: With Video
+          hippo:versionHistory: 063069c2-9706-48c6-a2c4-136f56bb79b0
+          /with-video[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 4db253d8-4f33-4da7-919f-da9d9af31095
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T15:39:53.005+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 8dfcc6fd-b7aa-43a8-a7c7-8a42578c4e41
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
+          /with-video[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: d75da287-3a15-4b1a-baac-8b1835af9872
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T15:39:22.253+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 8dfcc6fd-b7aa-43a8-a7c7-8a42578c4e41
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
+          /with-video[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: eb5becc6-f31e-4dc7-8215-72ff8268c1e7
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T15:39:53.005+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-05-21T15:39:55.021+01:00
+            hippotranslation:id: 8dfcc6fd-b7aa-43a8-a7c7-8a42578c4e41
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
+        /with-mixed-carousel:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 465388e6-97de-4c5b-88a9-8972d33ea3fa
+          hippo:name: With Mixed Carousel
+          hippo:versionHistory: fa85c3e0-6c6b-41d1-b690-a068b020d4e1
+          /with-mixed-carousel[1]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: 8d416591-8523-4a67-83dd-579ff1c66bc1
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T15:40:50.808+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 8b688514-23e3-47e0-bd48-2d9a57350b0d
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media[1]:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 7b7bac4e-ab99-4133-b66a-95e6718cd4b0
+              /visitscotland:media[2]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[3]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[4]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[5]:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
+              /visitscotland:media[6]:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
+          /with-mixed-carousel[2]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: c1b91974-8d9d-4f06-8cef-f6a89d48977c
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T15:39:57.703+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 8b688514-23e3-47e0-bd48-2d9a57350b0d
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media[1]:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 7b7bac4e-ab99-4133-b66a-95e6718cd4b0
+              /visitscotland:media[2]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[3]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[4]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[5]:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
+              /visitscotland:media[6]:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
+          /with-mixed-carousel[3]:
+            jcr:primaryType: visitscotland:Article
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 4c212e8e-7722-4b26-aca0-8216b7276977
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-04-29T09:39:35.816+01:00
+            hippostdpubwf:lastModificationDate: 2026-05-21T15:40:50.808+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-05-21T15:40:53.727+01:00
+            hippotranslation:id: 8b688514-23e3-47e0-bd48-2d9a57350b0d
+            hippotranslation:locale: en
+            visitscotland:anchor: ''
+            visitscotland:title: Get to know the highland games in Scotland
+            visitscotland:translation: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>It's no wonder when you experience the sense of
+                community, heritage and celebration at each of Scotland's Highland
+                games. Find out more about the games and events taking place in 2026.</p>
+            /visitscotland:paragraph:
+              jcr:primaryType: visitscotland:ArticleSection
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <h3>What are the Highland Games?</h3>
+
+                  <p>Scotland's Highland games are usually one-day events taking place in outdoor spaces across the country. They feature traditional Highland sports such as the caber toss, tug o' war and the hammer throw, Highland dancing and music, and lots of family fun such as food and craft stalls and games.</p>
+
+                  <p>Many events will also involve livestock events, parades and even best-dressed pet competitions. Some Highland games may continue into the night with more music gigs, ceilidhs and discos.</p>
+
+                  <p>Our Highland games are so popular, that when Scots emigrated to other lands, they took the tradition across the world with them. Highland games have taken place in America since 1836, but also run in other countries such as Canada, Norway, New Zealand and Brazil. But there's no better way to experience them than in their original country!</p>
+
+                  <h3>Where are the Highland Games?</h3>
+
+                  <p>Though they may have started in Highland Scotland, the games these days stretch right across Scotland from the far north coast of the Highlands, out west to the island of South Uist, east to Aberdeenshire and south to Peebles in the Scottish Borders.</p>
+
+                  <h3>When are the Highland Games?</h3>
+
+                  <p>The Highland games events season begins in May with the Gourock Highland Games, it peaks in July and August with over 30 events each month, and comes to a close towards the end of September. Most Highland games events take place at the weekend, on either a Saturday or a Sunday.</p>
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media[1]:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 7b7bac4e-ab99-4133-b66a-95e6718cd4b0
+              /visitscotland:media[2]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[3]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[4]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[5]:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
+              /visitscotland:media[6]:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 531e8256-dfdc-4af0-b2ff-4835fe3aef10
     /long-copy:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
