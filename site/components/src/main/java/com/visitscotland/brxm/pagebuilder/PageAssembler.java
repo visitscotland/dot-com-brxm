@@ -29,7 +29,6 @@ public class PageAssembler {
     static final String PAGE_ITEMS = "pageItems";
     static final String DEFAULT = "default";
 
-
     //Utils
     private final DocumentUtilsService documentUtils;
 
@@ -104,7 +103,7 @@ public class PageAssembler {
                 if (e instanceof InvalidContentException){
                     contentLogger.error(e.getMessage());
                 } else {
-                    logger.error(e.getMessage());
+                    logger.error(e.getMessage(), e);
                 }
                 page.addModule(previewWarningMapper.createErrorModule(item, e.getMessage()));
             } catch (RuntimeException e) {
