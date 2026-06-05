@@ -165,3 +165,6 @@ action-lists:
     /content/taxonomies: reload
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/configuration/local-feature---visitscotland.com: reload
+- 3.6.0:
+    /content/documents/administration/configuration/default-site-properties: reload
+    /content/documents/administration/configuration/local-feature---visitscotland.com: reload
