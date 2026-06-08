@@ -33,6 +33,9 @@ public class MediaSectionMapper {
     public MediaSection map(MediaCollection compound, Module<?> module, Locale locale) {
         MediaSection media = new MediaSection();
         List<Object> items = new ArrayList<>();
+        if (compound == null) {
+            return null;
+        }
         for (HippoBean document: compound.getMedia()){
             if (document instanceof Image){
                 items.add(imageMapper.getImage(document, module, locale));
