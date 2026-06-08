@@ -2,6 +2,7 @@ package com.visitscotland.brxm.mapper.module;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.ImageMapper;
+import com.visitscotland.brxm.mapper.MediaSectionMapper;
 import com.visitscotland.brxm.mapper.QuoteMapper;
 import com.visitscotland.brxm.mapper.utils.DownloadLinkMapper;
 import com.visitscotland.brxm.model.ArticleModule;
@@ -35,17 +36,20 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
     private final QuoteMapper quoteEmbedder;
     private final AnchorFormatter anchorFormatter;
     private final DownloadLinkMapper downloadLinkMapper;
+    private final MediaSectionMapper mediaSectionMapper;
 
     public ArticleMapper(ImageMapper imageMapper,
                          QuoteMapper quoteEmbedder,
                          LinkService linkService,
                          AnchorFormatter anchorFormatter,
-                         DownloadLinkMapper downloadLinkMapper) {
+                         DownloadLinkMapper downloadLinkMapper,
+                         MediaSectionMapper mediaSectionMapper) {
         this.imageMapper = imageMapper;
         this.quoteEmbedder = quoteEmbedder;
         this.linkService = linkService;
         this.anchorFormatter = anchorFormatter;
         this.downloadLinkMapper = downloadLinkMapper;
+        this.mediaSectionMapper = mediaSectionMapper;
     }
 
     @Override
@@ -72,6 +76,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
         module.setAnchor(anchorFormatter.getAnchorOrFallback(doc.getAnchor(), doc::getTitle));
 
         setSections(module, doc, locale);
+        module.setMediaSection(mediaSectionMapper.map(doc.getMediaCollection(), module, locale));
 
         if (editMode && doc instanceof ArticleBSH) {
             // This validation is only required for Edit Mode
@@ -121,8 +126,12 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
                 }
             }
 
-            if (paragraph instanceof ArticleStyledSection) {
+            //TODO: Create Interface for to abstract these hippo beans
+            if (paragraph instanceof ArticleStyledSection ) {
                 ArticleStyledSection styledParagraph = (ArticleStyledSection) paragraph;
+                section.setHeading(styledParagraph.getHeading());
+            } else if (paragraph instanceof ArticleStyledSectionCOM) {
+                ArticleStyledSectionCOM styledParagraph = (ArticleStyledSectionCOM) paragraph;
                 section.setHeading(styledParagraph.getHeading());
             }
 

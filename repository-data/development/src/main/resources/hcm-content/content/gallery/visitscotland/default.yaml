@@ -1886,3 +1886,322 @@
         jcr:primaryType: visitscotland:ImageData
         visitscotland:altText: ''
         visitscotland:caption: ''
+  /2026:
+    jcr:primaryType: hippogallery:stdImageGallery
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 53674774-bf9d-408e-b760-9ba8a3bb2ec0
+    hippostd:foldertype: [new-visitscotland-Image-folder]
+    hippostd:gallerytype: ['visitscotland:Image']
+    /article:
+      jcr:primaryType: hippogallery:stdImageGallery
+      jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+      jcr:uuid: cebbb6cf-986d-4479-87b7-8a9cf5552967
+      hippo:name: Article
+      hippostd:foldertype: [new-visitscotland-Image-folder]
+      hippostd:gallerytype: ['visitscotland:Image']
+      /ballater-highland-games.jpg:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c59864d9-3bbc-44f5-af01-3f3aeca21575
+        /ballater-highland-games.jpg:
+          jcr:primaryType: visitscotland:Image
+          hippo:availability: [live, preview]
+          hippogallery:description: Ballater Highland Games
+          hippogallery:filename: ballater-highland-games.jpg
+          visitscotland:altText: ''
+          visitscotland:credit: ''
+          visitscotland:location: ''
+          /hippogallery:thumbnail:
+            jcr:primaryType: hippogallery:image
+            hippo:filename: ballater-highland-games.jpg
+            hippogallery:height: 39
+            hippogallery:width: 60
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/ballater-highland-games.jpg/ballater-highland-games.jpg/thumbnail/thumbnail.jpg
+            jcr:lastModified: 2026-04-29T11:00:22.798+01:00
+            jcr:mimeType: image/jpeg
+          /hippogallery:original:
+            jcr:primaryType: hippogallery:image
+            hippogallery:height: 1365
+            hippogallery:width: 2048
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/ballater-highland-games.jpg/ballater-highland-games.jpg/original/original.jpg
+            jcr:lastModified: 2026-04-29T11:00:22.798+01:00
+            jcr:mimeType: image/jpeg
+          /visitscotland:nl:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:fr:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:de:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:es:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: El tartán es muy bonito
+          /visitscotland:it:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+      /caber-toss.jpg:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+        /caber-toss.jpg:
+          jcr:primaryType: visitscotland:Image
+          hippo:availability: [live, preview]
+          hippogallery:description: Caber toss demonstration
+          hippogallery:filename: caber-toss.jpg
+          visitscotland:altText: ''
+          visitscotland:credit: ''
+          visitscotland:location: ''
+          /hippogallery:thumbnail:
+            jcr:primaryType: hippogallery:image
+            hippo:filename: caber-toss.jpg
+            hippogallery:height: 39
+            hippogallery:width: 60
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/caber-toss.jpg/caber-toss.jpg/thumbnail/thumbnail.jpg
+            jcr:lastModified: 2026-04-29T11:00:23.722+01:00
+            jcr:mimeType: image/jpeg
+          /hippogallery:original:
+            jcr:primaryType: hippogallery:image
+            hippogallery:height: 1332
+            hippogallery:width: 2048
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/caber-toss.jpg/caber-toss.jpg/original/original.jpg
+            jcr:lastModified: 2026-04-29T11:00:23.722+01:00
+            jcr:mimeType: image/jpeg
+          /visitscotland:nl:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:fr:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:de:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:es:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ¡uy! ¡Cómo pesa esto!
+          /visitscotland:it:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+      /highland-dancing.jpg:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+        /highland-dancing.jpg:
+          jcr:primaryType: visitscotland:Image
+          hippo:availability: [live, preview]
+          hippogallery:description: Highland dancing
+          hippogallery:filename: highland-dancing.jpg
+          visitscotland:altText: ''
+          visitscotland:credit: ''
+          visitscotland:location: ''
+          /hippogallery:thumbnail:
+            jcr:primaryType: hippogallery:image
+            hippo:filename: highland-dancing.jpg
+            hippogallery:height: 39
+            hippogallery:width: 60
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/highland-dancing.jpg/highland-dancing.jpg/thumbnail/thumbnail.jpg
+            jcr:lastModified: 2026-04-29T11:00:24.326+01:00
+            jcr:mimeType: image/jpeg
+          /hippogallery:original:
+            jcr:primaryType: hippogallery:image
+            hippogallery:height: 1365
+            hippogallery:width: 2048
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/highland-dancing.jpg/highland-dancing.jpg/original/original.jpg
+            jcr:lastModified: 2026-04-29T11:00:24.326+01:00
+            jcr:mimeType: image/jpeg
+          /visitscotland:nl:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:fr:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:de:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:es:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: Baile tradicional escocés
+          /visitscotland:it:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+      /nairn-highland-games.jpg:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+        /nairn-highland-games.jpg:
+          jcr:primaryType: visitscotland:Image
+          hippo:availability: [live, preview]
+          hippogallery:description: Nairn Highland Games
+          hippogallery:filename: nairn-highland-games.jpg
+          visitscotland:altText: ''
+          visitscotland:credit: ''
+          visitscotland:location: ''
+          /hippogallery:thumbnail:
+            jcr:primaryType: hippogallery:image
+            hippo:filename: nairn-highland-games.jpg
+            hippogallery:height: 39
+            hippogallery:width: 60
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/nairn-highland-games.jpg/nairn-highland-games.jpg/thumbnail/thumbnail.jpg
+            jcr:lastModified: 2026-04-29T11:00:24.621+01:00
+            jcr:mimeType: image/jpeg
+          /hippogallery:original:
+            jcr:primaryType: hippogallery:image
+            hippogallery:height: 1365
+            hippogallery:width: 2048
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/nairn-highland-games.jpg/nairn-highland-games.jpg/original/original.jpg
+            jcr:lastModified: 2026-04-29T11:00:24.621+01:00
+            jcr:mimeType: image/jpeg
+          /visitscotland:nl:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:fr:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:de:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:es:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: Las gaitas escocesas tienen un sonido muy peculiar
+          /visitscotland:it:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+      /pipe-band-marching-at-the-ballater-highland-games.jpg:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 5b375a60-f027-4300-89f7-32147e2256ec
+        /pipe-band-marching-at-the-ballater-highland-games.jpg:
+          jcr:primaryType: visitscotland:Image
+          hippo:availability: [live, preview]
+          hippogallery:description: Pipe band marching at Ballater Highland Games
+          hippogallery:filename: pipe-band-marching-at-the-ballater-highland-games.jpg
+          visitscotland:altText: ''
+          visitscotland:credit: © VisitScotland / David N Anderson
+          visitscotland:location: ''
+          /hippogallery:thumbnail:
+            jcr:primaryType: hippogallery:image
+            hippo:filename: pipe-band-marching-at-the-ballater-highland-games.jpg
+            hippogallery:height: 39
+            hippogallery:width: 60
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/pipe-band-marching-at-the-ballater-highland-games.jpg/pipe-band-marching-at-the-ballater-highland-games.jpg/thumbnail/thumbnail.jpg
+            jcr:lastModified: 2026-04-29T11:00:25.005+01:00
+            jcr:mimeType: image/jpeg
+          /hippogallery:original:
+            jcr:primaryType: hippogallery:image
+            hippogallery:height: 1365
+            hippogallery:width: 2048
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/pipe-band-marching-at-the-ballater-highland-games.jpg/pipe-band-marching-at-the-ballater-highland-games.jpg/original/original.jpg
+            jcr:lastModified: 2026-04-29T11:00:25.005+01:00
+            jcr:mimeType: image/jpeg
+          /visitscotland:nl:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:fr:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:de:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:es:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: De paseo por Escocia
+          /visitscotland:it:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+      /tug-of-war.jpg:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: d7cde611-803a-46b2-88a9-0975ca490b7f
+        /tug-of-war.jpg:
+          jcr:primaryType: visitscotland:Image
+          hippo:availability: [live, preview]
+          hippogallery:description: Tug o' war
+          hippogallery:filename: tug-of-war.jpg
+          visitscotland:altText: ''
+          visitscotland:credit: ''
+          visitscotland:location: ''
+          /hippogallery:thumbnail:
+            jcr:primaryType: hippogallery:image
+            hippo:filename: tug-of-war.jpg
+            hippogallery:height: 39
+            hippogallery:width: 60
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/tug-of-war.jpg/tug-of-war.jpg/thumbnail/thumbnail.jpg
+            jcr:lastModified: 2026-04-29T11:00:25.533+01:00
+            jcr:mimeType: image/jpeg
+          /hippogallery:original:
+            jcr:primaryType: hippogallery:image
+            hippogallery:height: 1365
+            hippogallery:width: 2048
+            jcr:data:
+              type: binary
+              resource: /content/gallery/visitscotland/default/2026/article/tug-of-war.jpg/tug-of-war.jpg/original/original.jpg
+            jcr:lastModified: 2026-04-29T11:00:25.533+01:00
+            jcr:mimeType: image/jpeg
+          /visitscotland:nl:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:fr:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:de:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
+          /visitscotland:es:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: Esto me recuerda al juego del Calamar
+          /visitscotland:it:
+            jcr:primaryType: visitscotland:ImageData
+            visitscotland:altText: ''
+            visitscotland:caption: ''
