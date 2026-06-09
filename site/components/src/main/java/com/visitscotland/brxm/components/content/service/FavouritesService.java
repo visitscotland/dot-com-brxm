@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class FavouritesService {
 
@@ -39,8 +40,12 @@ public class FavouritesService {
         pageConfig.addProperty(FAVOURITES_PAGE_ENABLED, true);
         pageConfig.addProperty(FAVOURITES_SITE_URL, properties.getFavouritesUrl(request.getLocale()));
         pageConfig.addProperty(FAVOURITES_BASE_URL, properties.getFavouritesBaseUrl());
-        pageConfig.addProperty(FAVOURITES_SHARE_URL, hippoUtilsService.createUrlFromNode(
-                properties.getFavouritesShareUrl(), true, true));
+        try {
+            pageConfig.addProperty(FAVOURITES_SHARE_URL, hippoUtilsService.createUrlFromNode(
+                    properties.getFavouritesShareUrl(), true, true));
+        } catch (Exception e) {
+            logger.warn("An exception occurred while trying to generate share-url in FavouritesService: ", e);
+        }
         if (request.getPathInfo() != null) {
             pageConfig.addProperty(IS_SHARE_PAGE, properties.getFavouritesShareUrl().contains(request.getPathInfo()));
         } else {
