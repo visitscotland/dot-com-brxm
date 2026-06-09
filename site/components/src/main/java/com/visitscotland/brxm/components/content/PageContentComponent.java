@@ -292,8 +292,12 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
      */
     private void addSiteSpecificConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
 
-        if (properties.isFavouritesEnabled(request.getLocale())){
-            favouritesService.applyConfiguration(request, pageConfig);
+        try {
+            if (properties.isFavouritesEnabled(request.getLocale())){
+                favouritesService.applyConfiguration(request, pageConfig);
+            }
+        } catch (RuntimeException e ) {
+            logger.warn("Unable to add favourites properties to page: ", e);
         }
 
         if (properties.isTableOfContentsEnabled()){
