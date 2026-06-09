@@ -43,14 +43,17 @@ public class FavouritesService {
         try {
             pageConfig.addProperty(FAVOURITES_SHARE_URL, hippoUtilsService.createUrlFromNode(
                     properties.getFavouritesShareUrl(), true, true));
+            if (request.getPathInfo() != null) {
+                pageConfig.addProperty(IS_SHARE_PAGE, properties.getFavouritesShareUrl().contains(request.getPathInfo()));
+            } else {
+                pageConfig.addProperty(IS_SHARE_PAGE, false);
+            }
         } catch (Exception e) {
             logger.warn("An exception occurred while trying to generate share-url in FavouritesService: ", e);
-        }
-        if (request.getPathInfo() != null) {
-            pageConfig.addProperty(IS_SHARE_PAGE, properties.getFavouritesShareUrl().contains(request.getPathInfo()));
-        } else {
+            pageConfig.addProperty(FAVOURITES_SHARE_URL, "share-url test");
             pageConfig.addProperty(IS_SHARE_PAGE, false);
         }
+
 
         pageConfig.addAllSiteLabels(FAVOURITES_BUNDLE);
 
