@@ -40,7 +40,7 @@ public class ExclusiveSelectionValidator implements Validator<Node> {
         try {
 
             if (!node.hasProperty(VISITSCOTLAND_SEASONS)) {
-                return Optional.of(context.createViolation("season-required"));
+                return Optional.empty();
             }
 
             var property = node.getProperty(VISITSCOTLAND_SEASONS);
