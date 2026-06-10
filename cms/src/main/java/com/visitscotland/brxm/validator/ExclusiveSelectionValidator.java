@@ -62,7 +62,7 @@ public class ExclusiveSelectionValidator implements Validator<Node> {
 
             return (hasAll && values.length > 1)
                     ? Optional.of(context.createViolation())
-                    : Optional.of(context.createViolation("season-required"));
+                    : Optional.empty();
 
         } catch (Exception e) {
             throw new ValidationContextException("Validation error", e);
