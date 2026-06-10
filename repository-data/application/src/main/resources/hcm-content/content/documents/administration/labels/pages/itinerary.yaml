@@ -347,7 +347,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:22:22.029+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-10T15:25:09.151+01:00
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
@@ -367,7 +367,7 @@
           to the stop, Time to explore, Main theme, Check opening times, hour, hours,
         Usually, Provisionally, today, to, Open, Closed, Closing soon, Temporarily
           closed, and, End of itinerary, Map view, List View, Key facilities, Explore
-          on Google Maps, View Itinerary on Google Maps, '']
+          on Google Maps, View Itinerary on Google Maps, Key Information]
       resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
         Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi, km, Verkehrsmittel,
         Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen, Es ist kein Produkt
@@ -418,7 +418,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:22:50.868+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-10T15:25:25.714+01:00
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
@@ -438,7 +438,7 @@
           to the stop, Time to explore, Main theme, Check opening times, hour, hours,
         Usually, Provisionally, today, to, Open, Closed, Closing soon, Temporarily
           closed, and, End of itinerary, Map view, List View, Key facilities, Explore
-          on Google Maps, View Itinerary on Google Maps, '']
+          on Google Maps, View Itinerary on Google Maps, Key Information]
       resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
         Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi, km, Verkehrsmittel,
         Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen, Es ist kein Produkt
@@ -489,9 +489,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:22:50.868+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-10T15:25:25.714+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-06-10T15:22:57.842+01:00
+      hippostdpubwf:publicationDate: 2026-06-10T15:25:30.850+01:00
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
           range of time like: 9:00am to 13:00pm', '', '', '', '', '', '', '', '',
@@ -510,7 +510,7 @@
           to the stop, Time to explore, Main theme, Check opening times, hour, hours,
         Usually, Provisionally, today, to, Open, Closed, Closing soon, Temporarily
           closed, and, End of itinerary, Map view, List View, Key facilities, Explore
-          on Google Maps, View Itinerary on Google Maps, '']
+          on Google Maps, View Itinerary on Google Maps, Key Information]
       resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
         Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi, km, Verkehrsmittel,
         Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen, Es ist kein Produkt
