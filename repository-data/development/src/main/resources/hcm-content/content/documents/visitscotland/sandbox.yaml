@@ -37660,30 +37660,31 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 0cf7c5e5-5b4e-4d78-8ca2-6b3c52b02172
         hippo:name: Mull & Iona west coast island itinerary
-        hippo:versionHistory: e32813ea-34af-4aed-8e17-181fe1b4611d
+        hippo:versionHistory: 565ef394-aab1-4272-9afb-d5f8e4587115
         /mull--iona-west-coast-island-itinerary[1]:
           jcr:primaryType: visitscotland:Itinerary
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 0bcd555d-1d70-485b-8eeb-ab0c7025cbf6
           hippo:availability: []
-          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2026-05-28T12:41:51.184+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-10T11:24:31.654+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
           hippotranslation:locale: en
           visitscotland:areas: [dundee, edinburgh, fife]
           visitscotland:breadcrumb: ''
           visitscotland:distance: 295.0
+          visitscotland:embeddedMap: <iframe src="https://www.google.com/maps/d/embed?mid=1pqv4TLmIjK9xgYcSOKEukxaGNvIQ9bU&ehbc=2E312F"
+            width="640" height="480"></iframe>
           visitscotland:finish: ''
           visitscotland:hideNewsletter: false
           visitscotland:highlights: ['']
-          visitscotland:locations: [Mull, Iona]
+          visitscotland:locations: [Mull]
           visitscotland:popular: false
-          visitscotland:seasons: [spring, summer]
+          visitscotland:seasons: [autumn, winter]
           visitscotland:seoDescription: Mull & Iona west coast island itinerary
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Mull & Iona west coast island itinerary
@@ -37694,7 +37695,7 @@
           visitscotland:theme: sightseeing
           visitscotland:title: Mull & Iona west coast island itinerary
           visitscotland:translation: ''
-          visitscotland:transports: [ferry]
+          visitscotland:transports: [cycling, ferry]
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
@@ -37720,19 +37721,21 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2026-05-28T12:41:27.570+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-10T11:24:38.775+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
           hippotranslation:locale: en
           visitscotland:areas: [dundee, edinburgh, fife]
           visitscotland:breadcrumb: ''
           visitscotland:distance: 295.0
+          visitscotland:embeddedMap: <iframe src="https://www.google.com/maps/d/embed?mid=1pqv4TLmIjK9xgYcSOKEukxaGNvIQ9bU&ehbc=2E312F"
+            width="640" height="480"></iframe>
           visitscotland:finish: ''
           visitscotland:hideNewsletter: false
           visitscotland:highlights: ['']
-          visitscotland:locations: [Mull, Iona]
+          visitscotland:locations: [Mull]
           visitscotland:popular: false
-          visitscotland:seasons: [spring, summer]
+          visitscotland:seasons: [autumn, winter]
           visitscotland:seoDescription: Mull & Iona west coast island itinerary
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Mull & Iona west coast island itinerary
@@ -37743,7 +37746,7 @@
           visitscotland:theme: sightseeing
           visitscotland:title: Mull & Iona west coast island itinerary
           visitscotland:translation: ''
-          visitscotland:transports: [ferry]
+          visitscotland:transports: [cycling, ferry]
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
@@ -37769,14 +37772,16 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2026-05-28T12:41:27.570+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-10T11:14:39.471+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2026-05-28T12:41:32.339+01:00
+          hippostdpubwf:publicationDate: 2026-06-10T11:15:39.854+01:00
           hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
           hippotranslation:locale: en
           visitscotland:areas: [dundee, edinburgh, fife]
           visitscotland:breadcrumb: ''
           visitscotland:distance: 295.0
+          visitscotland:embeddedMap: <iframe src="https://www.google.com/maps/d/embed?mid=1pqv4TLmIjK9xgYcSOKEukxaGNvIQ9bU&ehbc=2E312F"
+            width="640" height="480"></iframe>
           visitscotland:finish: ''
           visitscotland:hideNewsletter: false
           visitscotland:highlights: ['']
@@ -37825,7 +37830,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:47:36.473Z
-          hippostdpubwf:lastModificationDate: 2026-01-26T13:48:00.694Z
+          hippostdpubwf:lastModificationDate: 2026-06-10T11:08:29.564+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: b2c5ceb9-31d9-4e18-9ff2-c87da530f9d5
           hippotranslation:locale: en
