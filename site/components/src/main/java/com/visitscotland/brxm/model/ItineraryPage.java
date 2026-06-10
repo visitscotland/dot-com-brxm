@@ -17,7 +17,7 @@ public class ItineraryPage extends PageIntro {
     private List<Entry> areas;
     private List<Entry> seasons;
     private List<String> locations;
-    private String embeddedMap;
+    private String iframeMap;
     private Entry theme;
     // Properties to be removed from the delivery API
     private String firstStopLocation;
@@ -116,12 +116,12 @@ public class ItineraryPage extends PageIntro {
         this.locations = locations;
     }
 
-    public String getEmbeddedMap() {
-        return embeddedMap;
+    public String getIframeMap() {
+        return iframeMap;
     }
 
-    public void setEmbeddedMap(String embeddedMap) {
-        this.embeddedMap = embeddedMap;
+    public void setIframeMap(String iframeMap) {
+        this.iframeMap = iframeMap;
     }
 
     public Entry getTheme() {

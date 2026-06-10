@@ -116,7 +116,7 @@ public class ItineraryMapper {
             page.setMapLink(ctaLink);
         }
 
-        page.setEmbeddedMap(itinerary.getEmbeddedMap());
+        page.setIframeMap(itinerary.getEmbeddedMap());
         populateTransports(page, itinerary.getTransports(), locale);
         populateThemes(page, itinerary.getTheme(), locale);
         populateAreas(page, itinerary.getAreas(), locale);
