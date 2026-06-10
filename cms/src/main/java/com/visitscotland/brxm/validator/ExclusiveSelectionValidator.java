@@ -40,7 +40,7 @@ public class ExclusiveSelectionValidator implements Validator<Node> {
         try {
 
             if (!node.hasProperty(VISITSCOTLAND_SEASONS)) {
-                return Optional.empty();
+                return Optional.of(context.createViolation("season-required"));
             }
 
             var property = node.getProperty(VISITSCOTLAND_SEASONS);
@@ -62,7 +62,7 @@ public class ExclusiveSelectionValidator implements Validator<Node> {
 
             return (hasAll && values.length > 1)
                     ? Optional.of(context.createViolation())
-                    : Optional.empty();
+                    : Optional.of(context.createViolation("season-required"));
 
         } catch (Exception e) {
             throw new ValidationContextException("Validation error", e);

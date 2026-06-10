@@ -176,3 +176,5 @@ action-lists:
     /content/documents/administration/labels/global/search-filters: delete
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/configuration/local-feature---visitscotland.com: reload
+- 3.8.0:
+      /content/documents/administration/labels/pages/itinerary/itineraries: reload
