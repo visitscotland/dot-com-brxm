@@ -50,7 +50,7 @@ public class FavouritesService {
             }
         } catch (Exception e) {
             logger.warn("An exception occurred while trying to generate share-url in FavouritesService: ", e);
-            pageConfig.addProperty(FAVOURITES_SHARE_URL, "share-url test");
+            pageConfig.addProperty(FAVOURITES_SHARE_URL, "");
             pageConfig.addProperty(IS_SHARE_PAGE, false);
         }
 
