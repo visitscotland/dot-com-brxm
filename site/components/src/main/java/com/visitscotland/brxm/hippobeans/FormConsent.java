@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.hippobeans;
 
 import com.visitscotland.brxm.hippobeans.capabilities.BregConsent;
-import org.apache.jackrabbit.core.data.BackendResourceAbortable;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;

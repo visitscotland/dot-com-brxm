@@ -24,11 +24,11 @@ public class SimpleFormConsent {
         this.value = value;
     }
 
-    public boolean isOptional() {
+    public Boolean getOptional() {
         return optional;
     }
 
-    public void setOptional(boolean optional) {
+    public void setOptional(Boolean optional) {
         this.optional = optional;
     }
 
