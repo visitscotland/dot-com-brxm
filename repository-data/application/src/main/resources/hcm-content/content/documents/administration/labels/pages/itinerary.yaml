@@ -549,3 +549,57 @@
         uur, uur, Gewoonlijk, Onder voorbehoud, vandaag, naar, Geopend, Gesloten,
         Sluit snel, Tijdelijk gesloten, en, Einde van de route, Toon kaart, Toon lijst,
         Faciliteiten, Op Google Maps bekijken, Reisroute op Google Maps bekijken]
+  /seasons:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 3ab320b7-8fe8-47d8-87d2-ac5df7ca9bb5
+    hippo:versionHistory: 02a77d76-aaa0-48ce-b2bd-149401af9526
+    /seasons[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 0a5e27df-8768-4eed-bd3c-76a4038d065a
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-06-10T13:49:20.634+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-10T13:51:12.996+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: seasons
+      resourcebundle:keys: [spring, summer, autumn, winter, all]
+      resourcebundle:messages: [Visit in Spring, Visit in Summer, Visit in Autumn,
+        Visit in Winter, Visit Year Round]
+    /seasons[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: ce943bcf-f6db-40a0-8019-4e7a2b0a7aed
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-06-10T13:49:20.634+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-10T13:52:53.607+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: seasons
+      resourcebundle:keys: [spring, summer, autumn, winter, all]
+      resourcebundle:messages: [Visit in Spring, Visit in Summer, Visit in Autumn,
+        Visit in Winter, Visit Year Round]
+    /seasons[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: eb60b998-ab0a-4ecf-9a69-6a3b2f600dbe
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-06-10T13:49:20.634+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-10T13:52:53.607+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2026-06-10T13:52:57.782+01:00
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: seasons
+      resourcebundle:keys: [spring, summer, autumn, winter, all]
+      resourcebundle:messages: [Visit in Spring, Visit in Summer, Visit in Autumn,
+        Visit in Winter, Visit Year Round]

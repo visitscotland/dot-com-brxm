@@ -37655,13 +37655,13 @@
       hippostd:foldertype: [new-translated-folder-test, new-document]
       hippotranslation:id: 08a3b0de-11e2-4fb1-8145-0f7825895c60
       hippotranslation:locale: en
-      /mull--iona-west-coast-island-itinerary:
+      /content:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 0cf7c5e5-5b4e-4d78-8ca2-6b3c52b02172
         hippo:name: Mull & Iona west coast island itinerary
-        hippo:versionHistory: 565ef394-aab1-4272-9afb-d5f8e4587115
-        /mull--iona-west-coast-island-itinerary[1]:
+        hippo:versionHistory: 14dab91b-9d15-4eab-b95d-1be9699337d2
+        /content[1]:
           jcr:primaryType: visitscotland:Itinerary
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 0bcd555d-1d70-485b-8eeb-ab0c7025cbf6
@@ -37670,111 +37670,8 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2026-06-10T11:24:31.654+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-10T14:14:40.528+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
-          hippotranslation:locale: en
-          visitscotland:areas: [dundee, edinburgh, fife]
-          visitscotland:breadcrumb: ''
-          visitscotland:distance: 295.0
-          visitscotland:embeddedMap: <iframe src="https://www.google.com/maps/d/embed?mid=1pqv4TLmIjK9xgYcSOKEukxaGNvIQ9bU&ehbc=2E312F"
-            width="640" height="480"></iframe>
-          visitscotland:finish: ''
-          visitscotland:hideNewsletter: false
-          visitscotland:highlights: ['']
-          visitscotland:locations: [Mull]
-          visitscotland:popular: false
-          visitscotland:seasons: [autumn, winter]
-          visitscotland:seoDescription: Mull & Iona west coast island itinerary
-          visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Mull & Iona west coast island itinerary
-          visitscotland:start: ''
-          visitscotland:subheading: 5 Days around Mull & Iona with Frida & Leo
-          visitscotland:teaser: Take a trip around Mull and Iona in this 5-day itinerary,
-            and discover beautiful coastlines on Scotland’s west coast.
-          visitscotland:theme: sightseeing
-          visitscotland:title: Mull & Iona west coast island itinerary
-          visitscotland:translation: ''
-          visitscotland:transports: [cycling, ferry]
-          /visitscotland:heroImage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: |-
-              <p>This journey was enjoyed by Frida and Leo, a young couple from X with their two dogs, Harry and Teddy. Check out their adventure on our YouTube channel. Find a route map in their blog and learn how they built their own van.</p>
-
-              <p>You’ll find them camping in the middle of nowhere as they wake up early to take photographs of the sunrise over a cup of coffee. Then it’s time to catch something delicious up on the beach for lunch, before heading off for the next Scottish adventure.</p>
-          /visitscotland:mapLink:
-            jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: View Itinerary in Google Maps
-            visitscotland:link: https://www.google.com/maps/@56.5045053,-5.6483568,9z/data=!4m3!11m2!2sAm1reMiHRyuFm49dzeOgog!3e3?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D
-        /mull--iona-west-coast-island-itinerary[2]:
-          jcr:primaryType: visitscotland:Itinerary
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: af332048-5d56-4cf6-b1fc-29656c4fcc42
-          hippo:availability: [preview]
-          hippostd:retainable: false
-          hippostd:state: unpublished
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2026-06-10T11:24:38.775+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
-          hippotranslation:locale: en
-          visitscotland:areas: [dundee, edinburgh, fife]
-          visitscotland:breadcrumb: ''
-          visitscotland:distance: 295.0
-          visitscotland:embeddedMap: <iframe src="https://www.google.com/maps/d/embed?mid=1pqv4TLmIjK9xgYcSOKEukxaGNvIQ9bU&ehbc=2E312F"
-            width="640" height="480"></iframe>
-          visitscotland:finish: ''
-          visitscotland:hideNewsletter: false
-          visitscotland:highlights: ['']
-          visitscotland:locations: [Mull]
-          visitscotland:popular: false
-          visitscotland:seasons: [autumn, winter]
-          visitscotland:seoDescription: Mull & Iona west coast island itinerary
-          visitscotland:seoNoIndex: false
-          visitscotland:seoTitle: Mull & Iona west coast island itinerary
-          visitscotland:start: ''
-          visitscotland:subheading: 5 Days around Mull & Iona with Frida & Leo
-          visitscotland:teaser: Take a trip around Mull and Iona in this 5-day itinerary,
-            and discover beautiful coastlines on Scotland’s west coast.
-          visitscotland:theme: sightseeing
-          visitscotland:title: Mull & Iona west coast island itinerary
-          visitscotland:translation: ''
-          visitscotland:transports: [cycling, ferry]
-          /visitscotland:heroImage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /visitscotland:introduction:
-            jcr:primaryType: hippostd:html
-            hippostd:content: |-
-              <p>This journey was enjoyed by Frida and Leo, a young couple from X with their two dogs, Harry and Teddy. Check out their adventure on our YouTube channel. Find a route map in their blog and learn how they built their own van.</p>
-
-              <p>You’ll find them camping in the middle of nowhere as they wake up early to take photographs of the sunrise over a cup of coffee. Then it’s time to catch something delicious up on the beach for lunch, before heading off for the next Scottish adventure.</p>
-          /visitscotland:mapLink:
-            jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: View Itinerary in Google Maps
-            visitscotland:link: https://www.google.com/maps/@56.5045053,-5.6483568,9z/data=!4m3!11m2!2sAm1reMiHRyuFm49dzeOgog!3e3?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D
-        /mull--iona-west-coast-island-itinerary[3]:
-          jcr:primaryType: visitscotland:Itinerary
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: c2ef7131-e168-4b77-88dd-09bd4fc9e999
-          hippo:availability: [live]
-          hippostd:retainable: false
-          hippostd:state: published
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
-          hippostdpubwf:lastModificationDate: 2026-06-10T11:14:39.471+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2026-06-10T11:15:39.854+01:00
           hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
           hippotranslation:locale: en
           visitscotland:areas: [dundee, edinburgh, fife]
@@ -37787,7 +37684,7 @@
           visitscotland:highlights: ['']
           visitscotland:locations: [Mull, Iona]
           visitscotland:popular: false
-          visitscotland:seasons: [spring, summer]
+          visitscotland:seasons: [spring, autumn, winter]
           visitscotland:seoDescription: Mull & Iona west coast island itinerary
           visitscotland:seoNoIndex: false
           visitscotland:seoTitle: Mull & Iona west coast island itinerary
@@ -37798,7 +37695,110 @@
           visitscotland:theme: sightseeing
           visitscotland:title: Mull & Iona west coast island itinerary
           visitscotland:translation: ''
-          visitscotland:transports: [ferry]
+          visitscotland:transports: [cycling, ferry]
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>This journey was enjoyed by Frida and Leo, a young couple from X with their two dogs, Harry and Teddy. Check out their adventure on our YouTube channel. Find a route map in their blog and learn how they built their own van.</p>
+
+              <p>You’ll find them camping in the middle of nowhere as they wake up early to take photographs of the sunrise over a cup of coffee. Then it’s time to catch something delicious up on the beach for lunch, before heading off for the next Scottish adventure.</p>
+          /visitscotland:mapLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: View Itinerary in Google Maps
+            visitscotland:link: https://www.google.com/maps/@56.5045053,-5.6483568,9z/data=!4m3!11m2!2sAm1reMiHRyuFm49dzeOgog!3e3?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D
+        /content[2]:
+          jcr:primaryType: visitscotland:Itinerary
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: af332048-5d56-4cf6-b1fc-29656c4fcc42
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
+          hippostdpubwf:lastModificationDate: 2026-06-10T14:14:56.792+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
+          hippotranslation:locale: en
+          visitscotland:areas: [dundee, edinburgh, fife]
+          visitscotland:breadcrumb: ''
+          visitscotland:distance: 295.0
+          visitscotland:embeddedMap: <iframe src="https://www.google.com/maps/d/embed?mid=1pqv4TLmIjK9xgYcSOKEukxaGNvIQ9bU&ehbc=2E312F"
+            width="640" height="480"></iframe>
+          visitscotland:finish: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:highlights: ['']
+          visitscotland:locations: [Mull, Iona]
+          visitscotland:popular: false
+          visitscotland:seasons: [spring, autumn, winter]
+          visitscotland:seoDescription: Mull & Iona west coast island itinerary
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Mull & Iona west coast island itinerary
+          visitscotland:start: ''
+          visitscotland:subheading: 5 Days around Mull & Iona with Frida & Leo
+          visitscotland:teaser: Take a trip around Mull and Iona in this 5-day itinerary,
+            and discover beautiful coastlines on Scotland’s west coast.
+          visitscotland:theme: sightseeing
+          visitscotland:title: Mull & Iona west coast island itinerary
+          visitscotland:translation: ''
+          visitscotland:transports: [cycling, ferry]
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>This journey was enjoyed by Frida and Leo, a young couple from X with their two dogs, Harry and Teddy. Check out their adventure on our YouTube channel. Find a route map in their blog and learn how they built their own van.</p>
+
+              <p>You’ll find them camping in the middle of nowhere as they wake up early to take photographs of the sunrise over a cup of coffee. Then it’s time to catch something delicious up on the beach for lunch, before heading off for the next Scottish adventure.</p>
+          /visitscotland:mapLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: View Itinerary in Google Maps
+            visitscotland:link: https://www.google.com/maps/@56.5045053,-5.6483568,9z/data=!4m3!11m2!2sAm1reMiHRyuFm49dzeOgog!3e3?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D
+        /content[3]:
+          jcr:primaryType: visitscotland:Itinerary
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: c2ef7131-e168-4b77-88dd-09bd4fc9e999
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-12-17T13:39:29.103Z
+          hippostdpubwf:lastModificationDate: 2026-06-10T14:14:56.792+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-06-10T14:15:04.399+01:00
+          hippotranslation:id: a7c76980-e47c-46ad-8101-08fe0bed0d23
+          hippotranslation:locale: en
+          visitscotland:areas: [dundee, edinburgh, fife]
+          visitscotland:breadcrumb: ''
+          visitscotland:distance: 295.0
+          visitscotland:embeddedMap: <iframe src="https://www.google.com/maps/d/embed?mid=1pqv4TLmIjK9xgYcSOKEukxaGNvIQ9bU&ehbc=2E312F"
+            width="640" height="480"></iframe>
+          visitscotland:finish: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:highlights: ['']
+          visitscotland:locations: [Mull, Iona]
+          visitscotland:popular: false
+          visitscotland:seasons: [spring, autumn, winter]
+          visitscotland:seoDescription: Mull & Iona west coast island itinerary
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Mull & Iona west coast island itinerary
+          visitscotland:start: ''
+          visitscotland:subheading: 5 Days around Mull & Iona with Frida & Leo
+          visitscotland:teaser: Take a trip around Mull and Iona in this 5-day itinerary,
+            and discover beautiful coastlines on Scotland’s west coast.
+          visitscotland:theme: sightseeing
+          visitscotland:title: Mull & Iona west coast island itinerary
+          visitscotland:translation: ''
+          visitscotland:transports: [cycling, ferry]
           /visitscotland:heroImage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: b9d61304-1b64-4995-bea9-af40d165e8d1
@@ -37820,7 +37820,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: f65d7265-a940-484f-8fa3-1d3d3944ae70
         hippo:name: DAy 1 - Dunkeld
-        hippo:versionHistory: 61944134-610c-41d8-a262-71fe5a09fef9
+        hippo:versionHistory: 4c295770-9265-4e17-8de9-98387d50c941
         /day-1---dunkeld[1]:
           jcr:primaryType: visitscotland:Day
           jcr:mixinTypes: ['mix:referenceable']
@@ -37980,9 +37980,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-12-17T13:47:36.473Z
-          hippostdpubwf:lastModificationDate: 2026-01-09T14:59:05.242Z
+          hippostdpubwf:lastModificationDate: 2026-01-26T13:47:44.448Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2026-01-09T14:59:11.507Z
+          hippostdpubwf:publicationDate: 2026-06-10T13:21:49.742+01:00
           hippotranslation:id: b2c5ceb9-31d9-4e18-9ff2-c87da530f9d5
           hippotranslation:locale: en
           visitscotland:title: Dunkeld
@@ -38035,11 +38035,11 @@
               </ul>
           /visitscotland:mapLink:
             jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: See Google map
-            visitscotland:link: https://www.google.com/maps/place/Dunkeld/@56.5679334,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=de&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
+            visitscotland:label: Google Map day1 CTA text override
+            visitscotland:link: https://www.google.co.uk/maps/place/Dunkeld/@56.5679334,-3.5975708,15z/data=!3m1!4b1!4m6!3m5!1s0x488610ea1f91af3d:0x64887974cb67d708!8m2!3d56.5676532!4d-3.5862204!16s%2Fg%2F11bc5vsnkz?hl=de&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D
           /visitscotland:ctaLink:
             jcr:primaryType: visitscotland:ExternalLink
-            visitscotland:label: Explore Dunkeld
+            visitscotland:label: Day 1 CTA text override
             visitscotland:link: https://www.dunkeldandbirnam.org.uk/
           /visitscotland:media:
             jcr:primaryType: hippogallerypicker:imagelink

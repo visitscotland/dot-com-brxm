@@ -37,6 +37,7 @@ public class ItineraryMapper {
     private static final String THEMES = "themes";
     private static final String AREAS = "areas";
     private static final String TRANSPORTS = "transports";
+    private static final String SEASONS = "seasons";
     private static final String DEFAULT_CTA_TEXT = "itinerary.default-cta";
 
     private final ResourceBundleService bundle;
@@ -115,9 +116,12 @@ public class ItineraryMapper {
             page.setMapLink(ctaLink);
         }
 
+        page.setEmbeddedMap(itinerary.getEmbeddedMap());
         populateTransports(page, itinerary.getTransports(), locale);
         populateThemes(page, itinerary.getTheme(), locale);
         populateAreas(page, itinerary.getAreas(), locale);
+        populateSeasons(page, itinerary.getSeasons(), locale);
+        populateLocations(page, itinerary.getLocations());
 
         return page;
     }
@@ -386,7 +390,7 @@ public class ItineraryMapper {
         }
     }
 
-    private void populateAreas(ItineraryPage page, String[] areas, Locale locale) {
+    private void populateAreas(ItineraryPage page, final String[] areas, final Locale locale) {
         List<Entry> areasToAdd = new ArrayList<>();
         if (areas == null) {
             page.setAreas(areasToAdd);
@@ -399,6 +403,38 @@ public class ItineraryMapper {
                 }
             }
             page.setAreas(areasToAdd);
+        }
+    }
+
+    private void populateSeasons(ItineraryPage page, final String[] seasons, final Locale locale) {
+        List<Entry> seasonsToAdd = new ArrayList<>();
+        if (seasons == null) {
+            page.setSeasons(seasonsToAdd);
+        } else {
+            for (final String season : seasons) {
+                if (season != null && bundle.existsResourceBundleKey(SEASONS, season, locale)) {
+                    seasonsToAdd.add(new Entry(season, bundle.getResourceBundle(SEASONS, season, locale)));
+                } else {
+                    contentLogger.warn("No key/value pair for season {}", season);
+                }
+            }
+            page.setSeasons(seasonsToAdd);
+        }
+    }
+
+    private void populateLocations(final ItineraryPage page, final String[] locations) {
+        List<String> locationsToAdd = new ArrayList<>();
+        if (locations == null) {
+            page.setLocations(locationsToAdd);
+        } else {
+            for (final String location : locations) {
+                if (location == null || location.isEmpty()) {
+                    contentLogger.warn("Null location provided.");
+                } else {
+                    locationsToAdd.add(location);
+                }
+            }
+            page.setLocations(locationsToAdd);
         }
     }
 }
