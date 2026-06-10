@@ -91,4 +91,9 @@ public class Itinerary extends Page {
     public String[] getSeasons() {
         return getMultipleProperty("visitscotland:seasons");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:embeddedMap")
+    public String getEmbeddedMap() {
+        return getSingleProperty("visitscotland:embeddedMap");
+    }
 }
