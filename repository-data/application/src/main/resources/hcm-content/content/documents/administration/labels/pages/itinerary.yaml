@@ -556,7 +556,7 @@
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 3ab320b7-8fe8-47d8-87d2-ac5df7ca9bb5
-    hippo:versionHistory: 2e7c40da-ba55-48ea-bf1d-dc8976836736
+    hippo:versionHistory: c6785332-fae4-47c3-9dd5-8fd54ce91f6c
     /seasons[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -566,13 +566,13 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2026-06-10T13:49:20.634+01:00
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:49:06.044+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-12T10:11:11.138+01:00
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '']
       resourcebundle:id: seasons
       resourcebundle:keys: [spring, summer, autumn, winter, all]
       resourcebundle:messages: [Visit in Spring, Visit in Summer, Visit in Autumn,
-        Visit in Winter, Visit Year Round]
+        Visit in Winter Stacey, Visit Year Round]
       resourcebundle:messages_de: ['', '', '', '', '']
       resourcebundle:messages_es: ['', '', '', '', '']
       resourcebundle:messages_fr: ['', '', '', '', '']
@@ -587,13 +587,13 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2026-06-10T13:49:20.634+01:00
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:51:10.125+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-12T10:11:54.525+01:00
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '']
       resourcebundle:id: seasons
       resourcebundle:keys: [spring, summer, autumn, winter, all]
       resourcebundle:messages: [Visit in Spring, Visit in Summer, Visit in Autumn,
-        Visit in Winter, Visit Year Round]
+        Visit in Winter Stacey, Visit Year Round]
       resourcebundle:messages_de: ['', '', '', '', '']
       resourcebundle:messages_es: ['', '', '', '', '']
       resourcebundle:messages_fr: ['', '', '', '', '']
@@ -608,14 +608,14 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2026-06-10T13:49:20.634+01:00
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:51:10.125+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-12T10:11:54.525+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-06-10T15:51:21.997+01:00
+      hippostdpubwf:publicationDate: 2026-06-12T10:11:56.846+01:00
       resourcebundle:descriptions: ['', '', '', '', '']
       resourcebundle:id: seasons
       resourcebundle:keys: [spring, summer, autumn, winter, all]
       resourcebundle:messages: [Visit in Spring, Visit in Summer, Visit in Autumn,
-        Visit in Winter, Visit Year Round]
+        Visit in Winter Stacey, Visit Year Round]
       resourcebundle:messages_de: ['', '', '', '', '']
       resourcebundle:messages_es: ['', '', '', '', '']
       resourcebundle:messages_fr: ['', '', '', '', '']
