@@ -18,9 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.Locale;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Component
 public class CludoService {
@@ -173,13 +171,23 @@ public class CludoService {
         Map<String, String> filtersMap = hippoUtilsService.getValueMap(valueListId);
 
         if (filtersMap != null) {
+            List<ObjectNode> orderedFilters = new ArrayList<>();
             for (Map.Entry<String, String> entry : filtersMap.entrySet()) {
                 ObjectNode filterSubnodes = mapper.createObjectNode();
                 filterSubnodes.put("id", entry.getKey());
                 filterSubnodes.put("parameter", entry.getValue());
                 String resourceBundleLabel = bundle.getResourceBundle(resourceBundleId, entry.getKey(), locale);
                 filterSubnodes.put("label", Contract.isEmpty(resourceBundleLabel) ? entry.getKey() : resourceBundleLabel);
-                filterType.add(filterSubnodes);
+                orderedFilters.add(filterSubnodes);
+            }
+
+            orderedFilters.sort(Comparator.comparing(
+                    node -> node.get("label").asText(),
+                    String.CASE_INSENSITIVE_ORDER
+            ));
+
+            for (ObjectNode node : orderedFilters) {
+                filterType.add(node);
             }
         }
 
