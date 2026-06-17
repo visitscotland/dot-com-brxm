@@ -1,5 +1,6 @@
 package com.visitscotland.brxm.hippobeans;
 
+import com.visitscotland.brxm.hippobeans.capabilities.BregConsent;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
@@ -35,8 +36,7 @@ public class FormCompoundBreg extends HippoCompound {
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:consents")
-    public List<Entry> getConsents() {
-        return getChildBeansByName("visitscotland:consents",
-                Entry.class);
+    public List<BregConsent> getConsents() {
+        return getChildBeansByName("visitscotland:consents");
     }
 }
