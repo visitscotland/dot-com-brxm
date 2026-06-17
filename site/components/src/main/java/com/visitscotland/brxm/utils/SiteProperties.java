@@ -177,7 +177,8 @@ public class SiteProperties extends Properties {
     public String getFormBregLegalBasisText() {
         return readString(FORM_BREG_LEGAL_BASIS_TEXT);
     }
-    public Boolean isFormBregLegalBasisEnabled() {
+
+    public boolean isFormBregLegalBasisEnabled() {
         return readBoolean(FORM_BREG_LEGAL_BASIS_ENABLE);
     }
 

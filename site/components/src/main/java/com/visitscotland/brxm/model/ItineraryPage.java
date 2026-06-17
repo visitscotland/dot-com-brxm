@@ -15,6 +15,9 @@ public class ItineraryPage extends PageIntro {
     private BigDecimal distance;
     private List<Entry> transports;
     private List<Entry> areas;
+    private List<Entry> seasons;
+    private List<String> locations;
+    private String iframeMap;
     private Entry theme;
     // Properties to be removed from the delivery API
     private String firstStopLocation;
@@ -95,6 +98,30 @@ public class ItineraryPage extends PageIntro {
 
     public void setAreas(List<Entry> areas) {
         this.areas = areas;
+    }
+
+    public List<Entry> getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(List<Entry> seasons) {
+        this.seasons = seasons;
+    }
+
+    public List<String> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<String> locations) {
+        this.locations = locations;
+    }
+
+    public String getIframeMap() {
+        return iframeMap;
+    }
+
+    public void setIframeMap(String iframeMap) {
+        this.iframeMap = iframeMap;
     }
 
     public Entry getTheme() {
