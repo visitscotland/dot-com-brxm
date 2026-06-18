@@ -337,7 +337,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 987c4da5-4d64-4d89-b713-a09aad717d56
     hippo:name: Itinerary Page
-    hippo:versionHistory: f4cd1dfa-8f89-4340-8e0c-7131ed4a531f
+    hippo:versionHistory: 8abf44e4-c9be-45cb-ab38-47d0e705ae3a
     /itineraries[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -347,7 +347,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:25:09.151+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-18T15:43:55.911+01:00
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
@@ -375,7 +375,7 @@
           überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute, bis, Geöffnet,
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
         Kartenansicht, Listenansicht, Ausstattung, Auf Google Maps ansehen, Reisevorschlag
-          in Google Maps sehen, '']
+          in Google Maps sehen, Wichtige Informationen]
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, días, Distancia, Temas principales,
         mi, km, Transporte, día, millas, Kilómetros, Destacado, Áreas recorridas,
@@ -383,7 +383,7 @@
           principal, Consulta los horarios de apertura, hora, horas, Normalmente,
         Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado temporalmente,
         y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
-        Ver en Google Maps, Ver el itinerario en Google Maps, '']
+        Ver en Google Maps, Ver el itinerario en Google Maps, Información importante]
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -392,7 +392,7 @@
         Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
         Infrastructures, Visualiser sur Google Maps, Visualiser l’itinéraire sur Google
-          Maps, '']
+          Maps, L’essentiel]
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
@@ -400,7 +400,7 @@
         Tema principale, Controlla gli orari di apertura, ora, ore, Solitamente, Provvisoriamente,
         oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
           dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave, Visualizza
-          su Google Maps, Visualizza il percorso su Google Maps, '']
+          su Google Maps, Visualizza il percorso su Google Maps, Informazioni importanti]
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Einde, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, mijl, Kilometer, Hoogtepunten, Bestreken gebieden, Deze stop heeft geen
@@ -408,7 +408,7 @@
         uur, uur, Gewoonlijk, Onder voorbehoud, vandaag, naar, Geopend, Gesloten,
         Sluit snel, Tijdelijk gesloten, en, Einde van de route, Toon kaart, Toon lijst,
         Faciliteiten, Op Google Maps bekijken, Reisroute op Google Maps bekijken,
-        '']
+        Belangrijke informatie]
     /itineraries[2]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:versionable']
@@ -418,7 +418,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:25:25.714+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-18T15:44:21.770+01:00
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
@@ -446,7 +446,7 @@
           überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute, bis, Geöffnet,
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
         Kartenansicht, Listenansicht, Ausstattung, Auf Google Maps ansehen, Reisevorschlag
-          in Google Maps sehen, '']
+          in Google Maps sehen, Wichtige Informationen]
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, días, Distancia, Temas principales,
         mi, km, Transporte, día, millas, Kilómetros, Destacado, Áreas recorridas,
@@ -454,7 +454,7 @@
           principal, Consulta los horarios de apertura, hora, horas, Normalmente,
         Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado temporalmente,
         y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
-        Ver en Google Maps, Ver el itinerario en Google Maps, '']
+        Ver en Google Maps, Ver el itinerario en Google Maps, Información importante]
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -463,7 +463,7 @@
         Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
         Infrastructures, Visualiser sur Google Maps, Visualiser l’itinéraire sur Google
-          Maps, '']
+          Maps, L’essentiel]
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
@@ -471,7 +471,7 @@
         Tema principale, Controlla gli orari di apertura, ora, ore, Solitamente, Provvisoriamente,
         oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
           dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave, Visualizza
-          su Google Maps, Visualizza il percorso su Google Maps, '']
+          su Google Maps, Visualizza il percorso su Google Maps, Informazioni importanti]
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Einde, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, mijl, Kilometer, Hoogtepunten, Bestreken gebieden, Deze stop heeft geen
@@ -479,7 +479,7 @@
         uur, uur, Gewoonlijk, Onder voorbehoud, vandaag, naar, Geopend, Gesloten,
         Sluit snel, Tijdelijk gesloten, en, Einde van de route, Toon kaart, Toon lijst,
         Faciliteiten, Op Google Maps bekijken, Reisroute op Google Maps bekijken,
-        '']
+        Belangrijke informatie]
     /itineraries[3]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -489,9 +489,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:25:25.714+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-18T15:44:21.770+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-06-10T15:25:30.850+01:00
+      hippostdpubwf:publicationDate: 2026-06-18T15:44:30.009+01:00
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
           range of time like: 9:00am to 13:00pm', '', '', '', '', '', '', '', '',
@@ -518,7 +518,7 @@
           überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute, bis, Geöffnet,
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
         Kartenansicht, Listenansicht, Ausstattung, Auf Google Maps ansehen, Reisevorschlag
-          in Google Maps sehen, '']
+          in Google Maps sehen, Wichtige Informationen]
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, días, Distancia, Temas principales,
         mi, km, Transporte, día, millas, Kilómetros, Destacado, Áreas recorridas,
@@ -526,7 +526,7 @@
           principal, Consulta los horarios de apertura, hora, horas, Normalmente,
         Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado temporalmente,
         y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
-        Ver en Google Maps, Ver el itinerario en Google Maps, '']
+        Ver en Google Maps, Ver el itinerario en Google Maps, Información importante]
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -535,7 +535,7 @@
         Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
         Infrastructures, Visualiser sur Google Maps, Visualiser l’itinéraire sur Google
-          Maps, '']
+          Maps, L’essentiel]
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
@@ -543,7 +543,7 @@
         Tema principale, Controlla gli orari di apertura, ora, ore, Solitamente, Provvisoriamente,
         oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
           dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave, Visualizza
-          su Google Maps, Visualizza il percorso su Google Maps, '']
+          su Google Maps, Visualizza il percorso su Google Maps, Informazioni importanti]
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Einde, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, mijl, Kilometer, Hoogtepunten, Bestreken gebieden, Deze stop heeft geen
@@ -551,12 +551,12 @@
         uur, uur, Gewoonlijk, Onder voorbehoud, vandaag, naar, Geopend, Gesloten,
         Sluit snel, Tijdelijk gesloten, en, Einde van de route, Toon kaart, Toon lijst,
         Faciliteiten, Op Google Maps bekijken, Reisroute op Google Maps bekijken,
-        '']
+        Belangrijke informatie]
   /seasons:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 3ab320b7-8fe8-47d8-87d2-ac5df7ca9bb5
-    hippo:versionHistory: 2e7c40da-ba55-48ea-bf1d-dc8976836736
+    hippo:versionHistory: cfef6012-fb5e-4d49-9983-1274c9b13189
     /seasons[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -566,18 +566,23 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2026-06-10T13:49:20.634+01:00
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:49:06.044+01:00
-      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:lastModificationDate: 2026-06-18T09:44:32.195+02:00
+      hippostdpubwf:lastModifiedBy: kirsten.sierag
       resourcebundle:descriptions: ['', '', '', '', '']
       resourcebundle:id: seasons
       resourcebundle:keys: [spring, summer, autumn, winter, all]
       resourcebundle:messages: [Visit in Spring, Visit in Summer, Visit in Autumn,
         Visit in Winter, Visit Year Round]
-      resourcebundle:messages_de: ['', '', '', '', '']
-      resourcebundle:messages_es: ['', '', '', '', '']
-      resourcebundle:messages_fr: ['', '', '', '', '']
-      resourcebundle:messages_it: ['', '', '', '', '']
-      resourcebundle:messages_nl: ['', '', '', '', '']
+      resourcebundle:messages_de: [Im Frühling besuchen, Im Sommer besuchen, Im Herbst
+          besuchen, Im Winter besuchen, Ganzjährig besuchen]
+      resourcebundle:messages_es: [Visitar en primavera, Visitar en verano, Visitar
+          en otoño, Visitar en invierno, Visitar en cualquier época del año]
+      resourcebundle:messages_fr: [Parcourir au printemps, Parcourir en été, Parcourir
+          en automne, Parcourir en hiver, Parcourir toute l’année]
+      resourcebundle:messages_it: [Visitare in primavera, Visitare in estate, Visitare
+          in autunno, Visitare in inverno, Da visitare tutto l'anno]
+      resourcebundle:messages_nl: [In de lente bezoeken, In de zomer bezoeken, In
+          de herfst bezoeken, In de winter bezoeken, Het hele jaar door bezoeken]
     /seasons[2]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -587,18 +592,23 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2026-06-10T13:49:20.634+01:00
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:51:10.125+01:00
-      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:lastModificationDate: 2026-06-18T09:45:41.527+02:00
+      hippostdpubwf:lastModifiedBy: kirsten.sierag
       resourcebundle:descriptions: ['', '', '', '', '']
       resourcebundle:id: seasons
       resourcebundle:keys: [spring, summer, autumn, winter, all]
       resourcebundle:messages: [Visit in Spring, Visit in Summer, Visit in Autumn,
         Visit in Winter, Visit Year Round]
-      resourcebundle:messages_de: ['', '', '', '', '']
-      resourcebundle:messages_es: ['', '', '', '', '']
-      resourcebundle:messages_fr: ['', '', '', '', '']
-      resourcebundle:messages_it: ['', '', '', '', '']
-      resourcebundle:messages_nl: ['', '', '', '', '']
+      resourcebundle:messages_de: [Im Frühling besuchen, Im Sommer besuchen, Im Herbst
+          besuchen, Im Winter besuchen, Ganzjährig besuchen]
+      resourcebundle:messages_es: [Visitar en primavera, Visitar en verano, Visitar
+          en otoño, Visitar en invierno, Visitar en cualquier época del año]
+      resourcebundle:messages_fr: [Parcourir au printemps, Parcourir en été, Parcourir
+          en automne, Parcourir en hiver, Parcourir toute l’année]
+      resourcebundle:messages_it: [Visitare in primavera, Visitare in estate, Visitare
+          in autunno, Visitare in inverno, Da visitare tutto l'anno]
+      resourcebundle:messages_nl: [In de lente bezoeken, In de zomer bezoeken, In
+          de herfst bezoeken, In de winter bezoeken, Het hele jaar door bezoeken]
     /seasons[3]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -608,16 +618,21 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2026-06-10T13:49:20.634+01:00
-      hippostdpubwf:lastModificationDate: 2026-06-10T15:51:10.125+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-06-10T15:51:21.997+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-18T09:45:41.527+02:00
+      hippostdpubwf:lastModifiedBy: kirsten.sierag
+      hippostdpubwf:publicationDate: 2026-06-18T09:45:58.419+02:00
       resourcebundle:descriptions: ['', '', '', '', '']
       resourcebundle:id: seasons
       resourcebundle:keys: [spring, summer, autumn, winter, all]
       resourcebundle:messages: [Visit in Spring, Visit in Summer, Visit in Autumn,
         Visit in Winter, Visit Year Round]
-      resourcebundle:messages_de: ['', '', '', '', '']
-      resourcebundle:messages_es: ['', '', '', '', '']
-      resourcebundle:messages_fr: ['', '', '', '', '']
-      resourcebundle:messages_it: ['', '', '', '', '']
-      resourcebundle:messages_nl: ['', '', '', '', '']
+      resourcebundle:messages_de: [Im Frühling besuchen, Im Sommer besuchen, Im Herbst
+          besuchen, Im Winter besuchen, Ganzjährig besuchen]
+      resourcebundle:messages_es: [Visitar en primavera, Visitar en verano, Visitar
+          en otoño, Visitar en invierno, Visitar en cualquier época del año]
+      resourcebundle:messages_fr: [Parcourir au printemps, Parcourir en été, Parcourir
+          en automne, Parcourir en hiver, Parcourir toute l’année]
+      resourcebundle:messages_it: [Visitare in primavera, Visitare in estate, Visitare
+          in autunno, Visitare in inverno, Da visitare tutto l'anno]
+      resourcebundle:messages_nl: [In de lente bezoeken, In de zomer bezoeken, In
+          de herfst bezoeken, In de winter bezoeken, Het hele jaar door bezoeken]
