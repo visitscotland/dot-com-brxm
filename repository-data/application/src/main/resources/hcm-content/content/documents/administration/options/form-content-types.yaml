@@ -16,13 +16,5 @@
       selection:label: Default
     /selection:listitem[2]:
       jcr:primaryType: selection:listitem
-      selection:key: double_opt_in
-      selection:label: Double Opt-in
-    /selection:listitem[3]:
-      jcr:primaryType: selection:listitem
-      selection:key: consent
-      selection:label: VisitScotland Consent
-    /selection:listitem[4]:
-      jcr:primaryType: selection:listitem
       selection:key: partner_consent
       selection:label: Partner Consent
