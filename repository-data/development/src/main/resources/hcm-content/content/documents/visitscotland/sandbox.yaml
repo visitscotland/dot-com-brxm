@@ -45494,9 +45494,9 @@
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 912f3542-05b5-4e99-8f10-cf4e787ba300
             hippo:availability: []
-            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
             hippostdpubwf:lastModificationDate: 2026-06-11T16:18:08.402+01:00
@@ -49953,9 +49953,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
-          hippostdpubwf:lastModificationDate: 2026-04-23T13:01:52.560+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-23T11:59:01.130+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 65840432-c371-4790-956b-d94ac1aecc17
           hippotranslation:locale: en
@@ -49972,12 +49973,6 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-          /visitscotland:ctaLink:
-            jcr:primaryType: visitscotland:CMSLink
-            visitscotland:label: cta test
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
         /spotlight-test-copy[3]:
           jcr:primaryType: visitscotland:Spotlight
           jcr:mixinTypes: ['mix:referenceable']
@@ -50016,7 +50011,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: eb3876cb-2b18-4de6-b9a3-ae3221583ae1
         hippo:name: spotlight compact
-        hippo:versionHistory: 2d81d8be-936a-40ed-8832-5f9bb47791a2
+        hippo:versionHistory: 7cf10104-0e24-4c47-8508-45e2eeb01b25
         /spotlight-compact[1]:
           jcr:primaryType: visitscotland:Spotlight
           jcr:mixinTypes: ['mix:referenceable']
@@ -50026,7 +50021,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
-          hippostdpubwf:lastModificationDate: 2026-04-23T13:03:06.418+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-23T12:47:47.609+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 7c060e78-53d4-44af-b7a8-faf68f5cc340
           hippotranslation:locale: en
@@ -50044,11 +50039,9 @@
             hippo:modes: []
             hippo:values: []
           /visitscotland:ctaLink:
-            jcr:primaryType: visitscotland:CMSLink
-            visitscotland:label: cta test
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Test search
+            visitscotland:link: https://www.visitscotland.com/site-search-results?category=events&page=1&from-date=2026-06-23
         /spotlight-compact[2]:
           jcr:primaryType: visitscotland:Spotlight
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -50058,7 +50051,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
-          hippostdpubwf:lastModificationDate: 2026-04-23T13:03:12.250+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-23T09:47:34.882+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 7c060e78-53d4-44af-b7a8-faf68f5cc340
           hippotranslation:locale: en
@@ -50076,11 +50069,9 @@
             hippo:modes: []
             hippo:values: []
           /visitscotland:ctaLink:
-            jcr:primaryType: visitscotland:CMSLink
-            visitscotland:label: cta test
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Test search
+            visitscotland:link: https://www.visitscotland.com/site-search-results?category=events&page=1&from-date=2026-06-23
         /spotlight-compact[3]:
           jcr:primaryType: visitscotland:Spotlight
           jcr:mixinTypes: ['mix:referenceable']
@@ -50090,9 +50081,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
-          hippostdpubwf:lastModificationDate: 2026-04-23T13:03:12.250+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-23T09:47:34.882+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2026-04-23T13:04:15.922+01:00
+          hippostdpubwf:publicationDate: 2026-06-23T12:47:36.921+01:00
           hippotranslation:id: 7c060e78-53d4-44af-b7a8-faf68f5cc340
           hippotranslation:locale: en
           visitscotland:anchor: anchor
@@ -50109,11 +50100,9 @@
             hippo:modes: []
             hippo:values: []
           /visitscotland:ctaLink:
-            jcr:primaryType: visitscotland:CMSLink
-            visitscotland:label: cta test
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Test search
+            visitscotland:link: https://www.visitscotland.com/site-search-results?category=events&page=1&from-date=2026-06-23
       /spotlight-with-ambient-video:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -50164,9 +50153,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
-          hippostdpubwf:lastModificationDate: 2026-04-23T13:00:22.496+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-23T11:47:49.863+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: fca9689e-f1e1-456d-8af8-ede49c56b3a3
           hippotranslation:locale: en
@@ -50313,6 +50303,238 @@
             /visitscotland:videoLink:
               jcr:primaryType: hippo:mirror
               hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
+        /spotlight-with-ambient-video-compact[3]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 26dd91f7-13da-4ece-8c4f-3b7c3babe6ce
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-10-28T16:14:02.094Z
+          hippostdpubwf:lastModificationDate: 2026-06-23T11:52:13.127+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 32e55f7e-2949-49ee-90a7-09b64768e339
+          hippotranslation:locale: en
+          visitscotland:layout: compact
+          visitscotland:title: This is a spotlight module
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This <em>spotlight&nbsp;</em>module has an ambient
+              video. Sit back and chill</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 43c4e6d8-5284-444c-be54-4f251f34fa9b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: cta test
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 2cd6819b-dc3e-4884-9942-f3b64c744de1
+          /visitscotland:video:
+            jcr:primaryType: visitscotland:VideoLink
+            /visitscotland:videoLink:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 367a959d-985e-463d-94d1-13bb603ab044
+      /spotlight-to-global-search-url:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 7fd2fc2d-79aa-4925-868c-3a8062ab73d3
+        hippo:name: Spotlight to global search URL
+        hippo:versionHistory: d3e5c0ef-31b5-4e61-a60b-6abd45447b21
+        /spotlight-to-global-search-url[1]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 2d4207d9-2d5f-4869-b680-992f7cada729
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-06-23T11:50:42.688+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-23T12:46:45.467+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: abc9f36c-39e7-4ade-bd66-c6bbdd07fedd
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:layout: compact
+          visitscotland:title: FIlm events
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Discover film events</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Find more film events
+            visitscotland:link: https://www.visitscotland.com/site-search-results?category=events&subcategories=filmgroup&page=1&from-date=2026-06-23&locations=paisley
+        /spotlight-to-global-search-url[2]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 40775d79-9994-4f3e-94f5-5972f5e2b161
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-06-23T11:50:42.688+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-23T12:46:50.538+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: abc9f36c-39e7-4ade-bd66-c6bbdd07fedd
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:layout: compact
+          visitscotland:title: FIlm events
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Discover film events</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Find more film events
+            visitscotland:link: https://www.visitscotland.com/site-search-results?category=events&subcategories=filmgroup&page=1&from-date=2026-06-23&locations=paisley
+        /spotlight-to-global-search-url[3]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 43f64f56-e6ac-42a4-a059-87bde2084e86
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-06-23T11:50:42.688+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-23T12:46:50.538+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-06-23T12:46:53.816+01:00
+          hippotranslation:id: abc9f36c-39e7-4ade-bd66-c6bbdd07fedd
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:layout: compact
+          visitscotland:title: FIlm events
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Discover film events</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Find more film events
+            visitscotland:link: https://www.visitscotland.com/site-search-results?category=events&subcategories=filmgroup&page=1&from-date=2026-06-23&locations=paisley
+      /spotlight-to-external:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: e6a90a5c-6e58-4b6a-8c21-151f48892f03
+        hippo:name: Spotlight to external
+        hippo:versionHistory: 2c8517d8-5a6b-4c71-964e-d4964e1e01ae
+        /spotlight-to-external[1]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 363a90bb-45b0-48b9-8e0c-04ddc5899e41
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-06-23T11:53:33.081+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-23T11:57:02.842+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 55a38d23-4009-4e7a-9f3f-18c7adc286c5
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:layout: default
+          visitscotland:title: Spotlight to external page
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Spotlight to external page copy</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Link to google
+            visitscotland:link: https://www.google.com
+        /spotlight-to-external[2]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: d1785339-644d-4c6e-841a-413b87834d7a
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-06-23T11:53:33.081+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-23T12:44:46.846+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 55a38d23-4009-4e7a-9f3f-18c7adc286c5
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:layout: default
+          visitscotland:title: Spotlight to external page
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Spotlight to external page copy</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Link to google
+            visitscotland:link: https://www.google.com
+        /spotlight-to-external[3]:
+          jcr:primaryType: visitscotland:Spotlight
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 993b31ce-7608-4c0c-bd2a-b31b95a04e3b
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2026-06-23T11:53:33.081+01:00
+          hippostdpubwf:lastModificationDate: 2026-06-23T12:44:46.846+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2026-06-23T12:45:15.210+01:00
+          hippotranslation:id: 55a38d23-4009-4e7a-9f3f-18c7adc286c5
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:layout: default
+          visitscotland:title: Spotlight to external page
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Spotlight to external page copy</p>
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Link to google
+            visitscotland:link: https://www.google.com
       /spotlight-with-youtube-video-wrong:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
