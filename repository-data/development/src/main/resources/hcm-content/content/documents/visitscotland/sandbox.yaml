@@ -32297,7 +32297,7 @@
             jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
             jcr:uuid: bdeb5c6a-9351-44ab-a5e1-113bf8396005
             hippo:name: Glencoe Ski Centre
-            hippo:versionHistory: 66b34cad-605f-45d4-a80c-568ee1a28ad3
+            hippo:versionHistory: 6ed053b9-f4d9-4bf1-bc5a-88177a473ee9
             /glencoe-ski-centre[1]:
               jcr:primaryType: visitscotland:SkiCentre
               jcr:mixinTypes: ['mix:referenceable']
@@ -32307,23 +32307,26 @@
               hippostd:state: draft
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2023-01-11T17:54:28.024Z
-              hippostdpubwf:lastModificationDate: 2026-06-22T16:38:41.199+01:00
+              hippostdpubwf:lastModificationDate: 2026-06-23T14:59:54.636+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotranslation:id: 6fbe0b43-1439-4c42-b8ab-b0a08802df3c
               hippotranslation:locale: en
               visitscotland:address: Kingshouse, Glencoe, Glencoe, PH49 4HZ
-              visitscotland:feed: http://glencoe.infonet-online.fr/json/snowreport.json
+              visitscotland:feed: https://glencoe.infonet-online.fr/json/snowreport.json
               visitscotland:pisteMap: https://static.visitscotland.com/pdf/glencoe-mountain-piste-map.pdf
               visitscotland:productId: '990461'
+              visitscotland:socialChannels: ['https://www.facebook.com/pages/Glencoe-Mountain-Resort/111429118884878?ref=nf',
+                'https://twitter.com/glencoemountain']
               visitscotland:telephone: 01855 851226
               visitscotland:title: Latest Conditions at Glencoe
               visitscotland:translation: ''
               visitscotland:website: http://www.glencoemountain.co.uk/
               /visitscotland:copy:
                 jcr:primaryType: hippostd:html
-                hippostd:content: <p>Find detailed information for Glencoe below,
-                  with up-to-date snow reports, weather forecasts &amp; lift and road
-                  statuses.</p>
+                hippostd:content: |-
+                  <p>Find detailed information for Glencoe below, with up-to-date snow reports, weather forecasts &amp; lift and road statuses.<br />
+                  <br />
+                  This page is based on&nbsp;<a href="https://www.visitscotland.com/things-to-do/outdoor-activities/skiing-snowsports/glencoe">https://www.visitscotland.com/things-to-do/outdoor-activities/skiing-snowsports/glencoe</a></p>
               /visitscotland:socialMedia[1]:
                 jcr:primaryType: selection:listitem
                 selection:key: facebook
@@ -32341,23 +32344,26 @@
               hippostd:state: unpublished
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2023-01-11T17:54:28.024Z
-              hippostdpubwf:lastModificationDate: 2026-06-22T16:39:27.255+01:00
+              hippostdpubwf:lastModificationDate: 2026-06-23T15:03:31.860+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotranslation:id: 6fbe0b43-1439-4c42-b8ab-b0a08802df3c
               hippotranslation:locale: en
               visitscotland:address: Kingshouse, Glencoe, Glencoe, PH49 4HZ
-              visitscotland:feed: http://glencoe.infonet-online.fr/json/snowreport.json
+              visitscotland:feed: https://glencoe.infonet-online.fr/json/snowreport.json
               visitscotland:pisteMap: https://static.visitscotland.com/pdf/glencoe-mountain-piste-map.pdf
               visitscotland:productId: '990461'
+              visitscotland:socialChannels: ['https://www.facebook.com/pages/Glencoe-Mountain-Resort/111429118884878?ref=nf',
+                'https://twitter.com/glencoemountain']
               visitscotland:telephone: 01855 851226
               visitscotland:title: Latest Conditions at Glencoe
               visitscotland:translation: ''
               visitscotland:website: http://www.glencoemountain.co.uk/
               /visitscotland:copy:
                 jcr:primaryType: hippostd:html
-                hippostd:content: <p>Find detailed information for Glencoe below,
-                  with up-to-date snow reports, weather forecasts &amp; lift and road
-                  statuses.</p>
+                hippostd:content: |-
+                  <p>Find detailed information for Glencoe below, with up-to-date snow reports, weather forecasts &amp; lift and road statuses.<br />
+                  <br />
+                  This page is based on&nbsp;<a href="https://www.visitscotland.com/things-to-do/outdoor-activities/skiing-snowsports/glencoe">https://www.visitscotland.com/things-to-do/outdoor-activities/skiing-snowsports/glencoe</a></p>
               /visitscotland:socialMedia[1]:
                 jcr:primaryType: selection:listitem
                 selection:key: facebook
@@ -32375,24 +32381,27 @@
               hippostd:state: published
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2023-01-11T17:54:28.024Z
-              hippostdpubwf:lastModificationDate: 2026-06-22T16:39:27.255+01:00
+              hippostdpubwf:lastModificationDate: 2026-06-23T15:03:31.860+01:00
               hippostdpubwf:lastModifiedBy: admin
-              hippostdpubwf:publicationDate: 2026-06-22T16:39:30.881+01:00
+              hippostdpubwf:publicationDate: 2026-06-23T15:03:36.329+01:00
               hippotranslation:id: 6fbe0b43-1439-4c42-b8ab-b0a08802df3c
               hippotranslation:locale: en
               visitscotland:address: Kingshouse, Glencoe, Glencoe, PH49 4HZ
-              visitscotland:feed: http://glencoe.infonet-online.fr/json/snowreport.json
+              visitscotland:feed: https://glencoe.infonet-online.fr/json/snowreport.json
               visitscotland:pisteMap: https://static.visitscotland.com/pdf/glencoe-mountain-piste-map.pdf
               visitscotland:productId: '990461'
+              visitscotland:socialChannels: ['https://www.facebook.com/pages/Glencoe-Mountain-Resort/111429118884878?ref=nf',
+                'https://twitter.com/glencoemountain']
               visitscotland:telephone: 01855 851226
               visitscotland:title: Latest Conditions at Glencoe
               visitscotland:translation: ''
               visitscotland:website: http://www.glencoemountain.co.uk/
               /visitscotland:copy:
                 jcr:primaryType: hippostd:html
-                hippostd:content: <p>Find detailed information for Glencoe below,
-                  with up-to-date snow reports, weather forecasts &amp; lift and road
-                  statuses.</p>
+                hippostd:content: |-
+                  <p>Find detailed information for Glencoe below, with up-to-date snow reports, weather forecasts &amp; lift and road statuses.<br />
+                  <br />
+                  This page is based on&nbsp;<a href="https://www.visitscotland.com/things-to-do/outdoor-activities/skiing-snowsports/glencoe">https://www.visitscotland.com/things-to-do/outdoor-activities/skiing-snowsports/glencoe</a></p>
               /visitscotland:socialMedia[1]:
                 jcr:primaryType: selection:listitem
                 selection:key: facebook
@@ -32523,7 +32532,7 @@
             jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
             jcr:uuid: 103e6cca-06b6-4457-827b-037a199592a1
             hippo:name: Cairngorms
-            hippo:versionHistory: c0a8deed-ba95-4294-8271-da3b8f125602
+            hippo:versionHistory: 56deee49-fef9-454b-8b8d-b2b8b49d5ddd
             /cairngorms[1]:
               jcr:primaryType: visitscotland:SkiCentre
               jcr:mixinTypes: ['mix:referenceable']
@@ -32533,7 +32542,7 @@
               hippostd:state: draft
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2023-01-24T11:01:55.120Z
-              hippostdpubwf:lastModificationDate: 2026-06-22T16:39:40.784+01:00
+              hippostdpubwf:lastModificationDate: 2026-06-23T15:11:32.368+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotranslation:id: 73837c7a-fbe3-4ae4-8984-83cab5750ca3
               hippotranslation:locale: en
@@ -32541,6 +32550,8 @@
               visitscotland:feed: https://www.cairngormmountain.co.uk/_mountain_feed/?json
               visitscotland:pisteMap: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.pdf
               visitscotland:productId: '2165531'
+              visitscotland:socialChannels: ['https://www.instagram.com/cairngormmountain/',
+                'https://www.facebook.com/cairngormmountainscotlandltd/']
               visitscotland:telephone: +44 1479 861261
               visitscotland:title: Cairngorms
               visitscotland:translation: ''
@@ -32562,7 +32573,7 @@
               hippostd:state: unpublished
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2023-01-24T11:01:55.120Z
-              hippostdpubwf:lastModificationDate: 2026-06-22T16:40:27.432+01:00
+              hippostdpubwf:lastModificationDate: 2026-06-23T15:04:19.767+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotranslation:id: 73837c7a-fbe3-4ae4-8984-83cab5750ca3
               hippotranslation:locale: en
@@ -32570,6 +32581,8 @@
               visitscotland:feed: https://www.cairngormmountain.co.uk/_mountain_feed/?json
               visitscotland:pisteMap: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.pdf
               visitscotland:productId: '2165531'
+              visitscotland:socialChannels: ['https://www.instagram.com/cairngormmountain/',
+                'https://www.facebook.com/cairngormmountainscotlandltd/']
               visitscotland:telephone: +44 1479 861261
               visitscotland:title: Cairngorms
               visitscotland:translation: ''
@@ -32591,15 +32604,17 @@
               hippostd:state: published
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2023-01-24T11:01:55.120Z
-              hippostdpubwf:lastModificationDate: 2026-06-22T16:40:27.432+01:00
+              hippostdpubwf:lastModificationDate: 2026-06-23T15:04:19.767+01:00
               hippostdpubwf:lastModifiedBy: admin
-              hippostdpubwf:publicationDate: 2026-06-22T16:40:31.109+01:00
+              hippostdpubwf:publicationDate: 2026-06-23T15:04:25.099+01:00
               hippotranslation:id: 73837c7a-fbe3-4ae4-8984-83cab5750ca3
               hippotranslation:locale: en
               visitscotland:address: Cairngorm Ski Area, Aviemore, PH22 1RB
               visitscotland:feed: https://www.cairngormmountain.co.uk/_mountain_feed/?json
               visitscotland:pisteMap: https://static.visitscotland.com/pdf/cairngorm-mountain-piste-map.pdf
               visitscotland:productId: '2165531'
+              visitscotland:socialChannels: ['https://www.instagram.com/cairngormmountain/',
+                'https://www.facebook.com/cairngormmountainscotlandltd/']
               visitscotland:telephone: +44 1479 861261
               visitscotland:title: Cairngorms
               visitscotland:translation: ''
