@@ -10814,7 +10814,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: d1fe995f-67c8-45ec-a7e7-9ff4e74868aa
           hippo:name: Dunkeld
-          hippo:versionHistory: e2cb92ce-3d95-4979-9785-ed01188da05e
+          hippo:versionHistory: b6395993-123e-4c19-9e9e-87d297eacaa2
           /dunkeld[1]:
             jcr:primaryType: visitscotland:Day
             jcr:mixinTypes: ['mix:referenceable']
@@ -10824,7 +10824,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-28T10:48:55.708Z
-            hippostdpubwf:lastModificationDate: 2026-01-29T10:48:25.159Z
+            hippostdpubwf:lastModificationDate: 2026-06-23T14:17:02.002+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: dbfd24f2-a9dd-4d21-93bc-905e53f50c7d
             hippotranslation:locale: en
@@ -10871,6 +10871,32 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media[1]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[2]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[3]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[4]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
           /dunkeld[2]:
             jcr:primaryType: visitscotland:Day
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -10880,7 +10906,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-28T10:48:55.708Z
-            hippostdpubwf:lastModificationDate: 2026-01-29T10:49:02.816Z
+            hippostdpubwf:lastModificationDate: 2026-06-23T14:17:01.884+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: dbfd24f2-a9dd-4d21-93bc-905e53f50c7d
             hippotranslation:locale: en
@@ -10927,6 +10953,32 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media[1]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[2]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[3]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[4]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
           /dunkeld[3]:
             jcr:primaryType: visitscotland:Day
             jcr:mixinTypes: ['mix:referenceable']
@@ -10936,9 +10988,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-28T10:48:55.708Z
-            hippostdpubwf:lastModificationDate: 2026-01-29T10:49:02.816Z
+            hippostdpubwf:lastModificationDate: 2026-06-23T14:17:01.884+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-01-29T10:49:08.064Z
+            hippostdpubwf:publicationDate: 2026-06-23T14:17:05.730+01:00
             hippotranslation:id: dbfd24f2-a9dd-4d21-93bc-905e53f50c7d
             hippotranslation:locale: en
             visitscotland:title: Dunkeld
@@ -10984,12 +11036,38 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media[1]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 474b6db8-ab37-4128-a2e6-e857afc43dfb
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[2]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: c59864d9-3bbc-44f5-af01-3f3aeca21575
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[3]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: d7cde611-803a-46b2-88a9-0975ca490b7f
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /visitscotland:media[4]:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 8aba559b-049a-47c9-9872-73a2c5aa2d57
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
         /ross-of-mull:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 176560f7-3524-4e28-9626-e0edcb70e285
           hippo:name: Ross of Mull
-          hippo:versionHistory: 231a1e99-b837-4ee5-8d76-517449bb664e
+          hippo:versionHistory: 27532dca-08ac-49c6-b4c2-fb663bd04ead
           /ross-of-mull[1]:
             jcr:primaryType: visitscotland:Day
             jcr:mixinTypes: ['mix:referenceable']
@@ -10999,7 +11077,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-28T11:11:18.989Z
-            hippostdpubwf:lastModificationDate: 2026-01-29T10:51:18.260Z
+            hippostdpubwf:lastModificationDate: 2026-06-23T14:17:07.977+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 3bc7e63e-4ddb-4535-b01f-70a65fff818f
             hippotranslation:locale: en
@@ -11042,6 +11120,13 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
           /ross-of-mull[2]:
             jcr:primaryType: visitscotland:Day
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -11051,7 +11136,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-28T11:11:18.989Z
-            hippostdpubwf:lastModificationDate: 2026-01-29T10:51:47.233Z
+            hippostdpubwf:lastModificationDate: 2026-06-23T14:17:30.239+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 3bc7e63e-4ddb-4535-b01f-70a65fff818f
             hippotranslation:locale: en
@@ -11094,6 +11179,13 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
           /ross-of-mull[3]:
             jcr:primaryType: visitscotland:Day
             jcr:mixinTypes: ['mix:referenceable']
@@ -11103,9 +11195,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-28T11:11:18.989Z
-            hippostdpubwf:lastModificationDate: 2026-01-29T10:51:47.233Z
+            hippostdpubwf:lastModificationDate: 2026-06-23T14:17:30.239+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-01-29T10:51:55.209Z
+            hippostdpubwf:publicationDate: 2026-06-23T14:17:32.544+01:00
             hippotranslation:id: 3bc7e63e-4ddb-4535-b01f-70a65fff818f
             hippotranslation:locale: en
             visitscotland:title: Isle of Mull
@@ -11147,12 +11239,19 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: visitscotland:VideoLink
+                /visitscotland:videoLink:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: b193d2fa-424d-44b0-a720-1d2cb5cf0184
         /iona--mull:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: db3c0a4e-a441-4f15-9f8f-1ba6b9b269c0
           hippo:name: Iona & Mull
-          hippo:versionHistory: 5976402b-9b6c-419c-b76d-8351275d6b82
+          hippo:versionHistory: 445f3160-73a3-413a-bae0-37697bccf85e
           /iona--mull[1]:
             jcr:primaryType: visitscotland:Day
             jcr:mixinTypes: ['mix:referenceable']
@@ -11162,7 +11261,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-28T11:24:12.053Z
-            hippostdpubwf:lastModificationDate: 2026-01-29T10:52:01.400Z
+            hippostdpubwf:lastModificationDate: 2026-06-23T14:17:34.757+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: a8a88372-989c-4514-a68c-4b5bbafdb0ce
             hippotranslation:locale: en
@@ -11198,6 +11297,14 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
           /iona--mull[2]:
             jcr:primaryType: visitscotland:Day
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -11207,7 +11314,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-28T11:24:12.053Z
-            hippostdpubwf:lastModificationDate: 2026-01-29T10:52:24.899Z
+            hippostdpubwf:lastModificationDate: 2026-06-23T14:17:44.419+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: a8a88372-989c-4514-a68c-4b5bbafdb0ce
             hippotranslation:locale: en
@@ -11243,6 +11350,14 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
           /iona--mull[3]:
             jcr:primaryType: visitscotland:Day
             jcr:mixinTypes: ['mix:referenceable']
@@ -11252,9 +11367,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-01-28T11:24:12.053Z
-            hippostdpubwf:lastModificationDate: 2026-01-29T10:52:24.899Z
+            hippostdpubwf:lastModificationDate: 2026-06-23T14:17:44.419+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-01-29T10:52:31.365Z
+            hippostdpubwf:publicationDate: 2026-06-23T14:17:46.686+01:00
             hippotranslation:id: a8a88372-989c-4514-a68c-4b5bbafdb0ce
             hippotranslation:locale: en
             visitscotland:title: Iona & Mull
@@ -11289,6 +11404,14 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+            /visitscotland:mediaCollection:
+              jcr:primaryType: visitscotland:MediaCollection
+              /visitscotland:media:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 4772eda7-856d-44bf-b1f7-9f1344ebb056
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
     /listicle:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -45435,7 +45558,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 3ab4999a-aa48-4dec-8812-f94b66cf239c
           hippo:name: BREG Form
-          hippo:versionHistory: 816587de-7019-4c42-8ef2-e78e668fc855
+          hippo:versionHistory: 91ed53b4-a2c5-4d5b-8004-b6139c7ec686
           /breg-form-copy[1]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:versionable']
@@ -45445,7 +45568,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2026-06-10T15:57:49.721+01:00
+            hippostdpubwf:lastModificationDate: 2026-06-23T14:15:04.231+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: de2f4a55-8dcc-4de3-aff8-872dbafa05ee
             hippotranslation:locale: en
@@ -45480,6 +45603,12 @@
                 visitscotland:value: Please tick if you would like to receive offers
                   and promotions from The Open Experiences and updates about The Open
                   and other R&A Championships
+              /visitscotland:consents[3]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: ''
+                visitscotland:key: jose_consent
+                visitscotland:optional: false
+                visitscotland:value: jfdkasdfas
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: |-
@@ -45494,7 +45623,6 @@
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 912f3542-05b5-4e99-8f10-cf4e787ba300
             hippo:availability: []
-            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
@@ -45558,9 +45686,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2026-06-10T15:57:49.721+01:00
+            hippostdpubwf:lastModificationDate: 2026-06-23T14:15:04.231+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-06-10T15:58:29.159+01:00
+            hippostdpubwf:publicationDate: 2026-06-23T14:15:13.987+01:00
             hippotranslation:id: de2f4a55-8dcc-4de3-aff8-872dbafa05ee
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: ''
@@ -45594,6 +45722,12 @@
                 visitscotland:value: Please tick if you would like to receive offers
                   and promotions from The Open Experiences and updates about The Open
                   and other R&A Championships
+              /visitscotland:consents[3]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: ''
+                visitscotland:key: jose_consent
+                visitscotland:optional: false
+                visitscotland:value: jfdkasdfas
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: |-
