@@ -74,7 +74,7 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
             module.setWebsite(new FlatLink(document.getWebsite(), document.getWebsite(), LinkType.EXTERNAL));
         }
 
-        module.setSocialChannelsURLs(document.getSocialChannels());
+        module.setSocialChannelURLs(document.getSocialChannels());
 
         return module;
     }

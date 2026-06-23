@@ -25,7 +25,7 @@ public class SkiModule extends Module<SkiCentre> {
     private Integer timeout;
 
     private List<JsonNode> socialChannels;
-    private String[] socialChannelsURLs;
+    private String[] socialChannelURLs;
 
 
     public String getTitle() {
@@ -124,11 +124,11 @@ public class SkiModule extends Module<SkiCentre> {
         this.socialChannels = socialChannels;
     }
 
-    public String[] getSocialChannelsURLs() {
-        return socialChannelsURLs;
+    public String[] getSocialChannelURLs() {
+        return socialChannelURLs;
     }
 
-    public void setSocialChannelsURLs(String[] socialChannelsURLs) {
-        this.socialChannelsURLs = socialChannelsURLs;
+    public void setSocialChannelURLs(String[] socialChannelURLs) {
+        this.socialChannelURLs = socialChannelURLs;
     }
 }

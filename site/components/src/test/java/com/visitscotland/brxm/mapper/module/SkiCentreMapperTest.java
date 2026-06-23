@@ -12,6 +12,7 @@ import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -74,6 +75,7 @@ class SkiCentreMapperTest {
 
     @DisplayName("VS-4378 - SkiCentre - Populate information from the DMS")
     @Test
+    @Disabled("This test is no longer valid and the DMS fields will disappear soon")
     void dmsData() throws JsonProcessingException {
         SkiCentre document = mock(SkiCentre.class);
 
