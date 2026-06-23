@@ -60,6 +60,31 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
          * Note: ProductID is currently mandatory in the CMS but, the DMS might be retired by the end of 2025 and this
          * field might be removed
          */
+        addDMSData(document, module, locale);
+
+        if (!Contract.isEmpty(document.getTelephone())) {
+            module.setPhone(document.getTelephone());
+        }
+
+        if (!Contract.isEmpty(document.getAddress())) {
+            module.setAddressLine(document.getAddress());
+        }
+
+        if (!Contract.isEmpty(document.getWebsite())) {
+            module.setWebsite(new FlatLink(document.getWebsite(), document.getWebsite(), LinkType.EXTERNAL));
+        }
+
+        module.setSocialChannelsURLs(document.getSocialChannels());
+
+        return module;
+    }
+
+    /*
+     * Note: ProductID is currently mandatory in the CMS but, the DMS might be retired by the end of 2025 and this
+     * field might be removed
+     */
+    @Deprecated
+    private void addDMSData(SkiCentre document, SkiModule module, Locale locale) {
         if (!Contract.isEmpty(document.getProductId())) {
             JsonNode product = dataService.productCard(document.getProductId(), locale);
 
@@ -71,8 +96,6 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
                 populateDmsData(module, product, locale);
             }
         }
-
-        return module;
     }
 
     /**
@@ -82,11 +105,13 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
      *
      * @param product JSON Object containing the Product data.
      */
+    @Deprecated
     private void populateDmsData(@NotNull SkiModule module, @NotNull JsonNode product,@NotNull Locale locale){
         List<JsonNode> links;
 
         if (product.has(ADDRESS)) {
             module.setAddress(product.get(ADDRESS));
+            module.setAddressLine(fromAddressNode(product.get(ADDRESS)));
         }
 
         if (product.has(TELEPHONE_NUMBER)) {
@@ -94,7 +119,7 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
         }
 
         if (product.has(WEBSITE)) {
-            module.setWebsite(product.get(WEBSITE));
+            module.setWebsite(fromJson(product.get(WEBSITE)));
         }
 
         if (product.has(OPENING)){
@@ -116,5 +141,46 @@ public class SkiCentreMapper extends ModuleMapper<SkiCentre, SkiModule> {
              links = Collections.emptyList();
         }
         module.setSocialChannels(links);
+    }
+
+    @Deprecated
+    private FlatLink fromJson(JsonNode node) {
+        FlatLink link = new FlatLink();
+        link.setType(LinkType.EXTERNAL);
+        link.setLink(node.get(URL_LINK).asText());
+        link.setLabel(node.get(LINK_LABEL).asText());
+
+        return link;
+    }
+
+    private String fromAddressNode(JsonNode node) {
+        StringBuilder sb = new StringBuilder();
+
+        if (node.has("line1")){
+            sb.append(node.get("line1").asText());
+        }
+
+        if (node.has("line2")){
+            if (sb.length() > 0) {
+                sb.append(", ");
+            }
+            sb.append(node.get("line2").asText());
+        }
+
+        if (node.has("city")){
+            if (sb.length() > 0) {
+                sb.append(", ");
+            }
+            sb.append(node.get("city").asText());
+        }
+
+        if (node.has("postCode")){
+            if (sb.length() > 0) {
+                sb.append(", ");
+            }
+            sb.append(node.get("postCode").asText());
+        }
+
+        return sb.toString();
     }
 }
