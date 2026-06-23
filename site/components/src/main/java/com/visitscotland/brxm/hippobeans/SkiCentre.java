@@ -3,6 +3,8 @@ package com.visitscotland.brxm.hippobeans;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+import org.onehippo.forge.selection.hst.contentbean.ValueListItem;
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -75,7 +77,7 @@ public class SkiCentre extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:socialMedia", allowModifications = false)
-    public List<Entry> getSocialMedia() {
+    public List<ValueListItem> getSocialMedia() {
         return getChildBeansByName("visitscotland:socialMedia");
     }
 }
