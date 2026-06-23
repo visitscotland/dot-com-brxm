@@ -4,6 +4,7 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import java.util.Calendar;
+import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:SkiCentre")
 @Node(jcrType = "visitscotland:SkiCentre")
@@ -56,5 +57,25 @@ public class SkiCentre extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:pisteMap")
     public String getPisteMap() {
         return getSingleProperty("visitscotland:pisteMap");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:telephone")
+    public String getTelephone() {
+        return getSingleProperty("visitscotland:telephone");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:website")
+    public String getWebsite() {
+        return getSingleProperty("visitscotland:website");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:address")
+    public String getAddress() {
+        return getSingleProperty("visitscotland:address");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:socialMedia", allowModifications = false)
+    public List<Entry> getSocialMedia() {
+        return getChildBeansByName("visitscotland:socialMedia");
     }
 }
