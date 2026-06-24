@@ -115,19 +115,25 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     public void doBeforeRender(HstRequest request, HstResponse response, PageCompositionHelper pageConfig) {
-        super.doBeforeRender(request, response);
+        try {
+            super.doBeforeRender(request, response);
 
-        addMetadata(request);
-        addHeroImage(request, pageConfig);
+            addMetadata(request);
+            addHeroImage(request, pageConfig);
 
-        addOTYML(request, pageConfig);
-        addNewsletterSignup(request);
-        addBlog(pageConfig);
-        addGtmConfiguration(request);
-        pageLabels.includeGeneralLabels(pageConfig, isEditMode(request));
-        addSiteSpecificConfiguration(request, pageConfig);
-        //TODO review labels for search once we have time to delete current bundles
-        pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
+            addOTYML(request, pageConfig);
+            addNewsletterSignup(request);
+            addBlog(pageConfig);
+            addGtmConfiguration(request);
+            pageLabels.includeGeneralLabels(pageConfig, isEditMode(request));
+            addSiteSpecificConfiguration(request, pageConfig);
+
+            //TODO review labels for search once we have time to delete current bundles
+            pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
+        } catch (RuntimeException e) {
+            logger.error("An unexpected error occurred while rendering the page.: " + e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
