@@ -47,9 +47,13 @@ public class SpotlightMapper extends ModuleMapper<Spotlight, SpotlightModule> {
         SpotlightModule module = new SpotlightModule();
         if (spotlight.getCtaItem() == null) {
             throw new InvalidContentException(spotlight.getPath(),
-                    "The link for the Spotlight is not available. The module has been hidden");
+                "The link for the Spotlight is not available. The module has been hidden");
         }
         FlatLink cta = linkService.createFindOutMoreLink(module, compositionHelper.getLocale(), spotlight.getCtaItem());
+        if (cta == null) {
+            throw new InvalidContentException(spotlight.getPath(),
+                "The link for the Spotlight could not be resolved. The module has been hidden");
+        }
 
         FlatImage image = new FlatImage();
         image.setCmsImage(spotlight.getImage());
