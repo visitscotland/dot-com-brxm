@@ -337,7 +337,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 987c4da5-4d64-4d89-b713-a09aad717d56
     hippo:name: Itinerary Page
-    hippo:versionHistory: 8f55bd17-7eae-402c-9dbe-4d87d07aa79f
+    hippo:versionHistory: 7786c21a-4523-43f3-a347-a0d7a43d0758
     /itineraries[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -347,7 +347,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-06-24T13:23:08.470+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-25T10:30:35.097+01:00
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
@@ -377,7 +377,8 @@
           überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute, bis, Geöffnet,
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
         Kartenansicht, Listenansicht, Ausstattung, Auf Google Maps ansehen, Reisevorschlag
-          in Google Maps sehen, Wichtige Informationen, '', '', '', '', '']
+          in Google Maps sehen, Wichtige Informationen, Besuchte Orte, Dauer, Verkehrsmittel,
+        Länge der Strecke, Empfohlene Reisezeit]
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, días, Distancia, Temas principales,
         mi, km, Transporte, día, millas, Kilómetros, Destacado, Áreas recorridas,
@@ -386,7 +387,8 @@
         Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado temporalmente,
         y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
         Ver en Google Maps, Ver el itinerario en Google Maps, Información importante,
-        '', '', '', '', '']
+        Lugares visitados, Duración, Medios de transporte, Longitud del trayecto,
+        Época recomendada]
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -395,7 +397,8 @@
         Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
         Infrastructures, Visualiser sur Google Maps, Visualiser l’itinéraire sur Google
-          Maps, L’essentiel, '', '', '', '', '']
+          Maps, L’essentiel, Lieux visités, Durée, Moyens de transport, Longueur du
+          trajet, Période recommandée]
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
@@ -404,7 +407,8 @@
         oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
           dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave, Visualizza
           su Google Maps, Visualizza il percorso su Google Maps, Informazioni importanti,
-        '', '', '', '', '']
+        Luoghi visitati, Durata, Mezzi di trasporto, Lunghezza del percorso, Periodo
+          consigliato per il viaggio]
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Einde, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, mijl, Kilometer, Hoogtepunten, Bestreken gebieden, Deze stop heeft geen
@@ -412,7 +416,8 @@
         uur, uur, Gewoonlijk, Onder voorbehoud, vandaag, naar, Geopend, Gesloten,
         Sluit snel, Tijdelijk gesloten, en, Einde van de route, Toon kaart, Toon lijst,
         Faciliteiten, Op Google Maps bekijken, Reisroute op Google Maps bekijken,
-        Belangrijke informatie, '', '', '', '', '']
+        Belangrijke informatie, Locaties, Tijdsduur, Vervoersmiddel, Lengte van het
+          traject, Aanbevolen seizoenen]
     /itineraries[2]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:versionable']
@@ -422,7 +427,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-06-24T13:26:14.319+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-25T10:37:14.149+01:00
       hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
@@ -452,7 +457,8 @@
           überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute, bis, Geöffnet,
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
         Kartenansicht, Listenansicht, Ausstattung, Auf Google Maps ansehen, Reisevorschlag
-          in Google Maps sehen, Wichtige Informationen, '', '', '', '', '']
+          in Google Maps sehen, Wichtige Informationen, Besuchte Orte, Dauer, Verkehrsmittel,
+        Länge der Strecke, Empfohlene Reisezeit]
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, días, Distancia, Temas principales,
         mi, km, Transporte, día, millas, Kilómetros, Destacado, Áreas recorridas,
@@ -461,7 +467,8 @@
         Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado temporalmente,
         y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
         Ver en Google Maps, Ver el itinerario en Google Maps, Información importante,
-        '', '', '', '', '']
+        Lugares visitados, Duración, Medios de transporte, Longitud del trayecto,
+        Época recomendada]
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -470,7 +477,8 @@
         Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
         Infrastructures, Visualiser sur Google Maps, Visualiser l’itinéraire sur Google
-          Maps, L’essentiel, '', '', '', '', '']
+          Maps, L’essentiel, Lieux visités, Durée, Moyens de transport, Longueur du
+          trajet, Période recommandée]
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
@@ -479,7 +487,8 @@
         oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
           dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave, Visualizza
           su Google Maps, Visualizza il percorso su Google Maps, Informazioni importanti,
-        '', '', '', '', '']
+        Luoghi visitati, Durata, Mezzi di trasporto, Lunghezza del percorso, Periodo
+          consigliato per il viaggio]
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Einde, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, mijl, Kilometer, Hoogtepunten, Bestreken gebieden, Deze stop heeft geen
@@ -487,7 +496,8 @@
         uur, uur, Gewoonlijk, Onder voorbehoud, vandaag, naar, Geopend, Gesloten,
         Sluit snel, Tijdelijk gesloten, en, Einde van de route, Toon kaart, Toon lijst,
         Faciliteiten, Op Google Maps bekijken, Reisroute op Google Maps bekijken,
-        Belangrijke informatie, '', '', '', '', '']
+        Belangrijke informatie, Locaties, Tijdsduur, Vervoersmiddel, Lengte van het
+          traject, Aanbevolen seizoenen]
     /itineraries[3]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -497,9 +507,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-06-24T13:26:14.319+01:00
+      hippostdpubwf:lastModificationDate: 2026-06-25T10:37:14.149+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-06-24T13:26:17.772+01:00
+      hippostdpubwf:publicationDate: 2026-06-25T10:37:19.857+01:00
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
           range of time like: 9:00am to 13:00pm', '', '', '', '', '', '', '', '',
@@ -528,7 +538,8 @@
           überprüfen, Stunde, Stunden, Üblicherweise, Vorläufig, heute, bis, Geöffnet,
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
         Kartenansicht, Listenansicht, Ausstattung, Auf Google Maps ansehen, Reisevorschlag
-          in Google Maps sehen, Wichtige Informationen, '', '', '', '', '']
+          in Google Maps sehen, Wichtige Informationen, Besuchte Orte, Dauer, Verkehrsmittel,
+        Länge der Strecke, Empfohlene Reisezeit]
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, días, Distancia, Temas principales,
         mi, km, Transporte, día, millas, Kilómetros, Destacado, Áreas recorridas,
@@ -537,7 +548,8 @@
         Temporalmente, hoy, a, Abierto, Cerrado, Cierra pronto, Cerrado temporalmente,
         y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
         Ver en Google Maps, Ver el itinerario en Google Maps, Información importante,
-        '', '', '', '', '']
+        Lugares visitados, Duración, Medios de transporte, Longitud del trayecto,
+        Época recomendada]
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -546,7 +558,8 @@
         Provisoirement, aujourd’hui, à, Ouvert, Fermé, Ferme bientôt, Temporairement
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
         Infrastructures, Visualiser sur Google Maps, Visualiser l’itinéraire sur Google
-          Maps, L’essentiel, '', '', '', '', '']
+          Maps, L’essentiel, Lieux visités, Durée, Moyens de transport, Longueur du
+          trajet, Période recommandée]
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
@@ -555,7 +568,8 @@
         oggi, a, Aperto, Chiuso, Chiusura a breve, Temporaneamente chiuso, e, Fine
           dell’itinerario, Visualizza mappa, Visualizza elenco, Servizi chiave, Visualizza
           su Google Maps, Visualizza il percorso su Google Maps, Informazioni importanti,
-        '', '', '', '', '']
+        Luoghi visitati, Durata, Mezzi di trasporto, Lunghezza del percorso, Periodo
+          consigliato per il viaggio]
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Einde, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, mijl, Kilometer, Hoogtepunten, Bestreken gebieden, Deze stop heeft geen
@@ -563,7 +577,8 @@
         uur, uur, Gewoonlijk, Onder voorbehoud, vandaag, naar, Geopend, Gesloten,
         Sluit snel, Tijdelijk gesloten, en, Einde van de route, Toon kaart, Toon lijst,
         Faciliteiten, Op Google Maps bekijken, Reisroute op Google Maps bekijken,
-        Belangrijke informatie, '', '', '', '', '']
+        Belangrijke informatie, Locaties, Tijdsduur, Vervoersmiddel, Lengte van het
+          traject, Aanbevolen seizoenen]
   /seasons:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
