@@ -171,7 +171,7 @@ definitions:
       jcr:primaryType: hipposys:resourcebundles
       /en:
         jcr:primaryType: hipposys:resourcebundle
-        jcr:name: Featured Widget
+        jcr:name: Navigation Featured Widget (Deprecated)
     /hippo:configuration/hippo:translations/hippo:types/visitscotland:ProductsSearch:
       jcr:primaryType: hipposys:resourcebundles
       /en:
