@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 3bc4e36c-552d-4b5c-aa65-f2e766b8279f
+          jcr:uuid: 2464cef4-2733-43ac-bd96-3f5b474c981e
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -93,7 +93,7 @@ definitions:
             hipposysedit:path: visitscotland:mediaCollection
             hipposysedit:primary: false
             hipposysedit:type: visitscotland:MediaCollection
-            hipposysedit:validators: [optional]
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -106,7 +106,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: 0420e64c-09a6-487c-8158-8f374c15c342
+          jcr:uuid: 2117e78c-8232-43f6-a272-8ea7be71ec11
           hippostdpubwf:lastModificationDate: 2019-12-05T15:29:52.785Z
           hippostdpubwf:creationDate: 2019-12-05T15:29:52.785Z
           visitscotland:transports: []
@@ -122,6 +122,8 @@ definitions:
             jcr:primaryType: visitscotland:ExternalLink
             visitscotland:label: ''
             visitscotland:link: ''
+          /visitscotland:mediaCollection:
+            jcr:primaryType: visitscotland:MediaCollection
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
