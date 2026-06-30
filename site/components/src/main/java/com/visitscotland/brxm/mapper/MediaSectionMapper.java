@@ -71,6 +71,6 @@ public class MediaSectionMapper {
         } else {
             return "carousel";
         }
-        return null;
+        return "unknown";
     }
 }
