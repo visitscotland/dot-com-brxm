@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class PageContentComponent<T extends Page> extends ContentComponent {
+public abstract class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
 
@@ -141,6 +141,10 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         //TODO review labels for search once we have time to delete current bundles
         pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
     }
+
+    public abstract void addPageAttributes (PageCompositionHelper pageConfig);
+
+
 
     /**
      * Adds Metadata about the application to the request
