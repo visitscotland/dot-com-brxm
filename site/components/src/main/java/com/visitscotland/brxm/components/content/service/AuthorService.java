@@ -50,11 +50,8 @@ public class AuthorService {
                 Collection<String> errorMessages = new ArrayList<>();
 
                 FlatBlog blog = blogFactory.getBlog(page.getBlog(), helper.getLocale(), errorMessages);
-
-                for (String errorMessage : errorMessages) {
-                    helper.getPageTemplate().ifPresent(template ->
-                            template.addErrorMessage(errorMessage));
-                }
+                helper.getPageTemplate().ifPresent(template ->
+                                        errorMessages.forEach(template::addErrorMessage));
 
                 return Optional.of(blog);
             }
