@@ -111,6 +111,10 @@ public class SiteProperties extends Properties {
 
     public String getFavouritesEndpoint() { return readString(FAVOURITES_PAGE_ENDPOINT); }
 
+    public String getFavouritesBaseUrl() { return readString(FAVOURITES_BASE_URL); }
+
+    public String getFavouritesShareUrl() { return readString(FAVOURITES_SHARE_URL); }
+
     public boolean isTableOfContentsEnabled() {
         return readBoolean(TABLE_OF_CONTENTS_ENABLED);
     }
@@ -173,7 +177,8 @@ public class SiteProperties extends Properties {
     public String getFormBregLegalBasisText() {
         return readString(FORM_BREG_LEGAL_BASIS_TEXT);
     }
-    public Boolean isFormBregLegalBasisEnabled() {
+
+    public boolean isFormBregLegalBasisEnabled() {
         return readBoolean(FORM_BREG_LEGAL_BASIS_ENABLE);
     }
 

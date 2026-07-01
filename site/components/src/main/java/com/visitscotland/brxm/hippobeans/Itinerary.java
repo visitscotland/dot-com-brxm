@@ -81,4 +81,19 @@ public class Itinerary extends Page {
     public ExternalLink getMapLink() {
         return getBean("visitscotland:mapLink", ExternalLink.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:locations")
+    public String[] getLocations() {
+        return getMultipleProperty("visitscotland:locations");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:seasons")
+    public String[] getSeasons() {
+        return getMultipleProperty("visitscotland:seasons");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:embeddedMap")
+    public String getEmbeddedMap() {
+        return getSingleProperty("visitscotland:embeddedMap");
+    }
 }

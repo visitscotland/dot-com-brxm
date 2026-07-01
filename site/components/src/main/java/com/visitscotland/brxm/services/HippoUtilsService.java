@@ -78,6 +78,21 @@ public class HippoUtilsService {
         }
     }
 
+    @NonTestable(NonTestable.Cause.BRIDGE)
+    public String createUrlFromNode(String path, boolean localize, boolean fullyQualified) {
+        try {
+            if (localize){
+                return createUrl(getLocalizedDocument(getDocumentFromContent(path)), fullyQualified);
+            } else {
+                return createUrl((HippoBean) getDocumentFromContent(path), fullyQualified);
+            }
+
+        } catch (QueryException | ObjectBeanManagerException | RepositoryException e) {
+            logger.warn("A link could not be created for {}", path);
+            return null;
+        }
+    }
+
 
 
     public String createUrl(Page document, boolean localize) {

@@ -159,7 +159,22 @@ action-lists:
 - 3.4.2:
     /content/documents/administration/labels/modules/map: reload
 - 3.5.1:
-    /content/documentsadministration/labels/search/search-widget: delete
+    /content/documents/administration/labels/search/search-widget: delete
     /content/documents/administration/labels/search/search-widget-events: delete
     /content/documents/administration/options/bespoken-modules: reload
     /content/taxonomies: reload
+- 3.6.0:
+    /content/documents/administration/configuration/default-site-properties: reload
+    /content/documents/administration/configuration/local-feature---visitscotland.com: reload
+- 3.6.2:
+    /content/documents/administration/labels/pages/favourites: reload
+    /content/documents/administration/labels/global/favourites-button: reload
+    /content/documents/administration/labels/search/search-widget: delete
+    /content/documents/administration/labels/global/search: delete
+    /content/documents/administration/labels/global/search-content-categories: delete
+    /content/documents/administration/labels/global/search-events-filters: delete
+    /content/documents/administration/labels/global/search-filters: delete
+    /content/documents/administration/configuration/default-site-properties: reload
+    /content/documents/administration/configuration/local-feature---visitscotland.com: reload
+- 3.8.1:
+    /content/documents/administration/options/form-content-types: reload

@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public abstract class PageContentComponent<T extends Page> extends ContentComponent {
+public class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
 
@@ -111,11 +111,16 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
     public final void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
 
-        PageCompositionHelper pageConfig = createPageCompositionHelper(request);
+        try {
+            PageCompositionHelper pageConfig = createPageCompositionHelper(request);
 
-        addCommonAttributes(pageConfig);
-        addPageAttributes(pageConfig);
-    }
+            addCommonAttributes(pageConfig);
+            addPageAttributes(pageConfig);
+        } catch (RuntimeException e) {
+            logger.error("An unexpected error occurred while rendering the page.: " + e.getMessage(), e);
+            throw e;
+
+        }
 
     public abstract PageCompositionHelper createPageCompositionHelper(HstRequest request);
 
@@ -136,10 +141,6 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
         //TODO review labels for search once we have time to delete current bundles
         pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
     }
-
-    public abstract void addPageAttributes (PageCompositionHelper pageConfig);
-
-
 
     /**
      * Adds Metadata about the application to the request
@@ -171,7 +172,6 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
      * - Alerts are only used for issues related with the hero image at the moment
      * - Hero Image is not necessary for all document types. Is it better to add the field in order to keep consistency?
      */
-    @Deprecated(forRemoval = true)
     private void addHeroImage(HstRequest request, PageCompositionHelper pageConfig) {
         Module<T> introModule = new Module<>();
 
@@ -191,7 +191,6 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
         }
     }
 
-    @Deprecated(forRemoval = true)
     private void includeHeroVideo(HstRequest request, Module<T> introModule, PageCompositionHelper pageConfig) {
         VideoLink videoDocument = getDocument(request).getHeroVideo();
         if (videoDocument != null && videoDocument.getVideoLink() != null) {
@@ -210,7 +209,6 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
     /**
      * Set the OTYML module if present
      */
-    @Deprecated(forRemoval = true)
     protected void addOTYML(HstRequest request, PageCompositionHelper pageConfig) {
         final String PAGINATION_BUNDLE = "essentials.pagination";
 
@@ -236,7 +234,7 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
 
     //TODO: VS-1556: The author object should be eliminated in future iterations
     /**
-     * @deprecated It is discourage to put add objects on the root of the payload. This object has been duplicated
+     * @deprecated It is discourage to put add objects on the root of thethe payload. This object has been duplicated
      * into the pageIntro object
      *
      */
@@ -252,7 +250,6 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
      *
      * @param request HstRequest
      */
-    @Deprecated(forRemoval = true)
     protected void addNewsletterSignup(HstRequest request) {
         Page page = getDocument(request);
         if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
