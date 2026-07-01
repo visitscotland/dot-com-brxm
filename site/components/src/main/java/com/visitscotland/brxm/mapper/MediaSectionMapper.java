@@ -65,8 +65,6 @@ public class MediaSectionMapper {
                 return "video";
             } else if (items.get(0) instanceof FlatImage) {
                 return "image";
-            } else {
-                return "unknown";
             }
         } else {
             return "carousel";

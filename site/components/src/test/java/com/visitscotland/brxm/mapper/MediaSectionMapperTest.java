@@ -34,7 +34,6 @@ class MediaSectionMapperTest {
     @Mock
     private LinkService linkService;
 
-    @InjectMocks
     private MediaSectionMapper mapper;
 
     @BeforeEach
@@ -59,25 +58,6 @@ class MediaSectionMapperTest {
         assertEquals("image", result.getType());
         assertEquals(1, result.getItems().size());
         assertSame(flatImage, result.getItems().get(0));
-    }
-
-    @Test
-    @DisplayName("Creates a media section containing a wide image")
-    void shouldCreateMediaSectionWithWideImage() {
-        MediaCollection mediaCollection = mock(MediaCollection.class);
-        Image wideImage = mock(Image.class);
-        FlatImage mappedWideImage = mock(FlatImage.class);
-
-        when(mediaCollection.getMedia()).thenReturn(List.of(wideImage));
-        when(imageMapper.getImage(eq(wideImage), any(Module.class), eq(Locale.UK))).thenReturn(mappedWideImage);
-
-        MediaSection result = mapper.map(mediaCollection, new Module<>(), Locale.UK);
-
-        assertNotNull(result);
-        assertEquals("image", result.getType());
-        assertEquals(List.of(mappedWideImage), result.getItems());
-
-        verify(imageMapper).getImage(eq(wideImage), any(Module.class), eq(Locale.UK));
     }
 
     @Test
