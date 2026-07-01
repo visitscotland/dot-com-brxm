@@ -134,3 +134,4 @@ definitions:
         contact your administrator if this persists
       visitscotland:max-two-checkbox-validator: You can select a maximum of 2 transports
       visitscotland:season-exclusive-validator: You can only select 'All year' or individual seasons, not both.
+      visitscotland:media-collection-validator: Image links cannot be empty.
