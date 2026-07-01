@@ -119,8 +119,8 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
         } catch (RuntimeException e) {
             logger.error("An unexpected error occurred while rendering the page.: " + e.getMessage(), e);
             throw e;
-
         }
+    }
 
     public abstract PageCompositionHelper createPageCompositionHelper(HstRequest request);
 
