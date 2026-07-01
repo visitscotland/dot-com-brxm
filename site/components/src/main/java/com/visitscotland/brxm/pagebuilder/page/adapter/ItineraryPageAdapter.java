@@ -28,7 +28,7 @@ public class ItineraryPageAdapter implements PageAdapter {
         try {
             return Optional.of(pageTemplateInitializer.getPageTemplate(pageConfig));
         } catch (PageCompositionException e) {
-            log.error("Error while composing page intro for General page: {}" , e.getMessage());
+            log.error("Error while composing page intro for Itinerary page: {}" , e.getMessage());
         }
         return Optional.empty();
     }

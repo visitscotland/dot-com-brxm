@@ -39,7 +39,6 @@ public class GeneralContentComponent extends PageContentComponent<General> {
 
     @Override
     public void addPageAttributes(PageCompositionHelper pageConfig) {
-        //pageConfig.initPageTemplate();
         builder.addModules(pageConfig.getRequest(), pageConfig);
     }
 
