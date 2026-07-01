@@ -18,7 +18,7 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
     private static final String BUNDLE_ID = "listicle";
 
 
-    private ListicleFactory factory;
+    private final ListicleFactory factory;
     private final PageTemplateAssembler pageTemplateAssembler;
 
     public ListicleContentComponent(){
@@ -35,8 +35,9 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
     @Override
     public void addPageAttributes(PageCompositionHelper pageConfig) {
         HstRequest request = pageConfig.getRequest();
-
         pageConfig.addAllSiteLabels(BUNDLE_ID);
+
+        //TODO: move ListicleItems to the object pageItems
         request.setModel(LISTICLE_ITEMS, factory.generateItems(request.getLocale(), getDocument(request)));
     }
 
