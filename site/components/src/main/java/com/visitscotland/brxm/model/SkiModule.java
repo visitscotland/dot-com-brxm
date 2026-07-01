@@ -16,14 +16,16 @@ public class SkiModule extends Module<SkiCentre> {
     private String feedURL;
 
     private String phone;
-    private JsonNode website;
+    private FlatLink website;
     private JsonNode address;
+    private String addressLine;
     private FlatLink openingLink;
     private EnhancedLink cmsPage;
 
     private Integer timeout;
 
     private List<JsonNode> socialChannels;
+    private String[] socialChannelURLs;
 
 
     public String getTitle() {
@@ -74,22 +76,6 @@ public class SkiModule extends Module<SkiCentre> {
         this.address = address;
     }
 
-    public JsonNode getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(JsonNode website) {
-        this.website = website;
-    }
-
-    public List<JsonNode> getSocialChannels() {
-        return socialChannels;
-    }
-
-    public void setSocialChannels(List<JsonNode> socialChannels) {
-        this.socialChannels = socialChannels;
-    }
-
     public FlatLink getOpeningLink() {
         return openingLink;
     }
@@ -112,5 +98,37 @@ public class SkiModule extends Module<SkiCentre> {
 
     public void setTimeout(Integer timeout) {
         this.timeout = timeout;
+    }
+
+    public FlatLink getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(FlatLink website) {
+        this.website = website;
+    }
+
+    public String getAddressLine() {
+        return addressLine;
+    }
+
+    public void setAddressLine(String addressLine) {
+        this.addressLine = addressLine;
+    }
+
+    public List<JsonNode> getSocialChannels() {
+        return socialChannels;
+    }
+
+    public void setSocialChannels(List<JsonNode> socialChannels) {
+        this.socialChannels = socialChannels;
+    }
+
+    public String[] getSocialChannelURLs() {
+        return socialChannelURLs;
+    }
+
+    public void setSocialChannelURLs(String[] socialChannelURLs) {
+        this.socialChannelURLs = socialChannelURLs;
     }
 }
