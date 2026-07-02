@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.model;
 
 import com.visitscotland.brxm.hippobeans.Day;
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
@@ -15,6 +16,8 @@ public class ItineraryDayModule extends Module<Day> {
     private FlatLink mapLink;
     private FlatLink ctaLink;
     private List<HippoBean> media;
+    private FlatImage image;
+    private EnhancedLink video;
     private MediaSection mediaSection;
 
     public String getTitle() {
@@ -71,5 +74,21 @@ public class ItineraryDayModule extends Module<Day> {
 
     public void setMediaSection(MediaSection mediaSection) {
         this.mediaSection = mediaSection;
+    }
+
+    public FlatImage getImage() {
+        return image;
+    }
+
+    public void setImage(FlatImage image) {
+        this.image = image;
+    }
+
+    public EnhancedLink getVideo() {
+        return video;
+    }
+
+    public void setVideo(EnhancedLink video) {
+        this.video = video;
     }
 }
