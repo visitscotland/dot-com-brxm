@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 250b5a83-cfba-4b55-bf97-715bf3897409
   hippo:name: Favourites
-  hippo:versionHistory: ede48d30-03c9-46cc-9e03-d4599b69e6e7
+  hippo:versionHistory: 415358c5-1562-40a7-851c-8f353da5de3b
   /favourites[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,8 +14,8 @@
     hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-05-11T13:32:45.464+02:00
-    hippostdpubwf:lastModifiedBy: jose.calcines
+    hippostdpubwf:lastModificationDate: 2026-05-28T16:43:57.008+01:00
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', "Deprecated. Use the following\
         \ instead\r\n\r\n/administration/labels/navigation/static", "Deprecated. Use\
         \ the following instead\r\n\r\n/administration/labels/global/favourites-button",
@@ -42,7 +42,7 @@
         erneut., Es ist ein Fehler aufgetreten, Noch keine gespeicherten Inhalte,
       'Klicken Sie auf das Herzsymbol, das Sie auf unseren Seiten finden, um Favoriten
         zu speichern. Inhalte werden hier gespeichert, bis Sie sie entfernen.', Meine
-        Favoriten, Zu Ihren favoriten hinzufügen, Von Ihren favoriten entfernen, '',
+        Favoriten, Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten entfernen, '',
       '', '', '', '']
     resourcebundle:messages_es: [No se puede cargar este artículo, No podemos mostrar
         este artículo en este momento. Inténtalo de nuevo más tarde., No hemos podido
@@ -83,7 +83,7 @@
     hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-05-27T15:26:45.598+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-28T16:44:17.962+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', "Deprecated. Use the following\
         \ instead\r\n\r\n/administration/labels/navigation/static", "Deprecated. Use\
@@ -111,7 +111,7 @@
         erneut., Es ist ein Fehler aufgetreten, Noch keine gespeicherten Inhalte,
       'Klicken Sie auf das Herzsymbol, das Sie auf unseren Seiten finden, um Favoriten
         zu speichern. Inhalte werden hier gespeichert, bis Sie sie entfernen.', Meine
-        Favoriten, Zu Ihren favoriten hinzufügen, Von Ihren favoriten entfernen, '',
+        Favoriten, Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten entfernen, '',
       '', '', '', '']
     resourcebundle:messages_es: [No se puede cargar este artículo, No podemos mostrar
         este artículo en este momento. Inténtalo de nuevo más tarde., No hemos podido
@@ -152,9 +152,9 @@
     hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-19T14:24:33.440Z
-    hippostdpubwf:lastModificationDate: 2026-05-27T15:26:45.598+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-28T16:44:17.962+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-05-27T15:26:47.366+01:00
+    hippostdpubwf:publicationDate: 2026-05-28T16:44:21.631+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', "Deprecated. Use the following\
         \ instead\r\n\r\n/administration/labels/navigation/static", "Deprecated. Use\
         \ the following instead\r\n\r\n/administration/labels/global/favourites-button",
@@ -181,7 +181,7 @@
         erneut., Es ist ein Fehler aufgetreten, Noch keine gespeicherten Inhalte,
       'Klicken Sie auf das Herzsymbol, das Sie auf unseren Seiten finden, um Favoriten
         zu speichern. Inhalte werden hier gespeichert, bis Sie sie entfernen.', Meine
-        Favoriten, Zu Ihren favoriten hinzufügen, Von Ihren favoriten entfernen, '',
+        Favoriten, Zu Ihren Favoriten hinzufügen, Von Ihren Favoriten entfernen, '',
       '', '', '', '']
     resourcebundle:messages_es: [No se puede cargar este artículo, No podemos mostrar
         este artículo en este momento. Inténtalo de nuevo más tarde., No hemos podido

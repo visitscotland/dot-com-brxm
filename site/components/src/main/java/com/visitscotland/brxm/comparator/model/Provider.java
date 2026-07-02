@@ -15,7 +15,7 @@ public class Provider {
         this.url = hippoBean.getUrl();
         this.features = hippoBean.getFeatures();
         this.description = hippoBean.getDescription().getContent();
-        this.contact = hippoBean.getContract();
+        this.contact = hippoBean.getReferral();
     }
 
     public String getName() {

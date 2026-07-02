@@ -1,0 +1,20 @@
+/content/documents/administration/options/form-content-types:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: b4511a8b-16d4-4d17-93b5-a6d06b6f110b
+  hippo:name: Form - Content Types
+  /form-content-types:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: e6323da7-f976-41f0-a5a0-db61bff01f96
+    hippo:availability: [live, preview]
+    hippotranslation:id: a97df7fa-6ab8-4dc5-aff5-901838d981de
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: ''
+      selection:label: Default
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: partner_consent
+      selection:label: Partner Consent

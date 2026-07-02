@@ -2,6 +2,7 @@ package com.visitscotland.brxm.mapper.module;
 
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.hippobeans.ExternalLink;
+import com.visitscotland.brxm.mapper.MediaSectionMapper;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ItineraryDayModule;
 import com.visitscotland.brxm.model.LinkType;
@@ -24,11 +25,13 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
     private final ResourceBundleService bundle;
     private final LinkService linkService;
     private final GoogleMapsService googleMapsService;
+    private final MediaSectionMapper mediaSectionMapper;
 
-    public DayMapper(ResourceBundleService bundle, LinkService linkService, GoogleMapsService googleMapsService) {
+    public DayMapper(ResourceBundleService bundle, LinkService linkService, GoogleMapsService googleMapsService, MediaSectionMapper mediaSectionMapper) {
         this.bundle = bundle;
         this.linkService = linkService;
         this.googleMapsService = googleMapsService;
+        this.mediaSectionMapper = mediaSectionMapper;
     }
 
     @Override
@@ -52,6 +55,7 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         }
         day.setCtaLink(formatCTA(document.getCtaLink(), null, compositionHelper.getLocale()));
         day.setMedia(document.getMedia());
+        day.setMediaSection(mediaSectionMapper.map(document.getMediaCollection(), day, locale));
 
         return day;
     }
