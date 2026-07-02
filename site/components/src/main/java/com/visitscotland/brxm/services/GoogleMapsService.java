@@ -24,7 +24,9 @@ import java.util.regex.Pattern;
 public class GoogleMapsService {
 
     private static final Logger logger = LoggerFactory.getLogger(GoogleMapsService.class);
+
     private static final String DIRECTIONS_URL = "https://www.google.com/maps/dir";
+    private static final String FWD_SLASH = "/";
 
     // regex to extract coordinates from url using @ coordinates
     private static final String URL_REGEX =
@@ -107,118 +109,80 @@ public class GoogleMapsService {
     }
 
     /**
-     * takes a list of google place urls, extracts the coordinates and returns a google directions url
-     */
-    public String getDirectionsUrl(final List<String> urls) {
-
-        final StringBuilder urlBuilder = new StringBuilder();
-        if (urls == null || urls.isEmpty()) {
-            return null;
-        }
-
-        for (final String url : urls) {
-            if (url == null) {
-                logger.warn("Null URL encountered, skipping...");
-                continue;
-            }
-            final Matcher urlMatcher = URL_PATTERN.matcher(url);
-            if (urlMatcher.matches()) {
-                urlBuilder.append("/").append(urlMatcher.group(1)).append(",").append(urlMatcher.group(2));
-            } else {
-                logger.warn("url format not recognized. url: {}", url);
-            }
-        }
-        if (urlBuilder.length() > 0) {
-            urlBuilder.insert(0, DIRECTIONS_URL);
-            urlBuilder.append("/");
-            return urlBuilder.toString();
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * extracts a map of direction urls from a list of coordinates
+     * Returns a map of google route map urls to index
      *
-     * @param coordinatesList coordinates list
-     * @return urlBuilder.toString()
+     * @param itineraryPage
+     * @return coordinatesMap
      */
-    public String getDirectionsUrlFromCoordinates(List<Coordinates> coordinatesList) {
+    public TreeMap<Integer, String> getRouteUrlsBetweenDays(final ItineraryPage itineraryPage) {
+
+        TreeMap<Integer, String> routeUrlMap = new TreeMap<>();
+
+        if (itineraryPage == null) {
+            logger.info("No days provided for Itinerary.");
+            return routeUrlMap;
+        }
+
+        if (itineraryPage.getDays() == null || itineraryPage.getDays().isEmpty()) {
+            logger.info("No days provided for Itinerary.");
+            return routeUrlMap;
+        }
 
         final StringBuilder urlBuilder = new StringBuilder();
-        if (coordinatesList == null || coordinatesList.isEmpty()) {
-            return null;
+        final TreeMap<Integer, Coordinates> coordinatesMap = getCoordinatesMapForDays(itineraryPage.getDays());
+
+        if (coordinatesMap == null || coordinatesMap.isEmpty()) {
+            logger.info("Unable to generate coordinates map for Itinerary");
+            return routeUrlMap;
         }
-        for (final Coordinates coordinates : coordinatesList) {
-            if (coordinates == null ) {
-                logger.warn("Null URL encountered, skipping...");
+
+        Coordinates previous = null;
+
+        for (int i = 0; i < coordinatesMap.size(); i++) {
+            if (previous == null) {
+                previous = coordinatesMap.get(i);
                 continue;
             }
-            if (coordinates.getLatitude() == null || coordinates.getLongitude() == null ) {
-                logger.warn("Invalid or empty coordinates...");
-                continue;
+
+            Coordinates current = coordinatesMap.get(i);
+
+            urlBuilder.append(FWD_SLASH).append(previous.getLatitude().toString()).append(",").append(previous.getLongitude().toString());
+            urlBuilder.append(FWD_SLASH).append(current.getLatitude().toString()).append(",").append(current.getLongitude().toString());
+
+            if (urlBuilder.length() > 0) {
+                urlBuilder.insert(0, DIRECTIONS_URL);
+                urlBuilder.append(FWD_SLASH);
+                routeUrlMap.put(i - 1, urlBuilder.toString());
+                urlBuilder.setLength(0);
+
+            } else {
+                logger.warn("Failed to build url...");
             }
-
-            urlBuilder.append("/").append(coordinates.getLatitude().toString()).append(",").append(coordinates.getLongitude().toString());
-
+            previous = current;
         }
-        if (urlBuilder.length() > 0) {
-            urlBuilder.insert(0, DIRECTIONS_URL);
-            urlBuilder.append("/");
-            return urlBuilder.toString();
-        } else {
-            return null;
-        }
-
+        return routeUrlMap;
     }
 
-    /**
-     * creates a route url from coordinates extracted from the place urls of days in an itinerary
-     * *
-     * returns null if unable to extract any coordinates for a day to prevent erroneous route maps
-     * @param itineraryPage the page for the itinerary
-     * @return directionsByDayMap
-     */
-    public String getDirectionsUrlFromItinerary(ItineraryPage itineraryPage) {
-
-        final StringBuilder urlBuilder = new StringBuilder();
-        if (itineraryPage == null ) {
-            return null;
-        }
+    public TreeMap<Integer, Coordinates> getCoordinatesMapForDays (final List<Day> days) {
 
         TreeMap<Integer, Coordinates> coordinatesMap = new TreeMap<>();
 
         int dayCount = 0;
-        for (Day dayModule : itineraryPage.getDays()) {
+        for (final Day dayModule : days) {
             final String url = dayModule.getMapLink().getLink();
             if (url == null) {
                 logger.warn("Null url. Skipping...");
-                return null;
+                return coordinatesMap;
             }
-            Matcher urlMatcher = URL_PATTERN.matcher(url);
+            final Matcher urlMatcher = URL_PATTERN.matcher(url);
             if (urlMatcher.matches()) {
-                coordinatesMap.put(dayCount++, new Coordinates(Double.valueOf(urlMatcher.group(1)),Double.valueOf(urlMatcher.group(2))));
+                coordinatesMap.put(dayCount++, new Coordinates(Double.valueOf(urlMatcher.group(1)), Double.valueOf(urlMatcher.group(2))));
             } else {
                 logger.warn("Url {} did is not a valid google place url.", url);
-                return null;
+                return coordinatesMap;
+
             }
         }
-
-        for (Coordinates coordinates : coordinatesMap.values()) {
-            if (coordinates == null || coordinates.getLatitude() == null || coordinates.getLongitude() == null) {
-                logger.warn("Null coordinates encountered, skipping...");
-                continue;
-            }
-
-            urlBuilder.append("/").append(coordinates.getLatitude().toString()).append(",").append(coordinates.getLongitude().toString());
-        }
-        if (urlBuilder.length() > 0) {
-            urlBuilder.insert(0, DIRECTIONS_URL);
-            urlBuilder.append("/");
-            return urlBuilder.toString();
-        } else {
-            return null;
-        }
+        return coordinatesMap;
     }
-
 }
