@@ -15,7 +15,6 @@ public class ItineraryDayModule extends Module<Day> {
     private String[] transports;
     private FlatLink mapLink;
     private FlatLink ctaLink;
-    private List<HippoBean> media;
     private FlatImage image;
     private EnhancedLink video;
     private MediaSection mediaSection;
@@ -58,14 +57,6 @@ public class ItineraryDayModule extends Module<Day> {
 
     public void setCtaLink(FlatLink ctaLink) {
         this.ctaLink = ctaLink;
-    }
-
-    public List<HippoBean> getMedia() {
-        return media;
-    }
-
-    public void setMedia(List<HippoBean> media) {
-        this.media = media;
     }
 
     public MediaSection getMediaSection() {

@@ -66,16 +66,13 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
     }
 
     private void setImage(ItineraryDayModule module, Day document, Locale locale){
-        //TODO: The following line will be removed after 3.11.0
-        module.setMedia(document.getMedia());
-
         if (document.getMediaItem() != null) {
-            if (document.getMediaItem() instanceof VideoLink){
+            if (document.getMediaItem() instanceof VideoLink) {
                 VideoLink videoLink = ((VideoLink)document.getMediaItem());
                 if (videoLink.getVideoLink() != null) {
                     module.setVideo(linkService.createVideo(videoLink.getVideoLink(), module, locale));
                 }
-            }else {
+            } else {
                 module.setImage(imageMapper.getImage(document.getMediaItem(), module, locale));
             }
         }
