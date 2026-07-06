@@ -164,3 +164,6 @@ definitions:
       jcr:primaryType: hipposys:moduleconfig
       exclusiveValue: all
       hipposys:className: com.visitscotland.brxm.validator.ExclusiveSelectionValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:media-collection-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.MediaCollectionValidator
