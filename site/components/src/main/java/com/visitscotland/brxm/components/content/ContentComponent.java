@@ -3,7 +3,6 @@ package com.visitscotland.brxm.components.content;
 import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInfo;
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.pagebuilder.page.PageTemplateAssembler;
 import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.services.LocalizationComponent;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -54,7 +53,7 @@ public abstract class ContentComponent extends EssentialsContentComponent {
     public void prepareBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
         super.prepareBeforeRender(request, response);
 
-        PageCompositionHelper pageConfig = new PageCompositionHelper(bundle, request);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(bundle,  request);
 
         localizationComponent.setLocale(pageConfig);
         setStatusCode(request, response);

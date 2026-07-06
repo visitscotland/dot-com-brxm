@@ -33,7 +33,7 @@ public class PageTemplateAssembler {
                 .orElseThrow(() -> new PageCompositionException("No adapter found for type: " + page.getClass()));
 
         return adapter.getPageIntro(pageCompositionHelper)
-                .orElseThrow(() -> new PageCompositionException("An error occurred while composing the pageIntro for " + page.getPath()));
+                .orElseThrow(() -> new PageCompositionException("An error occurred while composing the pageTemplate for " + page.getPath()));
     }
 
 }
