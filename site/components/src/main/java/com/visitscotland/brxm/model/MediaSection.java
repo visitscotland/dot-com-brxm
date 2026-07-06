@@ -20,11 +20,7 @@ public class MediaSection {
     }
 
     public List<Object> getItems() {
-        if (items != null && items.size() > 1) {
-            return items;
-        } else {
-            return null;
-        }
+        return items;
     }
 
     public void setItems(List<Object> items) {
