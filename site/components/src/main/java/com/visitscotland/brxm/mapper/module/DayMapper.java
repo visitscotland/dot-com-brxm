@@ -26,12 +26,14 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
     private final LinkService linkService;
     private final GoogleMapsService googleMapsService;
     private final MediaSectionMapper mediaSectionMapper;
+    private final TransportMapper transportMapper;
 
-    public DayMapper(ResourceBundleService bundle, LinkService linkService, GoogleMapsService googleMapsService, MediaSectionMapper mediaSectionMapper) {
+    public DayMapper(ResourceBundleService bundle, LinkService linkService, GoogleMapsService googleMapsService, MediaSectionMapper mediaSectionMapper, TransportMapper transportMapper) {
         this.bundle = bundle;
         this.linkService = linkService;
         this.googleMapsService = googleMapsService;
         this.mediaSectionMapper = mediaSectionMapper;
+        this.transportMapper = transportMapper;
     }
 
     @Override
@@ -46,7 +48,7 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
 
         day.setTitle(document.getTitle());
         day.setIntroduction(document.getIntroduction());
-        day.setTransports(document.getTransports());
+        day.setTransports(transportMapper.getTransports(document.getTransports(), locale));
         day.setMapLink(formatCTA(document.getMapLink(),
                 bundle.getResourceBundle(BUNDLE_FILE, "days.default-cta", locale),
                 compositionHelper.getLocale()));
