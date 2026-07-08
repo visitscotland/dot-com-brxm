@@ -1,4 +1,5 @@
 /content/documents/visitscotland/test:
+  .meta:order-before: sandbox
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
   jcr:uuid: 423398ef-2f28-4e88-990f-81f2570aca24
@@ -6731,73 +6732,73 @@
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
             hippostd:content: <p>This is an example of a form on a general page</p>
-      /form-example:
+      /newsletter-form:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: c2d5ce06-e43b-400a-83c0-c527e61b961b
-        hippo:name: Form example
-        hippo:versionHistory: 98812502-6cb1-4c70-a086-d5154d9700fd
-        /form-example[1]:
-          jcr:primaryType: visitscotland:MarketoForm
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 5eebe03a-b078-4190-b657-7ff91adae25a
-          hippo:availability: []
-          hippostd:retainable: false
-          hippostd:state: draft
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2022-04-04T14:21:19.756+01:00
-          hippostdpubwf:lastModificationDate: 2025-02-26T11:30:50.435Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 6a41b29a-7c44-4c4c-92df-2e852b484272
-          hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach.json
-          visitscotland:nonJavaScriptMessage: ''
-          visitscotland:title: An example form
-          visitscotland:translation: ''
-          /visitscotland:copy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-        /form-example[2]:
-          jcr:primaryType: visitscotland:MarketoForm
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: eb062cf5-ae4e-44f1-9a25-1fe2bc0151de
+        jcr:uuid: 40b0dbea-8e2f-434f-bbf8-8c6363cb3f8f
+        hippo:name: Newsletter Form
+        hippo:versionHistory: 1c7fb9e9-538e-45bb-9c92-8bb556ce5f46
+        /newsletter-form[1]:
+          jcr:primaryType: visitscotland:Form
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: accf24d9-494f-40e0-88f3-6cd2813db8f7
           hippo:availability: [preview]
           hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2022-04-04T14:21:19.756+01:00
-          hippostdpubwf:lastModificationDate: 2025-02-26T11:31:25.577Z
+          hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
+          hippostdpubwf:lastModificationDate: 2026-07-08T16:36:43.317+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 6a41b29a-7c44-4c4c-92df-2e852b484272
+          hippotranslation:id: 30664a1d-2b9a-47ad-a865-9eff7f2d54f3
           hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach.json
           visitscotland:nonJavaScriptMessage: ''
-          visitscotland:title: An example form
+          visitscotland:title: What are your details?
           visitscotland:translation: ''
-          /visitscotland:copy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-        /form-example[3]:
-          jcr:primaryType: visitscotland:MarketoForm
+          /visitscotland:form:
+            jcr:primaryType: visitscotland:FormCompoundBreg
+            visitscotland:activityCode: VSEMAIL_0026
+            visitscotland:activityDescription: Newsletter
+            visitscotland:activitySource: E-News Signups
+            visitscotland:consents: [newsletter, snow]
+            visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+            visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer
+            /visitscotland:consents:
+              jcr:primaryType: visitscotland:FormConsent
+              visitscotland:consentType: ''
+              visitscotland:key: newsletter
+              visitscotland:optional: false
+              visitscotland:value: By clicking submit you accept some terms
+        /newsletter-form[2]:
+          jcr:primaryType: visitscotland:Form
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 56583acc-4524-44cc-8d2c-2cd9c8be7255
+          jcr:uuid: a574fd19-a959-4a00-ae21-a59e0de18f69
           hippo:availability: [live]
           hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2022-04-04T14:21:19.756+01:00
-          hippostdpubwf:lastModificationDate: 2025-02-26T11:31:25.577Z
+          hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
+          hippostdpubwf:lastModificationDate: 2026-07-08T16:36:43.317+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-02-26T11:31:49.082Z
-          hippotranslation:id: 6a41b29a-7c44-4c4c-92df-2e852b484272
+          hippostdpubwf:publicationDate: 2026-07-08T16:43:11.098+01:00
+          hippotranslation:id: 30664a1d-2b9a-47ad-a865-9eff7f2d54f3
           hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach.json
           visitscotland:nonJavaScriptMessage: ''
-          visitscotland:title: An example form
+          visitscotland:title: What are your details?
           visitscotland:translation: ''
-          /visitscotland:copy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
+          /visitscotland:form:
+            jcr:primaryType: visitscotland:FormCompoundBreg
+            visitscotland:activityCode: VSEMAIL_0026
+            visitscotland:activityDescription: Newsletter
+            visitscotland:activitySource: E-News Signups
+            visitscotland:consents: [newsletter, snow]
+            visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+            visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer
+            /visitscotland:consents:
+              jcr:primaryType: visitscotland:FormConsent
+              visitscotland:consentType: ''
+              visitscotland:key: newsletter
+              visitscotland:optional: false
+              visitscotland:value: By clicking submit you accept some terms
     /product-search-module:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -13818,64 +13819,85 @@
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
             hippostd:content: <p>Lorem ipsum dolor sit amet consectetur etc etc etc</p>
-      /ski-form:
+      /newsletter-form-copy-2:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: eba05274-26b2-41d0-970f-1cfc4ec22016
-        hippo:name: Ski Form
-        hippo:versionHistory: 955a645e-033e-4e30-9ce7-40a4cd9a10d1
-        /ski-form[1]:
-          jcr:primaryType: visitscotland:MarketoForm
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 83e4b987-80c0-485f-a822-54843a29b239
-          hippo:availability: []
-          hippostd:retainable: false
-          hippostd:state: draft
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2023-02-09T12:28:05.229Z
-          hippostdpubwf:lastModificationDate: 2023-02-09T12:28:05.229Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 941bc18f-ae7e-4544-9114-f2b5c663bc7d
-          hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/ski-sign-up/ski-sign-up.json
-          visitscotland:nonJavaScriptMessage: ''
-          visitscotland:title: Ski Form
-          visitscotland:translation: ''
-        /ski-form[2]:
-          jcr:primaryType: visitscotland:MarketoForm
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: ab95a093-8533-4c54-8087-6edf30d05422
+        jcr:uuid: 5078b9ed-4022-438c-8c2a-10946be236b8
+        hippo:name: Snow alerts
+        hippo:versionHistory: 55979f8f-814c-48ef-b9c9-1bd073d4ba47
+        /newsletter-form-copy-2[1]:
+          jcr:primaryType: visitscotland:Form
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 9be58a14-6718-4d75-8d37-04870f2a361b
           hippo:availability: [preview]
           hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2023-02-09T12:28:05.229Z
-          hippostdpubwf:lastModificationDate: 2023-02-09T12:28:27.635Z
+          hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
+          hippostdpubwf:lastModificationDate: 2026-07-08T16:41:29.294+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 941bc18f-ae7e-4544-9114-f2b5c663bc7d
+          hippotranslation:id: bad3b81b-3903-456a-9066-d864422b3c59
           hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/ski-sign-up/ski-sign-up.json
           visitscotland:nonJavaScriptMessage: ''
-          visitscotland:title: Ski Form
+          visitscotland:title: What are your details?
           visitscotland:translation: ''
-        /ski-form[3]:
-          jcr:primaryType: visitscotland:MarketoForm
+          /visitscotland:form:
+            jcr:primaryType: visitscotland:FormCompoundBreg
+            visitscotland:activityCode: VSEMAIL_0026
+            visitscotland:activityDescription: Newsletter + Snow alerts
+            visitscotland:activitySource: E-News Signups
+            visitscotland:consents: [newsletter, snow]
+            visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+            visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer
+            /visitscotland:consents[1]:
+              jcr:primaryType: visitscotland:FormConsent
+              visitscotland:consentType: ''
+              visitscotland:key: newsletter
+              visitscotland:optional: false
+              visitscotland:value: By clicking submit you accept some terms
+            /visitscotland:consents[2]:
+              jcr:primaryType: visitscotland:FormConsent
+              visitscotland:consentType: ''
+              visitscotland:key: snow
+              visitscotland:optional: false
+              visitscotland:value: and also snowalerts
+        /newsletter-form-copy-2[2]:
+          jcr:primaryType: visitscotland:Form
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 50c332ae-eb1b-45b2-831c-5e06fe2a9e1c
+          jcr:uuid: 0cafb4b0-b5e3-48c0-9020-7e6d4c8fa2f6
           hippo:availability: [live]
           hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2023-02-09T12:28:05.229Z
-          hippostdpubwf:lastModificationDate: 2023-02-09T12:28:27.635Z
+          hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
+          hippostdpubwf:lastModificationDate: 2026-07-08T16:41:29.294+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2023-02-09T12:28:41.544Z
-          hippotranslation:id: 941bc18f-ae7e-4544-9114-f2b5c663bc7d
+          hippostdpubwf:publicationDate: 2026-07-08T16:44:23.221+01:00
+          hippotranslation:id: bad3b81b-3903-456a-9066-d864422b3c59
           hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/ski-sign-up/ski-sign-up.json
           visitscotland:nonJavaScriptMessage: ''
-          visitscotland:title: Ski Form
+          visitscotland:title: What are your details?
           visitscotland:translation: ''
+          /visitscotland:form:
+            jcr:primaryType: visitscotland:FormCompoundBreg
+            visitscotland:activityCode: VSEMAIL_0026
+            visitscotland:activityDescription: Newsletter + Snow alerts
+            visitscotland:activitySource: E-News Signups
+            visitscotland:consents: [newsletter, snow]
+            visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+            visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer
+            /visitscotland:consents[1]:
+              jcr:primaryType: visitscotland:FormConsent
+              visitscotland:consentType: ''
+              visitscotland:key: newsletter
+              visitscotland:optional: false
+              visitscotland:value: By clicking submit you accept some terms
+            /visitscotland:consents[2]:
+              jcr:primaryType: visitscotland:FormConsent
+              visitscotland:consentType: ''
+              visitscotland:key: snow
+              visitscotland:optional: false
+              visitscotland:value: and also snowalerts
   /content:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
