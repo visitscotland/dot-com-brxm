@@ -16,6 +16,7 @@ public class ItineraryDayModule extends Module<Day> {
     private FlatLink ctaLink;
     private List<HippoBean> media;
     private MediaSection mediaSection;
+    private IntraDayModule intraDayModule;
 
     public String getTitle() {
         return title;
@@ -71,5 +72,13 @@ public class ItineraryDayModule extends Module<Day> {
 
     public void setMediaSection(MediaSection mediaSection) {
         this.mediaSection = mediaSection;
+    }
+
+    public IntraDayModule getIntraDayModule() {
+        return intraDayModule;
+    }
+
+    public void setIntraDayModule(IntraDayModule intraDayModule) {
+        this.intraDayModule = intraDayModule;
     }
 }

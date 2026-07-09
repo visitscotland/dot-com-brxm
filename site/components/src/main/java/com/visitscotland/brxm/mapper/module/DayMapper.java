@@ -4,6 +4,7 @@ import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.hippobeans.ExternalLink;
 import com.visitscotland.brxm.mapper.MediaSectionMapper;
 import com.visitscotland.brxm.model.FlatLink;
+import com.visitscotland.brxm.model.IntraDayModule;
 import com.visitscotland.brxm.model.ItineraryDayModule;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
@@ -11,6 +12,8 @@ import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.GoogleMapsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -18,6 +21,8 @@ import java.util.MissingResourceException;
 
 @Component
 public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
+
+    private static final Logger logger = LoggerFactory.getLogger(DayMapper.class);
 
     private static final String BUNDLE_FILE = "itinerary";
 
@@ -57,7 +62,30 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         day.setMedia(document.getMedia());
         day.setMediaSection(mediaSectionMapper.map(document.getMediaCollection(), day, locale));
 
+        setIntraDayModule(document, compositionHelper);
+
         return day;
+    }
+
+    private void setIntraDayModule(Day document, PageCompositionHelper compositionHelper) {
+        try {
+            if (!compositionHelper.getModules().isEmpty()) {
+
+                ItineraryDayModule prevDayModule = (ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1);
+                final String prevUrl = prevDayModule.getMapLink().getLink();
+                final String routeUrl = googleMapsService.getDirectionsUrlForIntraDay(prevUrl, document.getMapLink().getLink());
+
+                if (routeUrl == null || routeUrl.isEmpty()) {
+                    logger.info("Unable to calculate intraday route map for day {}", document.getTitle());
+                }
+
+                ((ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1)).setIntraDayModule(new IntraDayModule(routeUrl));
+
+            }
+
+        } catch (RuntimeException e) {
+            logger.warn("An error occurred while applying IntraDayModule for day {}: ", document.getTitle(), e);
+        }
     }
 
     FlatLink formatCTA(final ExternalLink externalLink, final String defaultCta, final Locale locale) {
