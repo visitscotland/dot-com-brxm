@@ -146,4 +146,33 @@ public class GoogleMapsService {
 
         return urlBuilder.toString();
     }
+
+    public BigDecimal getDistanceFromUrls (final String previousUrl, final String nextUrl) {
+
+        Coordinates previous = new Coordinates();
+        Coordinates next = new Coordinates();
+
+        if (previousUrl != null && !previousUrl.isEmpty() && nextUrl != null && !nextUrl.isEmpty()) {
+            Matcher urlMatcher = URL_PATTERN.matcher(previousUrl);
+            if (urlMatcher.matches()) {
+                previous.setLatitude(Double.valueOf(urlMatcher.group(1)));
+                previous.setLongitude(Double.valueOf(urlMatcher.group(2)));
+            } else {
+                logger.info("Could not extract coordinates from previous url");
+                return new BigDecimal(0);
+
+            }
+            urlMatcher = URL_PATTERN.matcher(nextUrl);
+            if (urlMatcher.matches()) {
+                next.setLatitude(Double.valueOf(urlMatcher.group(1)));
+                next.setLongitude(Double.valueOf(urlMatcher.group(2)));
+            } else {
+                logger.info("Could not extract coordinates from next url");
+                return new BigDecimal(0);
+            }
+
+        }
+        return getDistanceStops(previous, next);
+
+    }
 }

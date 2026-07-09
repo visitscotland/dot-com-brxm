@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.Locale;
 import java.util.MissingResourceException;
 
@@ -74,12 +75,15 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
                 ItineraryDayModule prevDayModule = (ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1);
                 final String prevUrl = prevDayModule.getMapLink().getLink();
                 final String routeUrl = googleMapsService.getDirectionsUrlForIntraDay(prevUrl, document.getMapLink().getLink());
-
+                final BigDecimal distance = googleMapsService.getDistanceFromUrls(prevUrl, document.getMapLink().getLink());
                 if (routeUrl == null || routeUrl.isEmpty()) {
                     logger.info("Unable to calculate intraday route map for day {}", document.getTitle());
                 }
+                if (distance == null ) {
+                    logger.info("\n\nUnable to calculate intraday route map for day {}", document.getTitle());
+                }
 
-                ((ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1)).setIntraDayModule(new IntraDayModule(routeUrl));
+                ((ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1)).setIntraDayModule(new IntraDayModule(routeUrl, distance));
 
             }
 
