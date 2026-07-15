@@ -5,6 +5,7 @@ on:
 permissions:
   contents: read
   pull-requests: read
+  copilot-requests: write
 tools:
   github:
     toolsets: [repos, pull_requests, code_security]
