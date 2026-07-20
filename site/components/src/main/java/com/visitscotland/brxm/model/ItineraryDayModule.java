@@ -19,6 +19,7 @@ public class ItineraryDayModule extends Module<Day> {
     private FlatImage image;
     private EnhancedLink video;
     private MediaSection mediaSection;
+    private IntraDayModule intraDayModule;
 
     public String getTitle() {
         return title;
@@ -66,6 +67,15 @@ public class ItineraryDayModule extends Module<Day> {
 
     public void setMediaSection(MediaSection mediaSection) {
         this.mediaSection = mediaSection;
+    }
+
+    public IntraDayModule getIntraDayModule() {
+        return intraDayModule;
+    }
+
+    public void setIntraDayModule(IntraDayModule intraDayModule) {
+        this.intraDayModule = intraDayModule;
+
     }
 
     public FlatImage getImage() {
