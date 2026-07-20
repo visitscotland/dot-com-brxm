@@ -48,6 +48,7 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         includeLabels(pageConfig);
         if (itineraryMapper.isStopBasedItinerary(getDocument(request))){
             pageConfig.addProperty(HAS_STOPS, true);
+            pageConfig.addAllSiteLabels("transports");
             buildStopBasedItinerary(request);
         } else {
             pageConfig.addProperty(HAS_STOPS, false);
