@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 3bc4e36c-552d-4b5c-aa65-f2e766b8279f
+          jcr:uuid: 77a9b243-2dca-4faf-ac1c-f19cdde0e23a
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -106,7 +106,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: 0420e64c-09a6-487c-8158-8f374c15c342
+          jcr:uuid: 559fc9eb-62ce-43ee-85a6-9cbe000024d0
           hippostdpubwf:lastModificationDate: 2019-12-05T15:29:52.785Z
           hippostdpubwf:creationDate: 2019-12-05T15:29:52.785Z
           visitscotland:transports: []
@@ -122,6 +122,14 @@ definitions:
             jcr:primaryType: visitscotland:ExternalLink
             visitscotland:label: ''
             visitscotland:link: ''
+          /visitscotland:mediaCollection:
+            jcr:primaryType: visitscotland:MediaCollection
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
