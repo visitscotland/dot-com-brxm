@@ -57,4 +57,24 @@ public class SkiCentre extends BaseDocument {
     public String getPisteMap() {
         return getSingleProperty("visitscotland:pisteMap");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:telephone")
+    public String getTelephone() {
+        return getSingleProperty("visitscotland:telephone");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:website")
+    public String getWebsite() {
+        return getSingleProperty("visitscotland:website");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:address")
+    public String getAddress() {
+        return getSingleProperty("visitscotland:address");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:socialChannels")
+    public String[] getSocialChannels() {
+        return getMultipleProperty("visitscotland:socialChannels");
+    }
 }
