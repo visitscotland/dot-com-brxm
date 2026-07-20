@@ -6,7 +6,6 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import java.util.List;
 import java.util.Calendar;
-import com.visitscotland.brxm.hippobeans.MediaCollection;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:Day")
 @Node(jcrType = "visitscotland:Day")
@@ -69,6 +68,10 @@ public class Day extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:media", allowModifications = false)
     public List<HippoBean> getMedia() {
         return getMedia("visitscotland:media");
+    }
+
+    public HippoBean getMediaItem() {
+        return getOnlyChild(getMedia());
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:mediaCollection")
