@@ -152,26 +152,30 @@ public class GoogleMapsService {
         Coordinates previous = new Coordinates();
         Coordinates next = new Coordinates();
 
-        if (previousUrl != null && !previousUrl.isEmpty() && nextUrl != null && !nextUrl.isEmpty()) {
-            Matcher urlMatcher = URL_PATTERN.matcher(previousUrl);
-            if (urlMatcher.matches()) {
-                previous.setLatitude(Double.valueOf(urlMatcher.group(1)));
-                previous.setLongitude(Double.valueOf(urlMatcher.group(2)));
-            } else {
-                logger.info("Could not extract coordinates from previous url");
-                return new BigDecimal(0);
+       try {
+           if (previousUrl != null && !previousUrl.isEmpty() && nextUrl != null && !nextUrl.isEmpty()) {
+               Matcher urlMatcher = URL_PATTERN.matcher(previousUrl);
+               if (urlMatcher.matches()) {
+                   previous.setLatitude(Double.valueOf(urlMatcher.group(1)));
+                   previous.setLongitude(Double.valueOf(urlMatcher.group(2)));
+               } else {
+                   logger.info("Could not extract coordinates from previous url");
+                   return BigDecimal.ZERO;
 
-            }
-            urlMatcher = URL_PATTERN.matcher(nextUrl);
-            if (urlMatcher.matches()) {
-                next.setLatitude(Double.valueOf(urlMatcher.group(1)));
-                next.setLongitude(Double.valueOf(urlMatcher.group(2)));
-            } else {
-                logger.info("Could not extract coordinates from next url");
-                return new BigDecimal(0);
-            }
-
-        }
+               }
+               urlMatcher = URL_PATTERN.matcher(nextUrl);
+               if (urlMatcher.matches()) {
+                   next.setLatitude(Double.valueOf(urlMatcher.group(1)));
+                   next.setLongitude(Double.valueOf(urlMatcher.group(2)));
+               } else {
+                   logger.info("Could not extract coordinates from next url");
+                   return BigDecimal.ZERO;
+               }
+           }
+        } catch (NumberFormatException e ) {
+           logger.warn("A number format exception occurred whilst handling coordinates: ", e);
+           return BigDecimal.ZERO;
+       }
         return getDistanceStops(previous, next);
 
     }

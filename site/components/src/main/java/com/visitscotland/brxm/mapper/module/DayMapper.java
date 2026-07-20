@@ -77,10 +77,10 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
                 final String routeUrl = googleMapsService.getDirectionsUrlForIntraDay(prevUrl, document.getMapLink().getLink());
                 final BigDecimal distance = googleMapsService.getDistanceFromUrls(prevUrl, document.getMapLink().getLink());
                 if (routeUrl == null || routeUrl.isEmpty()) {
-                    logger.info("Unable to calculate intraday route map for day {}", document.getTitle());
+                    logger.info("Unable to calculate intraday route map for day {}", document.getPath());
                 }
                 if (distance == null ) {
-                    logger.info("\n\nUnable to calculate intraday route map for day {}", document.getTitle());
+                    logger.info("\n\nUnable to calculate intraday route map for day {}", document.getPath());
                 }
 
                 ((ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1)).setIntraDayModule(new IntraDayModule(routeUrl, distance));
