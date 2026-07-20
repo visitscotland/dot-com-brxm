@@ -21,7 +21,7 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: visitscotland:media
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, required]
+            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:media-collection-validator']
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
