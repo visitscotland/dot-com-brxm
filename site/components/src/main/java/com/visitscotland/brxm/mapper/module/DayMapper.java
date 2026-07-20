@@ -2,6 +2,8 @@ package com.visitscotland.brxm.mapper.module;
 
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.hippobeans.ExternalLink;
+import com.visitscotland.brxm.hippobeans.VideoLink;
+import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.mapper.MediaSectionMapper;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.IntraDayModule;
@@ -32,12 +34,15 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
     private final LinkService linkService;
     private final GoogleMapsService googleMapsService;
     private final MediaSectionMapper mediaSectionMapper;
+    private final ImageMapper imageMapper;
 
-    public DayMapper(ResourceBundleService bundle, LinkService linkService, GoogleMapsService googleMapsService, MediaSectionMapper mediaSectionMapper) {
+    public DayMapper(ResourceBundleService bundle, LinkService linkService, GoogleMapsService googleMapsService,
+                     MediaSectionMapper mediaSectionMapper, ImageMapper imageMapper) {
         this.bundle = bundle;
         this.linkService = linkService;
         this.googleMapsService = googleMapsService;
         this.mediaSectionMapper = mediaSectionMapper;
+        this.imageMapper = imageMapper;
     }
 
     @Override
@@ -60,7 +65,7 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
             googleMapsService.localizeUrl(day.getMapLink(), locale);
         }
         day.setCtaLink(formatCTA(document.getCtaLink(), null, compositionHelper.getLocale()));
-        day.setMedia(document.getMedia());
+        setImage(day, document, locale);
         day.setMediaSection(mediaSectionMapper.map(document.getMediaCollection(), day, locale));
 
         setIntraDayModule(document, compositionHelper);
@@ -89,6 +94,16 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
 
         } catch (RuntimeException e) {
             logger.warn("An error occurred while applying IntraDayModule for day {}: ", document.getTitle(), e);
+    private void setImage(ItineraryDayModule module, Day document, Locale locale){
+        if (document.getMediaItem() != null) {
+            if (document.getMediaItem() instanceof VideoLink) {
+                VideoLink videoLink = ((VideoLink)document.getMediaItem());
+                if (videoLink.getVideoLink() != null) {
+                    module.setVideo(linkService.createVideo(videoLink.getVideoLink(), module, locale));
+                }
+            } else {
+                module.setImage(imageMapper.getImage(document.getMediaItem(), module, locale));
+            }
         }
     }
 
