@@ -74,6 +74,9 @@ public class ItineraryDayModule extends Module<Day> {
 
     public void setIntraDayModule(IntraDayModule intraDayModule) {
         this.intraDayModule = intraDayModule;
+
+    }
+
     public FlatImage getImage() {
         return image;
     }

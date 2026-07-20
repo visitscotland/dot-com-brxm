@@ -84,7 +84,7 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
                 if (routeUrl == null || routeUrl.isEmpty()) {
                     logger.info("Unable to calculate intraday route map for day {}", document.getPath());
                 }
-                if (distance == null ) {
+                if (distance == null) {
                     logger.info("\n\nUnable to calculate intraday route map for day {}", document.getPath());
                 }
 
@@ -94,6 +94,9 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
 
         } catch (RuntimeException e) {
             logger.warn("An error occurred while applying IntraDayModule for day {}: ", document.getTitle(), e);
+        }
+    }
+
     private void setImage(ItineraryDayModule module, Day document, Locale locale){
         if (document.getMediaItem() != null) {
             if (document.getMediaItem() instanceof VideoLink) {
