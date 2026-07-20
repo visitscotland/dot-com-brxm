@@ -2,6 +2,10 @@ package com.visitscotland.brxm.pagebuilder;
 
 public class PageCompositionException extends Exception {
 
+    public PageCompositionException() {
+        super("There has been an error composing the page.");
+    }
+
     public PageCompositionException(String message) {
         super(String.format("There has been an error composing the page: %n %s", message));
     }

@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class PageContentComponent<T extends Page> extends ContentComponent {
+public abstract class PageContentComponent<T extends Page> extends ContentComponent {
 
     private static final Logger logger = LoggerFactory.getLogger(PageContentComponent.class);
 
@@ -108,33 +108,43 @@ public class PageContentComponent<T extends Page> extends ContentComponent {
     }
 
     @Override
-    public void doBeforeRender(HstRequest request, HstResponse response) {
-        throw new UnsupportedOperationException(
-                "doBeforeRender(HstRequest, HstResponse) is not supported. " +
-                "Use doBeforeRender(HstRequest, HstResponse, PageCompositionHelper) instead.");
-    }
+    public final void doBeforeRender(HstRequest request, HstResponse response) {
+        super.doBeforeRender(request, response);
 
-    public void doBeforeRender(HstRequest request, HstResponse response, PageCompositionHelper pageConfig) {
         try {
-            super.doBeforeRender(request, response);
+            PageCompositionHelper pageConfig = createPageCompositionHelper(request);
 
-            addMetadata(request);
-            addHeroImage(request, pageConfig);
-
-            addOTYML(request, pageConfig);
-            addNewsletterSignup(request);
-            addBlog(pageConfig);
-            addGtmConfiguration(request);
-            pageLabels.includeGeneralLabels(pageConfig, isEditMode(request));
-            addSiteSpecificConfiguration(request, pageConfig);
-
-            //TODO review labels for search once we have time to delete current bundles
-            pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
+            addCommonAttributes(pageConfig);
+            addPageAttributes(pageConfig);
         } catch (RuntimeException e) {
             logger.error("An unexpected error occurred while rendering the page.: " + e.getMessage(), e);
             throw e;
         }
     }
+
+    public abstract PageCompositionHelper createPageCompositionHelper(HstRequest request);
+
+    public void addCommonAttributes(PageCompositionHelper pageConfig) {
+        HstRequest request = pageConfig.getRequest();
+
+        addHeroImage(request, pageConfig);
+        addOTYML(request, pageConfig);
+        addNewsletterSignup(request);
+        addBlog(pageConfig);
+
+        addMetadata(request);
+        addGtmConfiguration(request);
+
+        pageLabels.includeGeneralLabels(pageConfig, isEditMode(request));
+        addSiteSpecificConfiguration(request, pageConfig);
+
+        //TODO review labels for search once we have time to delete current bundles
+        pageConfig.addAllLabelsSpecificName(SEARCH_BUNDLE, SEARCH);
+    }
+
+    public abstract void addPageAttributes (PageCompositionHelper pageConfig);
+
+
 
     /**
      * Adds Metadata about the application to the request
