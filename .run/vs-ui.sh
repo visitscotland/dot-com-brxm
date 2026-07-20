@@ -12,7 +12,7 @@ git pull
 echo "File created at: $(date +"%Y-%m-%d")" > .env
 echo "BR_RESOURCE_API_ENDPOINT=http://localhost:8080/site/resourceapi" > .env
 echo "BR_CMS_ORIGIN_LOCATION=*" >> .env
-echo "BR_NUXT_APP_DEBUG=false=*" >> .env
+echo "BR_NUXT_APP_DEBUG=false" >> .env
 
 
 # Default: do not rebuild
