@@ -56,10 +56,13 @@ done
 # Run yarn install only if rebuild flag is set
 if [ "$rebuild" = true ]; then
   printf "${COLOUR}Running yarn install...${LINE_END}"
-  yarn install
+  # yarn install
 else
   printf "${COLOUR}Skipping yarn install.\e[0m"
 fi
+
+# TODO: This should be in the previous if block but For some reason it doesn't work. Investigate
+yarn install
 
 # Start dev server
 yarn dev
