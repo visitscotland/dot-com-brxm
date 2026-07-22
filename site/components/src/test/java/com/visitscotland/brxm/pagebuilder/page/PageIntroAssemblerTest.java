@@ -4,7 +4,7 @@ import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.pagebuilder.model.PageIntro;
+import com.visitscotland.brxm.pagebuilder.model.PageTemplate;
 import com.visitscotland.brxm.pagebuilder.page.adapter.GeneralPageAdapter;
 import com.visitscotland.brxm.pagebuilder.page.adapter.PageAdapter;
 import org.junit.jupiter.api.DisplayName;
@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class PageIntroAssemblerTest {
+class pageTemplateAssemblerTest {
 
     private static final Locale LOCALE = Locale.UK;
 
@@ -32,17 +32,17 @@ class PageIntroAssemblerTest {
     }
 
     @Test
-    @DisplayName("The correct adapter is used to create a PageIntro for a supported page type")
+    @DisplayName("The correct adapter is used to create a PageTemplate for a supported page type")
     void returnsIntroFromSupportingAdapter() throws Exception {
         TestPage page = new TestPage();
 
         PageAdapter unusedAdapter = spy(new GeneralPageAdapter(null, null));
         PageAdapter supportingAdapter = spy(new TestAdapter());
 
-        PageIntroAssembler assembler = new PageIntroAssembler(List.of(supportingAdapter, unusedAdapter));
+        PageTemplateAssembler assembler = new PageTemplateAssembler(List.of(supportingAdapter, unusedAdapter));
         PageCompositionHelper pageConfig = mockPageConfig(page);
 
-        PageIntro result = assembler.from(pageConfig);
+        PageTemplate result = assembler.from(pageConfig);
 
         assertNotNull(result);
         assertEquals(page, result.getHippoBean());
@@ -55,7 +55,7 @@ class PageIntroAssemblerTest {
     @Test
     @DisplayName("Throws PageCompositionException when no adapter supports the given page type")
     void throwsExceptionWhenNoAdapterSupportsPage() {
-        PageIntroAssembler assembler = new PageIntroAssembler(List.of(new TestAdapter()));
+        PageTemplateAssembler assembler = new PageTemplateAssembler(List.of(new TestAdapter()));
 
         PageCompositionException exception = assertThrows(
                 PageCompositionException.class,
@@ -73,12 +73,12 @@ class PageIntroAssemblerTest {
         PageAdapter firstAdapter = spy(new TestAdapter());
         PageAdapter secondAdapter = spy(new TestAdapter());
 
-        PageIntroAssembler assembler =
-                new PageIntroAssembler(List.of(firstAdapter, secondAdapter));
+        PageTemplateAssembler assembler =
+                new PageTemplateAssembler(List.of(firstAdapter, secondAdapter));
 
         PageCompositionHelper pageConfig = mockPageConfig(page);
 
-        PageIntro result = assembler.from(pageConfig);
+        PageTemplate result = assembler.from(pageConfig);
 
         assertEquals(page, result.getHippoBean());
 
@@ -91,9 +91,9 @@ class PageIntroAssemblerTest {
     private static class TestAdapter implements PageAdapter {
 
         @Override
-        public Optional<PageIntro> getPageIntro(PageCompositionHelper pageConfig) {
+        public Optional<PageTemplate> getPageIntro(PageCompositionHelper pageConfig) {
             try {
-                return Optional.of(new PageIntro(pageConfig.getPage()));
+                return Optional.of(new PageTemplate(pageConfig.getPage()));
             } catch (PageCompositionException e) {
                 throw new RuntimeException(e);
             }

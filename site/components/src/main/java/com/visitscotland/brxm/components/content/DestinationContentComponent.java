@@ -6,9 +6,8 @@ import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.Destination;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
+import com.visitscotland.brxm.pagebuilder.page.PageTemplateAssembler;
 import org.hippoecm.hst.core.component.HstRequest;
-import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,22 +19,23 @@ public class DestinationContentComponent extends PageContentComponent<Destinatio
 
     private final PageAssembler builder;
     private final LocationLoader locationLoader;
-    private final PageIntroAssembler pageIntroAssembler;
+    private final PageTemplateAssembler pageTemplateAssembler;
 
     public DestinationContentComponent(){
         logger.debug("DestinationContentComponent initialized");
         this.builder = VsComponentManager.get(PageAssembler.class);
         this.locationLoader = VsComponentManager.get(LocationLoader.class);
-        this.pageIntroAssembler = VsComponentManager.get(PageIntroAssembler.class);
+        this.pageTemplateAssembler = VsComponentManager.get(PageTemplateAssembler.class);
     }
 
     @Override
-    public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageIntroAssembler, request);
+    public PageCompositionHelper createPageCompositionHelper(HstRequest request) {
+        return new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
+    }
 
-        super.doBeforeRender(request, response, pageConfig);
-
-        addAttributesToRequest(request, pageConfig);
+    @Override
+    public void addPageAttributes(PageCompositionHelper pageConfig) {
+        addAttributesToRequest(pageConfig.getRequest(), pageConfig);
     }
 
     void addAttributesToRequest(HstRequest request, PageCompositionHelper pageConfig) {

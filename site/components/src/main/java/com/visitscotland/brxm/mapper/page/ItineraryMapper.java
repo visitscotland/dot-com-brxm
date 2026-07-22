@@ -6,6 +6,7 @@ import com.visitscotland.brxm.dms.DMSUtils;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.mapper.ImageMapper;
+import com.visitscotland.brxm.mapper.module.TransportMapper;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.megalinks.Entry;
@@ -50,12 +51,13 @@ public class ItineraryMapper {
     private final GoogleMapsService googleMapsService;
     private final Logger contentLogger;
     private final StopMapper stopMapper;
+    private final TransportMapper transportMapper;
 
 
     public ItineraryMapper(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
                            DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
                            GoogleMapsService googleMapsService, ContentLogger contentLogger,
-                           EntryMapper entryMapper, StopMapper stopMapper) {
+                           EntryMapper entryMapper, StopMapper stopMapper, TransportMapper transportMapper) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageMapper = imageMapper;
@@ -66,6 +68,7 @@ public class ItineraryMapper {
         this.contentLogger = contentLogger;
         this.entryMapper = entryMapper;
         this.stopMapper = stopMapper;
+        this.transportMapper = transportMapper;
     }
 
     /**
@@ -362,19 +365,7 @@ public class ItineraryMapper {
     }
 
     private void populateTransports(ItineraryPage page, final String[] transports, final Locale locale) {
-        List<Entry> transportsToAdd = new ArrayList<>();
-        if (transports == null) {
-            page.setTransports(transportsToAdd);
-        } else {
-            for (final String transport : transports) {
-                if (transport != null && bundle.existsResourceBundleKey(TRANSPORTS, transport, locale)) {
-                    transportsToAdd.add(new Entry(transport, bundle.getResourceBundle(TRANSPORTS, transport, locale)));
-                } else {
-                    contentLogger.warn("No key/value pair for transport type {}", transport);
-                }
-            }
-            page.setTransports(transportsToAdd);
-        }
+        page.setTransports(transportMapper.getTransports(transports, locale));
     }
 
     private void populateThemes(ItineraryPage page, final String theme, final Locale locale) {

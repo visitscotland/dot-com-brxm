@@ -4,9 +4,8 @@ import com.visitscotland.brxm.components.navigation.info.GeneralPageComponentInf
 import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
-import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
+import com.visitscotland.brxm.pagebuilder.page.PageTemplateAssembler;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -25,22 +24,23 @@ public class GeneralContentComponent extends PageContentComponent<General> {
 
 
     private final PageAssembler builder;
-    private final PageIntroAssembler pageIntroAssembler;
+    private final PageTemplateAssembler pageTemplateAssembler;
 
     public GeneralContentComponent(){
         logger.debug("GeneralContentComponent initialized");
         this.builder = VsComponentManager.get(PageAssembler.class);
-        this.pageIntroAssembler = VsComponentManager.get(PageIntroAssembler.class);
+        this.pageTemplateAssembler = VsComponentManager.get(PageTemplateAssembler.class);
     }
 
     @Override
-    public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageIntroAssembler, request);
-
-        super.doBeforeRender(request, response, pageConfig);
-
-        pageConfig.initPageTemplate();
-        builder.addModules(request, pageConfig);
+    public PageCompositionHelper createPageCompositionHelper(HstRequest request) {
+        return new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
     }
+
+    @Override
+    public void addPageAttributes(PageCompositionHelper pageConfig) {
+        builder.addModules(pageConfig.getRequest(), pageConfig);
+    }
+
 
 }

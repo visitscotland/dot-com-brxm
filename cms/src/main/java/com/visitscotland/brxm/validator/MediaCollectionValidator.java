@@ -28,10 +28,15 @@ public class MediaCollectionValidator implements Validator<Node> {
     public Optional<Violation> validate(final ValidationContext context, final Node document) {
 
         try {
-            final String nodeId = document.getProperty(HIPPO_DOCBASE).getValue().getString();
-             if (document.isNodeType(IMAGE_LINK) && nodeId.equals(ImageValidator.EMPTY_IMAGE)) {
-                 return Optional.of(context.createViolation());
-             }
+            if (document.hasProperty(HIPPO_DOCBASE)) {
+                final String nodeId = document.getProperty(HIPPO_DOCBASE).getValue().getString();
+                if (document.isNodeType(IMAGE_LINK) && nodeId.equals(ImageValidator.EMPTY_IMAGE)) {
+                    return Optional.of(context.createViolation());
+                }
+            } else {
+                logger.info("Property {} not found in document.", HIPPO_DOCBASE);
+            }
+
 
         } catch (RepositoryException e) {
             logger.warn("An error occurred during validation: ", e);
