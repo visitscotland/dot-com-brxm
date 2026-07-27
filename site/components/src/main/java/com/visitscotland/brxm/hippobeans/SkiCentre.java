@@ -18,11 +18,6 @@ public class SkiCentre extends BaseDocument {
         return getHippoHtml("visitscotland:copy");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:productId")
-    public String getProductId() {
-        return getSingleProperty("visitscotland:productId");
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:feed")
     public String getFeed() {
         return getSingleProperty("visitscotland:feed");
