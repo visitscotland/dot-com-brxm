@@ -45151,7 +45151,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: c2e720c2-f819-47a4-a269-29b395e328b0
           hippo:name: BREG Form
-          hippo:versionHistory: 5e6c022d-dcd7-4334-b910-287ab268c679
+          hippo:versionHistory: 972b9600-a350-438f-be8b-c2aef757975e
           /breg-form[1]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
@@ -45161,7 +45161,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2026-02-16T13:49:15.216Z
+            hippostdpubwf:lastModificationDate: 2026-07-24T09:53:29.037+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: b6ef5445-e71d-4545-b832-b55c5875c9b7
             hippotranslation:locale: en
@@ -45176,7 +45176,7 @@
               visitscotland:activitySource: E-News Signups
               visitscotland:consents: [newsletter, snow]
               visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
-              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer/snow
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer
               /visitscotland:consents[1]:
                 jcr:primaryType: visitscotland:Entry
                 visitscotland:key: snow
@@ -45194,7 +45194,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2026-02-16T13:50:58.780Z
+            hippostdpubwf:lastModificationDate: 2026-07-24T09:53:32.336+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: b6ef5445-e71d-4545-b832-b55c5875c9b7
             hippotranslation:locale: en
@@ -45209,7 +45209,7 @@
               visitscotland:activitySource: E-News Signups
               visitscotland:consents: [newsletter, snow]
               visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
-              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer/snow
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer
               /visitscotland:consents[1]:
                 jcr:primaryType: visitscotland:Entry
                 visitscotland:key: snow
@@ -45227,9 +45227,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
-            hippostdpubwf:lastModificationDate: 2026-02-16T13:50:58.780Z
+            hippostdpubwf:lastModificationDate: 2026-07-24T09:53:32.336+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-02-16T13:51:01.924Z
+            hippostdpubwf:publicationDate: 2026-07-24T09:53:35.103+01:00
             hippotranslation:id: b6ef5445-e71d-4545-b832-b55c5875c9b7
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: ''
@@ -45243,7 +45243,7 @@
               visitscotland:activitySource: E-News Signups
               visitscotland:consents: [newsletter, snow]
               visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
-              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer/snow
+              visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer
               /visitscotland:consents[1]:
                 jcr:primaryType: visitscotland:Entry
                 visitscotland:key: snow

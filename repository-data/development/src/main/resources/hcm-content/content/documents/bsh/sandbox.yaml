@@ -26717,6 +26717,280 @@
               visitscotland:activitySource: BSH Web Form
               visitscotland:jsonUrl: /site/binaries/content/assets/bsh-dev/forms/climate-action-plan-workbook-request.json
               visitscotland:url: https://api.visitscotland.net/dev/submit/breg/form/stakeholder
+      /carbon-calculator:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: 7013d65c-d7f3-4ee7-a977-5fcb770d09b2
+        hippo:name: Carbon calculator
+        hippostd:foldertype: [new-bsh-folder, new-bsh-page, new-bsh-module]
+        hippotranslation:id: 6ee0047a-09df-42b7-9a34-532b78d955eb
+        hippotranslation:locale: en
+        /content:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 6ddf07e3-cec9-41d5-82f4-dd77ce929b5a
+          hippo:name: Carbon Calculator
+          hippo:versionHistory: 43cbc910-c76a-4933-b511-a81164ae141a
+          /content[1]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 4e836813-f17c-4c5e-90dd-50c691d294b5
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-07-24T11:49:07.425+01:00
+            hippostdpubwf:lastModificationDate: 2026-07-24T11:49:07.426+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 2592179d-7f0b-4e7f-9666-42956e270a13
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: Carbon Calculator
+            visitscotland:hideNewsletter: false
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: Carbon Calculator Registration
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Carbon Calculator Registration
+            visitscotland:skill: ''
+            visitscotland:teaser: Measure, Understand, Reduce Your Carbon Impact
+            visitscotland:theme: simple
+            visitscotland:title: Start Your Carbon Reduction Journey
+            visitscotland:topic: []
+            visitscotland:type: partner
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 287bbc55-54ed-4518-a492-828e78e801c0
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Ready to make a positive impact? Register to use
+                our carbon assessment and carbon calculator to gain valuable insights
+                into your business's carbon emissions. You'll receive practical information
+                to help you understand where emissions come from, identify opportunities
+                to reduce them, and begin building a more sustainable future—one informed
+                decision at a time.</p>
+          /content[2]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: ebee1949-1690-4c72-acfb-f2d9ea0e6870
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-07-24T11:49:07.425+01:00
+            hippostdpubwf:lastModificationDate: 2026-07-24T11:51:38.657+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 2592179d-7f0b-4e7f-9666-42956e270a13
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: Carbon Calculator
+            visitscotland:hideNewsletter: false
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: Carbon Calculator Registration
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Carbon Calculator Registration
+            visitscotland:skill: ''
+            visitscotland:teaser: Measure, Understand, Reduce Your Carbon Impact
+            visitscotland:theme: simple
+            visitscotland:title: Start Your Carbon Reduction Journey
+            visitscotland:topic: []
+            visitscotland:type: partner
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 287bbc55-54ed-4518-a492-828e78e801c0
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Ready to make a positive impact? Register to use
+                our carbon assessment and carbon calculator to gain valuable insights
+                into your business's carbon emissions. You'll receive practical information
+                to help you understand where emissions come from, identify opportunities
+                to reduce them, and begin building a more sustainable future—one informed
+                decision at a time.</p>
+          /content[3]:
+            jcr:primaryType: visitscotland:GeneralBSH
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 28a79d8b-ef85-45a8-b5b0-93c69d926568
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-07-24T11:49:07.425+01:00
+            hippostdpubwf:lastModificationDate: 2026-07-24T11:51:38.657+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-07-24T12:05:07.988+01:00
+            hippotranslation:id: 2592179d-7f0b-4e7f-9666-42956e270a13
+            hippotranslation:locale: en
+            visitscotland:breadcrumb: Carbon Calculator
+            visitscotland:hideNewsletter: false
+            visitscotland:publishDate: 0001-01-01T12:00:00Z
+            visitscotland:readingTime: 0
+            visitscotland:regions: []
+            visitscotland:sectors: []
+            visitscotland:seoDescription: Carbon Calculator Registration
+            visitscotland:seoNoIndex: false
+            visitscotland:seoTitle: Carbon Calculator Registration
+            visitscotland:skill: ''
+            visitscotland:teaser: Measure, Understand, Reduce Your Carbon Impact
+            visitscotland:theme: simple
+            visitscotland:title: Start Your Carbon Reduction Journey
+            visitscotland:topic: []
+            visitscotland:type: partner
+            /visitscotland:heroImage:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: 287bbc55-54ed-4518-a492-828e78e801c0
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /visitscotland:introduction:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Ready to make a positive impact? Register to use
+                our carbon assessment and carbon calculator to gain valuable insights
+                into your business's carbon emissions. You'll receive practical information
+                to help you understand where emissions come from, identify opportunities
+                to reduce them, and begin building a more sustainable future—one informed
+                decision at a time.</p>
+        /form:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: a7417459-8958-4bda-8376-db60df64f6ae
+          hippo:name: Form
+          hippo:versionHistory: 2ebf20f5-5fa3-4ddb-b85e-67d97d76ccae
+          /form[1]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 9ffecf33-2085-4699-b512-b08c2d28e1fd
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-07-24T11:51:55.005+01:00
+            hippostdpubwf:lastModificationDate: 2026-07-24T12:05:22.352+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 30021bd7-1835-4fea-b2cd-1269b80be9c2
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Take the Next Step Towards Net Zero
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: BSH_CC_26
+              visitscotland:activityDescription: Business Support Hub Carbon Calculator
+                Registration
+              visitscotland:activitySource: Dev - Carbon Calculator
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-2026.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/ccg/register
+              /visitscotland:consents[1]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: partner_consent
+                visitscotland:key: emissionsUpdate
+                visitscotland:optional: false
+                visitscotland:value: ISLA_26
+              /visitscotland:consents[2]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: ''
+                visitscotland:key: carbon_calculator
+                visitscotland:optional: false
+                visitscotland:value: VS_CC_26
+              /visitscotland:consents[3]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: ''
+                visitscotland:key: newsletter
+                visitscotland:optional: false
+                visitscotland:value: VS_NS_26
+          /form[2]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: 0ae3657c-cc29-4140-b227-4b47d92ba2e4
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-07-24T11:51:55.005+01:00
+            hippostdpubwf:lastModificationDate: 2026-07-24T12:05:26.934+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 30021bd7-1835-4fea-b2cd-1269b80be9c2
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Take the Next Step Towards Net Zero
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: BSH_CC_26
+              visitscotland:activityDescription: Business Support Hub Carbon Calculator
+                Registration
+              visitscotland:activitySource: Dev - Carbon Calculator
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-2026.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/ccg/register
+              /visitscotland:consents[1]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: partner_consent
+                visitscotland:key: emissionsUpdate
+                visitscotland:optional: false
+                visitscotland:value: ISLA_26
+              /visitscotland:consents[2]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: ''
+                visitscotland:key: carbon_calculator
+                visitscotland:optional: false
+                visitscotland:value: VS_CC_26
+              /visitscotland:consents[3]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: ''
+                visitscotland:key: newsletter
+                visitscotland:optional: false
+                visitscotland:value: VS_NS_26
+          /form[3]:
+            jcr:primaryType: visitscotland:Form
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 72ef5664-2838-4d9a-abb2-938c8c33fe7b
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2026-07-24T11:51:55.005+01:00
+            hippostdpubwf:lastModificationDate: 2026-07-24T12:05:26.934+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2026-07-24T12:05:29.421+01:00
+            hippotranslation:id: 30021bd7-1835-4fea-b2cd-1269b80be9c2
+            hippotranslation:locale: en
+            visitscotland:nonJavaScriptMessage: ''
+            visitscotland:title: Take the Next Step Towards Net Zero
+            visitscotland:translation: ''
+            /visitscotland:form:
+              jcr:primaryType: visitscotland:FormCompoundBreg
+              visitscotland:activityCode: BSH_CC_26
+              visitscotland:activityDescription: Business Support Hub Carbon Calculator
+                Registration
+              visitscotland:activitySource: Dev - Carbon Calculator
+              visitscotland:jsonUrl: https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-2026.json
+              visitscotland:url: https://api.visitscotland.net/dev/submit/ccg/register
+              /visitscotland:consents[1]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: partner_consent
+                visitscotland:key: emissionsUpdate
+                visitscotland:optional: false
+                visitscotland:value: ISLA_26
+              /visitscotland:consents[2]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: ''
+                visitscotland:key: carbon_calculator
+                visitscotland:optional: false
+                visitscotland:value: VS_CC_26
+              /visitscotland:consents[3]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: ''
+                visitscotland:key: newsletter
+                visitscotland:optional: false
+                visitscotland:value: VS_NS_26
     /events-listing:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
