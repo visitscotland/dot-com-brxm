@@ -2,7 +2,6 @@ package com.visitscotland.brxm.mapper.module;
 
 import com.visitscotland.brxm.hippobeans.Spotlight;
 import com.visitscotland.brxm.hippobeans.VideoLink;
-import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.Module;
@@ -46,16 +45,14 @@ public class SpotlightMapper extends ModuleMapper<Spotlight, SpotlightModule> {
 
     public SpotlightModule createModule(Spotlight spotlight, PageCompositionHelper compositionHelper) throws InvalidContentException {
         SpotlightModule module = new SpotlightModule();
-        Linkable linkable = (Linkable) spotlight.getCtaLink().getLink();
-        FlatLink cta = linkService.createSimpleLink(linkable, module, compositionHelper.getLocale());
-
-        if (Contract.isNull(cta.getLink())) {
+        if (spotlight.getCtaItem() == null) {
             throw new InvalidContentException(spotlight.getPath(),
-                    "The link for the Spotlight is not available. The module has been hidden");
+                "The link for the Spotlight is not available. The module has been hidden");
         }
-
-        if (!Contract.isEmpty(spotlight.getCtaLink().getLabel())) {
-            cta.setLabel(spotlight.getCtaLink().getLabel());
+        FlatLink cta = linkService.createFindOutMoreLink(module, compositionHelper.getLocale(), spotlight.getCtaItem());
+        if (cta == null) {
+            throw new InvalidContentException(spotlight.getPath(),
+                "The link for the Spotlight could not be resolved. The module has been hidden");
         }
 
         FlatImage image = new FlatImage();
