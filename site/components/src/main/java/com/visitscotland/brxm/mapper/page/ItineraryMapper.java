@@ -127,6 +127,9 @@ public class ItineraryMapper {
     @Deprecated
     public boolean isStopBasedItinerary(final Itinerary itinerary) {
         List<BaseDocument> bean = documentUtils.getAllowedDocuments(itinerary, BaseDocument.class);
+        if (itinerary.getMapLink() == null) {
+            return true;
+        }
         for (BaseDocument b : bean) {
             if (b instanceof Day) {
                 return ((Day) b).getStops() != null && !((Day) b).getStops().isEmpty();
