@@ -3,8 +3,8 @@
 COLOUR="\033[35m" # Set a colour for highlighting the output
 LINE_END="\033[0m\n" # End of line and colour reset
 
-REPO_NAME="visitscotland-dot-com-frontend"
-RESOURCE_API_ENDPOINT="http://localhost:8080/site/resourceapi"
+REPO_NAME="business-support-hub-front-end"
+RESOURCE_API_ENDPOINT="http://localhost:8080/site/bsh-api/resourceapi"
 
 # Default: rebuild
 rebuild=true
@@ -56,10 +56,13 @@ done
 # Run yarn install only if rebuild flag is set
 if [ "$rebuild" = true ]; then
   printf "${COLOUR}Running yarn install...${LINE_END}"
-  yarn install
+  # yarn install
 else
   printf "${COLOUR}Skipping yarn install.\e[0m"
 fi
+
+# TODO: This should be in the previous if block but For some reason it doesn't work. Investigate
+yarn install
 
 # Start dev server
 yarn dev
