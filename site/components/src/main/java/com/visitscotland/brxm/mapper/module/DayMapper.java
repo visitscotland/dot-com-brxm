@@ -70,12 +70,12 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         setImage(day, document, locale);
         day.setMediaSection(mediaSectionMapper.map(document.getMediaCollection(), day, locale));
 
-        setIntraDayModule(document, compositionHelper);
+        setIntraDayModule(document, compositionHelper, locale);
 
         return day;
     }
 
-    private void setIntraDayModule(Day document, PageCompositionHelper compositionHelper) {
+    private void setIntraDayModule(Day document, PageCompositionHelper compositionHelper, Locale locale) {
         try {
             if (!compositionHelper.getModules().isEmpty()) {
 
@@ -90,7 +90,11 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
                     logger.info("\n\nUnable to calculate intraday route map for day {}", document.getPath());
                 }
 
-                ((ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1)).setIntraDayModule(new IntraDayModule(routeUrl, distance));
+                final String title = prevDayModule.getTitle().concat(" - ").concat(document.getTitle());
+                final FlatLink mapLink = new FlatLink(bundle.getResourceBundle(BUNDLE_FILE, "days.intraday-cta", locale), routeUrl, LinkType.EXTERNAL);
+
+                ((ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1)).setIntraDayModule(
+                        new IntraDayModule(title, mapLink, distance));
 
             }
 
