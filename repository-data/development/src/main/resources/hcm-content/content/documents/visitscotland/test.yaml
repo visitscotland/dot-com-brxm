@@ -24171,9 +24171,9 @@
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
             jcr:uuid: e409b546-17a7-4a3f-be55-7c2e036c38d1
             hippo:availability: []
-            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
             hippostdpubwf:lastModificationDate: 2026-08-04T09:39:43.287+01:00
