@@ -5,7 +5,7 @@ import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.mapper.page.CategoryCardsMapper;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.pagebuilder.model.PageIntro;
+import com.visitscotland.brxm.pagebuilder.model.PageTemplate;
 import com.visitscotland.brxm.pagebuilder.page.PageTemplateInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +27,10 @@ public class GeneralPageAdapter implements PageAdapter {
     }
 
     @Override
-    public Optional<PageIntro> getPageIntro(PageCompositionHelper pageConfig)  {
+    public Optional<PageTemplate> getPageIntro(PageCompositionHelper pageConfig)  {
 
         try {
-            PageIntro template = pageTemplateInitializer.getPageIntro(pageConfig);
+            PageTemplate template = pageTemplateInitializer.getPageTemplate(pageConfig);
             General page = pageConfig.getPage();
 
             if (page.getCategoryLinks() != null) {

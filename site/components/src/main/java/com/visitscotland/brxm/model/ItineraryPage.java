@@ -3,14 +3,14 @@ package com.visitscotland.brxm.model;
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.megalinks.Entry;
-import com.visitscotland.brxm.pagebuilder.model.PageIntro;
+import com.visitscotland.brxm.pagebuilder.model.PageTemplate;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ItineraryPage extends PageIntro {
+public class ItineraryPage extends PageTemplate {
 
     private BigDecimal distance;
     private List<Entry> transports;

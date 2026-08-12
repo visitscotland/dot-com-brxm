@@ -6731,73 +6731,112 @@
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
             hippostd:content: <p>This is an example of a form on a general page</p>
-      /form-example:
+      /breg-form:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: c2d5ce06-e43b-400a-83c0-c527e61b961b
-        hippo:name: Form example
-        hippo:versionHistory: 98812502-6cb1-4c70-a086-d5154d9700fd
-        /form-example[1]:
-          jcr:primaryType: visitscotland:MarketoForm
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 5eebe03a-b078-4190-b657-7ff91adae25a
-          hippo:availability: []
-          hippostd:retainable: false
-          hippostd:state: draft
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2022-04-04T14:21:19.756+01:00
-          hippostdpubwf:lastModificationDate: 2025-02-26T11:30:50.435Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 6a41b29a-7c44-4c4c-92df-2e852b484272
-          hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach.json
-          visitscotland:nonJavaScriptMessage: ''
-          visitscotland:title: An example form
-          visitscotland:translation: ''
-          /visitscotland:copy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-        /form-example[2]:
-          jcr:primaryType: visitscotland:MarketoForm
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: eb062cf5-ae4e-44f1-9a25-1fe2bc0151de
+        jcr:uuid: 80c5f6d6-5558-4762-8f04-841446c505e2
+        hippo:name: BREG Form
+        hippo:versionHistory: e2d28e05-28d5-4cd8-8c1c-a3f669f14b32
+        /breg-form[1]:
+          jcr:primaryType: visitscotland:Form
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 6277679b-6c56-4949-84d2-858a5e395b6d
           hippo:availability: [preview]
           hippostd:retainable: false
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2022-04-04T14:21:19.756+01:00
-          hippostdpubwf:lastModificationDate: 2025-02-26T11:31:25.577Z
+          hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
+          hippostdpubwf:lastModificationDate: 2026-07-24T09:53:16.351+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 6a41b29a-7c44-4c4c-92df-2e852b484272
+          hippotranslation:id: 06ce612f-c787-4188-b0bd-7e23218a4c4a
           hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach.json
           visitscotland:nonJavaScriptMessage: ''
-          visitscotland:title: An example form
+          visitscotland:title: What are your details?
           visitscotland:translation: ''
-          /visitscotland:copy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-        /form-example[3]:
-          jcr:primaryType: visitscotland:MarketoForm
+          /visitscotland:form:
+            jcr:primaryType: visitscotland:FormCompoundBreg
+            visitscotland:activityCode: 00ENEWS003
+            visitscotland:activityDescription: Website opt in for Snow Alerts (ski)
+              and VS Email
+            visitscotland:activitySource: E-News Signups
+            visitscotland:consents: [newsletter, snow]
+            visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+            visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer
+            /visitscotland:consents[1]:
+              jcr:primaryType: visitscotland:Entry
+              visitscotland:key: snow
+              visitscotland:value: The snow, is now here; It's snowing now.
+            /visitscotland:consents[2]:
+              jcr:primaryType: visitscotland:Entry
+              visitscotland:key: newsletter
+              visitscotland:value: VSEMAIL_0026
+        /breg-form[2]:
+          jcr:primaryType: visitscotland:Form
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 56583acc-4524-44cc-8d2c-2cd9c8be7255
+          jcr:uuid: 11b4d4ba-e226-452f-8f30-c00f0de745ae
           hippo:availability: [live]
           hippostd:retainable: false
           hippostd:state: published
           hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2022-04-04T14:21:19.756+01:00
-          hippostdpubwf:lastModificationDate: 2025-02-26T11:31:25.577Z
+          hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
+          hippostdpubwf:lastModificationDate: 2026-07-24T09:53:16.351+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-02-26T11:31:49.082Z
-          hippotranslation:id: 6a41b29a-7c44-4c4c-92df-2e852b484272
+          hippostdpubwf:publicationDate: 2026-07-24T09:53:18.509+01:00
+          hippotranslation:id: 06ce612f-c787-4188-b0bd-7e23218a4c4a
           hippotranslation:locale: en
-          visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach.json
           visitscotland:nonJavaScriptMessage: ''
-          visitscotland:title: An example form
+          visitscotland:title: What are your details?
           visitscotland:translation: ''
-          /visitscotland:copy:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
+          /visitscotland:form:
+            jcr:primaryType: visitscotland:FormCompoundBreg
+            visitscotland:activityCode: 00ENEWS003
+            visitscotland:activityDescription: Website opt in for Snow Alerts (ski)
+              and VS Email
+            visitscotland:activitySource: E-News Signups
+            visitscotland:consents: [newsletter, snow]
+            visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+            visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer
+            /visitscotland:consents[1]:
+              jcr:primaryType: visitscotland:Entry
+              visitscotland:key: snow
+              visitscotland:value: The snow, is now here; It's snowing now.
+            /visitscotland:consents[2]:
+              jcr:primaryType: visitscotland:Entry
+              visitscotland:key: newsletter
+              visitscotland:value: VSEMAIL_0026
+        /breg-form[3]:
+          jcr:primaryType: visitscotland:Form
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 5d98d988-a447-4dda-9139-5b288f2229e1
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-05-22T12:24:38.758+01:00
+          hippostdpubwf:lastModificationDate: 2026-07-24T09:53:07.926+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 06ce612f-c787-4188-b0bd-7e23218a4c4a
+          hippotranslation:locale: en
+          visitscotland:nonJavaScriptMessage: ''
+          visitscotland:title: What are your details?
+          visitscotland:translation: ''
+          /visitscotland:form:
+            jcr:primaryType: visitscotland:FormCompoundBreg
+            visitscotland:activityCode: 00ENEWS003
+            visitscotland:activityDescription: Website opt in for Snow Alerts (ski)
+              and VS Email
+            visitscotland:activitySource: E-News Signups
+            visitscotland:consents: [newsletter, snow]
+            visitscotland:jsonUrl: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up.json
+            visitscotland:url: https://api.visitscotland.net/dev/submit/breg/forms/consumer
+            /visitscotland:consents[1]:
+              jcr:primaryType: visitscotland:Entry
+              visitscotland:key: snow
+              visitscotland:value: The snow, is now here; It's snowing now.
+            /visitscotland:consents[2]:
+              jcr:primaryType: visitscotland:Entry
+              visitscotland:key: newsletter
+              visitscotland:value: VSEMAIL_0026
     /product-search-module:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -24132,11 +24171,12 @@
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
             jcr:uuid: e409b546-17a7-4a3f-be55-7c2e036c38d1
             hippo:availability: []
+            hippostd:holder: admin
             hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2022-06-16T09:40:19.973+01:00
-            hippostdpubwf:lastModificationDate: 2025-11-20T10:56:26.923Z
+            hippostdpubwf:lastModificationDate: 2026-08-04T09:39:43.287+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [destinations]
             hippotranslation:id: ea7f9827-02a3-4ebd-b420-503a9f39a773
@@ -25094,7 +25134,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 7d1fff40-114d-44e6-a48a-e7f7841483ee
         hippo:name: Main Map
-        hippo:versionHistory: 9b575ac4-6770-4503-b9eb-cee8086ad822
+        hippo:versionHistory: 0b9401d0-cc43-4b85-a9e6-d624716ca8b5
         /main-map[1]:
           jcr:primaryType: visitscotland:MapModule
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -25104,9 +25144,9 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-11-20T10:39:12.032Z
-          hippostdpubwf:lastModificationDate: 2025-11-20T11:03:15.741Z
+          hippostdpubwf:lastModificationDate: 2026-08-04T09:42:46.693+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [main-map]
+          hippotaxonomy:keys: [main-map, destinations]
           hippotranslation:id: 935a7e8f-2867-49a7-8279-2f0e085cb4e4
           hippotranslation:locale: en
           visitscotland:isGoogleMap: true
@@ -25123,9 +25163,9 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-11-20T10:39:12.032Z
-          hippostdpubwf:lastModificationDate: 2025-11-20T11:04:04.374Z
+          hippostdpubwf:lastModificationDate: 2026-08-04T09:45:42.356+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippotaxonomy:keys: [main-map]
+          hippotaxonomy:keys: [main-map, destinations]
           hippotranslation:id: 935a7e8f-2867-49a7-8279-2f0e085cb4e4
           hippotranslation:locale: en
           visitscotland:isGoogleMap: true
@@ -25142,10 +25182,10 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-11-20T10:39:12.032Z
-          hippostdpubwf:lastModificationDate: 2025-11-20T11:04:04.374Z
+          hippostdpubwf:lastModificationDate: 2026-08-04T09:45:42.356+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-11-20T11:04:51.434Z
-          hippotaxonomy:keys: [main-map]
+          hippostdpubwf:publicationDate: 2026-08-04T09:45:44.724+01:00
+          hippotaxonomy:keys: [main-map, destinations]
           hippotranslation:id: 935a7e8f-2867-49a7-8279-2f0e085cb4e4
           hippotranslation:locale: en
           visitscotland:isGoogleMap: true
