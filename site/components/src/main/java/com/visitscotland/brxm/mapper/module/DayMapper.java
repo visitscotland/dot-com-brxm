@@ -82,12 +82,14 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
                 ItineraryDayModule prevDayModule = (ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1);
                 final String prevUrl = prevDayModule.getMapLink().getLink();
                 final String routeUrl = googleMapsService.getDirectionsUrlForIntraDay(prevUrl, document.getMapLink().getLink());
-                final BigDecimal distance = googleMapsService.getDistanceFromUrls(prevUrl, document.getMapLink().getLink());
+                BigDecimal distance = googleMapsService.getDistanceFromUrls(prevUrl, document.getMapLink().getLink());
                 if (routeUrl == null || routeUrl.isEmpty()) {
                     logger.info("Unable to calculate intraday route map for day {}", document.getPath());
+                    return;
                 }
                 if (distance == null) {
                     logger.info("\n\nUnable to calculate intraday route map for day {}", document.getPath());
+                    distance = BigDecimal.ZERO;
                 }
 
                 final String title = prevDayModule.getTitle().concat(" - ").concat(document.getTitle());
