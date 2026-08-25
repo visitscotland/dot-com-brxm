@@ -116,8 +116,6 @@ public class ItineraryMapper {
 
         page.setIframeMap(itinerary.getEmbeddedMap());
         populateTransports(page, itinerary.getTransports(), locale);
-        populateThemes(page, itinerary.getTheme(), locale);
-        populateAreas(page, itinerary.getAreas(), locale);
         populateSeasons(page, itinerary.getSeasons(), locale);
         populateLocations(page, itinerary.getLocations());
 
@@ -128,7 +126,7 @@ public class ItineraryMapper {
     public boolean isStopBasedItinerary(final Itinerary itinerary) {
         List<BaseDocument> bean = documentUtils.getAllowedDocuments(itinerary, BaseDocument.class);
         if (itinerary.getMapLink() == null || itinerary.getMapLink().getLink() == null) {
-            return true;
+            contentLogger.info("The itinerary page {} is using the old template based on stops", itinerary.getPath());
             return true;
         }
         for (BaseDocument b : bean) {
@@ -141,19 +139,6 @@ public class ItineraryMapper {
 
     private void populateTransports(ItineraryPage page, final String[] transports, final Locale locale) {
         page.setTransports(transportMapper.getTransports(transports, locale));
-    }
-
-    private void populateThemes(ItineraryPage page, final String theme, final Locale locale) {
-        if (theme == null ) {
-            contentLogger.warn("No theme provided for page.");
-            return;
-        }
-        final String translatedTheme = bundle.getResourceBundle(THEMES, theme, locale);
-        if (translatedTheme == null || translatedTheme.isEmpty() ) {
-            contentLogger.warn("No theme found for {} for locale {}", theme, locale.getDisplayCountry());
-        } else {
-            page.setTheme(new Entry(theme, translatedTheme));
-        }
     }
 
     private void populateAreas(ItineraryPage page, final String[] areas, final Locale locale) {

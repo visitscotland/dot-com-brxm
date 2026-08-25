@@ -50,7 +50,7 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         HstRequest request = pageConfig.getRequest();
         includeLabels(pageConfig);
         if (itineraryMapper.isStopBasedItinerary(getDocument(request))){
-            logger.warn("Stop based itineraries are no longer in use.");
+            logger.warn("Stop based itineraries are no longer in use." + getDocument(request));
             // TODO - will be removed at a later date
             pageConfig.addProperty(HAS_STOPS, true);
         } else {

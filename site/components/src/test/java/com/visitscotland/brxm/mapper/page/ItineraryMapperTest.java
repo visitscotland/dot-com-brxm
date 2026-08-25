@@ -138,31 +138,4 @@ class ItineraryMapperTest {
         assertEquals("Ship", page.getTransports().get(1).getDisplayName());
     }
 
-    @Test
-    @DisplayName("The themes are populated")
-    void themesArePopulated() {
-        when(itinerary.getTheme()).thenReturn("ar");
-        when(entryMapper.getEntry("ar", ValueList.VS_ITINERARY_THEMES)).thenReturn(new Entry("ar","Augmented Reality"));
-
-        ItineraryPage page = factory.buildItinerary(itinerary, Locale.UK);
-
-        assertEquals("Augmented Reality", page.getTheme().getDisplayName());
-    }
-
-    @Test
-    @DisplayName("The areas are populated")
-    void areasArePopulated() {
-        when(itinerary.getAreas()).thenReturn(new String[]{"n", "s"});
-        when(entryMapper.getEntry(eq("n"), eq(ValueList.VS_ITINERARY_AREAS))).thenReturn(new Entry("n","North"));
-        when(entryMapper.getEntry(eq("s"), eq(ValueList.VS_ITINERARY_AREAS))).thenReturn(new Entry("s","South"));
-        when(entryMapper.getEntry(isNull(), any())).thenReturn(null);
-
-        ItineraryPage page = factory.buildItinerary(itinerary, Locale.UK);
-
-        assertEquals(2, page.getAreas().size());
-        assertEquals("North", page.getAreas().get(0).getDisplayName());
-        assertEquals("South", page.getAreas().get(1).getDisplayName());
-    }
-
-
 }
