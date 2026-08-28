@@ -78,6 +78,12 @@
 [visitscotland:Destination] > hippostd:relaxed, hippotranslation:translated, visitscotland:Page, visitscotland:translatable
   orderable
 
+[visitscotland:DestinationsKeyCategories] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:DestinationsKeyInformation] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:DevModule] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
   orderable
 
