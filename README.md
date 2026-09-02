@@ -65,6 +65,8 @@ will not be available.
 - http://localhost:8080/cms: CMS (Content Management System) tool for managing the content
 - http://localhost:8080/cms/console: JCR Console that contains the configuration and the data of the CMS
 - http://localhost:8080/cms/repository: Query tool for the JCR Console. It can be queried through xPath or JCR
+- http://localhost:8080/cms/openapi/v1.json: OpenAPI v3 JSON specification for CMS web APIs
+- http://localhost:8080/cms/swagger-ui: Interactive Swagger UI for CMS web APIs
 - http://localhost:8080/essentials: Out-of-the-box set of tools that add some extra capabilities to the CMS
 - http://localhost:8080/actuator: Actuators functionality that exposes information about the architecture of the application
 
