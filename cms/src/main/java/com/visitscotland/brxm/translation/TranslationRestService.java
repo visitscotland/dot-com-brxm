@@ -2,6 +2,13 @@ package com.visitscotland.brxm.translation;
 
 import com.visitscotland.brxm.translation.plugin.JcrDocument;
 import com.visitscotland.brxm.translation.plugin.JcrDocumentFactory;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.hippoecm.repository.api.WorkflowException;
 import org.hippoecm.repository.translation.HippoTranslationNodeType;
 import org.slf4j.Logger;
@@ -20,6 +27,8 @@ import java.util.Locale;
 
 @RestController
 @RequestScope
+@Tag(name = "Translation", description = "APIs for translation flag and difference workflows")
+@SecurityRequirement(name = "basicAuth")
 public class TranslationRestService {
     private static final Logger log = LoggerFactory.getLogger(TranslationRestService.class);
     private SessionFactory sessionFactory;
@@ -36,7 +45,15 @@ public class TranslationRestService {
     }
 
     @GetMapping(value = "/vs-service/node/{handleId}/translation/diff", produces = "application/json")
-    public String getNodeDifference(@PathVariable String handleId) {
+    @Operation(summary = "Get translation difference", description = "Returns the stored translation difference for a non-English document handle.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Difference returned"),
+            @ApiResponse(responseCode = "204", description = "No difference found"),
+            @ApiResponse(responseCode = "400", description = "Invalid handle identifier or unsupported document"),
+            @ApiResponse(responseCode = "404", description = "Document handle not found"),
+            @ApiResponse(responseCode = "500", description = "Unexpected server error", content = @Content)
+    })
+    public String getNodeDifference(@Parameter(description = "JCR handle UUID for the document") @PathVariable String handleId) {
         try {
             Node handleNode = sessionFactory.getJcrSession().getNodeByIdentifier(handleId);
             JcrDocument jcrDocument = jcrDocumentFactory.createFromNode(handleNode);
@@ -66,7 +83,17 @@ public class TranslationRestService {
     }
 
     @PostMapping(value = "/vs-service/node/{handleId}/translation/flag", produces = "application/json")
-    public void setTranslationFlag(@PathVariable String handleId, @RequestBody String body) {
+    @Operation(summary = "Set translation flag", description = "Flags an English source document for translation using the provided content payload.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Translation flag set"),
+            @ApiResponse(responseCode = "204", description = "No foreign language documents available"),
+            @ApiResponse(responseCode = "400", description = "Invalid request"),
+            @ApiResponse(responseCode = "404", description = "Document handle not found"),
+            @ApiResponse(responseCode = "409", description = "Document lock conflict"),
+            @ApiResponse(responseCode = "500", description = "Unexpected server error", content = @Content)
+    })
+    public void setTranslationFlag(@Parameter(description = "JCR handle UUID for the source document") @PathVariable String handleId,
+                                   @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Content used by translation tooling", required = true) @RequestBody String body) {
         // Needs to be an english document to set the translation on
         try {
             Node handleNode = sessionFactory.getJcrSession().getNodeByIdentifier(handleId);
@@ -97,7 +124,15 @@ public class TranslationRestService {
     }
 
     @DeleteMapping(value = "/vs-service/node/{handleId}/translation/flag", produces = "application/json")
-    public void deleteTranslationFlag(@PathVariable String handleId) {
+    @Operation(summary = "Clear translation flag", description = "Clears the translation flag on a document handle.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Translation flag cleared"),
+            @ApiResponse(responseCode = "400", description = "Invalid request"),
+            @ApiResponse(responseCode = "404", description = "Document handle not found"),
+            @ApiResponse(responseCode = "409", description = "Document lock conflict"),
+            @ApiResponse(responseCode = "500", description = "Unexpected server error", content = @Content)
+    })
+    public void deleteTranslationFlag(@Parameter(description = "JCR handle UUID for the source document") @PathVariable String handleId) {
         try {
             Node handleNode = sessionFactory.getJcrSession().getNodeByIdentifier(handleId);
             JcrDocument jcrDocument = jcrDocumentFactory.createFromNode(handleNode);
