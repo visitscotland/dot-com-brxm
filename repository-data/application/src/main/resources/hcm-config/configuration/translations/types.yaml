@@ -257,3 +257,18 @@ definitions:
       /en:
         jcr:primaryType: hipposys:resourcebundle
         jcr:name: Section (Styled Article) (BSH)
+    /hippo:configuration/hippo:translations/hippo:types/visitscotland:TravelInformationArticle:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Travel Copy Tab
+    /hippo:configuration/hippo:translations/hippo:types/visitscotland:TravelInformationTab:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Travel Transport Tab
+    /hippo:configuration/hippo:translations/hippo:types/visitscotland:DestinationsKeyCategories:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Key Information Category
