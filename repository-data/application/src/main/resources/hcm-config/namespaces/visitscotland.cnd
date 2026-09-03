@@ -260,6 +260,9 @@
 [visitscotland:TravelInformation] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
+[visitscotland:TravelInformationArticle] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:TravelInformationTab] > hippo:compound, hippostd:relaxed
   orderable
 

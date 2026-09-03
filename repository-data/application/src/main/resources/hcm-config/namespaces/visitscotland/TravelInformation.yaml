@@ -124,7 +124,7 @@ definitions:
           /practicalInformation:
             jcr:primaryType: frontend:plugin
             caption: Practical Information
-            compoundList: visitscotland:ArticleStyledSectionCOM,visitscotland:TravelInformationTab
+            compoundList: visitscotland:TravelInformationArticle,visitscotland:TravelInformationTab
             contentPickerType: links
             field: practicalInformation
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
