@@ -56,7 +56,7 @@
       selection:label: Night sky wonders
     /selection:listitem[12]:
       jcr:primaryType: selection:listitem
-      selection:key: Snowsports
+      selection:key: snowsports
       selection:label: Snowsports
     /selection:listitem[13]:
       jcr:primaryType: selection:listitem
@@ -64,5 +64,5 @@
       selection:label: Towns & villages
     /selection:listitem[14]:
       jcr:primaryType: selection:listitem
-      selection:key: Wildlife
+      selection:key: wildlife
       selection:label: Wildlife
