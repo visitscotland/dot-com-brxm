@@ -88,7 +88,7 @@ definitions:
           /ctaLink:
             jcr:primaryType: frontend:plugin
             caption: Cta Link
-            compoundList: visitscotland:CMSLink
+            compoundList: visitscotland:CMSLink,visitscotland:ExternalLink
             contentPickerType: links
             field: ctaLink
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
