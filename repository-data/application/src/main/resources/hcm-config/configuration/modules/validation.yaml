@@ -156,3 +156,14 @@ definitions:
     /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:cta-label-validator:
       jcr:primaryType: hipposys:moduleconfig
       hipposys:className: com.visitscotland.brxm.validator.CtaLabelValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:max-two-checkbox-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.MaxSelectionValidator
+      maxSelections: '2'
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:season-exclusive-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      exclusiveValue: all
+      hipposys:className: com.visitscotland.brxm.validator.ExclusiveSelectionValidator
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig/visitscotland:media-collection-validator:
+      jcr:primaryType: hipposys:moduleconfig
+      hipposys:className: com.visitscotland.brxm.validator.MediaCollectionValidator

@@ -1,7 +1,6 @@
 package com.visitscotland.brxm.mapper.module;
 
 import com.visitscotland.brxm.hippobeans.*;
-import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.model.SpotlightModule;
@@ -11,7 +10,6 @@ import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.utils.ContentLogger;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -57,7 +55,7 @@ class SpotlightMapperTest {
         when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn("dummy-anchor");
         SpotlightModule module = mapper.createModule(spotlight, compositionHelper);
 
-        verify(linkService, only()).createSimpleLink(any(), any(), any());
+        verify(linkService, only()).createFindOutMoreLink(any(), any(), any());
         verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
 
         assertEquals("Title", module.getTitle());
@@ -76,14 +74,8 @@ class SpotlightMapperTest {
     @DisplayName("Spotlight - Invalid CTA link throws exception")
     void createModuleInvalidCta() {
         Spotlight document = mock(Spotlight.class);
-        CMSLink cta = mock(CMSLink.class);
-        HippoBean linkable = mock(HippoBean.class, withSettings().extraInterfaces(Linkable.class));
 
         when(document.getPath()).thenReturn("/content/spotlight");
-        when(document.getCtaLink()).thenReturn(cta);
-        when(cta.getLink()).thenReturn(linkable);
-
-        when(linkService.createSimpleLink(any(), any(), any())).thenReturn(new FlatLink());
 
         assertThrows(
                 InvalidContentException.class,
@@ -102,7 +94,6 @@ class SpotlightMapperTest {
 
         when(videoLink.getVideoLink()).thenReturn(mock(Video.class));
         when(spotlight.getVideo()).thenReturn(videoLink);
-        when(compositionHelper.getLocale()).thenReturn(Locale.UK);
 
         when(linkService.createVideo(any(Video.class), any(), any())).thenReturn(enhancedLink);
 
@@ -145,12 +136,10 @@ class SpotlightMapperTest {
         Spotlight spotlight = mock(Spotlight.class);
         CMSLink cta = mock(CMSLink.class);
 
-        when(spotlight.getCtaLink()).thenReturn(cta);
-        when(cta.getLink()).thenReturn(mock(Video.class));
-        when(cta.getLabel()).thenReturn("Click here!");
-
-        when(linkService.createSimpleLink(any(), any(), any()))
-                .thenReturn(new FlatLink("label", "http://localhost:8080/site", LinkType.INTERNAL));
+        when(spotlight.getCtaItem()).thenReturn(cta);
+        when(compositionHelper.getLocale()).thenReturn(Locale.UK);
+        when(linkService.createFindOutMoreLink(any(SpotlightModule.class), any(Locale.class), eq(cta)))
+                .thenReturn(new FlatLink("Click here!", "http://localhost:8080/site", LinkType.INTERNAL));
 
         return spotlight;
     }

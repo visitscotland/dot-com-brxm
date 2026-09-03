@@ -4,8 +4,7 @@ import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.factory.ListicleFactory;
 import com.visitscotland.brxm.hippobeans.Listicle;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
-import com.visitscotland.brxm.utils.SiteProperties;
+import com.visitscotland.brxm.pagebuilder.page.PageTemplateAssembler;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.slf4j.Logger;
@@ -19,24 +18,26 @@ public class ListicleContentComponent extends PageContentComponent<Listicle> {
     private static final String BUNDLE_ID = "listicle";
 
 
-    private ListicleFactory factory;
-    private final PageIntroAssembler pageIntroAssembler;
+    private final ListicleFactory factory;
+    private final PageTemplateAssembler pageTemplateAssembler;
 
     public ListicleContentComponent(){
         logger.debug("ListicleContentComponent initialized");
         this.factory = VsComponentManager.get(ListicleFactory.class);
-        this.pageIntroAssembler = VsComponentManager.get(PageIntroAssembler.class);
+        this.pageTemplateAssembler = VsComponentManager.get(PageTemplateAssembler.class);
     }
 
-
+    @Override
+    public PageCompositionHelper createPageCompositionHelper(HstRequest request) {
+        return new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
+    }
 
     @Override
-    public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageIntroAssembler, request);
-
-        super.doBeforeRender(request, response, pageConfig);
-
+    public void addPageAttributes(PageCompositionHelper pageConfig) {
+        HstRequest request = pageConfig.getRequest();
         pageConfig.addAllSiteLabels(BUNDLE_ID);
+
+        //TODO: move ListicleItems to the object pageItems
         request.setModel(LISTICLE_ITEMS, factory.generateItems(request.getLocale(), getDocument(request)));
     }
 

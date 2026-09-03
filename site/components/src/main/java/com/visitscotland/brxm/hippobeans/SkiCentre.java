@@ -18,11 +18,6 @@ public class SkiCentre extends BaseDocument {
         return getHippoHtml("visitscotland:copy");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:productId")
-    public String getProductId() {
-        return getSingleProperty("visitscotland:productId");
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:feed")
     public String getFeed() {
         return getSingleProperty("visitscotland:feed");
@@ -56,5 +51,25 @@ public class SkiCentre extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:pisteMap")
     public String getPisteMap() {
         return getSingleProperty("visitscotland:pisteMap");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:telephone")
+    public String getTelephone() {
+        return getSingleProperty("visitscotland:telephone");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:website")
+    public String getWebsite() {
+        return getSingleProperty("visitscotland:website");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:address")
+    public String getAddress() {
+        return getSingleProperty("visitscotland:address");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:socialChannels")
+    public String[] getSocialChannels() {
+        return getMultipleProperty("visitscotland:socialChannels");
     }
 }

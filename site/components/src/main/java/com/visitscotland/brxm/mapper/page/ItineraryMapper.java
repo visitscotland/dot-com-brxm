@@ -6,6 +6,7 @@ import com.visitscotland.brxm.dms.DMSUtils;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.EntryMapper;
 import com.visitscotland.brxm.mapper.ImageMapper;
+import com.visitscotland.brxm.mapper.module.TransportMapper;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.megalinks.Entry;
@@ -37,6 +38,7 @@ public class ItineraryMapper {
     private static final String THEMES = "themes";
     private static final String AREAS = "areas";
     private static final String TRANSPORTS = "transports";
+    private static final String SEASONS = "seasons";
     private static final String DEFAULT_CTA_TEXT = "itinerary.default-cta";
 
     private final ResourceBundleService bundle;
@@ -49,12 +51,13 @@ public class ItineraryMapper {
     private final GoogleMapsService googleMapsService;
     private final Logger contentLogger;
     private final StopMapper stopMapper;
+    private final TransportMapper transportMapper;
 
 
     public ItineraryMapper(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
                            DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
                            GoogleMapsService googleMapsService, ContentLogger contentLogger,
-                           EntryMapper entryMapper, StopMapper stopMapper) {
+                           EntryMapper entryMapper, StopMapper stopMapper, TransportMapper transportMapper) {
         this.bundle = bundle;
         this.dmsData = dmsData;
         this.imageMapper = imageMapper;
@@ -65,6 +68,7 @@ public class ItineraryMapper {
         this.contentLogger = contentLogger;
         this.entryMapper = entryMapper;
         this.stopMapper = stopMapper;
+        this.transportMapper = transportMapper;
     }
 
     /**
@@ -115,9 +119,12 @@ public class ItineraryMapper {
             page.setMapLink(ctaLink);
         }
 
+        page.setIframeMap(itinerary.getEmbeddedMap());
         populateTransports(page, itinerary.getTransports(), locale);
         populateThemes(page, itinerary.getTheme(), locale);
         populateAreas(page, itinerary.getAreas(), locale);
+        populateSeasons(page, itinerary.getSeasons(), locale);
+        populateLocations(page, itinerary.getLocations());
 
         return page;
     }
@@ -358,19 +365,7 @@ public class ItineraryMapper {
     }
 
     private void populateTransports(ItineraryPage page, final String[] transports, final Locale locale) {
-        List<Entry> transportsToAdd = new ArrayList<>();
-        if (transports == null) {
-            page.setTransports(transportsToAdd);
-        } else {
-            for (final String transport : transports) {
-                if (transport != null && bundle.existsResourceBundleKey(TRANSPORTS, transport, locale)) {
-                    transportsToAdd.add(new Entry(transport, bundle.getResourceBundle(TRANSPORTS, transport, locale)));
-                } else {
-                    contentLogger.warn("No key/value pair for transport type {}", transport);
-                }
-            }
-            page.setTransports(transportsToAdd);
-        }
+        page.setTransports(transportMapper.getTransports(transports, locale));
     }
 
     private void populateThemes(ItineraryPage page, final String theme, final Locale locale) {
@@ -386,7 +381,7 @@ public class ItineraryMapper {
         }
     }
 
-    private void populateAreas(ItineraryPage page, String[] areas, Locale locale) {
+    private void populateAreas(ItineraryPage page, final String[] areas, final Locale locale) {
         List<Entry> areasToAdd = new ArrayList<>();
         if (areas == null) {
             page.setAreas(areasToAdd);
@@ -399,6 +394,38 @@ public class ItineraryMapper {
                 }
             }
             page.setAreas(areasToAdd);
+        }
+    }
+
+    private void populateSeasons(ItineraryPage page, final String[] seasons, final Locale locale) {
+        List<Entry> seasonsToAdd = new ArrayList<>();
+        if (seasons == null) {
+            page.setSeasons(seasonsToAdd);
+        } else {
+            for (final String season : seasons) {
+                if (season != null && bundle.existsResourceBundleKey(SEASONS, season, locale)) {
+                    seasonsToAdd.add(new Entry(season, bundle.getResourceBundle(SEASONS, season, locale)));
+                } else {
+                    contentLogger.warn("No key/value pair for season {}", season);
+                }
+            }
+            page.setSeasons(seasonsToAdd);
+        }
+    }
+
+    private void populateLocations(final ItineraryPage page, final String[] locations) {
+        List<String> locationsToAdd = new ArrayList<>();
+        if (locations == null) {
+            page.setLocations(locationsToAdd);
+        } else {
+            for (final String location : locations) {
+                if (location == null || location.isEmpty()) {
+                    contentLogger.warn("Null location provided.");
+                } else {
+                    locationsToAdd.add(location);
+                }
+            }
+            page.setLocations(locationsToAdd);
         }
     }
 }

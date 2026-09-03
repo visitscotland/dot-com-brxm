@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 749573ce-b1ea-49c9-97a2-da2d490903e7
+          jcr:uuid: 79d7ef63-8214-476b-b8a7-872faf42deda
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -42,15 +42,6 @@ definitions:
             hipposysedit:path: visitscotland:image
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
-            hipposysedit:validators: [required]
-          /ctaLink:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:ctaLink
-            hipposysedit:primary: false
-            hipposysedit:type: visitscotland:CMSLink
             hipposysedit:validators: [required]
           /anchor:
             jcr:primaryType: hipposysedit:field
@@ -87,6 +78,13 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: visitscotland:VideoLink
             hipposysedit:validators: [optional]
+          /ctaLink:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:ctaLink
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -100,7 +98,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
           visitscotland:anchor: ''
-          jcr:uuid: 004f015c-02e8-4df1-a525-6963f4a9f171
+          jcr:uuid: b93c7dd4-3402-45fe-8ef1-5c0d175dc83e
           hippostdpubwf:lastModificationDate: 2025-10-28T15:18:51.158Z
           hippostdpubwf:creationDate: 2025-10-28T15:18:51.159Z
           visitscotland:translation: ''
@@ -114,12 +112,6 @@ definitions:
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-          /visitscotland:ctaLink:
-            jcr:primaryType: visitscotland:CMSLink
-            visitscotland:label: ''
-            /visitscotland:link:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -182,14 +174,6 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /ctaLink:
-            jcr:primaryType: frontend:plugin
-            caption: CTA link
-            field: ctaLink
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /anchor:
             jcr:primaryType: frontend:plugin
             caption: Anchor
@@ -209,6 +193,23 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/spotlight-layouts
+          /ctaLink:
+            jcr:primaryType: frontend:plugin
+            caption: CTA Link
+            compoundList: visitscotland:CMSLink,visitscotland:ExternalLink
+            contentPickerType: links
+            field: ctaLink
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              compoundNamesMaxLength: 90
+              showCompoundNames: false
+              showTitles: false
+              startCollapsed: false
+              titleMapping: []
+              maxitems: 1
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation

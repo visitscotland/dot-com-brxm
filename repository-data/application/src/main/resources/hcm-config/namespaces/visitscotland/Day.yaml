@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 33fbc5ad-c2e1-4173-9ad8-265ea5e97e55
+          jcr:uuid: f7e5128d-4192-47dd-8c42-86fdf7b88395
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -85,6 +85,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: visitscotland:ExternalLink
             hipposysedit:validators: [required]
+          /mediaCollection:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:mediaCollection
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:MediaCollection
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -97,7 +106,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: 298e90e5-f226-4906-934d-ddfb804de03b
+          jcr:uuid: e1cad80a-1de9-4795-a446-ae46f2a2f65d
           hippostdpubwf:lastModificationDate: 2019-12-05T15:29:52.785Z
           hippostdpubwf:creationDate: 2019-12-05T15:29:52.785Z
           visitscotland:transports: []
@@ -181,6 +190,15 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /mediaCollection:
+            jcr:primaryType: frontend:plugin
+            caption: Carousel / Wide Image
+            field: mediaCollection
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /stops:

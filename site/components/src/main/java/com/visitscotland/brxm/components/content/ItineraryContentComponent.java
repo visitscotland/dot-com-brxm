@@ -8,7 +8,7 @@ import com.visitscotland.brxm.hippobeans.Itinerary;
 import com.visitscotland.brxm.model.ItineraryPage;
 import com.visitscotland.brxm.pagebuilder.PageAssembler;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.pagebuilder.page.PageIntroAssembler;
+import com.visitscotland.brxm.pagebuilder.page.PageTemplateAssembler;
 import com.visitscotland.utils.Contract;
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.template.TemplateHashModel;
@@ -30,24 +30,28 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
 
     private final ItineraryMapper itineraryMapper;
     private final PageAssembler builder;
-    private final PageIntroAssembler pageIntroAssembler;
+    private final PageTemplateAssembler pageTemplateAssembler;
 
     public ItineraryContentComponent() {
         logger.debug("ItineraryContentComponent initialized");
 
         this.itineraryMapper = VsComponentManager.get(ItineraryMapper.class);
         this.builder = VsComponentManager.get(PageAssembler.class);
-        this.pageIntroAssembler = VsComponentManager.get(PageIntroAssembler.class);
+        this.pageTemplateAssembler = VsComponentManager.get(PageTemplateAssembler.class);
     }
 
     @Override
-    public void doBeforeRender(HstRequest request, HstResponse response) {
-        PageCompositionHelper pageConfig = new PageCompositionHelper(getBundle(), pageIntroAssembler, request);
-        super.doBeforeRender(request, response, pageConfig);
+    public PageCompositionHelper createPageCompositionHelper(HstRequest request) {
+        return new PageCompositionHelper(getBundle(), pageTemplateAssembler, request);
+    }
 
+    @Override
+    public void addPageAttributes(PageCompositionHelper pageConfig) {
+        HstRequest request = pageConfig.getRequest();
         includeLabels(pageConfig);
         if (itineraryMapper.isStopBasedItinerary(getDocument(request))){
             pageConfig.addProperty(HAS_STOPS, true);
+            pageConfig.addAllSiteLabels("transports");
             buildStopBasedItinerary(request);
         } else {
             pageConfig.addProperty(HAS_STOPS, false);

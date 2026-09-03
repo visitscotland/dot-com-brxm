@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 590341f5-2c69-480d-a26b-589626c28567
   hippo:name: Events Filters Locations
-  hippo:versionHistory: 9ef7b490-c98d-4e44-b52b-710f48f7fdb7
+  hippo:versionHistory: 8bcd3aff-80da-4387-acc1-e9e96accf0d3
   /events-filters-locations[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -13,27 +13,46 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-13T16:15:39.153Z
-    hippostdpubwf:lastModificationDate: 2026-04-01T13:57:45.695+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2026-06-17T17:39:34.107+02:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '']
     resourcebundle:id: search-events-locations
     resourcebundle:keys: [edinburgh, aberdeen, dundee, dumfries-galloway, falkirk-stirling,
       glasgow, outer-hebrides, inverness, kilmarnock, kirkwall, kirkcaldy, motherwell,
       paisley, perth, scottish-borders, shetland-islands]
-    resourcebundle:messages: [Edinburgh, Aberdeen, Dundee, Dumfries and Galloway,
-      Falkirk and Stirling, Glasgow, Outer Hebrides, Inverness, Kilmarnock, Kirkwall,
-      Kirkcaldy, Motherwell, Paisley, Perth, Scottish Borders, Shetland Islands]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
-    resourcebundle:messages_es: [Edimburgo, '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
+    resourcebundle:messages: [Edinburgh & Lothians, Aberdeen & Aberdeenshire, Dundee
+        & Angus, Dumfries & Galloway, Stirling & Central Scotland, Glasgow, Outer
+        Hebrides, Inverness & Scottish Highlands, Ayrshire & SW Coast, Orkney & Far
+        North Highlands, Fife, Lanarkshire, Argyll & West Coast Scotland, Perth /
+        Perthshire, Scottish Borders, Shetland Islands]
+    resourcebundle:messages_de: [Edinburgh & die Lothians, Aberdeen & Aberdeenshire,
+      Dundee & Angus, Dumfries & Galloway, Stirling & Zentralschottland, Glasgow,
+      Die Äußeren Hebriden, Inverness & die schottischen Highlands, Ayrshire & die
+        Südwestküste, Orkney & die nördlichen Highlands, Fife, Lanarkshire, Argyll
+        & die Westküste, Perth / Perthshire, Die Scottish Borders, Die Shetland-Inseln]
+    resourcebundle:messages_es: [Edimburgo y Los Lothians, Aberdeen y Aberdeenshire,
+      Dundee y Angus, Dumfries y Galloway, Stirling y el centro de Escocia, Glasgow,
+      Las islas Hébridas Exteriores, Inverness y las Highlands Escocesas, Ayrshire
+        y la costa suroeste, Las islas Orcadas y el extremo norte de las Highlands,
+      Fife, Lanarkshire, Argyll y la costa oeste de Escocia, Perth / Perthshire, Los
+        Scottish Borders, Las islas Shetland]
+    resourcebundle:messages_fr: [Édimbourg & les Lothians, Aberdeen & l’Aberdeenshire,
+      Dundee & l’Angus, Dumfries & Galloway, Stirling et l’Écosse centrale, Glasgow,
+      Les Îles Hébrides extérieures, Inverness & les Highlands écossaises, L’Ayrshire
+        & la côte sud-ouest, Les Îles Orcades & le Grand Nord des Highlands, Le Fife,
+      Lanarkshire, L’Argyll & la côte ouest, Perth / Perthshire, Les Scottish Borders,
+      Les Îles Shetland]
+    resourcebundle:messages_it: [Edimburgo & i Lothians, Aberdeen & Aberdeenshire,
+      Dundee & Angus, Dumfries & Galloway, Stirling & Scozia centrale, Glasgow, Le
+        Ebridi Esterne, Inverness & Highlands scozzesi, Ayrshire & costa sud-occidentale,
+      Orcadi & Highlands settentrionali, Fife, Lanarkshire, Argyll & costa occidentale,
+      Perth / Perthshire, Gli Scottish Borders, Le Isole Shetland]
+    resourcebundle:messages_nl: [Edinburgh & de Lothians, Aberdeen & Aberdeenshire,
+      Dundee & Angus, Dumfries & Galloway, Stirling & Centraal-Schotland, Glasgow,
+      De Buiten-Hebriden, Inverness & de Schotse Hooglanden, Ayrshire & de zuidwestkust,
+      Orkney & de noordelijke Hooglanden, Fife, Lanarkshire, Argyll & de westkust,
+      Perth / Perthshire, De Scottish Borders, De Shetlandeilanden]
   /events-filters-locations[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -43,27 +62,46 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-13T16:15:39.153Z
-    hippostdpubwf:lastModificationDate: 2026-04-01T13:43:42.285+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2026-06-17T17:39:17.457+02:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '']
     resourcebundle:id: search-events-locations
     resourcebundle:keys: [edinburgh, aberdeen, dundee, dumfries-galloway, falkirk-stirling,
       glasgow, outer-hebrides, inverness, kilmarnock, kirkwall, kirkcaldy, motherwell,
       paisley, perth, scottish-borders, shetland-islands]
-    resourcebundle:messages: [Edinburgh, Aberdeen, Dundee, Dumfries and Galloway,
-      Falkirk and Stirling, Glasgow, Outer Hebrides, Inverness, Kilmarnock, Kirkwall,
-      Kirkcaldy, Motherwell, Paisley, Perth, Scottish Borders, Shetland Islands]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
-    resourcebundle:messages_es: [Edimburgo, '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
+    resourcebundle:messages: [Edinburgh & Lothians, Aberdeen & Aberdeenshire, Dundee
+        & Angus, Dumfries & Galloway, Stirling & Central Scotland, Glasgow, Outer
+        Hebrides, Inverness & Scottish Highlands, Ayrshire & SW Coast, Orkney & Far
+        North Highlands, Fife, Lanarkshire, Argyll & West Coast Scotland, Perth /
+        Perthshire, Scottish Borders, Shetland Islands]
+    resourcebundle:messages_de: [Edinburgh & die Lothians, Aberdeen & Aberdeenshire,
+      Dundee & Angus, Dumfries & Galloway, Stirling & Zentralschottland, Glasgow,
+      Die Äußeren Hebriden, Inverness & die schottischen Highlands, Ayrshire & die
+        Südwestküste, Orkney & die nördlichen Highlands, Fife, Lanarkshire, Argyll
+        & die Westküste, Perth / Perthshire, Die Scottish Borders, Die Shetland-Inseln]
+    resourcebundle:messages_es: [Edimburgo y Los Lothians, Aberdeen y Aberdeenshire,
+      Dundee y Angus, Dumfries y Galloway, Stirling y el centro de Escocia, Glasgow,
+      Las islas Hébridas Exteriores, Inverness y las Highlands Escocesas, Ayrshire
+        y la costa suroeste, Las islas Orcadas y el extremo norte de las Highlands,
+      Fife, Lanarkshire, Argyll y la costa oeste de Escocia, Perth / Perthshire, Los
+        Scottish Borders, Las islas Shetland]
+    resourcebundle:messages_fr: [Édimbourg & les Lothians, Aberdeen & l’Aberdeenshire,
+      Dundee & l’Angus, Dumfries & Galloway, Stirling et l’Écosse centrale, Glasgow,
+      Les Îles Hébrides extérieures, Inverness & les Highlands écossaises, L’Ayrshire
+        & la côte sud-ouest, Les Îles Orcades & le Grand Nord des Highlands, Le Fife,
+      Lanarkshire, L’Argyll & la côte ouest, Perth / Perthshire, Les Scottish Borders,
+      Les Îles Shetland]
+    resourcebundle:messages_it: [Edimburgo & i Lothians, Aberdeen & Aberdeenshire,
+      Dundee & Angus, Dumfries & Galloway, Stirling & Scozia centrale, Glasgow, Le
+        Ebridi Esterne, Inverness & Highlands scozzesi, Ayrshire & costa sud-occidentale,
+      Orcadi & Highlands settentrionali, Fife, Lanarkshire, Argyll & costa occidentale,
+      Perth / Perthshire, Gli Scottish Borders, Le Isole Shetland]
+    resourcebundle:messages_nl: [Edinburgh & de Lothians, Aberdeen & Aberdeenshire,
+      Dundee & Angus, Dumfries & Galloway, Stirling & Centraal-Schotland, Glasgow,
+      De Buiten-Hebriden, Inverness & de Schotse Hooglanden, Ayrshire & de zuidwestkust,
+      Orkney & de noordelijke Hooglanden, Fife, Lanarkshire, Argyll & de westkust,
+      Perth / Perthshire, De Scottish Borders, De Shetlandeilanden]
   /events-filters-locations[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -73,25 +111,44 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-03-13T16:15:39.153Z
-    hippostdpubwf:lastModificationDate: 2026-04-01T13:57:45.695+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-04-01T13:57:49.989+01:00
+    hippostdpubwf:lastModificationDate: 2026-06-17T17:39:34.107+02:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
+    hippostdpubwf:publicationDate: 2026-06-17T17:39:36.876+02:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '']
     resourcebundle:id: search-events-locations
     resourcebundle:keys: [edinburgh, aberdeen, dundee, dumfries-galloway, falkirk-stirling,
       glasgow, outer-hebrides, inverness, kilmarnock, kirkwall, kirkcaldy, motherwell,
       paisley, perth, scottish-borders, shetland-islands]
-    resourcebundle:messages: [Edinburgh, Aberdeen, Dundee, Dumfries and Galloway,
-      Falkirk and Stirling, Glasgow, Outer Hebrides, Inverness, Kilmarnock, Kirkwall,
-      Kirkcaldy, Motherwell, Paisley, Perth, Scottish Borders, Shetland Islands]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
-    resourcebundle:messages_es: [Edimburgo, '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '']
+    resourcebundle:messages: [Edinburgh & Lothians, Aberdeen & Aberdeenshire, Dundee
+        & Angus, Dumfries & Galloway, Stirling & Central Scotland, Glasgow, Outer
+        Hebrides, Inverness & Scottish Highlands, Ayrshire & SW Coast, Orkney & Far
+        North Highlands, Fife, Lanarkshire, Argyll & West Coast Scotland, Perth /
+        Perthshire, Scottish Borders, Shetland Islands]
+    resourcebundle:messages_de: [Edinburgh & die Lothians, Aberdeen & Aberdeenshire,
+      Dundee & Angus, Dumfries & Galloway, Stirling & Zentralschottland, Glasgow,
+      Die Äußeren Hebriden, Inverness & die schottischen Highlands, Ayrshire & die
+        Südwestküste, Orkney & die nördlichen Highlands, Fife, Lanarkshire, Argyll
+        & die Westküste, Perth / Perthshire, Die Scottish Borders, Die Shetland-Inseln]
+    resourcebundle:messages_es: [Edimburgo y Los Lothians, Aberdeen y Aberdeenshire,
+      Dundee y Angus, Dumfries y Galloway, Stirling y el centro de Escocia, Glasgow,
+      Las islas Hébridas Exteriores, Inverness y las Highlands Escocesas, Ayrshire
+        y la costa suroeste, Las islas Orcadas y el extremo norte de las Highlands,
+      Fife, Lanarkshire, Argyll y la costa oeste de Escocia, Perth / Perthshire, Los
+        Scottish Borders, Las islas Shetland]
+    resourcebundle:messages_fr: [Édimbourg & les Lothians, Aberdeen & l’Aberdeenshire,
+      Dundee & l’Angus, Dumfries & Galloway, Stirling et l’Écosse centrale, Glasgow,
+      Les Îles Hébrides extérieures, Inverness & les Highlands écossaises, L’Ayrshire
+        & la côte sud-ouest, Les Îles Orcades & le Grand Nord des Highlands, Le Fife,
+      Lanarkshire, L’Argyll & la côte ouest, Perth / Perthshire, Les Scottish Borders,
+      Les Îles Shetland]
+    resourcebundle:messages_it: [Edimburgo & i Lothians, Aberdeen & Aberdeenshire,
+      Dundee & Angus, Dumfries & Galloway, Stirling & Scozia centrale, Glasgow, Le
+        Ebridi Esterne, Inverness & Highlands scozzesi, Ayrshire & costa sud-occidentale,
+      Orcadi & Highlands settentrionali, Fife, Lanarkshire, Argyll & costa occidentale,
+      Perth / Perthshire, Gli Scottish Borders, Le Isole Shetland]
+    resourcebundle:messages_nl: [Edinburgh & de Lothians, Aberdeen & Aberdeenshire,
+      Dundee & Angus, Dumfries & Galloway, Stirling & Centraal-Schotland, Glasgow,
+      De Buiten-Hebriden, Inverness & de Schotse Hooglanden, Ayrshire & de zuidwestkust,
+      Orkney & de noordelijke Hooglanden, Fife, Lanarkshire, Argyll & de westkust,
+      Perth / Perthshire, De Scottish Borders, De Shetlandeilanden]

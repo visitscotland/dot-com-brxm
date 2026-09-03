@@ -3,18 +3,21 @@ package com.visitscotland.brxm.model;
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.megalinks.Entry;
-import com.visitscotland.brxm.pagebuilder.model.PageIntro;
+import com.visitscotland.brxm.pagebuilder.model.PageTemplate;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ItineraryPage extends PageIntro {
+public class ItineraryPage extends PageTemplate {
 
     private BigDecimal distance;
     private List<Entry> transports;
     private List<Entry> areas;
+    private List<Entry> seasons;
+    private List<String> locations;
+    private String iframeMap;
     private Entry theme;
     // Properties to be removed from the delivery API
     private String firstStopLocation;
@@ -95,6 +98,30 @@ public class ItineraryPage extends PageIntro {
 
     public void setAreas(List<Entry> areas) {
         this.areas = areas;
+    }
+
+    public List<Entry> getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(List<Entry> seasons) {
+        this.seasons = seasons;
+    }
+
+    public List<String> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<String> locations) {
+        this.locations = locations;
+    }
+
+    public String getIframeMap() {
+        return iframeMap;
+    }
+
+    public void setIframeMap(String iframeMap) {
+        this.iframeMap = iframeMap;
     }
 
     public Entry getTheme() {
