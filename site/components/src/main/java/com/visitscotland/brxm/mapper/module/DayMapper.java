@@ -59,7 +59,6 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
 
         day.setTitle(document.getTitle());
         day.setIntroduction(document.getIntroduction());
-        day.setTransports(transportMapper.getTransports(document.getTransports(), locale));
         day.setMapLink(formatCTA(document.getMapLink(),
                 bundle.getResourceBundle(BUNDLE_FILE, "days.default-cta", locale),
                 compositionHelper.getLocale()));

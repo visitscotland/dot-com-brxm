@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f7e5128d-4192-47dd-8c42-86fdf7b88395
+          jcr:uuid: a92d2feb-5532-4dc2-9843-22aabbecbb45
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -36,22 +36,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             hipposysedit:validators: [required]
-          /stops:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: visitscotland:stops
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, 'visitscotland:link-validator',
-              'visitscotland:itinerary-stop-validator']
-          /transports:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:transports
-            hipposysedit:primary: false
-            hipposysedit:type: String
           /translation:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -106,10 +90,9 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: e1cad80a-1de9-4795-a446-ae46f2a2f65d
+          jcr:uuid: d4bfab25-64ad-4760-96e8-adc050233422
           hippostdpubwf:lastModificationDate: 2019-12-05T15:29:52.785Z
           hippostdpubwf:creationDate: 2019-12-05T15:29:52.785Z
-          visitscotland:transports: []
           visitscotland:translation: ''
           /visitscotland:introduction:
             jcr:primaryType: hippostd:html
@@ -201,31 +184,6 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /stops:
-            jcr:primaryType: frontend:plugin
-            caption: Stops (Deprecated)
-            compoundList: hippo:mirror
-            contentPickerType: links
-            field: stops
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /transports:
-            jcr:primaryType: frontend:plugin
-            caption: Transports
-            field: transports
-            multiselect.type: checkboxes
-            palette.alloworder: false
-            palette.maxrows: '10'
-            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
-            selectlist.maxrows: '10'
-            valuelist.provider: service.valuelist.default
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/transports
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation

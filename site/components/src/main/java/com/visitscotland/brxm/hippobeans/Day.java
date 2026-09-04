@@ -25,11 +25,6 @@ public class Day extends BaseDocument {
         return getLinkedBeans("visitscotland:stops", Stop.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:transports")
-    public String[] getTransports() {
-        return getMultipleProperty("visitscotland:transports");
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:diff")
     public String getDiff() {
         return getSingleProperty("visitscotland:diff");

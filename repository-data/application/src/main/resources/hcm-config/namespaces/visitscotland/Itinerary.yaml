@@ -11,29 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 2fb96ba1-22ad-4069-b00d-a14366281664
+          jcr:uuid: a42a267e-1ffd-41b4-b0a7-f4f889839ac4
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:Page', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
           hipposysedit:validators: ['visitscotland:season-exclusive-validator', 'visitscotland:max-two-checkbox-validator']
-          /start:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:start
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: ['visitscotland:short-string-validator']
-          /finish:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:finish
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: ['visitscotland:short-string-validator']
           /distance:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -42,15 +24,6 @@ definitions:
             hipposysedit:path: visitscotland:distance
             hipposysedit:primary: false
             hipposysedit:type: Double
-          /theme:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:theme
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            hipposysedit:validators: [required]
           /transports:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -60,32 +33,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
-          /areas:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:areas
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /popular:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:popular
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
-          /highlights:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: visitscotland:highlights
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: ['visitscotland:short-string-validator']
           /mapLink:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -146,20 +93,14 @@ definitions:
           visitscotland:seoTitle: ''
           visitscotland:seoNoIndex: false
           jcr:mixinTypes: ['mix:referenceable']
-          visitscotland:finish: ''
-          visitscotland:start: ''
           visitscotland:distance: 0.0
-          visitscotland:theme: ''
-          jcr:uuid: dfa49384-aba1-446c-8ecc-63cea30242c0
+          jcr:uuid: 65fdab25-d973-4dac-a567-edf22ec234d7
           hippostdpubwf:creationDate: 2019-12-06T11:10:08.311Z
           hippostdpubwf:lastModificationDate: 2019-12-06T11:10:08.310Z
-          visitscotland:areas: []
           visitscotland:transports: []
-          visitscotland:popular: false
           visitscotland:title: ''
           visitscotland:teaser: ''
           visitscotland:translation: ''
-          visitscotland:highlights: ['']
           visitscotland:hideNewsletter: false
           visitscotland:subheading: ''
           visitscotland:locations: ['']
@@ -383,66 +324,6 @@ definitions:
             wicket.id: ${cluster.id}.left.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /popular:
-            jcr:primaryType: frontend:plugin
-            caption: Popular (Deprecated)
-            field: popular
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            hint: To feature this itinerary in the popular category.
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /highlights:
-            jcr:primaryType: frontend:plugin
-            caption: Highlights (Deprecated)
-            field: highlights
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /start:
-            jcr:primaryType: frontend:plugin
-            caption: Override Start Point (Deprecated)
-            field: start
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /finish:
-            jcr:primaryType: frontend:plugin
-            caption: Override Finish Point (Deprecated)
-            field: finish
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /theme:
-            jcr:primaryType: frontend:plugin
-            caption: Theme (Deprecated)
-            field: theme
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/themes
-              sortBy: ''
-              sortOrder: ''
-          /areas:
-            jcr:primaryType: frontend:plugin
-            caption: Areas (Deprecated)
-            field: areas
-            multiselect.type: checkboxes
-            palette.alloworder: false
-            palette.maxrows: '10'
-            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
-            selectlist.maxrows: '10'
-            valuelist.provider: service.valuelist.default
-            wicket.id: ${cluster.id}.right.item
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/areas
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation
