@@ -70,27 +70,33 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         setImage(day, document, locale);
         day.setMediaSection(mediaSectionMapper.map(document.getMediaCollection(), day, locale));
 
-        setIntraDayModule(document, compositionHelper);
+        setIntraDayModule(document, compositionHelper, locale);
 
         return day;
     }
 
-    private void setIntraDayModule(Day document, PageCompositionHelper compositionHelper) {
+    private void setIntraDayModule(Day document, PageCompositionHelper compositionHelper, Locale locale) {
         try {
             if (!compositionHelper.getModules().isEmpty()) {
 
                 ItineraryDayModule prevDayModule = (ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1);
                 final String prevUrl = prevDayModule.getMapLink().getLink();
                 final String routeUrl = googleMapsService.getDirectionsUrlForIntraDay(prevUrl, document.getMapLink().getLink());
-                final BigDecimal distance = googleMapsService.getDistanceFromUrls(prevUrl, document.getMapLink().getLink());
+                BigDecimal distance = googleMapsService.getDistanceFromUrls(prevUrl, document.getMapLink().getLink());
                 if (routeUrl == null || routeUrl.isEmpty()) {
                     logger.info("Unable to calculate intraday route map for day {}", document.getPath());
+                    return;
                 }
                 if (distance == null) {
                     logger.info("\n\nUnable to calculate intraday route map for day {}", document.getPath());
+                    distance = BigDecimal.ZERO;
                 }
 
-                ((ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1)).setIntraDayModule(new IntraDayModule(routeUrl, distance));
+                final String title = prevDayModule.getTitle().concat(" - ").concat(document.getTitle());
+                final FlatLink mapLink = new FlatLink(bundle.getResourceBundle(BUNDLE_FILE, "days.intraday-cta", locale), routeUrl, LinkType.EXTERNAL);
+
+                ((ItineraryDayModule) compositionHelper.getModules().get(compositionHelper.getModules().size() - 1)).setIntraDayModule(
+                        new IntraDayModule(title, mapLink, distance));
 
             }
 
