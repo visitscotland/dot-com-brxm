@@ -122,7 +122,7 @@ public abstract class Properties {
         logger.info("The property {} hasn't been set in the resourceBundle", key);
     }
 
-    protected Optional<String> getProperty(String key){
+    public Optional<String> getProperty(String key){
         return getProperty(key, DEFAULT_LOCALE);
     }
 
