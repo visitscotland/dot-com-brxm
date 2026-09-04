@@ -32,7 +32,6 @@ public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
     private static final String VAR_RESOURCE_BUNDLE = "ResourceBundle";
     private static final String VAR_PROPERTIES = "Properties";
 
-
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);

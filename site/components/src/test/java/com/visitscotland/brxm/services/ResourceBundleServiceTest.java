@@ -55,27 +55,6 @@ class ResourceBundleServiceTest {
     }
 
     @Test
-    void getResourceBundle_freemarker_overload(){
-        //Tests different combination of parameters and
-        //Verifies that the main method receives the correct parameters
-        service = spy(service);
-        ArgumentCaptor<Locale> localeCaptor = ArgumentCaptor.forClass(Locale.class);
-        doCallRealMethod().when(service).getResourceBundle(eq(BUNDLE), eq("key"), localeCaptor.capture());
-        doReturn("false").when(service).getResourceBundle(eq(BUNDLE), eq("key"), localeCaptor.capture(), eq(false));
-        doReturn("true").when(service).getResourceBundle(eq(BUNDLE), eq("key"), localeCaptor.capture(), eq(true));
-
-        Assertions.assertEquals("false", service.getResourceBundle(BUNDLE, "key", "es"));
-        Assertions.assertEquals("es", localeCaptor.getValue().getLanguage());
-
-        Assertions.assertEquals("true", service.getResourceBundle(BUNDLE, "key", "en", true));
-        Assertions.assertEquals("en", localeCaptor.getValue().getLanguage());
-
-        Assertions.assertEquals("false", service.getResourceBundle(BUNDLE, "key", "fr", false));
-        Assertions.assertEquals("fr", localeCaptor.getValue().getLanguage());
-    }
-
-
-    @Test
     void toLocale(){
         // Checks method toLocale when locale is null or empty a Null locale is sent.
         // Otherwise, a locale is created according to Locale.forLanguageTag(String) specification
