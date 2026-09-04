@@ -78,6 +78,12 @@
 [visitscotland:Destination] > hippostd:relaxed, hippotranslation:translated, visitscotland:Page, visitscotland:translatable
   orderable
 
+[visitscotland:DestinationsKeyCategories] > hippo:compound, hippostd:relaxed
+  orderable
+
+[visitscotland:DestinationsKeyInformation] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:DevModule] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
   orderable
 
@@ -233,7 +239,7 @@
 [visitscotland:SpecialLinkCoordinates] > hippo:compound, hippostd:relaxed
   orderable
 
-[visitscotland:Spotlight] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
+[visitscotland:Spotlight] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument
   orderable
 
 [visitscotland:Stackla] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
@@ -252,6 +258,9 @@
   orderable
 
 [visitscotland:TravelInformation] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
+  orderable
+
+[visitscotland:TravelInformationArticle] > hippo:compound, hippostd:relaxed
   orderable
 
 [visitscotland:TravelInformationTab] > hippo:compound, hippostd:relaxed
