@@ -3,7 +3,6 @@ package com.visitscotland.brxm.hippobeans;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import com.visitscotland.brxm.hippobeans.TravelInformationTab;
 import java.util.Calendar;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:TravelInformation")

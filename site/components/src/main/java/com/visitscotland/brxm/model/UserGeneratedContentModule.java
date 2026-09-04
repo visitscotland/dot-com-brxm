@@ -12,7 +12,7 @@ public class UserGeneratedContentModule extends Module<Stackla> {
     private String noJsMessage;
 
     /**
-     * @deprecated Kept for compatibility with freemarker. To be
+     * @deprecated Kept for compatibility with freemarker. To be removed
      */
     @Deprecated(forRemoval = true)
     public void setNoCookiesMessage(String noCookiesMessage) {
@@ -20,7 +20,7 @@ public class UserGeneratedContentModule extends Module<Stackla> {
     }
 
     /**
-     * @deprecated Kept for compatibility with freemarker. Labels should be used when no logic is used
+     * @deprecated Kept for compatibility with freemarker. Labels should be removed when no logic is used
      */
     @Deprecated(forRemoval = true)
     public void setNoJsMessage(String noJsMessage) {

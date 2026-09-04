@@ -20,6 +20,7 @@ import java.util.Properties;
  * This Piece of code Extracted from the dot-org project and Enhanced for the dot-com needs (Dependency Injection Coming soon)
  * {@code com.visitscotland.org.util.VSHstFreemarkerServlet.java}
  */
+@Deprecated(forRemoval = true)
 @NonTestable(NonTestable.Cause.INHERITANCE)
 public class VsHstFreemarkerServlet extends HstFreemarkerServlet {
     private static final Logger logger = LoggerFactory.getLogger(VsHstFreemarkerServlet.class);
