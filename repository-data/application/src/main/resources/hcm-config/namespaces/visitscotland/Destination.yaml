@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 2530e2d8-d4e5-4074-b3bc-b4235f0aafba
+          jcr:uuid: 3ec6d603-6a78-4f60-ba94-9c1d25d9efb6
           hipposysedit:node: true
           hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
             'visitscotland:Page', 'hippostd:relaxed']
@@ -25,13 +25,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
             hipposysedit:validators: [required]
-          /keyInformationPanel:
+          /keyInformation:
             jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: visitscotland:keyInformationPanel
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, required]
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:keyInformation
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:DestinationsKeyInformation
+            hipposysedit:validators: [required, contentblocks-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -50,7 +52,7 @@ definitions:
           visitscotland:seoDescription: ''
           visitscotland:teaser: ''
           visitscotland:seoTitle: ''
-          jcr:uuid: 04722876-022b-4489-9050-18164672eb16
+          jcr:uuid: 5a013429-e871-40b6-b9d4-39f24c30bed5
           hippostdpubwf:lastModificationDate: 2020-05-15T09:26:41.741+01:00
           hippostdpubwf:creationDate: 2020-05-15T09:26:41.742+01:00
           visitscotland:translation: ''
@@ -65,6 +67,15 @@ definitions:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
           /visitscotland:keyInformationPanel:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: ''
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /visitscotland:keyInformation:
             jcr:primaryType: visitscotland:DestinationsKeyInformation
             visitscotland:title: ''
             /visitscotland:categories:
@@ -197,23 +208,6 @@ definitions:
               ckeditor.config.appended.json: "{extraPlugins: 'wordcount',   wordcount:\
                 \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:750\
                 \   }  }"
-          /keyInformationPanel:
-            jcr:primaryType: frontend:plugin
-            caption: Key Information Panel
-            compoundList: visitscotland:DestinationsKeyInformation
-            contentPickerType: links
-            field: keyInformationPanel
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              compoundNamesMaxLength: 90
-              maxitems: 1
-              showCompoundNames: false
-              showTitles: false
-              startCollapsed: false
-              titleMapping: []
           /newsletter:
             jcr:primaryType: frontend:plugin
             caption: Hide newsletter
@@ -223,10 +217,10 @@ definitions:
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /otherThings:
+          /keyInformation:
             jcr:primaryType: frontend:plugin
-            caption: Other things you might like
-            field: otherThings
+            caption: Key Information
+            field: keyInformation
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
@@ -242,6 +236,15 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               taxonomy.name: Visitscotland-categories
               caption: Category
+          /otherThings:
+            jcr:primaryType: frontend:plugin
+            caption: Other things you might like
+            field: otherThings
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation
