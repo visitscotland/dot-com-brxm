@@ -1,29 +1,29 @@
 definitions:
   config:
-    /hippo:namespaces/visitscotland/TravelInformationTransportRow:
+    /hippo:namespaces/visitscotland/TravelInformationArticle:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: c1375921-39b8-40ae-9cd6-5bc8efbfb186
+      jcr:uuid: 689e9591-2a0c-4dd7-b7fa-4f5510e87b31
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 8477768b-2a39-4d2a-a4a1-188a93feb283
+        jcr:uuid: e706b716-6358-4806-961e-2dcbb3ebb348
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c42d19aa-535b-4d65-b220-3d8c09609cf6
+          jcr:uuid: f229247a-4133-4cb9-9ff4-eaf00b4551ed
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          /transport:
+          /heading:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:transport
+            hipposysedit:path: visitscotland:heading
             hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            hipposysedit:validators: [required]
+            hipposysedit:type: String
+            hipposysedit:validators: [required, 'visitscotland:medium-string-validator']
           /copy:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -36,8 +36,8 @@ definitions:
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: visitscotland:TravelInformationTransportRow
-          visitscotland:transport: ''
+          jcr:primaryType: visitscotland:TravelInformationArticle
+          visitscotland:heading: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -52,29 +52,26 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /transport:
+          /heading:
             jcr:primaryType: frontend:plugin
-            caption: Transport
-            field: transport
-            hint: ''
+            caption: Tab Title
+            field: heading
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/travel-information-transports
-              valuelistProvider: ''
           /copy:
             jcr:primaryType: frontend:plugin
             caption: Copy
             field: copy
-            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.appended.json: '{extraPlugins: ''wordcount'',   wordcount:
                 {countSpacesAsChars: true, showCharCount: true, maxCharCount: 1500}}'
               ckeditor.config.overlayed.json: '{disallowedContent: ''p[align]'',  stylesSet:
-                ''article:./vs_styles.js'',  toolbarGroups: [{ name: ''basicstyles''},{name:''listindentalign'',groups:[''list'']},
-                {name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
+                ''content_list:./vs_styles.js'',  toolbarGroups: [ { name: ''basicstyles''},{name:
+                ''styles''},{name:''listindentalign'',groups:[''list'']}, {name:''links''},{name:''insert''},{name:''clipboard''},{name:''tools''},{name:''undo''}
                 ] , removeButtons: ''PickImage,Youtube,Table,Bold,Underline,Strike,Subscript,Superscript''}'
