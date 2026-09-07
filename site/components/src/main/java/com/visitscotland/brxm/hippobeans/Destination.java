@@ -3,6 +3,7 @@ package com.visitscotland.brxm.hippobeans;
 import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import java.util.Calendar;
+import com.visitscotland.brxm.hippobeans.DestinationsKeyInformation;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:Destination")
 @Node(jcrType = "visitscotland:Destination")
@@ -14,16 +15,9 @@ public class Destination extends Page {
 
     @Override
     public String[] getChildJcrTypes() {
-        return new String[] {
-                "visitscotland:Megalinks",
-                "visitscotland:Stackla",
-                "visitscotland:TourismInformation",
-                "visitscotland:TravelInformation",
-                "visitscotland:CannedSearchTours",
-                "visitscotland:MapModule",
-                "visitscotland:Article",
-                "visitscotland:ArticleStyled"
-        };
+        return new String[] { "visitscotland:Megalinks", "visitscotland:Stackla", "visitscotland:TourismInformation",
+                "visitscotland:TravelInformation", "visitscotland:CannedSearchTours", "visitscotland:MapModule",
+                "visitscotland:Article", "visitscotland:ArticleStyled" };
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:otherThings")
@@ -44,5 +38,10 @@ public class Destination extends Page {
     @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
     public String[] getKeys() {
         return getMultipleProperty("hippotaxonomy:keys");
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:keyInformation")
+    public DestinationsKeyInformation getKeyInformation() {
+        return getBean("visitscotland:keyInformation", DestinationsKeyInformation.class);
     }
 }
