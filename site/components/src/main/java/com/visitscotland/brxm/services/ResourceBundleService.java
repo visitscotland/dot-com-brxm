@@ -90,47 +90,6 @@ public class ResourceBundleService {
     }
 
     /**
-     * Gets a string for the given key from this resource bundle or one of its parents.
-     * This method is usually used from FREEMARKER
-     *
-     * @param bundleName id of the Resource Bundle defined in Hippo
-     * @param key        key
-     * @param locale     locale
-     */
-    public String getResourceBundle(String bundleName, String key, String locale) {
-        return getResourceBundle(bundleName, key, toLocale(locale));
-    }
-
-    /**
-     * Gets a string for the given key from this resource bundle (or one of its parents when is not {@code optional}).
-     * This method is usually used from FREEMARKER
-     *
-     * @param bundleName id of the Resource Bundle defined in Hippo
-     * @param key        key
-     * @param locale     locale
-     * @param optional   when {@code false} if the value does not exist in the language it would fallback to English
-     * @return string for the given key
-     */
-    public String getResourceBundle(String bundleName, String key, String locale, boolean optional) {
-        return getResourceBundle(bundleName, key, toLocale(locale), optional);
-    }
-
-    /**
-     * when locale is null or empty a {@code null}value is returned. Otherwise, a locale is created according to
-     * Locale.forLanguageTag(String) specification
-     *
-     * @param locale String with the locale information
-     * @return a {@code Locale} object version of the {@code String} or {@code null} when empty String or null
-     */
-    Locale toLocale(String locale) {
-        if (locale == null || locale.isEmpty()) {
-            return null;
-        } else {
-            return Locale.forLanguageTag(locale);
-        }
-    }
-
-    /**
      * Gets a string for the given key from this resource bundle (or one of its parents when is not {@code optional}).
      *
      * @param bundleName id of the Resource Bundle defined in Hippo

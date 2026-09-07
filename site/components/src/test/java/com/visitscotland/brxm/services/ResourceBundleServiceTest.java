@@ -3,16 +3,15 @@ package com.visitscotland.brxm.services;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.SiteProperties;
 import org.hippoecm.hst.resourcebundle.ResourceBundleRegistry;
-import org.junit.Ignore;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -55,16 +54,6 @@ class ResourceBundleServiceTest {
     }
 
     @Test
-    void toLocale(){
-        // Checks method toLocale when locale is null or empty a Null locale is sent.
-        // Otherwise, a locale is created according to Locale.forLanguageTag(String) specification
-        Assertions.assertEquals("en", service.toLocale("en").getLanguage());
-        Assertions.assertEquals("", service.toLocale(".java").getLanguage());
-        assertNull(service.toLocale(""));
-        assertNull(service.toLocale(null));
-    }
-
-    @Test
     void getResourceBundle_nonExistingBundleRegisterIssue(){
         //Returns null when the name of the resource bundle does not exist.
         String value = service.getResourceBundle("Non-existing", "key", Locale.UK);
@@ -75,15 +64,6 @@ class ResourceBundleServiceTest {
     @Test
     void keyExistsInTheLocale(){
         //Returns the value when the key exists.
-        when(bundle.containsKey("key")).thenReturn(true);
-        when(bundle.getString("key")).thenReturn("value");
-
-        assertEquals("value", service.getResourceBundle(BUNDLE, "key", Locale.UK, true));
-    }
-
-    @Test
-    void keyExistsInTheLocale_optional(){
-        //Returns the value when the key exists and optional does not have any impact on it.
         when(bundle.containsKey("key")).thenReturn(true);
         when(bundle.getString("key")).thenReturn("value");
 
@@ -188,35 +168,35 @@ class ResourceBundleServiceTest {
 
     @Test
     @DisplayName("Alternative sites can have alternative labels")
-    @Disabled
+    @Disabled("To be implemented")
     void getResourceBundle(){
         //TODO
     }
 
     @Test
     @DisplayName("Alternative sites can have alternative labels in other locales")
-    @Disabled
+    @Disabled("To be implemented")
     void getResourceBundle_locale(){
         //TODO
     }
 
     @Test
     @DisplayName("If keys in alternative sites don't exist, they return ")
-    @Disabled
+    @Disabled("To be implemented")
     void getResourceBundle_missingKey(){
         //TODO
     }
 
     @Test
     @DisplayName("Return a collection of labels from the default file")
-    @Disabled
+    @Disabled("To be implemented")
     void getAllLabels(){
         //TODO
     }
 
     @Test
     @DisplayName("Return a collection of labels. Some of the labels don't exist in the site and the default value is returned instead")
-    @Disabled
+    @Disabled("To be implemented")
     void getAllLabels_missingKeys(){
         //TODO
     }
