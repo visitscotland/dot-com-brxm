@@ -12,6 +12,8 @@ public class ApiOnlyFilter implements Filter {
 
     private static final Logger logger = LoggerFactory.getLogger(ApiOnlyFilter.class);
 
+    private static final String[] ALLOW_LIST = new String[]{"/resourceapi/", "/api/", "/icons/"};
+
     @Override
     public void doFilter(
             ServletRequest request,
@@ -24,8 +26,7 @@ public class ApiOnlyFilter implements Filter {
         String path = httpRequest.getRequestURI()
                 .substring(httpRequest.getContextPath().length());
 
-        if (path.startsWith("/resourceapi/")
-                || path.startsWith("/api/")) {
+        if (isAllowed(path)) {
             chain.doFilter(request, response);
         } else if (path.startsWith("/webfiles/")) {
             logger.warn("A static asset has been requested: {}.", path);
@@ -34,6 +35,17 @@ public class ApiOnlyFilter implements Filter {
             logger.warn("An invalid path was requested and will be ignored: {}.", path);
             httpResponse.sendError(HttpServletResponse.SC_GONE);
         }
+    }
+
+
+
+    private boolean isAllowed(String path){
+        for (String allow : ALLOW_LIST){
+            if (path.startsWith(allow)){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

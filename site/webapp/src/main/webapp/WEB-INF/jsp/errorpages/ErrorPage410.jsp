@@ -6,8 +6,9 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <title>410 error</title>
+  <meta charset="UTF-8">
+  <title>VisitScotland – Website unavailable</title>
+  <link rel="icon" type="image/png" href="/site/icons/icon-192-192.png">
 </head>
 <body>
 <h1>We're having trouble loading the website</h1>
