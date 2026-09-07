@@ -11,8 +11,6 @@ definitions:
         jcr:primaryType: hst:sitemapitem
         /_any_:
           jcr:primaryType: hst:sitemapitem
-          hst:parameternames: [version]
-          hst:parametervalues: [latest]
           hst:relativecontentpath: ${1}
     /hst:hst/hst:configurations/hst:default/hst:sitemap/manifest.webmanifest:
       jcr:primaryType: hst:sitemapitem
