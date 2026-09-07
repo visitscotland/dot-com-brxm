@@ -24,7 +24,11 @@ public class ApiOnlyFilter implements Filter {
         String path = httpRequest.getRequestURI()
                 .substring(httpRequest.getContextPath().length());
 
-        if (path.startsWith("/resourceapi/") || path.startsWith("/api/")) {
+        if (path.startsWith("/resourceapi/")
+                || path.startsWith("/api/")) {
+            chain.doFilter(request, response);
+        } else if (path.startsWith("/webfiles/")) {
+            logger.warn("A static asset has been requested: {}.", path);
             chain.doFilter(request, response);
         } else {
             logger.warn("An invalid path was requested and will be ignored: {}.", path);
@@ -39,6 +43,6 @@ public class ApiOnlyFilter implements Filter {
 
     @Override
     public void destroy() {
-
+        logger.info("Destroying API Only Filter");
     }
 }
