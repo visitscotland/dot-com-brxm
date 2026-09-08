@@ -50,34 +50,15 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         HstRequest request = pageConfig.getRequest();
         includeLabels(pageConfig);
         if (itineraryMapper.isStopBasedItinerary(getDocument(request))){
+            logger.warn("Stop based itineraries are no longer in use." + getDocument(request));
+            // TODO - will be removed at a later date
             pageConfig.addProperty(HAS_STOPS, true);
-            pageConfig.addAllSiteLabels("transports");
-            buildStopBasedItinerary(request);
         } else {
             pageConfig.addProperty(HAS_STOPS, false);
             ItineraryPage itinerary = itineraryMapper.buildItinerary(getDocument(request), request.getLocale());
             request.setModel(PAGE_INTRO, itinerary);
             builder.addModules(request, pageConfig);
         }
-    }
-
-    private void buildStopBasedItinerary(HstRequest request) {
-        ItineraryPage itineraryPage = itineraryMapper.buildStopBasedItinerary(getDocument(request), request.getLocale());
-
-        request.setModel(PAGE_INTRO, itineraryPage);
-        /*
-         * Stop-based version of Itineraries is deprecated and the plan is to remove it from the codebase in the short
-         * term. If they are still needed, the front-end should be updated to use the pageIntro object instead of the
-         * itinerary object. Add after that the following line, including the itinerary object, can be removed.
-         */
-        //TODO: Read previous comment and remove the following line if needed
-        request.setModel(ITINERARY, itineraryPage);
-
-        if (!Contract.isEmpty(itineraryPage.getErrorMessages())) {
-            setErrorMessages(request, itineraryPage.getErrorMessages());
-        }
-
-        addProductSearchBuilder(request);
     }
 
     // This is only in use in Freemarker to inject product search

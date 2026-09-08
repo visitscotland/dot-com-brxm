@@ -26863,7 +26863,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: a7417459-8958-4bda-8376-db60df64f6ae
           hippo:name: Form
-          hippo:versionHistory: 2ebf20f5-5fa3-4ddb-b85e-67d97d76ccae
+          hippo:versionHistory: 1e6a5406-1020-49d4-bcc0-09eba142d477
           /form[1]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
@@ -26873,7 +26873,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-07-24T11:51:55.005+01:00
-            hippostdpubwf:lastModificationDate: 2026-07-24T12:05:22.352+01:00
+            hippostdpubwf:lastModificationDate: 2026-08-04T09:45:49.744+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 30021bd7-1835-4fea-b2cd-1269b80be9c2
             hippotranslation:locale: en
@@ -26885,7 +26885,7 @@
               visitscotland:activityCode: BSH_CC_26
               visitscotland:activityDescription: Business Support Hub Carbon Calculator
                 Registration
-              visitscotland:activitySource: Dev - Carbon Calculator
+              visitscotland:activitySource: BSH - Carbon Calculator
               visitscotland:jsonUrl: https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-2026.json
               visitscotland:url: https://api.visitscotland.net/dev/submit/ccg/register
               /visitscotland:consents[1]:
@@ -26893,19 +26893,28 @@
                 visitscotland:consentType: partner_consent
                 visitscotland:key: emissionsUpdate
                 visitscotland:optional: false
-                visitscotland:value: ISLA_26
+                visitscotland:value: I agree to update my emissions records at least
+                  once a year
               /visitscotland:consents[2]:
                 jcr:primaryType: visitscotland:FormConsent
-                visitscotland:consentType: ''
-                visitscotland:key: carbon_calculator
+                visitscotland:consentType: partner_consent
+                visitscotland:key: trasnsfer_ownership
                 visitscotland:optional: false
-                visitscotland:value: VS_CC_26
+                visitscotland:value: I agree to appoint someone else if I leave the
+                  business or can no longer update the records
               /visitscotland:consents[3]:
                 jcr:primaryType: visitscotland:FormConsent
                 visitscotland:consentType: ''
                 visitscotland:key: newsletter
+                visitscotland:optional: true
+                visitscotland:value: I want to receive VisitScotland's Business Support
+                  newsletter. (optional)
+              /visitscotland:consents[4]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: partner_consent
+                visitscotland:key: terms
                 visitscotland:optional: false
-                visitscotland:value: VS_NS_26
+                visitscotland:value: I accept the Carbon Calculator terms and conditions
           /form[2]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -26915,7 +26924,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-07-24T11:51:55.005+01:00
-            hippostdpubwf:lastModificationDate: 2026-07-24T12:05:26.934+01:00
+            hippostdpubwf:lastModificationDate: 2026-08-04T09:46:03.890+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 30021bd7-1835-4fea-b2cd-1269b80be9c2
             hippotranslation:locale: en
@@ -26927,7 +26936,7 @@
               visitscotland:activityCode: BSH_CC_26
               visitscotland:activityDescription: Business Support Hub Carbon Calculator
                 Registration
-              visitscotland:activitySource: Dev - Carbon Calculator
+              visitscotland:activitySource: BSH - Carbon Calculator
               visitscotland:jsonUrl: https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-2026.json
               visitscotland:url: https://api.visitscotland.net/dev/submit/ccg/register
               /visitscotland:consents[1]:
@@ -26935,19 +26944,28 @@
                 visitscotland:consentType: partner_consent
                 visitscotland:key: emissionsUpdate
                 visitscotland:optional: false
-                visitscotland:value: ISLA_26
+                visitscotland:value: I agree to update my emissions records at least
+                  once a year
               /visitscotland:consents[2]:
                 jcr:primaryType: visitscotland:FormConsent
-                visitscotland:consentType: ''
-                visitscotland:key: carbon_calculator
+                visitscotland:consentType: partner_consent
+                visitscotland:key: trasnsfer_ownership
                 visitscotland:optional: false
-                visitscotland:value: VS_CC_26
+                visitscotland:value: I agree to appoint someone else if I leave the
+                  business or can no longer update the records
               /visitscotland:consents[3]:
                 jcr:primaryType: visitscotland:FormConsent
                 visitscotland:consentType: ''
                 visitscotland:key: newsletter
+                visitscotland:optional: true
+                visitscotland:value: I want to receive VisitScotland's Business Support
+                  newsletter. (optional)
+              /visitscotland:consents[4]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: partner_consent
+                visitscotland:key: terms
                 visitscotland:optional: false
-                visitscotland:value: VS_NS_26
+                visitscotland:value: I accept the Carbon Calculator terms and conditions
           /form[3]:
             jcr:primaryType: visitscotland:Form
             jcr:mixinTypes: ['mix:referenceable']
@@ -26957,9 +26975,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2026-07-24T11:51:55.005+01:00
-            hippostdpubwf:lastModificationDate: 2026-07-24T12:05:26.934+01:00
+            hippostdpubwf:lastModificationDate: 2026-08-04T09:46:03.890+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-07-24T12:05:29.421+01:00
+            hippostdpubwf:publicationDate: 2026-08-04T09:46:06.063+01:00
             hippotranslation:id: 30021bd7-1835-4fea-b2cd-1269b80be9c2
             hippotranslation:locale: en
             visitscotland:nonJavaScriptMessage: ''
@@ -26970,7 +26988,7 @@
               visitscotland:activityCode: BSH_CC_26
               visitscotland:activityDescription: Business Support Hub Carbon Calculator
                 Registration
-              visitscotland:activitySource: Dev - Carbon Calculator
+              visitscotland:activitySource: BSH - Carbon Calculator
               visitscotland:jsonUrl: https://static.visitscotland.com/forms/carbon-calculator/carbon-calculator-2026.json
               visitscotland:url: https://api.visitscotland.net/dev/submit/ccg/register
               /visitscotland:consents[1]:
@@ -26978,19 +26996,28 @@
                 visitscotland:consentType: partner_consent
                 visitscotland:key: emissionsUpdate
                 visitscotland:optional: false
-                visitscotland:value: ISLA_26
+                visitscotland:value: I agree to update my emissions records at least
+                  once a year
               /visitscotland:consents[2]:
                 jcr:primaryType: visitscotland:FormConsent
-                visitscotland:consentType: ''
-                visitscotland:key: carbon_calculator
+                visitscotland:consentType: partner_consent
+                visitscotland:key: trasnsfer_ownership
                 visitscotland:optional: false
-                visitscotland:value: VS_CC_26
+                visitscotland:value: I agree to appoint someone else if I leave the
+                  business or can no longer update the records
               /visitscotland:consents[3]:
                 jcr:primaryType: visitscotland:FormConsent
                 visitscotland:consentType: ''
                 visitscotland:key: newsletter
+                visitscotland:optional: true
+                visitscotland:value: I want to receive VisitScotland's Business Support
+                  newsletter. (optional)
+              /visitscotland:consents[4]:
+                jcr:primaryType: visitscotland:FormConsent
+                visitscotland:consentType: partner_consent
+                visitscotland:key: terms
                 visitscotland:optional: false
-                visitscotland:value: VS_NS_26
+                visitscotland:value: I accept the Carbon Calculator terms and conditions
     /events-listing:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
