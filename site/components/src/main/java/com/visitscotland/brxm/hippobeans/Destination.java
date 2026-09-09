@@ -44,4 +44,5 @@ public class Destination extends Page {
     public DestinationsKeyInformation getKeyInformation() {
         return getBean("visitscotland:keyInformation", DestinationsKeyInformation.class);
     }
+
 }

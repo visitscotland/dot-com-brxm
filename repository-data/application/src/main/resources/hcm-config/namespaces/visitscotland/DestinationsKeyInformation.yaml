@@ -38,10 +38,55 @@ definitions:
             hipposysedit:path: visitscotland:highlights
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:destination-highligths-validator']
+        /hipposysedit:nodetype[2]:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 3ede488d-90bc-43d9-89ea-be5dc622ceb3
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          /title:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, 'visitscotland:medium-string-validator']
+          /ctaLink:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:ctaLink
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
+          /highlights:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:highlights
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required, 'visitscotland:destination-highligths-validator']
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: visitscotland:DestinationsKeyInformation
+          visitscotland:title: ''
+          /visitscotland:categories:
+            jcr:primaryType: visitscotland:DestinationsKeyCategories
+            visitscotland:category: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+          /visitscotland:highlights:
+            jcr:primaryType: visitscotland:DestinationsKeyCategories
+            visitscotland:category: ''
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+        /hipposysedit:prototype[2]:
+          jcr:primaryType: nt:unstructured
+          jcr:mixinTypes: ['hippostd:relaxed']
           visitscotland:title: ''
           /visitscotland:categories:
             jcr:primaryType: visitscotland:DestinationsKeyCategories
