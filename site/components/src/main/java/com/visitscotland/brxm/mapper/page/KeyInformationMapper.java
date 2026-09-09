@@ -43,7 +43,6 @@ public class KeyInformationMapper {
 
 
     private DestinationKeyCategory getKeyInformationHighlightsModule (DestinationsKeyCategories highlight, Locale locale) {
-        DestinationKeyInformationModule module = new DestinationKeyInformationModule();
         SimpleEntry keyLabel = new SimpleEntry();
         keyLabel.setKey(highlight.getCategory());
         String categoryLabel = resourceBundleService.getResourceBundle(DESTINATIONS_KEY_INFORMATION_CATEGORIES, highlight.getCategory(), locale);
