@@ -15,14 +15,15 @@ public class Destination extends Page {
     @Override
     public String[] getChildJcrTypes() {
         return new String[] {
-                "visitscotland:Megalinks",
-                "visitscotland:Stackla",
-                "visitscotland:TourismInformation",
-                "visitscotland:TravelInformation",
+                "visitscotland:Article",
+                "visitscotland:ArticleStyled",
                 "visitscotland:CannedSearchTours",
                 "visitscotland:MapModule",
-                "visitscotland:Article",
-                "visitscotland:ArticleStyled"
+                "visitscotland:Megalinks",
+                "visitscotland:Spotlight",
+                "visitscotland:Stackla",
+                "visitscotland:TourismInformation",
+                "visitscotland:TravelInformation"
         };
     }
 
