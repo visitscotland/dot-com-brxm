@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.hippobeans;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import java.util.Calendar;
@@ -21,10 +22,10 @@ public class TravelInformation extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:practicalInformation")
-    public List<TravelInformationTab> getPracticalInformation() {
+    public List<HippoBean> getPracticalInformation() {
         return getChildBeansByName(
                 "visitscotland:practicalInformation",
-                TravelInformationTab.class
+                HippoBean.class
         );
     }
 
