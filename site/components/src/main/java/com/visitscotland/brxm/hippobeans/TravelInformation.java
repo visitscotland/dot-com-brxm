@@ -23,7 +23,7 @@ public class TravelInformation extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:practicalInformation")
     public List<TravelInformationTab> getPracticalInformation() {
         return getChildBeansByName(
-                "practicalInformation",
+                "visitscotland:practicalInformation",
                 TravelInformationTab.class
         );
     }
