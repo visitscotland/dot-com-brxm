@@ -3,6 +3,7 @@ package com.visitscotland.brxm.hippobeans;
 import org.hippoecm.hst.content.beans.Node;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import java.util.Calendar;
+import com.visitscotland.brxm.hippobeans.DestinationsKeyInformation;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:Destination")
 @Node(jcrType = "visitscotland:Destination")
@@ -46,4 +47,10 @@ public class Destination extends Page {
     public String[] getKeys() {
         return getMultipleProperty("hippotaxonomy:keys");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:keyInformation")
+    public DestinationsKeyInformation getKeyInformation() {
+        return getBean("visitscotland:keyInformation", DestinationsKeyInformation.class);
+    }
+
 }
