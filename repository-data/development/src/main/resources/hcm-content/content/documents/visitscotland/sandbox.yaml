@@ -14569,7 +14569,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: bab2bf61-21ad-42f3-8c01-10a3bb258204
           hippo:name: TravelInformation
-          hippo:versionHistory: a60383ca-2975-4eb7-8842-479c545c607c
+          hippo:versionHistory: 9d6c48e2-7d5d-4ada-ac23-8093455d924d
           /travelinformation[1]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable']
@@ -14579,67 +14579,12 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-09-08T08:13:37.198+01:00
-            hippostdpubwf:lastModificationDate: 2021-09-08T08:21:27.178+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-10T15:48:23.321+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 1fc11e3c-3ea9-4141-9c78-6a09b3229da1
             hippotranslation:locale: en
             visitscotland:title: EDINBURGH TRAVEL INFORMATION
             visitscotland:translation: ''
-            /visitscotland:gettingTo:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting to Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: dsblaccess
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is linked to by an extensive network
-                    of roads, rail services and flights which make travel to the city
-                    possible from every corner of the world.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: plane
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>Edinburgh Airport is directly linked to the city centre via a quick and convenient tram network. Pre-book your tram ticket online via the&nbsp;<a href="http://www.edinburghticket.com/" title="Edinburgh Ticket" target="_blank">Edinburgh Ticket</a>&nbsp;website so you’re ready to go as soon as you arrive. You can access lots of offers and&nbsp;<a href="https://www.edinburghticket.co.uk/attractions/" title="Edinburgh Ticket - discounts" target="_blank">money saving discounts</a>&nbsp;by showing your Edinburgh Ticket at a range of attractions too.</p>
-
-                    <p><a href="http://thisisedinburgh.com/getting-around/getting-here/" title="Travel to Edinburgh" target="_blank">Travel to Edinburgh</a></p>
-            /visitscotland:gettingAround:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting around Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: walk
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is a compact city which makes exploring
-                    easy. You can get around on foot, see top attractions on a 'hop-on,
-                    hop-off' sightseeing bus tour or hire a bike and follow the cycle
-                    routes.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: bus
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtour.com/" title="Edinburgh Bus Tours" target="_blank">sightseeing tour</a></li>
-                     <li>Travel by&nbsp;<a href="https://www.visitscotland.com/info/transport/lothian-buses-p267621" title="Lothian Buses">bus</a></li>
-                    </ul>
-              /visitscotland:accordion[3]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: tram
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtrams.com/" title="Edinburgh Trams" target="_blank">tram</a></li>
-                    </ul>
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: <p>Edinburgh is a compact city which makes exploring
@@ -14648,6 +14593,70 @@
                 routes. The local bus network is second to none, tram services conveniently
                 connect the city centre with Edinburgh Airport and there are taxi
                 ranks in easy to reach places.</p>
+            /visitscotland:practicalInformation[1]:
+              jcr:primaryType: visitscotland:TravelInformationTab
+              visitscotland:title: Transport Information
+              /visitscotland:TravelInformationTransportRow:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:accordion[1]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: bus
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are many frequent and affordable bus services that travel from various main cities to Edinburgh daily. Most buses to Edinburgh arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                    <ul>
+                     <li><a tabindex="0" href="https://www.nationalexpress.com/en/destinations/edinburgh" target="_self">National Express to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://uk.megabus.com/city-guides/edinburgh" target="_self">Megabus to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.citylink.co.uk/get-inspired/destinations/edinburgh/" target="_self">Scottish Citylink to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.flixbus.co.uk/coach/edinburgh" target="_self">Flixbus to Edinburgh</a></li>
+                    </ul>
+              /visitscotland:accordion[2]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: tram
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>Edinburgh Airport is directly linked through the west of the city, into the city centre and north and east down to Leith and Newhaven via a quick and convenient tram network.</p>
+
+                    <p>Pre-book your tram ticket online via the <a tabindex="0" href="http://www.edinburghticket.com/" target="_self">Edinburgh Tram Ticket</a> website so you’re ready to go as soon as you arrive. You can access lots of offers and <a tabindex="0" href="https://tickets.edinburghtrams.com/offers" target="_self">money saving discounts</a> by showing your Edinburgh Ticket at a range of attractions too.</p>
+
+                    <p><a tabindex="0" href="https://www.edinburghairport.com/transport-links/trams" target="_self">Find out more on travel from the airport by tram</a></p>
+              /visitscotland:accordion[3]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: train
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are fast and frequent services to Edinburgh from major UK cities. LNER trains run along the east coast from London, York and Newcastle, while Avanti West Coast run along the west coast from London, Birmingham, Milton Keynes and Carlisle. Transpennine Express run from Manchester to Edinburgh.</p>
+
+                    <p>There are two stations - Edinburgh Haymarket to the west of the city centre, and Edinburgh Waverley sits at the east end of Princes Street.</p>
+
+                    <p><a tabindex="0" href="https://www.lner.co.uk/our-destinations/popular-destinations/trains-to-edinburgh/" target="_self">Book with LNER</a></p>
+
+                    <p><a tabindex="0" href="https://www.avantiwestcoast.co.uk/where-we-go/destination-guides/edinburgh" target="_self">Book with Avanti West Coast</a></p>
+
+                    <p><a tabindex="0" href="https://tpexpress.co.uk/explore-the-north-and-scotland/destinations/edinburgh" target="_self">Book with Transpennine Express</a></p>
+
+                    <p><a tabindex="0" href="https://www.sleeper.scot/destination/edb/" target="_self">Travel overnight on the Caledonian Sleeper</a></p>
+
+                    <p>ScotRail provides an express rail service direct to Edinburgh from many major Scottish cities.</p>
+
+                    <p><a tabindex="0" href="https://www.scotrail.co.uk/plan-your-journey/stations-and-facilities/edb" target="_self">Check ScotRail timetables</a></p>
+            /visitscotland:practicalInformation[2]:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Where to stay
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Edinburgh is easily explored on foot with most key attractions within walking distance of each other. Attractions beyond the city centre can be reached cost effectively by public transport and again explored further by foot.</p>
+
+                  <p>You can stay in nice hotels, hostels.....</p>
           /travelinformation[2]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -14657,67 +14666,12 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-09-08T08:13:37.198+01:00
-            hippostdpubwf:lastModificationDate: 2021-09-08T08:21:47.544+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-10T15:48:32.962+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 1fc11e3c-3ea9-4141-9c78-6a09b3229da1
             hippotranslation:locale: en
             visitscotland:title: EDINBURGH TRAVEL INFORMATION
             visitscotland:translation: ''
-            /visitscotland:gettingTo:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting to Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: dsblaccess
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is linked to by an extensive network
-                    of roads, rail services and flights which make travel to the city
-                    possible from every corner of the world.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: plane
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>Edinburgh Airport is directly linked to the city centre via a quick and convenient tram network. Pre-book your tram ticket online via the&nbsp;<a href="http://www.edinburghticket.com/" title="Edinburgh Ticket" target="_blank">Edinburgh Ticket</a>&nbsp;website so you’re ready to go as soon as you arrive. You can access lots of offers and&nbsp;<a href="https://www.edinburghticket.co.uk/attractions/" title="Edinburgh Ticket - discounts" target="_blank">money saving discounts</a>&nbsp;by showing your Edinburgh Ticket at a range of attractions too.</p>
-
-                    <p><a href="http://thisisedinburgh.com/getting-around/getting-here/" title="Travel to Edinburgh" target="_blank">Travel to Edinburgh</a></p>
-            /visitscotland:gettingAround:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting around Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: walk
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is a compact city which makes exploring
-                    easy. You can get around on foot, see top attractions on a 'hop-on,
-                    hop-off' sightseeing bus tour or hire a bike and follow the cycle
-                    routes.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: bus
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtour.com/" title="Edinburgh Bus Tours" target="_blank">sightseeing tour</a></li>
-                     <li>Travel by&nbsp;<a href="https://www.visitscotland.com/info/transport/lothian-buses-p267621" title="Lothian Buses">bus</a></li>
-                    </ul>
-              /visitscotland:accordion[3]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: tram
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtrams.com/" title="Edinburgh Trams" target="_blank">tram</a></li>
-                    </ul>
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: <p>Edinburgh is a compact city which makes exploring
@@ -14726,6 +14680,70 @@
                 routes. The local bus network is second to none, tram services conveniently
                 connect the city centre with Edinburgh Airport and there are taxi
                 ranks in easy to reach places.</p>
+            /visitscotland:practicalInformation[1]:
+              jcr:primaryType: visitscotland:TravelInformationTab
+              visitscotland:title: Transport Information
+              /visitscotland:TravelInformationTransportRow:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:accordion[1]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: bus
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are many frequent and affordable bus services that travel from various main cities to Edinburgh daily. Most buses to Edinburgh arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                    <ul>
+                     <li><a tabindex="0" href="https://www.nationalexpress.com/en/destinations/edinburgh" target="_self">National Express to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://uk.megabus.com/city-guides/edinburgh" target="_self">Megabus to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.citylink.co.uk/get-inspired/destinations/edinburgh/" target="_self">Scottish Citylink to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.flixbus.co.uk/coach/edinburgh" target="_self">Flixbus to Edinburgh</a></li>
+                    </ul>
+              /visitscotland:accordion[2]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: tram
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>Edinburgh Airport is directly linked through the west of the city, into the city centre and north and east down to Leith and Newhaven via a quick and convenient tram network.</p>
+
+                    <p>Pre-book your tram ticket online via the <a tabindex="0" href="http://www.edinburghticket.com/" target="_self">Edinburgh Tram Ticket</a> website so you’re ready to go as soon as you arrive. You can access lots of offers and <a tabindex="0" href="https://tickets.edinburghtrams.com/offers" target="_self">money saving discounts</a> by showing your Edinburgh Ticket at a range of attractions too.</p>
+
+                    <p><a tabindex="0" href="https://www.edinburghairport.com/transport-links/trams" target="_self">Find out more on travel from the airport by tram</a></p>
+              /visitscotland:accordion[3]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: train
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are fast and frequent services to Edinburgh from major UK cities. LNER trains run along the east coast from London, York and Newcastle, while Avanti West Coast run along the west coast from London, Birmingham, Milton Keynes and Carlisle. Transpennine Express run from Manchester to Edinburgh.</p>
+
+                    <p>There are two stations - Edinburgh Haymarket to the west of the city centre, and Edinburgh Waverley sits at the east end of Princes Street.</p>
+
+                    <p><a tabindex="0" href="https://www.lner.co.uk/our-destinations/popular-destinations/trains-to-edinburgh/" target="_self">Book with LNER</a></p>
+
+                    <p><a tabindex="0" href="https://www.avantiwestcoast.co.uk/where-we-go/destination-guides/edinburgh" target="_self">Book with Avanti West Coast</a></p>
+
+                    <p><a tabindex="0" href="https://tpexpress.co.uk/explore-the-north-and-scotland/destinations/edinburgh" target="_self">Book with Transpennine Express</a></p>
+
+                    <p><a tabindex="0" href="https://www.sleeper.scot/destination/edb/" target="_self">Travel overnight on the Caledonian Sleeper</a></p>
+
+                    <p>ScotRail provides an express rail service direct to Edinburgh from many major Scottish cities.</p>
+
+                    <p><a tabindex="0" href="https://www.scotrail.co.uk/plan-your-journey/stations-and-facilities/edb" target="_self">Check ScotRail timetables</a></p>
+            /visitscotland:practicalInformation[2]:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Where to stay
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Edinburgh is easily explored on foot with most key attractions within walking distance of each other. Attractions beyond the city centre can be reached cost effectively by public transport and again explored further by foot.</p>
+
+                  <p>You can stay in nice hotels, hostels.....</p>
           /travelinformation[3]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable']
@@ -14735,9 +14753,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-09-08T08:13:37.198+01:00
-            hippostdpubwf:lastModificationDate: 2021-09-08T08:21:47.544+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-10T15:48:06.426+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2021-10-08T13:19:49.001+01:00
+            hippostdpubwf:publicationDate: 2026-09-10T15:48:09.679+01:00
             hippotranslation:id: 1fc11e3c-3ea9-4141-9c78-6a09b3229da1
             hippotranslation:locale: en
             visitscotland:title: EDINBURGH TRAVEL INFORMATION
@@ -14805,6 +14823,70 @@
                 routes. The local bus network is second to none, tram services conveniently
                 connect the city centre with Edinburgh Airport and there are taxi
                 ranks in easy to reach places.</p>
+            /visitscotland:practicalInformation[1]:
+              jcr:primaryType: visitscotland:TravelInformationTab
+              visitscotland:title: Transport Information
+              /visitscotland:TravelInformationTransportRow:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:accordion[1]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: bus
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are many frequent and affordable bus services that travel from various main cities to Edinburgh daily. Most buses to Edinburgh arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                    <ul>
+                     <li><a tabindex="0" href="https://www.nationalexpress.com/en/destinations/edinburgh" target="_self">National Express to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://uk.megabus.com/city-guides/edinburgh" target="_self">Megabus to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.citylink.co.uk/get-inspired/destinations/edinburgh/" target="_self">Scottish Citylink to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.flixbus.co.uk/coach/edinburgh" target="_self">Flixbus to Edinburgh</a></li>
+                    </ul>
+              /visitscotland:accordion[2]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: tram
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>Edinburgh Airport is directly linked through the west of the city, into the city centre and north and east down to Leith and Newhaven via a quick and convenient tram network.</p>
+
+                    <p>Pre-book your tram ticket online via the <a tabindex="0" href="http://www.edinburghticket.com/" target="_self">Edinburgh Tram Ticket</a> website so you’re ready to go as soon as you arrive. You can access lots of offers and <a tabindex="0" href="https://tickets.edinburghtrams.com/offers" target="_self">money saving discounts</a> by showing your Edinburgh Ticket at a range of attractions too.</p>
+
+                    <p><a tabindex="0" href="https://www.edinburghairport.com/transport-links/trams" target="_self">Find out more on travel from the airport by tram</a></p>
+              /visitscotland:accordion[3]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: train
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are fast and frequent services to Edinburgh from major UK cities. LNER trains run along the east coast from London, York and Newcastle, while Avanti West Coast run along the west coast from London, Birmingham, Milton Keynes and Carlisle. Transpennine Express run from Manchester to Edinburgh.</p>
+
+                    <p>There are two stations - Edinburgh Haymarket to the west of the city centre, and Edinburgh Waverley sits at the east end of Princes Street.</p>
+
+                    <p><a tabindex="0" href="https://www.lner.co.uk/our-destinations/popular-destinations/trains-to-edinburgh/" target="_self">Book with LNER</a></p>
+
+                    <p><a tabindex="0" href="https://www.avantiwestcoast.co.uk/where-we-go/destination-guides/edinburgh" target="_self">Book with Avanti West Coast</a></p>
+
+                    <p><a tabindex="0" href="https://tpexpress.co.uk/explore-the-north-and-scotland/destinations/edinburgh" target="_self">Book with Transpennine Express</a></p>
+
+                    <p><a tabindex="0" href="https://www.sleeper.scot/destination/edb/" target="_self">Travel overnight on the Caledonian Sleeper</a></p>
+
+                    <p>ScotRail provides an express rail service direct to Edinburgh from many major Scottish cities.</p>
+
+                    <p><a tabindex="0" href="https://www.scotrail.co.uk/plan-your-journey/stations-and-facilities/edb" target="_self">Check ScotRail timetables</a></p>
+            /visitscotland:practicalInformation[2]:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Where to stay
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Edinburgh is easily explored on foot with most key attractions within walking distance of each other. Attractions beyond the city centre can be reached cost effectively by public transport and again explored further by foot.</p>
+
+                  <p>You can stay in nice hotels, hostels.....</p>
         /article2-example:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -14876,236 +14958,6 @@
                    <li>Local dialect:&nbsp;<a tabindex="-1" rel="noopener noreferrer" href="https://www.visitscotland.com/blog/culture/doric-words-meanings/" title="https://www.visitscotland.com/blog/culture/doric-words-meanings/" target="_blank">Doric</a></li>
                    <li>Known for: oil, architecture, beach, whisky and golf</li>
                   </ul>
-        /icentre:
-          jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-          jcr:uuid: 6033a92f-4d87-419b-a18f-0c85eb0a41e4
-          hippo:name: iCentre
-          hippo:versionHistory: db60821d-583c-4f73-a93b-e95b932d9514
-          /icentre[1]:
-            jcr:primaryType: visitscotland:TourismInformation
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: d6d547f6-3654-4f51-8ac8-b10f428ea62e
-            hippo:availability: []
-            hippostd:retainable: false
-            hippostd:state: draft
-            hippostd:transferable: false
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2020-09-30T12:03:00.630+01:00
-            hippostdpubwf:lastModificationDate: 2022-06-24T09:15:50.846+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 2b3e0a8d-aca4-472b-9536-7fa106b8bff9
-            hippotranslation:locale: en
-            visitscotland:translation: ''
-            /visitscotland:ICentre:
-              jcr:primaryType: visitscotland:ICentre
-              visitscotland:description: ''
-              visitscotland:title: ''
-              /visitscotland:image:
-                jcr:primaryType: hippogallerypicker:imagelink
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                hippo:facets: []
-                hippo:modes: []
-                hippo:values: []
-              /visitscotland:quotes:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Peter
-                visitscotland:productId: '1674401'
-                visitscotland:role: Senior Software Engineer
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 1e4be246-297b-4404-8102-80fe1bc0ddf7
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Reusable module for long text-only content.
-                    &nbsp;This will house very long content such as policies and Ts&amp;Cs,
-                    removing the need to use multiple long content modules to a single
-                    page, which would be difficult for the Content team to maintain.</p>
-                /visitscotland:products:
-                  jcr:primaryType: visitscotland:MegalinkItem
-                  visitscotland:feature: false
-                  /visitscotland:links:
-                    jcr:primaryType: hippo:mirror
-                    hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
-                /visitscotland:product:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
-              /visitscotland:quote:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Sam McCall Smith
-                visitscotland:role: iCentre manager
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 44c9fd39-a37c-4ea9-ba77-3418e5736149
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>This is a city of shifting light, of changing
-                    skies, of sudden vistas. A city so beautiful it breaks the heart
-                    again and again.</p>
-            /visitscotland:IKnow:
-              jcr:primaryType: visitscotland:IKnow
-              visitscotland:title: ''
-              /visitscotland:description:
-                jcr:primaryType: hippostd:html
-                hippostd:content: <p>This is the place to get the inside track on
-                  Scotland. A place for friendly and spirited people to share experiences,
-                  pick up tips, ask questions and get insider advice on all the best
-                  places to visit in Scotland.</p>
-          /icentre[2]:
-            jcr:primaryType: visitscotland:TourismInformation
-            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-            jcr:uuid: 51829c8d-d52c-4663-8961-0f6834f615a7
-            hippo:availability: [preview]
-            hippostd:retainable: false
-            hippostd:state: unpublished
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2020-09-30T12:03:00.630+01:00
-            hippostdpubwf:lastModificationDate: 2022-06-24T09:14:53.129+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 2b3e0a8d-aca4-472b-9536-7fa106b8bff9
-            hippotranslation:locale: en
-            visitscotland:translation: ''
-            /visitscotland:ICentre:
-              jcr:primaryType: visitscotland:ICentre
-              visitscotland:description: ''
-              visitscotland:title: ''
-              /visitscotland:image:
-                jcr:primaryType: hippogallerypicker:imagelink
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                hippo:facets: []
-                hippo:modes: []
-                hippo:values: []
-              /visitscotland:quotes:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Peter
-                visitscotland:productId: '1674401'
-                visitscotland:role: Senior Software Engineer
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 1e4be246-297b-4404-8102-80fe1bc0ddf7
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Reusable module for long text-only content.
-                    &nbsp;This will house very long content such as policies and Ts&amp;Cs,
-                    removing the need to use multiple long content modules to a single
-                    page, which would be difficult for the Content team to maintain.</p>
-                /visitscotland:products:
-                  jcr:primaryType: visitscotland:MegalinkItem
-                  visitscotland:feature: false
-                  /visitscotland:links:
-                    jcr:primaryType: hippo:mirror
-                    hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
-                /visitscotland:product:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
-              /visitscotland:quote:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Sam McCall Smith
-                visitscotland:role: iCentre manager
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 44c9fd39-a37c-4ea9-ba77-3418e5736149
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>This is a city of shifting light, of changing
-                    skies, of sudden vistas. A city so beautiful it breaks the heart
-                    again and again.</p>
-            /visitscotland:IKnow:
-              jcr:primaryType: visitscotland:IKnow
-              visitscotland:title: ''
-              /visitscotland:description:
-                jcr:primaryType: hippostd:html
-                hippostd:content: <p>This is the place to get the inside track on
-                  Scotland. A place for friendly and spirited people to share experiences,
-                  pick up tips, ask questions and get insider advice on all the best
-                  places to visit in Scotland.</p>
-          /icentre[3]:
-            jcr:primaryType: visitscotland:TourismInformation
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: e579d854-1c60-4c02-897b-ae10b0a4f8c6
-            hippo:availability: [live]
-            hippostd:retainable: false
-            hippostd:state: published
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2020-09-30T12:03:00.630+01:00
-            hippostdpubwf:lastModificationDate: 2022-06-24T09:14:53.129+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2022-06-24T09:15:02.762+01:00
-            hippotranslation:id: 2b3e0a8d-aca4-472b-9536-7fa106b8bff9
-            hippotranslation:locale: en
-            visitscotland:translation: ''
-            /visitscotland:ICentre:
-              jcr:primaryType: visitscotland:ICentre
-              visitscotland:description: ''
-              visitscotland:title: ''
-              /visitscotland:image:
-                jcr:primaryType: hippogallerypicker:imagelink
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                hippo:facets: []
-                hippo:modes: []
-                hippo:values: []
-              /visitscotland:quotes:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Peter
-                visitscotland:productId: '1674401'
-                visitscotland:role: Senior Software Engineer
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 1e4be246-297b-4404-8102-80fe1bc0ddf7
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Reusable module for long text-only content.
-                    &nbsp;This will house very long content such as policies and Ts&amp;Cs,
-                    removing the need to use multiple long content modules to a single
-                    page, which would be difficult for the Content team to maintain.</p>
-                /visitscotland:products:
-                  jcr:primaryType: visitscotland:MegalinkItem
-                  visitscotland:feature: false
-                  /visitscotland:links:
-                    jcr:primaryType: hippo:mirror
-                    hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
-                /visitscotland:product:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
-              /visitscotland:quote:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Sam McCall Smith
-                visitscotland:role: iCentre manager
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 44c9fd39-a37c-4ea9-ba77-3418e5736149
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>This is a city of shifting light, of changing
-                    skies, of sudden vistas. A city so beautiful it breaks the heart
-                    again and again.</p>
-            /visitscotland:IKnow:
-              jcr:primaryType: visitscotland:IKnow
-              visitscotland:title: ''
-              /visitscotland:description:
-                jcr:primaryType: hippostd:html
-                hippostd:content: <p>This is the place to get the inside track on
-                  Scotland. A place for friendly and spirited people to share experiences,
-                  pick up tips, ask questions and get insider advice on all the best
-                  places to visit in Scotland.</p>
         /article3-example:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
