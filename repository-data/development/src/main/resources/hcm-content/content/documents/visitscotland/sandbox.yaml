@@ -14753,68 +14753,13 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-09-08T08:13:37.198+01:00
-            hippostdpubwf:lastModificationDate: 2026-09-10T15:48:06.426+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-10T15:48:32.962+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2026-09-10T15:48:09.679+01:00
+            hippostdpubwf:publicationDate: 2026-09-10T15:48:36.295+01:00
             hippotranslation:id: 1fc11e3c-3ea9-4141-9c78-6a09b3229da1
             hippotranslation:locale: en
             visitscotland:title: EDINBURGH TRAVEL INFORMATION
             visitscotland:translation: ''
-            /visitscotland:gettingTo:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting to Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: dsblaccess
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is linked to by an extensive network
-                    of roads, rail services and flights which make travel to the city
-                    possible from every corner of the world.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: plane
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>Edinburgh Airport is directly linked to the city centre via a quick and convenient tram network. Pre-book your tram ticket online via the&nbsp;<a href="http://www.edinburghticket.com/" title="Edinburgh Ticket" target="_blank">Edinburgh Ticket</a>&nbsp;website so you’re ready to go as soon as you arrive. You can access lots of offers and&nbsp;<a href="https://www.edinburghticket.co.uk/attractions/" title="Edinburgh Ticket - discounts" target="_blank">money saving discounts</a>&nbsp;by showing your Edinburgh Ticket at a range of attractions too.</p>
-
-                    <p><a href="http://thisisedinburgh.com/getting-around/getting-here/" title="Travel to Edinburgh" target="_blank">Travel to Edinburgh</a></p>
-            /visitscotland:gettingAround:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting around Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: walk
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is a compact city which makes exploring
-                    easy. You can get around on foot, see top attractions on a 'hop-on,
-                    hop-off' sightseeing bus tour or hire a bike and follow the cycle
-                    routes.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: bus
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtour.com/" title="Edinburgh Bus Tours" target="_blank">sightseeing tour</a></li>
-                     <li>Travel by&nbsp;<a href="https://www.visitscotland.com/info/transport/lothian-buses-p267621" title="Lothian Buses">bus</a></li>
-                    </ul>
-              /visitscotland:accordion[3]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: tram
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtrams.com/" title="Edinburgh Trams" target="_blank">tram</a></li>
-                    </ul>
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: <p>Edinburgh is a compact city which makes exploring
