@@ -3,12 +3,13 @@ package com.visitscotland.brxm.model;
 import com.visitscotland.brxm.hippobeans.TravelInformation;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
+import java.util.List;
+
 public class TravelInformationModule extends Module<TravelInformation> {
 
     private String title;
     private HippoHtml copy;
-    private TravelInformationModuleTab gettingTo;
-    private TravelInformationModuleTab gettingAround;
+    private List<TravelInformationModuleTab> practicalInformation;
 
     public String getTitle() {
         return title;
@@ -26,19 +27,11 @@ public class TravelInformationModule extends Module<TravelInformation> {
         this.copy = copy;
     }
 
-    public TravelInformationModuleTab getGettingTo() {
-        return gettingTo;
+    public List<TravelInformationModuleTab> getPracticalInformation() {
+        return practicalInformation;
     }
 
-    public void setGettingTo(TravelInformationModuleTab gettingTo) {
-        this.gettingTo = gettingTo;
-    }
-
-    public TravelInformationModuleTab getGettingAround() {
-        return gettingAround;
-    }
-
-    public void setGettingAround(TravelInformationModuleTab gettingAround) {
-        this.gettingAround = gettingAround;
+    public void setPracticalInformation(List<TravelInformationModuleTab> practicalInformation) {
+        this.practicalInformation = practicalInformation;
     }
 }

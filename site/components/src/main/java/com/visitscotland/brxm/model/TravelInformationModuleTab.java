@@ -7,7 +7,7 @@ import java.util.List;
 public class TravelInformationModuleTab extends Module<TravelInformationTab>  {
 
     private String title;
-    private List<TravelInformationTransportRowModule> travelInformationTransportRows;
+    private TravelInformationTabInterface travelInformationContent;
 
     public String getTitle() {
         return title;
@@ -17,11 +17,11 @@ public class TravelInformationModuleTab extends Module<TravelInformationTab>  {
         this.title = title;
     }
 
-    public List<TravelInformationTransportRowModule> getTravelInformationTransportRows() {
-        return travelInformationTransportRows;
+    public TravelInformationTabInterface getTravelInformationContent() {
+        return travelInformationContent;
     }
 
-    public void setTravelInformationTransportRows(List<TravelInformationTransportRowModule> travelInformationTransportRows) {
-        this.travelInformationTransportRows = travelInformationTransportRows;
+    public void setTravelInformationContent(TravelInformationTabInterface travelInformationContent) {
+        this.travelInformationContent = travelInformationContent;
     }
 }
