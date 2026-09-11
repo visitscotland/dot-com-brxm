@@ -1,10 +1,8 @@
 package com.visitscotland.brxm.model;
 
-import com.visitscotland.brxm.hippobeans.TravelInformationArticle;
-import com.visitscotland.brxm.hippobeans.TravelInformationTransportRow;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
-public class TravelInformationArticleModule extends Module<TravelInformationArticle> implements TravelInformationTabInterface {
+public class TravelInformationArticleModule implements TravelInformationTabInterface {
 
     private final String type = "article";
     private String title;

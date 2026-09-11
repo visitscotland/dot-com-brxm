@@ -1,10 +1,8 @@
 package com.visitscotland.brxm.model;
 
-import com.visitscotland.brxm.hippobeans.TravelInformationTab;
-
 import java.util.List;
 
-public class TravelInformationTransportModule extends Module<TravelInformationTab> implements TravelInformationTabInterface {
+public class TravelInformationTransportModule implements TravelInformationTabInterface {
 
     private final String type = "transport";
     private String title;
