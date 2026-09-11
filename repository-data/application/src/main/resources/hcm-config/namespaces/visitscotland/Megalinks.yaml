@@ -182,7 +182,7 @@ definitions:
           /products:
             jcr:primaryType: frontend:plugin
             caption: Overall CTA
-            compoundList: visitscotland:CMSLink,visitscotland:DMSLink,visitscotland:ExternalLink,visitscotland:ProductSearchLink
+            compoundList: visitscotland:CMSLink,visitscotland:DMSLink,visitscotland:ExternalLink
             contentPickerType: links
             field: products
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
