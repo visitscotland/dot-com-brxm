@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: c1ca6026-0585-466d-a72b-c4202da2bf95
   hippo:name: Local/Feature - Business Support Hub
-  hippo:versionHistory: 60b15a50-5d3b-42d8-b425-2c892079d3d2
+  hippo:versionHistory: ef12269a-09ca-48e8-9b01-7a3761865da4
   /local---business-support-hub[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -14,18 +14,19 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2026-06-24T12:34:59.128+01:00
+    hippostdpubwf:lastModificationDate: 2026-09-10T09:51:31.909+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '']
     resourcebundle:id: local.bsh-site.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
       site-id, links.download.extensions, global-search.path, events-listings.page-size,
       form.breg.legal-basis.enable, cludo.customer-id, cludo.engine-id, cludo.experience-id,
-      feature.global-search.enable, feature.products-search.enable, feature.table-of-contents.enable]
+      feature.global-search.enable, feature.products-search.enable, feature.table-of-contents.enable,
+      feature.obs.submit-url]
     resourcebundle:messages: ['false', GTM-MHCC4QZR, '&gtm_auth=WNBB45OrGGCHWFJ_L3bmSA&gtm_preview=env-1',
       bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '8', 'false',
-      '623', '14100', not-defined, 'true', 'false', 'true']
+      '623', '14100', not-defined, 'true', 'false', 'true', 'https://api.visitscotland.com/test/submit/ssg/obs/submit']
   /local---business-support-hub[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -35,18 +36,19 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2026-06-24T12:34:49.152+01:00
+    hippostdpubwf:lastModificationDate: 2026-09-10T09:51:07.426+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '']
     resourcebundle:id: local.bsh-site.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
       site-id, links.download.extensions, global-search.path, events-listings.page-size,
       form.breg.legal-basis.enable, cludo.customer-id, cludo.engine-id, cludo.experience-id,
-      feature.global-search.enable, feature.products-search.enable, feature.table-of-contents.enable]
+      feature.global-search.enable, feature.products-search.enable, feature.table-of-contents.enable,
+      feature.obs.submit-url]
     resourcebundle:messages: ['false', GTM-MHCC4QZR, '&gtm_auth=WNBB45OrGGCHWFJ_L3bmSA&gtm_preview=env-1',
       bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '8', 'false',
-      '623', '14100', not-defined, 'true', 'false', 'true']
+      '623', '14100', not-defined, 'true', 'false', 'true', 'https://api.visitscotland.com/test/submit/ssg/obs/submit']
   /local---business-support-hub[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -56,16 +58,17 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2024-04-29T14:00:24.028+01:00
-    hippostdpubwf:lastModificationDate: 2026-06-24T12:34:59.128+01:00
+    hippostdpubwf:lastModificationDate: 2026-09-10T09:51:31.909+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-06-24T12:35:02.427+01:00
+    hippostdpubwf:publicationDate: 2026-09-10T09:51:35.182+01:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
-      '', '']
+      '', '', '']
     resourcebundle:id: local.bsh-site.config
     resourcebundle:keys: [gtm.is-production, gtm.container-id, gtm.preview-query-string,
       site-id, links.download.extensions, global-search.path, events-listings.page-size,
       form.breg.legal-basis.enable, cludo.customer-id, cludo.engine-id, cludo.experience-id,
-      feature.global-search.enable, feature.products-search.enable, feature.table-of-contents.enable]
+      feature.global-search.enable, feature.products-search.enable, feature.table-of-contents.enable,
+      feature.obs.submit-url]
     resourcebundle:messages: ['false', GTM-MHCC4QZR, '&gtm_auth=WNBB45OrGGCHWFJ_L3bmSA&gtm_preview=env-1',
       bsh, 'pdf,docx,xlsx,jpg,jpeg,png,eps,svg', /site-search-results, '8', 'false',
-      '623', '14100', not-defined, 'true', 'false', 'true']
+      '623', '14100', not-defined, 'true', 'false', 'true', 'https://api.visitscotland.com/test/submit/ssg/obs/submit']
