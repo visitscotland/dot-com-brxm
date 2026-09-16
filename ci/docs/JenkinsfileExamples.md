@@ -239,7 +239,7 @@ pipeline {
         }
       }
       steps {
-        sh 'mvn test -Pdefault'
+        sh 'mvn test -Pdefault -P!fed-build'
       }
     } //end stage
 
