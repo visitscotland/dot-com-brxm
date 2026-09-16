@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a810a523-c89a-40ad-9195-7adb8d9de6c4
+          jcr:uuid: 0c41e116-e87e-4980-8cc1-bc52c1dd6a75
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -51,15 +51,57 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [url]
-          /freemarkerId:
+          /bespoken:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:freemarkerId
+            hipposysedit:path: visitscotland:bespoken
             hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
+            hipposysedit:type: DynamicDropdown
             hipposysedit:validators: [optional]
+        /hipposysedit:nodetype[2]:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f3b4993a-0e55-4bbb-9023-fc20f265c08b
+          hipposysedit:node: true
+          hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          /html:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:html
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+          /notes:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:notes
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators: [optional]
+          /headContributions:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:headContributions
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [url]
+          /footerContributions:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:footerContributions
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [url]
           /bespoken:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -82,12 +124,30 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:html: ''
           visitscotland:notes: ''
-          jcr:uuid: 07449767-c934-40e8-ae72-49bed836d154
+          jcr:uuid: 3cd6fb4d-5cdb-44b7-8ecd-aace380e041a
           hippostdpubwf:lastModificationDate: 2023-01-18T16:27:53.908Z
           hippostdpubwf:creationDate: 2023-01-18T16:27:53.908Z
           visitscotland:headContributions: []
           visitscotland:footerContributions: []
           visitscotland:bespoken: ''
+        /hipposysedit:prototype[2]:
+          jcr:primaryType: nt:unstructured
+          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
+            'hippotranslation:translated', 'mix:referenceable']
+          jcr:uuid: 15017373-f765-4d0b-a948-c914fa0329f6
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2023-01-18T16:27:53.908Z
+          hippostdpubwf:lastModificationDate: 2023-01-18T16:27:53.908Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          visitscotland:bespoken: ''
+          visitscotland:footerContributions: []
+          visitscotland:headContributions: []
+          visitscotland:html: ''
+          visitscotland:notes: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -145,13 +205,3 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/bespoken-modules
-          /freemarkerId:
-            jcr:primaryType: frontend:plugin
-            caption: FreeMarker Template (Deprecated)
-            field: freemarkerId
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: Carbon Calculator
