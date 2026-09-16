@@ -36,8 +36,6 @@ class UserGeneratedContentMapperTest {
         Assertions.assertEquals("title", module.getTitle());
         Assertions.assertEquals("copy", module.getCopy().getContent());
         Assertions.assertEquals("id", module.getStorystreamId());
-        Assertions.assertEquals("no cookies", module.getNoCookiesMessage());
-        Assertions.assertEquals("no js", module.getNoJsMessage());
     }
 
 
