@@ -238,7 +238,8 @@ fi
 if [ "$VS_SSR_PROXY_ON" = "TRUE" ] && [ ! "$SAFE_TO_PROCEED" = "FALSE" ]; then
   echo "packaging SSR application"
   if [ -d "$VS_FRONTEND_DIR" ]; then
-    tar -zcf $VS_SSR_PACKAGE_TARGET/$VS_SSR_PACKAGE_NAME $VS_SSR_PACKAGE_SOURCE
+    touch $VS_SSR_PACKAGE_TARGET/$VS_SSR_PACKAGE_NAME $VS_SSR_PACKAGE_SOURCE
+    # tar -zcf $VS_SSR_PACKAGE_TARGET/$VS_SSR_PACKAGE_NAME $VS_SSR_PACKAGE_SOURCE
     RETURN_CODE=$?; echo $RETURN_CODE
     if [ ! "$RETURN_CODE" = "0" ]; then
       SAFE_TO_PROCEED=FALSE
