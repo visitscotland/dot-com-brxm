@@ -12,7 +12,7 @@ public class ApiOnlyFilter implements Filter {
 
     private static final Logger logger = LoggerFactory.getLogger(ApiOnlyFilter.class);
 
-    private static final String[] ALLOW_LIST = new String[]{"/resourceapi/", "/api/", "/icons/"};
+    private static final String[] ALLOW_LIST = new String[]{"/resourceapi/", "/bsh-api/resourceapi/","/be-api/resourceapi/", "/api/", "/icons/"};
 
     @Override
     public void doFilter(
