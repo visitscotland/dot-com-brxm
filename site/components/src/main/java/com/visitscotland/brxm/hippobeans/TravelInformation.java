@@ -5,6 +5,9 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import java.util.Calendar;
 
+/** 
+ * TODO: Beanwriter: Failed to create getter for node type: hippo:compound
+ */
 @HippoEssentialsGenerated(internalName = "visitscotland:TravelInformation")
 @Node(jcrType = "visitscotland:TravelInformation")
 public class TravelInformation extends BaseDocument {
@@ -20,8 +23,7 @@ public class TravelInformation extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "visitscotland:gettingAround")
     public TravelInformationTab getGettingAround() {
-        return getBean("visitscotland:gettingAround",
-                TravelInformationTab.class);
+        return getBean("visitscotland:gettingAround", TravelInformationTab.class);
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:diff")
