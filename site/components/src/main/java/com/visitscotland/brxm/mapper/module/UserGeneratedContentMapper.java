@@ -40,8 +40,6 @@ public class UserGeneratedContentMapper extends ModuleMapper<Stackla, UserGenera
         ugc.setCopy(document.getCopy());
         ugc.setStorystreamId(document.getStorystreamId());
         ugc.setHippoBean(document);
-        ugc.setNoCookiesMessage(bundle.getResourceBundle(BUNDLE_ID, "ugc.no-cookies-message", locale));
-        ugc.setNoJsMessage(bundle.getResourceBundle(BUNDLE_ID, "ugc.no-js-message", locale));
         if (!Contract.isEmpty(document.getStacklaId()) || !Contract.isEmpty(document.getStacklaHash())){
             ugc.addErrorMessage("Stackla id and Stackla hash are not valid fields, please remove the values");
         }

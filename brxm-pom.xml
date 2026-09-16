@@ -96,14 +96,6 @@
         <version>${taglibs.version}</version>
         <scope>runtime</scope>
       </dependency>
-
-      <!-- other predefined compile scope versioned dependencies -->
-      <dependency>
-        <groupId>org.freemarker</groupId>
-        <artifactId>freemarker</artifactId>
-        <version>${freemarker.version}</version>
-      </dependency>
-
     </dependencies>
   </dependencyManagement>
 

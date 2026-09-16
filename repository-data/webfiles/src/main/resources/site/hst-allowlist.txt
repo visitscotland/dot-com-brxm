@@ -6,7 +6,7 @@
 #   not be publicly available.                                           #
 #                                                                        #
 #   The whitelisting is *relative* to the 'web file bundle root'         #
-#   which is the folder in which this hst-whitelist.txt file is          #
+#   which is the folder in which this hst-allowlist.txt file is          #
 #   located.                                                             #
 #                                                                        #
 #   Examples assuming the web file bundle root is 'site':                #
@@ -17,11 +17,14 @@
 #   Note that the whitelisting is 'starts-with' based, thus for          #
 #   example whitelisting 'css' without '/' behind it, whitelists all     #
 #   files and folders that start with 'css'                              #
-#                                                                        #
+
+
+# Note that after the freemarker retirement we have kept the assets folder in case we need to serve static assets from
+# the back-end. In that case you need to request WebOps to allow those assets to bypass the DSSR (front-end) layer
+#
+# The assets can be access from URLs such as:
+# - http://localhost:8080/site/webfiles/1788778440066/assets/images/iknow-community-logo.svg (Recommended)
+# - http://localhost:8080/site/webfiles/latest/assets/images/iknow-community-logo.svg (Not recommended as it can be
+#        cached in servers and local machines for a long time causing unexpected results
 
 assets/
-fonts/
-js/
-frontend/
-static/
-manifest.webmanifest

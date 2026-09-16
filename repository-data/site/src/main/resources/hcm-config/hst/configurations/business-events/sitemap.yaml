@@ -28,12 +28,6 @@ definitions:
           hst:componentconfigurationmappingvalues: ['hst:pages/itinerary-page', 'hst:pages/listicle-page',
             'hst:pages/destination-page', 'hst:pages/general-page']
           hst:relativecontentpath: ${parent}/content
-        /vuex:
-          jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/vuex-example-page
-          /vuex-example:
-            jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/vuex-example-page
         /_default_:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/pagenotfound
