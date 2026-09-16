@@ -98,7 +98,7 @@ if [ -z "$VS_SSR_PACKAGE_VERSION" ]; then VS_SSR_PACKAGE_VERSION="package"; fi
 if [ -z "$VS_SSR_PACKAGE_SOURCE" ]; then VS_SSR_PACKAGE_SOURCE="$VS_FRONTEND_DIR/ssr/server/ $VS_FRONTEND_DIR/node_modules/@visitscotland/component-library/dist/ssr/ $VS_FRONTEND_DIR/node_modules/ $VS_FRONTEND_DIR/build/"; fi
 if [ -z "$VS_SSR_PACKAGE_TARGET" ]; then VS_SSR_PACKAGE_TARGET="./target"; fi
 if [ -z "$VS_SSR_PACKAGE_NAME" ]; then VS_SSR_PACKAGE_NAME="vs-ssr-$VS_SSR_PACKAGE_VERSION.tar.gz"; fi
-if [ -z "$VS_SSR_PROXY_ON" ]; then VS_SSR_PROXY_ON="TRUE"; fi
+if [ -z "$VS_SSR_PROXY_ON" ]; then VS_SSR_PROXY_ON="FALSE"; fi
 if [ -z "$VS_SSR_APP_PORT" ]; then VS_SSR_APP_PORT=8082; fi
 if [ -z "$VS_SSR_PROXY_TARGET_HOST" ]; then VS_SSR_PROXY_TARGET_HOST="http://localhost:8080"; fi
 #  ==== brC API Server Variables
