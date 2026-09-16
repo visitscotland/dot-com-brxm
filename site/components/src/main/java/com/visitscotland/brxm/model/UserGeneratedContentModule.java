@@ -32,15 +32,4 @@ public class UserGeneratedContentModule extends Module<Stackla> {
     public HippoHtml getCopy() {
         return copy;
     }
-
-
-     public String getNoCookiesMessage() {
-        return noCookiesMessage;
-    }
-
-    public String getNoJsMessage() {
-        return noJsMessage;
-    }
-
-
 }
