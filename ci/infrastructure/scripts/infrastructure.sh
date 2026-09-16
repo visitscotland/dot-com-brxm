@@ -806,7 +806,7 @@ findHippoArtifact() {
 }
 # prepare SSR app
 rebuildNodeModules() {
-  if [[ "${VS_SSR_PROXY_ON^^}" = "TRUE" && ( "${VS_REBUILD_NODE_MODULES^^}" = "TRUE" ) && ! "$SAFE_TO_PROCEED" = "FALSE" ]]; then
+  if [[ "${VS_SSR_PROXY_ON^^}" == "TRUE" && ( "${VS_REBUILD_NODE_MODULES^^}" == "TRUE" ) && ! "$SAFE_TO_PROCEED" == "FALSE" ]]; then
     echo "$(eval $VS_LOG_DATESTAMP) INFO  [$VS_SCRIPTNAME] rebuilding node_modules directory"
     VS_FUNCTION_STARTTIME=$(date +%s)
     if [ -d "$VS_FRONTEND_DIR" ]; then
@@ -1316,7 +1316,7 @@ case $METHOD in
     containerUpdates
     containerStartSSH
     containerCopyHippoArtifact
-    # containerCopySSRArtifact
+    #containerCopySSRArtifact
     containerStartHippo
     containerStartTailon
     exportVSVariables

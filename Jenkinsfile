@@ -101,7 +101,7 @@ if (!env.VS_BRXM_DSSR_SITES) { env.VS_BRXM_DSSR_SITES = "feature.visitscotland.c
 if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
 if (!env.VS_BRXM_BVC_SPA_URL) { env.VS_BRXM_BVC_SPA_URL = "https://feature-businessevents.visitscotland.com" }
 if (!env.VS_BRXM_SVO_SPA_URL) { env.VS_BRXM_SVO_SPA_URL = "https://feature-support.visitscotland.org" }
-ccho "SSR Packaging has been disabled."
+echo "SSR Packaging has been disabled."
 env.VS_SSR_PROXY_ON = "FALSE"
 echo "==/Setting default application variables"
 
