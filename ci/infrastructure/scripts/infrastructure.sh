@@ -1316,7 +1316,7 @@ case $METHOD in
     containerUpdates
     containerStartSSH
     containerCopyHippoArtifact
-    containerCopySSRArtifact
+    # containerCopySSRArtifact
     containerStartHippo
     containerStartTailon
     exportVSVariables
