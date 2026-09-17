@@ -14037,7 +14037,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: af7bc15d-bc33-4b84-ad01-e77eb5acde61
           hippo:name: Edinburgh
-          hippo:versionHistory: 692f9525-a5e6-4a93-ac6f-40a9d595272b
+          hippo:versionHistory: 384a0961-7547-464f-be85-0a7632e41bf9
           /content[1]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14047,7 +14047,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-            hippostdpubwf:lastModificationDate: 2023-03-30T11:48:40.201+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:01:22.705+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [cities]
             hippotranslation:id: 1fbcced7-88f7-4124-8470-b9ed88b5ead0
@@ -14092,6 +14092,33 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Edinburgh at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Castle, Palace, Musseums</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: nature-outdoor
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Arthur Seat, Pentlands</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: ''
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
           /content[2]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -14101,7 +14128,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-            hippostdpubwf:lastModificationDate: 2023-03-30T11:49:00.450+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:02:32.428+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [cities]
             hippotranslation:id: 1fbcced7-88f7-4124-8470-b9ed88b5ead0
@@ -14146,6 +14173,33 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Edinburgh at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Castle, Palace, Musseums</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: nature-outdoor
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Arthur Seat, Pentlands</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: ''
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
           /content[3]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14155,9 +14209,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-            hippostdpubwf:lastModificationDate: 2023-03-30T11:49:00.450+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:02:32.428+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-03-30T11:49:09.824+01:00
+            hippostdpubwf:publicationDate: 2026-09-17T10:02:34.962+01:00
             hippotaxonomy:keys: [cities]
             hippotranslation:id: 1fbcced7-88f7-4124-8470-b9ed88b5ead0
             hippotranslation:locale: en
@@ -14201,6 +14255,33 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Edinburgh at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Castle, Palace, Musseums</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: nature-outdoor
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Arthur Seat, Pentlands</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: ''
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
         /featured-layout:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -16122,7 +16203,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
           hippo:name: The Outer Hebrides
-          hippo:versionHistory: ead36de5-e9bf-4b2d-a564-9fb5f275c2ae
+          hippo:versionHistory: 3d7491d8-59d7-49c0-a1d0-404186feae14
           /content[1]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -16132,7 +16213,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.634+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:02:43.687+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [regions]
             hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
@@ -16188,6 +16269,25 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Outer at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Ceilidh, live music</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:ExternalLink
+                visitscotland:label: Discover more
+                visitscotland:link: https://www.google.es
           /content[2]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -16197,7 +16297,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.175+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:03:41.378+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [regions]
             hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
@@ -16253,6 +16353,25 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Outer at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Ceilidh, live music</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:ExternalLink
+                visitscotland:label: Discover more
+                visitscotland:link: https://www.google.es
           /content[3]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -16262,9 +16381,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.175+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:03:41.378+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-08-29T14:22:33.251+01:00
+            hippostdpubwf:publicationDate: 2026-09-17T10:03:44.240+01:00
             hippotaxonomy:keys: [regions]
             hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
             hippotranslation:locale: en
@@ -16319,6 +16438,25 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Outer at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Ceilidh, live music</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:ExternalLink
+                visitscotland:label: Discover more
+                visitscotland:link: https://www.google.es
         /places-to-visit-in-the-outer-hebrides:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -17980,7 +18118,7 @@
             jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
             jcr:uuid: a00fff8e-1694-4bdc-84be-b0ab30a60638
             hippo:name: Edinburgh Lothians
-            hippo:versionHistory: d0f2ea52-9b0c-4efc-968f-a19559d48268
+            hippo:versionHistory: 7564cb2f-24bf-46c3-91de-0d03cc2cdc22
             /content[1]:
               jcr:primaryType: visitscotland:Destination
               jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -17990,7 +18128,7 @@
               hippostd:state: draft
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
-              hippostdpubwf:lastModificationDate: 2022-11-22T14:22:51.495Z
+              hippostdpubwf:lastModificationDate: 2026-09-17T10:05:35.184+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotaxonomy:keys: [regions]
               hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
@@ -18013,6 +18151,33 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Edinburgh Lothians intro</p>
+              /visitscotland:keyInformation:
+                jcr:primaryType: visitscotland:DestinationsKeyInformation
+                visitscotland:title: Edinburgh and the lothians at a glance
+                /visitscotland:categories:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: ''
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: ''
+                /visitscotland:highlights[1]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: events
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Fringe, Jazz festival, Tattoo</p>
+                /visitscotland:highlights[2]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: food-drink
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Haggis, whisky, fish and chips</p>
+                /visitscotland:highlights[3]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: music
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Ceilidh, concerts</p>
             /content[2]:
               jcr:primaryType: visitscotland:Destination
               jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
@@ -18023,7 +18188,7 @@
               hippostd:state: unpublished
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
-              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:21.996Z
+              hippostdpubwf:lastModificationDate: 2026-09-17T10:08:08.398+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotaxonomy:keys: [regions]
               hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
@@ -18046,6 +18211,33 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Edinburgh Lothians intro</p>
+              /visitscotland:keyInformation:
+                jcr:primaryType: visitscotland:DestinationsKeyInformation
+                visitscotland:title: Edinburgh and the lothians at a glance
+                /visitscotland:categories:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: ''
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: ''
+                /visitscotland:highlights[1]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: events
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Fringe, Jazz festival, Tattoo</p>
+                /visitscotland:highlights[2]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: food-drink
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Haggis, whisky, fish and chips</p>
+                /visitscotland:highlights[3]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: music
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Ceilidh, concerts</p>
             /content[3]:
               jcr:primaryType: visitscotland:Destination
               jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -18055,9 +18247,9 @@
               hippostd:state: published
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
-              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:21.996Z
+              hippostdpubwf:lastModificationDate: 2026-09-17T10:08:08.398+01:00
               hippostdpubwf:lastModifiedBy: admin
-              hippostdpubwf:publicationDate: 2022-11-22T14:23:23.594Z
+              hippostdpubwf:publicationDate: 2026-09-17T10:08:11.215+01:00
               hippotaxonomy:keys: [regions]
               hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
               hippotranslation:locale: en
@@ -18079,6 +18271,33 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Edinburgh Lothians intro</p>
+              /visitscotland:keyInformation:
+                jcr:primaryType: visitscotland:DestinationsKeyInformation
+                visitscotland:title: Edinburgh and the lothians at a glance
+                /visitscotland:categories:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: ''
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: ''
+                /visitscotland:highlights[1]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: events
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Fringe, Jazz festival, Tattoo</p>
+                /visitscotland:highlights[2]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: food-drink
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Haggis, whisky, fish and chips</p>
+                /visitscotland:highlights[3]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: music
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Ceilidh, concerts</p>
           /map:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -20121,7 +20340,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 5804b835-f014-4d99-b56b-da50fa07c5a0
           hippo:name: james-test
-          hippo:versionHistory: 594e6952-07df-4d66-82ac-3ed7ed57b0a6
+          hippo:versionHistory: 2e6d40a9-1b80-4c1f-815e-d7d81ab19d55
           /content[1]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -20131,7 +20350,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-10-26T11:53:39.795Z
-            hippostdpubwf:lastModificationDate: 2022-11-22T14:26:38.594Z
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:03:54.874+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [cities]
             hippotranslation:id: ebc5d395-ff32-4782-bacf-4dfdc1167191
@@ -20181,6 +20400,45 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Dundee at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: food-drink
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Haggis, Whisky</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Live music, Ceilidh</p>
+              /visitscotland:highlights[3]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Musseum, art, culture</p>
+              /visitscotland:highlights[4]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: events
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Music festival, food festival</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: Discover more
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
           /content[2]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -20190,7 +20448,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-10-26T11:53:39.795Z
-            hippostdpubwf:lastModificationDate: 2022-11-22T14:26:54.605Z
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:05:19.495+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [cities]
             hippotranslation:id: ebc5d395-ff32-4782-bacf-4dfdc1167191
@@ -20240,6 +20498,45 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Dundee at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: food-drink
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Haggis, Whisky</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Live music, Ceilidh</p>
+              /visitscotland:highlights[3]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Musseum, art, culture</p>
+              /visitscotland:highlights[4]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: events
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Music festival, food festival</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: Discover more
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
           /content[3]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -20249,9 +20546,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-10-26T11:53:39.795Z
-            hippostdpubwf:lastModificationDate: 2022-11-22T14:26:54.605Z
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:05:19.495+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2022-11-22T14:26:58.241Z
+            hippostdpubwf:publicationDate: 2026-09-17T10:05:22.282+01:00
             hippotaxonomy:keys: [cities]
             hippotranslation:id: ebc5d395-ff32-4782-bacf-4dfdc1167191
             hippotranslation:locale: en
@@ -20300,6 +20597,45 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Dundee at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: food-drink
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Haggis, Whisky</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Live music, Ceilidh</p>
+              /visitscotland:highlights[3]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Musseum, art, culture</p>
+              /visitscotland:highlights[4]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: events
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Music festival, food festival</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: Discover more
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
         /map:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -21003,7 +21339,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 7746679b-6821-4a09-9173-664653dad7dd
         hippo:name: Destination page example
-        hippo:versionHistory: c101621d-d267-4899-8051-36377189bae1
+        hippo:versionHistory: a869993a-9429-4f97-b5e2-5e66aa131c2a
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -21013,7 +21349,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2025-11-14T13:18:32.776Z
+          hippostdpubwf:lastModificationDate: 2026-09-17T09:58:14.279+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
@@ -21062,6 +21398,34 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bunchan at a glance
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights[1]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: history-heritage
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Bunchan&nbsp;Cathedral, Bunchan&nbsp;Museum,
+                  Bunchan&nbsp;Castle</p>
+            /visitscotland:highlights[2]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Moray Coast, dolphins, birdlife, harbour seals&nbsp;</p>
+            /visitscotland:highlights[3]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: food-drink
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Whisky coast, Speyside Malt Whisky Trail&nbsp;</p>
         /content[2]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -21071,7 +21435,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2025-11-14T13:19:17.814Z
+          hippostdpubwf:lastModificationDate: 2026-09-17T10:01:01.249+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
@@ -21120,6 +21484,34 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bunchan at a glance
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights[1]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: history-heritage
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Bunchan&nbsp;Cathedral, Bunchan&nbsp;Museum,
+                  Bunchan&nbsp;Castle</p>
+            /visitscotland:highlights[2]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Moray Coast, dolphins, birdlife, harbour seals&nbsp;</p>
+            /visitscotland:highlights[3]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: food-drink
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Whisky coast, Speyside Malt Whisky Trail&nbsp;</p>
         /content[3]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -21129,9 +21521,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2025-11-14T13:19:17.814Z
+          hippostdpubwf:lastModificationDate: 2026-09-17T10:01:01.249+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-11-14T13:19:20.288Z
+          hippostdpubwf:publicationDate: 2026-09-17T10:01:05.736+01:00
           hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
           hippotranslation:locale: en
@@ -21179,6 +21571,34 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bunchan at a glance
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights[1]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: history-heritage
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Bunchan&nbsp;Cathedral, Bunchan&nbsp;Museum,
+                  Bunchan&nbsp;Castle</p>
+            /visitscotland:highlights[2]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Moray Coast, dolphins, birdlife, harbour seals&nbsp;</p>
+            /visitscotland:highlights[3]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: food-drink
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Whisky coast, Speyside Malt Whisky Trail&nbsp;</p>
       /megalink-destination:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']

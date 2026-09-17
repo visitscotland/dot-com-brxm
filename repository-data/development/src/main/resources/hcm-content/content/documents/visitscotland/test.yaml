@@ -10729,7 +10729,7 @@
             jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
             jcr:uuid: 53af65c6-c3a5-4d0a-bab1-a5f571e9c209
             hippo:name: Edinburgh Lothians
-            hippo:versionHistory: d0f2ea52-9b0c-4efc-968f-a19559d48268
+            hippo:versionHistory: f2555fb8-4836-49d2-83e8-c1511bb36962
             /content[1]:
               jcr:primaryType: visitscotland:Destination
               jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -10739,7 +10739,7 @@
               hippostd:state: draft
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
-              hippostdpubwf:lastModificationDate: 2022-11-22T14:22:51.495Z
+              hippostdpubwf:lastModificationDate: 2026-09-17T10:08:48.799+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotaxonomy:keys: [regions]
               hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
@@ -10762,6 +10762,33 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Edinburgh Lothians intro</p>
+              /visitscotland:keyInformation:
+                jcr:primaryType: visitscotland:DestinationsKeyInformation
+                visitscotland:title: Edinburgh lothians at a glance
+                /visitscotland:categories:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: ''
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: ''
+                /visitscotland:highlights[1]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: music
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Ceilidh, concerts</p>
+                /visitscotland:highlights[2]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: food-drink
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Haggis, whisky, fish and chips</p>
+                /visitscotland:highlights[3]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: events
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Fringe, Jazz festival, Tattoo</p>
             /content[2]:
               jcr:primaryType: visitscotland:Destination
               jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
@@ -10772,7 +10799,7 @@
               hippostd:state: unpublished
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
-              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:21.996Z
+              hippostdpubwf:lastModificationDate: 2026-09-17T10:09:51.581+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotaxonomy:keys: [regions]
               hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
@@ -10795,6 +10822,33 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Edinburgh Lothians intro</p>
+              /visitscotland:keyInformation:
+                jcr:primaryType: visitscotland:DestinationsKeyInformation
+                visitscotland:title: Edinburgh lothians at a glance
+                /visitscotland:categories:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: ''
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: ''
+                /visitscotland:highlights[1]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: music
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Ceilidh, concerts</p>
+                /visitscotland:highlights[2]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: food-drink
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Haggis, whisky, fish and chips</p>
+                /visitscotland:highlights[3]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: events
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Fringe, Jazz festival, Tattoo</p>
             /content[3]:
               jcr:primaryType: visitscotland:Destination
               jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -10804,9 +10858,9 @@
               hippostd:state: published
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
-              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:21.996Z
+              hippostdpubwf:lastModificationDate: 2026-09-17T10:09:51.581+01:00
               hippostdpubwf:lastModifiedBy: admin
-              hippostdpubwf:publicationDate: 2022-11-22T14:23:23.594Z
+              hippostdpubwf:publicationDate: 2026-09-17T10:09:54.122+01:00
               hippotaxonomy:keys: [regions]
               hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
               hippotranslation:locale: en
@@ -10828,6 +10882,33 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Edinburgh Lothians intro</p>
+              /visitscotland:keyInformation:
+                jcr:primaryType: visitscotland:DestinationsKeyInformation
+                visitscotland:title: Edinburgh lothians at a glance
+                /visitscotland:categories:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: ''
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: ''
+                /visitscotland:highlights[1]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: music
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Ceilidh, concerts</p>
+                /visitscotland:highlights[2]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: food-drink
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Haggis, whisky, fish and chips</p>
+                /visitscotland:highlights[3]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: events
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Fringe, Jazz festival, Tattoo</p>
           /map:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
