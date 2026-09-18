@@ -6,9 +6,7 @@ import org.hippoecm.hst.content.beans.standard.HippoCompound;
 
 import java.util.List;
 
-/** 
- * TODO: Beanwriter: Failed to create getter for node type: hippo:compound
- */
+
 @HippoEssentialsGenerated(internalName = "visitscotland:DestinationsKeyInformation")
 @Node(jcrType = "visitscotland:DestinationsKeyInformation")
 public class DestinationsKeyInformation extends HippoCompound {
