@@ -95,7 +95,7 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         if (Boolean.TRUE.equals(document.isGoogleMap())) {
             configureGoogleMap(document, compositionHelper, module);
         }
-
+        compositionHelper.addProperty(MAPS_API_PROPERTY, siteProperties.getGoogleMapsApiKey());
 
         ObjectNode featureCollectionGeoJson = mapper.createObjectNode();
         featureCollectionGeoJson.put(TYPE, "FeatureCollection");
@@ -132,12 +132,12 @@ public class MapModuleMapper extends ModuleMapper<MapModule, MapsModule> {
         return module;
     }
 
+    ///Main map Google is full screen and no intro/title
     private void configureGoogleMap(MapModule document, PageCompositionHelper compositionHelper, MapsModule module){
         module.setGoogleMap(document.isGoogleMap());
         //TODO: Remove this property
         compositionHelper.addProperty(MAIN_MAP_PAGE, true);
         compositionHelper.addProperty(HIDE_PAGE_INFO, true);
-        compositionHelper.addProperty(MAPS_API_PROPERTY, siteProperties.getGoogleMapsApiKey());
     }
 
     /**
