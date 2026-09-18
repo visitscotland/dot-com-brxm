@@ -14047,7 +14047,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-            hippostdpubwf:lastModificationDate: 2026-09-17T10:01:22.705+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-18T13:54:37.824+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [cities]
             hippotranslation:id: 1fbcced7-88f7-4124-8470-b9ed88b5ead0
@@ -21144,9 +21144,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2026-09-17T09:58:14.279+01:00
+          hippostdpubwf:lastModificationDate: 2026-09-18T13:54:27.673+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
@@ -34444,7 +34445,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 1e5d73c5-91fc-4108-aca6-39116a3539a0
           hippo:name: Travel
-          hippo:versionHistory: 1baec447-c6a0-47d5-8566-1c7368c124f4
+          hippo:versionHistory: 49979e90-8c03-456c-ac60-7e3de6a8b7ea
           /travel[1]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable']
@@ -34454,7 +34455,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-14T17:22:30.575Z
-            hippostdpubwf:lastModificationDate: 2023-03-14T17:22:30.575Z
+            hippostdpubwf:lastModificationDate: 2026-09-18T13:55:59.097+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: c2c12c01-d9c7-400a-b9e8-13fd91673de7
             hippotranslation:locale: en
@@ -34550,6 +34551,17 @@
                 of roads, rail services and flights which makes travel to the city
                 possible from every corner of the world, while the city's compact
                 size makes exploring easy.</p>
+            /visitscotland:practicalInformation:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Transports copy option
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Most buses to Edinburgh, including Citylink and National Express, arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                  <p><a href="https://www.citylink.co.uk/">Check Citylink timetable</a></p>
+
+                  <p><a href="https://www.nationalexpress.com/en">Check National Express timetable</a></p>
           /travel[2]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -34559,7 +34571,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-14T17:22:30.575Z
-            hippostdpubwf:lastModificationDate: 2023-03-14T17:24:23.875Z
+            hippostdpubwf:lastModificationDate: 2026-09-18T13:56:22.421+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: c2c12c01-d9c7-400a-b9e8-13fd91673de7
             hippotranslation:locale: en
@@ -34655,6 +34667,17 @@
                 of roads, rail services and flights which makes travel to the city
                 possible from every corner of the world, while the city's compact
                 size makes exploring easy.</p>
+            /visitscotland:practicalInformation:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Transports copy option
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Most buses to Edinburgh, including Citylink and National Express, arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                  <p><a href="https://www.citylink.co.uk/">Check Citylink timetable</a></p>
+
+                  <p><a href="https://www.nationalexpress.com/en">Check National Express timetable</a></p>
           /travel[3]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable']
@@ -34664,9 +34687,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-14T17:22:30.575Z
-            hippostdpubwf:lastModificationDate: 2023-03-14T17:24:23.875Z
+            hippostdpubwf:lastModificationDate: 2026-09-18T13:56:22.421+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-03-14T17:24:26.424Z
+            hippostdpubwf:publicationDate: 2026-09-18T13:56:25.756+01:00
             hippotranslation:id: c2c12c01-d9c7-400a-b9e8-13fd91673de7
             hippotranslation:locale: en
             visitscotland:title: Travel to and around Edinburgh
@@ -34761,6 +34784,17 @@
                 of roads, rail services and flights which makes travel to the city
                 possible from every corner of the world, while the city's compact
                 size makes exploring easy.</p>
+            /visitscotland:practicalInformation:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Transports copy option
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Most buses to Edinburgh, including Citylink and National Express, arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                  <p><a href="https://www.citylink.co.uk/">Check Citylink timetable</a></p>
+
+                  <p><a href="https://www.nationalexpress.com/en">Check National Express timetable</a></p>
         /places-to-stay:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -43635,7 +43669,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: a68f2689-5d62-4ba0-bd4d-e5901f58a96e
         hippo:name: Travel information module
-        hippo:versionHistory: 6ab4a397-f88b-489b-80ff-90c096ed23ba
+        hippo:versionHistory: 7ff5a653-9f92-44ec-9127-96046beee0bc
         /travel-information-module[1]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable']
@@ -43645,7 +43679,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-30T14:51:13.322+01:00
-          hippostdpubwf:lastModificationDate: 2022-02-25T13:18:33.973Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:31:22.261+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: ebf1ddd0-64a1-43c1-bf4e-efe3f855961d
           hippotranslation:locale: en
@@ -43776,6 +43810,46 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>You can easily get around the <a href="http://google.com">Highlands</a>
               using the extensive network of public transport and <a href="http://google.com">roads</a>.</p>
+          /visitscotland:practicalInformation[1]:
+            jcr:primaryType: visitscotland:TravelInformationTab
+            visitscotland:title: Transport information
+            /visitscotland:TravelInformationTransportRow:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:accordion[1]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: dsblaccess
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Choose an area of the Highlands to visit for information on travelling by car, bus, train or air to Inverness.</p>
+
+                  <p><a href="http://visitscotland.com">Inverness, Nairn &amp; Loch Ness</a></p>
+
+                  <p><a href="http://visitscotland.com">Moray Speyside</a></p>
+
+                  <p><a href="http://visitscotland.com">Isle of Skye</a></p>
+
+                  <p><a href="http://visitscotland.com">North Highlands</a></p>
+
+                  <p><a href="http://visitscotland.com">Fort William &amp; Lochaber</a></p>
+            /visitscotland:accordion[2]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: bus
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Choose an area of the Highlands to visit for
+                  information on travelling by car, bus, train or air to Inverness.</p>
+          /visitscotland:practicalInformation[2]:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to go
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Choose an area of the Highlands to visit for information
+                on travelling by car, bus, train or air to Inverness.</p>
         /travel-information-module[2]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -43785,7 +43859,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-30T14:51:13.322+01:00
-          hippostdpubwf:lastModificationDate: 2022-02-25T13:18:48.520Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:32:26.453+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: ebf1ddd0-64a1-43c1-bf4e-efe3f855961d
           hippotranslation:locale: en
@@ -43916,6 +43990,46 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>You can easily get around the <a href="http://google.com">Highlands</a>
               using the extensive network of public transport and <a href="http://google.com">roads</a>.</p>
+          /visitscotland:practicalInformation[1]:
+            jcr:primaryType: visitscotland:TravelInformationTab
+            visitscotland:title: Transport information
+            /visitscotland:TravelInformationTransportRow:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:accordion[1]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: dsblaccess
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Choose an area of the Highlands to visit for information on travelling by car, bus, train or air to Inverness.</p>
+
+                  <p><a href="http://visitscotland.com">Inverness, Nairn &amp; Loch Ness</a></p>
+
+                  <p><a href="http://visitscotland.com">Moray Speyside</a></p>
+
+                  <p><a href="http://visitscotland.com">Isle of Skye</a></p>
+
+                  <p><a href="http://visitscotland.com">North Highlands</a></p>
+
+                  <p><a href="http://visitscotland.com">Fort William &amp; Lochaber</a></p>
+            /visitscotland:accordion[2]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: bus
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Choose an area of the Highlands to visit for
+                  information on travelling by car, bus, train or air to Inverness.</p>
+          /visitscotland:practicalInformation[2]:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to go
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Choose an area of the Highlands to visit for information
+                on travelling by car, bus, train or air to Inverness.</p>
         /travel-information-module[3]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable']
@@ -43925,9 +44039,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-30T14:51:13.322+01:00
-          hippostdpubwf:lastModificationDate: 2022-02-25T13:18:48.520Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:32:26.453+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-02-25T13:18:51.474Z
+          hippostdpubwf:publicationDate: 2026-09-18T12:32:32.001+01:00
           hippotranslation:id: ebf1ddd0-64a1-43c1-bf4e-efe3f855961d
           hippotranslation:locale: en
           visitscotland:title: Travel Information
@@ -44057,12 +44171,52 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>You can easily get around the <a href="http://google.com">Highlands</a>
               using the extensive network of public transport and <a href="http://google.com">roads</a>.</p>
+          /visitscotland:practicalInformation[1]:
+            jcr:primaryType: visitscotland:TravelInformationTab
+            visitscotland:title: Transport information
+            /visitscotland:TravelInformationTransportRow:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:accordion[1]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: dsblaccess
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Choose an area of the Highlands to visit for information on travelling by car, bus, train or air to Inverness.</p>
+
+                  <p><a href="http://visitscotland.com">Inverness, Nairn &amp; Loch Ness</a></p>
+
+                  <p><a href="http://visitscotland.com">Moray Speyside</a></p>
+
+                  <p><a href="http://visitscotland.com">Isle of Skye</a></p>
+
+                  <p><a href="http://visitscotland.com">North Highlands</a></p>
+
+                  <p><a href="http://visitscotland.com">Fort William &amp; Lochaber</a></p>
+            /visitscotland:accordion[2]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: bus
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Choose an area of the Highlands to visit for
+                  information on travelling by car, bus, train or air to Inverness.</p>
+          /visitscotland:practicalInformation[2]:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to go
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Choose an area of the Highlands to visit for information
+                on travelling by car, bus, train or air to Inverness.</p>
       /content:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 47135bf0-c6ea-4463-9e27-7b3e13ea3889
         hippo:name: Travel information
-        hippo:versionHistory: 9c50bff5-5889-4820-afe1-154440424a7e
+        hippo:versionHistory: 0ef1b948-c922-4abc-ae67-a7db4b4cef61
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -44070,10 +44224,9 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-09-03T11:59:50.458+01:00
-          hippostdpubwf:lastModificationDate: 2022-02-25T13:18:15.947Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:33:16.401+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 8de221c8-0267-4f5c-a0fa-dd16722e46c5
           hippotranslation:locale: en
@@ -44101,6 +44254,21 @@
               risus. Nunc vel cursus lacus. Curabitur elit magna, dictum et augue
               quis, dignissim ornare tortor. Suspendisse convallis orci ac dolor venenatis,
               ornare gravida massa convallis.&nbsp;</p>
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bute at a glace
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>travelling by car, bus, train or air to Bute.</p>
         /content[2]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -44110,7 +44278,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-09-03T11:59:50.458+01:00
-          hippostdpubwf:lastModificationDate: 2021-09-09T16:37:52.127+01:00
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:34:17.471+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 8de221c8-0267-4f5c-a0fa-dd16722e46c5
           hippotranslation:locale: en
@@ -44138,6 +44306,21 @@
               risus. Nunc vel cursus lacus. Curabitur elit magna, dictum et augue
               quis, dignissim ornare tortor. Suspendisse convallis orci ac dolor venenatis,
               ornare gravida massa convallis.&nbsp;</p>
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bute at a glace
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>travelling by car, bus, train or air to Bute.</p>
         /content[3]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -44147,9 +44330,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-09-03T11:59:50.458+01:00
-          hippostdpubwf:lastModificationDate: 2021-09-09T16:37:52.127+01:00
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:34:17.471+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-09-09T16:37:53.584+01:00
+          hippostdpubwf:publicationDate: 2026-09-18T12:34:19.975+01:00
           hippotranslation:id: 8de221c8-0267-4f5c-a0fa-dd16722e46c5
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -44176,6 +44359,21 @@
               risus. Nunc vel cursus lacus. Curabitur elit magna, dictum et augue
               quis, dignissim ornare tortor. Suspendisse convallis orci ac dolor venenatis,
               ornare gravida massa convallis.&nbsp;</p>
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bute at a glace
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>travelling by car, bus, train or air to Bute.</p>
     /signpost:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -51679,7 +51877,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 2504eff8-c12a-40b5-b3e2-9a0f59bf0bbb
         hippo:name: Travel Panel
-        hippo:versionHistory: 58549276-8195-46b6-8912-bdc87cf392a1
+        hippo:versionHistory: 1ae95422-1f5a-4978-9b50-80ae7379ad7d
         /travel-panel[1]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable']
@@ -51689,7 +51887,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-02-25T11:58:19.158Z
-          hippostdpubwf:lastModificationDate: 2022-02-25T11:58:19.158Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T13:57:30.857+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c2c8aef9-5a8a-4a92-ac84-b3e80ad8a799
           hippotranslation:locale: en
@@ -51718,6 +51916,14 @@
                   nec sed neque. Nam non accumsan <a href="http://google.com">magna</a>,
                   nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat
                   magna.</p>
+          /visitscotland:practicalInformation:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to stay
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Nunc in mauris vitae purus porttitor pulvinar nec
+                sed neque. Nam non accumsan <a href="http://google.com/">magna</a>,
+                nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat magna.</p>
         /travel-panel[2]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -51727,7 +51933,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-02-25T11:58:19.158Z
-          hippostdpubwf:lastModificationDate: 2022-02-25T11:58:55.744Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T13:57:52.468+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c2c8aef9-5a8a-4a92-ac84-b3e80ad8a799
           hippotranslation:locale: en
@@ -51756,6 +51962,14 @@
                   nec sed neque. Nam non accumsan <a href="http://google.com">magna</a>,
                   nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat
                   magna.</p>
+          /visitscotland:practicalInformation:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to stay
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Nunc in mauris vitae purus porttitor pulvinar nec
+                sed neque. Nam non accumsan <a href="http://google.com/">magna</a>,
+                nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat magna.</p>
         /travel-panel[3]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable']
@@ -51765,9 +51979,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-02-25T11:58:19.158Z
-          hippostdpubwf:lastModificationDate: 2022-02-25T11:58:55.744Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T13:57:52.468+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-02-25T11:58:57.840Z
+          hippostdpubwf:publicationDate: 2026-09-18T13:57:55.200+01:00
           hippotranslation:id: c2c8aef9-5a8a-4a92-ac84-b3e80ad8a799
           hippotranslation:locale: en
           visitscotland:title: Travel Panel
@@ -51795,6 +52009,14 @@
                   nec sed neque. Nam non accumsan <a href="http://google.com">magna</a>,
                   nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat
                   magna.</p>
+          /visitscotland:practicalInformation:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to stay
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Nunc in mauris vitae purus porttitor pulvinar nec
+                sed neque. Nam non accumsan <a href="http://google.com/">magna</a>,
+                nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat magna.</p>
       /megalink-single:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
