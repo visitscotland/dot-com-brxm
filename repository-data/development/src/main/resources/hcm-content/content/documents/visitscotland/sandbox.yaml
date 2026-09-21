@@ -14037,7 +14037,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: af7bc15d-bc33-4b84-ad01-e77eb5acde61
           hippo:name: Edinburgh
-          hippo:versionHistory: 692f9525-a5e6-4a93-ac6f-40a9d595272b
+          hippo:versionHistory: 384a0961-7547-464f-be85-0a7632e41bf9
           /content[1]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14047,7 +14047,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-            hippostdpubwf:lastModificationDate: 2023-03-30T11:48:40.201+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-18T13:54:37.824+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [cities]
             hippotranslation:id: 1fbcced7-88f7-4124-8470-b9ed88b5ead0
@@ -14092,6 +14092,33 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Edinburgh at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Castle, Palace, Musseums</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: nature-outdoor
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Arthur Seat, Pentlands</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: ''
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
           /content[2]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -14101,7 +14128,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-            hippostdpubwf:lastModificationDate: 2023-03-30T11:49:00.450+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:02:32.428+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [cities]
             hippotranslation:id: 1fbcced7-88f7-4124-8470-b9ed88b5ead0
@@ -14146,6 +14173,33 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Edinburgh at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Castle, Palace, Musseums</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: nature-outdoor
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Arthur Seat, Pentlands</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: ''
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
           /content[3]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -14155,9 +14209,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-05-15T11:13:39.117+01:00
-            hippostdpubwf:lastModificationDate: 2023-03-30T11:49:00.450+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:02:32.428+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-03-30T11:49:09.824+01:00
+            hippostdpubwf:publicationDate: 2026-09-17T10:02:34.962+01:00
             hippotaxonomy:keys: [cities]
             hippotranslation:id: 1fbcced7-88f7-4124-8470-b9ed88b5ead0
             hippotranslation:locale: en
@@ -14201,6 +14255,33 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: a2ca775b-0df5-4e2c-900c-c51c9f2e5d47
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Edinburgh at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Castle, Palace, Musseums</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: nature-outdoor
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Arthur Seat, Pentlands</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: ''
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: 7746679b-6821-4a09-9173-664653dad7dd
         /featured-layout:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -14569,7 +14650,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: bab2bf61-21ad-42f3-8c01-10a3bb258204
           hippo:name: TravelInformation
-          hippo:versionHistory: a60383ca-2975-4eb7-8842-479c545c607c
+          hippo:versionHistory: 9d6c48e2-7d5d-4ada-ac23-8093455d924d
           /travelinformation[1]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable']
@@ -14579,67 +14660,12 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-09-08T08:13:37.198+01:00
-            hippostdpubwf:lastModificationDate: 2021-09-08T08:21:27.178+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-10T15:48:23.321+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 1fc11e3c-3ea9-4141-9c78-6a09b3229da1
             hippotranslation:locale: en
             visitscotland:title: EDINBURGH TRAVEL INFORMATION
             visitscotland:translation: ''
-            /visitscotland:gettingTo:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting to Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: dsblaccess
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is linked to by an extensive network
-                    of roads, rail services and flights which make travel to the city
-                    possible from every corner of the world.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: plane
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>Edinburgh Airport is directly linked to the city centre via a quick and convenient tram network. Pre-book your tram ticket online via the&nbsp;<a href="http://www.edinburghticket.com/" title="Edinburgh Ticket" target="_blank">Edinburgh Ticket</a>&nbsp;website so you’re ready to go as soon as you arrive. You can access lots of offers and&nbsp;<a href="https://www.edinburghticket.co.uk/attractions/" title="Edinburgh Ticket - discounts" target="_blank">money saving discounts</a>&nbsp;by showing your Edinburgh Ticket at a range of attractions too.</p>
-
-                    <p><a href="http://thisisedinburgh.com/getting-around/getting-here/" title="Travel to Edinburgh" target="_blank">Travel to Edinburgh</a></p>
-            /visitscotland:gettingAround:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting around Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: walk
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is a compact city which makes exploring
-                    easy. You can get around on foot, see top attractions on a 'hop-on,
-                    hop-off' sightseeing bus tour or hire a bike and follow the cycle
-                    routes.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: bus
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtour.com/" title="Edinburgh Bus Tours" target="_blank">sightseeing tour</a></li>
-                     <li>Travel by&nbsp;<a href="https://www.visitscotland.com/info/transport/lothian-buses-p267621" title="Lothian Buses">bus</a></li>
-                    </ul>
-              /visitscotland:accordion[3]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: tram
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtrams.com/" title="Edinburgh Trams" target="_blank">tram</a></li>
-                    </ul>
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: <p>Edinburgh is a compact city which makes exploring
@@ -14648,6 +14674,70 @@
                 routes. The local bus network is second to none, tram services conveniently
                 connect the city centre with Edinburgh Airport and there are taxi
                 ranks in easy to reach places.</p>
+            /visitscotland:practicalInformation[1]:
+              jcr:primaryType: visitscotland:TravelInformationTab
+              visitscotland:title: Transport Information
+              /visitscotland:TravelInformationTransportRow:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:accordion[1]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: bus
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are many frequent and affordable bus services that travel from various main cities to Edinburgh daily. Most buses to Edinburgh arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                    <ul>
+                     <li><a tabindex="0" href="https://www.nationalexpress.com/en/destinations/edinburgh" target="_self">National Express to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://uk.megabus.com/city-guides/edinburgh" target="_self">Megabus to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.citylink.co.uk/get-inspired/destinations/edinburgh/" target="_self">Scottish Citylink to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.flixbus.co.uk/coach/edinburgh" target="_self">Flixbus to Edinburgh</a></li>
+                    </ul>
+              /visitscotland:accordion[2]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: tram
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>Edinburgh Airport is directly linked through the west of the city, into the city centre and north and east down to Leith and Newhaven via a quick and convenient tram network.</p>
+
+                    <p>Pre-book your tram ticket online via the <a tabindex="0" href="http://www.edinburghticket.com/" target="_self">Edinburgh Tram Ticket</a> website so you’re ready to go as soon as you arrive. You can access lots of offers and <a tabindex="0" href="https://tickets.edinburghtrams.com/offers" target="_self">money saving discounts</a> by showing your Edinburgh Ticket at a range of attractions too.</p>
+
+                    <p><a tabindex="0" href="https://www.edinburghairport.com/transport-links/trams" target="_self">Find out more on travel from the airport by tram</a></p>
+              /visitscotland:accordion[3]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: train
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are fast and frequent services to Edinburgh from major UK cities. LNER trains run along the east coast from London, York and Newcastle, while Avanti West Coast run along the west coast from London, Birmingham, Milton Keynes and Carlisle. Transpennine Express run from Manchester to Edinburgh.</p>
+
+                    <p>There are two stations - Edinburgh Haymarket to the west of the city centre, and Edinburgh Waverley sits at the east end of Princes Street.</p>
+
+                    <p><a tabindex="0" href="https://www.lner.co.uk/our-destinations/popular-destinations/trains-to-edinburgh/" target="_self">Book with LNER</a></p>
+
+                    <p><a tabindex="0" href="https://www.avantiwestcoast.co.uk/where-we-go/destination-guides/edinburgh" target="_self">Book with Avanti West Coast</a></p>
+
+                    <p><a tabindex="0" href="https://tpexpress.co.uk/explore-the-north-and-scotland/destinations/edinburgh" target="_self">Book with Transpennine Express</a></p>
+
+                    <p><a tabindex="0" href="https://www.sleeper.scot/destination/edb/" target="_self">Travel overnight on the Caledonian Sleeper</a></p>
+
+                    <p>ScotRail provides an express rail service direct to Edinburgh from many major Scottish cities.</p>
+
+                    <p><a tabindex="0" href="https://www.scotrail.co.uk/plan-your-journey/stations-and-facilities/edb" target="_self">Check ScotRail timetables</a></p>
+            /visitscotland:practicalInformation[2]:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Where to stay
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Edinburgh is easily explored on foot with most key attractions within walking distance of each other. Attractions beyond the city centre can be reached cost effectively by public transport and again explored further by foot.</p>
+
+                  <p>You can stay in nice hotels, hostels.....</p>
           /travelinformation[2]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -14657,67 +14747,12 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-09-08T08:13:37.198+01:00
-            hippostdpubwf:lastModificationDate: 2021-09-08T08:21:47.544+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-10T15:48:32.962+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 1fc11e3c-3ea9-4141-9c78-6a09b3229da1
             hippotranslation:locale: en
             visitscotland:title: EDINBURGH TRAVEL INFORMATION
             visitscotland:translation: ''
-            /visitscotland:gettingTo:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting to Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: dsblaccess
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is linked to by an extensive network
-                    of roads, rail services and flights which make travel to the city
-                    possible from every corner of the world.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: plane
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>Edinburgh Airport is directly linked to the city centre via a quick and convenient tram network. Pre-book your tram ticket online via the&nbsp;<a href="http://www.edinburghticket.com/" title="Edinburgh Ticket" target="_blank">Edinburgh Ticket</a>&nbsp;website so you’re ready to go as soon as you arrive. You can access lots of offers and&nbsp;<a href="https://www.edinburghticket.co.uk/attractions/" title="Edinburgh Ticket - discounts" target="_blank">money saving discounts</a>&nbsp;by showing your Edinburgh Ticket at a range of attractions too.</p>
-
-                    <p><a href="http://thisisedinburgh.com/getting-around/getting-here/" title="Travel to Edinburgh" target="_blank">Travel to Edinburgh</a></p>
-            /visitscotland:gettingAround:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting around Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: walk
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is a compact city which makes exploring
-                    easy. You can get around on foot, see top attractions on a 'hop-on,
-                    hop-off' sightseeing bus tour or hire a bike and follow the cycle
-                    routes.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: bus
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtour.com/" title="Edinburgh Bus Tours" target="_blank">sightseeing tour</a></li>
-                     <li>Travel by&nbsp;<a href="https://www.visitscotland.com/info/transport/lothian-buses-p267621" title="Lothian Buses">bus</a></li>
-                    </ul>
-              /visitscotland:accordion[3]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: tram
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtrams.com/" title="Edinburgh Trams" target="_blank">tram</a></li>
-                    </ul>
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: <p>Edinburgh is a compact city which makes exploring
@@ -14726,6 +14761,70 @@
                 routes. The local bus network is second to none, tram services conveniently
                 connect the city centre with Edinburgh Airport and there are taxi
                 ranks in easy to reach places.</p>
+            /visitscotland:practicalInformation[1]:
+              jcr:primaryType: visitscotland:TravelInformationTab
+              visitscotland:title: Transport Information
+              /visitscotland:TravelInformationTransportRow:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:accordion[1]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: bus
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are many frequent and affordable bus services that travel from various main cities to Edinburgh daily. Most buses to Edinburgh arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                    <ul>
+                     <li><a tabindex="0" href="https://www.nationalexpress.com/en/destinations/edinburgh" target="_self">National Express to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://uk.megabus.com/city-guides/edinburgh" target="_self">Megabus to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.citylink.co.uk/get-inspired/destinations/edinburgh/" target="_self">Scottish Citylink to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.flixbus.co.uk/coach/edinburgh" target="_self">Flixbus to Edinburgh</a></li>
+                    </ul>
+              /visitscotland:accordion[2]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: tram
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>Edinburgh Airport is directly linked through the west of the city, into the city centre and north and east down to Leith and Newhaven via a quick and convenient tram network.</p>
+
+                    <p>Pre-book your tram ticket online via the <a tabindex="0" href="http://www.edinburghticket.com/" target="_self">Edinburgh Tram Ticket</a> website so you’re ready to go as soon as you arrive. You can access lots of offers and <a tabindex="0" href="https://tickets.edinburghtrams.com/offers" target="_self">money saving discounts</a> by showing your Edinburgh Ticket at a range of attractions too.</p>
+
+                    <p><a tabindex="0" href="https://www.edinburghairport.com/transport-links/trams" target="_self">Find out more on travel from the airport by tram</a></p>
+              /visitscotland:accordion[3]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: train
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are fast and frequent services to Edinburgh from major UK cities. LNER trains run along the east coast from London, York and Newcastle, while Avanti West Coast run along the west coast from London, Birmingham, Milton Keynes and Carlisle. Transpennine Express run from Manchester to Edinburgh.</p>
+
+                    <p>There are two stations - Edinburgh Haymarket to the west of the city centre, and Edinburgh Waverley sits at the east end of Princes Street.</p>
+
+                    <p><a tabindex="0" href="https://www.lner.co.uk/our-destinations/popular-destinations/trains-to-edinburgh/" target="_self">Book with LNER</a></p>
+
+                    <p><a tabindex="0" href="https://www.avantiwestcoast.co.uk/where-we-go/destination-guides/edinburgh" target="_self">Book with Avanti West Coast</a></p>
+
+                    <p><a tabindex="0" href="https://tpexpress.co.uk/explore-the-north-and-scotland/destinations/edinburgh" target="_self">Book with Transpennine Express</a></p>
+
+                    <p><a tabindex="0" href="https://www.sleeper.scot/destination/edb/" target="_self">Travel overnight on the Caledonian Sleeper</a></p>
+
+                    <p>ScotRail provides an express rail service direct to Edinburgh from many major Scottish cities.</p>
+
+                    <p><a tabindex="0" href="https://www.scotrail.co.uk/plan-your-journey/stations-and-facilities/edb" target="_self">Check ScotRail timetables</a></p>
+            /visitscotland:practicalInformation[2]:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Where to stay
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Edinburgh is easily explored on foot with most key attractions within walking distance of each other. Attractions beyond the city centre can be reached cost effectively by public transport and again explored further by foot.</p>
+
+                  <p>You can stay in nice hotels, hostels.....</p>
           /travelinformation[3]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable']
@@ -14735,68 +14834,13 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2021-09-08T08:13:37.198+01:00
-            hippostdpubwf:lastModificationDate: 2021-09-08T08:21:47.544+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-10T15:48:32.962+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2021-10-08T13:19:49.001+01:00
+            hippostdpubwf:publicationDate: 2026-09-10T15:48:36.295+01:00
             hippotranslation:id: 1fc11e3c-3ea9-4141-9c78-6a09b3229da1
             hippotranslation:locale: en
             visitscotland:title: EDINBURGH TRAVEL INFORMATION
             visitscotland:translation: ''
-            /visitscotland:gettingTo:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting to Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: dsblaccess
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is linked to by an extensive network
-                    of roads, rail services and flights which make travel to the city
-                    possible from every corner of the world.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: plane
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>Edinburgh Airport is directly linked to the city centre via a quick and convenient tram network. Pre-book your tram ticket online via the&nbsp;<a href="http://www.edinburghticket.com/" title="Edinburgh Ticket" target="_blank">Edinburgh Ticket</a>&nbsp;website so you’re ready to go as soon as you arrive. You can access lots of offers and&nbsp;<a href="https://www.edinburghticket.co.uk/attractions/" title="Edinburgh Ticket - discounts" target="_blank">money saving discounts</a>&nbsp;by showing your Edinburgh Ticket at a range of attractions too.</p>
-
-                    <p><a href="http://thisisedinburgh.com/getting-around/getting-here/" title="Travel to Edinburgh" target="_blank">Travel to Edinburgh</a></p>
-            /visitscotland:gettingAround:
-              jcr:primaryType: visitscotland:TravelInformationTab
-              visitscotland:title: Getting around Edinburgh
-              /visitscotland:accordion[1]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: walk
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Edinburgh is a compact city which makes exploring
-                    easy. You can get around on foot, see top attractions on a 'hop-on,
-                    hop-off' sightseeing bus tour or hire a bike and follow the cycle
-                    routes.</p>
-              /visitscotland:accordion[2]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: bus
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtour.com/" title="Edinburgh Bus Tours" target="_blank">sightseeing tour</a></li>
-                     <li>Travel by&nbsp;<a href="https://www.visitscotland.com/info/transport/lothian-buses-p267621" title="Lothian Buses">bus</a></li>
-                    </ul>
-              /visitscotland:accordion[3]:
-                jcr:primaryType: visitscotland:TravelInformationTransportRow
-                visitscotland:transport: tram
-                /visitscotland:copy:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: |-
-                    <p>The local bus network is second to none, tram services conveniently connect the city centre with Edinburgh Airport and there are taxi ranks in easy to reach places.</p>
-
-                    <ul>
-                     <li>Travel by&nbsp;<a href="https://edinburghtrams.com/" title="Edinburgh Trams" target="_blank">tram</a></li>
-                    </ul>
             /visitscotland:copy:
               jcr:primaryType: hippostd:html
               hippostd:content: <p>Edinburgh is a compact city which makes exploring
@@ -14805,6 +14849,70 @@
                 routes. The local bus network is second to none, tram services conveniently
                 connect the city centre with Edinburgh Airport and there are taxi
                 ranks in easy to reach places.</p>
+            /visitscotland:practicalInformation[1]:
+              jcr:primaryType: visitscotland:TravelInformationTab
+              visitscotland:title: Transport Information
+              /visitscotland:TravelInformationTransportRow:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:accordion[1]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: bus
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are many frequent and affordable bus services that travel from various main cities to Edinburgh daily. Most buses to Edinburgh arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                    <ul>
+                     <li><a tabindex="0" href="https://www.nationalexpress.com/en/destinations/edinburgh" target="_self">National Express to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://uk.megabus.com/city-guides/edinburgh" target="_self">Megabus to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.citylink.co.uk/get-inspired/destinations/edinburgh/" target="_self">Scottish Citylink to Edinburgh</a></li>
+                     <li><a tabindex="0" href="https://www.flixbus.co.uk/coach/edinburgh" target="_self">Flixbus to Edinburgh</a></li>
+                    </ul>
+              /visitscotland:accordion[2]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: tram
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>Edinburgh Airport is directly linked through the west of the city, into the city centre and north and east down to Leith and Newhaven via a quick and convenient tram network.</p>
+
+                    <p>Pre-book your tram ticket online via the <a tabindex="0" href="http://www.edinburghticket.com/" target="_self">Edinburgh Tram Ticket</a> website so you’re ready to go as soon as you arrive. You can access lots of offers and <a tabindex="0" href="https://tickets.edinburghtrams.com/offers" target="_self">money saving discounts</a> by showing your Edinburgh Ticket at a range of attractions too.</p>
+
+                    <p><a tabindex="0" href="https://www.edinburghairport.com/transport-links/trams" target="_self">Find out more on travel from the airport by tram</a></p>
+              /visitscotland:accordion[3]:
+                jcr:primaryType: visitscotland:TravelInformationTransportRow
+                visitscotland:transport: train
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>There are fast and frequent services to Edinburgh from major UK cities. LNER trains run along the east coast from London, York and Newcastle, while Avanti West Coast run along the west coast from London, Birmingham, Milton Keynes and Carlisle. Transpennine Express run from Manchester to Edinburgh.</p>
+
+                    <p>There are two stations - Edinburgh Haymarket to the west of the city centre, and Edinburgh Waverley sits at the east end of Princes Street.</p>
+
+                    <p><a tabindex="0" href="https://www.lner.co.uk/our-destinations/popular-destinations/trains-to-edinburgh/" target="_self">Book with LNER</a></p>
+
+                    <p><a tabindex="0" href="https://www.avantiwestcoast.co.uk/where-we-go/destination-guides/edinburgh" target="_self">Book with Avanti West Coast</a></p>
+
+                    <p><a tabindex="0" href="https://tpexpress.co.uk/explore-the-north-and-scotland/destinations/edinburgh" target="_self">Book with Transpennine Express</a></p>
+
+                    <p><a tabindex="0" href="https://www.sleeper.scot/destination/edb/" target="_self">Travel overnight on the Caledonian Sleeper</a></p>
+
+                    <p>ScotRail provides an express rail service direct to Edinburgh from many major Scottish cities.</p>
+
+                    <p><a tabindex="0" href="https://www.scotrail.co.uk/plan-your-journey/stations-and-facilities/edb" target="_self">Check ScotRail timetables</a></p>
+            /visitscotland:practicalInformation[2]:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Where to stay
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Edinburgh is easily explored on foot with most key attractions within walking distance of each other. Attractions beyond the city centre can be reached cost effectively by public transport and again explored further by foot.</p>
+
+                  <p>You can stay in nice hotels, hostels.....</p>
         /article2-example:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -14876,236 +14984,6 @@
                    <li>Local dialect:&nbsp;<a tabindex="-1" rel="noopener noreferrer" href="https://www.visitscotland.com/blog/culture/doric-words-meanings/" title="https://www.visitscotland.com/blog/culture/doric-words-meanings/" target="_blank">Doric</a></li>
                    <li>Known for: oil, architecture, beach, whisky and golf</li>
                   </ul>
-        /icentre:
-          jcr:primaryType: hippo:handle
-          jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-          jcr:uuid: 6033a92f-4d87-419b-a18f-0c85eb0a41e4
-          hippo:name: iCentre
-          hippo:versionHistory: db60821d-583c-4f73-a93b-e95b932d9514
-          /icentre[1]:
-            jcr:primaryType: visitscotland:TourismInformation
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: d6d547f6-3654-4f51-8ac8-b10f428ea62e
-            hippo:availability: []
-            hippostd:retainable: false
-            hippostd:state: draft
-            hippostd:transferable: false
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2020-09-30T12:03:00.630+01:00
-            hippostdpubwf:lastModificationDate: 2022-06-24T09:15:50.846+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 2b3e0a8d-aca4-472b-9536-7fa106b8bff9
-            hippotranslation:locale: en
-            visitscotland:translation: ''
-            /visitscotland:ICentre:
-              jcr:primaryType: visitscotland:ICentre
-              visitscotland:description: ''
-              visitscotland:title: ''
-              /visitscotland:image:
-                jcr:primaryType: hippogallerypicker:imagelink
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                hippo:facets: []
-                hippo:modes: []
-                hippo:values: []
-              /visitscotland:quotes:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Peter
-                visitscotland:productId: '1674401'
-                visitscotland:role: Senior Software Engineer
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 1e4be246-297b-4404-8102-80fe1bc0ddf7
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Reusable module for long text-only content.
-                    &nbsp;This will house very long content such as policies and Ts&amp;Cs,
-                    removing the need to use multiple long content modules to a single
-                    page, which would be difficult for the Content team to maintain.</p>
-                /visitscotland:products:
-                  jcr:primaryType: visitscotland:MegalinkItem
-                  visitscotland:feature: false
-                  /visitscotland:links:
-                    jcr:primaryType: hippo:mirror
-                    hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
-                /visitscotland:product:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
-              /visitscotland:quote:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Sam McCall Smith
-                visitscotland:role: iCentre manager
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 44c9fd39-a37c-4ea9-ba77-3418e5736149
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>This is a city of shifting light, of changing
-                    skies, of sudden vistas. A city so beautiful it breaks the heart
-                    again and again.</p>
-            /visitscotland:IKnow:
-              jcr:primaryType: visitscotland:IKnow
-              visitscotland:title: ''
-              /visitscotland:description:
-                jcr:primaryType: hippostd:html
-                hippostd:content: <p>This is the place to get the inside track on
-                  Scotland. A place for friendly and spirited people to share experiences,
-                  pick up tips, ask questions and get insider advice on all the best
-                  places to visit in Scotland.</p>
-          /icentre[2]:
-            jcr:primaryType: visitscotland:TourismInformation
-            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-            jcr:uuid: 51829c8d-d52c-4663-8961-0f6834f615a7
-            hippo:availability: [preview]
-            hippostd:retainable: false
-            hippostd:state: unpublished
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2020-09-30T12:03:00.630+01:00
-            hippostdpubwf:lastModificationDate: 2022-06-24T09:14:53.129+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippotranslation:id: 2b3e0a8d-aca4-472b-9536-7fa106b8bff9
-            hippotranslation:locale: en
-            visitscotland:translation: ''
-            /visitscotland:ICentre:
-              jcr:primaryType: visitscotland:ICentre
-              visitscotland:description: ''
-              visitscotland:title: ''
-              /visitscotland:image:
-                jcr:primaryType: hippogallerypicker:imagelink
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                hippo:facets: []
-                hippo:modes: []
-                hippo:values: []
-              /visitscotland:quotes:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Peter
-                visitscotland:productId: '1674401'
-                visitscotland:role: Senior Software Engineer
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 1e4be246-297b-4404-8102-80fe1bc0ddf7
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Reusable module for long text-only content.
-                    &nbsp;This will house very long content such as policies and Ts&amp;Cs,
-                    removing the need to use multiple long content modules to a single
-                    page, which would be difficult for the Content team to maintain.</p>
-                /visitscotland:products:
-                  jcr:primaryType: visitscotland:MegalinkItem
-                  visitscotland:feature: false
-                  /visitscotland:links:
-                    jcr:primaryType: hippo:mirror
-                    hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
-                /visitscotland:product:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
-              /visitscotland:quote:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Sam McCall Smith
-                visitscotland:role: iCentre manager
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 44c9fd39-a37c-4ea9-ba77-3418e5736149
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>This is a city of shifting light, of changing
-                    skies, of sudden vistas. A city so beautiful it breaks the heart
-                    again and again.</p>
-            /visitscotland:IKnow:
-              jcr:primaryType: visitscotland:IKnow
-              visitscotland:title: ''
-              /visitscotland:description:
-                jcr:primaryType: hippostd:html
-                hippostd:content: <p>This is the place to get the inside track on
-                  Scotland. A place for friendly and spirited people to share experiences,
-                  pick up tips, ask questions and get insider advice on all the best
-                  places to visit in Scotland.</p>
-          /icentre[3]:
-            jcr:primaryType: visitscotland:TourismInformation
-            jcr:mixinTypes: ['mix:referenceable']
-            jcr:uuid: e579d854-1c60-4c02-897b-ae10b0a4f8c6
-            hippo:availability: [live]
-            hippostd:retainable: false
-            hippostd:state: published
-            hippostdpubwf:createdBy: admin
-            hippostdpubwf:creationDate: 2020-09-30T12:03:00.630+01:00
-            hippostdpubwf:lastModificationDate: 2022-06-24T09:14:53.129+01:00
-            hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2022-06-24T09:15:02.762+01:00
-            hippotranslation:id: 2b3e0a8d-aca4-472b-9536-7fa106b8bff9
-            hippotranslation:locale: en
-            visitscotland:translation: ''
-            /visitscotland:ICentre:
-              jcr:primaryType: visitscotland:ICentre
-              visitscotland:description: ''
-              visitscotland:title: ''
-              /visitscotland:image:
-                jcr:primaryType: hippogallerypicker:imagelink
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                hippo:facets: []
-                hippo:modes: []
-                hippo:values: []
-              /visitscotland:quotes:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Peter
-                visitscotland:productId: '1674401'
-                visitscotland:role: Senior Software Engineer
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 1e4be246-297b-4404-8102-80fe1bc0ddf7
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>Reusable module for long text-only content.
-                    &nbsp;This will house very long content such as policies and Ts&amp;Cs,
-                    removing the need to use multiple long content modules to a single
-                    page, which would be difficult for the Content team to maintain.</p>
-                /visitscotland:products:
-                  jcr:primaryType: visitscotland:MegalinkItem
-                  visitscotland:feature: false
-                  /visitscotland:links:
-                    jcr:primaryType: hippo:mirror
-                    hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
-                /visitscotland:product:
-                  jcr:primaryType: hippo:mirror
-                  hippo:docbase: 4d302e29-93dd-4157-9df9-bbd741bb12a0
-              /visitscotland:quote:
-                jcr:primaryType: visitscotland:Quote
-                visitscotland:author: Sam McCall Smith
-                visitscotland:role: iCentre manager
-                /visitscotland:image:
-                  jcr:primaryType: hippogallerypicker:imagelink
-                  hippo:docbase: 44c9fd39-a37c-4ea9-ba77-3418e5736149
-                  hippo:facets: []
-                  hippo:modes: []
-                  hippo:values: []
-                /visitscotland:quote:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>This is a city of shifting light, of changing
-                    skies, of sudden vistas. A city so beautiful it breaks the heart
-                    again and again.</p>
-            /visitscotland:IKnow:
-              jcr:primaryType: visitscotland:IKnow
-              visitscotland:title: ''
-              /visitscotland:description:
-                jcr:primaryType: hippostd:html
-                hippostd:content: <p>This is the place to get the inside track on
-                  Scotland. A place for friendly and spirited people to share experiences,
-                  pick up tips, ask questions and get insider advice on all the best
-                  places to visit in Scotland.</p>
         /article3-example:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -16122,7 +16000,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: ab8d2643-1517-4a6a-aa86-f5a9c8b5e2c3
           hippo:name: The Outer Hebrides
-          hippo:versionHistory: ead36de5-e9bf-4b2d-a564-9fb5f275c2ae
+          hippo:versionHistory: 3d7491d8-59d7-49c0-a1d0-404186feae14
           /content[1]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -16132,7 +16010,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.634+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:02:43.687+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [regions]
             hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
@@ -16188,6 +16066,25 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Outer at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Ceilidh, live music</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:ExternalLink
+                visitscotland:label: Discover more
+                visitscotland:link: https://www.google.es
           /content[2]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -16197,7 +16094,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.175+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:03:41.378+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [regions]
             hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
@@ -16253,6 +16150,25 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Outer at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Ceilidh, live music</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:ExternalLink
+                visitscotland:label: Discover more
+                visitscotland:link: https://www.google.es
           /content[3]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -16262,9 +16178,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-07-10T14:38:03.350+01:00
-            hippostdpubwf:lastModificationDate: 2023-08-29T14:22:26.175+01:00
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:03:41.378+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-08-29T14:22:33.251+01:00
+            hippostdpubwf:publicationDate: 2026-09-17T10:03:44.240+01:00
             hippotaxonomy:keys: [regions]
             hippotranslation:id: 5efd7ec5-59aa-475a-8faa-19c718f02501
             hippotranslation:locale: en
@@ -16319,6 +16235,25 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 0161886a-cf57-47f6-a1f8-820b894f5648
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Outer at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Ceilidh, live music</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:ExternalLink
+                visitscotland:label: Discover more
+                visitscotland:link: https://www.google.es
         /places-to-visit-in-the-outer-hebrides:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -17980,7 +17915,7 @@
             jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
             jcr:uuid: a00fff8e-1694-4bdc-84be-b0ab30a60638
             hippo:name: Edinburgh Lothians
-            hippo:versionHistory: d0f2ea52-9b0c-4efc-968f-a19559d48268
+            hippo:versionHistory: 7564cb2f-24bf-46c3-91de-0d03cc2cdc22
             /content[1]:
               jcr:primaryType: visitscotland:Destination
               jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -17990,7 +17925,7 @@
               hippostd:state: draft
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
-              hippostdpubwf:lastModificationDate: 2022-11-22T14:22:51.495Z
+              hippostdpubwf:lastModificationDate: 2026-09-17T10:05:35.184+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotaxonomy:keys: [regions]
               hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
@@ -18013,6 +17948,33 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Edinburgh Lothians intro</p>
+              /visitscotland:keyInformation:
+                jcr:primaryType: visitscotland:DestinationsKeyInformation
+                visitscotland:title: Edinburgh and the lothians at a glance
+                /visitscotland:categories:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: ''
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: ''
+                /visitscotland:highlights[1]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: events
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Fringe, Jazz festival, Tattoo</p>
+                /visitscotland:highlights[2]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: food-drink
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Haggis, whisky, fish and chips</p>
+                /visitscotland:highlights[3]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: music
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Ceilidh, concerts</p>
             /content[2]:
               jcr:primaryType: visitscotland:Destination
               jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
@@ -18023,7 +17985,7 @@
               hippostd:state: unpublished
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
-              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:21.996Z
+              hippostdpubwf:lastModificationDate: 2026-09-17T10:08:08.398+01:00
               hippostdpubwf:lastModifiedBy: admin
               hippotaxonomy:keys: [regions]
               hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
@@ -18046,6 +18008,33 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Edinburgh Lothians intro</p>
+              /visitscotland:keyInformation:
+                jcr:primaryType: visitscotland:DestinationsKeyInformation
+                visitscotland:title: Edinburgh and the lothians at a glance
+                /visitscotland:categories:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: ''
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: ''
+                /visitscotland:highlights[1]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: events
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Fringe, Jazz festival, Tattoo</p>
+                /visitscotland:highlights[2]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: food-drink
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Haggis, whisky, fish and chips</p>
+                /visitscotland:highlights[3]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: music
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Ceilidh, concerts</p>
             /content[3]:
               jcr:primaryType: visitscotland:Destination
               jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -18055,9 +18044,9 @@
               hippostd:state: published
               hippostdpubwf:createdBy: admin
               hippostdpubwf:creationDate: 2022-11-22T14:22:51.495Z
-              hippostdpubwf:lastModificationDate: 2022-11-22T14:23:21.996Z
+              hippostdpubwf:lastModificationDate: 2026-09-17T10:08:08.398+01:00
               hippostdpubwf:lastModifiedBy: admin
-              hippostdpubwf:publicationDate: 2022-11-22T14:23:23.594Z
+              hippostdpubwf:publicationDate: 2026-09-17T10:08:11.215+01:00
               hippotaxonomy:keys: [regions]
               hippotranslation:id: 6d5186a1-d9c2-46e9-a8c8-e1cefded050c
               hippotranslation:locale: en
@@ -18079,6 +18068,33 @@
               /visitscotland:introduction:
                 jcr:primaryType: hippostd:html
                 hippostd:content: <p>Edinburgh Lothians intro</p>
+              /visitscotland:keyInformation:
+                jcr:primaryType: visitscotland:DestinationsKeyInformation
+                visitscotland:title: Edinburgh and the lothians at a glance
+                /visitscotland:categories:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: ''
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: ''
+                /visitscotland:highlights[1]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: events
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Fringe, Jazz festival, Tattoo</p>
+                /visitscotland:highlights[2]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: food-drink
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Haggis, whisky, fish and chips</p>
+                /visitscotland:highlights[3]:
+                  jcr:primaryType: visitscotland:DestinationsKeyCategories
+                  visitscotland:category: music
+                  /visitscotland:copy:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: <p>Ceilidh, concerts</p>
           /map:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -20121,7 +20137,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 5804b835-f014-4d99-b56b-da50fa07c5a0
           hippo:name: james-test
-          hippo:versionHistory: 594e6952-07df-4d66-82ac-3ed7ed57b0a6
+          hippo:versionHistory: 2e6d40a9-1b80-4c1f-815e-d7d81ab19d55
           /content[1]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -20131,7 +20147,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-10-26T11:53:39.795Z
-            hippostdpubwf:lastModificationDate: 2022-11-22T14:26:38.594Z
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:03:54.874+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [cities]
             hippotranslation:id: ebc5d395-ff32-4782-bacf-4dfdc1167191
@@ -20181,6 +20197,45 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Dundee at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: food-drink
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Haggis, Whisky</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Live music, Ceilidh</p>
+              /visitscotland:highlights[3]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Musseum, art, culture</p>
+              /visitscotland:highlights[4]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: events
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Music festival, food festival</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: Discover more
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
           /content[2]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -20190,7 +20245,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-10-26T11:53:39.795Z
-            hippostdpubwf:lastModificationDate: 2022-11-22T14:26:54.605Z
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:05:19.495+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotaxonomy:keys: [cities]
             hippotranslation:id: ebc5d395-ff32-4782-bacf-4dfdc1167191
@@ -20240,6 +20295,45 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Dundee at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: food-drink
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Haggis, Whisky</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Live music, Ceilidh</p>
+              /visitscotland:highlights[3]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Musseum, art, culture</p>
+              /visitscotland:highlights[4]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: events
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Music festival, food festival</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: Discover more
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
           /content[3]:
             jcr:primaryType: visitscotland:Destination
             jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -20249,9 +20343,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-10-26T11:53:39.795Z
-            hippostdpubwf:lastModificationDate: 2022-11-22T14:26:54.605Z
+            hippostdpubwf:lastModificationDate: 2026-09-17T10:05:19.495+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2022-11-22T14:26:58.241Z
+            hippostdpubwf:publicationDate: 2026-09-17T10:05:22.282+01:00
             hippotaxonomy:keys: [cities]
             hippotranslation:id: ebc5d395-ff32-4782-bacf-4dfdc1167191
             hippotranslation:locale: en
@@ -20300,6 +20394,45 @@
               /visitscotland:links[5]:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: 7d2653e5-8068-49d1-9c1e-8aad6d951985
+            /visitscotland:keyInformation:
+              jcr:primaryType: visitscotland:DestinationsKeyInformation
+              visitscotland:title: Dundee at a glance
+              /visitscotland:categories:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: ''
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: ''
+              /visitscotland:highlights[1]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: food-drink
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Haggis, Whisky</p>
+              /visitscotland:highlights[2]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: music
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Live music, Ceilidh</p>
+              /visitscotland:highlights[3]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: art-culture
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Musseum, art, culture</p>
+              /visitscotland:highlights[4]:
+                jcr:primaryType: visitscotland:DestinationsKeyCategories
+                visitscotland:category: events
+                /visitscotland:copy:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: <p>Music festival, food festival</p>
+              /visitscotland:ctaLink:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: Discover more
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: af7bc15d-bc33-4b84-ad01-e77eb5acde61
         /map:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -21003,7 +21136,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 7746679b-6821-4a09-9173-664653dad7dd
         hippo:name: Destination page example
-        hippo:versionHistory: c101621d-d267-4899-8051-36377189bae1
+        hippo:versionHistory: a869993a-9429-4f97-b5e2-5e66aa131c2a
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -21011,9 +21144,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2025-11-14T13:18:32.776Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T13:54:27.673+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
@@ -21062,6 +21196,34 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bunchan at a glance
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights[1]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: history-heritage
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Bunchan&nbsp;Cathedral, Bunchan&nbsp;Museum,
+                  Bunchan&nbsp;Castle</p>
+            /visitscotland:highlights[2]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Moray Coast, dolphins, birdlife, harbour seals&nbsp;</p>
+            /visitscotland:highlights[3]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: food-drink
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Whisky coast, Speyside Malt Whisky Trail&nbsp;</p>
         /content[2]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -21071,7 +21233,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2025-11-14T13:19:17.814Z
+          hippostdpubwf:lastModificationDate: 2026-09-17T10:01:01.249+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
@@ -21120,6 +21282,34 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bunchan at a glance
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights[1]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: history-heritage
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Bunchan&nbsp;Cathedral, Bunchan&nbsp;Museum,
+                  Bunchan&nbsp;Castle</p>
+            /visitscotland:highlights[2]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Moray Coast, dolphins, birdlife, harbour seals&nbsp;</p>
+            /visitscotland:highlights[3]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: food-drink
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Whisky coast, Speyside Malt Whisky Trail&nbsp;</p>
         /content[3]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -21129,9 +21319,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-05-24T13:47:56.985+01:00
-          hippostdpubwf:lastModificationDate: 2025-11-14T13:19:17.814Z
+          hippostdpubwf:lastModificationDate: 2026-09-17T10:01:01.249+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-11-14T13:19:20.288Z
+          hippostdpubwf:publicationDate: 2026-09-17T10:01:05.736+01:00
           hippotaxonomy:keys: [islands]
           hippotranslation:id: c991600c-b975-4528-b4d8-dada510a957f
           hippotranslation:locale: en
@@ -21179,6 +21369,34 @@
             /visitscotland:links[5]:
               jcr:primaryType: hippo:mirror
               hippo:docbase: a917046f-7774-4544-9762-3e51e4fa0529
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bunchan at a glance
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights[1]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: history-heritage
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Bunchan&nbsp;Cathedral, Bunchan&nbsp;Museum,
+                  Bunchan&nbsp;Castle</p>
+            /visitscotland:highlights[2]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Moray Coast, dolphins, birdlife, harbour seals&nbsp;</p>
+            /visitscotland:highlights[3]:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: food-drink
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Whisky coast, Speyside Malt Whisky Trail&nbsp;</p>
       /megalink-destination:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -34227,7 +34445,7 @@
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 1e5d73c5-91fc-4108-aca6-39116a3539a0
           hippo:name: Travel
-          hippo:versionHistory: 1baec447-c6a0-47d5-8566-1c7368c124f4
+          hippo:versionHistory: 49979e90-8c03-456c-ac60-7e3de6a8b7ea
           /travel[1]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable']
@@ -34237,7 +34455,7 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-14T17:22:30.575Z
-            hippostdpubwf:lastModificationDate: 2023-03-14T17:22:30.575Z
+            hippostdpubwf:lastModificationDate: 2026-09-18T13:55:59.097+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: c2c12c01-d9c7-400a-b9e8-13fd91673de7
             hippotranslation:locale: en
@@ -34333,6 +34551,17 @@
                 of roads, rail services and flights which makes travel to the city
                 possible from every corner of the world, while the city's compact
                 size makes exploring easy.</p>
+            /visitscotland:practicalInformation:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Transports copy option
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Most buses to Edinburgh, including Citylink and National Express, arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                  <p><a href="https://www.citylink.co.uk/">Check Citylink timetable</a></p>
+
+                  <p><a href="https://www.nationalexpress.com/en">Check National Express timetable</a></p>
           /travel[2]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -34342,7 +34571,7 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-14T17:22:30.575Z
-            hippostdpubwf:lastModificationDate: 2023-03-14T17:24:23.875Z
+            hippostdpubwf:lastModificationDate: 2026-09-18T13:56:22.421+01:00
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: c2c12c01-d9c7-400a-b9e8-13fd91673de7
             hippotranslation:locale: en
@@ -34438,6 +34667,17 @@
                 of roads, rail services and flights which makes travel to the city
                 possible from every corner of the world, while the city's compact
                 size makes exploring easy.</p>
+            /visitscotland:practicalInformation:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Transports copy option
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Most buses to Edinburgh, including Citylink and National Express, arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                  <p><a href="https://www.citylink.co.uk/">Check Citylink timetable</a></p>
+
+                  <p><a href="https://www.nationalexpress.com/en">Check National Express timetable</a></p>
           /travel[3]:
             jcr:primaryType: visitscotland:TravelInformation
             jcr:mixinTypes: ['mix:referenceable']
@@ -34447,9 +34687,9 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2023-03-14T17:22:30.575Z
-            hippostdpubwf:lastModificationDate: 2023-03-14T17:24:23.875Z
+            hippostdpubwf:lastModificationDate: 2026-09-18T13:56:22.421+01:00
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2023-03-14T17:24:26.424Z
+            hippostdpubwf:publicationDate: 2026-09-18T13:56:25.756+01:00
             hippotranslation:id: c2c12c01-d9c7-400a-b9e8-13fd91673de7
             hippotranslation:locale: en
             visitscotland:title: Travel to and around Edinburgh
@@ -34544,6 +34784,17 @@
                 of roads, rail services and flights which makes travel to the city
                 possible from every corner of the world, while the city's compact
                 size makes exploring easy.</p>
+            /visitscotland:practicalInformation:
+              jcr:primaryType: visitscotland:TravelInformationArticle
+              visitscotland:heading: Transports copy option
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Most buses to Edinburgh, including Citylink and National Express, arrive at the Edinburgh Bus Station that is located on St Andrew Square in the city centre.</p>
+
+                  <p><a href="https://www.citylink.co.uk/">Check Citylink timetable</a></p>
+
+                  <p><a href="https://www.nationalexpress.com/en">Check National Express timetable</a></p>
         /places-to-stay:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -43418,7 +43669,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: a68f2689-5d62-4ba0-bd4d-e5901f58a96e
         hippo:name: Travel information module
-        hippo:versionHistory: 6ab4a397-f88b-489b-80ff-90c096ed23ba
+        hippo:versionHistory: 7ff5a653-9f92-44ec-9127-96046beee0bc
         /travel-information-module[1]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable']
@@ -43428,7 +43679,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-30T14:51:13.322+01:00
-          hippostdpubwf:lastModificationDate: 2022-02-25T13:18:33.973Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:31:22.261+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: ebf1ddd0-64a1-43c1-bf4e-efe3f855961d
           hippotranslation:locale: en
@@ -43559,6 +43810,46 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>You can easily get around the <a href="http://google.com">Highlands</a>
               using the extensive network of public transport and <a href="http://google.com">roads</a>.</p>
+          /visitscotland:practicalInformation[1]:
+            jcr:primaryType: visitscotland:TravelInformationTab
+            visitscotland:title: Transport information
+            /visitscotland:TravelInformationTransportRow:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:accordion[1]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: dsblaccess
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Choose an area of the Highlands to visit for information on travelling by car, bus, train or air to Inverness.</p>
+
+                  <p><a href="http://visitscotland.com">Inverness, Nairn &amp; Loch Ness</a></p>
+
+                  <p><a href="http://visitscotland.com">Moray Speyside</a></p>
+
+                  <p><a href="http://visitscotland.com">Isle of Skye</a></p>
+
+                  <p><a href="http://visitscotland.com">North Highlands</a></p>
+
+                  <p><a href="http://visitscotland.com">Fort William &amp; Lochaber</a></p>
+            /visitscotland:accordion[2]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: bus
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Choose an area of the Highlands to visit for
+                  information on travelling by car, bus, train or air to Inverness.</p>
+          /visitscotland:practicalInformation[2]:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to go
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Choose an area of the Highlands to visit for information
+                on travelling by car, bus, train or air to Inverness.</p>
         /travel-information-module[2]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -43568,7 +43859,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-30T14:51:13.322+01:00
-          hippostdpubwf:lastModificationDate: 2022-02-25T13:18:48.520Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:32:26.453+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: ebf1ddd0-64a1-43c1-bf4e-efe3f855961d
           hippotranslation:locale: en
@@ -43699,6 +43990,46 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>You can easily get around the <a href="http://google.com">Highlands</a>
               using the extensive network of public transport and <a href="http://google.com">roads</a>.</p>
+          /visitscotland:practicalInformation[1]:
+            jcr:primaryType: visitscotland:TravelInformationTab
+            visitscotland:title: Transport information
+            /visitscotland:TravelInformationTransportRow:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:accordion[1]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: dsblaccess
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Choose an area of the Highlands to visit for information on travelling by car, bus, train or air to Inverness.</p>
+
+                  <p><a href="http://visitscotland.com">Inverness, Nairn &amp; Loch Ness</a></p>
+
+                  <p><a href="http://visitscotland.com">Moray Speyside</a></p>
+
+                  <p><a href="http://visitscotland.com">Isle of Skye</a></p>
+
+                  <p><a href="http://visitscotland.com">North Highlands</a></p>
+
+                  <p><a href="http://visitscotland.com">Fort William &amp; Lochaber</a></p>
+            /visitscotland:accordion[2]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: bus
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Choose an area of the Highlands to visit for
+                  information on travelling by car, bus, train or air to Inverness.</p>
+          /visitscotland:practicalInformation[2]:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to go
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Choose an area of the Highlands to visit for information
+                on travelling by car, bus, train or air to Inverness.</p>
         /travel-information-module[3]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable']
@@ -43708,9 +44039,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-08-30T14:51:13.322+01:00
-          hippostdpubwf:lastModificationDate: 2022-02-25T13:18:48.520Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:32:26.453+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-02-25T13:18:51.474Z
+          hippostdpubwf:publicationDate: 2026-09-18T12:32:32.001+01:00
           hippotranslation:id: ebf1ddd0-64a1-43c1-bf4e-efe3f855961d
           hippotranslation:locale: en
           visitscotland:title: Travel Information
@@ -43840,12 +44171,52 @@
             jcr:primaryType: hippostd:html
             hippostd:content: <p>You can easily get around the <a href="http://google.com">Highlands</a>
               using the extensive network of public transport and <a href="http://google.com">roads</a>.</p>
+          /visitscotland:practicalInformation[1]:
+            jcr:primaryType: visitscotland:TravelInformationTab
+            visitscotland:title: Transport information
+            /visitscotland:TravelInformationTransportRow:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:accordion[1]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: dsblaccess
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: |-
+                  <p>Choose an area of the Highlands to visit for information on travelling by car, bus, train or air to Inverness.</p>
+
+                  <p><a href="http://visitscotland.com">Inverness, Nairn &amp; Loch Ness</a></p>
+
+                  <p><a href="http://visitscotland.com">Moray Speyside</a></p>
+
+                  <p><a href="http://visitscotland.com">Isle of Skye</a></p>
+
+                  <p><a href="http://visitscotland.com">North Highlands</a></p>
+
+                  <p><a href="http://visitscotland.com">Fort William &amp; Lochaber</a></p>
+            /visitscotland:accordion[2]:
+              jcr:primaryType: visitscotland:TravelInformationTransportRow
+              visitscotland:transport: bus
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>Choose an area of the Highlands to visit for
+                  information on travelling by car, bus, train or air to Inverness.</p>
+          /visitscotland:practicalInformation[2]:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to go
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Choose an area of the Highlands to visit for information
+                on travelling by car, bus, train or air to Inverness.</p>
       /content:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 47135bf0-c6ea-4463-9e27-7b3e13ea3889
         hippo:name: Travel information
-        hippo:versionHistory: 9c50bff5-5889-4820-afe1-154440424a7e
+        hippo:versionHistory: 0ef1b948-c922-4abc-ae67-a7db4b4cef61
         /content[1]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -43853,10 +44224,9 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
-          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-09-03T11:59:50.458+01:00
-          hippostdpubwf:lastModificationDate: 2022-02-25T13:18:15.947Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:33:16.401+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 8de221c8-0267-4f5c-a0fa-dd16722e46c5
           hippotranslation:locale: en
@@ -43884,6 +44254,21 @@
               risus. Nunc vel cursus lacus. Curabitur elit magna, dictum et augue
               quis, dignissim ornare tortor. Suspendisse convallis orci ac dolor venenatis,
               ornare gravida massa convallis.&nbsp;</p>
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bute at a glace
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>travelling by car, bus, train or air to Bute.</p>
         /content[2]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -43893,7 +44278,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-09-03T11:59:50.458+01:00
-          hippostdpubwf:lastModificationDate: 2021-09-09T16:37:52.127+01:00
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:34:17.471+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 8de221c8-0267-4f5c-a0fa-dd16722e46c5
           hippotranslation:locale: en
@@ -43921,6 +44306,21 @@
               risus. Nunc vel cursus lacus. Curabitur elit magna, dictum et augue
               quis, dignissim ornare tortor. Suspendisse convallis orci ac dolor venenatis,
               ornare gravida massa convallis.&nbsp;</p>
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bute at a glace
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>travelling by car, bus, train or air to Bute.</p>
         /content[3]:
           jcr:primaryType: visitscotland:Destination
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -43930,9 +44330,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2021-09-03T11:59:50.458+01:00
-          hippostdpubwf:lastModificationDate: 2021-09-09T16:37:52.127+01:00
+          hippostdpubwf:lastModificationDate: 2026-09-18T12:34:17.471+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-09-09T16:37:53.584+01:00
+          hippostdpubwf:publicationDate: 2026-09-18T12:34:19.975+01:00
           hippotranslation:id: 8de221c8-0267-4f5c-a0fa-dd16722e46c5
           hippotranslation:locale: en
           visitscotland:breadcrumb: ''
@@ -43959,6 +44359,21 @@
               risus. Nunc vel cursus lacus. Curabitur elit magna, dictum et augue
               quis, dignissim ornare tortor. Suspendisse convallis orci ac dolor venenatis,
               ornare gravida massa convallis.&nbsp;</p>
+          /visitscotland:keyInformation:
+            jcr:primaryType: visitscotland:DestinationsKeyInformation
+            visitscotland:title: Bute at a glace
+            /visitscotland:categories:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: ''
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+            /visitscotland:highlights:
+              jcr:primaryType: visitscotland:DestinationsKeyCategories
+              visitscotland:category: nature-outdoor
+              /visitscotland:copy:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>travelling by car, bus, train or air to Bute.</p>
     /signpost:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
@@ -51459,7 +51874,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 2504eff8-c12a-40b5-b3e2-9a0f59bf0bbb
         hippo:name: Travel Panel
-        hippo:versionHistory: 58549276-8195-46b6-8912-bdc87cf392a1
+        hippo:versionHistory: 1ae95422-1f5a-4978-9b50-80ae7379ad7d
         /travel-panel[1]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable']
@@ -51469,7 +51884,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-02-25T11:58:19.158Z
-          hippostdpubwf:lastModificationDate: 2022-02-25T11:58:19.158Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T13:57:30.857+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c2c8aef9-5a8a-4a92-ac84-b3e80ad8a799
           hippotranslation:locale: en
@@ -51498,6 +51913,14 @@
                   nec sed neque. Nam non accumsan <a href="http://google.com">magna</a>,
                   nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat
                   magna.</p>
+          /visitscotland:practicalInformation:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to stay
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Nunc in mauris vitae purus porttitor pulvinar nec
+                sed neque. Nam non accumsan <a href="http://google.com/">magna</a>,
+                nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat magna.</p>
         /travel-panel[2]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -51507,7 +51930,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-02-25T11:58:19.158Z
-          hippostdpubwf:lastModificationDate: 2022-02-25T11:58:55.744Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T13:57:52.468+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: c2c8aef9-5a8a-4a92-ac84-b3e80ad8a799
           hippotranslation:locale: en
@@ -51536,6 +51959,14 @@
                   nec sed neque. Nam non accumsan <a href="http://google.com">magna</a>,
                   nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat
                   magna.</p>
+          /visitscotland:practicalInformation:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to stay
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Nunc in mauris vitae purus porttitor pulvinar nec
+                sed neque. Nam non accumsan <a href="http://google.com/">magna</a>,
+                nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat magna.</p>
         /travel-panel[3]:
           jcr:primaryType: visitscotland:TravelInformation
           jcr:mixinTypes: ['mix:referenceable']
@@ -51545,9 +51976,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2022-02-25T11:58:19.158Z
-          hippostdpubwf:lastModificationDate: 2022-02-25T11:58:55.744Z
+          hippostdpubwf:lastModificationDate: 2026-09-18T13:57:52.468+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-02-25T11:58:57.840Z
+          hippostdpubwf:publicationDate: 2026-09-18T13:57:55.200+01:00
           hippotranslation:id: c2c8aef9-5a8a-4a92-ac84-b3e80ad8a799
           hippotranslation:locale: en
           visitscotland:title: Travel Panel
@@ -51575,6 +52006,14 @@
                   nec sed neque. Nam non accumsan <a href="http://google.com">magna</a>,
                   nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat
                   magna.</p>
+          /visitscotland:practicalInformation:
+            jcr:primaryType: visitscotland:TravelInformationArticle
+            visitscotland:heading: Where to stay
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p>Nunc in mauris vitae purus porttitor pulvinar nec
+                sed neque. Nam non accumsan <a href="http://google.com/">magna</a>,
+                nec fermentum tellus. Aliquam erat volutpat. Maecenas ac feugiat magna.</p>
       /megalink-single:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
