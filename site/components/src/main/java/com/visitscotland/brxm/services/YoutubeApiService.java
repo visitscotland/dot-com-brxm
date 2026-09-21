@@ -39,14 +39,13 @@ public class YoutubeApiService {
      */
     @Cacheable(value = "youtube", unless = "#result == null")
     public Optional<YoutubeVideo> getVideoInfo(String youtubeId) {
-        logger.debug("Retrieving information from YouTube API for video {}", youtubeId);
-        String youtubeApiKey = properties.getYoutubeApiKey();
-        if (Contract.isEmpty(youtubeApiKey)) {
+        if (Contract.isEmpty(properties.getYoutubeApiKey())) {
             logger.warn("No YouTube API key set");
             return Optional.empty();
         }
+        logger.debug("Retrieving information from YouTube API for video {}", youtubeId);
         try {
-            String apiRequestUrl = String.format("%svideos?key=%s&part=snippet&id=%s", properties.getYoutubeApiBase(), youtubeApiKey, youtubeId);
+            String apiRequestUrl = String.format("%svideos?key=%s&part=snippet&id=%s", properties.getYoutubeApiBase(), properties.getYoutubeApiKey(), youtubeId);
             URLConnection conn = commonUtilsService.openConnection(apiRequestUrl);
             conn.setConnectTimeout(1000);
             YoutubeListResponse jsonResponse = new ObjectMapper().readValue(conn.getInputStream(), YoutubeListResponse.class);
