@@ -39,7 +39,8 @@ public class YoutubeApiService {
      */
     @Cacheable(value = "youtube", unless = "#result == null")
     public Optional<YoutubeVideo> getVideoInfo(String youtubeId) {
-        if (Contract.isEmpty(properties.getYoutubeApiKey())) {
+        String youtubeApiKey = properties.getYoutubeApiKey().orElse(null);
+        if (youtubeApiKey == null) {
             logger.warn("No YouTube API key set");
             return Optional.empty();
         }
