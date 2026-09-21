@@ -12,19 +12,22 @@ public class ApiOnlyFilter implements Filter {
 
     private static final Logger logger = LoggerFactory.getLogger(ApiOnlyFilter.class);
 
-    private static final String[] ALLOW_LIST = new String[]{"/resourceapi/", "/bsh-api/resourceapi/","/be-api/resourceapi/", "/api/", "/icons/"};
+    private static final String[] ALLOW_LIST = new String[]{
+            "/resourceapi/",
+            "/bsh-api/resourceapi/",
+            "/be-api/resourceapi/",
+            "/api/",
+            "/icons/",
+            "/binaries/"
+    };
 
     @Override
-    public void doFilter(
-            ServletRequest request,
-            ServletResponse response,
-            FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-        String path = httpRequest.getRequestURI()
-                .substring(httpRequest.getContextPath().length());
+        String path = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
 
         if (isAllowed(path)) {
             chain.doFilter(request, response);
@@ -38,10 +41,9 @@ public class ApiOnlyFilter implements Filter {
     }
 
 
-
-    private boolean isAllowed(String path){
-        for (String allow : ALLOW_LIST){
-            if (path.startsWith(allow)){
+    private boolean isAllowed(String path) {
+        for (String allow : ALLOW_LIST) {
+            if (path.startsWith(allow)) {
                 return true;
             }
         }
