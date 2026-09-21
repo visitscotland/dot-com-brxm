@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 3bdb65a9-f09f-417c-b625-d870eac04b55
   hippo:name: Destinations key information categories
-  hippo:versionHistory: ba5d0de6-a38e-41cb-9691-f99074a717cf
+  hippo:versionHistory: 7df84fe6-5d3e-47c1-a96e-33103a42e082
   /destinations-key-information-categories[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,8 +13,8 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-08-28T08:59:46.732+01:00
-    hippostdpubwf:lastModificationDate: 2026-08-28T09:14:28.357+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2026-09-21T12:43:07.554+02:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '']
     resourcebundle:id: destinations-key-information-categories
@@ -25,16 +25,26 @@
       Music, History & heritage, Snowsports, Wildlife, Food & drink, Film & TV, Events
         & festivals, Cities and towns, Arts & culture, Archaeological sites, Active
         & adventure]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+    resourcebundle:messages_de: [Städte & Dörfer, Nachthimmel, Natur, Musik, Geschichte
+        & Kultur, Wintersport, Tierwelt, Essen & Trinken, Film & Fernsehen, Veranstaltungen
+        & Festivals, Städte, Kunst & Kultur, Archäologische Stätten, Aktivitäten &
+        Abenteuer]
+    resourcebundle:messages_es: [Ciudades y pueblos, Observación de las estrellas,
+      Naturaleza, Música, Historia y patrimonio, Deportes de invierno, Fauna, Gastronomía,
+      Cine y televisión, Eventos y festivales, Ciudades, Arte y cultura, Yacimientos
+        arqueológicos, Actividades y aventura]
+    resourcebundle:messages_fr: [Villages, Ciel étoilé, Nature, Musique, Histoire
+        et patrimoine, Sports d’hiver, Faune sauvage, Gastronomie, Films et séries,
+      Événements et festivals, Villes, Arts et culture, Sites archéologiques, Activités
+        et aventure]
+    resourcebundle:messages_it: [Villaggi, Cielo notturno, Natura, Musica, Storia
+        e patrimonio culturale, Sport invernali, Fauna selvatica, Cibo e bevande,
+      Cinema e televisione, Eventi e festival, Città, Arte e cultura, Siti archeologici,
+      Attività e avventura]
+    resourcebundle:messages_nl: [Stadjes en dorpen, Sterrenkijken, Natuur & outdoors,
+      Muziek, Geschiedenis & erfgoed, Sneeuwsport, Wilde dieren, Eten & drinken, Film
+        & tv, Evenementen & festivals, Steden, Kunst & cultuur, Archeologische vindplaatsen,
+      Activiteiten & avontuur]
   /destinations-key-information-categories[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -44,8 +54,8 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-08-28T08:59:46.732+01:00
-    hippostdpubwf:lastModificationDate: 2026-08-28T09:14:38.726+01:00
-    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:lastModificationDate: 2026-09-21T12:46:41.969+02:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '']
     resourcebundle:id: destinations-key-information-categories
@@ -56,16 +66,26 @@
       Music, History & heritage, Snowsports, Wildlife, Food & drink, Film & TV, Events
         & festivals, Cities and towns, Arts & culture, Archaeological sites, Active
         & adventure]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+    resourcebundle:messages_de: [Städte & Dörfer, Nachthimmel, Natur, Musik, Geschichte
+        & Kultur, Wintersport, Tierwelt, Essen & Trinken, Film & Fernsehen, Veranstaltungen
+        & Festivals, Städte, Kunst & Kultur, Archäologische Stätten, Aktivitäten &
+        Abenteuer]
+    resourcebundle:messages_es: [Ciudades y pueblos, Observación de las estrellas,
+      Naturaleza, Música, Historia y patrimonio, Deportes de invierno, Fauna, Gastronomía,
+      Cine y televisión, Eventos y festivales, Ciudades, Arte y cultura, Yacimientos
+        arqueológicos, Actividades y aventura]
+    resourcebundle:messages_fr: [Villages, Ciel étoilé, Nature, Musique, Histoire
+        et patrimoine, Sports d’hiver, Faune sauvage, Gastronomie, Films et séries,
+      Événements et festivals, Villes, Arts et culture, Sites archéologiques, Activités
+        et aventure]
+    resourcebundle:messages_it: [Villaggi, Cielo notturno, Natura, Musica, Storia
+        e patrimonio culturale, Sport invernali, Fauna selvatica, Cibo e bevande,
+      Cinema e televisione, Eventi e festival, Città, Arte e cultura, Siti archeologici,
+      Attività e avventura]
+    resourcebundle:messages_nl: [Stadjes en dorpen, Sterrenkijken, Natuur & outdoors,
+      Muziek, Geschiedenis & erfgoed, Sneeuwsport, Wilde dieren, Eten & drinken, Film
+        & tv, Evenementen & festivals, Steden, Kunst & cultuur, Archeologische vindplaatsen,
+      Activiteiten & avontuur]
   /destinations-key-information-categories[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -75,9 +95,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-08-28T08:59:46.732+01:00
-    hippostdpubwf:lastModificationDate: 2026-08-28T09:14:38.726+01:00
-    hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-08-28T09:15:19.125+01:00
+    hippostdpubwf:lastModificationDate: 2026-09-21T12:46:41.969+02:00
+    hippostdpubwf:lastModifiedBy: brieuc.botte
+    hippostdpubwf:publicationDate: 2026-09-21T12:46:43.605+02:00
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '']
     resourcebundle:id: destinations-key-information-categories
@@ -88,13 +108,23 @@
       Music, History & heritage, Snowsports, Wildlife, Food & drink, Film & TV, Events
         & festivals, Cities and towns, Arts & culture, Archaeological sites, Active
         & adventure]
-    resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
-    resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', '', '', '', '',
-      '']
+    resourcebundle:messages_de: [Städte & Dörfer, Nachthimmel, Natur, Musik, Geschichte
+        & Kultur, Wintersport, Tierwelt, Essen & Trinken, Film & Fernsehen, Veranstaltungen
+        & Festivals, Städte, Kunst & Kultur, Archäologische Stätten, Aktivitäten &
+        Abenteuer]
+    resourcebundle:messages_es: [Ciudades y pueblos, Observación de las estrellas,
+      Naturaleza, Música, Historia y patrimonio, Deportes de invierno, Fauna, Gastronomía,
+      Cine y televisión, Eventos y festivales, Ciudades, Arte y cultura, Yacimientos
+        arqueológicos, Actividades y aventura]
+    resourcebundle:messages_fr: [Villages, Ciel étoilé, Nature, Musique, Histoire
+        et patrimoine, Sports d’hiver, Faune sauvage, Gastronomie, Films et séries,
+      Événements et festivals, Villes, Arts et culture, Sites archéologiques, Activités
+        et aventure]
+    resourcebundle:messages_it: [Villaggi, Cielo notturno, Natura, Musica, Storia
+        e patrimonio culturale, Sport invernali, Fauna selvatica, Cibo e bevande,
+      Cinema e televisione, Eventi e festival, Città, Arte e cultura, Siti archeologici,
+      Attività e avventura]
+    resourcebundle:messages_nl: [Stadjes en dorpen, Sterrenkijken, Natuur & outdoors,
+      Muziek, Geschiedenis & erfgoed, Sneeuwsport, Wilde dieren, Eten & drinken, Film
+        & tv, Evenementen & festivals, Steden, Kunst & cultuur, Archeologische vindplaatsen,
+      Activiteiten & avontuur]
