@@ -30,6 +30,7 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
     private static final String FORMS_BUNDLE = "forms";
     private static final String IS_FAVOURITES_PAGE = "is-favourites-page";
     private static final String FAVOURITES_SITE_ENDPOINT = "feature.favourites.endpoint";
+    private static final String FEATURE_OBS_SUBMIT_URL = "feature.obs.submit-url";
 
     private final ComparatorMapper comparisonMapper;
     private final SiteProperties properties;
@@ -57,6 +58,7 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
                 var module = comparisonMapper.map(document);
                 compositionHelper.addAllSiteLabels(OBS_BUNDLE);
                 compositionHelper.addAllSiteLabels(FORMS_BUNDLE);
+                compositionHelper.addProperty(FEATURE_OBS_SUBMIT_URL, properties.getObsSubmitUrl());
 
                 return module;
             } else if (CARBON_CALCULATOR.equals(document.getBespoken())) {

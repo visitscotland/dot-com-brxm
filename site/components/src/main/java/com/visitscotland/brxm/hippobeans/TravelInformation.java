@@ -1,10 +1,12 @@
 package com.visitscotland.brxm.hippobeans;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import com.visitscotland.brxm.hippobeans.TravelInformationTab;
 import java.util.Calendar;
+import java.util.List;
+
 
 @HippoEssentialsGenerated(internalName = "visitscotland:TravelInformation")
 @Node(jcrType = "visitscotland:TravelInformation")
@@ -19,10 +21,12 @@ public class TravelInformation extends BaseDocument {
         return getHippoHtml("visitscotland:copy");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:gettingAround")
-    public TravelInformationTab getGettingAround() {
-        return getBean("visitscotland:gettingAround",
-                TravelInformationTab.class);
+    @HippoEssentialsGenerated(internalName = "visitscotland:practicalInformation")
+    public List<HippoBean> getPracticalInformation() {
+        return getChildBeansByName(
+                "visitscotland:practicalInformation",
+                HippoBean.class
+        );
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:diff")
@@ -43,11 +47,6 @@ public class TravelInformation extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:translation")
     public String getTranslation() {
         return getSingleProperty("visitscotland:translation");
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:gettingTo")
-    public TravelInformationTab getGettingTo() {
-        return getBean("visitscotland:gettingTo", TravelInformationTab.class);
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:translationDeadline")

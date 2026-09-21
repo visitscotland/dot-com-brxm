@@ -178,3 +178,6 @@ action-lists:
     /content/documents/administration/configuration/local-feature---visitscotland.com: reload
 - 3.8.1:
     /content/documents/administration/options/form-content-types: reload
+- 3.12.1:
+    /content/documents/administration/configuration/default-site-properties: reload
+    /content/documents/administration/configuration/local---business-support-hub: reload
