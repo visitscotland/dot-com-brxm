@@ -56,15 +56,11 @@ public class CludoService {
     }
 
     public void applyConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
-        //This property is still used for bsh and be to apply search configuration to all pages.
-        //TODO: Rename this property. It is misleading
-        if (properties.isGlobalSearchDmsBased()) {
-            //TODO: The following property is not in use for the front-end. Remove
-            pageConfig.addProperty("dms-based", true);
+        if (properties.getGlobalSearchType() == SitePropertyKeys.SearchType.NAVIGATION) {
             getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("global-search.path", v));
             setGeneralCludoConfiguration(pageConfig);
-        } else {
-            applyGlobalSearchConfiguration(request, pageConfig);
+        } else if ( properties.getGlobalSearchType() == SitePropertyKeys.SearchType.SINGLE_PAGE) {
+            applySinglePageConfiguration(request, pageConfig);
         }
     }
 
@@ -84,7 +80,7 @@ public class CludoService {
      * @param request the current HST request
      * @param pageConfig the page composition helper to add configuration properties to
      */
-    private void applyGlobalSearchConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
+    private void applySinglePageConfiguration(HstRequest request, PageCompositionHelper pageConfig) {
         final boolean isSearchResultsPage = isSearchResultsPage();
         final boolean isHomepage = isHomepage(request);
 
@@ -156,7 +152,6 @@ public class CludoService {
         return ROOT_REF_ID.equals(request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getRefId());
     }
 
-    //TODO review if this method goes here
     /**
      * Creates a JSON structure representing search filters.
 
