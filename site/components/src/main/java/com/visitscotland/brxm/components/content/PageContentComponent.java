@@ -14,7 +14,7 @@ import com.visitscotland.brxm.mapper.PreviewWarningMapper;
 import com.visitscotland.brxm.mapper.module.MegalinkMapper;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.Module;
-import com.visitscotland.brxm.model.SignpostModule;
+import com.visitscotland.brxm.model.SpotlightModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
@@ -129,7 +129,7 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
 
         addHeroImage(request, pageConfig);
         addOTYML(request, pageConfig);
-        addNewsletterSignup(request);
+        addNewsletterSignup(request, pageConfig);
         addBlog(pageConfig);
 
         addMetadata(request);
@@ -238,8 +238,8 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
 
     //TODO: VS-1556: The author object should be eliminated in future iterations
     /**
-     * @deprecated It is discourage to put add objects on the root of thethe payload. This object has been duplicated
-     * into the pageIntro object
+     * @deprecated It is discourage to put add objects on the root of the payload. This object has been duplicated
+     * into the pageTemplate object
      *
      */
     @Deprecated(forRemoval = true)
@@ -250,14 +250,15 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
     }
 
     /**
-     * Adds the newsletter configuration to the request taking into account the target: (VisitScotland, Business Events or Ski)
+     * @deprecated It is discourage to put add objects on the root of the payload. This object has been duplicated
+     * into the pageTemplate object
      *
-     * @param request HstRequest
      */
-    protected void addNewsletterSignup(HstRequest request) {
+    @Deprecated(forRemoval = true)
+    protected void addNewsletterSignup(HstRequest request, PageCompositionHelper pageConfig) {
         Page page = getDocument(request);
         if (Boolean.FALSE.equals(Contract.defaultIfNull(page.getHideNewsletter(), false))) {
-            Optional<SignpostModule> signpost;
+            Optional<SpotlightModule> signpost;
             if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
                 signpost = newsletterFactory.createSnowAlertsModule(request.getLocale());
             } else {

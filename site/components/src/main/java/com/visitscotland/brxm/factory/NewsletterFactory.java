@@ -1,22 +1,14 @@
 package com.visitscotland.brxm.factory;
 
-import com.visitscotland.brxm.hippobeans.CTABanner;
-import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
-import com.visitscotland.brxm.model.Module;
-import com.visitscotland.brxm.model.SignpostModule;
-import com.visitscotland.brxm.model.ErrorModule;
-import com.visitscotland.brxm.utils.AnchorFormatter;
-import com.visitscotland.brxm.services.LinkService;
-import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.HippoHtmlWrapper;
+import com.visitscotland.brxm.model.SpotlightModule;
 import com.visitscotland.brxm.services.HippoUtilsService;
+import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.brxm.utils.HippoHtmlWrapper;
 import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
-import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
@@ -39,10 +31,10 @@ public class NewsletterFactory {
         this.hippoUtilsService = hippoUtilsService;
     }
 
-    public Optional<SignpostModule> createNewsletterSignpostModule(Locale locale) {
+    public Optional<SpotlightModule> createNewsletterSignpostModule(Locale locale) {
         String newsletterUrl = hippoUtilsService.createUrlFromNode(properties.getSiteNewsletter(), true);
         if (!Contract.isNull(newsletterUrl)) {
-            Optional<SignpostModule> signpostModule = createSignPostModule("newsletter", locale);
+            Optional<SpotlightModule> signpostModule = createSignPostModule("newsletter", locale);
             if (signpostModule.isPresent()) {
                 signpostModule.get().getCta().setLink(newsletterUrl);
                 return signpostModule;
@@ -53,12 +45,12 @@ public class NewsletterFactory {
     }
 
 
-    public Optional<SignpostModule> createSnowAlertsModule(Locale locale) {
+    public Optional<SpotlightModule> createSnowAlertsModule(Locale locale) {
         return createSignPostModule("snow-alerts", locale);
     }
 
-    private Optional<SignpostModule> createSignPostModule(String prefix, Locale locale) {
-        SignpostModule signpostModule = new SignpostModule();
+    private Optional<SpotlightModule> createSignPostModule(String prefix, Locale locale) {
+        SpotlightModule signpostModule = new SpotlightModule();
         FlatLink cta = new FlatLink(
                 bundle.getResourceBundle(BUNDLE_ID, prefix + ".cta.text", locale),
                 bundle.getResourceBundle(BUNDLE_ID, prefix + ".cta.link", locale),
