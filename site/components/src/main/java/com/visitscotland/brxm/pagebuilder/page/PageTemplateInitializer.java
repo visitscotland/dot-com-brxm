@@ -8,7 +8,7 @@ import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.mapper.module.MegalinkMapper;
-import com.visitscotland.brxm.model.SignpostModule;
+import com.visitscotland.brxm.model.SpotlightModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
@@ -134,14 +134,14 @@ public class PageTemplateInitializer  {
     /**
      * Adds the newsletter configuration to the request taking into account the target: (VisitScotland, Business Events or Ski)
      */
-    protected Optional<SignpostModule> addNewsletterSignup(PageCompositionHelper pageCompositionHelper) throws PageCompositionException {
+    protected Optional<SpotlightModule> addNewsletterSignup(PageCompositionHelper pageCompositionHelper) throws PageCompositionException {
         Page page = pageCompositionHelper.getPage();
         if (Boolean.TRUE.equals(page.getHideNewsletter())) {
             return Optional.empty();
         } else if (pageCompositionHelper.getRequestPathInfo().contains(properties.getSiteSkiSection())) {
             return newsletterFactory.createSnowAlertsModule(pageCompositionHelper.getLocale());
         } else {
-            return newsletterFactory.createNewsletterSignpostModule(pageCompositionHelper.getLocale());
+            return newsletterFactory.createNewsletterModule(pageCompositionHelper.getLocale());
         }
     }
 
