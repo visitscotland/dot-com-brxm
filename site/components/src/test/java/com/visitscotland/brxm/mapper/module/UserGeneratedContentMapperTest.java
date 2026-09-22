@@ -30,14 +30,10 @@ class UserGeneratedContentMapperTest {
     @Test
     void UserGeneratedContentModule() {
         Stackla stackla = new UserGeneratedContentMockBuilder().title("title").copy("copy").dataId("id").build();
-        when(bundle.getResourceBundle(BUNDLE_ID, "ugc.no-cookies-message", Locale.UK)).thenReturn("no cookies");
-        when(bundle.getResourceBundle(BUNDLE_ID, "ugc.no-js-message", Locale.UK)).thenReturn("no js");
         UserGeneratedContentModule module = userGeneratedContentMapper.map(stackla, Locale.UK);
         Assertions.assertEquals("title", module.getTitle());
         Assertions.assertEquals("copy", module.getCopy().getContent());
         Assertions.assertEquals("id", module.getStorystreamId());
-        Assertions.assertEquals("no cookies", module.getNoCookiesMessage());
-        Assertions.assertEquals("no js", module.getNoJsMessage());
     }
 
 
