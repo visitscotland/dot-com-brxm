@@ -31,13 +31,13 @@ public class NewsletterFactory {
         this.hippoUtilsService = hippoUtilsService;
     }
 
-    public Optional<SpotlightModule> createNewsletterSignpostModule(Locale locale) {
+    public Optional<SpotlightModule> createNewsletterModule(Locale locale) {
         String newsletterUrl = hippoUtilsService.createUrlFromNode(properties.getSiteNewsletter(), true);
         if (!Contract.isNull(newsletterUrl)) {
-            Optional<SpotlightModule> signpostModule = createSignPostModule("newsletter", locale);
-            if (signpostModule.isPresent()) {
-                signpostModule.get().getCta().setLink(newsletterUrl);
-                return signpostModule;
+            Optional<SpotlightModule> module = createSignPostModule("newsletter", locale);
+            if (module.isPresent()) {
+                module.get().getCta().setLink(newsletterUrl);
+                return module;
             }
         }
 
@@ -50,7 +50,7 @@ public class NewsletterFactory {
     }
 
     private Optional<SpotlightModule> createSignPostModule(String prefix, Locale locale) {
-        SpotlightModule signpostModule = new SpotlightModule();
+        SpotlightModule module = new SpotlightModule();
         FlatLink cta = new FlatLink(
                 bundle.getResourceBundle(BUNDLE_ID, prefix + ".cta.text", locale),
                 bundle.getResourceBundle(BUNDLE_ID, prefix + ".cta.link", locale),
@@ -62,11 +62,11 @@ public class NewsletterFactory {
 
         FlatImage image = new FlatImage();
         image.setExternalImage(bundle.getResourceBundle(BUNDLE_ID, prefix + ".image", locale));
-        signpostModule.setCta(cta);
-        signpostModule.setImage(image);
-        signpostModule.setTitle(bundle.getResourceBundle(BUNDLE_ID, prefix + ".title", locale));
-        signpostModule.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(BUNDLE_ID, prefix + ".copy", locale)));
+        module.setCta(cta);
+        module.setImage(image);
+        module.setTitle(bundle.getResourceBundle(BUNDLE_ID, prefix + ".title", locale));
+        module.setCopy(new HippoHtmlWrapper(bundle.getResourceBundle(BUNDLE_ID, prefix + ".copy", locale)));
 
-        return Optional.of(signpostModule);
+        return Optional.of(module);
     }
 }

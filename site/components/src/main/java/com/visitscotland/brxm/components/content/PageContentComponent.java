@@ -262,10 +262,10 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
             if (request.getPathInfo().contains(properties.getSiteSkiSection())) {
                 signpost = newsletterFactory.createSnowAlertsModule(request.getLocale());
             } else {
-                signpost = newsletterFactory.createNewsletterSignpostModule(request.getLocale());
+                signpost = newsletterFactory.createNewsletterModule(request.getLocale());
             }
 
-            signpost.ifPresent(signpostModule -> request.setModel(NEWSLETTER_SIGNPOST, signpostModule));
+            signpost.ifPresent(module -> request.setModel(NEWSLETTER_SIGNPOST, module));
         }
     }
 

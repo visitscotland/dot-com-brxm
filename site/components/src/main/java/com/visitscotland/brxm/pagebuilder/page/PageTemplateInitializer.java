@@ -141,7 +141,7 @@ public class PageTemplateInitializer  {
         } else if (pageCompositionHelper.getRequestPathInfo().contains(properties.getSiteSkiSection())) {
             return newsletterFactory.createSnowAlertsModule(pageCompositionHelper.getLocale());
         } else {
-            return newsletterFactory.createNewsletterSignpostModule(pageCompositionHelper.getLocale());
+            return newsletterFactory.createNewsletterModule(pageCompositionHelper.getLocale());
         }
     }
 
