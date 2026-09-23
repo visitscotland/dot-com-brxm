@@ -556,9 +556,8 @@ step_6_compose_teams() {
             "text": "$(json_escape "Release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} artefact")",
             "weight": "Bolder",
             "size": "Medium",
-            "color": "Accent",
             "separator": true,
-            "spacing": "Medium",
+            "spacing": "Large",
             "wrap": true
           }
 EOF
@@ -626,9 +625,8 @@ EOF
             "text": "SSR Package (in Jenkins)",
             "weight": "Bolder",
             "size": "Medium",
-            "color": "Accent",
             "separator": true,
-            "spacing": "Medium",
+            "spacing": "Large",
             "wrap": true
           },
           {
