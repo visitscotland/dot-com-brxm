@@ -557,7 +557,6 @@ step_6_compose_teams() {
             "weight": "Bolder",
             "size": "Medium",
             "separator": true,
-            "spacing": "Large",
             "wrap": true
           }
 EOF
@@ -589,23 +588,29 @@ EOF
       cat <<EOF
           ,
           {
-            "type": "FactSet",
-            "facts": [
+            "type": "Container",
+            "separator": true,
+            "items": [
               {
-                "title": "Build-Number",
-                "value": "$(json_escape "${VS_SITE_WAR_BUILD_NUMBER:-}")"
-              },
-              {
-                "title": "Nexus URL (hyperlink)",
-                "value": "$(json_escape "[${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}](${VS_RELEASE_PACKAGE_NEXUS_URL:-})")"
-              },
-              {
-                "title": "Nexus URL (clean link)",
-                "value": "$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")"
-              },
-              {
-                "title": "MD5 Checksum",
-                "value": "$(json_escape "${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")"
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "Build-Number",
+                    "value": "$(json_escape "${VS_SITE_WAR_BUILD_NUMBER:-}")"
+                  },
+                  {
+                    "title": "Nexus URL (hyperlink)",
+                    "value": "$(json_escape "[${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}](${VS_RELEASE_PACKAGE_NEXUS_URL:-})")"
+                  },
+                  {
+                    "title": "Nexus URL (clean link)",
+                    "value": "$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")"
+                  },
+                  {
+                    "title": "MD5 Checksum",
+                    "value": "$(json_escape "${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")"
+                  }
+                ]
               }
             ]
           }
@@ -626,23 +631,28 @@ EOF
             "weight": "Bolder",
             "size": "Medium",
             "separator": true,
-            "spacing": "Large",
             "wrap": true
           },
           {
-            "type": "FactSet",
-            "facts": [
+            "type": "Container",
+            "separator": true,
+            "items": [
               {
-                "title": "URL (hyperlink)",
-                "value": "$(json_escape "[${VS_SSR_PACKAGE_NAME:-}](${VS_SSR_ARCHIVED_PACKAGE_URL:-})")"
-              },
-              {
-                "title": "URL (clean link)",
-                "value": "$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")"
-              },
-              {
-                "title": "MD5 Checksum",
-                "value": "$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")"
+                "type": "FactSet",
+                "facts": [
+                  {
+                    "title": "URL (hyperlink)",
+                    "value": "$(json_escape "[${VS_SSR_PACKAGE_NAME:-}](${VS_SSR_ARCHIVED_PACKAGE_URL:-})")"
+                  },
+                  {
+                    "title": "URL (clean link)",
+                    "value": "$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")"
+                  },
+                  {
+                    "title": "MD5 Checksum",
+                    "value": "$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")"
+                  }
+                ]
               }
             ]
           }
