@@ -26,6 +26,7 @@
 #   - email.subject.txt      Single-line email subject
 #   - email.recipients.txt   Comma-separated recipient list
 #   - email.body.html         Rendered HTML email body
+#   - teams.payload.json      Rendered Teams Adaptive Card payload
 #
 # Execution model:
 #   - Intended to run inside a Jenkins workspace with SCM context available.
