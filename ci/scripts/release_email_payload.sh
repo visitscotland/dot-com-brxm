@@ -190,6 +190,19 @@ get_manifest_from_tar() {
   printf '%s' "$manifest"
 }
 
+# helper function to prevent chars from URLs, filenames, etc. from being embedded into JSON
+json_escape() {
+  local s="${1:-}"
+
+  s="${s//\\/\\\\}"
+  s="${s//\"/\\\"}"
+  s="${s//$'\n'/\\n}"
+  s="${s//$'\r'/\\r}"
+  s="${s//$'\t'/\\t}"
+
+  printf '%s' "$s"
+}
+
 # helper function for .war projects (like vs-dms-products)
 get_manifest_from_war() {
   local war_file="$1"
