@@ -478,7 +478,7 @@ pipeline {
             }
         }
 
-        stage('Send email') {
+        stage('Send release notifications') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     // Wrap all Groovy logic in a script block
@@ -495,6 +495,11 @@ pipeline {
                         def emailSubjectFile = "${outDir}/email.subject.txt"
                         def emailBodyFile = "${outDir}/email.body.html"
                         def emailRecipientsFile = "${outDir}/email.recipients.txt"
+                        def teamsPayloadFile = "${outDir}/teams.payload.json"
+
+                        // -----------------------------------------------------
+                        // Email
+                        // -----------------------------------------------------
                         emailext(
                                 // trimming, as we might have trailing newlines from printf, or editors
                                 subject: readFile(emailSubjectFile).trim(),
@@ -503,6 +508,9 @@ pipeline {
                                 mimeType: 'text/html'
                         )
 
+                        // -----------------------------------------------------
+                        // Jenkins HTML report
+                        // -----------------------------------------------------
                         publishHTML target: [
                                 allowMissing: true,
                                 alwaysLinkToLastBuild: false,
@@ -512,6 +520,27 @@ pipeline {
                                 reportName: 'VS Release Details',
                                 reportTitles: ''
                         ]
+
+                        // -----------------------------------------------------
+                        // Teams
+                        // -----------------------------------------------------
+                        // A broken Teams notification will be visible, but not release-breaking
+                        withCredentials([
+                            string(
+                                credentialsId: 'teams-release-notifications-webhook',
+                                variable: 'TEAMS_WEBHOOK_URL'
+                            )
+                        ]) {
+                            sh """
+                                set +x
+
+                                curl --fail --silent --show-error \
+                                    -X POST \
+                                    -H "Content-Type: application/json" \
+                                    --data-binary @${teamsPayloadFile} \
+                                    "\$TEAMS_WEBHOOK_URL"
+                            """
+                        }
                     }
                 }
             }
