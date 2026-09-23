@@ -556,7 +556,9 @@ step_6_compose_teams() {
             "text": "$(json_escape "Release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} artefact")",
             "weight": "Bolder",
             "size": "Medium",
+            "color": "Accent",
             "separator": true,
+            "spacing": "Medium",
             "wrap": true
           }
 EOF
@@ -600,7 +602,7 @@ EOF
               },
               {
                 "title": "Nexus URL (clean link)",
-                "value": "$(json_escape "[${VS_RELEASE_PACKAGE_NEXUS_URL:-}](${VS_RELEASE_PACKAGE_NEXUS_URL:-})")"
+                "value": "$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")"
               },
               {
                 "title": "MD5 Checksum",
@@ -624,7 +626,9 @@ EOF
             "text": "SSR Package (in Jenkins)",
             "weight": "Bolder",
             "size": "Medium",
+            "color": "Accent",
             "separator": true,
+            "spacing": "Medium",
             "wrap": true
           },
           {
@@ -636,7 +640,7 @@ EOF
               },
               {
                 "title": "URL (clean link)",
-                "value": "$(json_escape "[${VS_SSR_ARCHIVED_PACKAGE_URL:-}](${VS_SSR_ARCHIVED_PACKAGE_URL:-})")"
+                "value": "$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")"
               },
               {
                 "title": "MD5 Checksum",
