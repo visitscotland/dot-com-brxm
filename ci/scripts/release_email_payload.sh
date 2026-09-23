@@ -552,12 +552,18 @@ step_6_compose_teams() {
             "wrap": true
           },
           {
-            "type": "TextBlock",
-            "text": "$(json_escape "Release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} artefact")",
-            "weight": "Bolder",
-            "size": "Medium",
+            "type": "Container",
+            "style": "emphasis",
             "separator": true,
-            "wrap": true
+            "items": [
+              {
+                "type": "TextBlock",
+                "text": "$(json_escape "Release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} artefact")",
+                "weight": "Bolder",
+                "size": "Medium",
+                "wrap": true
+              }
+            ]
           }
 EOF
 
@@ -626,12 +632,18 @@ EOF
       cat <<EOF
           ,
           {
-            "type": "TextBlock",
-            "text": "SSR Package (in Jenkins)",
-            "weight": "Bolder",
-            "size": "Medium",
+            "type": "Container",
+            "style": "emphasis",
             "separator": true,
-            "wrap": true
+            "items": [
+              {
+                "type": "TextBlock",
+                "text": "SSR Package (in Jenkins)",
+                "weight": "Bolder",
+                "size": "Medium",
+                "wrap": true
+              }
+            ]
           },
           {
             "type": "Container",
