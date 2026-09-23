@@ -582,10 +582,24 @@ EOF
       cat <<EOF
           ,
           {
-            "type": "TextBlock",
-            "text": "$(json_escape "$teams_error")",
-            "color": "Attention",
-            "wrap": true
+            "type": "Container",
+            "style": "attention",
+            "separator": true,
+            "items": [
+              {
+                "type": "TextBlock",
+                "text": "Release errors",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention",
+                "wrap": true
+              },
+              {
+                "type": "TextBlock",
+                "text": "$(json_escape "$teams_error")",
+                "wrap": true
+              }
+            ]
           }
 EOF
 
@@ -715,7 +729,7 @@ USAGE
 
 main() {
   case "$MODE" in
-    all)   step_1_find_distro; step_2_parse_log; step_3_extract_build_number; step_4_parse_pom; step_5_compose_email; step_6_compose_teams ;;
+    all)   step_1_find_distro; step_2_parse_log; step_3_extract_build_number; step_4_parse_pom; step_5_compose_email; VS_PIPELINE_OUTCOME_EMAIL="ERROR"; step_6_compose_teams ;;
     step1) step_1_find_distro ;;
     step2) step_2_parse_log ;;
     step3) step_3_extract_build_number ;;
