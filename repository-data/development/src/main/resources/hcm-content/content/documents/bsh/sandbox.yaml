@@ -9274,7 +9274,7 @@
             jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
             jcr:uuid: 0579a9e1-ceb2-4835-80de-faf175f0e077
             hippo:name: Palisis/TourCMS
-            hippo:versionHistory: 756d59b5-3c39-41ea-9ac7-f30976ac8080
+            hippo:versionHistory: 3abf24c7-183d-4f85-9d0b-203bc8c11b60
             /palisis-tourcms[1]:
               jcr:primaryType: visitscotland:ComparatorSystem
               jcr:mixinTypes: ['mix:referenceable']
@@ -9284,8 +9284,8 @@
               hippostd:state: draft
               hippostdpubwf:createdBy: bsh-editor
               hippostdpubwf:creationDate: 2025-07-26T11:09:57.723Z
-              hippostdpubwf:lastModificationDate: 2025-07-29T16:45:23.774Z
-              hippostdpubwf:lastModifiedBy: bsh-editor
+              hippostdpubwf:lastModificationDate: 2026-09-25T10:44:36.764+01:00
+              hippostdpubwf:lastModifiedBy: admin
               hippotranslation:id: d658ff04-2223-48a9-b637-1e0c8c94ebc6
               hippotranslation:locale: en
               visitscotland:features: [accounting-integration, business-support, cloud-based-updates,
@@ -9294,7 +9294,7 @@
                 onboarding, ota-apis, payment-processing, rules-based-pricing, travel-agent-portal,
                 visitor-check-in, whatsapp, setup-fee, annual-monthly, commission-only,
                 credit-debit-card, additional-fee-channel-manager]
-              visitscotland:name: Palisis/TourCMS
+              visitscotland:name: Palisis
               visitscotland:referral: ''
               visitscotland:url: https://www.palisis.com/
               /visitscotland:description:
@@ -9315,8 +9315,8 @@
               hippostd:state: unpublished
               hippostdpubwf:createdBy: bsh-editor
               hippostdpubwf:creationDate: 2025-07-26T11:09:57.723Z
-              hippostdpubwf:lastModificationDate: 2025-07-29T16:45:23.742Z
-              hippostdpubwf:lastModifiedBy: bsh-editor
+              hippostdpubwf:lastModificationDate: 2026-09-25T10:44:52.500+01:00
+              hippostdpubwf:lastModifiedBy: admin
               hippotranslation:id: d658ff04-2223-48a9-b637-1e0c8c94ebc6
               hippotranslation:locale: en
               visitscotland:features: [accounting-integration, business-support, cloud-based-updates,
@@ -9325,7 +9325,7 @@
                 onboarding, ota-apis, payment-processing, rules-based-pricing, travel-agent-portal,
                 visitor-check-in, whatsapp, setup-fee, annual-monthly, commission-only,
                 credit-debit-card, additional-fee-channel-manager]
-              visitscotland:name: Palisis/TourCMS
+              visitscotland:name: Palisis
               visitscotland:referral: ''
               visitscotland:url: https://www.palisis.com/
               /visitscotland:description:
@@ -9346,9 +9346,9 @@
               hippostd:state: published
               hippostdpubwf:createdBy: bsh-editor
               hippostdpubwf:creationDate: 2025-07-26T11:09:57.723Z
-              hippostdpubwf:lastModificationDate: 2025-07-29T16:45:23.742Z
-              hippostdpubwf:lastModifiedBy: bsh-editor
-              hippostdpubwf:publicationDate: 2025-07-30T13:57:19.521+01:00
+              hippostdpubwf:lastModificationDate: 2026-09-25T10:44:52.500+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2026-09-25T10:45:01.290+01:00
               hippotranslation:id: d658ff04-2223-48a9-b637-1e0c8c94ebc6
               hippotranslation:locale: en
               visitscotland:features: [accounting-integration, business-support, cloud-based-updates,
@@ -9357,7 +9357,7 @@
                 onboarding, ota-apis, payment-processing, rules-based-pricing, travel-agent-portal,
                 visitor-check-in, whatsapp, setup-fee, annual-monthly, commission-only,
                 credit-debit-card, additional-fee-channel-manager]
-              visitscotland:name: Palisis/TourCMS
+              visitscotland:name: Palisis
               visitscotland:referral: ''
               visitscotland:url: https://www.palisis.com/
               /visitscotland:description:
