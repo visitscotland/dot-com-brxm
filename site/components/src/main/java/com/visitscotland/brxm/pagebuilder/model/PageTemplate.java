@@ -1,10 +1,8 @@
 package com.visitscotland.brxm.pagebuilder.model;
 
 import com.visitscotland.brxm.hippobeans.Page;
-import com.visitscotland.brxm.model.FlatBlog;
-import com.visitscotland.brxm.model.FlatImage;
+import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
-import com.visitscotland.brxm.model.SignpostModule;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.HorizontalListLinksModule;
 import com.visitscotland.brxm.model.megalinks.LinksModule;
@@ -12,6 +10,7 @@ import com.visitscotland.brxm.model.megalinks.LinksModule;
 public class PageTemplate extends Module<Page> {
 
     private LinksModule<EnhancedLink> categorySection;
+    private DestinationKeyInformationModule keyInformationPanel;
     private SignpostModule newsletter;
     private FlatBlog author;
     private FlatImage heroImage;
@@ -68,5 +67,13 @@ public class PageTemplate extends Module<Page> {
 
     public void setOtyml(HorizontalListLinksModule otyml) {
         this.otyml = otyml;
+    }
+
+    public DestinationKeyInformationModule getKeyInformationPanel() {
+        return keyInformationPanel;
+    }
+
+    public void setKeyInformationPanel(DestinationKeyInformationModule keyInformationPanel) {
+        this.keyInformationPanel = keyInformationPanel;
     }
 }

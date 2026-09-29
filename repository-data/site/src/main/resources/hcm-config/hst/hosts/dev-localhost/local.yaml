@@ -15,7 +15,7 @@ definitions:
           hst:mountpoint: /hst:visitscotland/hst:sites/business-events
           hst:pagemodelapi: resourceapi
           hst:responseheaders: ['Access-Control-Allow-Origin: *']
-          visitscotland:cmsProperties: cms.local.config
+          visitscotland:cmsProperties: local.be-site.config
           visitscotland:siteProperties: be.local.config
           hst:nochannelinfo: true
           /api:
@@ -36,7 +36,7 @@ definitions:
           hst:mountpoint: /hst:visitscotland/hst:sites/bsh
           hst:pagemodelapi: resourceapi
           hst:responseheaders: ['Access-Control-Allow-Origin: *']
-          visitscotland:cmsProperties: cms.local.config
+          visitscotland:cmsProperties: local.bsh-site.config
           visitscotland:siteProperties: bsh.local.config
           hst:nochannelinfo: true
           /api:
