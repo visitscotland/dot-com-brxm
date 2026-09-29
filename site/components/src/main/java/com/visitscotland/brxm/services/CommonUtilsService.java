@@ -162,7 +162,8 @@ public class CommonUtilsService {
      * Generates a version identifier for a taxonomy dataset.
      *
      * <p>This method serializes the given data structure into JSON,
-     * computes its MD5 hash, and encodes it using Base64.</p>
+     * computes its MD5 hash, and encodes it using Base64.
+     * MD5 is used here for fast checksumming, not cryptographic security </p>
      *
      * @param data the taxonomy data to version
      * @return a Base64-encoded MD5 hash representing the data version

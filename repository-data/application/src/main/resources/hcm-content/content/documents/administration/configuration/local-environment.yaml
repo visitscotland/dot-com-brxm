@@ -1,10 +1,10 @@
 /content/documents/administration/configuration/local-environment:
-  .meta:order-before: business-events-local-properties
+  .meta:order-before: feature---cms-properties
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 45278688-f372-4427-8e15-6b177cf51cc1
   hippo:name: Local - CMS Properties
-  hippo:versionHistory: bfd0e39c-90a3-4c09-b8f3-2487b3ff3022
+  hippo:versionHistory: 8be118bd-bcbc-4908-ba48-23f636fa097b
   /local-environment[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -12,10 +12,9 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
-    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2025-10-06T15:21:18.557+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-12T14:57:57.446+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -34,7 +33,7 @@
         \ the locale parameter allows to use a different language for the labels\r\
         \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
       '', '', '', '', '']
-    resourcebundle:id: cms.local.config
+    resourcebundle:id: local.cms.config
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
@@ -63,7 +62,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-04-29T14:58:46.182+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-12T14:58:06.107+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
@@ -82,7 +81,7 @@
         \ the locale parameter allows to use a different language for the labels\r\
         \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
       '', '', '', '', '']
-    resourcebundle:id: cms.local.config
+    resourcebundle:id: local.cms.config
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,
@@ -111,9 +110,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2024-04-29T14:58:46.182+01:00
+    hippostdpubwf:lastModificationDate: 2026-05-12T14:58:06.107+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2024-10-07T11:35:14.935+01:00
+    hippostdpubwf:publicationDate: 2026-05-12T15:03:31.976+01:00
     resourcebundle:descriptions: [Client Token for Instagram request, "Token that\
         \ identifies calls made to vs-dms-products as internal calls giving access\
         \ to wider data\r\n\r\nThis token is configured by the environment variable\
@@ -131,7 +130,7 @@
         \ the locale parameter allows to use a different language for the labels\r\
         \n\r\nTHE VALUE OF THIS PROPERTY DOES NOT CHANGE THE PATH OF THE ENDPOINTS",
       '', '', '', '', '']
-    resourcebundle:id: cms.local.config
+    resourcebundle:id: local.cms.config
     resourcebundle:keys: [instagram.accesstoken, dms-data.api-key, instagram.app-id,
       links.use-relative-urls, links.cms-base-path.url, links.vs-dms-products.url,
       dms-data.public-url, dms-data.private-url, youtube.api-key, data-internal.path,

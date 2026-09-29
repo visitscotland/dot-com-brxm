@@ -1,0 +1,20 @@
+/content/documents/administration/options/search-widget-types:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: bb45b9c9-8842-495b-8517-684ebc35f13a
+  hippo:name: Search - Widget types
+  /search-widget-types:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: d599f0f3-9e5b-4ed2-b6fe-7af17635794b
+    hippo:availability: [live, preview]
+    hippotranslation:id: be941c1c-1dac-4d2b-91e0-f303e1f360a5
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: search-widget
+      selection:label: Search Widget
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: search-widget-events
+      selection:label: Search Widget Events

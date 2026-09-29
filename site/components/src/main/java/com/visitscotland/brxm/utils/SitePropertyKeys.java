@@ -57,9 +57,12 @@ public final class SitePropertyKeys {
     public static final String GLOBAL_SEARCH_DMS_BASED = "feature.global-search.dms-based";
     public static final String GLOBAL_SEARCH_EVENTS_ENDPOINT = "feature.global-search.events-endpoint";
     public static final String GLOBAL_SEARCH_LOGIC = "feature.global-search.logic";
+    public static final String FAVOURITES_BASE_URL = "feature.favourites.share-service-base-url";
+    public static final String FAVOURITES_SHARE_URL = "feature.favourites.share-url";
     public static final String FAVOURITES_PAGE_ENABLED = "feature.favourites.enable";
     public static final String FAVOURITES_PAGE_URL = "feature.favourites.url";
     public static final String FAVOURITES_PAGE_ENDPOINT = "feature.favourites.endpoint";
+    public static final String OBS_SUBMIT_URL = "feature.obs.submit-url";
     public static final String FEATURE_HERO_SECTION = "feature.hero-section.enable";
     public static final String TABLE_OF_CONTENTS_ENABLED = "feature.table-of-contents.enable";
     public static final String SEARCH_WIDGET = "feature.search-widget.enable";

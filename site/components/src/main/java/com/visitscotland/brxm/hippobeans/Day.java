@@ -10,7 +10,6 @@ import java.util.Calendar;
 @HippoEssentialsGenerated(internalName = "visitscotland:Day")
 @Node(jcrType = "visitscotland:Day")
 public class Day extends BaseDocument {
-
     @HippoEssentialsGenerated(internalName = "visitscotland:title")
     public String getTitle() {
         return getSingleProperty("visitscotland:title");
@@ -24,11 +23,6 @@ public class Day extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:stops", allowModifications = false)
     public List<Stop> getStops() {
         return getLinkedBeans("visitscotland:stops", Stop.class);
-    }
-
-    @HippoEssentialsGenerated(internalName = "visitscotland:transports")
-    public String[] getTransports() {
-        return getMultipleProperty("visitscotland:transports");
     }
 
     @HippoEssentialsGenerated(internalName = "visitscotland:diff")
@@ -69,5 +63,14 @@ public class Day extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "visitscotland:media", allowModifications = false)
     public List<HippoBean> getMedia() {
         return getMedia("visitscotland:media");
+    }
+
+    public HippoBean getMediaItem() {
+        return getOnlyChild(getMedia());
+    }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:mediaCollection")
+    public MediaCollection getMediaCollection() {
+        return getBean("visitscotland:mediaCollection", MediaCollection.class);
     }
 }

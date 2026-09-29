@@ -1,14 +1,15 @@
 package com.visitscotland.brxm.model;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.visitscotland.brxm.hippobeans.DevModule;
+import com.visitscotland.brxm.hippobeans.SearchWidget;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 import java.util.Map;
 
-public class SearchWidgetModule extends Module<DevModule>{
+public class SearchWidgetModule extends Module<SearchWidget>{
 
     private String title;
-    private String description;
+    private HippoHtml introduction;
     private String button;
     private String placeholder;
     private String mainCategory;
@@ -17,7 +18,7 @@ public class SearchWidgetModule extends Module<DevModule>{
     private JsonNode filters;
     private String id;
 
-     public SearchWidgetModule(DevModule hippoBean, String id) {
+     public SearchWidgetModule(SearchWidget hippoBean, String id) {
         setHippoBean(hippoBean);
         setId(id);
     }
@@ -30,12 +31,12 @@ public class SearchWidgetModule extends Module<DevModule>{
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public HippoHtml getIntroduction() {
+        return introduction;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setIntroduction(HippoHtml description) {
+        this.introduction = description;
     }
 
     public String getPlaceholder() {

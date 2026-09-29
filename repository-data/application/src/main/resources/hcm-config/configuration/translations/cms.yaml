@@ -45,6 +45,7 @@ definitions:
       visitscotland:itinerary-stop-validator: Stops must be unique.
       visitscotland:otyml-unique-link-validator: OTYML links must be unique.
       visitscotland:megalinks-unique-link-validator: Megalinks links must be unique.
+      visitscotland:destination-highligths-validator: Category must be unique.
       visitscotland:travel-tab-transport-validator: Travel type must be unique.
       visitscotland:link-validator#author: You can’t link to that type of document.
         Choose an Author Profile document.
@@ -132,3 +133,6 @@ definitions:
         your administrator if this persists.
       visitscotland:cta-label-validator#exception: An exception occurred. Please
         contact your administrator if this persists
+      visitscotland:max-two-checkbox-validator: You can select a maximum of 2 transports
+      visitscotland:season-exclusive-validator: You can only select 'All year' or individual seasons, not both.
+      visitscotland:media-collection-validator: Media collection image and video links can not be empty.

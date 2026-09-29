@@ -14,6 +14,7 @@ public class ArticleModule extends Module<Article> {
     private EnhancedLink video;
     private boolean nested;
     private String layout;
+    private MediaSection mediaSection;
 
     public FlatImage getImage() {
         return image;
@@ -69,5 +70,13 @@ public class ArticleModule extends Module<Article> {
 
     public void setLayout(String layout) {
         this.layout = layout;
+    }
+
+    public MediaSection getMediaSection() {
+        return mediaSection;
+    }
+
+    public void setMediaSection(MediaSection mediaSection) {
+        this.mediaSection = mediaSection;
     }
 }

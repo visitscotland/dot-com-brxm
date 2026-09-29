@@ -29,7 +29,6 @@ public class PageAssembler {
     static final String PAGE_ITEMS = "pageItems";
     static final String DEFAULT = "default";
 
-
     //Utils
     private final DocumentUtilsService documentUtils;
 
@@ -50,6 +49,7 @@ public class PageAssembler {
     private final FormMapper formMapper;
     private final CTABannerMapper ctaBannerMapper;
     private final EventsListingMapper eventsListingMapper;
+    private final SearchWidgetMapper searchWidgetMapper;
     private final SpotlightMapper spotlightMapper;
     private final DayMapper dayMapper;
 
@@ -64,7 +64,7 @@ public class PageAssembler {
                          SkiCentreListMapper skiCentreListMapper, DevModuleMapper devModuleMapper,
                          LongCopyMapper longCopyMapper, CannedSearchMapper cannedSearchMapper,
                          CannedSearchDMSMapper cannedSearchDMSMapper, FormMapper formMapper,
-                         CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper,
+                         CTABannerMapper ctaBannerMapper, EventsListingMapper eventsListingMapper, SearchWidgetMapper searchWidgetMapper,
                          SpotlightMapper spotlightMapper, DayMapper dayMapper, ContentLogger contentLogger) {
         this.documentUtils = documentUtils;
         this.megalinkMapper = megalinkMapper;
@@ -83,6 +83,7 @@ public class PageAssembler {
         this.formMapper = formMapper;
         this.ctaBannerMapper = ctaBannerMapper;
         this.eventsListingMapper = eventsListingMapper;
+        this.searchWidgetMapper = searchWidgetMapper;
         this.spotlightMapper = spotlightMapper;
         this.dayMapper = dayMapper;
         this.contentLogger = contentLogger;
@@ -102,7 +103,7 @@ public class PageAssembler {
                 if (e instanceof InvalidContentException){
                     contentLogger.error(e.getMessage());
                 } else {
-                    logger.error(e.getMessage());
+                    logger.error(e.getMessage(), e);
                 }
                 page.addModule(previewWarningMapper.createErrorModule(item, e.getMessage()));
             } catch (RuntimeException e) {
@@ -157,7 +158,10 @@ public class PageAssembler {
             eventsListingMapper.include((EventsListing) item, compositionHelper);
         } else if (item instanceof Day){
             dayMapper.include((Day) item, compositionHelper);
-        } else {
+        } else if (item instanceof SearchWidget){
+            searchWidgetMapper.include((SearchWidget) item, compositionHelper);
+        }
+        else {
             throw new PageCompositionException(item.getPath(), String.format("Unrecognized Module Type: %s", item.getClass()));
         }
     }

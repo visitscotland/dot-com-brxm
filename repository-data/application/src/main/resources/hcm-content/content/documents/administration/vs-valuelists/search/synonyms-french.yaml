@@ -1,0 +1,413 @@
+/content/documents/administration/vs-valuelists/search/synonyms-french:
+  .meta:order-before: synonyms-dutch
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: a145540a-506c-4179-b108-64499f9e5192
+  hippo:name: Synonyms French
+  /synonyms-french:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 03df1df5-513b-4c0e-8892-38f97943213a
+    hippo:availability: [live, preview]
+    hippotranslation:id: 035be049-6a88-43af-96fe-845d4d6c1da9
+    hippotranslation:locale: fr
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: abbazia d'arbroath
+      selection:label: Abbazia di Arbroath
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: andrew
+      selection:label: St Andrews
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: arthur seat
+      selection:label: Arthur's Seat
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: asexual
+      selection:label: LGBT
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: asexuel
+      selection:label: LGBT
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: auctamuchtie
+      selection:label: Auchtermuchty
+    /selection:listitem[7]:
+      jcr:primaryType: selection:listitem
+      selection:key: aéroport
+      selection:label: Airport
+    /selection:listitem[8]:
+      jcr:primaryType: selection:listitem
+      selection:key: ballater
+      selection:label: Ballater
+    /selection:listitem[9]:
+      jcr:primaryType: selection:listitem
+      selection:key: ballindalloch
+      selection:label: Ballindalloch
+    /selection:listitem[10]:
+      jcr:primaryType: selection:listitem
+      selection:key: bisexual
+      selection:label: LGBT
+    /selection:listitem[11]:
+      jcr:primaryType: selection:listitem
+      selection:key: bobby greyfriars
+      selection:label: Greyfriars Bobby
+    /selection:listitem[12]:
+      jcr:primaryType: selection:listitem
+      selection:key: cairngorms
+      selection:label: Cairngorms
+    /selection:listitem[13]:
+      jcr:primaryType: selection:listitem
+      selection:key: capodanno
+      selection:label: New Year
+    /selection:listitem[14]:
+      jcr:primaryType: selection:listitem
+      selection:key: capodanno
+      selection:label: New Year
+    /selection:listitem[15]:
+      jcr:primaryType: selection:listitem
+      selection:key: celtic connections
+      selection:label: Celtic Connections
+    /selection:listitem[16]:
+      jcr:primaryType: selection:listitem
+      selection:key: celtic festival
+      selection:label: Celtic Festival
+    /selection:listitem[17]:
+      jcr:primaryType: selection:listitem
+      selection:key: château balmoral
+      selection:label: Balmoral Castle
+    /selection:listitem[18]:
+      jcr:primaryType: selection:listitem
+      selection:key: château d'edinburgh
+      selection:label: Edinburgh Castle
+    /selection:listitem[19]:
+      jcr:primaryType: selection:listitem
+      selection:key: château eilean donan
+      selection:label: Eilean Donan Castle
+    /selection:listitem[20]:
+      jcr:primaryType: selection:listitem
+      selection:key: châteaux
+      selection:label: Castles
+    /selection:listitem[21]:
+      jcr:primaryType: selection:listitem
+      selection:key: clamis castle
+      selection:label: Glamis Castle
+    /selection:listitem[22]:
+      jcr:primaryType: selection:listitem
+      selection:key: comédie
+      selection:label: Comedy Shows
+    /selection:listitem[23]:
+      jcr:primaryType: selection:listitem
+      selection:key: cliffrock
+      selection:label: Cliff Rock
+    /selection:listitem[24]:
+      jcr:primaryType: selection:listitem
+      selection:key: collines
+      selection:label: Hills
+    /selection:listitem[25]:
+      jcr:primaryType: selection:listitem
+      selection:key: comédie
+      selection:label: Comedy
+    /selection:listitem[26]:
+      jcr:primaryType: selection:listitem
+      selection:key: concert
+      selection:label: Concert
+    /selection:listitem[27]:
+      jcr:primaryType: selection:listitem
+      selection:key: cornemuses
+      selection:label: Bagpipes
+    /selection:listitem[28]:
+      jcr:primaryType: selection:listitem
+      selection:key: culloden
+      selection:label: Culloden
+    /selection:listitem[29]:
+      jcr:primaryType: selection:listitem
+      selection:key: dunblane
+      selection:label: Dunblane
+    /selection:listitem[30]:
+      jcr:primaryType: selection:listitem
+      selection:key: dundee
+      selection:label: Dundee
+    /selection:listitem[31]:
+      jcr:primaryType: selection:listitem
+      selection:key: dundee city
+      selection:label: Dundee City
+    /selection:listitem[32]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinburgh
+      selection:label: Edinburgh
+    /selection:listitem[33]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinburgh castle
+      selection:label: Edinburgh Castle
+    /selection:listitem[34]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinburgh dungeon
+      selection:label: Edinburgh Dungeon
+    /selection:listitem[35]:
+      jcr:primaryType: selection:listitem
+      selection:key: edinburgh zoo
+      selection:label: Edinburgh Zoo
+    /selection:listitem[36]:
+      jcr:primaryType: selection:listitem
+      selection:key: festival
+      selection:label: fringe
+    /selection:listitem[37]:
+      jcr:primaryType: selection:listitem
+      selection:key: festivals
+      selection:label: Festivals
+    /selection:listitem[38]:
+      jcr:primaryType: selection:listitem
+      selection:key: fin d'année
+      selection:label: New Year
+    /selection:listitem[39]:
+      jcr:primaryType: selection:listitem
+      selection:key: foire
+      selection:label: Market
+    /selection:listitem[40]:
+      jcr:primaryType: selection:listitem
+      selection:key: foire
+      selection:label: Fair
+    /selection:listitem[41]:
+      jcr:primaryType: selection:listitem
+      selection:key: foire
+      selection:label: Local Fair
+    /selection:listitem[42]:
+      jcr:primaryType: selection:listitem
+      selection:key: gairloch
+      selection:label: Gairloch
+    /selection:listitem[43]:
+      jcr:primaryType: selection:listitem
+      selection:key: gay
+      selection:label: LGBT
+    /selection:listitem[44]:
+      jcr:primaryType: selection:listitem
+      selection:key: glasgow
+      selection:label: Glasgow
+    /selection:listitem[45]:
+      jcr:primaryType: selection:listitem
+      selection:key: glasgow film festival
+      selection:label: Glasgow Film Festival
+    /selection:listitem[46]:
+      jcr:primaryType: selection:listitem
+      selection:key: glbt
+      selection:label: LGBT
+    /selection:listitem[47]:
+      jcr:primaryType: selection:listitem
+      selection:key: highland games
+      selection:label: Highland Games
+    /selection:listitem[48]:
+      jcr:primaryType: selection:listitem
+      selection:key: highlands
+      selection:label: Highlands
+    /selection:listitem[49]:
+      jcr:primaryType: selection:listitem
+      selection:key: hogmanay
+      selection:label: Hogmanay
+    /selection:listitem[50]:
+      jcr:primaryType: selection:listitem
+      selection:key: holyrood
+      selection:label: Holyrood
+    /selection:listitem[51]:
+      jcr:primaryType: selection:listitem
+      selection:key: holyrood palace
+      selection:label: Holyrood Palace
+    /selection:listitem[52]:
+      jcr:primaryType: selection:listitem
+      selection:key: houseboat
+      selection:label: Houseboat
+    /selection:listitem[53]:
+      jcr:primaryType: selection:listitem
+      selection:key: inver
+      selection:label: Inverness
+    /selection:listitem[54]:
+      jcr:primaryType: selection:listitem
+      selection:key: inveraray
+      selection:label: Inveraray
+    /selection:listitem[55]:
+      jcr:primaryType: selection:listitem
+      selection:key: inveraray castle
+      selection:label: Inveraray Castle
+    /selection:listitem[56]:
+      jcr:primaryType: selection:listitem
+      selection:key: inverness
+      selection:label: Inverness
+    /selection:listitem[57]:
+      jcr:primaryType: selection:listitem
+      selection:key: joan o groats
+      selection:label: John O Groats
+    /selection:listitem[58]:
+      jcr:primaryType: selection:listitem
+      selection:key: jour de saint-andrews
+      selection:label: St Andrews Day
+    /selection:listitem[59]:
+      jcr:primaryType: selection:listitem
+      selection:key: kelvingrove gallery
+      selection:label: Kelvingrove Art Gallery
+    /selection:listitem[60]:
+      jcr:primaryType: selection:listitem
+      selection:key: kilmarnock
+      selection:label: Kilmarnock
+    /selection:listitem[61]:
+      jcr:primaryType: selection:listitem
+      selection:key: kirkcaldy
+      selection:label: Kirkcaldy
+    /selection:listitem[62]:
+      jcr:primaryType: selection:listitem
+      selection:key: lac
+      selection:label: Loch
+    /selection:listitem[63]:
+      jcr:primaryType: selection:listitem
+      selection:key: lacs
+      selection:label: Lakes
+    /selection:listitem[64]:
+      jcr:primaryType: selection:listitem
+      selection:key: lesbienne
+      selection:label: Lesbian
+    /selection:listitem[65]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbt
+      selection:label: LGBT
+    /selection:listitem[66]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbt+
+      selection:label: LGBT
+    /selection:listitem[67]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbtq
+      selection:label: LGBT
+    /selection:listitem[68]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbtq+
+      selection:label: LGBT
+    /selection:listitem[69]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbtqi
+      selection:label: LGBT
+    /selection:listitem[70]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbtqi+
+      selection:label: LGBT
+    /selection:listitem[71]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbtqia
+      selection:label: LGBT
+    /selection:listitem[72]:
+      jcr:primaryType: selection:listitem
+      selection:key: lgbtqia+
+      selection:label: LGBT
+    /selection:listitem[73]:
+      jcr:primaryType: selection:listitem
+      selection:key: littérature
+      selection:label: Literature
+    /selection:listitem[74]:
+      jcr:primaryType: selection:listitem
+      selection:key: mappa orkady
+      selection:label: Orkney Map
+    /selection:listitem[75]:
+      jcr:primaryType: selection:listitem
+      selection:key: marché
+      selection:label: Market
+    /selection:listitem[76]:
+      jcr:primaryType: selection:listitem
+      selection:key: mille royale
+      selection:label: Royal Mile
+    /selection:listitem[77]:
+      jcr:primaryType: selection:listitem
+      selection:key: musique
+      selection:label: Music
+    /selection:listitem[78]:
+      jcr:primaryType: selection:listitem
+      selection:key: musée
+      selection:label: Museum
+    /selection:listitem[79]:
+      jcr:primaryType: selection:listitem
+      selection:key: north coast 500
+      selection:label: North Coast 500
+    /selection:listitem[80]:
+      jcr:primaryType: selection:listitem
+      selection:key: nouvel an
+      selection:label: New Year
+    /selection:listitem[81]:
+      jcr:primaryType: selection:listitem
+      selection:key: noël
+      selection:label: Christmas
+    /selection:listitem[82]:
+      jcr:primaryType: selection:listitem
+      selection:key: outer hebrides
+      selection:label: Outer Hebrides
+    /selection:listitem[83]:
+      jcr:primaryType: selection:listitem
+      selection:key: parc national
+      selection:label: National Park
+    /selection:listitem[84]:
+      jcr:primaryType: selection:listitem
+      selection:key: queer
+      selection:label: LGBT
+    /selection:listitem[85]:
+      jcr:primaryType: selection:listitem
+      selection:key: ring of brodgar
+      selection:label: Ring of Brodgar
+    /selection:listitem[86]:
+      jcr:primaryType: selection:listitem
+      selection:key: rosslyn chapel
+      selection:label: Rosslyn Chapel
+    /selection:listitem[87]:
+      jcr:primaryType: selection:listitem
+      selection:key: scone palace
+      selection:label: Scone Palace
+    /selection:listitem[88]:
+      jcr:primaryType: selection:listitem
+      selection:key: siège d'arthur
+      selection:label: Arthur's Seat
+    /selection:listitem[89]:
+      jcr:primaryType: selection:listitem
+      selection:key: skara brae
+      selection:label: Skara Brae
+    /selection:listitem[90]:
+      jcr:primaryType: selection:listitem
+      selection:key: st andrews
+      selection:label: St Andrews
+    /selection:listitem[91]:
+      jcr:primaryType: selection:listitem
+      selection:key: st andrews golf course
+      selection:label: St Andrews Golf Course
+    /selection:listitem[92]:
+      jcr:primaryType: selection:listitem
+      selection:key: terres hautes
+      selection:label: Highlands
+    /selection:listitem[93]:
+      jcr:primaryType: selection:listitem
+      selection:key: théâtre
+      selection:label: Theatre
+    /selection:listitem[94]:
+      jcr:primaryType: selection:listitem
+      selection:key: trans
+      selection:label: LGBT
+    /selection:listitem[95]:
+      jcr:primaryType: selection:listitem
+      selection:key: écosse
+      selection:label: Scotland
+    /selection:listitem[96]:
+      jcr:primaryType: selection:listitem
+      selection:key: édimbourg
+      selection:label: Edinburgh
+    /selection:listitem[97]:
+      jcr:primaryType: selection:listitem
+      selection:key: événements
+      selection:label: Events
+    /selection:listitem[98]:
+      jcr:primaryType: selection:listitem
+      selection:key: île
+      selection:label: Island
+    /selection:listitem[99]:
+      jcr:primaryType: selection:listitem
+      selection:key: île d'arran
+      selection:label: Isle of Arran
+    /selection:listitem[100]:
+      jcr:primaryType: selection:listitem
+      selection:key: île de skye
+      selection:label: Isle of Skye

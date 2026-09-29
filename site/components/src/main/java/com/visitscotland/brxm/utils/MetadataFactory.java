@@ -26,7 +26,6 @@ public class MetadataFactory {
     private String ciFilePath;
 
     private String getVersionNumber() {
-        //Sets the version number as a Freemarker shared variable, so it can be inserted to all pages.
         if (About.getVersion().equals("Unknown")) {
             return getClass().getPackage().getImplementationVersion();
         } else {

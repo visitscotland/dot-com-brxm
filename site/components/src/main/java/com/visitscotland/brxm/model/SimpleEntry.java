@@ -7,6 +7,9 @@ public class SimpleEntry {
     private String key;
     private String value;
 
+    public SimpleEntry() {
+    }
+
     public SimpleEntry(Entry entry) {
         this.key = entry.getKey();
         this.value = entry.getValue();

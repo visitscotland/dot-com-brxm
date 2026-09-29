@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 89a4b335-a008-4cb6-8f69-cffeec8f23e1
+          jcr:uuid: d4c5417d-e5d6-4d4d-9509-6ac61a2ca77e
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -42,6 +42,7 @@ definitions:
             hipposysedit:path: visitscotland:gettingTo
             hipposysedit:primary: false
             hipposysedit:type: visitscotland:TravelInformationTab
+            hipposysedit:validators: [optional]
           /gettingAround:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -50,6 +51,7 @@ definitions:
             hipposysedit:path: visitscotland:gettingAround
             hipposysedit:primary: false
             hipposysedit:type: visitscotland:TravelInformationTab
+            hipposysedit:validators: [optional]
           /translation:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -58,6 +60,13 @@ definitions:
             hipposysedit:path: visitscotland:translation
             hipposysedit:primary: false
             hipposysedit:type: OpenUiString
+          /practicalInformation:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:practicalInformation
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -70,28 +79,10 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: eeacdce5-e458-4a5c-bc43-ac28e901f2d7
+          jcr:uuid: d122150f-b45c-485f-9990-96bd23e3b0c2
           hippostdpubwf:lastModificationDate: 2021-06-11T10:13:33.356+01:00
           hippostdpubwf:creationDate: 2021-06-11T10:13:33.356+01:00
           visitscotland:translation: ''
-          /visitscotland:gettingTo:
-            jcr:primaryType: visitscotland:TravelInformationTab
-            visitscotland:title: Getting to
-            /visitscotland:accordion:
-              jcr:primaryType: visitscotland:TravelInformationTransportRow
-              visitscotland:transport: ''
-              /visitscotland:copy:
-                jcr:primaryType: hippostd:html
-                hippostd:content: ''
-          /visitscotland:gettingAround:
-            jcr:primaryType: visitscotland:TravelInformationTab
-            visitscotland:title: Getting around
-            /visitscotland:accordion:
-              jcr:primaryType: visitscotland:TravelInformationTransportRow
-              visitscotland:transport: ''
-              /visitscotland:copy:
-                jcr:primaryType: hippostd:html
-                hippostd:content: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -130,9 +121,25 @@ definitions:
               ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
                 \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:375\
                 \   }  }"
+          /practicalInformation:
+            jcr:primaryType: frontend:plugin
+            caption: Practical Information
+            compoundList: visitscotland:TravelInformationArticle,visitscotland:TravelInformationTab
+            contentPickerType: links
+            field: practicalInformation
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              compoundNamesMaxLength: 90
+              maxitems: 3
+              showCompoundNames: false
+              showTitles: false
+              startCollapsed: false
+              titleMapping: []
           /gettingTo:
             jcr:primaryType: frontend:plugin
-            caption: Getting to
+            caption: Getting to (Deprecated)
             field: gettingTo
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -141,7 +148,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /gettingAround:
             jcr:primaryType: frontend:plugin
-            caption: Getting Around
+            caption: Getting Around (Deprecated)
             field: gettingAround
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin

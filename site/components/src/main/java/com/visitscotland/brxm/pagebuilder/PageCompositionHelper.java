@@ -3,37 +3,100 @@ package com.visitscotland.brxm.pagebuilder;
 import com.visitscotland.brxm.components.content.PageContentComponent;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.Module;
+import com.visitscotland.brxm.pagebuilder.model.PageTemplate;
+import com.visitscotland.brxm.pagebuilder.page.PageTemplateAssembler;
 import com.visitscotland.brxm.services.ResourceBundleService;
+import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.core.component.HstRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
-import static com.visitscotland.brxm.components.content.PageContentComponent.LABELS;
-import static com.visitscotland.brxm.components.content.PageContentComponent.PAGE_CONFIGURATION;
 import static com.visitscotland.brxm.services.ResourceBundleService.GLOBAL_BUNDLE_FILE;
 
 public class PageCompositionHelper {
 
+    private static final Logger logger = LoggerFactory.getLogger(PageCompositionHelper.class);
+
+    public static final String LABELS = "labels";
+    public static final String PAGE_CONFIGURATION = PageContentComponent.PAGE_CONFIGURATION;
+    public static final String PAGE_TEMPLATE = "pageTemplate";
+
     private final ResourceBundleService bundle;
     private final HstRequest request;
     private final CompositionModel model;
+    private PageTemplate pageTemplate;
 
     public PageCompositionHelper(ResourceBundleService bundle, HstRequest request) {
-        this.bundle = Objects.requireNonNull(bundle,  "bundle must not be null");
+        this(bundle, null, request);
+    }
+
+    public PageCompositionHelper(ResourceBundleService bundle, PageTemplateAssembler pageTemplateAssembler, HstRequest request) {
+        this.bundle = Objects.requireNonNull(bundle, "bundle must not be null");
         this.request = Objects.requireNonNull(request, "request must not be null");
         this.model = new CompositionModel();
+
+        if (pageTemplateAssembler != null) {
+            setupPageTemplate(pageTemplateAssembler);
+        }
     }
 
     public Locale getLocale(){
         return request.getLocale();
     }
 
-    public Page getPage() throws PageCompositionException {
+    public Optional<PageTemplate> getPageTemplate() {
+        if (pageTemplate != null) {
+            return Optional.of(pageTemplate);
+        } else if (request.getModel(PAGE_TEMPLATE) != null) {
+            pageTemplate = request.getModel(PAGE_TEMPLATE);
+            return Optional.of(request.getModel(PAGE_TEMPLATE));
+        } else {
+            return Optional.empty();
+        }
+    }
+
+
+    /**
+     * Sets up the page intro template by assembling it from the page document.
+     * If the pageTemplateAssembler is null, creates a basic PageTemplate with an error message.
+     * Caches the result in both "pageIntro" and PAGE_TEMPLATE model attributes.
+     *
+     * @return the assembled PageTemplate template
+     */
+    private void setupPageTemplate(PageTemplateAssembler pageTemplateAssembler) {
+        if (getPageTemplate().isPresent()) {
+            logger.warn("Page template already exists and some data might have been lost.");
+            return;
+        }
+
+        PageTemplate template;
+        Page page = null;
+
+        try {
+            page = getPage();
+            template = pageTemplateAssembler.from(this);
+        } catch (PageCompositionException e) {
+            template = new PageTemplate(page);
+            template.addErrorMessage(e.getMessage());
+        }
+
+        //TODO: pageIntro might be replaced by pageTemplate
+        request.setModel("pageIntro", template);
+        request.setModel(PAGE_TEMPLATE, template);
+
+        this.pageTemplate = template;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <P extends Page> P getPage() throws PageCompositionException {
         Object page = request.getAttribute(PageContentComponent.DOCUMENT);
         if (page == null){
             throw new PageCompositionException("The page document hasn't been defined");
-        } else if (page  instanceof Page){
-            return (Page) page;
+        } else if (page instanceof Page){
+            return (P) page;
         } else  {
             throw new PageCompositionException("The main document is not a Page instance. Class = " + page.getClass().getSimpleName());
         }
@@ -45,6 +108,10 @@ public class PageCompositionHelper {
     @Deprecated(forRemoval = true)
     public HstRequest getRequest() {
         return request;
+    }
+
+    public String getRequestPathInfo(){
+        return request.getPathInfo();
     }
 
     public void addModule(Module<?> module){
@@ -77,6 +144,9 @@ public class PageCompositionHelper {
     public void addAllSiteLabels(String bundleName) {
         labels().put(bundleName, bundle.getAllLabels(bundleName, getLocale()));
     }
+    public void addAllLabelsSpecificName(String bundleName, String nodeName) {
+        labels().put(nodeName, bundle.getAllLabels(bundleName, getLocale()));
+    }
 
     /**
      * Adds only the keys and values explicitly defined by the site, without falling back to the default version.
@@ -104,6 +174,38 @@ public class PageCompositionHelper {
         return labels;
     }
 
+    //TODO review and move to Cludoservice if possible
+    public Map<String, String> addValueListLabels(String bundleName, Map<String, String> valueList, String nodeName) {
+        Map<String, String> resolvedLabels = new HashMap<>();
+        if (valueList == null || valueList.isEmpty()) {
+            return resolvedLabels;
+        }
+
+        for (Map.Entry<String, String> entry : valueList.entrySet()) {
+            String value = entry.getValue();
+            String label = bundle.getResourceBundle(bundleName, entry.getKey(), getLocale());
+
+            if (Contract.isEmpty(label)) {
+                label = value;
+            }
+
+            resolvedLabels.put(value, label);
+        }
+
+        Map<String, String> sorted = resolvedLabels.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue(String.CASE_INSENSITIVE_ORDER))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (a, b) -> a,
+                        LinkedHashMap::new
+                ));
+
+        labels().put(nodeName, sorted);
+        return sorted;
+    }
+
     private Map<String, Object> pageConfiguration() {
         Map<String, Object> cfg = request.getModel(PAGE_CONFIGURATION);
 
@@ -121,10 +223,6 @@ public class PageCompositionHelper {
         } else {
             pageConfiguration().put(key, value);
         }
-    }
-
-    public void addRequestModel(String key, Object value) {
-        request.setModel(key, value);
     }
 
     public String calculateAlignment(){

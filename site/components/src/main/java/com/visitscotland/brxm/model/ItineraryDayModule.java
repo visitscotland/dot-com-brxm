@@ -1,6 +1,8 @@
 package com.visitscotland.brxm.model;
 
 import com.visitscotland.brxm.hippobeans.Day;
+import com.visitscotland.brxm.model.megalinks.Entry;
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
@@ -11,10 +13,13 @@ public class ItineraryDayModule extends Module<Day> {
 
     private String title;
     private HippoHtml introduction;
-    private String[] transports;
+    private List<Entry> transports;
     private FlatLink mapLink;
     private FlatLink ctaLink;
-    private List<HippoBean> media;
+    private FlatImage image;
+    private EnhancedLink video;
+    private MediaSection mediaSection;
+    private IntraDayModule intraDayModule;
 
     public String getTitle() {
         return title;
@@ -32,11 +37,11 @@ public class ItineraryDayModule extends Module<Day> {
         this.introduction = introduction;
     }
 
-    public String[] getTransports() {
+    public List<Entry> getTransports() {
         return transports;
     }
 
-    public void setTransports(String[] transports) {
+    public void setTransports(List<Entry> transports) {
         this.transports = transports;
     }
 
@@ -56,11 +61,36 @@ public class ItineraryDayModule extends Module<Day> {
         this.ctaLink = ctaLink;
     }
 
-    public List<HippoBean> getMedia() {
-        return media;
+    public MediaSection getMediaSection() {
+        return mediaSection;
     }
 
-    public void setMedia(List<HippoBean> media) {
-        this.media = media;
+    public void setMediaSection(MediaSection mediaSection) {
+        this.mediaSection = mediaSection;
+    }
+
+    public IntraDayModule getIntraDayModule() {
+        return intraDayModule;
+    }
+
+    public void setIntraDayModule(IntraDayModule intraDayModule) {
+        this.intraDayModule = intraDayModule;
+
+    }
+
+    public FlatImage getImage() {
+        return image;
+    }
+
+    public void setImage(FlatImage image) {
+        this.image = image;
+    }
+
+    public EnhancedLink getVideo() {
+        return video;
+    }
+
+    public void setVideo(EnhancedLink video) {
+        this.video = video;
     }
 }

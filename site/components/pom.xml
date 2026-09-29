@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.visitscotland</groupId>
     <artifactId>dot-com-brxm-site</artifactId>
-    <version>3.2.4-SNAPSHOT</version>
+    <version>3.12.3-SNAPSHOT</version>
   </parent>
   <artifactId>dot-com-brxm-components</artifactId>
   <packaging>jar</packaging>
@@ -20,11 +20,6 @@
     <dependency>
       <groupId>org.apache.taglibs</groupId>
       <artifactId>taglibs-standard-impl</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.freemarker</groupId>
-      <artifactId>freemarker</artifactId>
     </dependency>
 
     <dependency>

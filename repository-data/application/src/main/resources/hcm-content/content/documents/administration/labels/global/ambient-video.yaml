@@ -1,0 +1,52 @@
+/content/documents/administration/labels/global/ambient-video:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: dd942140-2f09-4bd4-80b2-02e0681bdb5d
+  hippo:name: Ambient Video
+  hippo:versionHistory: 570d12ff-ea70-45c2-95cd-ccaf3af085ce
+  /ambient-video[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 29621247-d72c-4b57-b38a-f95812732fc5
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-04-14T17:15:23.714+01:00
+    hippostdpubwf:lastModificationDate: 2026-04-14T17:15:23.714+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: ambient-video
+    resourcebundle:keys: [play-button.aria, pause-button.text, play-button.text, pause-button.aria]
+    resourcebundle:messages: [Playing, Pause Video, Play Video, Paused]
+  /ambient-video[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 24d783ad-5750-4937-ad60-72fbdcbf4607
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-04-14T17:15:23.714+01:00
+    hippostdpubwf:lastModificationDate: 2026-04-14T17:19:56.359+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: ambient-video
+    resourcebundle:keys: [play-button.aria, pause-button.text, play-button.text, pause-button.aria]
+    resourcebundle:messages: [Playing, Pause Video, Play Video, Paused]
+  /ambient-video[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 15099ecc-a57c-4562-98ad-f35ea1417d9d
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-04-14T17:15:23.714+01:00
+    hippostdpubwf:lastModificationDate: 2026-04-14T17:19:56.359+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-04-14T17:20:12.208+01:00
+    resourcebundle:descriptions: ['', '', '', '']
+    resourcebundle:id: ambient-video
+    resourcebundle:keys: [play-button.aria, pause-button.text, play-button.text, pause-button.aria]
+    resourcebundle:messages: [Playing, Pause Video, Play Video, Paused]
