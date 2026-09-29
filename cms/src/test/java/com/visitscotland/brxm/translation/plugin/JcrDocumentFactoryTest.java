@@ -12,11 +12,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class JcrDocumentFactoryTest {
+class JcrDocumentFactoryTest {
     @Test
-    public void constructor() throws Exception {
+    void constructor() throws Exception {
         Node sourceNode = mock(Node.class);
         when(sourceNode.isNodeType(JcrDocument.HIPPO_HANDLE)).thenReturn(true);
+        when(sourceNode.isNodeType(JcrDocument.HIPPO_NAMESPACE)).thenReturn(false);
         JcrDocument document = new JcrDocumentFactory().createFromNode(sourceNode);
         assertNotNull(document);
         assertSame(sourceNode, document.getHandle());
