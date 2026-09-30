@@ -605,34 +605,63 @@ EOF
 
     else
 
-      cat <<EOF
+# FactSet version (Column 1: Label | COlumn 2: Value)
+#       cat <<EOF
+#           ,
+#           {
+#             "type": "Container",
+#             "separator": true,
+#             "items": [
+#               {
+#                 "type": "FactSet",
+#                 "facts": [
+#                   {
+#                     "title": "Build-Number",
+#                     "value": "$(json_escape "${VS_SITE_WAR_BUILD_NUMBER:-}")"
+#                   },
+#                   {
+#                     "title": "Nexus URL (hyperlink)",
+#                     "value": "$(json_escape "[${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}](${VS_RELEASE_PACKAGE_NEXUS_URL:-})")"
+#                   },
+#                   {
+#                     "title": "Nexus URL (clean link)",
+#                     "value": "$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")"
+#                   },
+#                   {
+#                     "title": "MD5 Checksum",
+#                     "value": "$(json_escape "${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")"
+#                   }
+#                 ]
+#               }
+#             ]
+#           }
+# EOF
+
+cat <<EOF
           ,
           {
-            "type": "Container",
-            "separator": true,
-            "items": [
-              {
-                "type": "FactSet",
-                "facts": [
-                  {
-                    "title": "Build-Number",
-                    "value": "$(json_escape "${VS_SITE_WAR_BUILD_NUMBER:-}")"
-                  },
-                  {
-                    "title": "Nexus URL (hyperlink)",
-                    "value": "$(json_escape "[${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}](${VS_RELEASE_PACKAGE_NEXUS_URL:-})")"
-                  },
-                  {
-                    "title": "Nexus URL (clean link)",
-                    "value": "$(json_escape "${VS_RELEASE_PACKAGE_NEXUS_URL:-}")"
-                  },
-                  {
-                    "title": "MD5 Checksum",
-                    "value": "$(json_escape "${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")"
-                  }
-                ]
-              }
-            ]
+            "type": "TextBlock",
+            "text": "$(json_escape "**Build-Number**
+${VS_SITE_WAR_BUILD_NUMBER:-}")",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "**Nexus URL (hyperlink)**
+[${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}](${VS_RELEASE_PACKAGE_NEXUS_URL:-})")",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "**Nexus URL (clean link)**
+${VS_RELEASE_PACKAGE_NEXUS_URL:-}")",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "**MD5 Checksum**
+${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")",
+            "wrap": true
           }
 EOF
 
@@ -642,6 +671,48 @@ EOF
     # SSR package - only when it exists
     # ---------------------------------------------------------------
     if [[ -n "${VS_SSR_ARCHIVED_PACKAGE_URL:-}" ]]; then
+
+# FactSet version (Column 1: Label | COlumn 2: Value)
+#       cat <<EOF
+#           ,
+#           {
+#             "type": "Container",
+#             "style": "emphasis",
+#             "separator": true,
+#             "items": [
+#               {
+#                 "type": "TextBlock",
+#                 "text": "SSR Package (in Jenkins)",
+#                 "weight": "Bolder",
+#                 "size": "Medium",
+#                 "wrap": true
+#               }
+#             ]
+#           },
+#           {
+#             "type": "Container",
+#             "separator": true,
+#             "items": [
+#               {
+#                 "type": "FactSet",
+#                 "facts": [
+#                   {
+#                     "title": "URL (hyperlink)",
+#                     "value": "$(json_escape "[${VS_SSR_PACKAGE_NAME:-}](${VS_SSR_ARCHIVED_PACKAGE_URL:-})")"
+#                   },
+#                   {
+#                     "title": "URL (clean link)",
+#                     "value": "$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")"
+#                   },
+#                   {
+#                     "title": "MD5 Checksum",
+#                     "value": "$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")"
+#                   }
+#                 ]
+#               }
+#             ]
+#           }
+# EOF
 
       cat <<EOF
           ,
@@ -660,27 +731,22 @@ EOF
             ]
           },
           {
-            "type": "Container",
-            "separator": true,
-            "items": [
-              {
-                "type": "FactSet",
-                "facts": [
-                  {
-                    "title": "URL (hyperlink)",
-                    "value": "$(json_escape "[${VS_SSR_PACKAGE_NAME:-}](${VS_SSR_ARCHIVED_PACKAGE_URL:-})")"
-                  },
-                  {
-                    "title": "URL (clean link)",
-                    "value": "$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_URL:-}")"
-                  },
-                  {
-                    "title": "MD5 Checksum",
-                    "value": "$(json_escape "${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")"
-                  }
-                ]
-              }
-            ]
+            "type": "TextBlock",
+            "text": "$(json_escape "**URL (hyperlink)**
+[${VS_SSR_PACKAGE_NAME:-}](${VS_SSR_ARCHIVED_PACKAGE_URL:-})")",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "**URL (clean link)**
+${VS_SSR_ARCHIVED_PACKAGE_URL:-}")",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "**MD5 Checksum**
+${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")",
+            "wrap": true
           }
 EOF
 
