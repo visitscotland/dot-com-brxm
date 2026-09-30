@@ -647,13 +647,7 @@ ${VS_SITE_WAR_BUILD_NUMBER:-}")",
           },
           {
             "type": "TextBlock",
-            "text": "$(json_escape "**Nexus URL (hyperlink)**
-[${VS_RELEASE_CANDIDATE_NEXUS_FILENAME:-}](${VS_RELEASE_PACKAGE_NEXUS_URL:-})")",
-            "wrap": true
-          },
-          {
-            "type": "TextBlock",
-            "text": "$(json_escape "**Nexus URL (clean link)**
+            "text": "$(json_escape "**Nexus URL (direct link)**
 ${VS_RELEASE_PACKAGE_NEXUS_URL:-}")",
             "wrap": true
           },
@@ -732,13 +726,7 @@ EOF
           },
           {
             "type": "TextBlock",
-            "text": "$(json_escape "**URL (hyperlink)**
-[${VS_SSR_PACKAGE_NAME:-}](${VS_SSR_ARCHIVED_PACKAGE_URL:-})")",
-            "wrap": true
-          },
-          {
-            "type": "TextBlock",
-            "text": "$(json_escape "**URL (clean link)**
+            "text": "$(json_escape "**Jenkins URL (direct link)**
 ${VS_SSR_ARCHIVED_PACKAGE_URL:-}")",
             "wrap": true
           },
