@@ -2,7 +2,7 @@ package com.visitscotland.brxm.resource;
 
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import java.util.function.Predicate;
 import java.util.stream.Collectors;

@@ -12,6 +12,12 @@
   <description>www.visitscotland.com CMS Pages Site Components</description>
 
   <dependencies>
+<!--      TODO: This library might be in use. Otherwise, remove after DS-1931 is completed-->
+<!--    <dependency>-->
+<!--      <groupId>jakarta.servlet.jsp</groupId>-->
+<!--      <artifactId>jsp-api</artifactId>-->
+<!--    </dependency>-->
+
     <dependency>
       <groupId>org.apache.taglibs</groupId>
       <artifactId>taglibs-standard-spec</artifactId>

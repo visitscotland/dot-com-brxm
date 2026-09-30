@@ -9,7 +9,6 @@ import org.onehippo.taxonomy.api.Taxonomy;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 import java.util.*;
 
 /**
