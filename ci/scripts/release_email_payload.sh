@@ -615,7 +615,7 @@ ${VS_SITE_WAR_BUILD_NUMBER:-}")",
           },
           {
             "type": "TextBlock",
-            "text": "$(json_escape "**Nexus URL (direct link)**
+            "text": "$(json_escape "**Nexus URL**
 ${VS_RELEASE_PACKAGE_NEXUS_URL:-}")",
             "wrap": true
           },
@@ -633,7 +633,7 @@ EOF
     # SSR package - only when it exists
     # ---------------------------------------------------------------
     if [[ -n "${VS_SSR_ARCHIVED_PACKAGE_URL:-}" ]]; then
-    
+
       cat <<EOF
           ,
           {
@@ -652,7 +652,7 @@ EOF
           },
           {
             "type": "TextBlock",
-            "text": "$(json_escape "**Jenkins URL (direct link)**
+            "text": "$(json_escape "**Jenkins URL**
 ${VS_SSR_ARCHIVED_PACKAGE_URL:-}")",
             "wrap": true
           },
