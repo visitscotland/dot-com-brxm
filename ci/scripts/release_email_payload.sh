@@ -231,15 +231,17 @@ step_1_find_distro() {
 
     # 1) Detect SSR package: keep it, but do NOT treat it as main distro
     if [[ $lower == *ssr* && $filename == *.tar.gz ]]; then
-      VS_SSR_PACKAGE_NAME="$filename"
-      VS_SSR_ARCHIVED_PACKAGE_PATH="$f"
+      # Check whether SSR is enabled or disabled, based on the env variable: VS_SSR_PROXY_ON
+      if [[ "${VS_SSR_PROXY_ON:-FALSE}" == "TRUE" ]]; then
+        VS_SSR_PACKAGE_NAME="$filename"
+        VS_SSR_ARCHIVED_PACKAGE_PATH="$f"
 
-      # Compute MD5
-      VS_SSR_ARCHIVED_PACKAGE_MD5="$(md5_for_file "$f")"
+        # Compute MD5
+        VS_SSR_ARCHIVED_PACKAGE_MD5="$(md5_for_file "$f")"
 
-      # Construct the Jenkins URL to the SSR archived artifact
-      VS_SSR_ARCHIVED_PACKAGE_URL="${BUILD_URL%/}/artifact/target/${filename}"
-
+        # Construct the Jenkins URL to the SSR archived artifact
+        VS_SSR_ARCHIVED_PACKAGE_URL="${BUILD_URL%/}/artifact/target/${filename}"
+      fi
       # continue → do NOT add SSR to main distro list
       continue
     fi
@@ -473,7 +475,7 @@ HTML_HEAD
       "${BUILD_NUMBER:-?}" \
       "$VS_PIPELINE_OUTCOME_EMAIL"
 
-    echo "<p>Here are the details for the artefacts (distribution/release and SSR packages) related to this build.</p>"
+    echo "<p>Here are the artefact details related to this build.</p>"
     printf '<h2>Release v%s artefact</h2>\n' "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}"
 
     if [[ -n "${VS_ERROR_LINES_EMAIL:-}" ]]; then
@@ -548,7 +550,7 @@ step_6_compose_teams() {
           },
           {
             "type": "TextBlock",
-            "text": "Here are the details for the artefacts (distribution/release and SSR packages) related to this build.",
+            "text": "Here are the artefact details related to this build.",
             "wrap": true
           },
           {

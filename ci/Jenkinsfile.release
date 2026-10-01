@@ -440,6 +440,10 @@ pipeline {
         }
 
         stage('SSR Package URL, MD5') {
+            // ensure that the stage runs only when VS_SSR_PROXY_ON is set to true
+            when {
+                environment name: 'VS_SSR_PROXY_ON', value: 'TRUE'
+            }
             steps {
                 // only enter block if the build processes have been successful (might not be needed)
                 script {
@@ -448,12 +452,6 @@ pipeline {
                         // archiveArtifacts artifacts: 'target/*.gz', excludes: 'target/*/*'
                         // Archive a single artifact (just the SSR package)
                         archiveArtifacts artifacts: "${VS_SSR_PACKAGE_PATH}"
-                    }
-                }
-            }
-            post {
-                success {
-                    script {
                         echo "SSR package has been archived successfully. Constructing its URL..."
                         // sample URL of an archived SSR package, for reference
                         // https://jenkinssb.visitscotland.com/job/release.automation/job/release%252F2.0.32/2/artifact/target/vs-ssr-package.tar.gz
@@ -470,6 +468,8 @@ pipeline {
                         echo "env.VS_SSR_ARCHIVED_PACKAGE_MD5 = ${env.VS_SSR_ARCHIVED_PACKAGE_MD5}"
                     }
                 }
+            }
+            post {
                 failure {
                     script {
                         echo "Failed stage: 'SSR Package URL, MD5'"
