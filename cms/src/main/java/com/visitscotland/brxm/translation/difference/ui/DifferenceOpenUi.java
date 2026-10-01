@@ -2,6 +2,7 @@ package com.visitscotland.brxm.translation.difference.ui;
 
 import com.visitscotland.brxm.translation.SessionFactory;
 import com.visitscotland.brxm.translation.TranslationService;
+import com.visitscotland.brxm.translation.plugin.InvalidStateException;
 import com.visitscotland.brxm.translation.plugin.JcrDocument;
 import com.visitscotland.brxm.translation.plugin.JcrDocumentFactory;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -80,8 +81,10 @@ public class DifferenceOpenUi {
                 model.addAttribute(ATTR_TRANSLATION_FLAG, translationService.getTranslationFlag(document));
                 return FOREIGN_TEMPLATE;
             }
-        } catch(RepositoryException ex) {
+        } catch (RepositoryException ex) {
             return gotoErrorPage(ex, model);
+        } catch (InvalidStateException e) {
+            return EMPTY_TEMPLATE;
         }
     }
 
