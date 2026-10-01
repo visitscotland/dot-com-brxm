@@ -21,9 +21,9 @@ public class ProviderNameValidator implements Validator<Node> {
 
     private static final Logger logger = LoggerFactory.getLogger(ProviderNameValidator.class);
 
-    private final String NAME_PROPERTY = "visitscotland:name";
+    private static final String NAME_PROPERTY = "visitscotland:name";
 
-    private final List<String> ILLEGAL_CHARS = Arrays.asList("\\","?","*",":","[","]");
+    private static final List<String> ILLEGAL_CHARS = Arrays.asList("\\","?","*",":","[","]");
 
     @Override
     public Optional<Violation> validate(ValidationContext context, Node node) {
