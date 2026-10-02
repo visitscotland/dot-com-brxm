@@ -366,7 +366,6 @@
         <spring.profiles.active>${cliOptions}</spring.profiles.active>
       </properties>
       <modules>
-        <module>ui-integration</module>
         <module>cms-dependencies</module>
         <module>repository-data</module>
         <module>cms</module>

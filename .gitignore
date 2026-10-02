@@ -5,25 +5,11 @@ repository-data/application/src/main/resources/hcm-content/content/*
 repository-data/application/src/main/resources/hcm-content/content/documents/*
 !repository-data/application/src/main/resources/hcm-content/content/documents/administration
 
-# Front-end webfiles artefacts
-repository-data/webfiles/src/main/resources/site/frontend/
-repository-data/webfiles/src/main/resources/site/static/
-repository-data/webfiles/src/main/resources/site/freemarker/frontend/
-
-#Other front-end assets
-node_modules/
-*.bundle.map
-*.css.map
-.env
-
-#Any component library changes imported from Yalc
-ui-integration/.yalc/
-ui-integration/yalc.lock
-
 #BloomReach CMS Related files
 essentials/overlays/
 repository-data/webfiles/coverage/
 configuration-verifier-output
+
 #Back-end assets
 target/
 storage*/
@@ -43,6 +29,22 @@ storage*/
 #VSCODE
 .vscode/
 
-# JENKINS CI
+### JENKINS CI
 ci/logs/
 ci/temp/
+
+# ---------------- To be removed
+# Front-end webfiles artefacts
+repository-data/webfiles/src/main/resources/site/frontend/
+repository-data/webfiles/src/main/resources/site/static/
+repository-data/webfiles/src/main/resources/site/freemarker/frontend/
+
+#Other front-end assets
+node_modules/
+*.bundle.map
+*.css.map
+.env
+
+#Any component library changes imported from Yalc
+ui-integration/.yalc/
+ui-integration/yalc.lock
