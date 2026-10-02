@@ -123,8 +123,8 @@ public class SiteProperties extends Properties {
         return readBoolean(GLOBAL_SEARCH_ENABLED);
     }
 
-    public boolean isGlobalSearchDmsBased() {
-        return readBoolean(GLOBAL_SEARCH_DMS_BASED);
+    public SearchType getGlobalSearchType() {
+        return SearchType.fromValue(readString(GLOBAL_SEARCH_TYPE));
     }
 
     public String getObsSubmitUrl() {

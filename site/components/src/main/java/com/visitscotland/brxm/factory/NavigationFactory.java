@@ -96,8 +96,8 @@ public class NavigationFactory {
     private Object getMenuItem(HstRequest request, HstSiteMenuItem hstItem, String resourceBundle) {
         MenuItem menuItem = new MenuItem(hstItem);
 
-        //By default, the name would be populated by the resourceBundle
-        menuItem.setTitle(bundle.getResourceBundle(resourceBundle, hstItem.getName(), request.getLocale()));
+        //By default, the name would be populated from the resourceBundle
+        menuItem.setTitle(bundle.getResourceBundle(resourceBundle, hstItem.getName(), request.getLocale(), true));
 
         //if document base page or widget, we enhance the document
         if (isDocumentBased(hstItem.getHstLink()) && hstItem.resolveToSiteMapItem() != null) {
@@ -125,6 +125,7 @@ public class NavigationFactory {
             return menuItem;
         } else {
             //Menu Items with no title cannot be displayed, so they are not included in the list of menu Items.
+            logger.info("No menu item found for {} - {}", resourceBundle, hstItem.getName());
             return null;
         }
     }
@@ -175,7 +176,7 @@ public class NavigationFactory {
             if (cmsLink.getLink() instanceof Linkable){
                 Optional<EnhancedLink> optionalLink = linkService.createEnhancedLink((Linkable) cmsLink.getLink(), widget, request.getLocale(), false);
 
-                if (!optionalLink.isPresent()) {
+                if (optionalLink.isEmpty()) {
                     contentLogger.warn("Failed to create widget: {}. Check link is published & valid", document.getPath());
                     continue;
                 }

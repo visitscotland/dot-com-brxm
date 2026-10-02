@@ -4,6 +4,20 @@ public final class SitePropertyKeys {
     
     private SitePropertyKeys(){}
 
+    public enum SearchType {
+        NAVIGATION, SINGLE_PAGE, NONE;
+        public static SearchType fromValue (String value){
+            if (value != null) {
+                for (SearchType type : values()) {
+                    if (value.equals(type.name())) {
+                        return type;
+                    }
+                }
+            }
+            return NONE;
+        }
+    }
+
     public static final String DEFAULT_CONFIG = "default.site.config";
     public static final String OVERRIDE_PROPERTY = "visitscotland:siteProperties";
 
@@ -54,7 +68,7 @@ public final class SitePropertyKeys {
 
     //Feature switch
     public static final String GLOBAL_SEARCH_ENABLED = "feature.global-search.enable";
-    public static final String GLOBAL_SEARCH_DMS_BASED = "feature.global-search.dms-based";
+    public static final String GLOBAL_SEARCH_TYPE = "feature.global-search.type";
     public static final String GLOBAL_SEARCH_EVENTS_ENDPOINT = "feature.global-search.events-endpoint";
     public static final String GLOBAL_SEARCH_LOGIC = "feature.global-search.logic";
     public static final String FAVOURITES_BASE_URL = "feature.favourites.share-service-base-url";

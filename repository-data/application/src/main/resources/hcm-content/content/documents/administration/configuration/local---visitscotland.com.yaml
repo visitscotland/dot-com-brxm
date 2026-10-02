@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: f4ca4519-46ba-4fb7-8646-951512a61608
   hippo:name: Local - Visitscotland.com
-  hippo:versionHistory: 41f49a91-952c-4092-bcfe-8e5c75ce8abf
+  hippo:versionHistory: 510e58a1-18be-4641-9567-523ff6e0f8da
   /local---visitscotland.com[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -14,7 +14,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-05-12T15:09:53.246+01:00
+    hippostdpubwf:lastModificationDate: 2026-09-22T10:54:31.292+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -34,7 +34,7 @@
         \ the Cludo Chatbox functionality\r\n\r\nOLD Search\r\n\r\nen 12809\r\nde\
         \ 12812\r\nes 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is
         used to set up the Cludo Chatbox functionality, '', '', '', '', '', '', '',
-      '', '', '', "values in lowercase:\r\nor\r\nand", '', '', '']
+      '', '', "values in lowercase:\r\nor\r\nand", '', '', '']
     resourcebundle:id: local.vs-site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -46,8 +46,8 @@
       site.path.banner, cludo.customer-id, cludo.engine-id, cludo.experience-id, feature.products-search.enable,
       feature.global-search.enable, form.breg.legal-basis.text, site-id, site.path.map,
       google-maps.api-key, feature.hero-section.enable, feature.global-search.events-endpoint,
-      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic,
-      feature.favourites.url, feature.favourites.enable, feature.favourites.endpoint]
+      feature.search-widget.enable, feature.global-search.logic, feature.favourites.url,
+      feature.favourites.enable, feature.favourites.endpoint]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, 'en,fr,de,nl,it,es', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
@@ -58,27 +58,27 @@
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
+      'https://api.visitscotland.com/dev/data/products/events/search', 'true', and,
+      /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
-      '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14976',
-      '', '', '', '', '', '', '', '', '', '', '', '', /es-es/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /es-es/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14975',
-      '', '', '', '', '', '', '', '', '', '', '', '', /fr-fr/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /fr-fr/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14972',
-      '', '', '', '', '', '', '', '', '', '', '', '', /it-it/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /it-it/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14974',
-      '', '', '', '', '', '', '', '', '', '', '', '', /nl-nl/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /nl-nl/sandbox/pages/favourites,
       '', '']
   /local---visitscotland.com[2]:
     jcr:primaryType: resourcebundle:resourcebundle
@@ -89,7 +89,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-05-12T15:03:55.499+01:00
+    hippostdpubwf:lastModificationDate: 2026-09-22T10:54:13.744+01:00
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
@@ -109,7 +109,7 @@
         \ the Cludo Chatbox functionality\r\n\r\nOLD Search\r\n\r\nen 12809\r\nde\
         \ 12812\r\nes 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is
         used to set up the Cludo Chatbox functionality, '', '', '', '', '', '', '',
-      '', '', '', "values in lowercase:\r\nor\r\nand", '', '', '']
+      '', '', "values in lowercase:\r\nor\r\nand", '', '', '']
     resourcebundle:id: local.vs-site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -121,8 +121,8 @@
       site.path.banner, cludo.customer-id, cludo.engine-id, cludo.experience-id, feature.products-search.enable,
       feature.global-search.enable, form.breg.legal-basis.text, site-id, site.path.map,
       google-maps.api-key, feature.hero-section.enable, feature.global-search.events-endpoint,
-      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic,
-      feature.favourites.url, feature.favourites.enable, feature.favourites.endpoint]
+      feature.search-widget.enable, feature.global-search.logic, feature.favourites.url,
+      feature.favourites.enable, feature.favourites.endpoint]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, 'en,fr,de,nl,it,es', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
@@ -133,27 +133,27 @@
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
+      'https://api.visitscotland.com/dev/data/products/events/search', 'true', and,
+      /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
-      '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14976',
-      '', '', '', '', '', '', '', '', '', '', '', '', /es-es/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /es-es/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14975',
-      '', '', '', '', '', '', '', '', '', '', '', '', /fr-fr/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /fr-fr/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14972',
-      '', '', '', '', '', '', '', '', '', '', '', '', /it-it/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /it-it/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14974',
-      '', '', '', '', '', '', '', '', '', '', '', '', /nl-nl/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /nl-nl/sandbox/pages/favourites,
       '', '']
   /local---visitscotland.com[3]:
     jcr:primaryType: resourcebundle:resourcebundle
@@ -164,9 +164,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
-    hippostdpubwf:lastModificationDate: 2026-05-12T15:09:53.246+01:00
+    hippostdpubwf:lastModificationDate: 2026-09-22T10:54:31.292+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-05-12T15:10:02.323+01:00
+    hippostdpubwf:publicationDate: 2026-09-22T10:54:33.227+01:00
     resourcebundle:descriptions: ['', '', List of Hosts that will be marked as internal
         URLs, URLs from this environment will be treated as internal and will be transformed
         into Relative URLs when the value of attribute 'links.use-relative-urls is
@@ -185,7 +185,7 @@
         \ the Cludo Chatbox functionality\r\n\r\nOLD Search\r\n\r\nen 12809\r\nde\
         \ 12812\r\nes 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is
         used to set up the Cludo Chatbox functionality, '', '', '', '', '', '', '',
-      '', '', '', "values in lowercase:\r\nor\r\nand", '', '', '']
+      '', '', "values in lowercase:\r\nor\r\nand", '', '', '']
     resourcebundle:id: local.vs-site.config
     resourcebundle:keys: [iknow-community.url, iknow-community.tagged-discussion,
       links.internal-sites, links.convert-to-relative, seo.alternate-link-locale-order,
@@ -197,8 +197,8 @@
       site.path.banner, cludo.customer-id, cludo.engine-id, cludo.experience-id, feature.products-search.enable,
       feature.global-search.enable, form.breg.legal-basis.text, site-id, site.path.map,
       google-maps.api-key, feature.hero-section.enable, feature.global-search.events-endpoint,
-      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic,
-      feature.favourites.url, feature.favourites.enable, feature.favourites.endpoint]
+      feature.search-widget.enable, feature.global-search.logic, feature.favourites.url,
+      feature.favourites.enable, feature.favourites.endpoint]
     resourcebundle:messages: ['https://community.visitscotland.com/', discussions/tagged/,
       'localhost,www.visitscotland.com,beta.visitscotland.com,blog.visitscotland.com',
       www.visitscotland.com, 'en,fr,de,nl,it,es', 'true', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
@@ -209,25 +209,25 @@
       //e.visitscotland.com/js/forms2/js/forms2.min.js, pdf, '8', 'true', general/navigation/banner/content,
       '623', '14069', abba43e006424824befb855918e2b9db, 'false', 'true', Consent,
       vs, /test/examples/map-examples, AIzaSyCXi9IXsi1Xq3knkQGSgDCcczu9bkHr9-E, 'false',
-      'https://api.visitscotland.com/dev/data/products/events/search', 'false', 'true',
-      and, /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
+      'https://api.visitscotland.com/dev/data/products/events/search', 'true', and,
+      /sandbox/pages/favourites, 'true', /site/api/favourites/get-favourites]
     resourcebundle:messages_de: ['', '', '', '', '', '', '', '', '', /de-de/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14973',
-      '', '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /de-de/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_es: ['', '', '', '', '', '', '', '', '', /es-es/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14976',
-      '', '', '', '', '', '', '', '', '', '', '', '', /es-es/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /es-es/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_fr: ['', '', '', '', '', '', '', '', '', /fr-fr/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14975',
-      '', '', '', '', '', '', '', '', '', '', '', '', /fr-fr/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /fr-fr/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_it: ['', '', '', '', '', '', '', '', '', /it-it/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14972',
-      '', '', '', '', '', '', '', '', '', '', '', '', /it-it/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /it-it/sandbox/pages/favourites,
       '', '']
     resourcebundle:messages_nl: ['', '', '', '', '', '', '', '', '', /nl-nl/site-search-results,
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '14974',
-      '', '', '', '', '', '', '', '', '', '', '', '', /nl-nl/sandbox/pages/favourites,
+      '', '', '', '', '', '', '', '', '', '', '', /nl-nl/sandbox/pages/favourites,
       '', '']
