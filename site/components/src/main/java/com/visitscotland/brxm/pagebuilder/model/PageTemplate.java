@@ -11,7 +11,7 @@ public class PageTemplate extends Module<Page> {
 
     private LinksModule<EnhancedLink> categorySection;
     private DestinationKeyInformationModule keyInformationPanel;
-    private SignpostModule newsletter;
+    private SpotlightModule newsletter;
     private FlatBlog author;
     private FlatImage heroImage;
     private EnhancedLink video;
@@ -37,11 +37,11 @@ public class PageTemplate extends Module<Page> {
         this.author = author;
     }
 
-    public SignpostModule getNewsletter() {
+    public SpotlightModule getNewsletter() {
         return newsletter;
     }
 
-    public void setNewsletter(SignpostModule newsletter) {
+    public void setNewsletter(SpotlightModule newsletter) {
         this.newsletter = newsletter;
     }
 
