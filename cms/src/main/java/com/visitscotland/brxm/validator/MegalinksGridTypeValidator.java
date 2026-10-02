@@ -20,13 +20,8 @@ public class MegalinksGridTypeValidator implements Validator<Node> {
     private SessionFactory sessionFactory;
 
     private static final String LAYOUT_PROPERTY = "visitscotland:layout";
-    private static final String MEGALINK_ITEMS_PROPERTY = "visitscotland:megalinkItems";
 
-    private static final String GRID = "Grid";
-
-    private static final String EMPTY_LINKS = "emptyLinks";
     private static final String EXCEPTION = "exception";
-    private static final String NUMBER_OF_LINKS = "numberOfLinks";
     private static final String NULL_LAYOUT = "nullLayout";
     private static final String TRANSLATION = "translation";
 
@@ -47,10 +42,7 @@ public class MegalinksGridTypeValidator implements Validator<Node> {
             if (layout == null) {
                 return Optional.of(context.createViolation(NULL_LAYOUT));
             }
-
-            if (layout.equals(GRID)) {
-                return validateGrid(context, node);
-            } else {
+            else {
                 // we can ignore any other layout types
                 return Optional.empty();
             }
@@ -58,25 +50,6 @@ public class MegalinksGridTypeValidator implements Validator<Node> {
         } catch (PathNotFoundException exception) {
             exceptionLogger(exception);
             return Optional.of(context.createViolation(TRANSLATION));
-        } catch (RepositoryException exception) {
-            exceptionLogger(exception);
-            return Optional.of(context.createViolation(EXCEPTION));
-        }
-    }
-
-    /**
-     * normal grid links - can hold up to 4
-     */
-    private Optional<Violation> validateGrid(final ValidationContext context, final Node node) {
-
-        try {
-            final long nodeCount = node.getNodes(MEGALINK_ITEMS_PROPERTY).getSize();
-            if (nodeCount < 1 ) {
-                return Optional.of(context.createViolation(EMPTY_LINKS));
-            } else if (nodeCount > 4) {
-                return Optional.of(context.createViolation(NUMBER_OF_LINKS));
-            }
-            return Optional.empty();
         } catch (RepositoryException exception) {
             exceptionLogger(exception);
             return Optional.of(context.createViolation(EXCEPTION));

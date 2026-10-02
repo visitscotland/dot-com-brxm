@@ -421,7 +421,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: bc6381b0-51b2-47be-9ea7-043bc1a95b84
     hippo:name: Itinerary Page
-    hippo:versionHistory: 3ffc2648-1677-4eb0-b5cf-6490d6890035
+    hippo:versionHistory: dd146570-4deb-48bb-8e68-20049ade5f50
     /itineraries[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -431,12 +431,12 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-07-23T15:31:36.849+02:00
-      hippostdpubwf:lastModifiedBy: alma.garcia
+      hippostdpubwf:lastModificationDate: 2026-08-07T11:44:34.822+01:00
+      hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
           range of time like: 9:00am to 13:00pm', '', '', '', '', '', '', '', '',
-        '', default value for days google map, '', '', '', '', '', '', '']
+        '', default value for days google map, '', '', '', '', '', '', '', '']
       resourcebundle:id: itinerary
       resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.title, start-finish,
         days, distance, themes, miles-abbreviation, kilometres-abbreviation, transport,
@@ -445,7 +445,8 @@
         stop.today, stop.to, stop.open, stop.closed, stop.close.soon, stop.temporarily-closed,
         stop.and, end-itinerary, map-view, list-view, keyfacilities.title, days.default-cta,
         itinerary.default-cta, key-information, panel.sr-heading.locations, panel.sr-heading.seasons,
-        panel.sr-heading.distance, panel.sr-heading.transport, panel.sr-heading.duration]
+        panel.sr-heading.distance, panel.sr-heading.transport, panel.sr-heading.duration,
+        days.intraday-cta]
       resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Stop,
         Start / Finish, Days, Distance, Main themes, mi, km, Transport, Day, miles,
         Kilometres, Highlights, Areas covered, The stop doesn't have any product linked
@@ -453,7 +454,7 @@
         Usually, Provisionally, today, to, Open, Closed, Closing soon, Temporarily
           closed, and, End of itinerary, Map view, List View, Key facilities, Explore
           on Google Maps, View Itinerary on Google Maps, Key Information, Locations,
-        Seasons, Distance, Travel by, Duration]
+        Seasons, Distance, Travel by, Duration, View route on Google Maps]
       resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
         Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi, km, Verkehrsmittel,
         Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen, Es ist kein Produkt
@@ -462,7 +463,7 @@
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
         Kartenansicht, Listenansicht, Ausstattung, Auf Google Maps ansehen, Reisevorschlag
           in Google Maps sehen, Wichtige Informationen, Besuchte Orte, Empfohlene
-          Reisezeit, Länge der Strecke, Verkehrsmittel, Dauer]
+          Reisezeit, Länge der Strecke, Verkehrsmittel, Dauer, '']
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, Días, Distancia, Temas principales,
         mi, km, Transporte, Día, millas, Kilómetros, Destacado, Áreas recorridas,
@@ -472,7 +473,7 @@
         y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
         Ver en Google Maps, Ver el itinerario en Google Maps, Información importante,
         Lugares visitados, Época recomendada, Longitud del trayecto, Medios de transporte,
-        Duración]
+        Duración, '']
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -482,7 +483,7 @@
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
         Infrastructures, Visualiser sur Google Maps, Visualiser l’itinéraire sur Google
           Maps, L’essentiel, Lieux visités, Période recommandée, Longueur du trajet,
-        Moyens de transport, Durée]
+        Moyens de transport, Durée, '']
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
@@ -492,7 +493,7 @@
           dell’itinerario, Visualizza mappa, Visualizza elenco, Infrastrutture, Visualizza
           su Google Maps, Visualizza il percorso su Google Maps, Informazioni importanti,
         Luoghi visitati, Periodo consigliato per il viaggio, Lunghezza del percorso,
-        Mezzi di trasporto, Durata]
+        Mezzi di trasporto, Durata, '']
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Einde, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, mijl, Kilometer, Hoogtepunten, Bestreken gebieden, Deze stop heeft geen
@@ -501,7 +502,7 @@
         Sluit snel, Tijdelijk gesloten, en, Einde van de route, Toon kaart, Toon lijst,
         Faciliteiten, Op Google Maps bekijken, Reisroute op Google Maps bekijken,
         Belangrijke informatie, Locaties, Aanbevolen seizoenen, Lengte van het traject,
-        Vervoersmiddel, Tijdsduur]
+        Vervoersmiddel, Tijdsduur, '']
     /itineraries[2]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:versionable']
@@ -511,12 +512,12 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-07-23T15:31:36.546+02:00
-      hippostdpubwf:lastModifiedBy: alma.garcia
+      hippostdpubwf:lastModificationDate: 2026-08-07T11:45:16.496+01:00
+      hippostdpubwf:lastModifiedBy: admin
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
           range of time like: 9:00am to 13:00pm', '', '', '', '', '', '', '', '',
-        '', default value for days google map, '', '', '', '', '', '', '']
+        '', default value for days google map, '', '', '', '', '', '', '', '']
       resourcebundle:id: itinerary
       resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.title, start-finish,
         days, distance, themes, miles-abbreviation, kilometres-abbreviation, transport,
@@ -525,7 +526,8 @@
         stop.today, stop.to, stop.open, stop.closed, stop.close.soon, stop.temporarily-closed,
         stop.and, end-itinerary, map-view, list-view, keyfacilities.title, days.default-cta,
         itinerary.default-cta, key-information, panel.sr-heading.locations, panel.sr-heading.seasons,
-        panel.sr-heading.distance, panel.sr-heading.transport, panel.sr-heading.duration]
+        panel.sr-heading.distance, panel.sr-heading.transport, panel.sr-heading.duration,
+        days.intraday-cta]
       resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Stop,
         Start / Finish, Days, Distance, Main themes, mi, km, Transport, Day, miles,
         Kilometres, Highlights, Areas covered, The stop doesn't have any product linked
@@ -533,7 +535,7 @@
         Usually, Provisionally, today, to, Open, Closed, Closing soon, Temporarily
           closed, and, End of itinerary, Map view, List View, Key facilities, Explore
           on Google Maps, View Itinerary on Google Maps, Key Information, Locations,
-        Seasons, Distance, Travel by, Duration]
+        Seasons, Distance, Travel by, Duration, View route on Google Maps]
       resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
         Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi, km, Verkehrsmittel,
         Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen, Es ist kein Produkt
@@ -542,7 +544,7 @@
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
         Kartenansicht, Listenansicht, Ausstattung, Auf Google Maps ansehen, Reisevorschlag
           in Google Maps sehen, Wichtige Informationen, Besuchte Orte, Empfohlene
-          Reisezeit, Länge der Strecke, Verkehrsmittel, Dauer]
+          Reisezeit, Länge der Strecke, Verkehrsmittel, Dauer, '']
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, Días, Distancia, Temas principales,
         mi, km, Transporte, Día, millas, Kilómetros, Destacado, Áreas recorridas,
@@ -552,7 +554,7 @@
         y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
         Ver en Google Maps, Ver el itinerario en Google Maps, Información importante,
         Lugares visitados, Época recomendada, Longitud del trayecto, Medios de transporte,
-        Duración]
+        Duración, '']
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -562,7 +564,7 @@
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
         Infrastructures, Visualiser sur Google Maps, Visualiser l’itinéraire sur Google
           Maps, L’essentiel, Lieux visités, Période recommandée, Longueur du trajet,
-        Moyens de transport, Durée]
+        Moyens de transport, Durée, '']
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
@@ -572,7 +574,7 @@
           dell’itinerario, Visualizza mappa, Visualizza elenco, Infrastrutture, Visualizza
           su Google Maps, Visualizza il percorso su Google Maps, Informazioni importanti,
         Luoghi visitati, Periodo consigliato per il viaggio, Lunghezza del percorso,
-        Mezzi di trasporto, Durata]
+        Mezzi di trasporto, Durata, '']
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Einde, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, mijl, Kilometer, Hoogtepunten, Bestreken gebieden, Deze stop heeft geen
@@ -581,7 +583,7 @@
         Sluit snel, Tijdelijk gesloten, en, Einde van de route, Toon kaart, Toon lijst,
         Faciliteiten, Op Google Maps bekijken, Reisroute op Google Maps bekijken,
         Belangrijke informatie, Locaties, Aanbevolen seizoenen, Lengte van het traject,
-        Vervoersmiddel, Tijdsduur]
+        Vervoersmiddel, Tijdsduur, '']
     /itineraries[3]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -591,13 +593,13 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2019-12-16T14:56:24.091Z
-      hippostdpubwf:lastModificationDate: 2026-07-23T15:31:36.546+02:00
-      hippostdpubwf:lastModifiedBy: alma.garcia
-      hippostdpubwf:publicationDate: 2026-07-23T15:31:43.680+02:00
+      hippostdpubwf:lastModificationDate: 2026-08-07T11:45:16.496+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2026-08-07T11:45:20.444+01:00
       resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
         '', '', '', '', '', '', '', '', '', '', '', '', 'This field is to define a
           range of time like: 9:00am to 13:00pm', '', '', '', '', '', '', '', '',
-        '', default value for days google map, '', '', '', '', '', '', '']
+        '', default value for days google map, '', '', '', '', '', '', '', '']
       resourcebundle:id: itinerary
       resourcebundle:keys: [stop.nearby-stay, stop.nearby-eat, stop.title, start-finish,
         days, distance, themes, miles-abbreviation, kilometres-abbreviation, transport,
@@ -606,7 +608,8 @@
         stop.today, stop.to, stop.open, stop.closed, stop.close.soon, stop.temporarily-closed,
         stop.and, end-itinerary, map-view, list-view, keyfacilities.title, days.default-cta,
         itinerary.default-cta, key-information, panel.sr-heading.locations, panel.sr-heading.seasons,
-        panel.sr-heading.distance, panel.sr-heading.transport, panel.sr-heading.duration]
+        panel.sr-heading.distance, panel.sr-heading.transport, panel.sr-heading.duration,
+        days.intraday-cta]
       resourcebundle:messages: [Nearby places to stay, Nearby places to eat, Stop,
         Start / Finish, Days, Distance, Main themes, mi, km, Transport, Day, miles,
         Kilometres, Highlights, Areas covered, The stop doesn't have any product linked
@@ -614,7 +617,7 @@
         Usually, Provisionally, today, to, Open, Closed, Closing soon, Temporarily
           closed, and, End of itinerary, Map view, List View, Key facilities, Explore
           on Google Maps, View Itinerary on Google Maps, Key Information, Locations,
-        Seasons, Distance, Travel by, Duration]
+        Seasons, Distance, Travel by, Duration, View route on Google Maps]
       resourcebundle:messages_de: [Unterkünfte in der Nähe, Restaurants in der Nähe,
         Haltepunkt, Start / Ziel, Tage, Entfernung, Hauptthemen, mi, km, Verkehrsmittel,
         Tag, Meilen, Kilometer, Highlights, Abgedeckte Regionen, Es ist kein Produkt
@@ -623,7 +626,7 @@
         Geschlossen, Schließt bald, Vorübergehend geschlossen, und, Ende des Reisevorschlags,
         Kartenansicht, Listenansicht, Ausstattung, Auf Google Maps ansehen, Reisevorschlag
           in Google Maps sehen, Wichtige Informationen, Besuchte Orte, Empfohlene
-          Reisezeit, Länge der Strecke, Verkehrsmittel, Dauer]
+          Reisezeit, Länge der Strecke, Verkehrsmittel, Dauer, '']
       resourcebundle:messages_es: [Alojamiento en los alrededores, Restaurantes en
           los alrededores, Parada, Inicio / Fin, Días, Distancia, Temas principales,
         mi, km, Transporte, Día, millas, Kilómetros, Destacado, Áreas recorridas,
@@ -633,7 +636,7 @@
         y, Fin del itinerario, Vista del mapa, Vista de la lista, Instalaciones destacadas,
         Ver en Google Maps, Ver el itinerario en Google Maps, Información importante,
         Lugares visitados, Época recomendada, Longitud del trayecto, Medios de transporte,
-        Duración]
+        Duración, '']
       resourcebundle:messages_fr: [Hébergements à proximité, Établissements de restauration
           à proximité, Arrêt, Départ / Arrivée, Jours, Distance, Thèmes principaux,
         mi, km, Moyen de transport, Jour, Miles, Kilomètres, Lieux d’intérêt, Régions
@@ -643,7 +646,7 @@
           fermé, et, Fin de l’itinéraire, Afficher sur la carte, Afficher sur la liste,
         Infrastructures, Visualiser sur Google Maps, Visualiser l’itinéraire sur Google
           Maps, L’essentiel, Lieux visités, Période recommandée, Longueur du trajet,
-        Moyens de transport, Durée]
+        Moyens de transport, Durée, '']
       resourcebundle:messages_it: [Posti vicini dove alloggiare, Posti vicini dove
           mangiare, Fermata, Inizio / Fine, Giorni, Distanza, Temi principali, mi,
         km, Trasporto, Giorno, miglia, Chilometri, Attrazioni, Aree coperte, L'arresto
@@ -653,7 +656,7 @@
           dell’itinerario, Visualizza mappa, Visualizza elenco, Infrastrutture, Visualizza
           su Google Maps, Visualizza il percorso su Google Maps, Informazioni importanti,
         Luoghi visitati, Periodo consigliato per il viaggio, Lunghezza del percorso,
-        Mezzi di trasporto, Durata]
+        Mezzi di trasporto, Durata, '']
       resourcebundle:messages_nl: [Overnachtingen in de buurt, Eetgelegenheden in
           de buurt, Stop, Begin / Einde, Dagen, Afstand, Hoofdthema's, mijl, km, Reismiddel,
         Dag, mijl, Kilometer, Hoogtepunten, Bestreken gebieden, Deze stop heeft geen
@@ -662,4 +665,4 @@
         Sluit snel, Tijdelijk gesloten, en, Einde van de route, Toon kaart, Toon lijst,
         Faciliteiten, Op Google Maps bekijken, Reisroute op Google Maps bekijken,
         Belangrijke informatie, Locaties, Aanbevolen seizoenen, Lengte van het traject,
-        Vervoersmiddel, Tijdsduur]
+        Vervoersmiddel, Tijdsduur, '']
