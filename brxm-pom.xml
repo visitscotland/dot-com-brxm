@@ -62,7 +62,6 @@
     <!-- ***END temporary override of versions*** -->
 
     <essentials.version>${hippo.release.version}</essentials.version>
-    <taglibs.version>1.2.5</taglibs.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
 
@@ -74,7 +73,9 @@
 
   <dependencyManagement>
     <dependencies>
-<!--        TODO: This dependency might still be needed. Otherwise, please remove after DS-1931 is completed-->
+      <!-- These dependencies (jsp and taglibs) are not need as this project is not running in headless mode only.
+          The dependencies have been left commented out as a reference and to simplify future upgrades-->
+
 <!--      <dependency>-->
 <!--        <groupId>jakarta.servlet.jsp</groupId>-->
 <!--        <artifactId>jsp-api</artifactId>-->
@@ -82,22 +83,19 @@
 <!--        <scope>provided</scope>-->
 <!--      </dependency>-->
 
-      <!-- other predefined runtime scope versioned dependencies -->
+<!--      <dependency>        -->
+<!--        <groupId>org.apache.taglibs</groupId>-->
+<!--        <artifactId>taglibs-standard-spec</artifactId>-->
+<!--        <version>${taglibs.version}</version>-->
+<!--        <scope>runtime</scope>-->
+<!--      </dependency>-->
 
-      <dependency>
-        <!-- TODO: This dependency can be removed after we fully retire freemarker -->
-        <groupId>org.apache.taglibs</groupId>
-        <artifactId>taglibs-standard-spec</artifactId>
-        <version>${taglibs.version}</version>
-        <scope>runtime</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.taglibs</groupId>
-        <artifactId>taglibs-standard-impl</artifactId>
-        <version>${taglibs.version}</version>
-        <scope>runtime</scope>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>org.apache.taglibs</groupId>-->
+<!--        <artifactId>taglibs-standard-impl</artifactId>-->
+<!--        <version>${taglibs.version}</version>-->
+<!--        <scope>runtime</scope>-->
+<!--      </dependency>-->
     </dependencies>
   </dependencyManagement>
 
