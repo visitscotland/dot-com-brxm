@@ -1,6 +1,5 @@
 package com.visitscotland.brxm.dms;
 
-import com.visitscotland.brxm.config.VsComponentManager;
 import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.hippobeans.ProductsSearch;
 import com.visitscotland.brxm.utils.CMSProperties;
@@ -82,13 +81,6 @@ public class ProductSearchBuilder {
         this.order = Order.NONE;
         this.offers = false;
         this.free = false;
-    }
-
-    /**
-     * Allow new instances from FreeMarker
-     */
-    public static ProductSearchBuilder newInstance(){
-        return VsComponentManager.get(ProductSearchBuilder.class);
     }
 
     public ProductSearchBuilder fromHippoBean(ProductsSearch ps){
@@ -275,7 +267,7 @@ public class ProductSearchBuilder {
     }
 
     private boolean valid(String s){
-        return  s != null && s.trim().length() > 0 && !s.contains("&");
+        return  s != null && !s.isBlank() && !s.contains("&");
     }
 
     private boolean validNumber(Number s){
