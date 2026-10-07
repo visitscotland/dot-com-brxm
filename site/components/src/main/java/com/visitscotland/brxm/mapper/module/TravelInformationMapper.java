@@ -39,7 +39,7 @@ public class TravelInformationMapper extends ModuleMapper<TravelInformation, Tra
         return getTravelInformation(document, compositionHelper.getLocale());
     }
 
-    public TravelInformationModule getTravelInformation(TravelInformation document, Locale locale) {
+    public TravelInformationModule getTravelInformation(TravelInformation document, Locale locale) throws PageCompositionException {
         TravelInformationModule module = new TravelInformationModule();
         module.setTitle(document.getTitle());
         module.setCopy(document.getCopy());
@@ -49,7 +49,9 @@ public class TravelInformationMapper extends ModuleMapper<TravelInformation, Tra
                         .map(content -> getTravelInformationContent(content, locale))
                         .collect(Collectors.toList())
         );
-
+        if (module.getPracticalInformation().size() == 0) {
+            throw new PageCompositionException(module.getDocumentPath(), "TravelInformation module does not contain the required practical information field");
+        }
         module.setHippoBean(document);
         return module;
     }
