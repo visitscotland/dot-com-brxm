@@ -49,10 +49,10 @@ public class TravelInformationMapper extends ModuleMapper<TravelInformation, Tra
                         .map(content -> getTravelInformationContent(content, locale))
                         .collect(Collectors.toList())
         );
+        module.setHippoBean(document);
         if (module.getPracticalInformation().size() == 0) {
             throw new PageCompositionException(module.getDocumentPath(), "TravelInformation module does not contain the required practical information field");
         }
-        module.setHippoBean(document);
         return module;
     }
 
