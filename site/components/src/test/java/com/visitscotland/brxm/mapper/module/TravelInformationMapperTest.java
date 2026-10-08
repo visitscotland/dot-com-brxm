@@ -9,6 +9,7 @@ import com.visitscotland.brxm.mock.TravelInformationTransportRowMockBuilder;
 import com.visitscotland.brxm.model.TravelInformationModule;
 import com.visitscotland.brxm.model.TravelInformationTransportModule;
 import com.visitscotland.brxm.model.TravelInformationTransportRowModule;
+import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,7 +36,7 @@ class TravelInformationMapperTest {
 
     @DisplayName("Travel information module created correctly")
     @Test
-    void travelInformationModuleCreated() {
+    void travelInformationModuleCreated() throws PageCompositionException {
 
         doReturn("Train").when(bundle).getResourceBundle(
                 TravelInformationMapper.TRAVEL_INFO_TRANSPORTS_OPTIONS,
@@ -215,7 +216,7 @@ class TravelInformationMapperTest {
 
     @DisplayName("When transport item does not exist in options, then key is used as label")
     @Test
-    void travelItemKeyDoesNotExistInOptions() {
+    void travelItemKeyDoesNotExistInOptions() throws PageCompositionException {
 
         TravelInformationTransportRow trainRow =
                 new TravelInformationTransportRowMockBuilder()
