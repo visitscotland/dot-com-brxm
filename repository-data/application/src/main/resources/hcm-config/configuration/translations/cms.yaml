@@ -137,7 +137,7 @@ definitions:
       visitscotland:season-exclusive-validator: You can only select 'All year' or individual seasons, not both.
       visitscotland:media-collection-validator: Media collection image and video links can not be empty.
       visitscotland:provider-name-validator#invalidCharacters: Invalid characters supplied. Please avoid use of
-        the following characters - " \, ?, *, :, [, ] "
+        the following characters - " \, /, ?, *, :, [, ] "
       visitscotland:provider-name-validator#stringTooLong: Name must be 31 characters or less.
       visitscotland:provider-name-validator#exception: An exception occurred. Please
         contact your administrator if this persists
