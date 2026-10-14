@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Release metadata and email-rendering helper script.
+# Release metadata, email and Teams-rendering helper script.
 #
 # Author:
 #   Matt Syrigos — Senior Software Engineer
@@ -26,6 +26,7 @@
 #   - email.subject.txt      Single-line email subject
 #   - email.recipients.txt   Comma-separated recipient list
 #   - email.body.html         Rendered HTML email body
+#   - teams.payload.json      Rendered Teams Adaptive Card payload
 #
 # Execution model:
 #   - Intended to run inside a Jenkins workspace with SCM context available.
@@ -189,6 +190,19 @@ get_manifest_from_tar() {
   printf '%s' "$manifest"
 }
 
+# helper function that safely escapes shell values (URLs/filenames) before putting them into JSON
+json_escape() {
+  local s="${1:-}"
+
+  s="${s//\\/\\\\}"
+  s="${s//\"/\\\"}"
+  s="${s//$'\n'/\\n}"
+  s="${s//$'\r'/\\r}"
+  s="${s//$'\t'/\\t}"
+
+  printf '%s' "$s"
+}
+
 # helper function for .war projects (like vs-dms-products)
 get_manifest_from_war() {
   local war_file="$1"
@@ -217,15 +231,17 @@ step_1_find_distro() {
 
     # 1) Detect SSR package: keep it, but do NOT treat it as main distro
     if [[ $lower == *ssr* && $filename == *.tar.gz ]]; then
-      VS_SSR_PACKAGE_NAME="$filename"
-      VS_SSR_ARCHIVED_PACKAGE_PATH="$f"
+      # Check whether SSR is enabled or disabled, based on the env variable: VS_SSR_PROXY_ON
+      if [[ "${VS_SSR_PROXY_ON:-FALSE}" == "TRUE" ]]; then
+        VS_SSR_PACKAGE_NAME="$filename"
+        VS_SSR_ARCHIVED_PACKAGE_PATH="$f"
 
-      # Compute MD5
-      VS_SSR_ARCHIVED_PACKAGE_MD5="$(md5_for_file "$f")"
+        # Compute MD5
+        VS_SSR_ARCHIVED_PACKAGE_MD5="$(md5_for_file "$f")"
 
-      # Construct the Jenkins URL to the SSR archived artifact
-      VS_SSR_ARCHIVED_PACKAGE_URL="${BUILD_URL%/}/artifact/target/${filename}"
-
+        # Construct the Jenkins URL to the SSR archived artifact
+        VS_SSR_ARCHIVED_PACKAGE_URL="${BUILD_URL%/}/artifact/target/${filename}"
+      fi
       # continue → do NOT add SSR to main distro list
       continue
     fi
@@ -459,7 +475,7 @@ HTML_HEAD
       "${BUILD_NUMBER:-?}" \
       "$VS_PIPELINE_OUTCOME_EMAIL"
 
-    echo "<p>Here are the details for the artefacts (distribution/release and SSR packages) related to this build.</p>"
+    echo "<p>Here are the artefact details related to this build.</p>"
     printf '<h2>Release v%s artefact</h2>\n' "${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}"
 
     if [[ -n "${VS_ERROR_LINES_EMAIL:-}" ]]; then
@@ -494,12 +510,194 @@ TABLE3
 }
 
 # =====================================================================
+# Step 6 - Compose Teams Adaptive Card JSON
+# =====================================================================
+step_6_compose_teams() {
+  echo "==> Step 6: Composing Teams Adaptive Card..."
+
+  local TEAMS_JSON_FILE="$OUT_DIR/teams.payload.json"
+
+  # Adaptive Card colour for the build outcome
+  local status_colour="Attention"
+  if [[ "${VS_PIPELINE_OUTCOME_EMAIL:-}" == "SUCCESS" ]]; then
+    status_colour="Good"
+  fi
+
+  {
+    cat <<EOF
+{
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "content": {
+        "\$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.2",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "${REPO_NAME}: Package details for release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?}")",
+            "weight": "Bolder",
+            "size": "Large",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "[Jenkins Build ${BUILD_NUMBER:-?}](${BUILD_URL:-}) - **${VS_PIPELINE_OUTCOME_EMAIL:-UNKNOWN}**")",
+            "weight": "Bolder",
+            "color": "${status_colour}",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "Here are the artefact details related to this build.",
+            "wrap": true
+          },
+          {
+            "type": "Container",
+            "style": "emphasis",
+            "separator": true,
+            "items": [
+              {
+                "type": "TextBlock",
+                "text": "$(json_escape "Release v${VS_RELEASE_VERSION_DETECTED_FOR_EMAIL:-?} artefact")",
+                "weight": "Bolder",
+                "size": "Medium",
+                "wrap": true
+              }
+            ]
+          }
+EOF
+
+    # ---------------------------------------------------------------
+    # Release artefact details
+    # ---------------------------------------------------------------
+    if [[ -n "${VS_ERROR_LINES_EMAIL:-}" ]]; then
+
+      # VS_ERROR_LINES_EMAIL is formatted for HTML.
+      # Convert it back into sensible plain text for Teams.
+      local teams_error="${VS_ERROR_LINES_EMAIL//<br\/>/$'\n'}"
+      teams_error="${teams_error//&lt;/<}"
+      teams_error="${teams_error//&gt;/>}"
+      teams_error="${teams_error//&amp;/&}"
+
+      cat <<EOF
+          ,
+          {
+            "type": "Container",
+            "style": "attention",
+            "separator": true,
+            "items": [
+              {
+                "type": "TextBlock",
+                "text": "Release errors",
+                "weight": "Bolder",
+                "size": "Medium",
+                "color": "Attention",
+                "wrap": true
+              },
+              {
+                "type": "TextBlock",
+                "text": "$(json_escape "$teams_error")",
+                "wrap": true
+              }
+            ]
+          }
+EOF
+
+    else
+
+      cat <<EOF
+          ,
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "**Build-Number**
+${VS_SITE_WAR_BUILD_NUMBER:-}")",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "**Nexus URL**
+${VS_RELEASE_PACKAGE_NEXUS_URL:-}")",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "**MD5 Checksum**
+${VS_RELEASE_PACKAGE_WORKSPACE_MD5:-}")",
+            "wrap": true
+          }
+EOF
+
+    fi
+
+    # ---------------------------------------------------------------
+    # SSR package - only when it exists
+    # ---------------------------------------------------------------
+    if [[ -n "${VS_SSR_ARCHIVED_PACKAGE_URL:-}" ]]; then
+
+      cat <<EOF
+          ,
+          {
+            "type": "Container",
+            "style": "emphasis",
+            "separator": true,
+            "items": [
+              {
+                "type": "TextBlock",
+                "text": "SSR Package (in Jenkins)",
+                "weight": "Bolder",
+                "size": "Medium",
+                "wrap": true
+              }
+            ]
+          },
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "**Jenkins URL**
+${VS_SSR_ARCHIVED_PACKAGE_URL:-}")",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "**MD5 Checksum**
+${VS_SSR_ARCHIVED_PACKAGE_MD5:-}")",
+            "wrap": true
+          }
+EOF
+
+    fi
+
+    # ---------------------------------------------------------------
+    # Final Jenkins build-log link
+    # ---------------------------------------------------------------
+    cat <<EOF
+          ,
+          {
+            "type": "TextBlock",
+            "text": "$(json_escape "For more information, here's the [Jenkins build log](${BUILD_URL%/}/consoleFull).")",
+            "separator": true,
+            "wrap": true
+          }
+        ]
+      }
+    }
+  ]
+}
+EOF
+
+  } > "$TEAMS_JSON_FILE"
+
+  echo "            INFO: Wrote Teams payload: $TEAMS_JSON_FILE"
+}
+
+# =====================================================================
 # Main dispatcher
 # =====================================================================
 usage() {
   cat >&2 <<'USAGE'
 Usage:
-  release_email_payload.sh [--mode=all|step1|step2|step3|step4|step5]
+  release_email_payload.sh [--mode=all|step1|step2|step3|step4|step5|step6]
                            [--out-dir=artifacts]
                            [--pom=pom.xml]
                            [--build-number-file=PATH]
@@ -513,12 +711,13 @@ USAGE
 
 main() {
   case "$MODE" in
-    all)   step_1_find_distro; step_2_parse_log; step_3_extract_build_number; step_4_parse_pom; step_5_compose_email ;;
+    all)   step_1_find_distro; step_2_parse_log; step_3_extract_build_number; step_4_parse_pom; step_5_compose_email; step_6_compose_teams ;;
     step1) step_1_find_distro ;;
     step2) step_2_parse_log ;;
     step3) step_3_extract_build_number ;;
     step4) step_4_parse_pom ;;
     step5) step_5_compose_email ;;
+    step6) step_6_compose_teams ;;
     *) usage; exit 1 ;;
   esac
 }

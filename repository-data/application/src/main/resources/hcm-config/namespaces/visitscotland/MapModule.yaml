@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: e7dd7f94-7eab-417a-9be7-e5254469134d
+          jcr:uuid: 33c3d559-dc2d-44ae-a36f-9fc1727ac1c0
           hipposysedit:node: true
           hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
             'visitscotland:basedocument', 'hippostd:relaxed']
@@ -93,7 +93,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
           visitscotland:title: ''
           visitscotland:tabTitle: ''
-          jcr:uuid: 2d08d1d8-2658-412c-948b-7621411816e6
+          jcr:uuid: 617e6d73-8348-4321-8436-de4d9c2f221e
           hippostdpubwf:lastModificationDate: 2022-06-10T13:36:38.111+01:00
           hippostdpubwf:creationDate: 2022-06-10T13:36:38.111+01:00
           visitscotland:mapType: ''
@@ -170,26 +170,14 @@ definitions:
               maxitems: 1
           /keys:
             jcr:primaryType: frontend:plugin
-            caption: Map Category
-            hint: ${hint}
-            mode: ${mode}
-            model.compareTo: ${model.compareTo}
-            plugin.class: org.onehippo.taxonomy.plugin.TaxonomyPickerPlugin
-            taxonomy.classification.dao: service.taxonomy.dao
-            taxonomy.id: service.taxonomy
-            taxonomy.name: Visitscotland-categories
-            wicket.id: ${cluster.id}.right.item
-            wicket.model: ${wicket.model}
-          /mapType:
-            jcr:primaryType: frontend:plugin
-            caption: Bespoke map
-            field: mapType
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            essentials-taxonomy-name: Visitscotland-categories
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.right.item
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/administration/options/maps---dms-categories
+              taxonomy.name: Visitscotland-categories
+              caption: Categories
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation
@@ -200,6 +188,16 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ui.extension: translationDiff
+          /mapType:
+            jcr:primaryType: frontend:plugin
+            caption: Bespoke map
+            field: mapType
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/options/maps---dms-categories
           /isGoogleMap:
             jcr:primaryType: frontend:plugin
             caption: Google map

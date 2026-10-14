@@ -23,33 +23,34 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.lenient;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class JcrDocumentTest {
+class JcrDocumentTest {
     private JcrDocument document;
     @Mock
     HippoNode mockHandle;
 
     @BeforeEach
-    public void beforeEach() throws Exception {
+    void beforeEach() throws Exception {
         when(mockHandle.isNodeType(JcrDocument.HIPPO_HANDLE)).thenReturn(true);
+        when(mockHandle.isNodeType(JcrDocument.HIPPO_NAMESPACE)).thenReturn(false);
         document = new JcrDocument(mockHandle);
     }
 
     @Test
-    public void constructor_withNull() {
+    void constructor_withNull() {
         assertThrows(IllegalArgumentException.class, () -> new JcrDocument(null));
     }
 
     @Test
-    public void constructor_withDocumentNode() throws Exception {
+    void constructor_withDocumentNode() throws Exception {
         // When a document node is passed it should populate the handle in the document correctly
         HippoNode mockDocumentNode = mock(HippoNode.class);
         when(mockDocumentNode.getParent()).thenReturn(mockHandle);
+        when(mockDocumentNode.isNodeType(JcrDocument.HIPPO_NAMESPACE)).thenReturn(false);
         when(mockDocumentNode.isNodeType(JcrDocument.HIPPO_HANDLE)).thenReturn(false);
+
 
         JcrDocument newDocument = new JcrDocument(mockDocumentNode);
 
@@ -57,30 +58,32 @@ public class JcrDocumentTest {
     }
 
     @Test
-    public void constructor_withNullParent() throws Exception {
+    void constructor_withNullParent() throws Exception {
         // When a document node is passed it should have a non null parent
         // this test ensures that if it's parent is null the condition it caught
         HippoNode mockDocumentNode = mock(HippoNode.class);
         when(mockDocumentNode.getParent()).thenReturn(null);
         when(mockDocumentNode.isNodeType(JcrDocument.HIPPO_HANDLE)).thenReturn(false);
+        when(mockDocumentNode.isNodeType(JcrDocument.HIPPO_NAMESPACE)).thenReturn(false);
 
         assertThrows(IllegalArgumentException.class, () -> new JcrDocument(mockDocumentNode));
     }
 
     @Test
-    public void constructor_withParentNotHandle() throws Exception {
+    void constructor_withParentNotHandle() throws Exception {
         // When the document passed to the constructor, or its parent are not null then we cannot use this Node
         HippoNode mockParent = mock(HippoNode.class);
         when(mockParent.isNodeType(JcrDocument.HIPPO_HANDLE)).thenReturn(false);
         HippoNode mockDocumentNode = mock(HippoNode.class);
         when(mockDocumentNode.getParent()).thenReturn(mockParent);
         when(mockDocumentNode.isNodeType(JcrDocument.HIPPO_HANDLE)).thenReturn(false);
+        when(mockDocumentNode.isNodeType(JcrDocument.HIPPO_NAMESPACE)).thenReturn(false);
 
         assertThrows(IllegalArgumentException.class, () -> new JcrDocument(mockDocumentNode));
     }
 
     @Test
-    public void getVariants_populateMap() throws Exception {
+    void getVariants_populateMap() throws Exception {
         // Test the lazy load and
         // Ensure all the sibling variants are populated in the map correctly
         // Also ensures that a missing hippostd:state on the node does not cause an error
@@ -120,7 +123,7 @@ public class JcrDocumentTest {
     }
 
     @Test
-    public void getVariantNode() throws Exception {
+    void getVariantNode() throws Exception {
         // Ensure that the method does not cause an error when the variants have not been loaded yet
         HippoNode published = mock(HippoNode.class);
         Property publishedProp = mock(Property.class);
@@ -138,7 +141,7 @@ public class JcrDocumentTest {
     }
 
     @Test
-    public void isNodeType_noUnpublishedVariant() throws Exception {
+    void isNodeType_noUnpublishedVariant() throws Exception {
         // Test lazy load and
         // ensure that a missing unpublished variant always returns false, no error
         HippoNode published = mock(HippoNode.class);
@@ -156,7 +159,7 @@ public class JcrDocumentTest {
     }
 
     @Test
-    public void isNodeType_notMatchingTypes() throws Exception {
+    void isNodeType_notMatchingTypes() throws Exception {
         // Test lazy load and
         // ensure that when the document does not match any of the types it returns false
         HippoNode unpublished = mock(HippoNode.class);
@@ -175,7 +178,7 @@ public class JcrDocumentTest {
     }
 
     @Test
-    public void isNodeType_matchingTypes() throws Exception {
+    void isNodeType_matchingTypes() throws Exception {
         // Test lazy load and
         // ensure that when the document matches any of the types it returns true
         HippoNode unpublished = mock(HippoNode.class);
@@ -194,7 +197,7 @@ public class JcrDocumentTest {
     }
 
     @Test
-    public void getContainingFolder_parentIsFolder() throws Exception {
+    void getContainingFolder_parentIsFolder() throws Exception {
         // When the parent is a folder it is returned
         HippoNode parentFolder = mock(HippoNode.class);
         when(parentFolder.isNodeType(eq(HippoStdNodeType.NT_FOLDER))).thenReturn(true);
@@ -206,7 +209,7 @@ public class JcrDocumentTest {
     }
 
     @Test
-    public void getContainingFolder_parentIsNull() throws Exception{
+    void getContainingFolder_parentIsNull() throws Exception{
         // When the parent is null an IllegalStateException is thrown
         when(mockHandle.getParent()).thenReturn(null);
 
@@ -214,7 +217,7 @@ public class JcrDocumentTest {
     }
 
     @Test
-    public void getContainingFolder_parentIsNotFolder() throws Exception {
+    void getContainingFolder_parentIsNotFolder() throws Exception {
         // When the parent is not a folder an IllegalStateException is thrown
         HippoNode parentFolder = mock(HippoNode.class);
         when(parentFolder.isNodeType(eq(HippoStdNodeType.NT_FOLDER))).thenReturn(false);
@@ -224,7 +227,7 @@ public class JcrDocumentTest {
     }
 
     @Test
-    public void idDraftBeingEdited_null() throws Exception {
+    void idDraftBeingEdited_null() throws Exception {
         NodeIterator variantIterator = createNodeIterator();
         when(mockHandle.getNodes()).thenReturn(variantIterator);
 
@@ -232,7 +235,7 @@ public class JcrDocumentTest {
     }
 
     @Test
-    public void isDraftBeingEdited_isBeingEdited() throws Exception {
+    void isDraftBeingEdited_isBeingEdited() throws Exception {
         HippoNode draft = mock(HippoNode.class);
         Property draftProp = mock(Property.class);
         when(draftProp.getString()).thenReturn(JcrDocument.VARIANT_DRAFT);
@@ -247,7 +250,7 @@ public class JcrDocumentTest {
     }
 
     @Test
-    public void isDraftBeingEdited_notBeingEdited() throws Exception {
+    void isDraftBeingEdited_notBeingEdited() throws Exception {
         HippoNode draft = mock(HippoNode.class);
         Property draftProp = mock(Property.class);
         when(draftProp.getString()).thenReturn(JcrDocument.VARIANT_DRAFT);
@@ -264,7 +267,7 @@ public class JcrDocumentTest {
     @ParameterizedTest
     @CsvSource({"/content/attic/a/b,true", "/content/attica/b,false", "/content/documents/a/b,false"})
     @DisplayName("When node is deleted, isDeleted should be true")
-    public void deletedNodes(String path, boolean isDeleted) throws Exception {
+    void deletedNodes(String path, boolean isDeleted) throws Exception {
         when(mockHandle.getPath()).thenReturn(path);
         assertEquals(isDeleted, document.isDeleted());
     }
