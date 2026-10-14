@@ -1,8 +1,9 @@
 package com.visitscotland.brxm.components;
 
+import com.visitscotland.utils.Contract;
+
 import java.util.HashMap;
 import java.util.Map;
-import vs.ase.Contract;
 
 
 /**
