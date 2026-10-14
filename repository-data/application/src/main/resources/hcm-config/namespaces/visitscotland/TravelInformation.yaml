@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: d4c5417d-e5d6-4d4d-9509-6ac61a2ca77e
+          jcr:uuid: 328c27cc-69df-404d-8035-b8c5ad76c153
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -33,24 +33,6 @@ definitions:
             hipposysedit:path: visitscotland:copy
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators: [optional]
-          /gettingTo:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:gettingTo
-            hipposysedit:primary: false
-            hipposysedit:type: visitscotland:TravelInformationTab
-            hipposysedit:validators: [optional]
-          /gettingAround:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:gettingAround
-            hipposysedit:primary: false
-            hipposysedit:type: visitscotland:TravelInformationTab
             hipposysedit:validators: [optional]
           /translation:
             jcr:primaryType: hipposysedit:field
@@ -79,7 +61,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: d122150f-b45c-485f-9990-96bd23e3b0c2
+          jcr:uuid: ee59e121-4a79-42f3-8e9a-65f9df6007b4
           hippostdpubwf:lastModificationDate: 2021-06-11T10:13:33.356+01:00
           hippostdpubwf:creationDate: 2021-06-11T10:13:33.356+01:00
           visitscotland:translation: ''
@@ -137,24 +119,6 @@ definitions:
               showTitles: false
               startCollapsed: false
               titleMapping: []
-          /gettingTo:
-            jcr:primaryType: frontend:plugin
-            caption: Getting to (Deprecated)
-            field: gettingTo
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /gettingAround:
-            jcr:primaryType: frontend:plugin
-            caption: Getting Around (Deprecated)
-            field: gettingAround
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation
