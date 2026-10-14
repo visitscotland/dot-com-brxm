@@ -1,8 +1,8 @@
 package com.visitscotland.brxm.model;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.visitscotland.brxm.dms.model.DataType;
 import com.visitscotland.brxm.hippobeans.Stop;
-import com.visitscotland.dataobjects.DataType;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 import java.math.BigDecimal;
