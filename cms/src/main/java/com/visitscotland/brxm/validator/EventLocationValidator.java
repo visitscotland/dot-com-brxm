@@ -3,12 +3,11 @@ package com.visitscotland.brxm.validator;
 import com.visitscotland.brxm.exception.UnknownPropertyException;
 import com.visitscotland.brxm.exception.ValidationException;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Validator;
 import org.onehippo.cms.services.validation.api.Violation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.Node;
@@ -21,11 +20,9 @@ import static com.visitscotland.brxm.jcr.NodeUtility.isJcrPropertyBlank;
  * jcr:Name = visitscotland:event-location-validator
  */
 public class EventLocationValidator implements Validator<Node> {
-    private static final Logger logger = LogManager.getLogger(EventLocationValidator.class);
+    private static final Logger logger = LoggerFactory.getLogger(EventLocationValidator.class);
     private static final String ONLINE_JCR_TYPE = "visitscotland:online";
     private static final String VENUE_JCR_TYPE = "visitscotland:venue";
-
-    public EventLocationValidator() { }
 
     @Override
     public Optional<Violation> validate(ValidationContext validationContext, Node node) {
