@@ -4,7 +4,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 0941970c-7b24-40a0-9e25-9d4a61a483ca
   hippo:name: Events Listings - Module
-  hippo:versionHistory: 50e5d4fa-5718-49b0-a447-d76dd11a444f
+  hippo:versionHistory: 55137817-3ac8-49d6-b6e5-6b559edac8af
   /events-listings-module[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -14,15 +14,17 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-04-08T17:25:52.044+01:00
+    hippostdpubwf:lastModificationDate: 2026-10-15T08:47:40.704+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '']
     resourcebundle:id: events-listings-module
     resourcebundle:keys: [filter, clear-all, sort-by, time, price, location, organizer,
-      registration, contact, apply, no-js]
+      registration, contact, apply, no-js, remove-filter, matching, found]
     resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, Location, Organizer,
       Registration deadline, Contact, Apply, JavaScript needs to be enabled to see
-        Training and Events listings.  You can turn this on in your browser settings.]
+        Training and Events listings.  You can turn this on in your browser settings.,
+      Remove filter, Matching, Found]
   /events-listings-module[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -32,15 +34,17 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-04-08T17:27:30.625+01:00
+    hippostdpubwf:lastModificationDate: 2026-10-15T08:49:04.598+01:00
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '']
     resourcebundle:id: events-listings-module
     resourcebundle:keys: [filter, clear-all, sort-by, time, price, location, organizer,
-      registration, contact, apply, no-js]
+      registration, contact, apply, no-js, remove-filter, matching, found]
     resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, Location, Organizer,
       Registration deadline, Contact, Apply, JavaScript needs to be enabled to see
-        Training and Events listings.  You can turn this on in your browser settings.]
+        Training and Events listings.  You can turn this on in your browser settings.,
+      Remove filter, Matching, Found]
   /events-listings-module[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -50,13 +54,15 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2025-01-24T10:57:16.269Z
-    hippostdpubwf:lastModificationDate: 2025-04-08T17:27:30.625+01:00
+    hippostdpubwf:lastModificationDate: 2026-10-15T08:49:04.598+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2025-04-08T17:27:34.142+01:00
-    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2026-10-15T08:49:09.399+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
+      '', '']
     resourcebundle:id: events-listings-module
     resourcebundle:keys: [filter, clear-all, sort-by, time, price, location, organizer,
-      registration, contact, apply, no-js]
+      registration, contact, apply, no-js, remove-filter, matching, found]
     resourcebundle:messages: [Filter, Clear all, Sort by, Time, Price, Location, Organizer,
       Registration deadline, Contact, Apply, JavaScript needs to be enabled to see
-        Training and Events listings.  You can turn this on in your browser settings.]
+        Training and Events listings.  You can turn this on in your browser settings.,
+      Remove filter, Matching, Found]
