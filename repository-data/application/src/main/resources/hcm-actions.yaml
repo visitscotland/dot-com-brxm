@@ -181,3 +181,5 @@ action-lists:
 - 3.12.1:
     /content/documents/administration/configuration/default-site-properties: reload
     /content/documents/administration/configuration/local---business-support-hub: reload
+- 3.12.6:
+    /content/documents/administration/bsh-labels/modules/events-listings-module: reload
