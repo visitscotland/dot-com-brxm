@@ -61,7 +61,7 @@ public class TranslationRestServiceTest {
                 .withVariantNode(JcrDocument.VARIANT_UNPUBLISHED, unpublishedNode).build();
         when(mockJcrDocumentFactory.createFromNode(same(handleNode))).thenReturn(handleDocument);
 
-        Condition<ResponseStatusException> badRequest = new Condition<>(ex -> ex.getStatus().equals(HttpStatus.BAD_REQUEST), "Bad Request");
+        Condition<ResponseStatusException> badRequest = new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.BAD_REQUEST), "Bad Request");
         assertThatExceptionOfType(ResponseStatusException.class).isThrownBy(
                 () -> service.getNodeDifference(handleId)
         ).has(badRequest);
@@ -82,7 +82,7 @@ public class TranslationRestServiceTest {
 
         when(mockTranslationService.getDocumentDifference(eq(handleId))).thenReturn(null);
 
-        Condition<ResponseStatusException> noContent = new Condition<>(ex -> ex.getStatus().equals(HttpStatus.NO_CONTENT), " No Content");
+        Condition<ResponseStatusException> noContent = new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.NO_CONTENT), " No Content");
         assertThatExceptionOfType(ResponseStatusException.class).isThrownBy(
                 () -> service.getNodeDifference(handleId)
         ).has(noContent);
@@ -113,7 +113,7 @@ public class TranslationRestServiceTest {
     public void getNodeDifference_nodeNotFound() throws Exception{
         when(mockJcrSession.getNodeByIdentifier(anyString())).thenThrow(new ItemNotFoundException());
 
-        Condition<ResponseStatusException> notFound = new Condition<>(ex -> ex.getStatus().equals(HttpStatus.NOT_FOUND), "Not Found");
+        Condition<ResponseStatusException> notFound = new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.NOT_FOUND), "Not Found");
         assertThatExceptionOfType(ResponseStatusException.class).isThrownBy(
                 () -> service.getNodeDifference("1234")
         ).has(notFound);
@@ -128,7 +128,7 @@ public class TranslationRestServiceTest {
                 .withNodeId(handleId).build();
         when(mockJcrDocumentFactory.createFromNode(same(handleNode))).thenThrow(new IllegalArgumentException());
 
-        Condition<ResponseStatusException> badRequest = new Condition<>(ex -> ex.getStatus().equals(HttpStatus.BAD_REQUEST), "Bad Request");
+        Condition<ResponseStatusException> badRequest = new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.BAD_REQUEST), "Bad Request");
         assertThatExceptionOfType(ResponseStatusException.class).isThrownBy(
                 () -> service.getNodeDifference(handleId)
         ).has(badRequest);
@@ -139,7 +139,7 @@ public class TranslationRestServiceTest {
     public void getNodeDifference_generalRepositoryException() throws Exception {
         when(mockJcrSession.getNodeByIdentifier(anyString())).thenThrow(new RepositoryException());
 
-        Condition<ResponseStatusException> serverError = new Condition<>(ex -> ex.getStatus().equals(HttpStatus.INTERNAL_SERVER_ERROR), "Internal Server Error");
+        Condition<ResponseStatusException> serverError = new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.INTERNAL_SERVER_ERROR), "Internal Server Error");
         assertThatExceptionOfType(ResponseStatusException.class).isThrownBy(
                 () -> service.getNodeDifference("1234")
         ).has(serverError);
@@ -153,7 +153,7 @@ public class TranslationRestServiceTest {
         when(mockJcrSession.getNodeByIdentifier(eq(nodeId))).thenThrow(new RepositoryException());
 
         Condition<ResponseStatusException> serverError =
-                new Condition<>(ex -> ex.getStatus().equals(HttpStatus.INTERNAL_SERVER_ERROR), "500 Internal Server Error");
+                new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.INTERNAL_SERVER_ERROR), "500 Internal Server Error");
         assertThatExceptionOfType(ResponseStatusException.class)
                 .isThrownBy(() -> service.setTranslationFlag(nodeId, body)).has(serverError);
     }
@@ -166,7 +166,7 @@ public class TranslationRestServiceTest {
         when(mockJcrSession.getNodeByIdentifier(eq(nodeId))).thenThrow(new ItemNotFoundException());
 
         Condition<ResponseStatusException> notFound =
-                new Condition<>(ex -> ex.getStatus().equals(HttpStatus.NOT_FOUND), "404 NotFound");
+                new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.NOT_FOUND), "404 NotFound");
         assertThatExceptionOfType(ResponseStatusException.class)
                 .isThrownBy(() -> service.setTranslationFlag(nodeId, body)).has(notFound);
     }
@@ -187,7 +187,7 @@ public class TranslationRestServiceTest {
         when(mockTranslationService.setTranslationContent(same(jcrDocument), eq(content))).thenThrow(new IllegalArgumentException());
 
         Condition<ResponseStatusException> badRequest =
-                new Condition<>(ex -> ex.getStatus().equals(HttpStatus.BAD_REQUEST), "400 Bad Request");
+                new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.BAD_REQUEST), "400 Bad Request");
         assertThatExceptionOfType(ResponseStatusException.class)
                 .isThrownBy(() -> service.setTranslationFlag(nodeId, body)).has(badRequest);
     }
@@ -208,7 +208,7 @@ public class TranslationRestServiceTest {
         when(mockTranslationService.setTranslationContent(same(jcrDocument), eq(content))).thenThrow(new IllegalStateException());
 
         Condition<ResponseStatusException> badRequest =
-                new Condition<>(ex -> ex.getStatus().equals(HttpStatus.NO_CONTENT), "204 No Content");
+                new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.NO_CONTENT), "204 No Content");
         assertThatExceptionOfType(ResponseStatusException.class)
                 .isThrownBy(() -> service.setTranslationFlag(nodeId, body)).has(badRequest);
     }
@@ -228,7 +228,7 @@ public class TranslationRestServiceTest {
         List<JcrDocument> blockingDocuments = Arrays.asList(new MockJcrDocumentBuilder().build());
         when(mockTranslationService.setTranslationContent(same(jcrDocument), eq(content))).thenReturn(blockingDocuments);
         Condition<ResponseStatusException> conflict =
-                new Condition<>(ex -> ex.getStatus().equals(HttpStatus.CONFLICT), "409 Conflict");
+                new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.CONFLICT), "409 Conflict");
         assertThatExceptionOfType(ResponseStatusException.class)
                 .isThrownBy(() -> service.setTranslationFlag(nodeId, body)).has(conflict);
     }
@@ -257,7 +257,7 @@ public class TranslationRestServiceTest {
         when(mockJcrSession.getNodeByIdentifier(eq(nodeId))).thenThrow(new RepositoryException());
 
         Condition<ResponseStatusException> serverError =
-                new Condition<>(ex -> ex.getStatus().equals(HttpStatus.INTERNAL_SERVER_ERROR), "500 Internal Server Error");
+                new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.INTERNAL_SERVER_ERROR), "500 Internal Server Error");
         assertThatExceptionOfType(ResponseStatusException.class)
                 .isThrownBy(() -> service.deleteTranslationFlag(nodeId)).has(serverError);
     }
@@ -269,7 +269,7 @@ public class TranslationRestServiceTest {
         when(mockJcrSession.getNodeByIdentifier(eq(nodeId))).thenThrow(new ItemNotFoundException());
 
         Condition<ResponseStatusException> notFound =
-                new Condition<>(ex -> ex.getStatus().equals(HttpStatus.NOT_FOUND), "404 NotFound");
+                new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.NOT_FOUND), "404 NotFound");
         assertThatExceptionOfType(ResponseStatusException.class)
                 .isThrownBy(() -> service.deleteTranslationFlag(nodeId)).has(notFound);
     }
@@ -287,7 +287,7 @@ public class TranslationRestServiceTest {
         doThrow(new IllegalArgumentException()).when(mockTranslationService).clearTranslationFlag(same(jcrDocument));
 
         Condition<ResponseStatusException> badRequest =
-                new Condition<>(ex -> ex.getStatus().equals(HttpStatus.BAD_REQUEST), "400 Bad Request");
+                new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.BAD_REQUEST), "400 Bad Request");
         assertThatExceptionOfType(ResponseStatusException.class)
                 .isThrownBy(() -> service.deleteTranslationFlag(nodeId)).has(badRequest);
     }
@@ -304,7 +304,7 @@ public class TranslationRestServiceTest {
         List<JcrDocument> blockingDocuments = Arrays.asList(new MockJcrDocumentBuilder().build());
         doThrow(new WorkflowException("")).when(mockTranslationService).clearTranslationFlag(same(jcrDocument));
         Condition<ResponseStatusException> conflict =
-                new Condition<>(ex -> ex.getStatus().equals(HttpStatus.CONFLICT), "409 Conflict");
+                new Condition<>(ex -> ex.getStatusCode().equals(HttpStatus.CONFLICT), "409 Conflict");
         assertThatExceptionOfType(ResponseStatusException.class)
                 .isThrownBy(() -> service.deleteTranslationFlag(nodeId)).has(conflict);
     }

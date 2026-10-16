@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import org.hippoecm.hst.resourcebundle.ResourceBundleRegistry;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;

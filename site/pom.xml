@@ -18,13 +18,14 @@
         <version>${forge.breadcrumb.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>com.visitscotland</groupId>
-      <artifactId>data-service-api</artifactId>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>com.visitscotland</groupId>-->
+<!--      <artifactId>data-service-api</artifactId>-->
+<!--    </dependency>-->
     <dependency>
       <groupId>com.visitscotland</groupId>
       <artifactId>utils</artifactId>
+      <version>3.0.1</version>
     </dependency>
 
     <dependency>

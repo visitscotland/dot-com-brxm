@@ -1,6 +1,5 @@
-package com.visitscotland.brxm.cms.config;
+package com.visitscotland.brxm.translation;
 
-import com.visitscotland.brxm.translation.SessionFactory;
 import com.visitscotland.brxm.translation.plugin.JcrDocumentFactory;
 import org.hippoecm.editor.template.JcrTemplateStore;
 import org.hippoecm.editor.type.JcrTypeLocator;

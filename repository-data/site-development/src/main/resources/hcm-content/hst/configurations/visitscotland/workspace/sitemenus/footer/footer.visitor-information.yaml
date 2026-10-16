@@ -2,11 +2,7 @@
   .meta:order-before: footer.get-touch
   jcr:primaryType: hst:sitemenuitem
   hst:repobased: false
-  /Test pages:
+  /sandbox:
     jcr:primaryType: hst:sitemenuitem
-    hst:referencesitemapitem: test
-    hst:repobased: false
-  /Pages and modules examples:
-    jcr:primaryType: hst:sitemenuitem
-    hst:referencesitemapitem: sandbox
+    hst:referencesitemapitem: destinations-maps/orkney/short-break-itinerary
     hst:repobased: false

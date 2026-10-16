@@ -55,9 +55,15 @@
       <artifactId>commons-lang3</artifactId>
     </dependency>
 
+<!--    <dependency>-->
+<!--      <groupId>com.visitscotland</groupId>-->
+<!--      <artifactId>data-service-api</artifactId>-->
+<!--    </dependency>-->
+
     <dependency>
       <groupId>com.visitscotland</groupId>
-      <artifactId>data-service-api</artifactId>
+      <artifactId>utils</artifactId>
+      <version>3.0.1</version>
     </dependency>
 
     <dependency>
@@ -137,6 +143,14 @@
       <version>1.2</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.wicket</groupId>
+      <artifactId>wicket-tester</artifactId>
+      <!-- TODO find the dependency version from the parent pom -->
+      <version>10.0.0</version>
+      <scope>test</scope>
+    </dependency>
+
 <!--    <dependency>-->
 <!--      <groupId>org.bloomreach.forge.ipfilter</groupId>-->
 <!--      <artifactId>bloomreach-ipfilter-cms</artifactId>-->
@@ -188,7 +202,7 @@
       </plugin>
       <plugin>
         <groupId>org.codehaus.cargo</groupId>
-        <artifactId>cargo-maven2-plugin</artifactId>
+        <artifactId>cargo-maven3-plugin</artifactId>
         <configuration>
           <configuration>
             <type>runtime</type>

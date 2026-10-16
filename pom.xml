@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.visitscotland</groupId>
     <artifactId>brxm-parent-enterprise-pom</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
     <relativePath>brxm-pom.xml</relativePath>
   </parent>
 
@@ -25,12 +25,12 @@
 
     <!-- BloomReach Dependencies -->
     <!-- Documentation: https://bloomreach-forge.github.io/external-document-picker/index.html -->
-    <forge.exdocpickerbase.version>8.0.0</forge.exdocpickerbase.version>
+    <forge.exdocpickerbase.version>9.0.0</forge.exdocpickerbase.version>
     <!-- Documentation: https://bloomreach-forge.github.io/breadcrumb/ -->
     <forge.breadcrumb.version>5.0.0</forge.breadcrumb.version>
 
     <!-- Test dependencies -->
-    <junit.jupiter.version>5.11.2</junit.jupiter.version>
+<!--    <junit-jupiter.version>5.11.2</junit-jupiter.version>-->
     <easymock.version>5.4.0</easymock.version>
     <mockito.version>5.2.0</mockito.version>
     <assertj.version>3.26.3</assertj.version>
@@ -82,17 +82,17 @@
   <dependencyManagement>
     <dependencies>
       <!-- VisitScotland Dependencies -->
-      <dependency>
-        <groupId>com.visitscotland</groupId>
-        <artifactId>data-service-api</artifactId>
-        <version>1.3.2</version>
-        <exclusions>
-          <exclusion>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>com.visitscotland</groupId>-->
+<!--        <artifactId>data-service-api</artifactId>-->
+<!--        <version>1.3.2</version>-->
+<!--        <exclusions>-->
+<!--          <exclusion>-->
+<!--            <groupId>joda-time</groupId>-->
+<!--            <artifactId>joda-time</artifactId>-->
+<!--          </exclusion>-->
+<!--        </exclusions>-->
+<!--      </dependency>-->
 
       <dependency>
         <groupId>com.visitscotland</groupId>
@@ -104,13 +104,6 @@
         <groupId>org.onehippo.forge.exdocpickerbase</groupId>
         <artifactId>exdocpickerbase-field</artifactId>
         <version>${forge.exdocpickerbase.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.taglibs</groupId>
-        <artifactId>taglibs-standard-impl</artifactId>
-        <version>${taglibs.version}</version>
-        <scope>runtime</scope>
       </dependency>
 
       <dependency>
@@ -135,13 +128,13 @@
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
-        <version>${junit.jupiter.version}</version>
+        <version>${junit-jupiter.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.junit.vintage</groupId>
         <artifactId>junit-vintage-engine</artifactId>
-        <version>${junit.jupiter.version}</version>
+        <version>${junit-jupiter.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -355,12 +348,11 @@
 
   <profiles>
     <profile>
+      <!-- This profile has been defined by BloomReach as the default profile for development. -->
+      <!-- Reference: https://xmdocumentation.bloomreach.com/library/enterprise/enterprise-developer-information/bloomreach-maven-enterprise-repository-manual.html -->
       <id>default</id>
       <activation>
         <activeByDefault>true</activeByDefault>
-        <property>
-          <name>jrebel</name>
-        </property>
       </activation>
       <properties>
         <spring.profiles.active>${cliOptions}</spring.profiles.active>
@@ -388,8 +380,8 @@
           <scope>provided</scope>
         </dependency>
         <dependency>
-          <groupId>javax.annotation</groupId>
-          <artifactId>javax.annotation-api</artifactId>
+          <groupId>jakarta.annotation</groupId>
+          <artifactId>jakarta.annotation-api</artifactId>
           <scope>provided</scope>
         </dependency>
         <dependency>
