@@ -15,6 +15,7 @@ import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.Entry;
+import com.visitscotland.brxm.pagebuilder.InvalidContentException;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -143,7 +144,9 @@ public class LinkService {
 
         if (link == null || link.getLink() == null){
             contentLogger.warn("There is an unexpected issue with the link at {}", cmsLink.getPath());
-            module.addErrorMessage("There is an unexpected issue with the link at " + cmsLink.getPath());
+            if (module != null) {
+                module.addErrorMessage("There is an unexpected issue with the link at " + cmsLink.getPath());
+            }
             return null;
         }
 
@@ -449,7 +452,10 @@ public class LinkService {
             SharedLink sharedLink = (SharedLink) linkable;
             if (sharedLink.getLinkType() instanceof CMSLink){
                 CMSLink cmsLink = (CMSLink) sharedLink.getLinkType();
-                link = createCMSLink (module,locale,cmsLink);
+                FlatLink cmsLinkResult = createCMSLink(module, locale, cmsLink);
+                if (cmsLinkResult != null) {
+                        link = cmsLinkResult;
+                }
             } else{
                 link.setLink(getPlainLink(module, locale, sharedLink));
                 link.setType(getType(link.getLink()));
@@ -550,8 +556,9 @@ public class LinkService {
             link.setTeaser(sharedLink.getTeaser());
             if (sharedLink.getLinkType() instanceof CMSLink) {
                 CMSLink cmsLink = (CMSLink) sharedLink.getLinkType();
-                //link.setLink(createEnhancedLink(cmsLink.getLink(), module,  locale, false));
-                link.setLink(utils.createUrl((Page) cmsLink.getLink()));
+                if (cmsLink.getLink() instanceof Page) {
+                    link.setLink(utils.createUrl((Page) cmsLink.getLink()));
+                }
             } else {
                 link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
             }
