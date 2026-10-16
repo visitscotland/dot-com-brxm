@@ -5,8 +5,9 @@
   <parent>
     <groupId>com.visitscotland</groupId>
     <artifactId>dot-com-brxm-site</artifactId>
-    <version>3.12.4-SNAPSHOT</version>
+    <version>3.12.6-SNAPSHOT</version>
   </parent>
+
   <artifactId>dot-com-brxm-webapp</artifactId>
   <packaging>war</packaging>
   <name>www.visitscotland.com CMS Pages Site Webapp</name>
