@@ -9,7 +9,12 @@
                            http://www.springframework.org/schema/cache https://www.springframework.org/schema/cache/spring-cache.xsd">
 
     <!-- (HST)Components Annotation Scanning -->
-    <context:component-scan base-package="com.visitscotland.brxm"/>
+    <context:component-scan base-package="com.visitscotland.brxm">
+        <!-- Exclude translation workflow components-->
+        <context:exclude-filter
+                type="regex"
+                expression="com\.visitscotland\.brxm\.translation\..*"/>
+    </context:component-scan>
     <cache:annotation-driven/>
 
     <bean id="cacheManager"
