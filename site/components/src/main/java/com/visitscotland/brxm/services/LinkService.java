@@ -263,10 +263,6 @@ public class LinkService {
             } else {
                 url = cmsProperties.getDmsHost() + product.get(DMSConstants.DMSProduct.URL).get(DMSConstants.DMSProduct.URL_LINK).asText();
             }
-        } else if (link instanceof CMSLink) {
-            CMSLink cmsLink = (CMSLink) link;
-            //url = String.valueOf(createSimpleLink((Linkable) cmsLink.getLink(), null, locale));
-            url = String.valueOf(cmsLink.getLink());
         } else if (link instanceof ProductsSearch) {
             url = productSearch().fromHippoBean(((ProductsSearch) link)).locale(locale).build();
         } else if (link instanceof ProductSearchLink) {
@@ -451,8 +447,14 @@ public class LinkService {
             link.setType(LinkType.INTERNAL);
         } else if (linkable instanceof SharedLink) {
             SharedLink sharedLink = (SharedLink) linkable;
-            link.setLink(getPlainLink(module, locale, sharedLink));
-            link.setType(getType(link.getLink()));
+            if (sharedLink.getLinkType() instanceof CMSLink){
+                CMSLink cmsLink = (CMSLink) sharedLink.getLinkType();
+                link = createCMSLink (module,locale,cmsLink);
+            } else{
+                link.setLink(getPlainLink(module, locale, sharedLink));
+                link.setType(getType(link.getLink()));
+            }
+
         } else if (module != null) {
             module.addErrorMessage(String.format("The type %s cannot be converted into a link", linkable.getClass().getSimpleName()));
             logger.warn("The type {} was not expected and will be skipped", linkable.getClass().getSimpleName());
