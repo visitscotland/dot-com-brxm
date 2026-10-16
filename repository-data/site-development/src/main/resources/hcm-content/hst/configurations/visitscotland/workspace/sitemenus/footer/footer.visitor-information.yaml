@@ -2,7 +2,7 @@
   .meta:order-before: footer.get-touch
   jcr:primaryType: hst:sitemenuitem
   hst:repobased: false
-  /Events:
+  /sandbox:
     jcr:primaryType: hst:sitemenuitem
     hst:referencesitemapitem: destinations-maps/orkney/short-break-itinerary
     hst:repobased: false
