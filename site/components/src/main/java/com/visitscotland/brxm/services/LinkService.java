@@ -548,7 +548,12 @@ public class LinkService {
         } else {
             link = new EnhancedLink();
             link.setTeaser(sharedLink.getTeaser());
-            link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
+            if (sharedLink.getLinkType() instanceof CMSLink) {
+                CMSLink cmsLink = (CMSLink) sharedLink.getLinkType();
+                link.setLink(String.valueOf(createCMSLink(module, locale, cmsLink)));
+            } else {
+                link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
+            }
         }
 
         if (link.getLink() == null){
