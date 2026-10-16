@@ -15,6 +15,7 @@ import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.Entry;
+import com.visitscotland.brxm.pagebuilder.InvalidContentException;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -550,8 +551,9 @@ public class LinkService {
             link.setTeaser(sharedLink.getTeaser());
             if (sharedLink.getLinkType() instanceof CMSLink) {
                 CMSLink cmsLink = (CMSLink) sharedLink.getLinkType();
-                //link.setLink(createEnhancedLink(cmsLink.getLink(), module,  locale, false));
-                link.setLink(utils.createUrl((Page) cmsLink.getLink()));
+                if (cmsLink.getLink() instanceof Page) {
+                    link.setLink(utils.createUrl((Page) cmsLink.getLink()));
+                }
             } else {
                 link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
             }
