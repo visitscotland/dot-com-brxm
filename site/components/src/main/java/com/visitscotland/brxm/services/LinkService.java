@@ -263,6 +263,10 @@ public class LinkService {
             } else {
                 url = cmsProperties.getDmsHost() + product.get(DMSConstants.DMSProduct.URL).get(DMSConstants.DMSProduct.URL_LINK).asText();
             }
+        } else if (link instanceof CMSLink) {
+            CMSLink cmsLink = (CMSLink) link;
+            //url = String.valueOf(createSimpleLink((Linkable) cmsLink.getLink(), null, locale));
+            url = String.valueOf(cmsLink.getLink());
         } else if (link instanceof ProductsSearch) {
             url = productSearch().fromHippoBean(((ProductsSearch) link)).locale(locale).build();
         } else if (link instanceof ProductSearchLink) {
