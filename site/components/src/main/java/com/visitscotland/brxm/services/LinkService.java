@@ -550,7 +550,8 @@ public class LinkService {
             link.setTeaser(sharedLink.getTeaser());
             if (sharedLink.getLinkType() instanceof CMSLink) {
                 CMSLink cmsLink = (CMSLink) sharedLink.getLinkType();
-                link.setLink(String.valueOf(createCMSLink(module, locale, cmsLink)));
+                //link.setLink(createEnhancedLink(cmsLink.getLink(), module,  locale, false));
+                link.setLink(utils.createUrl((Page) cmsLink.getLink()));
             } else {
                 link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
             }
