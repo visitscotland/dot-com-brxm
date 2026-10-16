@@ -25,6 +25,16 @@
       <DefaultRolloverStrategy max="4" fileIndex="min"/>
     </RollingFile>
 
+    <!-- content appender for site module -->
+    <RollingFile name="content" fileName="${sys:catalina.base}/logs/content.log"
+                 filePattern="${sys:catalina.base}/logs/content.log.%d{yyyy-MM-dd}">
+      <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p %t [%C{1}.%M:%L] %m%n"/>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="10MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="4" fileIndex="min"/>
+    </RollingFile>
+
     <!-- audit.log -->
     <RollingFile name="audit" fileName="${sys:catalina.base}/logs/audit.log"
                  filePattern="${sys:catalina.base}/logs/audit.log.%d{yyyy-MM-dd}">
@@ -96,6 +106,10 @@
     <Logger name="org.apache.jackrabbit.core.query.lucene.MultiIndex" level="info"/>
     <Logger name="org.apache.jackrabbit.core.query.lucene.SearchIndex" level="info"/>
     <Logger name="org.apache.jackrabbit.core.query.lucene.ConsistencyCheck" level="info"/>
+
+    <!-- project logging -->
+    <Logger name="com.visitscotland.brxm" level="warn"/>
+    <Logger name="com.visitscotland.brxm.utils.ContentLogger" level="error"/>
 
     <!-- Dynamic beans logging -->
     <Logger name="org.hippoecm.hst.content.beans.dynamic" level="info"/>

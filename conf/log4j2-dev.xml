@@ -23,6 +23,15 @@
       </Policies>
     </RollingFile>
 
+    <!-- content logger appender for site module -->
+    <RollingFile name="content" fileName="${sys:catalina.base}/logs/contentLogger.log"
+                 filePattern="${sys:catalina.base}/logs/content.log.%d{yyyy-MM-dd}">
+      <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} %-5p %t [%C{1}.%M:%L] %m%n"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+      </Policies>
+    </RollingFile>
+
     <!-- audit.log -->
     <RollingFile name="audit" fileName="${sys:catalina.base}/logs/audit.log"
                  filePattern="${sys:catalina.base}/logs/audit.log.%d{yyyy-MM-dd}">
@@ -67,9 +76,11 @@
     <Logger name="org.hippoecm.frontend" level="warn"/>
     <Logger name="org.apache.wicket" level="warn"/>
 
+    <Logger name="org.hippoecm.hst.content.beans.dynamic.DynamicBeanDefinitionService" level="warn" />
+
     <!-- DiagnosticsRequestCycleListener only logs when diagnostics are enabled in the repository at
          /hippo:configuration/hippo:modules/diagnostics. Hence can be here on level 'info' -->
-    <Logger name="org.hippoecm.frontend.diagnosis.DiagnosticsRequestCycleListener" level="info"/>
+    <Logger name="org.hippoecm.frontend.diagnosis.DiagnosticsRequestCycleListener" level="warn"/>
 
     <!-- audit logging -->
     <Logger additivity="false" name="org.hippoecm.repository.api.Workflow" level="info">
@@ -82,9 +93,14 @@
     <!-- Site logging -->
     <Logger name="org.hippoecm.hst" level="warn"/>
 
+    <!-- Content logger. No need for console appender as Root logger also captures logs from the content logger -->
+    <Logger name="content" level="info">
+      <AppenderRef ref="content" />
+    </Logger>
+
     <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
          can be here on level 'info' -->
-    <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="info"/>
+    <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="warn"/>
 
     <!-- crisp-profile logging -->
     <Logger additivity="false" name="org.onehippo.cms7.crisp.core.profile.ResourceResolverProfiler" level="info">
@@ -145,7 +161,8 @@
     <Logger name="org.hippoecm.hst.content.beans.builder" level="info"/>
 
     <!-- project logging -->
-    <Logger name="com.visitscotland.v16" level="debug"/>
+    <Logger name="com.visitscotland.brxm.utils.EnvironmentManager" level="info"/>
+    <Logger name="com.visitscotland.brxm" level="debug"/>
 
     <Root level="warn">
       <AppenderRef ref="site"/>
