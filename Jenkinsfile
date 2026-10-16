@@ -101,7 +101,8 @@ if (!env.VS_BRXM_DSSR_SITES) { env.VS_BRXM_DSSR_SITES = "feature.visitscotland.c
 if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
 if (!env.VS_BRXM_BVC_SPA_URL) { env.VS_BRXM_BVC_SPA_URL = "https://feature-businessevents.visitscotland.com" }
 if (!env.VS_BRXM_SVO_SPA_URL) { env.VS_BRXM_SVO_SPA_URL = "https://feature-support.visitscotland.org" }
-if (!env.VS_SSR_PROXY_ON) { env.VS_SSR_PROXY_ON = "TRUE" }
+echo "SSR Packaging has been disabled."
+env.VS_SSR_PROXY_ON = "FALSE"
 echo "==/Setting default application variables"
 
 echo "== Setting default container variables"
@@ -237,7 +238,7 @@ pipeline {
 				}
 			}
 			steps {
-				sh 'mvn test -Pdefault -P!fed-build'
+				sh 'mvn test -Pdefault'
 			}
 		} //end stage
 
@@ -251,7 +252,7 @@ pipeline {
 			}
 			steps {
 				// -- 20200712: QUESTION FOR SE, "brC does not recognise the package, maybe it needs Enterprise Features?"
-				sh 'mvn verify && mvn -Pdist-with-development-data -P!fed-build -DskipTests'
+				sh 'mvn verify && mvn -Pdist-with-development-data -DskipTests'
 			}
 			post {
 				success {

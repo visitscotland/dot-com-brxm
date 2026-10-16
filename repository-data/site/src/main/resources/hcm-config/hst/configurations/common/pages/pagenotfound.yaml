@@ -6,7 +6,6 @@ definitions:
       /main:
         jcr:primaryType: hst:component
         hst:componentclassname: com.visitscotland.brxm.components.content.GeneralContentComponent
-        hst:template: general-main
         hst:parameternames: [status]
         hst:parametervalues: ['404']
         /breadcrumb:
