@@ -77,6 +77,11 @@
     <!-- Site logging -->
     <Logger name="org.hippoecm.hst" level="warn"/>
 
+    <!-- Content logger. No need for console appender as Root logger also captures logs from the content logger -->
+    <Logger name="content" level="info">
+      <AppenderRef ref="content" />
+    </Logger>
+
     <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
          can be here on level 'info' -->
     <Logger name="org.hippoecm.hst.core.container.DiagnosticReportingValve" level="info"/>

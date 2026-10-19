@@ -158,6 +158,9 @@
     <Logger name="org.hippoecm.hst.content.beans.dynamic" level="warn"/>
     <Logger name="org.hippoecm.hst.content.beans.builder" level="info"/>
 
+    <!-- groovy scripts default log level in production -->
+    <Logger name="org.onehippo.repository.update" level="debug" />
+
     <!-- project logging -->
     <Logger name="com.visitscotland.brxm.utils.EnvironmentManager" level="info"/>
     <Logger name="com.visitscotland.brxm" level="debug"/>
