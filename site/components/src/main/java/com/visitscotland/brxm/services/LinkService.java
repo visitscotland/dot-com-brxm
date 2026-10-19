@@ -15,6 +15,7 @@ import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.model.megalinks.Entry;
+import com.visitscotland.brxm.pagebuilder.InvalidContentException;
 import com.visitscotland.brxm.utils.*;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.container.RequestContextProvider;
@@ -143,7 +144,9 @@ public class LinkService {
 
         if (link == null || link.getLink() == null){
             contentLogger.warn("There is an unexpected issue with the link at {}", cmsLink.getPath());
-            module.addErrorMessage("There is an unexpected issue with the link at " + cmsLink.getPath());
+            if (module != null) {
+                module.addErrorMessage("There is an unexpected issue with the link at " + cmsLink.getPath());
+            }
             return null;
         }
 
@@ -447,8 +450,17 @@ public class LinkService {
             link.setType(LinkType.INTERNAL);
         } else if (linkable instanceof SharedLink) {
             SharedLink sharedLink = (SharedLink) linkable;
-            link.setLink(getPlainLink(module, locale, sharedLink));
-            link.setType(getType(link.getLink()));
+            if (sharedLink.getLinkType() instanceof CMSLink){
+                CMSLink cmsLink = (CMSLink) sharedLink.getLinkType();
+                FlatLink cmsLinkResult = createCMSLink(module, locale, cmsLink);
+                if (cmsLinkResult != null) {
+                        link = cmsLinkResult;
+                }
+            } else{
+                link.setLink(getPlainLink(module, locale, sharedLink));
+                link.setType(getType(link.getLink()));
+            }
+
         } else if (module != null) {
             module.addErrorMessage(String.format("The type %s cannot be converted into a link", linkable.getClass().getSimpleName()));
             logger.warn("The type {} was not expected and will be skipped", linkable.getClass().getSimpleName());
@@ -542,7 +554,14 @@ public class LinkService {
         } else {
             link = new EnhancedLink();
             link.setTeaser(sharedLink.getTeaser());
-            link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
+            if (sharedLink.getLinkType() instanceof CMSLink) {
+                CMSLink cmsLink = (CMSLink) sharedLink.getLinkType();
+                if (cmsLink.getLink() instanceof Page) {
+                    link.setLink(utils.createUrl((Page) cmsLink.getLink()));
+                }
+            } else {
+                link.setLink(getPlainLink(locale, sharedLink.getLinkType(), product));
+            }
         }
 
         if (link.getLink() == null){
