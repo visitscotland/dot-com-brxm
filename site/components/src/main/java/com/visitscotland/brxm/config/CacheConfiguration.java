@@ -20,14 +20,6 @@ public class CacheConfiguration {
         SimpleCacheManager cacheManager = new SimpleCacheManager();
 
         cacheManager.setCaches(List.of(
-                // Default cache settings
-                buildCache("default", 10_000, 120, 120),
-
-                // Product caches
-                buildCache("dmsProduct", 10_000, 3600),
-                buildCache("dmsProductSearch", 10_000, 3600),
-
-                // Other caches
                 buildCache("youtube", 1_000, 86400),
                 buildCache("externalDocument", 1_000, 1814400),
                 buildCache("navigation", 36, 1800)
