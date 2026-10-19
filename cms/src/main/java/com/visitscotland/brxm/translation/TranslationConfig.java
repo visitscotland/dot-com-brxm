@@ -3,21 +3,26 @@ package com.visitscotland.brxm.translation;
 import com.visitscotland.brxm.translation.plugin.JcrDocumentFactory;
 import org.hippoecm.editor.template.JcrTemplateStore;
 import org.hippoecm.editor.type.JcrTypeLocator;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 import javax.jcr.Session;
 
 import static org.springframework.beans.factory.config.ConfigurableBeanFactory.SCOPE_PROTOTYPE;
 
 @Configuration
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-@ComponentScan(basePackages = {"com.visitscotland.brxm.translation", "com.visitscotland.brxm.report.translation"})
+@ComponentScan(basePackages = {"com.visitscotland.brxm.translation"})
 public class TranslationConfig {
+
+    private static final Logger logger = LoggerFactory.getLogger(TranslationConfig.class);
+
+    public TranslationConfig () {
+        logger.info("VisitScotland Translation Workflow Initialized");
+    }
 
     @Bean
     public SessionFactory jcrSessionFactory() {
