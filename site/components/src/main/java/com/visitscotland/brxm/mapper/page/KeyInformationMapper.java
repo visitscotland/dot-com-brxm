@@ -36,7 +36,9 @@ public class KeyInformationMapper {
                 .stream().map(highlight -> getKeyInformationHighlightsModule(highlight, locale))
                 .collect(Collectors.toList()));
 
-        module.setCta(linkService.createFindOutMoreLink(module, locale, keyInformation.getCtaItem()));
+        if (keyInformation.getCtaItem() != null) {
+            module.setCta(linkService.createFindOutMoreLink(module, locale, keyInformation.getCtaItem()));
+        }
 
         return module;
     }

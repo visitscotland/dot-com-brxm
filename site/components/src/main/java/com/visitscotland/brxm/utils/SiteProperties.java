@@ -127,6 +127,10 @@ public class SiteProperties extends Properties {
         return readBoolean(GLOBAL_SEARCH_DMS_BASED);
     }
 
+    public String getObsSubmitUrl() {
+        return readString(OBS_SUBMIT_URL);
+    }
+
     public Optional<String> getGlobalSearchEventsEndpoint() {
         return readOptionalString(GLOBAL_SEARCH_EVENTS_ENDPOINT);
     }
