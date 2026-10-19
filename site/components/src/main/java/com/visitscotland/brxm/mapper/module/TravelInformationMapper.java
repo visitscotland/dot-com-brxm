@@ -6,6 +6,7 @@ import com.visitscotland.brxm.hippobeans.TravelInformationTab;
 import com.visitscotland.brxm.hippobeans.TravelInformationTransportRow;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.pagebuilder.InvalidContentException;
+import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.utils.Contract;
@@ -35,7 +36,7 @@ public class TravelInformationMapper extends ModuleMapper<TravelInformation, Tra
     void addLabels(PageCompositionHelper compositionHelper) throws MissingResourceException {}
 
     @Override
-    TravelInformationModule map(TravelInformation document, PageCompositionHelper compositionHelper) throws InvalidContentException {
+    TravelInformationModule map(TravelInformation document, PageCompositionHelper compositionHelper) throws PageCompositionException {
         return getTravelInformation(document, compositionHelper.getLocale());
     }
 
