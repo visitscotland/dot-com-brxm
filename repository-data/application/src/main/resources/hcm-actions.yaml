@@ -183,3 +183,4 @@ action-lists:
     /content/documents/administration/configuration/local---business-support-hub: reload
 - 3.12.6:
     /content/documents/administration/bsh-labels/modules/events-listings-module: reload
+    /content/documents/administration/options/business-support-hub/topics---training-events: reload
