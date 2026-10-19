@@ -76,8 +76,6 @@
     <Logger name="org.hippoecm.frontend" level="warn"/>
     <Logger name="org.apache.wicket" level="warn"/>
 
-    <Logger name="org.hippoecm.hst.content.beans.dynamic.DynamicBeanDefinitionService" level="warn" />
-
     <!-- DiagnosticsRequestCycleListener only logs when diagnostics are enabled in the repository at
          /hippo:configuration/hippo:modules/diagnostics. Hence can be here on level 'info' -->
     <Logger name="org.hippoecm.frontend.diagnosis.DiagnosticsRequestCycleListener" level="warn"/>
@@ -157,7 +155,7 @@
     </Logger>
 
     <!-- Dynamic beans logging -->
-    <Logger name="org.hippoecm.hst.content.beans.dynamic" level="info"/>
+    <Logger name="org.hippoecm.hst.content.beans.dynamic" level="warn"/>
     <Logger name="org.hippoecm.hst.content.beans.builder" level="info"/>
 
     <!-- project logging -->
