@@ -9,6 +9,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.api.HippoNode;
 import org.hippoecm.repository.translation.HippoTranslationNodeType;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,18 +48,24 @@ public class DifferenceOpenUi {
     public static final String BLOCKED_CURRENT_DIALOG_TEMPLATE = "dialogCurrentBlocked";
     public static final String NO_TRANSLATIONS_DIALOG_TEMPLATE = "dialogNoTranslations";
 
-    private TranslationService translationService;
-    private JcrDocumentFactory jcrDocumentFactory;
-    private SessionFactory sessionFactory;
+    private final ObjectProvider<TranslationService> translationServiceProvider;
+    private final JcrDocumentFactory jcrDocumentFactory;
+    private final SessionFactory sessionFactory;
 
     @Autowired
-    public DifferenceOpenUi(TranslationService translationService,
+    public DifferenceOpenUi(ObjectProvider<TranslationService> translationService,
                             JcrDocumentFactory jcrDocumentFactory,
                             SessionFactory sessionFactory) {
-        this.translationService = translationService;
+        this.translationServiceProvider = translationService;
         this.jcrDocumentFactory = jcrDocumentFactory;
         this.sessionFactory = sessionFactory;
     }
+
+    private TranslationService getTranslationServiceProvider(){
+        return translationServiceProvider.getObject();
+    }
+
+
 
     @GetMapping("/vs-openui/diff")
     public String openUiComponent() {
@@ -69,6 +76,7 @@ public class DifferenceOpenUi {
     public String openUiButton(@PathVariable("nodeId") String nodeId, Model model) {
         try {
             model.addAttribute(ATTR_NODE_ID, nodeId);
+            TranslationService translationService = getTranslationServiceProvider();
             JcrDocument document = translationService.getDocument(nodeId);
             if (document.getVariantNode(JcrDocument.VARIANT_UNPUBLISHED) == null) {
                 return EMPTY_TEMPLATE;
@@ -92,7 +100,7 @@ public class DifferenceOpenUi {
     public String diffView(@PathVariable("nodeId") String nodeId, Model model) {
         try {
             model.addAttribute(ATTR_NODE_ID, nodeId);
-            String diff = translationService.getDocumentDifference(nodeId);
+            String diff = getTranslationServiceProvider().getDocumentDifference(nodeId);
             if ( null != diff ) {
                 model.addAttribute(ATTR_DIFF_CONTENT, diff);
             } else {

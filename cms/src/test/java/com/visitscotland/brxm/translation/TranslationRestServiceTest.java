@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -36,14 +37,17 @@ public class TranslationRestServiceTest {
     @Mock
     private JcrDocumentFactory mockJcrDocumentFactory;
     @Mock
+    private ObjectProvider<TranslationService> mockTranslationServiceProvider;
+    @Mock
     private TranslationService mockTranslationService;
     @Mock
     private Session mockJcrSession;
 
     @BeforeEach
     public void beforeEach() {
-        service = new TranslationRestService(mockSessionFactory, mockJcrDocumentFactory, mockTranslationService);
+        service = new TranslationRestService(mockSessionFactory, mockJcrDocumentFactory, mockTranslationServiceProvider);
         when(mockSessionFactory.getJcrSession()).thenReturn(mockJcrSession);
+        when(mockTranslationServiceProvider.getObject()).thenReturn(mockTranslationService);
     }
 
     @DisplayName("getNodeDifference - English document, invalid request")

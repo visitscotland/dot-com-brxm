@@ -65,9 +65,9 @@ public class TranslationReportRestController {
 
     @GetMapping("/translation/priority")
     public List<List<Object>> getTranslationPriorityOptions() {
-        return Arrays.stream(TranslationPriority.values()).map(priority -> {
-            return Arrays.asList(priority.toString(),(Object)priority.name,  priority.sortOrder);
-        }).collect(Collectors.toList());
+        return Arrays.stream(TranslationPriority.values()).map(
+                priority ->  Arrays.asList(priority.toString(),(Object)priority.name,  priority.sortOrder)
+        ).toList();
     }
 
     @GetMapping("/translation/status")
