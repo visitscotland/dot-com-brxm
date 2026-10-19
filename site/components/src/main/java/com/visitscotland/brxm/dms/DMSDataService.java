@@ -41,8 +41,8 @@ public class DMSDataService {
      *
      *
      */
-    @Cacheable(value="dmsProduct")
     public JsonNode productCard(String productId, Locale locale) {
+        logger.warn("The cache for DMS requests has been disabled. If this message appears in the logs please evaluate activating the cache again");
         String responseString = null;
 
         if (!Contract.isEmpty(productId)) {
@@ -80,8 +80,9 @@ public class DMSDataService {
      *
      * @return Json node with DMS results
      */
-    @Cacheable (value="dmsProductSearch")
     public JsonNode legacyMapSearch(String dmsUrl){
+        logger.warn("The cache for DMS requests has been disabled. If this message appears in the logs please evaluate activating the cache again");
+
         String responseString = null;
 
         logger.info("Requesting data to the dms: {}", dmsUrl);
@@ -104,8 +105,8 @@ public class DMSDataService {
         return  null;
     }
 
-    @Cacheable (value="dmsProductSearch")
     public JsonNode cannedSearch(String dmsUrl){
+        logger.warn("The cache for DMS requests has been disabled. If this message appears in the logs please evaluate activating the cache again");
 
         logger.info("Requesting data to the canned search: {}", dmsUrl);
         String responseString = proxy.request(dmsUrl);
@@ -129,8 +130,8 @@ public class DMSDataService {
      *
      * @return boolean to indicate if the search returns products
      */
-    @Cacheable (value="dmsProductSearch")
     public boolean cannedSearchHasResults(String cannedSearch){
+        logger.warn("The cache for DMS requests has been disabled. If this message appears in the logs please evaluate activating the cache again");
 
         String responseString = null;
 
@@ -162,8 +163,9 @@ public class DMSDataService {
      * @return ArrayNode with the data for coordinates
      */
     //TODO this cache should be for a longer period of time?
-    @Cacheable (value="dmsProductSearch")
     public JsonNode getLocationBorders(String location, boolean isRegion){
+        logger.warn("The cache for DMS requests has been disabled. If this message appears in the logs please evaluate activating the cache again");
+
         logger.info("Requesting data to retrieve the coordinates for the polygon: {}", location);
         if (!Contract.isEmpty(location)) {
             String apiUrl = properties.getApiDataBackendHost() + "maps/meta/location/" + (isRegion? "polygon":"bounds")+"?";
@@ -191,8 +193,9 @@ public class DMSDataService {
      *
      * @return ArrayNode with the data for coordinates
      */
-    @Cacheable (value="dmsProductSearch")
     public ArrayNode getCatGroup(String prodType, String locale){
+        logger.warn("The cache for DMS requests has been disabled. If this message appears in the logs please evaluate activating the cache again");
+
         logger.info("Requesting data to retrieve the category groups for produc type: {}", prodType);
         if (!Contract.isEmpty(prodType)) {
             String dmsUrl = DMSConstants.META_CATEGORY_GROUP;

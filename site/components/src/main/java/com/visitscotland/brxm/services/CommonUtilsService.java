@@ -114,6 +114,7 @@ public class CommonUtilsService {
     @Deprecated(since = "2.8.5")
     @Cacheable (value="externalDocument")
     public Optional<String> getExternalDocumentSize(String link, Locale locale, boolean concatFormat) {
+        logger.warn("The size of the document {} has been calculated using deprecated logic. Please use FileMetaDataCalculator, which provides the recommended implementation.", link);
         DecimalFormatSymbols dfs = new DecimalFormatSymbols(locale);
         DecimalFormat decimalFormat = new DecimalFormat("#.#", dfs);
         try {
