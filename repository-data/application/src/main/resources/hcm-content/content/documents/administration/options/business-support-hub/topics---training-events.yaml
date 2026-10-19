@@ -37,7 +37,7 @@
     /selection:listitem[7]:
       jcr:primaryType: selection:listitem
       selection:key: responsible-tourism
-      selection:label: Responsible tourism
+      selection:label: Sustainability
     /selection:listitem[8]:
       jcr:primaryType: selection:listitem
       selection:key: social-media
@@ -46,7 +46,3 @@
       jcr:primaryType: selection:listitem
       selection:key: starting-business
       selection:label: Starting your business
-    /selection:listitem[10]:
-      jcr:primaryType: selection:listitem
-      selection:key: sustainability
-      selection:label: Sustainability
