@@ -36,7 +36,7 @@ public class TranslationRestService {
     }
 
     @GetMapping(value = "/vs-service/node/{handleId}/translation/diff", produces = "application/json")
-    public String getNodeDifference(@PathVariable String handleId) {
+    public String getNodeDifference(@PathVariable("handleId") String handleId) {
         try {
             Node handleNode = sessionFactory.getJcrSession().getNodeByIdentifier(handleId);
             JcrDocument jcrDocument = jcrDocumentFactory.createFromNode(handleNode);
@@ -66,7 +66,7 @@ public class TranslationRestService {
     }
 
     @PostMapping(value = "/vs-service/node/{handleId}/translation/flag", produces = "application/json")
-    public void setTranslationFlag(@PathVariable String handleId, @RequestBody String body) {
+    public void setTranslationFlag(@PathVariable("handleId") String handleId, @RequestBody String body) {
         // Needs to be an english document to set the translation on
         try {
             Node handleNode = sessionFactory.getJcrSession().getNodeByIdentifier(handleId);
@@ -97,7 +97,7 @@ public class TranslationRestService {
     }
 
     @DeleteMapping(value = "/vs-service/node/{handleId}/translation/flag", produces = "application/json")
-    public void deleteTranslationFlag(@PathVariable String handleId) {
+    public void deleteTranslationFlag(@PathVariable("handleId") String handleId) {
         try {
             Node handleNode = sessionFactory.getJcrSession().getNodeByIdentifier(handleId);
             JcrDocument jcrDocument = jcrDocumentFactory.createFromNode(handleNode);

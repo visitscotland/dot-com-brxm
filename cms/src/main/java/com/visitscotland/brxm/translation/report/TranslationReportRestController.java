@@ -35,7 +35,7 @@ public class TranslationReportRestController {
 
     @PostMapping("/translation/{handleId}/priority")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void setTranslationPriority(@PathVariable String handleId, @RequestBody Map<String, Object> requestBody) {
+    public void setTranslationPriority(@PathVariable("handleId") String handleId, @RequestBody Map<String, Object> requestBody) {
         Object priorityString = requestBody.get("priority");
         if (priorityString != null) {
             try {
@@ -49,7 +49,7 @@ public class TranslationReportRestController {
     }
 
     @PostMapping("/translation/{handleId}/deadline")
-    public void setTranslationDeadline(@PathVariable String handleId, @RequestBody Map<String, Object> requestBody) {
+    public void setTranslationDeadline(@PathVariable("handleId") String handleId, @RequestBody Map<String, Object> requestBody) {
         Object deadlineString = requestBody.get("deadline");
         if (!(deadlineString instanceof String)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No deadline provided");
