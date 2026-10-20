@@ -88,7 +88,9 @@ public class CludoService {
         final boolean isSearchResultsPage = isSearchResultsPage();
         final boolean isHomepage = isHomepage(request);
 
-        getSearchResultsURL(request).ifPresent(v -> pageConfig.addProperty("site-search.path", v));
+        getSearchResultsURL(request).ifPresentOrElse(
+                path -> pageConfig.addProperty("site-search.path", path),
+                () -> logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration."));
         properties.getGlobalSearchURL(request.getLocale()).ifPresent(v -> pageConfig.addProperty(SitePropertyKeys.GLOBAL_SEARCH_PATH, v));
         pageConfig.addProperty(INCLUDE_SEARCH_WIDGET, isHomepage && properties.getFeatureSearchWidget());
 
@@ -137,10 +139,8 @@ public class CludoService {
             // Convert the link to a URL and make it available to the template
             return Optional.of(link.toUrlForm(requestContext, false));
         } else {
-            logger.warn("Could not resolve link for siteMapItemRefId 'search-page'. Check HST sitemap configuration.");
+            return Optional.empty();
         }
-
-        return Optional.empty();
     }
 
     public boolean isSearchResultsPage() {
