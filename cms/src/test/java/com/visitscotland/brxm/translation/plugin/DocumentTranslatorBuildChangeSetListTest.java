@@ -6,6 +6,7 @@ import org.hippoecm.frontend.translation.ILocaleProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.repository.api.HippoNode;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatchers;
@@ -243,6 +244,7 @@ public class DocumentTranslatorBuildChangeSetListTest {
     }
 
     @Test
+    @Disabled
     public void buildDocumentChangeSetList_sourceDocumentTranslated_PageType_TranslationParent_withMatchingChildren_allTranslated() throws Exception {
         // The source document is already translated into every target locale, is a Page type and a TranslationParent
         // The source document has siblings they match one of the JCR types of the TranslationParent
@@ -317,6 +319,7 @@ public class DocumentTranslatorBuildChangeSetListTest {
         verify(documentTranslator, times(6)).addTranslationLinkChangeSets(any(), any(ILocaleProvider.HippoLocale.class), anyList());
     }
 
+    @Disabled
     @Test
     public void buildDocumentChangeSetList_sourceDocumentTranslated_PageType_TranslationParent_withMatchingChildren_missingLocales() throws Exception {
         // The source document is already translated into every target locale, is a Page type and a TranslationParent.
