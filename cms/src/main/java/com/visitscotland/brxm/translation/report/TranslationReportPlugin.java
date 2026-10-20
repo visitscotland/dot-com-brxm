@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.report.translation;
+package com.visitscotland.brxm.translation.report;
 
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;

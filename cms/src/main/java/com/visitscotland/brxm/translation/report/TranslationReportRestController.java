@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.report.translation;
+package com.visitscotland.brxm.translation.report;
 
 import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.visitscotland.brxm.report.ReportException;
@@ -35,7 +35,7 @@ public class TranslationReportRestController {
 
     @PostMapping("/translation/{handleId}/priority")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void setTranslationPriority(@PathVariable String handleId, @RequestBody Map<String, Object> requestBody) {
+    public void setTranslationPriority(@PathVariable("handleId") String handleId, @RequestBody Map<String, Object> requestBody) {
         Object priorityString = requestBody.get("priority");
         if (priorityString != null) {
             try {
@@ -49,7 +49,7 @@ public class TranslationReportRestController {
     }
 
     @PostMapping("/translation/{handleId}/deadline")
-    public void setTranslationDeadline(@PathVariable String handleId, @RequestBody Map<String, Object> requestBody) {
+    public void setTranslationDeadline(@PathVariable("handleId") String handleId, @RequestBody Map<String, Object> requestBody) {
         Object deadlineString = requestBody.get("deadline");
         if (!(deadlineString instanceof String)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No deadline provided");
@@ -65,9 +65,9 @@ public class TranslationReportRestController {
 
     @GetMapping("/translation/priority")
     public List<List<Object>> getTranslationPriorityOptions() {
-        return Arrays.stream(TranslationPriority.values()).map(priority -> {
-            return Arrays.asList(priority.toString(),(Object)priority.name,  priority.sortOrder);
-        }).collect(Collectors.toList());
+        return Arrays.stream(TranslationPriority.values()).map(
+                priority ->  Arrays.asList(priority.toString(),(Object)priority.name,  priority.sortOrder)
+        ).toList();
     }
 
     @GetMapping("/translation/status")

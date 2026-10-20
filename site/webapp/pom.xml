@@ -7,6 +7,7 @@
     <artifactId>dot-com-brxm-site</artifactId>
     <version>3.12.7-SNAPSHOT</version>
   </parent>
+
   <artifactId>dot-com-brxm-webapp</artifactId>
   <packaging>war</packaging>
   <name>www.visitscotland.com CMS Pages Site Webapp</name>
@@ -31,7 +32,6 @@
     <dependency>
       <groupId>org.onehippo.cms7.hst.toolkit-resources.addon</groupId>
       <artifactId>hst-addon-hcm-site</artifactId>
-      <version>${hippo.hst.version}</version>
     </dependency>
   </dependencies>
 
@@ -53,7 +53,7 @@
     <plugins>
       <plugin>
         <groupId>org.codehaus.cargo</groupId>
-        <artifactId>cargo-maven2-plugin</artifactId>
+        <artifactId>cargo-maven3-plugin</artifactId>
         <configuration>
           <configuration>
             <type>runtime</type>
