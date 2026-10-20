@@ -19,6 +19,7 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
     public static final String ITINERARY = "itinerary";
     public static final String ITINERARY_BUNDLE = "itinerary";
     public static final String PAGE_INTRO = "pageIntro";
+    public static final String PAGE_TEMPLATE = "pageTemplate";
     public static final String HAS_STOPS = "hasStops";
 
     private final ItineraryMapper itineraryMapper;
@@ -49,7 +50,9 @@ public class ItineraryContentComponent extends PageContentComponent<Itinerary> {
         } else {
             pageConfig.addProperty(HAS_STOPS, false);
             ItineraryPage itinerary = itineraryMapper.buildItinerary(getDocument(request), request.getLocale());
+            // TODO - review and remove?
             request.setModel(PAGE_INTRO, itinerary);
+            request.setModel(PAGE_TEMPLATE, itinerary);
             builder.addModules(request, pageConfig);
         }
     }
