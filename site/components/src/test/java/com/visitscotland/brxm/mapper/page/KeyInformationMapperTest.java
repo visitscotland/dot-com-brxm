@@ -60,7 +60,8 @@ class KeyInformationMapperTest {
         when(keyInformation.getTitle()).thenReturn("Dundee");
         when(keyInformation.getHighlights()).thenReturn(List.of(highlight));
         when(highlight.getCategory()).thenReturn("getting-there");
-        when(highlight.getCopy()).thenReturn(mock(HippoHtml.class));
+        HippoHtml copy = mock(HippoHtml.class);
+        when(highlight.getCopy()).thenReturn(copy);
 
         when(resourceBundleService.getResourceBundle(
                 BUNDLE_NAME, "getting-there", LOCALE
@@ -76,6 +77,7 @@ class KeyInformationMapperTest {
 
         assertEquals("getting-there", category.getCategory().getKey());
         assertEquals("Getting there", category.getCategory().getValue());
+        assertSame(copy, category.getCopy());
 
         verify(resourceBundleService).getResourceBundle(
                 BUNDLE_NAME, "getting-there", LOCALE
