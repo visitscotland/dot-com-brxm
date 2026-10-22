@@ -114,7 +114,7 @@ public class EventsListingMapper extends ModuleMapper<EventsListing, EventsLings
         List<EventFilter> filters = new ArrayList<>();
 
         addDateFields(filters);
-        addBooleanFields(filters, false, false);
+        addBooleanFields(filters, true, false);
         filters.add(buildMultiselectField(EVENT_TYPE_PARAM, EVENT_TYPE_LABEL, INDUSTRY_EVENTS_TYPES_VALUE_LIST, 2));
         filters.add(buildMultiselectField(SECTOR_PARAM, SECTOR_LABEL, SECTORS_VALUE_LIST, 3));
         filters.add(buildMultiselectField(REGION_PARAM, REGION_LABEL, REGIONS_VALUE_LIST, 4));
@@ -150,15 +150,15 @@ public class EventsListingMapper extends ModuleMapper<EventsListing, EventsLings
 
     private void addBooleanFields(List<EventFilter> filters, boolean inPerson, boolean national) {
 
-        filters.add(buildBooleanField(FREE_PARAM, FREE_LABEL));
-        filters.add(buildBooleanField(ONLINE_PARAM, ONLINE_LABEL));
+        filters.add(buildBooleanField(FREE_PARAM, FREE_LABEL, BOOLEAN_GROUP));
+        filters.add(buildBooleanField(ONLINE_PARAM, ONLINE_LABEL, BOOLEAN_GROUP));
 
         if (inPerson) {
-            filters.add(buildBooleanField(IN_PERSON_PARAM, IN_PERSON_LABEL));
+            filters.add(buildBooleanField(IN_PERSON_PARAM, IN_PERSON_LABEL, BOOLEAN_GROUP));
         }
         if (national) {
-            filters.add(buildBooleanField(NATIONAL_PARAM, NATIONAL_LABEL));
-            filters.add(buildBooleanField(INTERNATIONAL_PARAM, INTERNATIONAL_LABEL));
+            filters.add(buildBooleanField(NATIONAL_PARAM, NATIONAL_LABEL,2));
+            filters.add(buildBooleanField(INTERNATIONAL_PARAM, INTERNATIONAL_LABEL,2));
         }
     }
 
@@ -177,8 +177,8 @@ public class EventsListingMapper extends ModuleMapper<EventsListing, EventsLings
     /**
      * Create an EventFilter for a checkbox field
      */
-    private EventFilter buildBooleanField(String key, String labelKey) {
-        return new EventFilter(key, getLabel(labelKey), EventFilter.Type.BOOLEAN, BOOLEAN_GROUP);
+    private EventFilter buildBooleanField(String key, String labelKey, int group) {
+        return new EventFilter(key, getLabel(labelKey), EventFilter.Type.BOOLEAN, group);
     }
 
     /**
