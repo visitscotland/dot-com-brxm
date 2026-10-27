@@ -30,7 +30,7 @@
         es 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is used to set
         up the Cludo Chatbox functionality, '', '', '', '', '', '', '', '', "values\
         \ in lowercase:\r\nor\r\nand", '', '', '', '', '']
-    resourcebundle:id: feature.tt-site.config
+    resourcebundle:id: local.tt-site.config
     resourcebundle:keys: [links.internal-sites, links.convert-to-relative, gtm.is-production,
       gtm.container-id, gtm.preview-query-string, form.is-production, global-search.path,
       site.path.newsletter, form.json.countries, form.json.messages, form.recaptcha-key,
@@ -94,7 +94,7 @@
         es 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is used to set
         up the Cludo Chatbox functionality, '', '', '', '', '', '', '', '', "values\
         \ in lowercase:\r\nor\r\nand", '', '', '', '', '']
-    resourcebundle:id: feature.tt-site.config
+    resourcebundle:id: local.tt-site.config
     resourcebundle:keys: [links.internal-sites, links.convert-to-relative, gtm.is-production,
       gtm.container-id, gtm.preview-query-string, form.is-production, global-search.path,
       site.path.newsletter, form.json.countries, form.json.messages, form.recaptcha-key,
@@ -159,7 +159,7 @@
         es 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is used to set
         up the Cludo Chatbox functionality, '', '', '', '', '', '', '', '', "values\
         \ in lowercase:\r\nor\r\nand", '', '', '', '', '']
-    resourcebundle:id: feature.tt-site.config
+    resourcebundle:id: local.tt-site.config
     resourcebundle:keys: [links.internal-sites, links.convert-to-relative, gtm.is-production,
       gtm.container-id, gtm.preview-query-string, form.is-production, global-search.path,
       site.path.newsletter, form.json.countries, form.json.messages, form.recaptcha-key,
