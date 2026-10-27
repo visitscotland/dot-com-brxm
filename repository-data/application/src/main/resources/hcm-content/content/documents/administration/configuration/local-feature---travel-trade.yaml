@@ -1,0 +1,199 @@
+/content/documents/administration/configuration/local-feature---travel-trade:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: acac7a05-38fe-4187-b367-0c89555ae795
+  hippo:name: Local/Feature - Travel Trade
+  hippo:versionHistory: b581d78e-ed90-4a73-986b-032feceec8b0
+  /local-feature---travel-trade[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 7aa1cd0f-d4d6-47e8-8a0f-8a113d48ea95
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
+    hippostdpubwf:lastModificationDate: 2026-10-27T08:56:39.632Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: [List of Hosts that will be marked as internal URLs,
+      URLs from this environment will be treated as internal and will be transformed
+        into Relative URLs when the value of attribute 'links.use-relative-urls is
+        true., '', Container ID from Google Tag Manager, "GTM Query Parameter for\
+        \ the environment. \r\n\r\nTypically production wouldn't have any query parameters\
+        \ while rest of the environment would use a test container with query parameters",
+      '', Cludo search relative path, '', 'JSON file with the list of Countries including
+        the United Kingdom countries: Scotland, England, Wales & Northern Ireland',
+      Static file with all validation messages translated into different languages,
+      Public Recaptcha Key for Forms, '', '', '', This property is used to set up
+        the Cludo Chatbox functionality, "This property is used to set up the Cludo\
+        \ Chatbox functionality\r\n\r\nOLD Search\r\n\r\nen 12809\r\nde 12812\r\n\
+        es 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is used to set
+        up the Cludo Chatbox functionality, '', '', '', '', '', '', '', '', "values\
+        \ in lowercase:\r\nor\r\nand", '', '', '', '', '']
+    resourcebundle:id: local.tt-site.config
+    resourcebundle:keys: [links.internal-sites, links.convert-to-relative, gtm.is-production,
+      gtm.container-id, gtm.preview-query-string, form.is-production, global-search.path,
+      site.path.newsletter, form.json.countries, form.json.messages, form.recaptcha-key,
+      links.download.extensions, form.breg.legal-basis.enable, site.path.banner, cludo.customer-id,
+      cludo.engine-id, cludo.experience-id, feature.products-search.enable, feature.global-search.enable,
+      form.breg.legal-basis.text, site-id, site.path.map, feature.global-search.events-endpoint,
+      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic,
+      feature.favourites.url, feature.favourites.enable, feature.favourites.endpoint,
+      feature.favourites.share-url, feature.favourites.share-service-base-url]
+    resourcebundle:messages: ['localhost,traveltrade.visitscotland.org', traveltrade.visitscotland.org,
+      'false', GTM-PVQ3P7VZ, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
+      'false', /site-search-results, /sandbox/pages/newsletter-sign-up, 'https://static.visitscotland.com/forms/common/countries.json',
+      'https://static.visitscotland.com/forms/common/messaging.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
+      pdf, 'true', general/navigation/banner/content, '623', '14069', abba43e006424824befb855918e2b9db,
+      'false', 'false', Consent, tt, '', 'https://api.visitscotland.com/dev/data/products/events/search',
+      'false', 'false', and, /sandbox/pages/favourites, 'false', /api/favourites/get-favourites,
+      /sandbox/pages/share-favourites/content, 'https://api.visitscotland.com/dev/data/favourites']
+    resourcebundle:messages_de: ['', '', '', '', '', '', /de-de/site-search-results,
+      '', '', '', '', '', '', '', '', '14973', '', '', '', '', '', '', '', '', '',
+      '', /de-de/sandbox/pages/favourites, '', '', /de-de/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', /es-es/site-search-results,
+      '', '', '', '', '', '', '', '', '14976', '', '', '', '', '', '', '', '', '',
+      '', /es-es/sandbox/pages/favourites, '', '', /es-es/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', /fr-fr/site-search-results,
+      '', '', '', '', '', '', '', '', '14975', '', '', '', '', '', '', '', '', '',
+      '', /fr-fr/sandbox/pages/favourites, '', '', /fr-fr/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', /it-it/site-search-results,
+      '', '', '', '', '', '', '', '', '14972', '', '', '', '', '', '', '', '', '',
+      '', /it-it/sandbox/pages/favourites, '', '', /it-it/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', /nl-nl/site-search-results,
+      '', '', '', '', '', '', '', '', '14974', '', '', '', '', '', '', '', '', '',
+      '', /nl-nl/sandbox/pages/favourites, '', '', /nl-nl/sandbox/pages/share-favourites/content,
+      '']
+  /local-feature---travel-trade[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 6e3a33c2-adb1-4dbb-b75f-0c7e6eb84b2c
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
+    hippostdpubwf:lastModificationDate: 2026-10-27T08:53:27.890Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: [List of Hosts that will be marked as internal URLs,
+      URLs from this environment will be treated as internal and will be transformed
+        into Relative URLs when the value of attribute 'links.use-relative-urls is
+        true., '', Container ID from Google Tag Manager, "GTM Query Parameter for\
+        \ the environment. \r\n\r\nTypically production wouldn't have any query parameters\
+        \ while rest of the environment would use a test container with query parameters",
+      '', Cludo search relative path, '', 'JSON file with the list of Countries including
+        the United Kingdom countries: Scotland, England, Wales & Northern Ireland',
+      Static file with all validation messages translated into different languages,
+      Public Recaptcha Key for Forms, '', '', '', This property is used to set up
+        the Cludo Chatbox functionality, "This property is used to set up the Cludo\
+        \ Chatbox functionality\r\n\r\nOLD Search\r\n\r\nen 12809\r\nde 12812\r\n\
+        es 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is used to set
+        up the Cludo Chatbox functionality, '', '', '', '', '', '', '', '', "values\
+        \ in lowercase:\r\nor\r\nand", '', '', '', '', '']
+    resourcebundle:id: local.tt-site.config
+    resourcebundle:keys: [links.internal-sites, links.convert-to-relative, gtm.is-production,
+      gtm.container-id, gtm.preview-query-string, form.is-production, global-search.path,
+      site.path.newsletter, form.json.countries, form.json.messages, form.recaptcha-key,
+      links.download.extensions, form.breg.legal-basis.enable, site.path.banner, cludo.customer-id,
+      cludo.engine-id, cludo.experience-id, feature.products-search.enable, feature.global-search.enable,
+      form.breg.legal-basis.text, site-id, site.path.map, feature.global-search.events-endpoint,
+      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic,
+      feature.favourites.url, feature.favourites.enable, feature.favourites.endpoint,
+      feature.favourites.share-url, feature.favourites.share-service-base-url]
+    resourcebundle:messages: ['localhost,traveltrade.visitscotland.org', traveltrade.visitscotland.org,
+      'false', GTM-PVQ3P7VZ, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
+      'false', /site-search-results, /sandbox/pages/newsletter-sign-up, 'https://static.visitscotland.com/forms/common/countries.json',
+      'https://static.visitscotland.com/forms/common/messaging.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
+      pdf, 'true', general/navigation/banner/content, '623', '14069', abba43e006424824befb855918e2b9db,
+      'false', 'false', Consent, tt, '', 'https://api.visitscotland.com/dev/data/products/events/search',
+      'false', 'false', and, /sandbox/pages/favourites, 'false', /api/favourites/get-favourites,
+      /sandbox/pages/share-favourites/content, 'https://api.visitscotland.com/dev/data/favourites']
+    resourcebundle:messages_de: ['', '', '', '', '', '', /de-de/site-search-results,
+      '', '', '', '', '', '', '', '', '14973', '', '', '', '', '', '', '', '', '',
+      '', /de-de/sandbox/pages/favourites, '', '', /de-de/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', /es-es/site-search-results,
+      '', '', '', '', '', '', '', '', '14976', '', '', '', '', '', '', '', '', '',
+      '', /es-es/sandbox/pages/favourites, '', '', /es-es/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', /fr-fr/site-search-results,
+      '', '', '', '', '', '', '', '', '14975', '', '', '', '', '', '', '', '', '',
+      '', /fr-fr/sandbox/pages/favourites, '', '', /fr-fr/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', /it-it/site-search-results,
+      '', '', '', '', '', '', '', '', '14972', '', '', '', '', '', '', '', '', '',
+      '', /it-it/sandbox/pages/favourites, '', '', /it-it/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', /nl-nl/site-search-results,
+      '', '', '', '', '', '', '', '', '14974', '', '', '', '', '', '', '', '', '',
+      '', /nl-nl/sandbox/pages/favourites, '', '', /nl-nl/sandbox/pages/share-favourites/content,
+      '']
+  /local-feature---travel-trade[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 24296a49-7fd3-4bf3-9288-bbcc1c111181
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-02-05T15:37:26.056Z
+    hippostdpubwf:lastModificationDate: 2026-10-27T08:56:39.632Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-10-27T08:56:43.181Z
+    resourcebundle:descriptions: [List of Hosts that will be marked as internal URLs,
+      URLs from this environment will be treated as internal and will be transformed
+        into Relative URLs when the value of attribute 'links.use-relative-urls is
+        true., '', Container ID from Google Tag Manager, "GTM Query Parameter for\
+        \ the environment. \r\n\r\nTypically production wouldn't have any query parameters\
+        \ while rest of the environment would use a test container with query parameters",
+      '', Cludo search relative path, '', 'JSON file with the list of Countries including
+        the United Kingdom countries: Scotland, England, Wales & Northern Ireland',
+      Static file with all validation messages translated into different languages,
+      Public Recaptcha Key for Forms, '', '', '', This property is used to set up
+        the Cludo Chatbox functionality, "This property is used to set up the Cludo\
+        \ Chatbox functionality\r\n\r\nOLD Search\r\n\r\nen 12809\r\nde 12812\r\n\
+        es 12814\r\nfr 12811\r\nit 12813\r\nnl 12810", This property is used to set
+        up the Cludo Chatbox functionality, '', '', '', '', '', '', '', '', "values\
+        \ in lowercase:\r\nor\r\nand", '', '', '', '', '']
+    resourcebundle:id: local.tt-site.config
+    resourcebundle:keys: [links.internal-sites, links.convert-to-relative, gtm.is-production,
+      gtm.container-id, gtm.preview-query-string, form.is-production, global-search.path,
+      site.path.newsletter, form.json.countries, form.json.messages, form.recaptcha-key,
+      links.download.extensions, form.breg.legal-basis.enable, site.path.banner, cludo.customer-id,
+      cludo.engine-id, cludo.experience-id, feature.products-search.enable, feature.global-search.enable,
+      form.breg.legal-basis.text, site-id, site.path.map, feature.global-search.events-endpoint,
+      feature.global-search.dms-based, feature.search-widget.enable, feature.global-search.logic,
+      feature.favourites.url, feature.favourites.enable, feature.favourites.endpoint,
+      feature.favourites.share-url, feature.favourites.share-service-base-url]
+    resourcebundle:messages: ['localhost,traveltrade.visitscotland.org', traveltrade.visitscotland.org,
+      'false', GTM-PVQ3P7VZ, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
+      'false', /site-search-results, /sandbox/pages/newsletter-sign-up, 'https://static.visitscotland.com/forms/common/countries.json',
+      'https://static.visitscotland.com/forms/common/messaging.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
+      pdf, 'true', general/navigation/banner/content, '623', '14069', abba43e006424824befb855918e2b9db,
+      'false', 'false', Consent, tt, '', 'https://api.visitscotland.com/dev/data/products/events/search',
+      'false', 'false', and, /sandbox/pages/favourites, 'false', /api/favourites/get-favourites,
+      /sandbox/pages/share-favourites/content, 'https://api.visitscotland.com/dev/data/favourites']
+    resourcebundle:messages_de: ['', '', '', '', '', '', /de-de/site-search-results,
+      '', '', '', '', '', '', '', '', '14973', '', '', '', '', '', '', '', '', '',
+      '', /de-de/sandbox/pages/favourites, '', '', /de-de/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_es: ['', '', '', '', '', '', /es-es/site-search-results,
+      '', '', '', '', '', '', '', '', '14976', '', '', '', '', '', '', '', '', '',
+      '', /es-es/sandbox/pages/favourites, '', '', /es-es/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_fr: ['', '', '', '', '', '', /fr-fr/site-search-results,
+      '', '', '', '', '', '', '', '', '14975', '', '', '', '', '', '', '', '', '',
+      '', /fr-fr/sandbox/pages/favourites, '', '', /fr-fr/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_it: ['', '', '', '', '', '', /it-it/site-search-results,
+      '', '', '', '', '', '', '', '', '14972', '', '', '', '', '', '', '', '', '',
+      '', /it-it/sandbox/pages/favourites, '', '', /it-it/sandbox/pages/share-favourites/content,
+      '']
+    resourcebundle:messages_nl: ['', '', '', '', '', '', /nl-nl/site-search-results,
+      '', '', '', '', '', '', '', '', '14974', '', '', '', '', '', '', '', '', '',
+      '', /nl-nl/sandbox/pages/favourites, '', '', /nl-nl/sandbox/pages/share-favourites/content,
+      '']

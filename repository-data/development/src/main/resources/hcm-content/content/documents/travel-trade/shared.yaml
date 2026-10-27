@@ -1,0 +1,2366 @@
+/content/documents/travel-trade/shared:
+  .meta:order-before: sandbox
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 0d6cb31b-692e-4b17-820b-36af226ca7ce
+  hippostd:foldertype: []
+  hippotranslation:id: b091be00-dc54-41e0-9354-c4098c03db9e
+  hippotranslation:locale: en
+  /video:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['frontend:orderChildFolders', 'hippo:named', 'hippotranslation:translated',
+      'mix:versionable']
+    jcr:uuid: 50571f8d-08bf-468d-aaf5-a7a2e652f245
+    hippo:name: Videos
+    hippostd:foldertype: [new-translated-folder-videos, new-video]
+    hippotranslation:id: cae74ed6-9a80-4370-9e8a-28ee2c1f9594
+    hippotranslation:locale: en
+    /autumn-in-scotland:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 9959f365-5e22-4722-86d3-26de92cb30cf
+      hippo:name: Autumn in Scotland
+      hippo:versionHistory: 1682b36d-2756-488c-bdfa-594c0c2ac121
+      /autumn-in-scotland[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 5133ad8f-63bd-4daf-aa59-b0e9833fad51
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: sarah.clark
+        hippostdpubwf:creationDate: 2022-09-23T15:35:41.951+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T11:10:15.450+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: bfc56935-7bab-40ab-b1da-59a499ab9de1
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Autumn is a magical time of year when forests and woodlands
+          burst with colour. Experience the season in fantastic forest parks.
+        visitscotland:title: Autumn in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=o_NRnwkyuSc
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 4e4e7294-2c1c-42d1-b34b-9916c4424b8a
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /autumn-in-scotland[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 4494195a-89ac-463a-bd09-58e2e6edf45c
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: sarah.clark
+        hippostdpubwf:creationDate: 2022-09-23T15:35:41.951+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T11:06:15.198+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: bfc56935-7bab-40ab-b1da-59a499ab9de1
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Autumn is a magical time of year when forests and woodlands
+          burst with colour. Experience the season in fantastic forest parks.
+        visitscotland:title: Autumn in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=o_NRnwkyuSc
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 4e4e7294-2c1c-42d1-b34b-9916c4424b8a
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /autumn-in-scotland[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: f41ad267-50cd-470e-8ed7-85aa35ded773
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: sarah.clark
+        hippostdpubwf:creationDate: 2022-09-23T15:35:41.951+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T11:10:15.450+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-22T11:11:30.066+02:00
+        hippotranslation:id: bfc56935-7bab-40ab-b1da-59a499ab9de1
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Autumn is a magical time of year when forests and woodlands
+          burst with colour. Experience the season in fantastic forest parks.
+        visitscotland:title: Autumn in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=o_NRnwkyuSc
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 4e4e7294-2c1c-42d1-b34b-9916c4424b8a
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /spring-in-scotland:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 79d3e92a-7f5d-4c0b-8e50-347441077aa6
+      hippo:name: Spring in Scotland
+      hippo:versionHistory: 314a9c83-8ee4-41f2-a608-bfb4fbfbb0bc
+      /spring-in-scotland[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 784c3148-160a-47ab-a86c-c564d2ce0b49
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: sarah.clark
+        hippostdpubwf:creationDate: 2022-09-23T15:35:41.951+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T13:17:06.249+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 958a3521-c223-4985-a96c-d3df4718f8f4
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Showcasing Scotland in the Spring and Summer months,
+          featuring a variety of bookable experiences.
+        visitscotland:title: Spring in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=CsYyzxSZ57U
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: bc8d8885-532e-4002-b898-4be4735ea644
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /spring-in-scotland[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 275ed489-b906-4e74-8414-6f1c52ded3bb
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: sarah.clark
+        hippostdpubwf:creationDate: 2022-09-23T15:35:41.951+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T13:13:47.304+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 958a3521-c223-4985-a96c-d3df4718f8f4
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Showcasing Scotland in the Spring and Summer months,
+          featuring a variety of bookable experiences.
+        visitscotland:title: Spring in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=CsYyzxSZ57U
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: bc8d8885-532e-4002-b898-4be4735ea644
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /spring-in-scotland[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c15989f3-4f10-4890-b957-4a941b7a39ed
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: sarah.clark
+        hippostdpubwf:creationDate: 2022-09-23T15:35:41.951+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T13:17:06.249+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-22T13:17:10.690+02:00
+        hippotranslation:id: 958a3521-c223-4985-a96c-d3df4718f8f4
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Showcasing Scotland in the Spring and Summer months,
+          featuring a variety of bookable experiences.
+        visitscotland:title: Spring in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=CsYyzxSZ57U
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: bc8d8885-532e-4002-b898-4be4735ea644
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /scotland-is-calling---visitscotland:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: a713f496-f72c-49a6-b7c7-9576a3eba99a
+      hippo:name: Scotland is Calling - VisitScotland
+      hippo:versionHistory: fc914ee7-9704-445d-a961-b60669fc3257
+      /scotland-is-calling---visitscotland[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 4af50afd-c2ff-4c41-8f6e-84d2dea1bb1e
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: ace5d506-57a0-486c-8085-40608f120bab
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Discover inspiring landscapes, vibrant cities and unforgettable
+          experiences across Scotland.
+        visitscotland:title: Scotland is Calling - VisitScotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=O2DwCpYM8pY
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /scotland-is-calling---visitscotland[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 3c016782-195f-4b15-9fff-28d5efe5d8aa
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:01:59.128+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: ace5d506-57a0-486c-8085-40608f120bab
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Discover inspiring landscapes, vibrant cities and unforgettable
+          experiences across Scotland.
+        visitscotland:title: Scotland is Calling - VisitScotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=O2DwCpYM8pY
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /scotland-is-calling---visitscotland[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 7dbfbc86-e5e1-470e-99b1-ab1357c96ab4
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:01:59.128+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-22T14:06:55.812+02:00
+        hippotranslation:id: ace5d506-57a0-486c-8085-40608f120bab
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Discover inspiring landscapes, vibrant cities and unforgettable
+          experiences across Scotland.
+        visitscotland:title: Scotland is Calling - VisitScotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=O2DwCpYM8pY
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /5-autumn-break-ideas-in-scotland:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 13e0ec24-08f7-4e8e-a6a3-fcee5670776a
+      hippo:name: 5 Autumn Break Ideas in Scotland
+      hippo:versionHistory: d189ac24-4cc7-47ea-a007-368c8184787b
+      /5-autumn-break-ideas-in-scotland[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 39ebfb8a-b990-4a2d-bf88-da55e80c4249
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:02:25.407+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: c2a1910e-0c20-4c6b-a527-610570168388
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Five inspiring ideas for enjoying an autumn escape amongst
+          Scotland's beautiful seasonal scenery.
+        visitscotland:title: 5 Autumn Break Ideas in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=ggc7OlsynDs
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /5-autumn-break-ideas-in-scotland[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c5395184-b31a-4043-9385-f82a623f5d09
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:02:10.233+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: c2a1910e-0c20-4c6b-a527-610570168388
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Five inspiring ideas for enjoying an autumn escape amongst
+          Scotland's beautiful seasonal scenery.
+        visitscotland:title: 5 Autumn Break Ideas in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=ggc7OlsynDs
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /5-autumn-break-ideas-in-scotland[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 08234176-f06b-4022-a846-c6279d2ad189
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:02:25.407+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-22T14:06:56.549+02:00
+        hippotranslation:id: c2a1910e-0c20-4c6b-a527-610570168388
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Five inspiring ideas for enjoying an autumn escape amongst
+          Scotland's beautiful seasonal scenery.
+        visitscotland:title: 5 Autumn Break Ideas in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=ggc7OlsynDs
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /discover-dark-skies-in-scotland:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 752a8386-d2d6-4975-adeb-2077e3e16f41
+      hippo:name: Discover Dark Skies in Scotland
+      hippo:versionHistory: 001d20bb-007f-48e9-8b94-b553f9d20182
+      /discover-dark-skies-in-scotland[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 34f520a1-149a-4ac2-96b0-67ba1b8a7e11
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:02:56.242+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 4219b476-e009-4eb9-b933-cccd4b79be9e
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Explore Scotland's renowned dark sky locations and witness
+          breathtaking views of the night sky.
+        visitscotland:title: Discover Dark Skies in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=tsrhQ2R_2Fg
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /discover-dark-skies-in-scotland[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: a15b7b7d-3b8e-471c-ac0c-008130c05d7b
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:02:39.072+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 4219b476-e009-4eb9-b933-cccd4b79be9e
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Explore Scotland's renowned dark sky locations and witness
+          breathtaking views of the night sky.
+        visitscotland:title: Discover Dark Skies in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=tsrhQ2R_2Fg
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /discover-dark-skies-in-scotland[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 5eef7157-9de2-4969-90c3-6804b47b704b
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:02:56.242+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-22T14:06:56.993+02:00
+        hippotranslation:id: 4219b476-e009-4eb9-b933-cccd4b79be9e
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Explore Scotland's renowned dark sky locations and witness
+          breathtaking views of the night sky.
+        visitscotland:title: Discover Dark Skies in Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=tsrhQ2R_2Fg
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /city-snapshot-edinburgh-in-winter:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: c19eb1ce-0467-41d5-8eda-f05788193aff
+      hippo:name: 'City Snapshot: Edinburgh in Winter'
+      hippo:versionHistory: db62929f-083f-4900-b6a5-728a4bffdf34
+      /city-snapshot-edinburgh-in-winter[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: c6c78c4f-200f-4145-a32a-58d9c776a6aa
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:03:29.339+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 424a1729-6973-49fe-8f5d-bfa5dfb263da
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Discover Edinburgh's festive atmosphere, historic streets
+          and winter charm.
+        visitscotland:title: 'City Snapshot: Edinburgh in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=DSDwVovE1AU
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /city-snapshot-edinburgh-in-winter[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c2e6961a-ffd9-4d90-b95d-599d1b195bd3
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:03:15.145+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 424a1729-6973-49fe-8f5d-bfa5dfb263da
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Discover Edinburgh's festive atmosphere, historic streets
+          and winter charm.
+        visitscotland:title: 'City Snapshot: Edinburgh in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=DSDwVovE1AU
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /city-snapshot-edinburgh-in-winter[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: ea5316dc-cd52-435a-afe2-bffe244c83bc
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:03:29.339+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-22T14:06:56.074+02:00
+        hippotranslation:id: 424a1729-6973-49fe-8f5d-bfa5dfb263da
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Discover Edinburgh's festive atmosphere, historic streets
+          and winter charm.
+        visitscotland:title: 'City Snapshot: Edinburgh in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=DSDwVovE1AU
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /city-snapshot-glasgow-in-winter:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 0f9536b1-9b44-48ac-8eaa-b9d95f213e7d
+      hippo:name: 'City Snapshot: Glasgow in Winter'
+      hippo:versionHistory: 6e819aa2-8c0d-42c1-8dd3-6b8762d19f37
+      /city-snapshot-glasgow-in-winter[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: d2e1bc36-9d77-408e-b821-9574d143674c
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:04:08.635+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 4d20f433-5814-4945-b4c9-cf7b90e1e5fe
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Experience Glasgow's vibrant culture, seasonal events
+          and welcoming winter spirit.
+        visitscotland:title: 'City Snapshot: Glasgow in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=JzOygzKgfWE
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /city-snapshot-glasgow-in-winter[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 962fadec-36fe-4422-bed0-8b424644a9db
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:03:46.959+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 4d20f433-5814-4945-b4c9-cf7b90e1e5fe
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Experience Glasgow's vibrant culture, seasonal events
+          and welcoming winter spirit.
+        visitscotland:title: 'City Snapshot: Glasgow in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=JzOygzKgfWE
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /city-snapshot-glasgow-in-winter[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: f11fdd3f-697d-47c8-88c2-576300c33938
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:04:08.635+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-22T14:06:56.327+02:00
+        hippotranslation:id: 4d20f433-5814-4945-b4c9-cf7b90e1e5fe
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Experience Glasgow's vibrant culture, seasonal events
+          and welcoming winter spirit.
+        visitscotland:title: 'City Snapshot: Glasgow in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=JzOygzKgfWE
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /celtic-connections-highlights-2025:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: ecde85c1-11a8-419f-98cb-4b81a79d7959
+      hippo:name: Celtic Connections Highlights 2025
+      hippo:versionHistory: 58da0ecd-ef5e-411b-83e3-c9dc6c8d2b41
+      /celtic-connections-highlights-2025[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 867298e7-1cb5-4f7e-af76-4341a393292a
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:04:41.246+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 5d436058-9776-4980-9769-955ad4a62c7c
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Highlights from Scotland's celebrated winter music festival
+          featuring artists and performances from around the world.
+        visitscotland:title: 'City Snapshot: Glasgow in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=e69csqkp0Kc
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /celtic-connections-highlights-2025[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 69cd6371-9351-427f-a965-cc0a6dae8549
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:04:23.846+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 5d436058-9776-4980-9769-955ad4a62c7c
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Highlights from Scotland's celebrated winter music festival
+          featuring artists and performances from around the world.
+        visitscotland:title: 'City Snapshot: Glasgow in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=e69csqkp0Kc
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /celtic-connections-highlights-2025[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 6a7ca9c3-cfe9-4734-8c71-1d73f3299f82
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:04:41.246+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-22T14:06:56.768+02:00
+        hippotranslation:id: 5d436058-9776-4980-9769-955ad4a62c7c
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Highlights from Scotland's celebrated winter music festival
+          featuring artists and performances from around the world.
+        visitscotland:title: 'City Snapshot: Glasgow in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=e69csqkp0Kc
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /city-snapshot-inverness-in-winter:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 84eb35f0-22e8-4e2e-ac95-ade801882027
+      hippo:name: 'City Snapshot: Inverness in Winter'
+      hippo:versionHistory: a5c410bb-37c7-40fe-acb9-c4203700c38e
+      /city-snapshot-inverness-in-winter[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 670a5945-a0c5-4c41-ae5d-e07744826ed7
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:05:20.145+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 50765b44-0cf6-4cfe-9931-3f96af5e5d5c
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Explore the winter beauty of Inverness, gateway to the
+          Highlands.
+        visitscotland:title: 'City Snapshot: Inverness in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=L2fnv2sdsJM
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /city-snapshot-inverness-in-winter[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 4153b6a9-c4e9-4f6d-850b-2184cc26106d
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:05:06.627+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 50765b44-0cf6-4cfe-9931-3f96af5e5d5c
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Explore the winter beauty of Inverness, gateway to the
+          Highlands.
+        visitscotland:title: 'City Snapshot: Inverness in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=L2fnv2sdsJM
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /city-snapshot-inverness-in-winter[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: e285e448-e93c-4495-9d8e-cfd2904d6cb8
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:05:20.145+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-22T14:06:57.234+02:00
+        hippotranslation:id: 50765b44-0cf6-4cfe-9931-3f96af5e5d5c
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Explore the winter beauty of Inverness, gateway to the
+          Highlands.
+        visitscotland:title: 'City Snapshot: Inverness in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=L2fnv2sdsJM
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /city-snapshot-city-snapshot-aberdeen-in-winter:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: b9334cf8-4e88-4902-a131-9280aa0e81a8
+      hippo:name: 'City Snapshot: City Snapshot: Aberdeen in Winter'
+      hippo:versionHistory: 85b50b1b-b0f6-4764-8183-3610a83da782
+      /city-snapshot-city-snapshot-aberdeen-in-winter[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: d264ab52-10ef-4940-9421-1081fc08bba6
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:06:11.203+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 359a8f31-b016-49e3-9cb6-f99829674a0a
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Discover Aberdeen's coastal scenery, architecture and
+          winter experiences.
+        visitscotland:title: 'City Snapshot: Aberdeen in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=gVtHNxmkN1E
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /city-snapshot-city-snapshot-aberdeen-in-winter[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 895580df-7ae4-4773-a4fd-c3818669a452
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:05:37.198+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: 359a8f31-b016-49e3-9cb6-f99829674a0a
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Discover Aberdeen's coastal scenery, architecture and
+          winter experiences.
+        visitscotland:title: 'City Snapshot: Aberdeen in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=gVtHNxmkN1E
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /city-snapshot-city-snapshot-aberdeen-in-winter[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 4aff951b-3ab7-4ec7-b1f0-be0bb3303dc8
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:06:11.203+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-22T14:06:55.554+02:00
+        hippotranslation:id: 359a8f31-b016-49e3-9cb6-f99829674a0a
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Discover Aberdeen's coastal scenery, architecture and
+          winter experiences.
+        visitscotland:title: 'City Snapshot: Aberdeen in Winter'
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=gVtHNxmkN1E
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /single-shot-scotland---glencoe-in-winter:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 4dbadd3c-4ef0-4d0a-abb5-1a1394056444
+      hippo:name: Single Shot Scotland - Glencoe in Winter
+      hippo:versionHistory: 1bce6634-3354-42ed-9444-84145a34ed83
+      /single-shot-scotland---glencoe-in-winter[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: a4d76abf-c321-4185-ab52-54020f7f6223
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:06:47.690+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: e522ad7a-6f3c-4049-bd97-0f6016e9fa82
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: A stunning glimpse of Glencoe transformed by winter
+          conditions and dramatic mountain scenery.
+        visitscotland:title: Single Shot Scotland - Glencoe in Winter
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=PrCbVsSurjw
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /single-shot-scotland---glencoe-in-winter[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 1134190b-3575-4a41-8cac-a9f13d7122a4
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:06:27.104+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: e522ad7a-6f3c-4049-bd97-0f6016e9fa82
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: A stunning glimpse of Glencoe transformed by winter
+          conditions and dramatic mountain scenery.
+        visitscotland:title: Single Shot Scotland - Glencoe in Winter
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=PrCbVsSurjw
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /single-shot-scotland---glencoe-in-winter[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: b2d01769-69ac-498f-9905-c84fc091fc5d
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-22T14:00:58.128+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-22T14:06:47.690+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-22T14:06:49.767+02:00
+        hippotranslation:id: e522ad7a-6f3c-4049-bd97-0f6016e9fa82
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: A stunning glimpse of Glencoe transformed by winter
+          conditions and dramatic mountain scenery.
+        visitscotland:title: Single Shot Scotland - Glencoe in Winter
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=PrCbVsSurjw
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 1316e645-795d-4ed8-9dda-f19502fa12be
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /luxury-presentation-videos:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 9b6e67a4-cd95-4d48-8bca-bf80464caebc
+      hippo:name: Luxury Presentation Videos
+      hippostd:foldertype: [new-translated-folder-videos, new-video]
+      hippotranslation:id: b3304d19-b0b0-42b1-971d-94ad18383001
+      hippotranslation:locale: en
+      /luxury-product-showcase-5th-february-2026:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: faaa6a71-eb60-442d-8fc9-5d926b71c313
+        hippo:name: Luxury Product Showcase 5th February 2026
+        hippo:versionHistory: dd316ec3-eccb-4a0a-9e87-89c8beee7c0f
+        /luxury-product-showcase-5th-february-2026[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 008dc1de-a0e1-4e78-ad13-0c3472502b67
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:09:14.907+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:09:14.907+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 60dfd45f-e57a-4535-85af-173fc8291fb5
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Luxury Product Showcase 5th February 2026
+          visitscotland:title: Luxury Product Showcase 5th February 2026
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=NLqNW0_lw-k
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c5564308-2b07-4580-ab10-3cc9bb25e633
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /luxury-product-showcase-5th-february-2026[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: c13fb1f3-16d6-4319-a446-6d3dc3d7124e
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:09:14.907+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:10:11.849+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 60dfd45f-e57a-4535-85af-173fc8291fb5
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Luxury Product Showcase 5th February 2026
+          visitscotland:title: Luxury Product Showcase 5th February 2026
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=NLqNW0_lw-k
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c5564308-2b07-4580-ab10-3cc9bb25e633
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /luxury-product-showcase-5th-february-2026[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 398f2be7-d276-4865-aa04-4845801f4d17
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:09:14.907+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:10:11.849+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:08.227+02:00
+          hippotranslation:id: 60dfd45f-e57a-4535-85af-173fc8291fb5
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Luxury Product Showcase 5th February 2026
+          visitscotland:title: Luxury Product Showcase 5th February 2026
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=NLqNW0_lw-k
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c5564308-2b07-4580-ab10-3cc9bb25e633
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /luxury-product-showcase-12th-february-2026:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: ee314844-56ad-44ae-a5b3-4c0a6a4b23e6
+        hippo:name: Luxury Product Showcase 12th February 2026
+        hippo:versionHistory: 82ac8fc7-676e-41e1-83cc-5d9943876cb3
+        /luxury-product-showcase-12th-february-2026[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b8884faf-a595-45eb-b6e8-3e6167252b2d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:11:28.207+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:11:28.207+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 9201f5c0-2485-4e6d-a58b-9bf9f58e4e21
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Luxury Product Showcase 12th February 2026
+          visitscotland:title: Luxury Product Showcase 12th February 2026
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=TfcYE4Sg4AY
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: aac987a1-9b6f-4eca-8a48-c8e8c65ee4ae
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /luxury-product-showcase-12th-february-2026[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 929a846f-87e9-44da-b6a0-7b00c37c79ba
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:11:28.207+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:11:59.523+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 9201f5c0-2485-4e6d-a58b-9bf9f58e4e21
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Luxury Product Showcase 12th February 2026
+          visitscotland:title: Luxury Product Showcase 12th February 2026
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=TfcYE4Sg4AY
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: aac987a1-9b6f-4eca-8a48-c8e8c65ee4ae
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /luxury-product-showcase-12th-february-2026[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 38fba90b-289d-41a0-b187-7a57bd305e04
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:11:28.207+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:11:59.523+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:07.943+02:00
+          hippotranslation:id: 9201f5c0-2485-4e6d-a58b-9bf9f58e4e21
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Luxury Product Showcase 12th February 2026
+          visitscotland:title: Luxury Product Showcase 12th February 2026
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=TfcYE4Sg4AY
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: aac987a1-9b6f-4eca-8a48-c8e8c65ee4ae
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /twin-peakes:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: fe6bbdd5-6206-45c5-bc6c-934bbd757dd7
+        hippo:name: Twin Peakes
+        hippo:versionHistory: c4410721-0400-4e28-be9a-68b3c3367a14
+        /twin-peakes[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 39f73d36-44c8-427f-bb74-7a1261a4c003
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:12:18.604+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:12:18.604+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 49c50b1d-4e69-42ee-9bbc-0deaa6df9a32
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Twin Peakes
+          visitscotland:title: Twin Peakes
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=a_60SRtWJXo
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cbcdb49e-84c6-43cf-b9c0-482bff57201e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /twin-peakes[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: c8e0b1f1-e2ce-42f8-94d0-5cbf4cb0a15a
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:12:18.604+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:13:28.676+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 49c50b1d-4e69-42ee-9bbc-0deaa6df9a32
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Twin Peakes
+          visitscotland:title: Twin Peakes
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=a_60SRtWJXo
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cbcdb49e-84c6-43cf-b9c0-482bff57201e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /twin-peakes[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: bc3301da-5ad0-485d-bb9b-c11700923333
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:12:18.604+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:13:28.676+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:08.508+02:00
+          hippotranslation:id: 49c50b1d-4e69-42ee-9bbc-0deaa6df9a32
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Twin Peakes
+          visitscotland:title: Twin Peakes
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=a_60SRtWJXo
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cbcdb49e-84c6-43cf-b9c0-482bff57201e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /travel-trade-product-presentations---abbotsford:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: d32de102-b0b7-466e-9348-ca58809222e0
+        hippo:name: Travel Trade Product Presentations | Abbotsford
+        hippo:versionHistory: 5db5e2f0-154d-432e-ad3b-87ed1672fe7d
+        /travel-trade-product-presentations---abbotsford[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 9e53d05d-d02e-4122-a0eb-0b2e1eaaa68d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:13:52.715+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:13:52.715+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 3ac0b7d6-6c90-47b2-9e45-6dfe9f8e3e7c
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Travel Trade Product Presentations | Abbotsford
+          visitscotland:title: Travel Trade Product Presentations | Abbotsford
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=0eZHXf4_vy4
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f1f12f82-d3b0-440b-9c94-7f869a0d80fc
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /travel-trade-product-presentations---abbotsford[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: f826702f-4956-48c1-b21e-2d7de6081c56
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:13:52.715+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:16.183+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 3ac0b7d6-6c90-47b2-9e45-6dfe9f8e3e7c
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Travel Trade Product Presentations | Abbotsford
+          visitscotland:title: Travel Trade Product Presentations | Abbotsford
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=0eZHXf4_vy4
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f1f12f82-d3b0-440b-9c94-7f869a0d80fc
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /travel-trade-product-presentations---abbotsford[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 9902754c-d5f7-46af-b5a8-363c89823d1e
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:13:52.715+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:16.183+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:25.924+02:00
+          hippotranslation:id: 3ac0b7d6-6c90-47b2-9e45-6dfe9f8e3e7c
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Travel Trade Product Presentations | Abbotsford
+          visitscotland:title: Travel Trade Product Presentations | Abbotsford
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=0eZHXf4_vy4
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: f1f12f82-d3b0-440b-9c94-7f869a0d80fc
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /radical-weavers---b2b-product-presentation:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 0749288e-4d28-4166-9e7f-1819d79327bc
+        hippo:name: Radical Weavers | B2B Product Presentation
+        hippo:versionHistory: 1cc1bc68-8360-4135-b64f-ee4580e75640
+        /radical-weavers---b2b-product-presentation[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 23c7783f-2b79-4ccf-af03-22e4cd5b5a14
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:14:54.874+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:14:54.874+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 7b5cddea-ec90-43b4-be29-ae1d87f5f464
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Radical Weavers | B2B Product Presentation
+          visitscotland:title: Radical Weavers | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=jT5zApX4aSQ
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 1106b354-e3e7-4760-b6d2-20c77c43c9f9
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /radical-weavers---b2b-product-presentation[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 7d949999-011e-4deb-be5d-ce0ca460afbc
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:14:54.874+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:16.015+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 7b5cddea-ec90-43b4-be29-ae1d87f5f464
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Radical Weavers | B2B Product Presentation
+          visitscotland:title: Radical Weavers | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=jT5zApX4aSQ
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 1106b354-e3e7-4760-b6d2-20c77c43c9f9
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /radical-weavers---b2b-product-presentation[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 231a3a6e-c0ec-42da-9dca-435afdc5a6a5
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:14:54.874+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:16.015+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:26.720+02:00
+          hippotranslation:id: 7b5cddea-ec90-43b4-be29-ae1d87f5f464
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Radical Weavers | B2B Product Presentation
+          visitscotland:title: Radical Weavers | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=jT5zApX4aSQ
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 1106b354-e3e7-4760-b6d2-20c77c43c9f9
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /the-dram-queen---b2b-product-presentation:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: a85d9a8d-645d-4b4d-934d-bab52a519630
+        hippo:name: The Dram Queen | B2B Product Presentation
+        hippo:versionHistory: e46f4293-ff1c-4079-89de-34d43a7acabc
+        /the-dram-queen---b2b-product-presentation[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 58f3d8f6-e1f3-4a30-853f-a6b99e56c54b
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:15:51.088+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:15:51.088+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 8d1718e3-5afb-433d-b6f0-0cf3a25bca04
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: The Dram Queen | B2B Product Presentation
+          visitscotland:title: The Dram Queen | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=NljxjFQ7fRY
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: efebaf9b-6b47-44ee-b646-5fe0c7265597
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /the-dram-queen---b2b-product-presentation[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: d735469c-2ba0-491f-b909-9eb944987a28
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:15:51.088+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:16:10.029+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 8d1718e3-5afb-433d-b6f0-0cf3a25bca04
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: The Dram Queen | B2B Product Presentation
+          visitscotland:title: The Dram Queen | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=NljxjFQ7fRY
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: efebaf9b-6b47-44ee-b646-5fe0c7265597
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /the-dram-queen---b2b-product-presentation[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f2d26fef-c481-4347-b371-23b1dfd10ac2
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:15:51.088+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:16:10.029+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:08.756+02:00
+          hippotranslation:id: 8d1718e3-5afb-433d-b6f0-0cf3a25bca04
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: The Dram Queen | B2B Product Presentation
+          visitscotland:title: The Dram Queen | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=NljxjFQ7fRY
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: efebaf9b-6b47-44ee-b646-5fe0c7265597
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /wanderwomen---b2b-product-presentation:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: cd1eead5-23e5-49ae-bf54-d4b26ca7fd76
+        hippo:name: WanderWomen | B2B Product Presentation
+        hippo:versionHistory: 5b354841-0086-44ac-927c-cdb7d0eb8627
+        /wanderwomen---b2b-product-presentation[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: c9923ace-516a-4bf6-9058-a848bc4ae063
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:16:33.020+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:17:16.687+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 657f35e3-dab2-4a31-8980-32fef3dcb197
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: WanderWomen | B2B Product Presentation
+          visitscotland:title: WanderWomen | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=Vov4sryNEYg
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 9c49fda9-2356-4330-b4b8-a3b3cbc1bc26
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /wanderwomen---b2b-product-presentation[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 4a729d4b-da64-4148-af78-bb60e93b2fdc
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:16:33.020+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:15.898+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 657f35e3-dab2-4a31-8980-32fef3dcb197
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: WanderWomen | B2B Product Presentation
+          visitscotland:title: WanderWomen | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=Vov4sryNEYg
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 9c49fda9-2356-4330-b4b8-a3b3cbc1bc26
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /wanderwomen---b2b-product-presentation[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: a08ea713-0885-4dd2-acac-75e862459ea2
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:16:33.020+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:15.898+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:27.036+02:00
+          hippotranslation:id: 657f35e3-dab2-4a31-8980-32fef3dcb197
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: WanderWomen | B2B Product Presentation
+          visitscotland:title: WanderWomen | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=Vov4sryNEYg
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 9c49fda9-2356-4330-b4b8-a3b3cbc1bc26
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /ra-world-golf-museum---b2b-product-presentation:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: c763e9b3-b6ff-45d9-8302-721f4404467a
+        hippo:name: R&A World Golf Museum | B2B Product Presentation
+        hippo:versionHistory: a8e68407-9156-456c-9a0a-a5aa1192cf69
+        /ra-world-golf-museum---b2b-product-presentation[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: ba9a0cf6-b4d9-4b1f-973b-9b659afa1bd5
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:18:05.262+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:18:05.263+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 27ddfe57-d2aa-49fd-9c4e-d77755ab69ec
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: R&A World Golf Museum | B2B Product Presentation
+          visitscotland:title: R&A World Golf Museum | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=tiMn48Ikl60
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3b6f9a4-b8a4-4cf3-b9e9-55fc83adb8c0
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /ra-world-golf-museum---b2b-product-presentation[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: fad0ca70-09e4-47b6-8dd1-5fe68617516d
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:18:05.262+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:18:32.599+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 27ddfe57-d2aa-49fd-9c4e-d77755ab69ec
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: R&A World Golf Museum | B2B Product Presentation
+          visitscotland:title: R&A World Golf Museum | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=tiMn48Ikl60
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3b6f9a4-b8a4-4cf3-b9e9-55fc83adb8c0
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /ra-world-golf-museum---b2b-product-presentation[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: c047c21a-497a-4f4c-94fa-3ce3f263cf91
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:18:05.262+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:18:32.599+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:09.019+02:00
+          hippotranslation:id: 27ddfe57-d2aa-49fd-9c4e-d77755ab69ec
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: R&A World Golf Museum | B2B Product Presentation
+          visitscotland:title: R&A World Golf Museum | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=tiMn48Ikl60
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c3b6f9a4-b8a4-4cf3-b9e9-55fc83adb8c0
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /dundee-heritage-trust-rss-discovery-dining-experience:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 91b3fc4c-564f-4397-86e1-6da71aba1fb0
+        hippo:name: Dundee Heritage Trust RSS Discovery Dining Experience
+        hippo:versionHistory: 76a9a665-9090-4b52-baf1-35ecd0b07e0f
+        /dundee-heritage-trust-rss-discovery-dining-experience[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 58e995df-59ca-446b-8cc2-b5548b6ccf4b
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:18:58.120+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:18:58.120+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 4e64667d-0de6-4b98-920c-4d8b54f8512b
+          hippotranslation:locale: en
+          visitscotland:label: https://www.youtube.com/watch?v=sK2qK940wfo
+          visitscotland:teaser: Dundee Heritage Trust RRS Discovery Dining Experience
+          visitscotland:title: Dundee Heritage Trust RRS Discovery Dining Experience
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=sK2qK940wfo
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c0805af2-0c24-4513-bdff-5b957e2e03ee
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /dundee-heritage-trust-rss-discovery-dining-experience[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 38461513-7b68-4dc6-bc33-b7792e7effe5
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:18:58.120+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:19:57.224+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 4e64667d-0de6-4b98-920c-4d8b54f8512b
+          hippotranslation:locale: en
+          visitscotland:label: https://www.youtube.com/watch?v=sK2qK940wfo
+          visitscotland:teaser: Dundee Heritage Trust RRS Discovery Dining Experience
+          visitscotland:title: Dundee Heritage Trust RRS Discovery Dining Experience
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=sK2qK940wfo
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c0805af2-0c24-4513-bdff-5b957e2e03ee
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /dundee-heritage-trust-rss-discovery-dining-experience[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 89565792-2819-4619-85cd-6fa50c459654
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:18:58.120+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:19:57.224+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:07.637+02:00
+          hippotranslation:id: 4e64667d-0de6-4b98-920c-4d8b54f8512b
+          hippotranslation:locale: en
+          visitscotland:label: https://www.youtube.com/watch?v=sK2qK940wfo
+          visitscotland:teaser: Dundee Heritage Trust RRS Discovery Dining Experience
+          visitscotland:title: Dundee Heritage Trust RRS Discovery Dining Experience
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=sK2qK940wfo
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c0805af2-0c24-4513-bdff-5b957e2e03ee
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /wild-skys-shetland---b2b-product-presentation:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: befc6f59-a6b5-4b0d-a8b9-f39309a888e2
+        hippo:name: Wild Sky's Shetland | B2B Product Presentation
+        hippo:versionHistory: 0812b0a2-9f55-4be0-8534-9734252807dc
+        /wild-skys-shetland---b2b-product-presentation[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 05852640-6111-4d7c-a4d3-6500807a98ea
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:20:16.266+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:20:16.266+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 97330dbb-d390-4f94-88f1-230f93c35e72
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Wild Sky's Shetland | B2B Product Presentation
+          visitscotland:title: Wild Sky's Shetland | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=kZ0ZhnjtBGc
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 200e565e-f1c2-4a0e-a4a7-b75daf052b0f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /wild-skys-shetland---b2b-product-presentation[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 9c3cef24-8927-4b8c-8fc6-d41f9974d605
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:20:16.266+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:15.741+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 97330dbb-d390-4f94-88f1-230f93c35e72
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Wild Sky's Shetland | B2B Product Presentation
+          visitscotland:title: Wild Sky's Shetland | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=kZ0ZhnjtBGc
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 200e565e-f1c2-4a0e-a4a7-b75daf052b0f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /wild-skys-shetland---b2b-product-presentation[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: bccff6e2-5a02-4d42-89fd-ca84539fa572
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:20:16.266+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:15.741+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:26.452+02:00
+          hippotranslation:id: 97330dbb-d390-4f94-88f1-230f93c35e72
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Wild Sky's Shetland | B2B Product Presentation
+          visitscotland:title: Wild Sky's Shetland | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=kZ0ZhnjtBGc
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 200e565e-f1c2-4a0e-a4a7-b75daf052b0f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /glenkirlie-larder:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 50d32912-bed2-4602-9b33-67cc0a058f8d
+        hippo:name: Glenkirlie Larder
+        hippo:versionHistory: 2f428c74-b2b2-44b0-85af-ceaf48cf4b5d
+        /glenkirlie-larder[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: c03f053a-1e0f-47bf-92e0-83ac88c480cf
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:24:16.065+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:24:16.065+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 3b11928e-5506-4ef0-a820-4352a2b248f5
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Glenkirlie Larder
+          visitscotland:title: Glenkirlie Larder
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=zEKKsJ3wE40
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 1448032c-a429-4d40-bbc6-56d20ddf6b61
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /glenkirlie-larder[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: b1ed6412-99ae-4f74-9cdb-467c8fa7474b
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:24:16.065+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:15.582+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 3b11928e-5506-4ef0-a820-4352a2b248f5
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Glenkirlie Larder
+          visitscotland:title: Glenkirlie Larder
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=zEKKsJ3wE40
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 1448032c-a429-4d40-bbc6-56d20ddf6b61
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /glenkirlie-larder[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 5c24aaaf-329d-41e4-b534-aff4d1d4fb31
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:24:16.065+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:15.582+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:27.291+02:00
+          hippotranslation:id: 3b11928e-5506-4ef0-a820-4352a2b248f5
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Glenkirlie Larder
+          visitscotland:title: Glenkirlie Larder
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=zEKKsJ3wE40
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 1448032c-a429-4d40-bbc6-56d20ddf6b61
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /basking-shark-scotland---b2b-product-presentation:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: fa5757c3-a7a4-481a-9ec2-704d7bae1f40
+        hippo:name: Basking Shark Scotland | B2B Product Presentation
+        hippo:versionHistory: 8ed75fc0-b2d2-4eca-90b5-80b6a69ee635
+        /basking-shark-scotland---b2b-product-presentation[1]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: d8ecc9de-1d07-4c6d-80f0-5b0ed1013e44
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:25:19.757+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:25:19.757+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 34aa5808-e758-4fee-92b3-125f065d354f
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Basking Shark Scotland | B2B Product Presentation
+          visitscotland:title: Basking Shark Scotland | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=AzbmWTZTfQs
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 9e019a08-35c5-4f80-8185-fb682bc76b14
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /basking-shark-scotland---b2b-product-presentation[2]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 8e8b1500-6962-48a1-97cf-bded572c7851
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:25:19.757+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:15.420+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 34aa5808-e758-4fee-92b3-125f065d354f
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Basking Shark Scotland | B2B Product Presentation
+          visitscotland:title: Basking Shark Scotland | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=AzbmWTZTfQs
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 9e019a08-35c5-4f80-8185-fb682bc76b14
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /basking-shark-scotland---b2b-product-presentation[3]:
+          jcr:primaryType: visitscotland:Video
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b91ea215-23ba-4a24-98d0-b2147298607b
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T13:25:19.757+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T13:26:15.420+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-23T13:26:26.186+02:00
+          hippotranslation:id: 34aa5808-e758-4fee-92b3-125f065d354f
+          hippotranslation:locale: en
+          visitscotland:label: ''
+          visitscotland:teaser: Basking Shark Scotland | B2B Product Presentation
+          visitscotland:title: Basking Shark Scotland | B2B Product Presentation
+          visitscotland:translation: ''
+          visitscotland:url: https://www.youtube.com/watch?v=AzbmWTZTfQs
+          /visitscotland:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 9e019a08-35c5-4f80-8185-fb682bc76b14
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+    /scotland---experience-the-exceptional:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 5314181c-69b2-4b5e-b58f-d8cca1645e7c
+      hippo:name: Scotland – Experience the exceptional
+      hippo:versionHistory: e22c4c7a-702f-46a9-b284-4733ec60b574
+      /scotland---experience-the-exceptional[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 48006050-f04e-44ca-a761-a4ee14d4ecb4
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-23T13:06:56.283+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-23T13:06:56.283+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: b439dc2d-deb0-4313-8a7a-8c4ec19d4d9f
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Scotland offers an exceptional combination of breath-taking
+          landscapes, luxurious stays and extraordinary experiences.
+        visitscotland:title: Scotland – Experience the exceptional
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=kqBTeUrYVKQ
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6248beff-999f-44cb-916e-d1e0e2d76097
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /scotland---experience-the-exceptional[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 647c42b1-5e3e-496c-bbca-e50d702cf4e4
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-23T13:06:56.283+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-23T13:08:40.094+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippotranslation:id: b439dc2d-deb0-4313-8a7a-8c4ec19d4d9f
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Scotland offers an exceptional combination of breath-taking
+          landscapes, luxurious stays and extraordinary experiences.
+        visitscotland:title: Scotland – Experience the exceptional
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=kqBTeUrYVKQ
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6248beff-999f-44cb-916e-d1e0e2d76097
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /scotland---experience-the-exceptional[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: d09f8147-0be1-44f6-b326-306545a54c37
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: jose.calcines
+        hippostdpubwf:creationDate: 2026-10-23T13:06:56.283+02:00
+        hippostdpubwf:lastModificationDate: 2026-10-23T13:08:40.094+02:00
+        hippostdpubwf:lastModifiedBy: jose.calcines
+        hippostdpubwf:publicationDate: 2026-10-23T13:08:42.723+02:00
+        hippotranslation:id: b439dc2d-deb0-4313-8a7a-8c4ec19d4d9f
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Scotland offers an exceptional combination of breath-taking
+          landscapes, luxurious stays and extraordinary experiences.
+        visitscotland:title: Scotland – Experience the exceptional
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=kqBTeUrYVKQ
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 6248beff-999f-44cb-916e-d1e0e2d76097
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /presentation-videos:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 52d46083-d53b-465f-803f-622323883f95
+      hippo:name: Presentation Videos
+      hippostd:foldertype: [new-translated-folder-videos, new-video]
+      hippotranslation:id: 2270f878-6014-4c4c-9473-5552084ffdf9
+      hippotranslation:locale: en
+    /get-your-front-row-seat-to-scotland:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 3f4b88d3-98b0-4b75-8a04-32603a152c41
+      hippo:name: Get your front row seat to Scotland
+      hippo:versionHistory: 8c72e20b-e3bb-4b28-b68d-96ca4ab0eb45
+      /get-your-front-row-seat-to-scotland[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 9c378c2e-934c-413f-bd60-a88b5aa17914
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T16:55:23.172+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T16:55:23.172+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippotranslation:id: 5a36e706-ac96-4450-9442-7f05f7c4bbab
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Get your front row seat to Scotland
+        visitscotland:title: Get your front row seat to Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=fbavqEHMyzQ
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 34625929-45f9-4450-a773-104a571d9bb0
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /get-your-front-row-seat-to-scotland[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: cea48e0f-b426-4489-9bab-52fb77921e34
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T16:55:23.172+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T16:56:42.126+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippotranslation:id: 5a36e706-ac96-4450-9442-7f05f7c4bbab
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Get your front row seat to Scotland
+        visitscotland:title: Get your front row seat to Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=fbavqEHMyzQ
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 34625929-45f9-4450-a773-104a571d9bb0
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /get-your-front-row-seat-to-scotland[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 4f32e1ce-3697-4f59-aaf1-1e26a206adaf
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T16:55:23.172+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T16:56:42.126+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippostdpubwf:publicationDate: 2026-10-26T16:58:14.101+01:00
+        hippotranslation:id: 5a36e706-ac96-4450-9442-7f05f7c4bbab
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Get your front row seat to Scotland
+        visitscotland:title: Get your front row seat to Scotland
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=fbavqEHMyzQ
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 34625929-45f9-4450-a773-104a571d9bb0
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /the-leddie:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 9f1fa602-7210-4721-b61a-364badf53618
+      hippo:name: The Leddie
+      hippo:versionHistory: e3a844c0-a6c4-45f7-87df-7b9e5d686e81
+      /the-leddie[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 6a29bbdf-9848-407d-88d3-96ed901c3d77
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:07:54.318+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:07:54.318+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippotranslation:id: b4fac7ac-b652-4448-b808-73c718522dc5
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: The Leddie
+        visitscotland:title: The Leddie
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=-hGMZ2bt9i0
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 7b89b826-fbfa-4250-ac9c-0ca0239adacf
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /the-leddie[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 1190b960-1980-4fd8-96ca-edfe46c7786c
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:07:54.318+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:08:49.096+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippotranslation:id: b4fac7ac-b652-4448-b808-73c718522dc5
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: The Leddie
+        visitscotland:title: The Leddie
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=-hGMZ2bt9i0
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 7b89b826-fbfa-4250-ac9c-0ca0239adacf
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /the-leddie[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 3b32e979-76a7-4d0e-a26a-03a23a3047f0
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:07:54.318+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:08:49.096+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippostdpubwf:publicationDate: 2026-10-26T17:08:51.871+01:00
+        hippotranslation:id: b4fac7ac-b652-4448-b808-73c718522dc5
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: The Leddie
+        visitscotland:title: The Leddie
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=-hGMZ2bt9i0
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 7b89b826-fbfa-4250-ac9c-0ca0239adacf
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /foxlake-adventures:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 678517da-c3ca-4865-af96-1b2255dc18b8
+      hippo:name: Foxlake Adventures
+      hippo:versionHistory: cdfdb2d1-1a75-424c-b24d-9e626450714c
+      /foxlake-adventures[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 7514fadd-bb41-45c6-84b1-5bd7ee08f218
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:09:13.255+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:09:13.255+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippotranslation:id: ffad6bbc-7034-443d-83ca-f002eb312b72
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Foxlake Adventures
+        visitscotland:title: Foxlake Adventures
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=hmB2b8SwK68
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 47d24ad7-34c9-42ec-a730-03b9a599cae4
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /foxlake-adventures[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 992d85dd-36de-4c36-b055-91d9330e7a07
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:09:13.255+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:09:43.749+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippotranslation:id: ffad6bbc-7034-443d-83ca-f002eb312b72
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Foxlake Adventures
+        visitscotland:title: Foxlake Adventures
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=hmB2b8SwK68
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 47d24ad7-34c9-42ec-a730-03b9a599cae4
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /foxlake-adventures[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 4d28f126-b98f-48c4-84f6-9cf42faf67d5
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:09:13.255+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:09:43.749+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippostdpubwf:publicationDate: 2026-10-26T17:12:22.948+01:00
+        hippotranslation:id: ffad6bbc-7034-443d-83ca-f002eb312b72
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Foxlake Adventures
+        visitscotland:title: Foxlake Adventures
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=hmB2b8SwK68
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: 47d24ad7-34c9-42ec-a730-03b9a599cae4
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /yarrow-cookery-school:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: f5f5467f-3e04-4be1-950b-7c6b37e57fed
+      hippo:name: Yarrow Cookery School
+      hippo:versionHistory: 8b2a8219-f17d-44d4-bcfb-f94bff06125b
+      /yarrow-cookery-school[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 3526bc5f-2df6-43af-915d-76e0fd036432
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:09:58.466+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:10:18.536+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippotranslation:id: 0f3e5329-5b11-496d-ae93-733ecabf96e8
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Yarrow Cookery School
+        visitscotland:title: Yarrow Cookery School
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=qwz9F7lyKOY
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: a2ad13b9-344c-404b-bba0-41a99c670eaf
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /yarrow-cookery-school[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 4599fcb9-66ee-4273-8117-4c37a3bb63e0
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:09:58.466+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:10:18.361+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippotranslation:id: 0f3e5329-5b11-496d-ae93-733ecabf96e8
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Yarrow Cookery School
+        visitscotland:title: Yarrow Cookery School
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=qwz9F7lyKOY
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: a2ad13b9-344c-404b-bba0-41a99c670eaf
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /yarrow-cookery-school[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: da646d0a-b80a-4952-bdaf-f2b01546854f
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:09:58.466+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:10:18.361+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippostdpubwf:publicationDate: 2026-10-26T17:10:22.058+01:00
+        hippotranslation:id: 0f3e5329-5b11-496d-ae93-733ecabf96e8
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Yarrow Cookery School
+        visitscotland:title: Yarrow Cookery School
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=qwz9F7lyKOY
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: a2ad13b9-344c-404b-bba0-41a99c670eaf
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /queen-margaret-university:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 70779c6c-f06f-400d-9bef-887b3edd15ce
+      hippo:name: Queen Margaret University
+      hippo:versionHistory: cddc9eb0-cc62-47c8-bb22-cf058db45ca3
+      /queen-margaret-university[1]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 02b24259-e452-429f-ac2b-18a0c01d3448
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:10:37.235+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:10:37.235+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippotranslation:id: 6d36506a-ecef-4eb2-b573-9bafa8d883ec
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Queen Margaret University
+        visitscotland:title: Queen Margaret University
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=Kyty1Y3tzEc
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: eea99985-37c6-48c5-8e4d-c490bd941d53
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /queen-margaret-university[2]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 64a76230-cffe-43e8-aa6b-ba06bd159397
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:10:37.235+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:11:19.933+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippotranslation:id: 6d36506a-ecef-4eb2-b573-9bafa8d883ec
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Queen Margaret University
+        visitscotland:title: Queen Margaret University
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=Kyty1Y3tzEc
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: eea99985-37c6-48c5-8e4d-c490bd941d53
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /queen-margaret-university[3]:
+        jcr:primaryType: visitscotland:Video
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c0257391-bc95-4bed-aa57-d72117f9e533
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: james.haddrill
+        hippostdpubwf:creationDate: 2026-10-26T17:10:37.235+01:00
+        hippostdpubwf:lastModificationDate: 2026-10-26T17:11:19.933+01:00
+        hippostdpubwf:lastModifiedBy: james.haddrill
+        hippostdpubwf:publicationDate: 2026-10-26T17:11:22.387+01:00
+        hippotranslation:id: 6d36506a-ecef-4eb2-b573-9bafa8d883ec
+        hippotranslation:locale: en
+        visitscotland:label: ''
+        visitscotland:teaser: Queen Margaret University
+        visitscotland:title: Queen Margaret University
+        visitscotland:translation: ''
+        visitscotland:url: https://www.youtube.com/watch?v=Kyty1Y3tzEc
+        /visitscotland:image:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: eea99985-37c6-48c5-8e4d-c490bd941d53
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
