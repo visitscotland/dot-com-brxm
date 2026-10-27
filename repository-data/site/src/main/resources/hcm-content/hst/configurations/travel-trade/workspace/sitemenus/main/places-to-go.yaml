@@ -1,0 +1,33 @@
+/hst:hst/hst:configurations/travel-trade/hst:workspace/hst:sitemenus/main/places-to-go:
+  .meta:order-before: events
+  jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: why-scotland
+  hst:repobased: false
+  /scotlands-regions-and-cities:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: page/scotlands-regions-and-cities
+    hst:repobased: false
+  /responsible-destination:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: responsible-destination
+    hst:repobased: false
+  /themes-and-sectors:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: why-scotland/themes-and-sectors
+    hst:repobased: false
+  /spring:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: spring
+    hst:repobased: false
+  /autumn-and-winter:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: autumn-and-winter
+    hst:repobased: false
+  /luxury-and-unique:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: luxury-and-unique
+    hst:repobased: false
+  /off-the-beaten-track-in-scotland:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: off-the-beaten-track-in-scotland
+    hst:repobased: false
