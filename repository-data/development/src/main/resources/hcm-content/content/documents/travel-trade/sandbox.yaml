@@ -1,0 +1,294 @@
+/content/documents/travel-trade/sandbox:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: bba0a2ee-b01a-4894-9acd-3e050932d119
+  hippostd:foldertype: [new-translated-folder, new-page, new-module]
+  hippotranslation:id: 8e405b00-2af3-4b56-a5fe-786a07509613
+  hippotranslation:locale: en
+  /pages:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 2faaf2a7-27e4-4788-80e9-73d4076db1d1
+    hippostd:foldertype: [new-translated-folder, new-page, new-module]
+    hippotranslation:id: 02cae751-148e-4e7c-9f18-ae4825b95ab7
+    hippotranslation:locale: en
+    /newsletter-sign-up:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: f6b021d1-5fd6-48c6-8a6f-e2bed99b8dde
+      hippostd:foldertype: [new-translated-folder, new-page, new-module]
+      hippotranslation:id: 87710a76-249f-4b9c-b2cc-a78aa2bd9137
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: b4e5d59b-883d-471e-bec0-f596272f365a
+        hippo:name: Newsletter Sign-up
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 998facb3-ce19-446d-b748-9ec6ba228463
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T12:55:44.905+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-26T12:40:41.131+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: a9d7a69f-987d-45ab-b387-1430a7365f46
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Receive inspiring trade travel emails
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Newsletter Sign-up
+          visitscotland:teaser: Receive inspiring trade travel emails
+          visitscotland:theme: Simple
+          visitscotland:title: Newsletter Sign-up
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Receive inspiring trade travel emails</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: b625bd02-a179-43bb-9eb0-129def47bc96
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T12:55:44.905+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-26T12:40:43.911+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: a9d7a69f-987d-45ab-b387-1430a7365f46
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Receive inspiring trade travel emails
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Newsletter Sign-up
+          visitscotland:teaser: Receive inspiring trade travel emails
+          visitscotland:theme: Simple
+          visitscotland:title: Newsletter Sign-up
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Receive inspiring trade travel emails</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: ca3d999d-af20-4b5d-90be-d4ee5a5f4988
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T12:55:44.905+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-26T12:40:43.911+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-26T12:40:45.907+01:00
+          hippotranslation:id: a9d7a69f-987d-45ab-b387-1430a7365f46
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: ''
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: Receive inspiring trade travel emails
+          visitscotland:seoNoIndex: false
+          visitscotland:seoTitle: Newsletter Sign-up
+          visitscotland:teaser: Receive inspiring trade travel emails
+          visitscotland:theme: Simple
+          visitscotland:title: Newsletter Sign-up
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Receive inspiring trade travel emails</p>
+      /article---newsletter-sign-up:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: f6ad3512-72e6-44c9-80c7-2ecd723bb880
+        hippo:name: Article - Newsletter Sign up
+        /article---newsletter-sign-up[1]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 50c262d4-bf4e-4d4b-802b-42493a00da80
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-26T12:41:23.090+01:00
+          hippostdpubwf:lastModificationDate: 2026-10-26T12:41:23.090+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 78816d8b-3282-4219-97ba-6735eb188b8e
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: Sign up to our VisitScotland Travel Trade eNewsletter
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Sign up now to receive inspirational information
+              about Scotland, product updates, events and webinar invites, all from
+              VisitScotland and relevant to your market. By signing up you are indicating
+              your consent to receiving our e-newsletter. You can unsubscribe at any
+              time. We will also use your details in accordance with our privacy policy.
+              <a rel="noopener noreferrer" href="https://www.visitscotland.org/about-us/privacy-and-policies/privacy"
+              target="_blank">View our privacy centre</a>.</p>
+        /article---newsletter-sign-up[2]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 45a6d049-4437-4d20-8841-0d88572bcefc
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-26T12:41:23.090+01:00
+          hippostdpubwf:lastModificationDate: 2026-10-26T12:41:49.810+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 78816d8b-3282-4219-97ba-6735eb188b8e
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: Sign up to our VisitScotland Travel Trade eNewsletter
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Sign up now to receive inspirational information
+              about Scotland, product updates, events and webinar invites, all from
+              VisitScotland and relevant to your market. By signing up you are indicating
+              your consent to receiving our e-newsletter. You can unsubscribe at any
+              time. We will also use your details in accordance with our privacy policy.
+              <a rel="noopener noreferrer" href="https://www.visitscotland.org/about-us/privacy-and-policies/privacy"
+              target="_blank">View our privacy centre</a>.</p>
+        /article---newsletter-sign-up[3]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: fd6b0699-d47b-47c4-a198-97b87ae7b2f0
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-26T12:41:23.090+01:00
+          hippostdpubwf:lastModificationDate: 2026-10-26T12:41:49.810+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-26T12:41:51.689+01:00
+          hippotranslation:id: 78816d8b-3282-4219-97ba-6735eb188b8e
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: Sign up to our VisitScotland Travel Trade eNewsletter
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Sign up now to receive inspirational information
+              about Scotland, product updates, events and webinar invites, all from
+              VisitScotland and relevant to your market. By signing up you are indicating
+              your consent to receiving our e-newsletter. You can unsubscribe at any
+              time. We will also use your details in accordance with our privacy policy.
+              <a rel="noopener noreferrer" href="https://www.visitscotland.org/about-us/privacy-and-policies/privacy"
+              target="_blank">View our privacy centre</a>.</p>
+      /form:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 942df49d-cab6-414d-8d00-b9f9ad160990
+        hippo:name: Form
+        /form[1]:
+          jcr:primaryType: visitscotland:Form
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 65e4630f-55ea-4d5b-a4ca-3306b35ee984
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T12:57:50.991+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T12:57:50.991+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 4140cdc2-f1a5-4845-8fce-e494dcc81009
+          hippotranslation:locale: en
+          visitscotland:nonJavaScriptMessage: ''
+          visitscotland:title: Sign up to our VisitScotland Travel Trade eNewsletter
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Sign up now to receive inspirational information
+              about Scotland, product updates, events and webinar invites, all from
+              VisitScotland and relevant to your market. By signing up you are indicating
+              your consent to receiving our e-newsletter. You can unsubscribe at any
+              time. We will also use your details in accordance with our privacy policy.
+              <a rel="noopener noreferrer" href="https://www.visitscotland.org/about-us/privacy-and-policies/privacy"
+              target="_blank">View our privacy centre</a>.</p>
+          /visitscotland:form:
+            jcr:primaryType: visitscotland:FormCompoundFepl
+            visitscotland:jsonURL: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-07042026.json
+            visitscotland:url: /fepl
+        /form[2]:
+          jcr:primaryType: visitscotland:Form
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: bb19c45d-7112-4ef1-9618-03959982fa5a
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T12:57:50.991+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T12:59:43.614+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 4140cdc2-f1a5-4845-8fce-e494dcc81009
+          hippotranslation:locale: en
+          visitscotland:nonJavaScriptMessage: ''
+          visitscotland:title: Sign up to our VisitScotland Travel Trade eNewsletter
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Sign up now to receive inspirational information
+              about Scotland, product updates, events and webinar invites, all from
+              VisitScotland and relevant to your market. By signing up you are indicating
+              your consent to receiving our e-newsletter. You can unsubscribe at any
+              time. We will also use your details in accordance with our privacy policy.
+              <a rel="noopener noreferrer" href="https://www.visitscotland.org/about-us/privacy-and-policies/privacy"
+              target="_blank">View our privacy centre</a>.</p>
+          /visitscotland:form:
+            jcr:primaryType: visitscotland:FormCompoundFepl
+            visitscotland:jsonURL: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-07042026.json
+            visitscotland:url: /fepl
+        /form[3]:
+          jcr:primaryType: visitscotland:Form
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: e801d8bc-8999-4b71-814a-1125a2a3b6fc
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-23T12:57:50.991+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-23T12:59:43.614+02:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-26T12:40:32.257+01:00
+          hippotranslation:id: 4140cdc2-f1a5-4845-8fce-e494dcc81009
+          hippotranslation:locale: en
+          visitscotland:nonJavaScriptMessage: ''
+          visitscotland:title: Sign up to our VisitScotland Travel Trade eNewsletter
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>Sign up now to receive inspirational information
+              about Scotland, product updates, events and webinar invites, all from
+              VisitScotland and relevant to your market. By signing up you are indicating
+              your consent to receiving our e-newsletter. You can unsubscribe at any
+              time. We will also use your details in accordance with our privacy policy.
+              <a rel="noopener noreferrer" href="https://www.visitscotland.org/about-us/privacy-and-policies/privacy"
+              target="_blank">View our privacy centre</a>.</p>
+          /visitscotland:form:
+            jcr:primaryType: visitscotland:FormCompoundFepl
+            visitscotland:jsonURL: https://static.visitscotland.com/forms/newsletter-sign-up/newsletter-sign-up-bloomreach-07042026.json
+            visitscotland:url: /fepl

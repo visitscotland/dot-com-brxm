@@ -1,0 +1,8 @@
+/content/documents/travel-trade:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 6ef12cc8-88a9-4920-a760-d13eec5d8408
+  hippo:name: Travel Trade
+  hippostd:foldertype: [new-translated-folder, new-page, new-module]
+  hippotranslation:id: 936aa741-31c1-48bb-87ef-451456f98445
+  hippotranslation:locale: en
