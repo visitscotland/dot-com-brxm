@@ -100,3 +100,6 @@ definitions:
       /bsh-freemarker:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../bsh]
+      /travel-trade:
+        jcr:primaryType: hst:configuration
+        hst:inheritsfrom: [../vs-default, '../vs-default/hst:workspace']
