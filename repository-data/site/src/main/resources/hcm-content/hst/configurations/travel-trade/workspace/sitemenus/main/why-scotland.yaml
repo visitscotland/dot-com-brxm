@@ -1,5 +1,5 @@
-/hst:hst/hst:configurations/travel-trade/hst:workspace/hst:sitemenus/main/places-to-go:
-  .meta:order-before: events
+/hst:hst/hst:configurations/travel-trade/hst:workspace/hst:sitemenus/main/why-scotland:
+  .meta:order-before: resources
   jcr:primaryType: hst:sitemenuitem
   hst:referencesitemapitem: why-scotland
   hst:repobased: false
