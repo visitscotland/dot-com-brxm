@@ -41,7 +41,7 @@
       feature.favourites.url, feature.favourites.enable, feature.favourites.endpoint,
       feature.favourites.share-url, feature.favourites.share-service-base-url]
     resourcebundle:messages: ['localhost,traveltrade.visitscotland.org', traveltrade.visitscotland.org,
-      'false', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
+      'false', GTM-PVQ3P7VZ, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
       'false', /site-search-results, /sandbox/pages/newsletter-sign-up, 'https://static.visitscotland.com/forms/common/countries.json',
       'https://static.visitscotland.com/forms/common/messaging.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
       pdf, 'true', general/navigation/banner/content, '623', '14069', abba43e006424824befb855918e2b9db,
@@ -105,7 +105,7 @@
       feature.favourites.url, feature.favourites.enable, feature.favourites.endpoint,
       feature.favourites.share-url, feature.favourites.share-service-base-url]
     resourcebundle:messages: ['localhost,traveltrade.visitscotland.org', traveltrade.visitscotland.org,
-      'false', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
+      'false', GTM-PVQ3P7VZ, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
       'false', /site-search-results, /sandbox/pages/newsletter-sign-up, 'https://static.visitscotland.com/forms/common/countries.json',
       'https://static.visitscotland.com/forms/common/messaging.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
       pdf, 'true', general/navigation/banner/content, '623', '14069', abba43e006424824befb855918e2b9db,
@@ -170,7 +170,7 @@
       feature.favourites.url, feature.favourites.enable, feature.favourites.endpoint,
       feature.favourites.share-url, feature.favourites.share-service-base-url]
     resourcebundle:messages: ['localhost,traveltrade.visitscotland.org', traveltrade.visitscotland.org,
-      'false', GTM-WQVX2V, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
+      'false', GTM-PVQ3P7VZ, '&gtm_auth=YWMt6gew5Au1PAnzyzMADQ&gtm_preview=env-3&gtm_cookies_win=x',
       'false', /site-search-results, /sandbox/pages/newsletter-sign-up, 'https://static.visitscotland.com/forms/common/countries.json',
       'https://static.visitscotland.com/forms/common/messaging.json', 6LfqqfcZAAAAACbkbPaHRZTIFpKZGAPZBDkwBKhe,
       pdf, 'true', general/navigation/banner/content, '623', '14069', abba43e006424824befb855918e2b9db,
