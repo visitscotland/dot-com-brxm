@@ -1,0 +1,69 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/tt-content:
+      jcr:primaryType: hipposys:domain
+      /content-domain:
+        jcr:primaryType: hipposys:domainrule
+        /content-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: content/documents/travel-trade
+      /admin:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+        hipposys:role: admin
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.content.admin
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+      /vs-author:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+        hipposys:role: author
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: vs.content.travel-trade
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+      /vs-editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+        hipposys:role: editor
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: vs.content.tt-trade
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
