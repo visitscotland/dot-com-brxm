@@ -67,11 +67,3 @@ definitions:
           operation: override
           type: string
           value: []
-      /content-tt:
-        jcr:primaryType: hipposys:domainrule
-        /content-and-descendants:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: jcr:path
-          hipposys:type: Reference
-          hipposys:value: /content/documents/travel-trade
