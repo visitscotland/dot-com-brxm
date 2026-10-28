@@ -43,3 +43,6 @@ definitions:
       /bsh:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../common]
+      /travel-trade:
+        jcr:primaryType: hst:configuration
+        hst:inheritsfrom: [../vs-default, '../vs-default/hst:workspace']
