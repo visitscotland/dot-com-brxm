@@ -1,0 +1,6 @@
+/content/documents/administration/tt-labels:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: b0ead600-363a-47d9-b40b-70c354682dc1
+  hippo:name: Travel Trade - Labels
+  hippostd:foldertype: [new-untranslated-folder-resource-bundle, new-resource-bundle]

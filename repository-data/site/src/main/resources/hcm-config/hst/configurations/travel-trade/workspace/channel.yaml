@@ -1,0 +1,11 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/travel-trade/hst:workspace/hst:channel:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:channel
+      hst:defaultdevice: default
+      hst:devices: []
+      hst:lastmodified: 2026-02-06T16:07:06.757+01:00
+      hst:lastmodifiedby: admin
+      hst:name: Travel Trade
+      hst:type: website
