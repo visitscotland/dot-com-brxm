@@ -1,0 +1,8 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:userroles/vs.content.travel-trade:
+      jcr:primaryType: hipposys:userrole
+      hipposys:description: Travel trade Content Access Configuration. Defined on
+        Travel Trade hippo:domains
+      hipposys:system: true
+      hipposys:userroles: [xm.content.viewer, xm.content.user]
