@@ -1,0 +1,8 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:userroles/vs.default-user.travel-trade:
+      jcr:primaryType: hipposys:userrole
+      hipposys:description: Business Events Content Editor
+      hipposys:system: true
+      hipposys:userroles: [vs.content.travel-trade, xm.channel.viewer, xm.cms.user,
+        xm.dashboard.user, vs.gallery.travel-trade]
