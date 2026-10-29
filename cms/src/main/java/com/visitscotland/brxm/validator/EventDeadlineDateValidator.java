@@ -3,12 +3,11 @@ package com.visitscotland.brxm.validator;
 import com.visitscotland.brxm.exception.UnknownPropertyException;
 import com.visitscotland.brxm.exception.ValidationException;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Validator;
 import org.onehippo.cms.services.validation.api.Violation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.Node;
@@ -20,7 +19,7 @@ import java.util.Optional;
  * jcrType = visitscotland:event-deadline-validator
  */
 public class EventDeadlineDateValidator implements Validator<Node> {
-    private static final Logger logger = LogManager.getLogger(EventDateValidator.class);
+    private static final Logger logger = LoggerFactory.getLogger(EventDeadlineDateValidator.class);
     private static final String REGISTRATION_DEADLINE_PROPERTY = "visitscotland:deadline";
     private static final String START_DATE_PROPERTY = "visitscotland:startDate";
 

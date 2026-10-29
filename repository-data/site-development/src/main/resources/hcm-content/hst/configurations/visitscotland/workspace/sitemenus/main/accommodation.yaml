@@ -1,14 +1,10 @@
 /hst:hst/hst:configurations/visitscotland/hst:workspace/hst:sitemenus/main/accommodation:
-  .meta:order-before: main-map
   jcr:primaryType: hst:sitemenuitem
   hst:referencesitemapitem: sandbox/itinerary
   hst:repobased: false
   /Hotels-Lodgings:
     jcr:primaryType: hst:sitemenuitem
     hst:repobased: false
-    /Untitled:
-      jcr:primaryType: hst:sitemenuitem
-      hst:repobased: false
     /B&Bs-Guest-Houses:
       jcr:primaryType: hst:sitemenuitem
       hst:referencesitemapitem: destinations/megalinks-multi-image-example
@@ -113,7 +109,3 @@
       jcr:primaryType: hst:sitemenuitem
       hst:referencesitemapitem: destinations/megalinks-multi-image-example
       hst:repobased: false
-  /Accommodation Featured Items Widget:
-    jcr:primaryType: hst:sitemenuitem
-    hst:referencesitemapitem: sandbox/navigation/accommodation---feature-wdiget
-    hst:repobased: false

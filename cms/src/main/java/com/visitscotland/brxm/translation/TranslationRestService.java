@@ -6,6 +6,7 @@ import org.hippoecm.repository.api.WorkflowException;
 import org.hippoecm.repository.translation.HippoTranslationNodeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,21 +23,27 @@ import java.util.Locale;
 @RequestScope
 public class TranslationRestService {
     private static final Logger log = LoggerFactory.getLogger(TranslationRestService.class);
-    private SessionFactory sessionFactory;
-    private JcrDocumentFactory jcrDocumentFactory;
-    private TranslationService translationService;
+
+    private final SessionFactory sessionFactory;
+    private final JcrDocumentFactory jcrDocumentFactory;
+    private final ObjectProvider<TranslationService> translationServiceProvider;
 
     @Autowired
     public TranslationRestService(SessionFactory sessionFactory,
                                   JcrDocumentFactory jcrDocumentFactory,
-                                  TranslationService translationService) {
+                                  ObjectProvider<TranslationService> translationProvider) {
         this.sessionFactory = sessionFactory;
         this.jcrDocumentFactory = jcrDocumentFactory;
-        this.translationService = translationService;
+        this.translationServiceProvider = translationProvider;
     }
 
+    private TranslationService getTranslationService() {
+        return translationServiceProvider.getObject();
+    }
+
+
     @GetMapping(value = "/vs-service/node/{handleId}/translation/diff", produces = "application/json")
-    public String getNodeDifference(@PathVariable String handleId) {
+    public String getNodeDifference(@PathVariable("handleId") String handleId) {
         try {
             Node handleNode = sessionFactory.getJcrSession().getNodeByIdentifier(handleId);
             JcrDocument jcrDocument = jcrDocumentFactory.createFromNode(handleNode);
@@ -47,7 +54,7 @@ public class TranslationRestService {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unable to get difference for English document");
             }
 
-            String diff = translationService.getDocumentDifference(handleId);
+            String diff = getTranslationService().getDocumentDifference(handleId);
             if ( null == diff ) {
                 throw new ResponseStatusException(HttpStatus.NO_CONTENT, "No difference found for document");
             }
@@ -66,7 +73,7 @@ public class TranslationRestService {
     }
 
     @PostMapping(value = "/vs-service/node/{handleId}/translation/flag", produces = "application/json")
-    public void setTranslationFlag(@PathVariable String handleId, @RequestBody String body) {
+    public void setTranslationFlag(@PathVariable("handleId") String handleId, @RequestBody String body) {
         // Needs to be an english document to set the translation on
         try {
             Node handleNode = sessionFactory.getJcrSession().getNodeByIdentifier(handleId);
@@ -74,7 +81,7 @@ public class TranslationRestService {
 
             TranslationService.TranslationContent content = new TranslationService.TranslationContent();
             content.setContent(body);
-            List<JcrDocument> documentsBlockingEdit = translationService.setTranslationContent(jcrDocument, content);
+            List<JcrDocument> documentsBlockingEdit = getTranslationService().setTranslationContent(jcrDocument, content);
             if (!documentsBlockingEdit.isEmpty()) {
                 throw new ResponseStatusException(HttpStatus.CONFLICT, "Unable to lock documents for edit");
             }
@@ -97,12 +104,12 @@ public class TranslationRestService {
     }
 
     @DeleteMapping(value = "/vs-service/node/{handleId}/translation/flag", produces = "application/json")
-    public void deleteTranslationFlag(@PathVariable String handleId) {
+    public void deleteTranslationFlag(@PathVariable("handleId") String handleId) {
         try {
             Node handleNode = sessionFactory.getJcrSession().getNodeByIdentifier(handleId);
             JcrDocument jcrDocument = jcrDocumentFactory.createFromNode(handleNode);
 
-            translationService.clearTranslationFlag(jcrDocument);
+            getTranslationService().clearTranslationFlag(jcrDocument);
 
         } catch(WorkflowException ex) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Unable to lock document for edit");
