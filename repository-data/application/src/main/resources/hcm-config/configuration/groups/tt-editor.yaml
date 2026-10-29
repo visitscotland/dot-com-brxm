@@ -1,0 +1,17 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/tt-editor:
+      jcr:primaryType: hipposys:group
+      hipposys:description: Travel Trade Content Editor role. It has access to the
+        Travel Trade Area documents and labels
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [tt-editor]
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [vs.default-user.travel-trade, vs.labels.travel-trade]
