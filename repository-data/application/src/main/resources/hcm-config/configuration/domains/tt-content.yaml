@@ -9,7 +9,7 @@ definitions:
           hipposys:equals: true
           hipposys:facet: jcr:path
           hipposys:type: Reference
-          hipposys:value: content/documents/travel-trade
+          hipposys:value: /content/documents/travel-trade
       /admin:
         jcr:primaryType: hipposys:authrole
         hipposys:groups:
@@ -60,7 +60,7 @@ definitions:
         hipposys:userrole:
           .meta:category: system
           type: string
-          value: vs.content.tt-trade
+          value: vs.content.travel-trade
         hipposys:users:
           .meta:category: system
           .meta:add-new-system-values: true

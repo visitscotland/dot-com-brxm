@@ -32,11 +32,6 @@ definitions:
           hipposys:value: /content/gallery/travel-trade
       /readwrite:
         jcr:primaryType: hipposys:authrole
-        hipposys:groups:
-          .meta:category: system
-          .meta:add-new-system-values: true
-          type: string
-          value: [be-editor]
         hipposys:role: readwrite
         hipposys:userrole:
           .meta:category: system
