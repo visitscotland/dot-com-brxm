@@ -20,7 +20,6 @@
 
     <!-- Site logging -->
     <Logger name="org.hippoecm.hst" level="warn"/>
-    <Logger name="freemarker" level="warn"/>
     <Logger name="org.apache.cxf" level="warn"/>
     <Logger name="javax.ws.rs.core" level="warn"/>
     <Logger name="org.apache.commons.pool" level="warn"/>

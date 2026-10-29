@@ -56,10 +56,7 @@ public class PageLabels {
         pageConfig.addGlobalLabel("image.no.credit");
         pageConfig.addGlobalLabel("image.toggle.text");
         pageConfig.addGlobalLabel("home");
-        pageConfig.addGlobalLabel("page.next");
-        pageConfig.addGlobalLabel("page.previous");
         pageConfig.addGlobalLabel("back-to-top");
-        pageConfig.addGlobalLabel("last-update");
     }
 
     private void addNavigationLabels(PageCompositionHelper pageConfig) {
