@@ -61,6 +61,11 @@ public class SiteProperties extends Properties {
     public String getChannelOrder(){
         return readString(CHANNEL_ORDER);
     }
+
+    public boolean isMultiChannelSite() {
+        return readOptionalString(CHANNEL_ORDER).isPresent();
+    }
+
     public String getIknowCommunityUrl() {
         return readString(IKNOW_COMMUNITY_URL);
     }
