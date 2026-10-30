@@ -1,15 +1,17 @@
-
 package com.visitscotland.brxm.mapper.page;
 
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.hippobeans.Itinerary;
 import com.visitscotland.brxm.mapper.module.TransportMapper;
+import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.ItineraryPage;
+import com.visitscotland.brxm.model.LinkType;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.services.GoogleMapsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.hippobeans.ExternalLink;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -46,6 +48,12 @@ class ItineraryMapperTest {
 
     @Mock
     Itinerary itinerary;
+
+    @Mock
+    LinkService linkService;
+
+    @Mock
+    FlatLink flatLink;
 
     @InjectMocks
     ItineraryMapper mapper;
@@ -223,5 +231,44 @@ class ItineraryMapperTest {
         mapper.buildItinerary(itinerary, LOCALE);
 
         verify(transportMapper).getTransports(transports, LOCALE);
+    }
+
+    @Test
+    @DisplayName("Populate map link CTA when provided")
+    void buildItinerary_populateMapLink() {
+
+        mockEmptyItinerary();
+
+        ExternalLink mapLink = mock(ExternalLink.class);
+
+        when(mapLink.getLink()).thenReturn("https://maps.google.com/example");
+        when(mapLink.getLabel()).thenReturn("View map");
+        when(mapLink.getPath()).thenReturn("/map");
+
+        when(itinerary.getMapLink()).thenReturn(mapLink);
+        when(itinerary.getDistance()).thenReturn(0.0);
+
+        when(linkService.createExternalLink(
+                LOCALE,
+                "https://maps.google.com/example",
+                "View map",
+                "/map"
+        )).thenReturn(flatLink);
+
+        ItineraryPage result = mapper.buildItinerary(itinerary, LOCALE);
+
+        assertNotNull(result.getMapLink());
+        assertSame(flatLink, result.getMapLink());
+
+        verify(linkService).createExternalLink(
+                LOCALE,
+                "https://maps.google.com/example",
+                "View map",
+                "/map"
+        );
+
+        verify(flatLink).setType(LinkType.EXTERNAL);
+
+        verify(googleMapsService, never()).localizeUrl(any(), any());
     }
 }
