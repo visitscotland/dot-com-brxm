@@ -164,51 +164,6 @@ public class HTMLtoVueTransformer {
     }
 
     /**
-     * Process the anchor tags and transform them into Vue tags. It also adds the attribute type depending on the type
-     * of the link ({@code LinkType})
-     *
-     * @see LinkType
-     */
-    public String processLinksOld(final String html, String parentDocument){
-
-        /*
-         * Targets the opening tag of anchor links (a tag).
-         * - The tag must contain href attribute, otherwise it would be ignored
-         *
-         * Groups:
-         * 1. Opening anchor including a trailing space: "<a "
-         * 2. The value of the attribute href
-         * 3. Closing tag: "</a>"
-         */
-        final Pattern aTag = Pattern.compile("(<a\\s)(?:.+\\s)?href\\s?=\\s?\"(.*?)\".*?(</a>)");
-        final int OPEN = 1;
-        final int HREF = 2;
-        final int CLOSE = 3;
-
-        Matcher matcher = aTag.matcher(html);
-        String output = html;
-
-        while (matcher.find()) {
-            String closingTag;
-            String a = matcher.group();
-            FlatLink link = linkService.createExternalLink(matcher.group(HREF), parentDocument);
-
-            if (link.getType().equals(LinkType.DOWNLOAD)){
-                closingTag = linkService.getDownloadText(matcher.group(HREF))+ "</vs-link>";
-            } else {
-                closingTag = "</vs-link>";
-            }
-
-            String vsLink = a.replace(matcher.group(OPEN), "<vs-link type=\""+ link.getType().getRichTextType()+"\" ")
-                    .replace(matcher.group(HREF), link.getLink())
-                    .replace(matcher.group(CLOSE), closingTag);
-            output = output.replace(a, vsLink);
-        }
-
-        return output;
-    }
-
-    /**
      * Process info alerts
      * These are warnings that can appear in a General page introduction. They are inserted by the CKEditor as
      * <span class="info-alert">...</span>, and must be converted into <vs-alert>...</vs-alert>
