@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: e73e30cd-2fae-436f-81e1-4904c5bd8150
+          jcr:uuid: 73f176ae-3733-4f14-ade8-6bc102076be2
           hipposysedit:node: true
           hipposysedit:supertype: ['hippotranslation:translated', 'hippotaxonomy:classifiable',
             'visitscotland:basedocument', 'hippostd:relaxed']
@@ -59,15 +59,6 @@ definitions:
             hipposysedit:path: visitscotland:translation
             hipposysedit:primary: false
             hipposysedit:type: OpenUiString
-          /StopTip:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:StopTip
-            hipposysedit:primary: false
-            hipposysedit:type: visitscotland:StopTip
-            hipposysedit:validators: [optional]
           /media:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -86,7 +77,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 76a25329-c2e3-4147-bd19-db815131051a
+          jcr:uuid: 2c151782-c0f8-4b4f-a216-5b35cf3e5aa2
           hippostdpubwf:lastModificationDate: 2019-12-05T15:13:21.853Z
           hippostdpubwf:creationDate: 2019-12-05T15:13:21.853Z
           visitscotland:title: ''
@@ -172,15 +163,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxitems: 1
-          /StopTip:
-            jcr:primaryType: frontend:plugin
-            caption: Tip
-            field: StopTip
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation

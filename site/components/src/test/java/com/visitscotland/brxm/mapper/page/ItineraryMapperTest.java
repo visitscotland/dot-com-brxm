@@ -1,31 +1,19 @@
+
 package com.visitscotland.brxm.mapper.page;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.dms.DMSDataService;
-import com.visitscotland.brxm.dms.DMSUtils;
-import com.visitscotland.brxm.dms.ProductSearchBuilder;
-import com.visitscotland.brxm.factory.hippo.ValueList;
-import com.visitscotland.brxm.hippobeans.DMSLink;
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.hippobeans.Itinerary;
-import com.visitscotland.brxm.mapper.EntryMapper;
-import com.visitscotland.brxm.mapper.ImageMapper;
-import com.visitscotland.brxm.mock.ItineraryDayMockBuilder;
-import com.visitscotland.brxm.model.*;
-import com.visitscotland.brxm.model.megalinks.Entry;
+import com.visitscotland.brxm.mapper.module.TransportMapper;
+import com.visitscotland.brxm.model.ItineraryPage;
 import com.visitscotland.brxm.services.DocumentUtilsService;
+import com.visitscotland.brxm.services.GoogleMapsService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
-import org.hippoecm.hst.core.container.ComponentManager;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Answers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -36,106 +24,204 @@ import java.util.List;
 import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-//TODO This unit test needs to be broken down
-@Disabled
 @ExtendWith(MockitoExtension.class)
 class ItineraryMapperTest {
 
     @Mock
-    Itinerary itinerary;
-    @Mock
     ResourceBundleService bundle;
-    @Mock
-    DMSDataService dmsData;
-    @Mock
-    ImageMapper imageMapper;
-    @Mock
-    DMSUtils utils;
+
     @Mock
     DocumentUtilsService documentUtils;
-    @Mock
-    LinkService linkService;
-    @Mock
-    EntryMapper entryMapper;
-    @Mock
-    ContentLogger logger;
 
-    @Mock(answer = Answers.RETURNS_SELF)
-    private ProductSearchBuilder builder;
+    @Mock
+    GoogleMapsService googleMapsService;
+
+    @Mock
+    ContentLogger contentLogger;
+
+    @Mock
+    TransportMapper transportMapper;
+
+    @Mock
+    Itinerary itinerary;
 
     @InjectMocks
-    ItineraryMapper factory;
+    ItineraryMapper mapper;
 
-    @BeforeEach
-    void setUp() {
-        initProductSearchBuilder();
-    }
+    private static final Locale LOCALE = Locale.UK;
 
-    private void initProductSearchBuilder() {
-        ComponentManager context = mock(ComponentManager.class, withSettings().lenient());
-        when(context.getComponent(ProductSearchBuilder.class)).thenReturn(builder);
-        VsComponentManager.setComponentManager(context);
-    }
+    private void mockEmptyItinerary() {
+        when(itinerary.getPath()).thenReturn("/content/itinerary/test");
+        when(itinerary.getMapLink()).thenReturn(null);
+        when(itinerary.getTransports()).thenReturn(null);
+        when(itinerary.getSeasons()).thenReturn(null);
+        when(itinerary.getLocations()).thenReturn(null);
 
-    @Test
-    @DisplayName("Create an itinerary page")
-    void createSimpleItinerary() {
-        when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(Collections.emptyList());
-
-        ItineraryPage iti = factory.buildItinerary(itinerary, Locale.UK);
-        assertNotNull(iti);
-        assertEquals(BigDecimal.ZERO, iti.getDistance());
-
+        when(documentUtils.getAllowedDocuments(itinerary, Day.class))
+                .thenReturn(Collections.emptyList());
     }
 
     @Test
-    @DisplayName("When no cta provided for DMS link, default cta is set")
-    void dmsCtaSet() throws Exception {
-        final String JSON = "{" +
-                " \"dmsLink\": {\"link\": \"/info/fake-product-p123\"}," +
-                " \"name\":\"dms title\", " +
-                " \"images\":[{" +
-                "    \"mediaUrl\":\"https://img.visitscotland.com/fake-product.jpg\"" +
-                "}]}";
-        JsonNode node = new ObjectMapper().readTree(JSON);
-        List<Day> days = new ItineraryDayMockBuilder().addDmsStop("123").title("module title").buildAsList();
-        when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
-        when(dmsData.productCard("123", Locale.UK)).thenReturn(node);
-        when(bundle.getFindOutMoreAboutCta("module title", Locale.UK)).thenReturn("Find out more about module title");
+    @DisplayName("Itinerary without days should have zero day count and distance")
+    void buildItinerary_noDays() {
 
-        factory.buildItinerary(itinerary, Locale.UK);
+        mockEmptyItinerary();
 
-        verify(linkService).createDmsLink(Locale.UK, (DMSLink) days.get(0).getStops().get(0).getStopItem(), node, "Find out more about module title");
+        when(itinerary.getDistance()).thenReturn(0.0);
+
+        ItineraryPage result = mapper.buildItinerary(itinerary, LOCALE);
+
+        assertNotNull(result);
+        assertEquals(0, result.getDayCount());
+        assertEquals(BigDecimal.ZERO, result.getDistance());
+
+        verify(googleMapsService, never())
+                .calculateDistanceFromDays(anyList());
+
+        verify(contentLogger).info(
+                "The itinerary page {} does not have any modules published",
+                "/content/itinerary/test"
+        );
     }
 
     @Test
-    @DisplayName("When no cta provided for external link, default cta is set")
-    void externalCtaSet() {
-        List<Day> days = new ItineraryDayMockBuilder().addExternalStop("https://example.com",false).title("title").buildAsList();
-        when(documentUtils.getAllowedDocuments(itinerary, Day.class)).thenReturn(days);
-        when(bundle.getFindOutMoreAboutCta("title", Locale.UK)).thenReturn("Find out more about title");
+    @DisplayName("Calculate itinerary distance when no distance is provided")
+    void buildItinerary_calculateDistance() {
 
-        factory.buildItinerary(itinerary, Locale.UK);
+        mockEmptyItinerary();
 
-        verify(linkService).createExternalLink(Locale.UK, "https://example.com", "Find out more about title", null);
+        List<Day> days = Collections.singletonList(mock(Day.class));
+
+        when(documentUtils.getAllowedDocuments(itinerary, Day.class))
+                .thenReturn(days);
+
+        when(itinerary.getDistance()).thenReturn(0.0);
+
+        when(googleMapsService.calculateDistanceFromDays(days))
+                .thenReturn(BigDecimal.valueOf(125));
+
+        ItineraryPage result = mapper.buildItinerary(itinerary, LOCALE);
+
+        assertNotNull(result);
+        assertEquals(1, result.getDayCount());
+        assertEquals(BigDecimal.valueOf(125), result.getDistance());
+
+        verify(googleMapsService).calculateDistanceFromDays(days);
     }
 
     @Test
-    @DisplayName("The transports are populated")
-    void transportsArePopulated() {
-        when(itinerary.getTransports()).thenReturn(new String[]{"n", "s"});
-        when(entryMapper.getEntry("n", ValueList.VS_ITINERARY_TRANSPORT)).thenReturn(new Entry("n","Car"));
-        when(entryMapper.getEntry("s", ValueList.VS_ITINERARY_TRANSPORT)).thenReturn(new Entry("s","Ship"));
+    @DisplayName("Use itinerary distance when provided by CMS")
+    void buildItinerary_useProvidedDistance() {
 
-        ItineraryPage page = factory.buildItinerary(itinerary, Locale.UK);
+        mockEmptyItinerary();
 
-        assertEquals(2, page.getTransports().size());
-        assertEquals("Car", page.getTransports().get(0).getDisplayName());
-        assertEquals("Ship", page.getTransports().get(1).getDisplayName());
+        when(itinerary.getDistance()).thenReturn(25.0);
+
+        ItineraryPage result = mapper.buildItinerary(itinerary, LOCALE);
+
+        assertNotNull(result);
+        assertEquals(BigDecimal.valueOf(25.0), result.getDistance());
+
+        verify(googleMapsService, never())
+                .calculateDistanceFromDays(anyList());
     }
 
+    @Test
+    @DisplayName("Populate itinerary days and day count")
+    void buildItinerary_populateDays() {
+
+        mockEmptyItinerary();
+
+        List<Day> days = List.of(
+                mock(Day.class),
+                mock(Day.class),
+                mock(Day.class)
+        );
+
+        when(documentUtils.getAllowedDocuments(itinerary, Day.class))
+                .thenReturn(days);
+
+        when(itinerary.getDistance()).thenReturn(0.0);
+
+        when(googleMapsService.calculateDistanceFromDays(days))
+                .thenReturn(BigDecimal.valueOf(50));
+
+        ItineraryPage result = mapper.buildItinerary(itinerary, LOCALE);
+
+        assertEquals(3, result.getDayCount());
+        assertEquals(3, result.getDays().size());
+
+        verify(documentUtils).getAllowedDocuments(itinerary, Day.class);
+    }
+
+    @Test
+    @DisplayName("Populate empty seasons when no seasons are provided")
+    void buildItinerary_noSeasons() {
+
+        mockEmptyItinerary();
+
+        when(itinerary.getDistance()).thenReturn(0.0);
+
+        ItineraryPage result = mapper.buildItinerary(itinerary, LOCALE);
+
+        assertNotNull(result);
+        assertNotNull(result.getSeasons());
+        assertTrue(result.getSeasons().isEmpty());
+
+        verify(bundle, never())
+                .existsResourceBundleKey(anyString(), anyString(), any());
+    }
+
+    @Test
+    @DisplayName("Populate empty locations when no locations are provided")
+    void buildItinerary_noLocations() {
+
+        mockEmptyItinerary();
+
+        when(itinerary.getDistance()).thenReturn(0.0);
+
+        ItineraryPage result = mapper.buildItinerary(itinerary, LOCALE);
+
+        assertNotNull(result);
+        assertNotNull(result.getLocations());
+        assertTrue(result.getLocations().isEmpty());
+    }
+
+    @Test
+    @DisplayName("Ignore empty and null locations")
+    void buildItinerary_ignoreEmptyLocations() {
+
+        mockEmptyItinerary();
+
+        when(itinerary.getLocations()).thenReturn(
+                new String[]{"Edinburgh", "", null, "Glasgow"}
+        );
+
+        when(itinerary.getDistance()).thenReturn(0.0);
+
+        ItineraryPage result = mapper.buildItinerary(itinerary, LOCALE);
+
+        assertEquals(
+                List.of("Edinburgh", "Glasgow"),
+                result.getLocations()
+        );
+    }
+
+    @Test
+    @DisplayName("Populate transports")
+    void buildItinerary_populateTransports() {
+
+        mockEmptyItinerary();
+
+        String[] transports = {"car", "train"};
+
+        when(itinerary.getTransports()).thenReturn(transports);
+        when(itinerary.getDistance()).thenReturn(0.0);
+
+        mapper.buildItinerary(itinerary, LOCALE);
+
+        verify(transportMapper).getTransports(transports, LOCALE);
+    }
 }

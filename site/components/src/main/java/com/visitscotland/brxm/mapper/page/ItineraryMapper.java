@@ -1,10 +1,6 @@
 package com.visitscotland.brxm.mapper.page;
 
-import com.visitscotland.brxm.dms.DMSDataService;
-import com.visitscotland.brxm.dms.DMSUtils;
 import com.visitscotland.brxm.hippobeans.*;
-import com.visitscotland.brxm.mapper.EntryMapper;
-import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.mapper.module.TransportMapper;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.model.megalinks.Entry;
@@ -21,8 +17,6 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.util.*;
 
-import static com.visitscotland.brxm.dms.DMSConstants.DMSProduct.*;
-
 /**
  * mapper class for itineraries
  */
@@ -32,17 +26,10 @@ public class ItineraryMapper {
     private static final Logger logger = LoggerFactory.getLogger(ItineraryMapper.class);
 
     static final String BUNDLE_FILE = "itinerary";
-    private static final String THEMES = "themes";
-    private static final String AREAS = "areas";
-    private static final String TRANSPORTS = "transports";
     private static final String SEASONS = "seasons";
     private static final String DEFAULT_CTA_TEXT = "itinerary.default-cta";
 
     private final ResourceBundleService bundle;
-    private final DMSDataService dmsData;
-    private final ImageMapper imageMapper;
-    private final DMSUtils utils;
-    private final EntryMapper entryMapper;
     private final DocumentUtilsService documentUtils;
     private final LinkService linkService;
     private final GoogleMapsService googleMapsService;
@@ -50,19 +37,13 @@ public class ItineraryMapper {
     private final TransportMapper transportMapper;
 
 
-    public ItineraryMapper(ResourceBundleService bundle, DMSDataService dmsData, ImageMapper imageMapper,
-                           DMSUtils utils, DocumentUtilsService documentUtils, LinkService linkService,
-                           GoogleMapsService googleMapsService, ContentLogger contentLogger,
-                           EntryMapper entryMapper, TransportMapper transportMapper) {
+    public ItineraryMapper(ResourceBundleService bundle, DocumentUtilsService documentUtils, LinkService linkService,
+                           GoogleMapsService googleMapsService, ContentLogger contentLogger, TransportMapper transportMapper) {
         this.bundle = bundle;
-        this.dmsData = dmsData;
-        this.imageMapper = imageMapper;
-        this.utils = utils;
         this.documentUtils = documentUtils;
         this.linkService = linkService;
         this.googleMapsService = googleMapsService;
         this.contentLogger = contentLogger;
-        this.entryMapper = entryMapper;
         this.transportMapper = transportMapper;
     }
 
@@ -122,39 +103,10 @@ public class ItineraryMapper {
         return page;
     }
 
-    @Deprecated
-    public boolean isStopBasedItinerary(final Itinerary itinerary) {
-        List<BaseDocument> bean = documentUtils.getAllowedDocuments(itinerary, BaseDocument.class);
-        if (itinerary.getMapLink() == null || itinerary.getMapLink().getLink() == null) {
-            contentLogger.info("The itinerary page {} is using the old template based on stops", itinerary.getPath());
-            return true;
-        }
-        for (BaseDocument b : bean) {
-            if (b instanceof Day) {
-                return ((Day) b).getStops() != null && !((Day) b).getStops().isEmpty();
-            }
-        }
-        return false;
-    }
+
 
     private void populateTransports(ItineraryPage page, final String[] transports, final Locale locale) {
         page.setTransports(transportMapper.getTransports(transports, locale));
-    }
-
-    private void populateAreas(ItineraryPage page, final String[] areas, final Locale locale) {
-        List<Entry> areasToAdd = new ArrayList<>();
-        if (areas == null) {
-            page.setAreas(areasToAdd);
-        } else {
-            for (final String area : areas) {
-                if (area != null && bundle.existsResourceBundleKey(AREAS, area, locale)) {
-                    areasToAdd.add(new Entry(area, bundle.getResourceBundle(AREAS, area, locale)));
-                } else {
-                    contentLogger.warn("No key/value pair for area {}", area);
-                }
-            }
-            page.setAreas(areasToAdd);
-        }
     }
 
     private void populateSeasons(ItineraryPage page, final String[] seasons, final Locale locale) {

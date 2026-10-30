@@ -11,18 +11,10 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 83b30a27-b166-46ec-9b11-9ad53312ab91
+          jcr:uuid: ada1ae3b-aabb-4f20-8562-bb0e2acd2870
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
-          /staticdropdown:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:timeToExplore
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
           /Coordinates:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -89,17 +81,7 @@ definitions:
             caption: Coordinates
             field: Coordinates
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /timeToExplore:
-            jcr:primaryType: frontend:plugin
-            caption: Time to Explore (Hours)
-            field: staticdropdown
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: 1, 2, 3, 12, 24, 48
