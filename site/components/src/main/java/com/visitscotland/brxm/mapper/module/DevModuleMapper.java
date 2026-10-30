@@ -26,6 +26,7 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
     private static final String OBS_MODULE = "online-booking-system";
     private static final String CARBON_CALCULATOR = "carbon-calculator";
     private static final String SUPPLIER_SEARCH = "supplier-search";
+    private static final String SUPPLIER_LISTING = "supplier-listing";
     private static final String PAGINATION = "essentials.pagination";
     private static final String FAVOURITES_LIST = "favourites-list";
     private static final String FAVOURITES = "favourites";
@@ -76,6 +77,8 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
                 compositionHelper.addAllSiteLabels(FAVOURITES);
 
                 return new FavouriteModule(document, document.getBespoken());
+            } else if (SUPPLIER_LISTING.equals(document.getBespoken())) {
+                return new SimpleDevModule(document, document.getBespoken());
             }
 
 
