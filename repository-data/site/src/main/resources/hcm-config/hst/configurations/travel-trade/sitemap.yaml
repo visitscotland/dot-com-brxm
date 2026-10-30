@@ -257,7 +257,7 @@ definitions:
       /blog:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/pagenotfound
-        hst:relativecontentpath: site/blog/supplier
+        hst:relativecontentpath: site/blog
         hst:sitemapitemhandlerids: [translation-fallback]
         /_index_:
           jcr:primaryType: hst:sitemapitem
@@ -387,7 +387,7 @@ definitions:
         /supplier:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/pagenotfound
-          hst:relativecontentpath: site/campaign
+          hst:relativecontentpath: site/blog/supplier
           hst:sitemapitemhandlerids: [translation-fallback]
           /_index_:
             jcr:primaryType: hst:sitemapitem
