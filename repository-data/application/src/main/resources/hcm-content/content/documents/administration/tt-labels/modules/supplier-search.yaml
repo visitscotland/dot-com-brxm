@@ -13,13 +13,15 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-10-30T10:07:09.142Z
-    hippostdpubwf:lastModificationDate: 2026-10-30T10:07:09.142Z
+    hippostdpubwf:lastModificationDate: 2026-10-30T12:56:58.410Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: supplier-search
-    resourcebundle:keys: [filters, results, sort-by, date, alphabetical, search-suppliers]
+    resourcebundle:keys: [filters, results, sort-by, date, alphabetical, search-suppliers,
+      clear-all, supplier-types, loading, sort-by.alphabetical, sort-by.date]
     resourcebundle:messages: [Filters, Results, Sort By, New Suppliers, Alphabetical,
-      Search suppliers]
+      Search suppliers, Clear All, Supplier Types, Suppliers Loading, Alphabetical,
+      New Suppliers]
   /supplier-search[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -29,13 +31,15 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-10-30T10:07:09.142Z
-    hippostdpubwf:lastModificationDate: 2026-10-30T10:11:23.121Z
+    hippostdpubwf:lastModificationDate: 2026-10-30T12:57:37.291Z
     hippostdpubwf:lastModifiedBy: admin
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: supplier-search
-    resourcebundle:keys: [filters, results, sort-by, date, alphabetical, search-suppliers]
+    resourcebundle:keys: [filters, results, sort-by, date, alphabetical, search-suppliers,
+      clear-all, supplier-types, loading, sort-by.alphabetical, sort-by.date]
     resourcebundle:messages: [Filters, Results, Sort By, New Suppliers, Alphabetical,
-      Search suppliers]
+      Search suppliers, Clear All, Supplier Types, Suppliers Loading, Alphabetical,
+      New Suppliers]
   /supplier-search[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -45,11 +49,13 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2026-10-30T10:07:09.142Z
-    hippostdpubwf:lastModificationDate: 2026-10-30T10:11:23.121Z
+    hippostdpubwf:lastModificationDate: 2026-10-30T12:57:37.291Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-10-30T10:12:05.392Z
-    resourcebundle:descriptions: ['', '', '', '', '', '']
+    hippostdpubwf:publicationDate: 2026-10-30T12:57:39.746Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
     resourcebundle:id: supplier-search
-    resourcebundle:keys: [filters, results, sort-by, date, alphabetical, search-suppliers]
+    resourcebundle:keys: [filters, results, sort-by, date, alphabetical, search-suppliers,
+      clear-all, supplier-types, loading, sort-by.alphabetical, sort-by.date]
     resourcebundle:messages: [Filters, Results, Sort By, New Suppliers, Alphabetical,
-      Search suppliers]
+      Search suppliers, Clear All, Supplier Types, Suppliers Loading, Alphabetical,
+      New Suppliers]
