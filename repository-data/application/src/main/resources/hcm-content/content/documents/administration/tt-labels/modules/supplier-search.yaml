@@ -1,0 +1,61 @@
+/content/documents/administration/tt-labels/modules/supplier-search:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: a6cd7e14-b5c3-455d-a797-33f0521f207e
+  hippo:name: Supplier Search
+  hippo:versionHistory: 0a2e6b46-6195-4f16-8789-0e9a54b5360e
+  /supplier-search[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 8ef32a18-a15f-45fc-bfdc-642d592aa495
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-10-30T10:07:09.142Z
+    hippostdpubwf:lastModificationDate: 2026-10-30T12:56:58.410Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: supplier-search
+    resourcebundle:keys: [filters, results, sort-by, date, alphabetical, search-suppliers,
+      clear-all, supplier-types, loading, sort-by.alphabetical, sort-by.date]
+    resourcebundle:messages: [Filters, Results, Sort By, New Suppliers, Alphabetical,
+      Search suppliers, Clear All, Supplier Types, Suppliers Loading, Alphabetical,
+      New Suppliers]
+  /supplier-search[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: c1187f74-f558-403a-9536-deb5c55bbab5
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-10-30T10:07:09.142Z
+    hippostdpubwf:lastModificationDate: 2026-10-30T12:57:37.291Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: supplier-search
+    resourcebundle:keys: [filters, results, sort-by, date, alphabetical, search-suppliers,
+      clear-all, supplier-types, loading, sort-by.alphabetical, sort-by.date]
+    resourcebundle:messages: [Filters, Results, Sort By, New Suppliers, Alphabetical,
+      Search suppliers, Clear All, Supplier Types, Suppliers Loading, Alphabetical,
+      New Suppliers]
+  /supplier-search[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 3a0d2b00-7727-44ac-a5df-a1652b7c4363
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-10-30T10:07:09.142Z
+    hippostdpubwf:lastModificationDate: 2026-10-30T12:57:37.291Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-10-30T12:57:39.746Z
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: supplier-search
+    resourcebundle:keys: [filters, results, sort-by, date, alphabetical, search-suppliers,
+      clear-all, supplier-types, loading, sort-by.alphabetical, sort-by.date]
+    resourcebundle:messages: [Filters, Results, Sort By, New Suppliers, Alphabetical,
+      Search suppliers, Clear All, Supplier Types, Suppliers Loading, Alphabetical,
+      New Suppliers]
