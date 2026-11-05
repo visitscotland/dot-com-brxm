@@ -24,7 +24,7 @@ echo "==/Setting conditional environment variables"
 // please see ci/README_PIPELINE_VARIABLES.md or consult Web Operations for details on environment variables and their purposes
 // NOTE: these values will only be set if currently null, they may have been set by the "conditional environment variables" section above
 echo "== Setting default environment variables"
-if (!env.VS_SSR_PROXY_ON) { env.VS_SSR_PROXY_ON = "TRUE" }
+if (!env.VS_SSR_PROXY_ON) { env.VS_SSR_PROXY_ON = "FALSE" }
 if (!env.VS_CONTAINER_PRESERVE) { env.VS_CONTAINER_PRESERVE = "TRUE" }
 if (!env.VS_BRXM_PERSISTENCE_METHOD) { env.VS_BRXM_PERSISTENCE_METHOD = "h2" }
 if (!env.VS_SKIP_BUILD_FOR_BRANCH) { env.VS_SKIP_BUILD_FOR_BRANCH = "feature/VS-1865-feature-environments-enhancements-log4j" }
@@ -208,7 +208,7 @@ stage ('vs compile & package in docker') {
         }
       }
       steps {
-        sh 'mvn test -Pdefault -P!fed-build'
+        sh 'mvn test -Pdefault'
       }
     } //end stage
 
@@ -222,7 +222,7 @@ stage ('vs compile & package in docker') {
       }
       steps {
         // -- 20200712: QUESTION FOR SE, "brC does not recognise the package, maybe it needs Enterprise Features?"
-        sh 'mvn verify && mvn -Pdist-with-development-data -P!fed-build -DskipTests'
+        sh 'mvn verify && mvn -Pdist-with-development-data -DskipTests'
       }
       post {
         success {
