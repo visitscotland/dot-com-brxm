@@ -20,7 +20,7 @@ Hippo.Reports.downloadFile = (fileName, mimeType, fileContents) => {
 
 
 // RFC 4180 rule 7. Escape quotation marks with double quotation marks
-const escapeCsvField = (field) => field === undefined ? "" : field.toString().replace("\"", "\"\"");
+const escapeCsvField = (field) => field === undefined ? "" : field.toString().replace(/"/g, "\"\"");
 
 /**
  * Convert a series of Ext grid records to CSV. Handles escaping of record fields with quotation  marks and commas
