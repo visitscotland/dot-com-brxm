@@ -1,0 +1,6 @@
+/content/documents/administration/tt-labels/navigation:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 69ecbc15-33c4-468c-b1b4-cb61d7e4ee2e
+  hippo:name: Navigation
+  hippostd:foldertype: [new-untranslated-folder-resource-bundle, new-resource-bundle]

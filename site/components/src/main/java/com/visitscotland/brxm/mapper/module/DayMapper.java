@@ -9,6 +9,7 @@ import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.IntraDayModule;
 import com.visitscotland.brxm.model.ItineraryDayModule;
 import com.visitscotland.brxm.model.LinkType;
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.GoogleMapsService;
@@ -66,8 +67,8 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
             googleMapsService.localizeUrl(day.getMapLink(), locale);
         }
         day.setCtaLink(formatCTA(document.getCtaLink(), null, compositionHelper.getLocale()));
-        setImage(day, document, locale);
-        day.setMediaSection(mediaSectionMapper.map(document.getMediaCollection(), day, locale));
+        setImage(day, document, locale, compositionHelper);
+        day.setMediaSection(mediaSectionMapper.map(document.getMediaCollection(), day, locale, compositionHelper));
 
         setIntraDayModule(document, compositionHelper, locale);
 
@@ -104,12 +105,14 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         }
     }
 
-    private void setImage(ItineraryDayModule module, Day document, Locale locale){
+    private void setImage(ItineraryDayModule module, Day document, Locale locale, PageCompositionHelper compositionHelper) {
         if (document.getMediaItem() != null) {
             if (document.getMediaItem() instanceof VideoLink) {
                 VideoLink videoLink = ((VideoLink)document.getMediaItem());
                 if (videoLink.getVideoLink() != null) {
-                    module.setVideo(linkService.createVideo(videoLink.getVideoLink(), module, locale));
+                    EnhancedLink video = linkService.createVideo(videoLink.getVideoLink(), module, locale);
+                    module.setVideo(video);
+                    compositionHelper.addVideoSchema(video);
                 }
             } else {
                 module.setImage(imageMapper.getImage(document.getMediaItem(), module, locale));

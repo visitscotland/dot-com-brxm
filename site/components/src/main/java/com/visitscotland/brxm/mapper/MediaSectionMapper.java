@@ -7,6 +7,7 @@ import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.MediaSection;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.LinkService;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.slf4j.Logger;
@@ -30,7 +31,7 @@ public class MediaSectionMapper {
         this.linkService = linkService;
     }
 
-    public MediaSection map(MediaCollection compound, Module<?> module, Locale locale) {
+    public MediaSection map(MediaCollection compound, Module<?> module, Locale locale, PageCompositionHelper compositionHelper) {
         MediaSection media = new MediaSection();
         List<Object> items = new ArrayList<>();
         if (compound == null) {
@@ -40,7 +41,9 @@ public class MediaSectionMapper {
             if (document instanceof Image){
                 items.add(imageMapper.getImage(document, module, locale));
             } else if (document instanceof VideoLink) {
-                items.add(getVideo((VideoLink) document, module, locale));
+                EnhancedLink video = getVideo((VideoLink) document, module, locale);
+                items.add(video);
+                compositionHelper.addVideoSchema(video);
             } else if (document != null) {
                 log.warn("Unsupported media type {} in MediaSection compound", document.getClass().getSimpleName());
                 module.addErrorMessage("Unsupported media type: " + document.getDisplayName());

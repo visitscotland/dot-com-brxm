@@ -205,6 +205,7 @@ public abstract class PageContentComponent<T extends Page> extends ContentCompon
                 pageConfig.addAllSiteLabels(AMBIENT_VIDEO_BUNDLE);
             } else {
                 pageConfig.addAllSiteLabels(VIDEO_BUNDLE);
+                pageConfig.addVideoSchema(video);
             }
             request.setModel(HERO_VIDEO, video);
         }

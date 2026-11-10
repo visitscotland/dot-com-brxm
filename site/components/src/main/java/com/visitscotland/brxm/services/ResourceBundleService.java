@@ -219,6 +219,13 @@ public class ResourceBundleService {
      * @return {@code true} when the key exists in that language and has a value.
      */
     public boolean existsResourceBundleKey(String bundleName, String key, Locale locale) {
+        if (hasSiteResourceBundle(bundleName, locale)) {
+            ResourceBundle bundle = getResourceBundle(getResourceBundleId(bundleName), locale);
+            if (bundle.containsKey(key)){
+                return !Contract.isEmpty(bundle.getString(key));
+            }
+        }
+
         ResourceBundle bundle = getResourceBundle(bundleName, locale);
         return bundle != null && bundle.containsKey(key) && !Contract.isEmpty(bundle.getString(key));
     }

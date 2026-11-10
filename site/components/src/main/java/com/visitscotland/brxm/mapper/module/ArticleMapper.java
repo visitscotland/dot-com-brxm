@@ -7,6 +7,7 @@ import com.visitscotland.brxm.mapper.QuoteMapper;
 import com.visitscotland.brxm.mapper.utils.DownloadLinkMapper;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.model.ArticleModuleSection;
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
@@ -59,10 +60,10 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
 
     @Override
     ArticleModule map(Article document, PageCompositionHelper compositionHelper) throws PageCompositionException {
-        return getModule(document, compositionHelper.getLocale(), compositionHelper.isEditMode());
+        return getModule(document, compositionHelper.getLocale(), compositionHelper.isEditMode(), compositionHelper);
     }
 
-    public ArticleModule getModule(Article doc, Locale locale, boolean editMode) {
+    public ArticleModule getModule(Article doc, Locale locale, boolean editMode, PageCompositionHelper compositionHelper) {
         ArticleModule module = new ArticleModule();
 
         module.setTitle(doc.getTitle());
@@ -71,12 +72,12 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
 
         addSpecialFields(doc, module);
 
-        setImage(module, doc, locale);
+        setImage(module, doc, locale, compositionHelper);
 
         module.setAnchor(anchorFormatter.getAnchorOrFallback(doc.getAnchor(), doc::getTitle));
 
-        setSections(module, doc, locale);
-        module.setMediaSection(mediaSectionMapper.map(doc.getMediaCollection(), module, locale));
+        setSections(module, doc, locale, compositionHelper);
+        module.setMediaSection(mediaSectionMapper.map(doc.getMediaCollection(), module, locale, compositionHelper));
 
         if (editMode && doc instanceof ArticleBSH) {
             // This validation is only required for Edit Mode
@@ -98,20 +99,22 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
         }
     }
 
-    private void setImage(ArticleModule module, Article doc, Locale locale){
+    private void setImage(ArticleModule module, Article doc, Locale locale, PageCompositionHelper compositionHelper) {
         if (doc.getMediaItem() != null) {
             if (doc.getMediaItem() instanceof VideoLink){
                 VideoLink videoLink = ((VideoLink)doc.getMediaItem());
                 if (videoLink.getVideoLink() != null) {
-                    module.setVideo(linkService.createVideo(videoLink.getVideoLink(), module, locale));
+                    EnhancedLink video = linkService.createVideo(videoLink.getVideoLink(), module, locale);
+                    module.setVideo(video);
+                    compositionHelper.addVideoSchema(video);
                 }
-            }else {
+            } else {
                 module.setImage(imageMapper.getImage(doc.getMediaItem(), module, locale));
             }
         }
     }
 
-    private void setSections(ArticleModule module, Article doc, Locale locale){
+    private void setSections(ArticleModule module, Article doc, Locale locale, PageCompositionHelper compositionHelper) {
         List<ArticleModuleSection> sections = new ArrayList<>();
 
         for (ArticleSection paragraph: doc.getParagraph()) {
@@ -120,7 +123,9 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
 
             if (paragraph.getMediaItem() != null) {
                 if (paragraph.getMediaItem() instanceof VideoLink) {
-                    section.setVideo(linkService.createVideo(((VideoLink)paragraph.getMediaItem()).getVideoLink(), module, locale));
+                    EnhancedLink video = linkService.createVideo(((VideoLink)paragraph.getMediaItem()).getVideoLink(), module, locale);
+                    section.setVideo(video);
+                    compositionHelper.addVideoSchema(video);
                 } else {
                     section.setImage(imageMapper.getImage(paragraph.getMediaItem(), module, locale));
                 }

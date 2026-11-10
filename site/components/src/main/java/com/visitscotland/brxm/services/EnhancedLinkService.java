@@ -109,6 +109,7 @@ public class EnhancedLinkService {
             link = linkService.createEnhancedLink((Linkable) item, module, locale, addCategory);
         } else if (item instanceof VideoLink) {
             link = linkService.createEnhancedLink(((VideoLink) item).getVideoLink(), module, locale, addCategory);
+            logger.warn("An unidentified video link was created for {} and the schema information has not been included in the page configuration ", item.getName());
         } else {
             if (item != null) {
                 addError(module, "One of the links cannot be recognized and will not be included in the page.");

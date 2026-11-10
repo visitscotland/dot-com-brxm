@@ -2,7 +2,9 @@ package com.visitscotland.brxm.pagebuilder;
 
 import com.visitscotland.brxm.components.content.PageContentComponent;
 import com.visitscotland.brxm.hippobeans.Page;
+import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.model.Module;
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.pagebuilder.model.PageTemplate;
 import com.visitscotland.brxm.pagebuilder.page.PageTemplateAssembler;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -23,11 +25,13 @@ public class PageCompositionHelper {
     public static final String LABELS = "labels";
     public static final String PAGE_CONFIGURATION = PageContentComponent.PAGE_CONFIGURATION;
     public static final String PAGE_TEMPLATE = "pageTemplate";
+    public static final String VIDEOS = "videoSchema";
 
     private final ResourceBundleService bundle;
     private final HstRequest request;
     private final CompositionModel model;
     private PageTemplate pageTemplate;
+    private Map<String, VideoLink> videos;
 
     public PageCompositionHelper(ResourceBundleService bundle, HstRequest request) {
         this(bundle, null, request);
@@ -235,6 +239,27 @@ public class PageCompositionHelper {
 
     public boolean isEditMode() {
         return Boolean.TRUE.equals(request.getAttribute(PageContentComponent.EDIT_MODE));
+    }
+
+    public void addVideoSchema(EnhancedLink link) {
+        if (link != null && !Contract.isEmpty(link.getYoutubeId())) {
+            final HashMap<String, EnhancedLink> videoMap;
+            if (pageConfiguration().containsKey(VIDEOS)) {
+                //noinspection unchecked
+                videoMap = (HashMap<String, EnhancedLink>) pageConfiguration().get(VIDEOS);
+            } else  {
+                videoMap = new HashMap<>();
+                pageConfiguration().put(VIDEOS, videoMap);
+            }
+
+            if (videoMap.containsKey(link.getYoutubeId())) {
+                logger.warn("Video link to {} is duplicated in this page {}", link.getYoutubeId(), getRequestPathInfo());
+            } else {
+                videoMap.put(link.getYoutubeId(), link);
+            }
+
+            logger.error("The video schema hasn't been defined");
+        }
     }
 
 }

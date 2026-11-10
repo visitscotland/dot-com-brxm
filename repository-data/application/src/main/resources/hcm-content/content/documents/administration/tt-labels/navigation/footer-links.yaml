@@ -1,0 +1,64 @@
+/content/documents/administration/tt-labels/navigation/footer-links:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: f4504ac9-6623-40d5-9d27-7f4847ae2f87
+  hippo:name: Footer Links
+  hippo:versionHistory: 7beea957-79ab-4a58-a86f-ae8d19718394
+  /footer-links[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 8927ab8c-7918-49aa-8f07-5f06c6fc2ac6
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-11-07T18:38:44.678Z
+    hippostdpubwf:lastModificationDate: 2026-10-28T19:15:48.247+01:00
+    hippostdpubwf:lastModifiedBy: jose.calcines
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: tt.navigation.footer
+    resourcebundle:keys: [footer.visitor-information, footer.other-sites, feedback-complaints,
+      footer.get-in-touch, terms-conditions, privacy-policy, site.business-events,
+      site.corporate, site.media-centre, site.support, site.consumer, site.scotland-org]
+    resourcebundle:messages: [Visitor information, Our other sites, Feedback & Complaints,
+      Get in touch, Terms & Conditions, Privacy Policy, Business Events, Corporate,
+      Asset library, Business Support Hub, VisitScotland.com, Brand Scotland]
+  /footer-links[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 4c432e86-04f4-4bc9-9c2c-0fcbe384fd18
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-11-07T18:38:44.678Z
+    hippostdpubwf:lastModificationDate: 2026-10-28T18:57:25.790+01:00
+    hippostdpubwf:lastModifiedBy: jose.calcines
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: tt.navigation.footer
+    resourcebundle:keys: [footer.visitor-information, footer.other-sites, feedback-complaints,
+      footer.get-in-touch, terms-conditions, privacy-policy, site.business-events,
+      site.corporate, site.media-centre, site.support, site.consumer, site.scotland-org]
+    resourcebundle:messages: [Visitor information, Our other sites, Feedback & Complaints,
+      Get in touch, Terms & Conditions, Privacy Policy, Business Events, Corporate,
+      Asset library, Business Support Hub, VisitScotland.com, Brand Scotland]
+  /footer-links[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 4f835da9-5f53-446c-9a84-4cd20574a3a9
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2019-11-07T18:38:44.678Z
+    hippostdpubwf:lastModificationDate: 2026-10-28T19:15:48.247+01:00
+    hippostdpubwf:lastModifiedBy: jose.calcines
+    hippostdpubwf:publicationDate: 2026-10-29T11:53:31.319+01:00
+    resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '']
+    resourcebundle:id: tt.navigation.footer
+    resourcebundle:keys: [footer.visitor-information, footer.other-sites, feedback-complaints,
+      footer.get-in-touch, terms-conditions, privacy-policy, site.business-events,
+      site.corporate, site.media-centre, site.support, site.consumer, site.scotland-org]
+    resourcebundle:messages: [Visitor information, Our other sites, Feedback & Complaints,
+      Get in touch, Terms & Conditions, Privacy Policy, Business Events, Corporate,
+      Asset library, Business Support Hub, VisitScotland.com, Brand Scotland]
