@@ -24,11 +24,11 @@ are expected.
 
 Unix Based Console
 
-    mvn clean verify -P \!fed-build -DskipTests && mvn -P cargo.run
+    mvn clean verify -DskipTests && mvn -P cargo.run
 
 or
 
-    mvn clean verify -P !fed-build -DskipTests && mvn -P cargo.run
+    mvn clean verify -DskipTests && mvn -P cargo.run
 
 ## Debug the project
 
@@ -53,7 +53,7 @@ Run the debugger in a different port:
 
 The database actuator can be activated by adding the variable `cliOptions=dbActuator`
 
-    mvn clean verify -P!fed-build -DskipTests -DcliOptions=dbActuator && mvn -Pcargo.run
+    mvn clean verify -DskipTests -DcliOptions=dbActuator && mvn -Pcargo.run
     
 ## Navigating through the CMS
 
@@ -74,12 +74,12 @@ will not be available.
 
 Windows Based Console
 
-    mvn clean verify -P !fed-build -DskipTests
+    mvn clean verify -DskipTests
     mvn -P cargo.run
 
 or
 
-    mvn clean verify -P !fed-build -DskipTests &&mvn -P cargo.run
+    mvn clean verify -DskipTests &&mvn -P cargo.run
 
 ## Validating Changes in an Integrated Environment
 
