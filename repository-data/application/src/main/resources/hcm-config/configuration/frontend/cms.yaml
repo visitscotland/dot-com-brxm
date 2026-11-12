@@ -63,13 +63,13 @@ definitions:
     /hippo:configuration/hippo:frontend/cms/hippo-reports/translation-report-portal-panel:
       .meta:order-before: translation-report-plugin
       jcr:primaryType: frontend:plugin
-      plugin.class: com.visitscotland.brxm.report.translation.TranslationReportPortalPanel
+      plugin.class: com.visitscotland.brxm.translation.report.TranslationReportPortalPanel
     /hippo:configuration/hippo:frontend/cms/hippo-reports/translation-report-plugin:
       .meta:order-before: sample-report-plugin
       jcr:primaryType: frontend:plugin
       background: 'true'
       height: '600'
-      plugin.class: com.visitscotland.brxm.report.translation.TranslationReportPlugin
+      plugin.class: com.visitscotland.brxm.translation.report.TranslationReportPlugin
       wicket.id: service.reports.translationreport
       width: '1'
     /hippo:configuration/hippo:frontend/cms/cms-tree-views/documents/addfolderPlugin:

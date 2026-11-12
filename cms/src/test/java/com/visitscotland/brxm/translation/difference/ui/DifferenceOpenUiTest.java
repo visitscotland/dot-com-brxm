@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.ui.Model;
 
 import javax.jcr.Node;
@@ -25,6 +26,8 @@ import static org.mockito.Mockito.*;
 public class DifferenceOpenUiTest {
     private DifferenceOpenUi differenceOpenUi;
     @Mock
+    private ObjectProvider<TranslationService> mockTranslationServiceProvider;
+    @Mock
     private TranslationService mockTranslationService;
     @Mock
     private Model mockModel;
@@ -35,8 +38,9 @@ public class DifferenceOpenUiTest {
 
     @BeforeEach
     public void beforeEach() {
-        differenceOpenUi = new DifferenceOpenUi(mockTranslationService,
+        differenceOpenUi = new DifferenceOpenUi(mockTranslationServiceProvider,
                 mockJcrDocumentFactory, mockSessionFactory);
+        lenient().when(mockTranslationServiceProvider.getObject()).thenReturn(mockTranslationService);
     }
 
     @DisplayName("openUiButton - an english document, no translations pending")

@@ -69,7 +69,7 @@ public class PageTemplateInitializer  {
         addOTYML(pageCompositionHelper, pageTemplate);
 
         authorService.getBlog(pageCompositionHelper).ifPresent(pageTemplate::setAuthor);
-        addNewsletterSignup(pageCompositionHelper).ifPresent(pageTemplate::setNewsletter);
+        createNewsletterSignup(pageCompositionHelper).ifPresent(pageTemplate::setNewsletter);
 
         addSiteSpecificConfiguration(pageCompositionHelper);
 
@@ -134,7 +134,7 @@ public class PageTemplateInitializer  {
     /**
      * Adds the newsletter configuration to the request taking into account the target: (VisitScotland, Business Events or Ski)
      */
-    protected Optional<SignpostModule> addNewsletterSignup(PageCompositionHelper pageCompositionHelper) throws PageCompositionException {
+    protected Optional<SignpostModule> createNewsletterSignup(PageCompositionHelper pageCompositionHelper) throws PageCompositionException {
         Page page = pageCompositionHelper.getPage();
         if (Boolean.TRUE.equals(page.getHideNewsletter())) {
             return Optional.empty();

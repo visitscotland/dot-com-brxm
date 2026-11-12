@@ -1,7 +1,7 @@
 package com.visitscotland.brxm.model;
 
+import com.visitscotland.brxm.dms.model.DataType;
 import com.visitscotland.brxm.hippobeans.ListicleItem;
-import com.visitscotland.dataobjects.DataType;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 import java.util.List;

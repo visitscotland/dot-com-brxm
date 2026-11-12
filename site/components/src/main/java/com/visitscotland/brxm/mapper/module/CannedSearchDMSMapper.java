@@ -16,7 +16,6 @@ import com.visitscotland.utils.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import vs.ase.dms.ProductTypes;
 
 import java.util.Locale;
 import java.util.MissingResourceException;
@@ -66,11 +65,6 @@ public class CannedSearchDMSMapper extends ModuleMapper<CannedSearch, CannedSear
            module.addErrorMessage(message);
            contentLog.error(message);
         }
-
-        if (document.getCriteria().getSearch().getProductType().equals(ProductTypes.EVENT.getId())){
-            module.setCredit(bundle.getResourceBundle(BUNDLE_ID,"canned-search.credit-events", locale));
-        }
-
 
         return module;
     }

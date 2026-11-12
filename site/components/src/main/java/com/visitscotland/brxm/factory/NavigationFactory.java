@@ -62,17 +62,19 @@ public class NavigationFactory {
      */
     @Cacheable(
             value = "navigation",
-            key = "{#request.locale, #resourceBundle, #id, #cacheable}",
-            unless = "!#cacheable"
+            key = "{#p0.locale, #p1, #p2}"
     )
-    public RootMenuItem buildMenu(HstRequest request, String resourceBundle, String id, boolean cacheable) {
+    public RootMenuItem getCachedMenu(HstRequest request, String resourceBundle, String id) {
+        final HstSiteMenu hstSiteMenu = request.getModel(MENU);
+        logger.info("Creating a menu. It will be cached with the following key: menu={}, id={}, locale={}",
+                request.getLocale(), hstSiteMenu.getName(), id);
+
+        return buildMenu(request, resourceBundle);
+    }
+
+    public RootMenuItem buildMenu(HstRequest request, String resourceBundle) {
         final HstSiteMenu hstSiteMenu = request.getModel(MENU);
         List<HstSiteMenuItem> enhancedMenu = new ArrayList<>();
-
-        if (cacheable){
-            logger.info("Creating a menu. It will be cached with the following key: menu={}, id={}, locale={}",
-                    request.getLocale(), hstSiteMenu.getName(), id);
-        }
 
         RootMenuItem root = new RootMenuItem(hstSiteMenu);
         if (hstSiteMenu != null) {

@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.report.translation;
+package com.visitscotland.brxm.translation.report;
 
 public enum TranslationStatus {
 

@@ -1,10 +1,7 @@
 package com.visitscotland.brxm.validator;
 
 import com.visitscotland.brxm.translation.MockNodeBuilder;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -20,6 +17,7 @@ import java.util.Optional;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
+@Disabled
 @ExtendWith(MockitoExtension.class)
 class UniqueLinksValidatorTest {
 

@@ -84,7 +84,14 @@ public class MenuComponent extends EssentialsMenuComponent {
         boolean editMode = Boolean.TRUE.equals(request.getAttribute("editMode"));
         boolean cacheable = editMode ? Boolean.TRUE.equals(properties.getNavigationCache()) : properties.isSnippetCacheEnabled();
 
-        RootMenuItem rootMenuItem = factory.buildMenu(request, getResourceBundleID(request), generateCacheId(request, editMode), cacheable);
+
+        RootMenuItem rootMenuItem;
+        if (cacheable){
+            rootMenuItem = factory.getCachedMenu(request, getResourceBundleID(request), generateCacheId(request, editMode));
+        } else {
+            rootMenuItem = factory.buildMenu(request, getResourceBundleID(request));
+        }
+
         rootMenuItem.setCmsCached(cacheable && editMode);
 
         return rootMenuItem;
