@@ -51,8 +51,8 @@ public class TravelInformationMapper extends ModuleMapper<TravelInformation, Tra
                         .collect(Collectors.toList())
         );
         module.setHippoBean(document);
-        if (module.getPracticalInformation().size() == 0) {
-            throw new PageCompositionException(module.getDocumentPath(), "TravelInformation module does not contain the required practical information field");
+        if (module.getPracticalInformation().isEmpty()) {
+            throw new InvalidContentException(module.getDocumentPath(), "TravelInformation module does not contain the required practical information field");
         }
         return module;
     }

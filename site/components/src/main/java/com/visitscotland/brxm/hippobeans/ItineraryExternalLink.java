@@ -12,11 +12,6 @@ public class ItineraryExternalLink extends HippoCompound {
         return getBean("visitscotland:Coordinates", Coordinates.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:timeToExplore")
-    public String getTimeToExplore() {
-        return getSingleProperty("visitscotland:timeToExplore");
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:ExternalLink")
     public ExternalLink getExternalLink() {
         return getBean("visitscotland:ExternalLink", ExternalLink.class);

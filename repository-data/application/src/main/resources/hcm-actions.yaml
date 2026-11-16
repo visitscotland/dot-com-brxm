@@ -186,3 +186,5 @@ action-lists:
     /content/documents/administration/options/business-support-hub/topics---training-events: reload
 - 3.13.0:
     /content/documents/administration/configuration/default-site-properties: reload
+- 3.13.1:
+    /content/documents/administration/options/bespoken-modules: reload

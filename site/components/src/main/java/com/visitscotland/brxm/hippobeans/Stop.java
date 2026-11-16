@@ -65,11 +65,6 @@ public class Stop extends BaseDocument {
         return getSingleProperty("visitscotland:translation");
     }
 
-    @HippoEssentialsGenerated(internalName = "visitscotland:StopTip")
-    public StopTip getStopTip() {
-        return getBean("visitscotland:StopTip", StopTip.class);
-    }
-
     @HippoEssentialsGenerated(internalName = "visitscotland:translationPriority")
     public String getTranslationPriority() {
         return getSingleProperty("visitscotland:translationPriority");

@@ -2,8 +2,6 @@ package com.visitscotland.brxm.mapper.page;
 
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.model.*;
-import com.visitscotland.brxm.pagebuilder.InvalidContentException;
-import com.visitscotland.brxm.services.EnhancedLinkService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.utils.Contract;

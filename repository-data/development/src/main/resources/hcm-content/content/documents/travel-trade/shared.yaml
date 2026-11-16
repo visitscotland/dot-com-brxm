@@ -1,5 +1,5 @@
 /content/documents/travel-trade/shared:
-  .meta:order-before: sandbox
+  .meta:order-before: general
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
   jcr:uuid: 0d6cb31b-692e-4b17-820b-36af226ca7ce
