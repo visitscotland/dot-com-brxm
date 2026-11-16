@@ -26,3 +26,11 @@
       jcr:primaryType: selection:listitem
       selection:key: favourites-list
       selection:label: Favourites List
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: supplier-search
+      selection:label: Supplier Search
+    /selection:listitem[6]:
+      jcr:primaryType: selection:listitem
+      selection:key: supplier-listing
+      selection:label: Supplier Listing

@@ -1,9 +1,7 @@
 package com.visitscotland.brxm.pagebuilder.page.adapter;
 
 import com.visitscotland.brxm.hippobeans.Destination;
-import com.visitscotland.brxm.hippobeans.General;
 import com.visitscotland.brxm.hippobeans.Page;
-import com.visitscotland.brxm.mapper.page.CategoryCardsMapper;
 import com.visitscotland.brxm.mapper.page.KeyInformationMapper;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;

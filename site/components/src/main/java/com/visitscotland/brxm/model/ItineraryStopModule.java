@@ -15,10 +15,7 @@ public class ItineraryStopModule extends Module<Stop>{
     private String subTitle;
     private HippoHtml description;
     private FlatImage image;
-    private String timeToExplore;
-    private String tipsTitle;
     private FlatLink ctaLink;
-    private HippoHtml tipsBody;
     private List<DataType> facilities;
     private JsonNode address;
     private String price;
@@ -62,30 +59,6 @@ public class ItineraryStopModule extends Module<Stop>{
 
     public void setImage(FlatImage image) {
         this.image = image;
-    }
-
-    public String getTimeToExplore() {
-        return timeToExplore;
-    }
-
-    public void setTimeToExplore(String timeToExplore) {
-        this.timeToExplore = timeToExplore;
-    }
-
-    public String getTipsTitle() {
-        return tipsTitle;
-    }
-
-    public void setTipsTitle(String tipsTitle) {
-        this.tipsTitle = tipsTitle;
-    }
-
-    public HippoHtml getTipsBody() {
-        return tipsBody;
-    }
-
-    public void setTipsBody(HippoHtml tipsBody) {
-        this.tipsBody = tipsBody;
     }
 
     public List<DataType> getFacilities() {

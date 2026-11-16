@@ -25,6 +25,9 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
     private static final String OBS_BUNDLE = "online-booking-system-comparator";
     private static final String OBS_MODULE = "online-booking-system";
     private static final String CARBON_CALCULATOR = "carbon-calculator";
+    private static final String SUPPLIER_SEARCH = "supplier-search";
+    private static final String SUPPLIER_LISTING = "supplier-listing";
+    private static final String PAGINATION = "essentials.pagination";
     private static final String FAVOURITES_LIST = "favourites-list";
     private static final String FAVOURITES = "favourites";
     private static final String FORMS_BUNDLE = "forms";
@@ -64,12 +67,18 @@ public class DevModuleMapper extends ModuleMapper<DevModule, Module<DevModule>> 
             } else if (CARBON_CALCULATOR.equals(document.getBespoken())) {
                 compositionHelper.addAllSiteLabels(CARBON_CALCULATOR);
                 return new SimpleDevModule(document, document.getBespoken());
+            } else if (SUPPLIER_SEARCH.equals(document.getBespoken())) {
+                compositionHelper.addAllSiteLabels(SUPPLIER_SEARCH);
+                compositionHelper.addAllSiteLabels(PAGINATION);
+                return new SimpleDevModule(document, document.getBespoken());
             } else if (FAVOURITES_LIST.equals(document.getBespoken())) {
                 compositionHelper.addProperty(FAVOURITES_SITE_ENDPOINT, properties.getFavouritesEndpoint());
                 compositionHelper.addProperty(IS_FAVOURITES_PAGE, true);
                 compositionHelper.addAllSiteLabels(FAVOURITES);
 
                 return new FavouriteModule(document, document.getBespoken());
+            } else if (SUPPLIER_LISTING.equals(document.getBespoken())) {
+                return new SimpleDevModule(document, document.getBespoken());
             }
 
 
