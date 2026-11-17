@@ -1,66 +1,57 @@
 package com.visitscotland.brxm.components;
 
 import com.visitscotland.brxm.config.VsComponentManager;
-import com.visitscotland.brxm.dms.model.LocationObject;
 import com.visitscotland.brxm.dms.LocationLoader;
-import org.hippoecm.frontend.plugin.IPluginContext;
-import org.hippoecm.frontend.plugin.Plugin;
-import org.hippoecm.frontend.plugin.config.IPluginConfig;
-import org.hippoecm.frontend.session.UserSession;
+import com.visitscotland.brxm.dms.model.LocationObject;
+import com.visitscotland.brxm.model.ValueListLocation;
 import org.onehippo.forge.selection.frontend.model.ListItem;
 import org.onehippo.forge.selection.frontend.model.ValueList;
-import org.onehippo.forge.selection.frontend.provider.IValueListProvider;
-import org.onehippo.forge.selection.frontend.utils.JcrUtils;
+import org.onehippo.forge.selection.frontend.provider.ValueListProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.visitscotland.brxm.model.ValueListLocation;
 
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import javax.xml.stream.Location;
+import javax.jcr.Value;
 import java.util.List;
 import java.util.Locale;
 
 /**
  * /cms/console/?1&path=/hippo:configuration/hippo:frontend/cms/cms-services/DmsImageLocationListProvider
  */
-public class DmsLocationListProvider extends Plugin implements IValueListProvider {
+public class DmsLocationListProvider implements ValueListProvider {
 
     private static final Logger logger = LoggerFactory.getLogger(DmsLocationListProvider.class);
 
-    private final static String PROVIDER = "valuelist.provider";
-    private static final String LEVELS = "location.levels";
-    private static final String SOURCE = "source";
+    private static final String LEVELS_PROPERTY = "location.levels";
 
-    private final LocationLoader locationLoader;
-    private final String[] levels;
+    private String[] levels;
 
-    public DmsLocationListProvider(IPluginContext context, IPluginConfig config) {
-        super(context, config);
-        locationLoader = VsComponentManager.get(LocationLoader.class);
-        levels = config.getStringArray(LEVELS);
-        String name = config.getString(PROVIDER);
+    @Override
+    public void configure(final Node providerNode) throws RepositoryException {
+        logger.info("Configuring DMS location list provider");
 
-        context.registerService(this, name);
-        if (logger.isDebugEnabled()) {
-            logger.debug(this.getClass().getName() + " registered under " + name);
-        }
-    }
+        if (providerNode.hasProperty(LEVELS_PROPERTY)) {
+            Value[] values = providerNode.getProperty(LEVELS_PROPERTY).getValues();
+            levels  = new String[values.length];
 
-    public ValueList getValueList(IPluginConfig config) {
-        if (config == null) {
-            throw new IllegalArgumentException("Argument 'config' may not be null");
+            for (int i = 0; i < values.length; i++) {
+                levels[i] = values[i].getString();
+            }
         } else {
-            return this.getValueList(config.getString(SOURCE));
+            levels = new String[0];
         }
+
     }
 
-    public ValueList getValueList(String name) {
-       return this.getValueList(name, null);
+    private LocationLoader getLocationLoader(){
+        return VsComponentManager.get(LocationLoader.class);
     }
 
-    public ValueList getValueList(String name, Locale locale) {
-
-        List<LocationObject> locations = locationLoader.getLocationsByLevel(levels);
+    @Override
+    public ValueList getValueList(String s, Locale locale, Session session) {
+        List<LocationObject> locations = getLocationLoader().getLocationsByLevel(levels);
         ValueListLocation valueList = new ValueListLocation();
 
         for (LocationObject location: locations) {
@@ -68,15 +59,6 @@ public class DmsLocationListProvider extends Plugin implements IValueListProvide
             valueList.add(list);
         }
         return valueList;
-    }
-
-    public List<String> getValueListNames() {
-        return JcrUtils.getValueListNames(obtainSession());
-    }
-
-    protected Session obtainSession() {
-        UserSession userSession = (UserSession) org.apache.wicket.Session.get();
-        return userSession.getJcrSession();
     }
 }
 
