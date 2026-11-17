@@ -1,4 +1,5 @@
 /hst:hst/hst:configurations/business-events/hst:workspace/hst:sitemenus/main/why-scotland:
-  .meta:order-before: key-sectors
+  .meta:order-before: resources-support
   jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: pagenotfound
   hst:repobased: false
