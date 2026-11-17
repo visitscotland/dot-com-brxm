@@ -9,6 +9,11 @@ repository-data/application/src/main/resources/hcm-content/content/documents/*
 essentials/overlays/
 repository-data/webfiles/coverage/
 configuration-verifier-output
+configuration-verifier-*
+.brxmrc
+.brxm-upgrade/
+.brxm-manifests/
+
 
 #Back-end assets
 target/
