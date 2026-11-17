@@ -188,5 +188,5 @@ action-lists:
     /content/documents/administration/configuration/default-site-properties: reload
 - 3.13.1:
     /content/documents/administration/options/bespoken-modules: reload
--3.14.1:
--    /content/documents/administration/bsh-labels/modules/events-listings-module: reload
+- 3.14.1:
+    /content/documents/administration/bsh-labels/modules/events-listings-module: reload
