@@ -35,7 +35,7 @@ public class GeneralPageAdapter implements PageAdapter {
 
             if (page.getCategoryLinks() != null) {
                 template.setCategorySection(
-                        categoryCardsMapper.getCategoryCards(pageConfig.getLocale(), page.getCategoryLinks()));
+                        categoryCardsMapper.getCategoryCards(pageConfig, page.getCategoryLinks()));
             }
 
             return Optional.of(template);
