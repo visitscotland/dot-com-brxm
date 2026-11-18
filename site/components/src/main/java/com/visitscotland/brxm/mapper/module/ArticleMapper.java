@@ -54,6 +54,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
 
     @Override
     void addLabels(PageCompositionHelper compositionHelper) {
+        compositionHelper.addAllSiteLabels("article");
         compositionHelper.addAllSiteLabels("download");
     }
 
