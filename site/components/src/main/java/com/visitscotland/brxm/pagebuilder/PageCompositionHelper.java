@@ -243,10 +243,10 @@ public class PageCompositionHelper {
 
     public void addVideoSchema(EnhancedLink link) {
         if (link != null && !Contract.isEmpty(link.getYoutubeId())) {
-            final HashMap<String, EnhancedLink> videoMap;
+            final Map<String, EnhancedLink> videoMap;
             if (pageConfiguration().containsKey(VIDEOS)) {
                 //noinspection unchecked
-                videoMap = (HashMap<String, EnhancedLink>) pageConfiguration().get(VIDEOS);
+                videoMap = (Map<String, EnhancedLink>) pageConfiguration().get(VIDEOS);
             } else  {
                 videoMap = new HashMap<>();
                 pageConfiguration().put(VIDEOS, videoMap);
