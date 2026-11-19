@@ -77,7 +77,7 @@ public class ArticleMapper extends ModuleMapper<Article, ArticleModule> {
         module.setAnchor(anchorFormatter.getAnchorOrFallback(doc.getAnchor(), doc::getTitle));
 
         setSections(module, doc, locale, compositionHelper);
-        module.setMediaSection(mediaSectionMapper.map(doc.getMediaCollection(), module, locale, compositionHelper));
+        module.setMediaSection(mediaSectionMapper.map(doc.getMediaCollection(), module, compositionHelper));
 
         if (editMode && doc instanceof ArticleBSH) {
             // This validation is only required for Edit Mode

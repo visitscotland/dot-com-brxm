@@ -31,7 +31,7 @@ public class MediaSectionMapper {
         this.linkService = linkService;
     }
 
-    public MediaSection map(MediaCollection compound, Module<?> module, Locale locale, PageCompositionHelper compositionHelper) {
+    public MediaSection map(MediaCollection compound, Module<?> module, PageCompositionHelper compositionHelper) {
         MediaSection media = new MediaSection();
         List<Object> items = new ArrayList<>();
         if (compound == null) {
@@ -39,9 +39,9 @@ public class MediaSectionMapper {
         }
         for (HippoBean document: compound.getMedia()){
             if (document instanceof Image){
-                items.add(imageMapper.getImage(document, module, locale));
+                items.add(imageMapper.getImage(document, module, compositionHelper.getLocale()));
             } else if (document instanceof VideoLink) {
-                EnhancedLink video = getVideo((VideoLink) document, module, locale);
+                EnhancedLink video = getVideo((VideoLink) document, module,  compositionHelper.getLocale());
                 items.add(video);
                 compositionHelper.addVideoSchema(video);
             } else if (document != null) {

@@ -68,7 +68,7 @@ public class DayMapper extends ModuleMapper<Day, ItineraryDayModule> {
         }
         day.setCtaLink(formatCTA(document.getCtaLink(), null, compositionHelper.getLocale()));
         setImage(day, document, locale, compositionHelper);
-        day.setMediaSection(mediaSectionMapper.map(document.getMediaCollection(), day, locale, compositionHelper));
+        day.setMediaSection(mediaSectionMapper.map(document.getMediaCollection(), day, compositionHelper));
 
         setIntraDayModule(document, compositionHelper, locale);
 
