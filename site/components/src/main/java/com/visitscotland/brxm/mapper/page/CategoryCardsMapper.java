@@ -7,17 +7,12 @@ import com.visitscotland.brxm.model.megalinks.LinksModule;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.EnhancedLinkService;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
-import java.util.Locale;
 
 @Component
 public class CategoryCardsMapper {
 
-    private static final Logger logger = LoggerFactory.getLogger(CategoryCardsMapper.class);
-
-    private final static String CATEGORY_CARDS = "category-cards";
+    private static final String CATEGORY_CARDS = "category-cards";
 
     private final Logger contentLogger;
     private final EnhancedLinkService enhancedLinkService;
