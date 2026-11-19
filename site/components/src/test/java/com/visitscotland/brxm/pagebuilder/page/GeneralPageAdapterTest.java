@@ -43,9 +43,8 @@ class GeneralPageAdapterTest {
         General page = mock(General.class);
 
         when(pageConfig.getPage()).thenReturn(page);
-        when(pageConfig.getLocale()).thenReturn(LOCALE);
         when(page.getCategoryLinks()).thenReturn(mock(PageLinksSectionCompound.class));
-        when(categoryCardsMapper.getCategoryCards(eq(LOCALE), any()))
+        when(categoryCardsMapper.getCategoryCards(eq(pageConfig), any()))
                 .thenReturn(new LinksModule<>());
         when(pageTemplateInitializer.getPageTemplate(pageConfig)).thenReturn(new PageTemplate(page));
 
