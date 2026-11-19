@@ -17,6 +17,7 @@ public class EventCard extends Module<EventBSH> {
     private String contact ;
     private String registrationDeadline;
     private FlatLink cta;
+    private boolean featured;
 
     public EventCard() {
     }
@@ -104,5 +105,13 @@ public class EventCard extends Module<EventBSH> {
 
     public void setCta(FlatLink cta) {
         this.cta = cta;
+    }
+
+    public boolean isFeatured() {
+        return featured;
+    }
+
+    public void setFeatured(boolean featured) {
+        this.featured = featured;
     }
 }
