@@ -2,7 +2,6 @@ package com.visitscotland.brxm.pagebuilder;
 
 import com.visitscotland.brxm.components.content.PageContentComponent;
 import com.visitscotland.brxm.hippobeans.Page;
-import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.pagebuilder.model.PageTemplate;
@@ -31,7 +30,6 @@ public class PageCompositionHelper {
     private final HstRequest request;
     private final CompositionModel model;
     private PageTemplate pageTemplate;
-    private Map<String, VideoLink> videos;
 
     public PageCompositionHelper(ResourceBundleService bundle, HstRequest request) {
         this(bundle, null, request);
@@ -258,7 +256,7 @@ public class PageCompositionHelper {
                 videoMap.put(link.getYoutubeId(), link);
             }
 
-            logger.error("The video schema hasn't been defined");
+
         }
     }
 
