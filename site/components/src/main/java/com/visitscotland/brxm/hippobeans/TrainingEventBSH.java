@@ -20,4 +20,9 @@ public class TrainingEventBSH extends EventBSH {
     public String getRegion() {
         return getSingleProperty("visitscotland:region");
     }
+
+    @HippoEssentialsGenerated(internalName = "visitscotland:featured")
+    public Boolean getFeatured() {
+        return getSingleProperty("visitscotland:featured");
+    }
 }

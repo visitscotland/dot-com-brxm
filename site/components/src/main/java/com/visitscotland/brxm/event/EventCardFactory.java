@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.event;
 
 import com.visitscotland.brxm.hippobeans.EventBSH;
+import com.visitscotland.brxm.hippobeans.TrainingEventBSH;
 import com.visitscotland.brxm.hippobeans.TravelTradeEventBSH;
 import com.visitscotland.brxm.model.FlatLink;
 import com.visitscotland.brxm.model.LinkType;
@@ -8,6 +9,8 @@ import com.visitscotland.brxm.model.bsh.EventCard;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.utils.Contract;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
@@ -20,6 +23,7 @@ public class EventCardFactory {
     private static final SimpleDateFormat dayMonthFormat = new SimpleDateFormat("dd MMMM");
     private static final SimpleDateFormat fullDateFormat = new SimpleDateFormat("dd MMMM, yyyy");
     private static final Locale LOCALE = Locale.UK;
+    private static final Logger log = LoggerFactory.getLogger(EventCardFactory.class);
 
     private final ResourceBundleService bundle;
     private final PriceFormatter priceFormatter;
@@ -45,6 +49,18 @@ public class EventCardFactory {
 
         if (document instanceof TravelTradeEventBSH) {
             setTravelTradeFields((TravelTradeEventBSH) document, card);
+        }
+
+        if (document instanceof TrainingEventBSH) {
+            TrainingEventBSH event = (TrainingEventBSH) document;
+            if (event.getFeatured() != null) {
+                card.setFeatured(event.getFeatured());
+            } else {
+                card.setFeatured(false);
+            }
+
+        } else {
+            card.setFeatured(false);
         }
 
         return card;
