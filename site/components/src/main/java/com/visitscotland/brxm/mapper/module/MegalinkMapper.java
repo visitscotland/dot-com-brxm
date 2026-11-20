@@ -28,9 +28,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
         HORIZONTAL_LINKS("Horizontal Links"),
         LIST_LAYOUT("List"),
         DEFAULT("Default"),
-        GRID("Grid"),
-        GRID_3("Grid 3"),
-        GRID_4("Grid 4");
+        GRID("Grid");
 
         private static final Map<String, MegalinkLayout> BY_VALUE =
                 Arrays.stream(values()).collect(Collectors.toMap(MegalinkLayout::getValue, e -> e));
@@ -47,10 +45,6 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
         public static Optional<MegalinkLayout> fromValue(String value) { return Optional.ofNullable(BY_VALUE.get(value)); }
 
-        @Deprecated(since = "2.12.0")
-        public static boolean isCardGroup(MegalinkLayout layout) {
-            return GRID_3 == layout || GRID_4 == layout || GRID == layout ;
-        }
     }
 
     private static final Logger logger = LoggerFactory.getLogger(MegalinkMapper.class);
@@ -108,8 +102,8 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
     /**
      * Validates that the module has at least one link to render
-     * @param module
-     * @throws PageCompositionException
+     * @param module group of links
+     * @throws PageCompositionException exception if no links
      */
     private void validateLinks(LinksModule<?> module) throws PageCompositionException {
         int numLinks = module.getLinks().size();
@@ -123,8 +117,8 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
     /**
      * Calculate the alignment for the module
-     * @param module
-     * @param compositionHelper
+     * @param module group of links
+     * @param compositionHelper helper to calculate alignment
      */
     private void calculateAlignment(LinksModule<?> module, PageCompositionHelper compositionHelper) {
         if (module instanceof SingleImageLinksModule) {
@@ -137,8 +131,8 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
     /**
      * Calculate the index for the background colour
-     * @param module
-     * @param compositionHelper
+     * @param module group of links
+     * @param compositionHelper helper to calculate theme
      */
     private void calculateTheme(LinksModule<?> module, PageCompositionHelper compositionHelper) {
         module.setThemeIndex(compositionHelper.calculateThemeIndex(!Contract.isEmpty(module.getTitle())));
@@ -150,8 +144,8 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
             logger.warn("The Megalinks layout hasn't been set for {}", doc.getPath());
         }
 
-        if (MegalinkLayout.isCardGroup(layout)) {
-            return getCardGroupModule(doc, locale, layout);
+        if (MegalinkLayout.GRID == layout) {
+            return getCardGroupModule(doc, locale);
         } else if (layout == MegalinkLayout.HORIZONTAL_LINKS) {
             if (doc.getMegalinkItems().size() >= MIN_ITEMS_CAROUSEL) {
                 return horizontalListLayout(doc, locale);
@@ -167,17 +161,12 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
         return multiImageLayout(doc, locale);
     }
 
-    public LinksModule<EnhancedLink> getCardGroupModule(Megalinks doc, Locale locale, MegalinkLayout layout) {
+    public LinksModule<EnhancedLink> getCardGroupModule(Megalinks doc, Locale locale) {
 
-        if (layout != MegalinkLayout.GRID) {
-            //TODO: This if block can be removed after version 2.12.0
-            return buildCardGroupModule(doc, locale, MegalinkLayout.fromValue(doc.getLayout()).orElseThrow());
-        } else if (doc.getMegalinkItems().size() > 4) {
+       if (doc.getMegalinkItems().size() > 4) {
             return buildCardGroupModule(doc, locale, MegalinkLayout.HORIZONTAL_LINKS);
-        } else if (doc.getMegalinkItems().size() == 4) {
-            return buildCardGroupModule(doc, locale, MegalinkLayout.GRID_4);
         } else {
-            CardGroupModule module = buildCardGroupModule(doc, locale, MegalinkLayout.GRID_3);
+            CardGroupModule module = buildCardGroupModule(doc, locale, MegalinkLayout.GRID);
             if (doc.getMegalinkItems().size() < 3) {
                 contentLogger.warn("The Megalinks document located at {} has less than 3 items", doc.getPath());
             }
@@ -268,9 +257,9 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
      * The number of featured items marked on the module might change depending on the following rules:
      * <ul>
      * <li>Megalinks with 2 or less featured items won't have featured items</li>
-     * <li>Megalinks with 3 items might have up to one featured items</li>
+     * <li>Megalinks with 3 items might have up to one featured item</li>
      * <li>Megalinks with 4 or more items will have between 1 and 2 featured items</li>
-     * <li>When the number of featured items exceed what is expected, only the first items will remain as Featured</li>
+     * <li>When the number of featured items exceeds what is expected, only the first items will remain as Featured</li>
      * <li>When the number of featured items is inferior to the expected, the first non-featured items will be promoted
      * to featured items</li>
      * </ul>
@@ -298,7 +287,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
                     .limit(fl.getLinks().size() == 3 ? 1 : 2)
                     .collect(Collectors.toCollection(ArrayList::new)));
 
-            //When there is more than 3 items and no featured item the first item is promoted as featured.
+            //When there are more than 3 items and no featured items, the first item is promoted as featured.
             if (fl.getFeaturedLinks().isEmpty() && fl.getLinks().size() > 3) {
                 fl.getFeaturedLinks().add(fl.getLinks().get(0));
             }
