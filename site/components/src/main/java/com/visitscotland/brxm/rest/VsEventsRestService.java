@@ -81,7 +81,7 @@ public class VsEventsRestService {
 
         for (Map.Entry<String, String> entry : result.entrySet()) {
             String code = entry.getValue();
-            String label = bundle.getResourceBundle("search-events-locations", entry.getKey(), locale);
+            String label = bundle.getResourceBundle("search-events-locations", entry.getKey(), toLocale(locale));
             transformedData.put(code, label != null ? label : entry.getKey());
         }
 
@@ -90,5 +90,20 @@ public class VsEventsRestService {
         response.put("data", transformedData);
 
         return response;
+    }
+
+    /**
+     * when locale is null or empty a {@code null}value is returned. Otherwise, a locale is created according to
+     * Locale.forLanguageTag(String) specification
+     *
+     * @param locale String with the locale information
+     * @return a {@code Locale} object version of the {@code String} or {@code null} when empty String or null
+     */
+    private Locale toLocale(String locale) {
+        if (locale == null || locale.isEmpty()) {
+            return null;
+        } else {
+            return Locale.forLanguageTag(locale);
+        }
     }
 }

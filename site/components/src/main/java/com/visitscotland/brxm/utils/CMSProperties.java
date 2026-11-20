@@ -137,8 +137,8 @@ public class CMSProperties extends Properties {
         return readInteger(DMS_DATA_SLEEP_TIME);
     }
 
-    public String getYoutubeApiKey() {
-        return readString(YOUTUBE_API_KEY);
+    public Optional<String> getYoutubeApiKey() {
+        return readOptionalString(YOUTUBE_API_KEY);
     }
 
     public String getYoutubeApiBase() {
