@@ -29,6 +29,7 @@ public class EventHstQueryService {
                     .addDatesFilters()
                     .addPriceFilters().addLocationFilters()
                     .addSectorsFilters().addTopicsFilters()
+                    .addRegionsFilters()
                     .build();
 
             return hstQuery.execute();

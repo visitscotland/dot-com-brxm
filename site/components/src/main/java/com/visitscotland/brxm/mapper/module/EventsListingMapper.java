@@ -94,6 +94,7 @@ public class EventsListingMapper extends ModuleMapper<EventsListing, EventsLings
         addBooleanFields(filters, true, false);
         filters.add(buildMultiselectField(TOPIC_PARAM, TOPIC_LABEL, TRAINING_TOPICS_VALUE_LIST, 2));
         filters.add(buildMultiselectField(SECTOR_PARAM, SECTOR_LABEL, SECTORS_VALUE_LIST, 3));
+        filters.add(buildMultiselectField(REGION_PARAM, REGION_LABEL, REGIONS_VALUE_LIST, 4));
 
         return filters;
     }
