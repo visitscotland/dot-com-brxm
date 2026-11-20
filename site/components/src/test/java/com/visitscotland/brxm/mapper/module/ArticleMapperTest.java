@@ -10,9 +10,11 @@ import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.mapper.MediaSectionMapper;
 import com.visitscotland.brxm.mapper.QuoteMapper;
 import com.visitscotland.brxm.model.ArticleModule;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -46,6 +48,9 @@ class ArticleMapperTest {
     @Mock
     QuoteMapper embedder;
 
+    @Mock
+    PageCompositionHelper pageCompositionHelper;
+
     private static final String DUMMY_ANCHOR = "dummy-anchor";
 
     @Test
@@ -58,7 +63,7 @@ class ArticleMapperTest {
         when(article.getCopy()).thenReturn(mock(HippoHtml.class));
         when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
-        ArticleModule module = factory.getModule(article, null, false);
+        ArticleModule module = factory.getModule(article, null, false, pageCompositionHelper);
 
         verify(imageMapper, only()).getImage(any(Image.class), any(), any());
         verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
@@ -81,7 +86,7 @@ class ArticleMapperTest {
         when(article.getCopy()).thenReturn(mock(HippoHtml.class));
         when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
-        ArticleModule module =factory.getModule(article, null, false);
+        ArticleModule module =factory.getModule(article, null, false, pageCompositionHelper);
 
         verify(linkService, only()).createVideo(any(Video.class), any(), any());
         verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
@@ -105,7 +110,7 @@ class ArticleMapperTest {
         when(article.getAnchor()).thenReturn(DUMMY_ANCHOR);
         when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
-        ArticleModule module = factory.getModule(article, null, false);
+        ArticleModule module = factory.getModule(article, null, false, pageCompositionHelper);
 
         verify(imageMapper, times(2)).getImage(any(Image.class), any(), any());
         verify(embedder, times(2)).getQuote(any(Quote.class), any(), any());
@@ -128,11 +133,18 @@ class ArticleMapperTest {
         when(article.getAnchor()).thenReturn(DUMMY_ANCHOR);
         when(anchorFormatter.getAnchorOrFallback(anyString(), any())).thenReturn(DUMMY_ANCHOR);
 
-        ArticleModule module = factory.getModule(article, null, false);
+        ArticleModule module = factory.getModule(article, null, false, pageCompositionHelper);
 
         verify(linkService, times(2)).createVideo(any(Video.class), any(), any());
         verify(embedder, times(2)).getQuote(any(Quote.class), any(), any());
         verify(anchorFormatter, times(1)).getAnchorOrFallback(anyString(), any());
         assertEquals(2, module.getSections().size());
+    }
+
+    @Disabled
+    @Test
+    @DisplayName("VS-1643 Video Schema is included for Video Sections")
+    void addVideoSchema() {
+
     }
 }
