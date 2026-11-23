@@ -1,19 +1,19 @@
 package com.visitscotland.brxm.mapper.module;
 
-import com.visitscotland.brxm.hippobeans.GeneralBSH;
-import com.visitscotland.brxm.hippobeans.Megalinks;
-import com.visitscotland.brxm.hippobeans.MegalinksBSH;
-import com.visitscotland.brxm.hippobeans.OTYML;
+import com.visitscotland.brxm.hippobeans.*;
+import com.visitscotland.brxm.hippobeans.capabilities.Linkable;
 import com.visitscotland.brxm.mapper.ImageMapper;
+import com.visitscotland.brxm.model.ErrorModule;
+import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.*;
-import com.visitscotland.brxm.pagebuilder.PageCompositionException;
-import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
-import com.visitscotland.brxm.services.EnhancedLinkService;
 import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
 import com.visitscotland.brxm.utils.AnchorFormatter;
 import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.pagebuilder.PageCompositionException;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.utils.Contract;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -57,19 +57,19 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
     private final LinkService linkService;
     private final ResourceBundleService bundle;
     private final ImageMapper imageMapper;
-    private final ContentLogger contentLogger;
+    private final Logger contentLogger;
     private final AnchorFormatter anchorFormatter;
-    private final EnhancedLinkService enhancedLinkService;
 
-    public MegalinkMapper(LinkService linkService, ResourceBundleService bundle, ImageMapper imageMapper,
-                          ContentLogger contentLogger, AnchorFormatter anchorFormatter,
-                          EnhancedLinkService enhancedLinkService) {
+    public MegalinkMapper(LinkService linkService,
+                          ResourceBundleService bundle,
+                          ImageMapper imageMapper,
+                          ContentLogger contentLogger,
+                          AnchorFormatter anchorFormatter) {
         this.linkService = linkService;
         this.bundle = bundle;
         this.imageMapper = imageMapper;
         this.contentLogger = contentLogger;
         this.anchorFormatter = anchorFormatter;
-        this.enhancedLinkService = enhancedLinkService;
     }
 
     @Override
@@ -138,7 +138,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
         module.setThemeIndex(compositionHelper.calculateThemeIndex(!Contract.isEmpty(module.getTitle())));
     }
 
-    public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale)  {
+    public LinksModule<EnhancedLink> getMegalinkModule(Megalinks doc, Locale locale) throws PageCompositionException {
         var layout = MegalinkLayout.fromValue(doc.getLayout()).orElse(MegalinkLayout.DEFAULT);
         if (MegalinkLayout.fromValue(doc.getLayout()).isEmpty()) {
             logger.warn("The Megalinks layout hasn't been set for {}", doc.getPath());
@@ -179,7 +179,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
         populateCommonFields(module, doc, locale);
         module.setLayout(layout.getValue());
 
-        module.setLinks(enhancedLinkService.convert(module, doc.getMegalinkItems(), locale, false));
+        module.setLinks(convertToEnhancedLinks(module, doc.getMegalinkItems(), locale, false));
         return module;
     }
 
@@ -196,7 +196,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
         populateCommonFields(ll, doc, locale);
 
         ll.setTeaserVisible(doc.getTeaserVisible());
-        ll.setLinks(enhancedLinkService.convert(ll, doc.getMegalinkItems(), locale, false));
+        ll.setLinks(convertToEnhancedLinks(ll, doc.getMegalinkItems(), locale, false));
         return ll;
     }
 
@@ -205,7 +205,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
         populateCommonFields(hll, doc, locale);
 
         hll.setTeaserVisible(doc.getTeaserVisible());
-        hll.setLinks(enhancedLinkService.convert(hll, doc.getMegalinkItems(), locale, false));
+        hll.setLinks(convertToEnhancedLinks(hll, doc.getMegalinkItems(), locale, false));
 
         return hll;
     }
@@ -214,7 +214,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
         HorizontalListLinksModule hll = new HorizontalListLinksModule();
         hll.setTitle(Contract.isEmpty(doc.getTitle()) ? (bundle.getResourceBundle(OTYML, "otyml.title.default", locale)) : doc.getTitle());
         hll.setIntroduction(doc.getIntroduction());
-        hll.setLinks(enhancedLinkService.convert(hll, doc.getMegalinkItems(), locale, true, false));
+        hll.setLinks(convertPageLinksToEnhancedLinks(hll, doc.getMegalinkItems(), locale, true));
 
         return hll;
     }
@@ -222,7 +222,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
     public HorizontalListLinksModule horizontalListLayout(GeneralBSH page, Locale locale) {
         HorizontalListLinksModule hll = new HorizontalListLinksModule();
         hll.setTitle(bundle.getResourceBundle(OTYML, "otyml.title.default", locale));
-        hll.setLinks(enhancedLinkService.convert(hll, page.getLinks(), locale, true, false));
+        hll.setLinks(convertPageLinksToEnhancedLinks(hll, page.getLinks(), locale, true));
 
         return hll;
     }
@@ -245,7 +245,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
         if (doc.getSingleImageModule().getImage() == null) {
             sil.addErrorMessage(String.format("The image selected for '%s' is not available. Please select a valid image for the single image document '%s' at: %s", sil.getTitle(), doc.getDisplayName(), doc.getPath()));
         }
-        sil.setLinks(enhancedLinkService.convert(sil, doc.getMegalinkItems(), locale, false));
+        sil.setLinks(convertToEnhancedLinks(sil, doc.getMegalinkItems(), locale, false));
 
         return sil;
     }
@@ -274,7 +274,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
         fl.setTeaserVisible(doc.getTeaserVisible());
 
         fl.setLinksSize(doc.getMegalinkItems().size());
-        fl.setLinks(enhancedLinkService.convert(fl, doc.getMegalinkItems(), locale, false));
+        fl.setLinks(convertToEnhancedLinks(fl, doc.getMegalinkItems(), locale, false));
 
         if (fl.getLinks().size() == 1) {
             //If the megalinks only have one item, that one is featured
@@ -328,6 +328,68 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
             if (megalinksBSH.getProductsCMS() != null) {
                 module.setCta(linkService.createFindOutMoreLink(module, locale, (megalinksBSH.getProductsCMS())));
             }
+        }
+    }
+
+    /**
+     * Converts the list of {@code MegalinksItem} into  a list of {@code EnhancedLink }
+     */
+    List<EnhancedLink> convertToEnhancedLinks(Module<Megalinks> module, List<MegalinkItem> items, Locale locale, boolean addCategory) {
+        List<EnhancedLink> links = new ArrayList<>();
+        for (MegalinkItem item : items) {
+            EnhancedLink link = convertToEnhancedLink(module, item.getLinkItem(), locale, addCategory);
+
+            if (link != null) {
+                link.setFeatured(item.getFeature());
+                links.add(link);
+            }
+        }
+
+        return links;
+    }
+
+    private List<EnhancedLink> convertPageLinksToEnhancedLinks(Module<?> module, List<HippoBean> items, Locale locale, boolean addCategory) {
+        List<EnhancedLink> links = new ArrayList<>();
+        for (HippoBean item : items) {
+            links.add(convertToEnhancedLink(module, item, locale, addCategory));
+        }
+
+        // Remove nulls (if needed)
+        while (links.remove(null)) ;
+
+        return links;
+    }
+
+    private EnhancedLink convertToEnhancedLink(Module<?> module, HippoBean item, Locale locale, boolean addCategory) {
+        Optional<EnhancedLink> link;
+
+        if (item instanceof Linkable) {
+            link = linkService.createEnhancedLink((Linkable) item, module, locale, addCategory);
+        } else if (item instanceof VideoLink) {
+            link = linkService.createEnhancedLink(((VideoLink) item).getVideoLink(), module, locale, addCategory);
+        } else {
+            if (item != null) {
+                addError(module, "One of the links cannot be recognized and will not be included in the page.");
+                contentLogger.warn("The module {} is pointing to a module of type {} which cannot be rendered as a page", item.getPath(), item.getClass().getSimpleName());
+            } else {
+                contentLogger.warn("One of the links seems contain no link");
+            }
+            return null;
+        }
+
+        if (link.isEmpty()) {
+            contentLogger.warn("The module {} might be linking an unpublished document", item.getPath());
+            return null;
+        }
+
+        return link.get();
+    }
+
+    private void addError(Module<?> module, String message) {
+        if (module != null) {
+            module.addErrorMessage(message);
+        } else {
+            logger.warn("The error message cannot be displayed in preview");
         }
     }
 }
