@@ -44,6 +44,7 @@ public class CMSProperties extends Properties {
     static final String INSTAGRAM_URL = "instagram.post-url";
     static final String YOUTUBE_API_KEY = "youtube.api-key";
     static final String YOUTUBE_API_BASE = "youtube.api-base";
+    static final String YOUTUBE_REFERER = "youtube.referer";
 
     //CMS Cache
     static final String SNIPPET_CACHE = "snippet-cache.enable";
@@ -139,6 +140,10 @@ public class CMSProperties extends Properties {
 
     public String getYoutubeApiKey() {
         return readString(YOUTUBE_API_KEY);
+    }
+
+    public String getYoutubeReferer() {
+        return readString(YOUTUBE_REFERER);
     }
 
     public String getYoutubeApiBase() {
