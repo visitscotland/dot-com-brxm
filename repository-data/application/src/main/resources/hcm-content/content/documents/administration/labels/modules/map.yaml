@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: ba1184d2-e135-4e04-9164-0c97108bd0e6
   hippo:name: Map
-  hippo:versionHistory: 315a257c-5053-4872-950d-56d79df2200e
+  hippo:versionHistory: fe026f3f-0c22-40b3-9040-e87b923ccc17
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,11 +13,12 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-05-12T10:29:56.379+02:00
-    hippostdpubwf:lastModifiedBy: brieuc.botte
+    hippostdpubwf:lastModificationDate: 2026-11-20T10:56:34.602Z
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -28,7 +29,8 @@
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
       map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
       map.search-map, map.google-results-primary-message, map.google-results-supporting-message,
-      locationSelect, resetLocation, searchAreaButton]
+      locationSelect, resetLocation, searchAreaButton, map.main-map.error-title, map.main-map.error-copy,
+      map.main-map.error-cta-title, map.main-map.error-cta-link]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
       Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
       Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
@@ -43,7 +45,10 @@
         locations., Search the map, A selection of places matching your search is
         shown below. Up to 20 results are displayed., Showing places matching your
         search. Up to 20 results are displayed., Refine your results by location,
-      All locations, Search this area]
+      All locations, Search this area, Map temporarily unavailable, 'We''re having
+        trouble displaying the map at the moment. You can still explore Scotland using
+        search, navigation and destination pages while we work to restore the map.',
+      Explore Scotland’s Destinations, /places-to-go#section-1]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen, Kartenmenü, Einen Schritt zurückgehen, Filter zurücksetzen, Unterkünfte,
@@ -62,7 +67,7 @@
         angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20 Ergebnisse angezeigt.',
       'Es werden Orte angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20
         Ergebnisse angezeigt.', Ergebnisse nach Ort filtern, Alle Orte, In dieser
-        Region suchen]
+        Region suchen, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer Mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú del mapa, Retroceder un paso, Restablecer filtros,
@@ -80,7 +85,7 @@
         coinciden con tu búsqueda. Se muestran un máximo de 20 resultados., Aquí se
         muestran lugares que coinciden con tu búsqueda. Se muestran un máximo de 20
         resultados., Filtrar los resultados por ubicación, Todos los lugares, Buscar
-        en esta zona]
+        en esta zona, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez :', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -99,7 +104,8 @@
       Rechercher sur la carte, Affichage des lieux correspondant à votre recherche.
         Un maximum de 20 résultats sont affichés., Affichage des lieux correspondant
         à votre recherche. Un maximum de 20 résultats sont affichés., Filtrer les
-        résultats par lieu, Tous les lieux, Rechercher dans cette zone]
+        résultats par lieu, Tous les lieux, Rechercher dans cette zone, '', '', '',
+      /places-to-go#section-1]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, Scopri ora, Chiudi il pannello
         di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta filtri, Alloggi,
@@ -117,7 +123,7 @@
         i luoghi corrispondenti alla tua ricerca. Vengono visualizzati fino a 20 risultati.,
       Vengono visualizzati i luoghi corrispondenti alla tua ricerca. Vengono visualizzati
         fino a 20 risultati., Affina i risultati in base alla località, Tutte le località,
-      Cerca in questa zona]
+      Cerca in questa zona, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm afsluiten,
       Heroriënteren, Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek-
         en filtervenster, Legenda, Ga een stap terug, Filters herstellen, Accommodatie,
@@ -134,7 +140,7 @@
         zoekopdracht passen. Er worden maximaal 20 resultaten getoond., Hier vind
         je plekken die bij je zoekopdracht passen. Er worden maximaal 20 resultaten
         getoond., Verfijn je zoekresultaten op locatie, Alle locaties, Zoek in deze
-        omgeving]
+        omgeving, '', '', '', /places-to-go#section-1]
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
@@ -144,11 +150,12 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-05-12T10:31:55.811+02:00
-    hippostdpubwf:lastModifiedBy: brieuc.botte
+    hippostdpubwf:lastModificationDate: 2026-11-20T11:02:14.351Z
+    hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -159,7 +166,8 @@
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
       map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
       map.search-map, map.google-results-primary-message, map.google-results-supporting-message,
-      locationSelect, resetLocation, searchAreaButton]
+      locationSelect, resetLocation, searchAreaButton, map.main-map.error-title, map.main-map.error-copy,
+      map.main-map.error-cta-title, map.main-map.error-cta-link]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
       Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
       Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
@@ -174,7 +182,10 @@
         locations., Search the map, A selection of places matching your search is
         shown below. Up to 20 results are displayed., Showing places matching your
         search. Up to 20 results are displayed., Refine your results by location,
-      All locations, Search this area]
+      All locations, Search this area, Map temporarily unavailable, 'We''re having
+        trouble displaying the map at the moment. You can still explore Scotland using
+        search, navigation and destination pages while we work to restore the map.',
+      Explore Scotland’s Destinations, /places-to-go#section-1]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen, Kartenmenü, Einen Schritt zurückgehen, Filter zurücksetzen, Unterkünfte,
@@ -193,7 +204,7 @@
         angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20 Ergebnisse angezeigt.',
       'Es werden Orte angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20
         Ergebnisse angezeigt.', Ergebnisse nach Ort filtern, Alle Orte, In dieser
-        Region suchen]
+        Region suchen, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer Mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú del mapa, Retroceder un paso, Restablecer filtros,
@@ -211,7 +222,7 @@
         coinciden con tu búsqueda. Se muestran un máximo de 20 resultados., Aquí se
         muestran lugares que coinciden con tu búsqueda. Se muestran un máximo de 20
         resultados., Filtrar los resultados por ubicación, Todos los lugares, Buscar
-        en esta zona]
+        en esta zona, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez :', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -230,7 +241,8 @@
       Rechercher sur la carte, Affichage des lieux correspondant à votre recherche.
         Un maximum de 20 résultats sont affichés., Affichage des lieux correspondant
         à votre recherche. Un maximum de 20 résultats sont affichés., Filtrer les
-        résultats par lieu, Tous les lieux, Rechercher dans cette zone]
+        résultats par lieu, Tous les lieux, Rechercher dans cette zone, '', '', '',
+      /places-to-go#section-1]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, Scopri ora, Chiudi il pannello
         di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta filtri, Alloggi,
@@ -248,7 +260,7 @@
         i luoghi corrispondenti alla tua ricerca. Vengono visualizzati fino a 20 risultati.,
       Vengono visualizzati i luoghi corrispondenti alla tua ricerca. Vengono visualizzati
         fino a 20 risultati., Affina i risultati in base alla località, Tutte le località,
-      Cerca in questa zona]
+      Cerca in questa zona, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm afsluiten,
       Heroriënteren, Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek-
         en filtervenster, Legenda, Ga een stap terug, Filters herstellen, Accommodatie,
@@ -265,7 +277,7 @@
         zoekopdracht passen. Er worden maximaal 20 resultaten getoond., Hier vind
         je plekken die bij je zoekopdracht passen. Er worden maximaal 20 resultaten
         getoond., Verfijn je zoekresultaten op locatie, Alle locaties, Zoek in deze
-        omgeving]
+        omgeving, '', '', '', /places-to-go#section-1]
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
@@ -275,12 +287,13 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-05-12T10:31:55.811+02:00
-    hippostdpubwf:lastModifiedBy: brieuc.botte
-    hippostdpubwf:publicationDate: 2026-05-12T13:46:41.973+02:00
+    hippostdpubwf:lastModificationDate: 2026-11-20T11:02:14.351Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-11-20T11:02:27.821Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -291,7 +304,8 @@
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
       map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
       map.search-map, map.google-results-primary-message, map.google-results-supporting-message,
-      locationSelect, resetLocation, searchAreaButton]
+      locationSelect, resetLocation, searchAreaButton, map.main-map.error-title, map.main-map.error-copy,
+      map.main-map.error-cta-title, map.main-map.error-cta-link]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
       Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
       Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
@@ -306,7 +320,10 @@
         locations., Search the map, A selection of places matching your search is
         shown below. Up to 20 results are displayed., Showing places matching your
         search. Up to 20 results are displayed., Refine your results by location,
-      All locations, Search this area]
+      All locations, Search this area, Map temporarily unavailable, 'We''re having
+        trouble displaying the map at the moment. You can still explore Scotland using
+        search, navigation and destination pages while we work to restore the map.',
+      Explore Scotland’s Destinations, /places-to-go#section-1]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
         schließen, Kartenmenü, Einen Schritt zurückgehen, Filter zurücksetzen, Unterkünfte,
@@ -325,7 +342,7 @@
         angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20 Ergebnisse angezeigt.',
       'Es werden Orte angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20
         Ergebnisse angezeigt.', Ergebnisse nach Ort filtern, Alle Orte, In dieser
-        Region suchen]
+        Region suchen, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
       Restablecer Mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
         de búsqueda y filtro, Menú del mapa, Retroceder un paso, Restablecer filtros,
@@ -343,7 +360,7 @@
         coinciden con tu búsqueda. Se muestran un máximo de 20 resultados., Aquí se
         muestran lugares que coinciden con tu búsqueda. Se muestran un máximo de 20
         resultados., Filtrar los resultados por ubicación, Todos los lugares, Buscar
-        en esta zona]
+        en esta zona, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
         écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez :', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
@@ -362,7 +379,8 @@
       Rechercher sur la carte, Affichage des lieux correspondant à votre recherche.
         Un maximum de 20 résultats sont affichés., Affichage des lieux correspondant
         à votre recherche. Un maximum de 20 résultats sont affichés., Filtrer les
-        résultats par lieu, Tous les lieux, Rechercher dans cette zone]
+        résultats par lieu, Tous les lieux, Rechercher dans cette zone, '', '', '',
+      /places-to-go#section-1]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
       Reset, Ingrandisci, Riduci, Luoghi in primo piano, Scopri ora, Chiudi il pannello
         di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta filtri, Alloggi,
@@ -380,7 +398,7 @@
         i luoghi corrispondenti alla tua ricerca. Vengono visualizzati fino a 20 risultati.,
       Vengono visualizzati i luoghi corrispondenti alla tua ricerca. Vengono visualizzati
         fino a 20 risultati., Affina i risultati in base alla località, Tutte le località,
-      Cerca in questa zona]
+      Cerca in questa zona, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm afsluiten,
       Heroriënteren, Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek-
         en filtervenster, Legenda, Ga een stap terug, Filters herstellen, Accommodatie,
@@ -397,4 +415,4 @@
         zoekopdracht passen. Er worden maximaal 20 resultaten getoond., Hier vind
         je plekken die bij je zoekopdracht passen. Er worden maximaal 20 resultaten
         getoond., Verfijn je zoekresultaten op locatie, Alle locaties, Zoek in deze
-        omgeving]
+        omgeving, '', '', '', /places-to-go#section-1]
