@@ -1,15 +1,8 @@
 package com.visitscotland.brxm.factory;
 
-import com.visitscotland.brxm.hippobeans.CTABanner;
-import com.visitscotland.brxm.hippobeans.Image;
-import com.visitscotland.brxm.hippobeans.SharedLink;
-import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.*;
 import com.visitscotland.brxm.services.HippoUtilsService;
-import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.ResourceBundleService;
-import com.visitscotland.brxm.utils.AnchorFormatter;
-import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.SiteProperties;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -49,7 +42,7 @@ class NewsletterFactoryTest {
 
         when(utils.createUrlFromNode(any(), anyBoolean())).thenReturn("cta.link");
 
-        SignpostModule module = newsletterFactory.createNewsletterSignpostModule(Locale.UK).orElseThrow();
+        SpotlightModule module = newsletterFactory.createNewsletterModule(Locale.UK).orElseThrow();
 
         Assertions.assertEquals("cta.text", module.getCta().getLabel());
         Assertions.assertEquals("cta.link", module.getCta().getLink());
