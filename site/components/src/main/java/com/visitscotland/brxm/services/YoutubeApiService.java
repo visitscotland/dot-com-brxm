@@ -50,7 +50,7 @@ public class YoutubeApiService {
             if (jsonResponse != null && jsonResponse.items.size() == 1 && jsonResponse.items.get(0) != null) {
                 YoutubeSnippet snippet = jsonResponse.items.get(0).snippet;
                 YoutubeVideo youtubeVideo = new YoutubeVideo();
-                youtubeVideo.setDescription(youtubeVideo.getDescription());
+                youtubeVideo.setDescription(snippet.description);
                 youtubeVideo.setId(youtubeId);
                 youtubeVideo.setTitle(snippet.title);
                 youtubeVideo.setPublishDate(snippet.publishedAt);
