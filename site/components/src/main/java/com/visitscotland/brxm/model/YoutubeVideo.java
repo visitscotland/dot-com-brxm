@@ -8,6 +8,7 @@ public class YoutubeVideo {
     private String title;
     private String description;
     private Date publishDate;
+    private String duration;
 
     public String getId() {
         return id;
@@ -39,5 +40,13 @@ public class YoutubeVideo {
 
     public void setPublishDate(Date publishDate) {
         this.publishDate = publishDate;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 }
