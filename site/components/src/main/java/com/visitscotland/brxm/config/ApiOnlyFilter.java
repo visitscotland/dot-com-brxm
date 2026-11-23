@@ -18,7 +18,7 @@ public class ApiOnlyFilter implements Filter {
             "/binaries/"
     };
 
-    private static final String RESOURCEAPI = "/resourceapi/";
+    private static final String RESOURCEAPI = "/resourceapi";
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -41,9 +41,10 @@ public class ApiOnlyFilter implements Filter {
 
 
     private boolean isAllowed(String path) {
-        if (path.contains(RESOURCEAPI)){
+        if (path.contains(RESOURCEAPI)) {
             return true;
         }
+
         for (String allow : ALLOW_LIST) {
             if (path.startsWith(allow)) {
                 return true;
