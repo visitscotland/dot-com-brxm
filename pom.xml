@@ -30,11 +30,11 @@
     <forge.breadcrumb.version>6.0.1</forge.breadcrumb.version>
 
     <!-- Test dependencies -->
-<!--    <junit-jupiter.version>5.11.2</junit-jupiter.version>-->
-    <easymock.version>5.4.0</easymock.version>
-    <mockito.version>5.2.0</mockito.version>
-    <assertj.version>3.26.3</assertj.version>
-    <caffeine.version>3.1.8</caffeine.version>
+    <junit-jupiter.version>5.12.2</junit-jupiter.version>
+<!--    <easymock.version>5.4.0</easymock.version>-->
+<!--    <mockito.version>5.2.0</mockito.version>-->
+<!--    <assertj.version>3.26.3</assertj.version>-->
+<!--    <caffeine.version>3.1.8</caffeine.version>-->
     <micrometer.version>1.11.0</micrometer.version>
 
   </properties>
@@ -146,12 +146,6 @@
         <groupId>org.mockito</groupId>
         <artifactId>mockito-junit-jupiter</artifactId>
         <version>${mockito.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.assertj</groupId>
-        <artifactId>assertj-core</artifactId>
-        <version>${assertj.version}</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
@@ -357,8 +351,8 @@
         <spring.profiles.active>${cliOptions}</spring.profiles.active>
       </properties>
       <modules>
-        <module>cms-dependencies</module>
         <module>repository-data</module>
+        <module>cms-dependencies</module>
         <module>cms</module>
         <module>site</module>
         <module>essentials</module>
