@@ -6,7 +6,6 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import java.util.List;
 import java.util.Calendar;
-import com.visitscotland.brxm.hippobeans.Image;
 
 @HippoEssentialsGenerated(internalName = "visitscotland:SharedLink")
 @Node(jcrType = "visitscotland:SharedLink")
