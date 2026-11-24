@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a810a523-c89a-40ad-9195-7adb8d9de6c4
+          jcr:uuid: f3b4993a-0e55-4bbb-9023-fc20f265c08b
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -51,15 +51,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [url]
-          /freemarkerId:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:freemarkerId
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-            hipposysedit:validators: [optional]
           /bespoken:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -82,7 +73,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:html: ''
           visitscotland:notes: ''
-          jcr:uuid: 07449767-c934-40e8-ae72-49bed836d154
+          jcr:uuid: 2a7a04d9-9094-43f6-bc89-042060059c5a
           hippostdpubwf:lastModificationDate: 2023-01-18T16:27:53.908Z
           hippostdpubwf:creationDate: 2023-01-18T16:27:53.908Z
           visitscotland:headContributions: []
@@ -145,13 +136,3 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/administration/options/bespoken-modules
-          /freemarkerId:
-            jcr:primaryType: frontend:plugin
-            caption: FreeMarker Template (Deprecated)
-            field: freemarkerId
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              selectable.options: Carbon Calculator

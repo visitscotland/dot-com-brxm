@@ -655,7 +655,7 @@ class LinkServiceTest {
     }
 
     @Test
-    @DisplayName(("VS-2949 - Create video link to be used by Freemarker"))
+    @DisplayName(("VS-2949 - Create video link to be used by Font-end"))
     void createVideo(){
         Video video = new VideoMockBuilder().withImage().url("http://youtube.com?v=123")
                 .title("Title").teaser("Teaser").label("Enjoy the video").build();

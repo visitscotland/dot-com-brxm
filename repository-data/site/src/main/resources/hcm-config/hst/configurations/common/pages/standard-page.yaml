@@ -6,5 +6,4 @@ definitions:
       hst:referencecomponent: hst:abstractpages/base
       /main:
         jcr:primaryType: hst:component
-        hst:template: itinerary
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsContentComponent
