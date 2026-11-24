@@ -133,7 +133,7 @@ definitions:
           /consents:
             jcr:primaryType: frontend:plugin
             caption: Consents
-            compoundList: visitscotland:Entry
+            compoundList: visitscotland:FormConsent
             contentPickerType: links
             field: consents
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin

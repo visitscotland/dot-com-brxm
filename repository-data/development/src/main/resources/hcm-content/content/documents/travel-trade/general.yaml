@@ -1,0 +1,780 @@
+/content/documents/travel-trade/general:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: f4121ea0-ef3b-4e93-a18a-40e920d8aa59
+  hippostd:foldertype: []
+  hippotranslation:id: e80886e9-04ad-46d6-b28c-c4cb0a043566
+  hippotranslation:locale: en
+  /error:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 4f76a737-a99a-4ace-9bee-307e8334e42f
+    hippostd:foldertype: []
+    hippotranslation:id: bbb99bca-56de-4589-b379-f312efcbd115
+    hippotranslation:locale: en
+    /404-not-found-default:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 76f6678a-fe9a-49af-aaf1-0117dc0eff4f
+      hippo:name: 404 Not Found
+      hippostd:foldertype: [new-be-module]
+      hippotranslation:id: c9131486-9c32-4a48-bad0-847aeec404b5
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 0bb70a13-ba12-4b01-a203-f1115d1c2fcc
+        hippo:name: 404notfound
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: d7b2f6de-a450-42fb-8d7d-e128653e0022
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-02T13:27:34.015Z
+          hippostdpubwf:lastModificationDate: 2024-11-06T12:38:04.802+01:00
+          hippostdpubwf:lastModifiedBy: juanluis.hurtado
+          hippotranslation:id: b5734828-4cf1-4f27-97ff-4244bb3ca842
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 404 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Page not found
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: Page not found
+          visitscotland:teaser: We can't find the page you're looking for. It may
+            have been moved or deleted
+          visitscotland:theme: Simple
+          visitscotland:title: Page not found
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>We can't find the page you're looking for. It may
+              have been moved or deleted</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 286d5220-7e44-43ed-bef2-9307c3fad083
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-02T13:27:34.015Z
+          hippostdpubwf:lastModificationDate: 2024-11-06T12:38:09.504+01:00
+          hippostdpubwf:lastModifiedBy: juanluis.hurtado
+          hippotranslation:id: b5734828-4cf1-4f27-97ff-4244bb3ca842
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 404 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Page not found
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: Page not found
+          visitscotland:teaser: We can't find the page you're looking for. It may
+            have been moved or deleted
+          visitscotland:theme: Simple
+          visitscotland:title: Page not found
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>We can't find the page you're looking for. It may
+              have been moved or deleted</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: ab89b729-75b2-4d1f-8a97-a6081128f1eb
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-02T13:27:34.015Z
+          hippostdpubwf:lastModificationDate: 2024-11-06T12:38:09.504+01:00
+          hippostdpubwf:lastModifiedBy: juanluis.hurtado
+          hippostdpubwf:publicationDate: 2024-11-06T12:38:11.620+01:00
+          hippotranslation:id: b5734828-4cf1-4f27-97ff-4244bb3ca842
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 404 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Page not found
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: Page not found
+          visitscotland:teaser: We can't find the page you're looking for. It may
+            have been moved or deleted
+          visitscotland:theme: Simple
+          visitscotland:title: Page not found
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>We can't find the page you're looking for. It may
+              have been moved or deleted</p>
+    /500-server-error:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: d3eabbce-6997-4ca8-b3b5-0647aefd2f25
+      hippo:name: 500 Server Error
+      hippostd:foldertype: [new-be-module]
+      hippotranslation:id: 8f18067d-cbcf-4a35-af52-c11d1c2dcbb3
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 860665ca-3fac-4418-bef5-cde0f8b2fb47
+        hippo:name: 500error
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f49f3eac-9271-47ea-bd76-16d9f648f74d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-05T14:31:46.083Z
+          hippostdpubwf:lastModificationDate: 2022-03-30T10:57:09.040+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: dbebc632-635c-4654-8b79-4778b0e94280
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 500 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: '500'
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: '500'
+          visitscotland:teaser: '500'
+          visitscotland:theme: Simple
+          visitscotland:title: '500'
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>500&nbsp;</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 90db7cbe-db55-4312-b169-ea9b959006cc
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-05T14:31:46.083Z
+          hippostdpubwf:lastModificationDate: 2022-03-30T10:57:12.030+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: dbebc632-635c-4654-8b79-4778b0e94280
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 500 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: '500'
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: '500'
+          visitscotland:teaser: '500'
+          visitscotland:theme: Simple
+          visitscotland:title: '500'
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>500&nbsp;</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 699db233-6e0d-4a66-8ce6-3273ddd38d54
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-05T14:31:46.083Z
+          hippostdpubwf:lastModificationDate: 2022-03-30T10:57:12.030+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2022-03-30T10:57:13.865+01:00
+          hippotranslation:id: dbebc632-635c-4654-8b79-4778b0e94280
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 500 Error
+          visitscotland:hideNewsletter: false
+          visitscotland:seoDescription: '500'
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: '500'
+          visitscotland:teaser: '500'
+          visitscotland:theme: Simple
+          visitscotland:title: '500'
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>500&nbsp;</p>
+    /404-not-found:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 63136a2c-98b2-475c-bc5f-97ee4d5ca839
+      hippo:name: 503 Service Unavailable
+      hippostd:foldertype: [new-be-module]
+      hippotranslation:id: c4578a2c-57f3-46cb-8a6a-a96413f6868f
+      hippotranslation:locale: en
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 437ac7fd-1be2-431e-870b-59bbf0951b48
+        hippo:name: 503 Temporarely Unavailable
+        hippo:versionHistory: 3b14dbf3-7717-4ae5-a6c9-736ab9aca4ad
+        /content[1]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 7b67ab64-117e-4058-b186-f3a72df38168
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-02T13:27:34.015Z
+          hippostdpubwf:lastModificationDate: 2026-10-27T16:36:40.962+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: c1252c38-20aa-49a2-9bbf-9b49b780f6ff
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 503 Temporarely Unavailable
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Find information about VisitScotland's Travel
+            Trade website.
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: VisitScotland Travel Trade
+          visitscotland:teaser: Find information about VisitScotland's Travel Trade
+            website.
+          visitscotland:theme: Simple
+          visitscotland:title: VisitScotland Travel Trade
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>We can't find the page you're looking for. It may
+              have been moved or deleted</p>
+        /content[2]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 2b9cb550-851f-436d-bce9-903d7bda8841
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-02T13:27:34.015Z
+          hippostdpubwf:lastModificationDate: 2026-10-27T15:08:18.835+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: c1252c38-20aa-49a2-9bbf-9b49b780f6ff
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 503 Temporarely Unavailable
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Find information about VisitScotland's Travel
+            Trade website.
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: VisitScotland Travel Trade
+          visitscotland:teaser: Find information about VisitScotland's Travel Trade
+            website.
+          visitscotland:theme: Simple
+          visitscotland:title: VisitScotland Travel Trade
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>We can't find the page you're looking for. It may
+              have been moved or deleted</p>
+        /content[3]:
+          jcr:primaryType: visitscotland:General
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 90892d57-4903-462d-9af4-7a2cd176357b
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-11-02T13:27:34.015Z
+          hippostdpubwf:lastModificationDate: 2026-10-27T15:08:18.835+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-27T15:09:56.623+01:00
+          hippotranslation:id: c1252c38-20aa-49a2-9bbf-9b49b780f6ff
+          hippotranslation:locale: en
+          visitscotland:breadcrumb: 503 Temporarely Unavailable
+          visitscotland:hideNewsletter: false
+          visitscotland:pswPosition: Hidden
+          visitscotland:seoDescription: Find information about VisitScotland's Travel
+            Trade website.
+          visitscotland:seoNoIndex: true
+          visitscotland:seoTitle: VisitScotland Travel Trade
+          visitscotland:teaser: Find information about VisitScotland's Travel Trade
+            website.
+          visitscotland:theme: Simple
+          visitscotland:title: VisitScotland Travel Trade
+          visitscotland:translation: ''
+          /visitscotland:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 6fe01b32-04e9-4d0f-86c9-b6b8bd246a67
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /visitscotland:introduction:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>We can't find the page you're looking for. It may
+              have been moved or deleted</p>
+      /503---article:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 16568cfc-8e96-4c1b-a8bc-f06b69ddf49d
+        hippo:name: 503 - Article
+        hippo:versionHistory: 1cecaca6-6841-405a-8fec-0df1f8f78ce3
+        /503---article[1]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 0687039a-2d7d-41c3-b1e1-932d885fb53c
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-27T15:08:48.239+01:00
+          hippostdpubwf:lastModificationDate: 2026-10-29T13:19:52.142+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 0a191d94-10a7-472c-af14-824017ed4cd4
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: How to contact us
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /visitscotland:paragraph:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>We’re sorry but this page is currently unavailable and is being reviewed as part of our phased rollout of content and functionality on the website.</p>
+
+                <p>Should you required assistance, please contact us as follows:</p>
+
+                <ul>
+                 <li>For any travel trade enquiries, please contact <a href="mailto:traveltrade@visitscotland.com" title="mailto:traveltrade@visitscotland.com">traveltrade@visitscotland.com</a></li>
+                 <li>Any businesses looking for a travel trade listing, please contact&nbsp;<a href="mailto:business.support@visitscotland.com" title="mailto:business.support@visitscotland.com">business.support@visitscotland.com</a></li>
+                 <li>For any imagery requirements, sign up for a&nbsp;<a href="https://visitscotland.canto.global/v/visitscotlandassetlibrary" title="https://visitscotland.canto.global/v/visitscotlandassetlibrary">VisitScotland Asset Library account</a></li>
+                </ul>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a7be82ff-5413-4bf8-9edd-f6043eacd0a4
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /503---article[2]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: c72510ca-81f5-40ad-b266-3578283a1158
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-27T15:08:48.239+01:00
+          hippostdpubwf:lastModificationDate: 2026-10-29T13:20:10.148+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 0a191d94-10a7-472c-af14-824017ed4cd4
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: How to contact us
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /visitscotland:paragraph:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>We’re sorry but this page is currently unavailable and is being reviewed as part of our phased rollout of content and functionality on the website.</p>
+
+                <p>Should you required assistance, please contact us as follows:</p>
+
+                <ul>
+                 <li>For any travel trade enquiries, please contact <a href="mailto:traveltrade@visitscotland.com" title="mailto:traveltrade@visitscotland.com">traveltrade@visitscotland.com</a></li>
+                 <li>Any businesses looking for a travel trade listing, please contact&nbsp;<a href="mailto:business.support@visitscotland.com" title="mailto:business.support@visitscotland.com">business.support@visitscotland.com</a></li>
+                 <li>For any imagery requirements, sign up for a&nbsp;<a href="https://visitscotland.canto.global/v/visitscotlandassetlibrary" title="https://visitscotland.canto.global/v/visitscotlandassetlibrary">VisitScotland Asset Library account</a></li>
+                </ul>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a7be82ff-5413-4bf8-9edd-f6043eacd0a4
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /503---article[3]:
+          jcr:primaryType: visitscotland:Article
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 3958a2e1-96fe-4eb4-9a90-5d1f22a2481d
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: jose.calcines
+          hippostdpubwf:creationDate: 2026-10-27T15:08:48.239+01:00
+          hippostdpubwf:lastModificationDate: 2026-10-29T13:20:10.148+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-29T13:20:12.984+01:00
+          hippotranslation:id: 0a191d94-10a7-472c-af14-824017ed4cd4
+          hippotranslation:locale: en
+          visitscotland:anchor: ''
+          visitscotland:title: How to contact us
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /visitscotland:paragraph:
+            jcr:primaryType: visitscotland:ArticleSection
+            /visitscotland:copy:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p>We’re sorry but this page is currently unavailable and is being reviewed as part of our phased rollout of content and functionality on the website.</p>
+
+                <p>Should you required assistance, please contact us as follows:</p>
+
+                <ul>
+                 <li>For any travel trade enquiries, please contact <a href="mailto:traveltrade@visitscotland.com" title="mailto:traveltrade@visitscotland.com">traveltrade@visitscotland.com</a></li>
+                 <li>Any businesses looking for a travel trade listing, please contact&nbsp;<a href="mailto:business.support@visitscotland.com" title="mailto:business.support@visitscotland.com">business.support@visitscotland.com</a></li>
+                 <li>For any imagery requirements, sign up for a&nbsp;<a href="https://visitscotland.canto.global/v/visitscotlandassetlibrary" title="https://visitscotland.canto.global/v/visitscotlandassetlibrary">VisitScotland Asset Library account</a></li>
+                </ul>
+            /visitscotland:media:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a7be82ff-5413-4bf8-9edd-f6043eacd0a4
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+  /navigation:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: 12070754-36f3-49be-9c80-0f8ab4f95230
+    hippostd:foldertype: ['']
+    hippotranslation:id: 0b6cb6a6-d115-4c4d-9d91-d6607537b483
+    hippotranslation:locale: en
+    /widgets:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: 758dbdbf-bce0-4580-9752-54adfcc641f7
+      hippostd:foldertype: [new-translated-folder-widget, new-widget]
+      hippotranslation:id: 8da38676-6aef-466e-94ea-d3003b1c04e9
+      hippotranslation:locale: en
+    /banner:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+      jcr:uuid: a167c404-d995-41f4-a721-b65b1b8f3de8
+      hippostd:foldertype: [new-translated-folder-banner, new-banner]
+      hippotranslation:id: 1e85739d-fad9-47f8-a61f-124671b4afb5
+      hippotranslation:locale: en
+      /travel-trade-banner:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: f2d52b72-1d0e-4206-885a-cea5805ea7ba
+        hippo:name: Travel Trade Banner
+        hippo:versionHistory: 38b6323d-87dc-4158-bded-3eb4a5777c9c
+        /travel-trade-banner[1]:
+          jcr:primaryType: visitscotland:Banner
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 4763386f-e16f-4c80-9207-c989f90a1a5d
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: nikki.sherret
+          hippostdpubwf:creationDate: 2024-05-07T15:44:11.242+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-27T16:47:15.552+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 12e554ea-3bfe-4285-8a30-e90870a876ff
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>You might notice that our Travel Trade Hub looks
+              a bit different. We’re making improvements and this means that some
+              features are not currently available, including our supplier directory.</p>
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: Sign up to our newsletter for Travel Trade updates
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 68d8977a-7536-412d-b72c-cf03fdda9c10
+        /travel-trade-banner[2]:
+          jcr:primaryType: visitscotland:Banner
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 9d3086a7-b328-48e6-92d9-f74e7db98574
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: nikki.sherret
+          hippostdpubwf:creationDate: 2024-05-07T15:44:11.242+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-27T16:47:19.987+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 12e554ea-3bfe-4285-8a30-e90870a876ff
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>You might notice that our Travel Trade Hub looks
+              a bit different. We’re making improvements and this means that some
+              features are not currently available, including our supplier directory.</p>
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: Sign up to our newsletter for Travel Trade updates
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 68d8977a-7536-412d-b72c-cf03fdda9c10
+        /travel-trade-banner[3]:
+          jcr:primaryType: visitscotland:Banner
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 7278f88d-1c8e-4213-84d5-c8f864e5b27a
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: nikki.sherret
+          hippostdpubwf:creationDate: 2024-05-07T15:44:11.242+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-27T15:14:12.296+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-27T15:14:14.941+01:00
+          hippotranslation:id: 12e554ea-3bfe-4285-8a30-e90870a876ff
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>You might notice that our Travel Trade Hub looks
+              a bit different. We’re making improvements and this means that some
+              features are not currently available, including our supplier directory.</p>
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:CMSLink
+            visitscotland:label: Sign up to our newsletter for Travel Trade updates
+            /visitscotland:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 68d8977a-7536-412d-b72c-cf03fdda9c10
+      /content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: bfe1e97f-5d21-4651-871d-fd8a048a0e55
+        hippo:name: Travel Trade Banner - External
+        hippo:versionHistory: 2a06ee50-83b1-41e2-a08c-74ae89a045ab
+        /content[1]:
+          jcr:primaryType: visitscotland:Banner
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 7aecbf3a-2133-4b31-955a-8849991aae52
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: nikki.sherret
+          hippostdpubwf:creationDate: 2024-05-07T15:44:11.242+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-29T17:50:21.515+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 94f9a834-8de9-4100-97ca-017c2d14580e
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>You might notice that our Travel Trade Hub looks
+              a little different. We're introducing content and functionality in phases,
+              so some features, including the supplier directory, are not yet available.</p>
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Sign up to our newsletter for Travel Trade updates
+            visitscotland:link: https://traveltrade.visitscotland.org/newsletter-sign-up/
+        /content[2]:
+          jcr:primaryType: visitscotland:Banner
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 98b57725-0dcd-4c82-a885-036d3da30e67
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: nikki.sherret
+          hippostdpubwf:creationDate: 2024-05-07T15:44:11.242+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-29T17:50:21.515+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippostdpubwf:publicationDate: 2026-10-29T17:50:52.277+01:00
+          hippotranslation:id: 94f9a834-8de9-4100-97ca-017c2d14580e
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>You might notice that our Travel Trade Hub looks
+              a little different. We're introducing content and functionality in phases,
+              so some features, including the supplier directory, are not yet available.</p>
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Sign up to our newsletter for Travel Trade updates
+            visitscotland:link: https://traveltrade.visitscotland.org/newsletter-sign-up/
+        /content[3]:
+          jcr:primaryType: visitscotland:Banner
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 8f5fedc1-cd3b-4c4e-9d80-fa1537d8ae15
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: nikki.sherret
+          hippostdpubwf:creationDate: 2024-05-07T15:44:11.242+02:00
+          hippostdpubwf:lastModificationDate: 2026-10-29T17:50:21.648+01:00
+          hippostdpubwf:lastModifiedBy: jose.calcines
+          hippotranslation:id: 94f9a834-8de9-4100-97ca-017c2d14580e
+          hippotranslation:locale: en
+          visitscotland:translation: ''
+          /visitscotland:copy:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>You might notice that our Travel Trade Hub looks
+              a little different. We're introducing content and functionality in phases,
+              so some features, including the supplier directory, are not yet available.</p>
+          /visitscotland:ctaLink:
+            jcr:primaryType: visitscotland:ExternalLink
+            visitscotland:label: Sign up to our newsletter for Travel Trade updates
+            visitscotland:link: https://traveltrade.visitscotland.org/newsletter-sign-up/
+  /supplier-listing:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: b4682dfa-fcb1-42a6-9abc-bfe31e9ddeb1
+    hippostd:foldertype: [new-translated-folder-test, new-document]
+    hippotranslation:id: ad97ed5c-9dcb-4d24-b4ef-e8e000f59d06
+    hippotranslation:locale: en
+    /content:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: d3f74f11-9348-4481-a5db-80382008bb4e
+      hippo:name: content
+      hippo:versionHistory: af0571ce-ce15-429d-bde5-2c47bb38723a
+      /content[1]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: be453a08-b885-409c-be11-368f5d329678
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2026-10-30T11:46:15.999Z
+        hippostdpubwf:lastModificationDate: 2026-10-30T11:50:07.057Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 7cacca8b-8dd2-4a88-a5b2-9c3a35685f5b
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:seoDescription: Find out  more information about this provider
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Travel Trade Listing
+        visitscotland:teaser: Find out  more information about this provider
+        visitscotland:theme: Simple
+        visitscotland:title: Travel Trade Listing
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Find out&nbsp; more information about this provider</p>
+      /content[2]:
+        jcr:primaryType: visitscotland:General
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 375e7f5c-26ce-478d-b6bb-6ae848afd74e
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2026-10-30T11:46:15.999Z
+        hippostdpubwf:lastModificationDate: 2026-10-30T11:50:07.057Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2026-10-30T12:01:19.759Z
+        hippotranslation:id: 7cacca8b-8dd2-4a88-a5b2-9c3a35685f5b
+        hippotranslation:locale: en
+        visitscotland:breadcrumb: ''
+        visitscotland:hideNewsletter: false
+        visitscotland:seoDescription: Find out  more information about this provider
+        visitscotland:seoNoIndex: false
+        visitscotland:seoTitle: Travel Trade Listing
+        visitscotland:teaser: Find out  more information about this provider
+        visitscotland:theme: Simple
+        visitscotland:title: Travel Trade Listing
+        visitscotland:translation: ''
+        /visitscotland:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: a5b5922e-d0d5-420c-af2d-670768cf7bd6
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /visitscotland:introduction:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Find out&nbsp; more information about this provider</p>
+    /dev-listing:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: adfd1ef6-2cda-4db9-b9db-88cd7dd2a892
+      hippo:name: Dev Listing
+      hippo:versionHistory: 9bbc1622-cb1b-4799-9978-ab6cb2728e44
+      /dev-listing[1]:
+        jcr:primaryType: visitscotland:DevModule
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: 731ec9aa-604c-4ea0-8d9f-59676b88b516
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2026-10-30T11:51:17.546Z
+        hippostdpubwf:lastModificationDate: 2026-10-30T11:51:22.476Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 84cb5815-4a4c-4005-82ba-a41e6bc585aa
+        hippotranslation:locale: en
+        visitscotland:bespoken: supplier-listing
+        visitscotland:footerContributions: []
+        visitscotland:headContributions: []
+        visitscotland:html: ''
+        visitscotland:notes: ''
+      /dev-listing[2]:
+        jcr:primaryType: visitscotland:DevModule
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 126a3dcd-4dae-40c2-b926-10a095951760
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2026-10-30T11:51:17.546Z
+        hippostdpubwf:lastModificationDate: 2026-10-30T11:51:22.476Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2026-10-30T12:01:48.273Z
+        hippotranslation:id: 84cb5815-4a4c-4005-82ba-a41e6bc585aa
+        hippotranslation:locale: en
+        visitscotland:bespoken: supplier-listing
+        visitscotland:footerContributions: []
+        visitscotland:headContributions: []
+        visitscotland:html: ''
+        visitscotland:notes: ''

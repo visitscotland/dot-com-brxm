@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 89a4b335-a008-4cb6-8f69-cffeec8f23e1
+          jcr:uuid: 09fe64f7-42d3-443e-8755-b0d770e05bde
           hipposysedit:node: true
           hipposysedit:supertype: ['visitscotland:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -34,22 +34,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             hipposysedit:validators: [optional]
-          /gettingTo:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:gettingTo
-            hipposysedit:primary: false
-            hipposysedit:type: visitscotland:TravelInformationTab
-          /gettingAround:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: visitscotland:gettingAround
-            hipposysedit:primary: false
-            hipposysedit:type: visitscotland:TravelInformationTab
           /translation:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -58,6 +42,31 @@ definitions:
             hipposysedit:path: visitscotland:translation
             hipposysedit:primary: false
             hipposysedit:type: OpenUiString
+          /practicalInformation:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:practicalInformation
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
+          /gettingTo:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:gettingTo
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:TravelInformationTab
+            hipposysedit:validators: [optional]
+          /gettingAround:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:gettingAround
+            hipposysedit:primary: false
+            hipposysedit:type: visitscotland:TravelInformationTab
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -70,28 +79,10 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           visitscotland:title: ''
-          jcr:uuid: eeacdce5-e458-4a5c-bc43-ac28e901f2d7
+          jcr:uuid: 8adaefd4-1269-42aa-956e-e4a22b10b9c1
           hippostdpubwf:lastModificationDate: 2021-06-11T10:13:33.356+01:00
           hippostdpubwf:creationDate: 2021-06-11T10:13:33.356+01:00
           visitscotland:translation: ''
-          /visitscotland:gettingTo:
-            jcr:primaryType: visitscotland:TravelInformationTab
-            visitscotland:title: Getting to
-            /visitscotland:accordion:
-              jcr:primaryType: visitscotland:TravelInformationTransportRow
-              visitscotland:transport: ''
-              /visitscotland:copy:
-                jcr:primaryType: hippostd:html
-                hippostd:content: ''
-          /visitscotland:gettingAround:
-            jcr:primaryType: visitscotland:TravelInformationTab
-            visitscotland:title: Getting around
-            /visitscotland:accordion:
-              jcr:primaryType: visitscotland:TravelInformationTransportRow
-              visitscotland:transport: ''
-              /visitscotland:copy:
-                jcr:primaryType: hippostd:html
-                hippostd:content: ''
           /visitscotland:copy:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -130,24 +121,22 @@ definitions:
               ckeditor.config.appended.json: "{   extraPlugins: 'wordcount',   wordcount:\
                 \ { \tcountSpacesAsChars: true,     showCharCount: true ,maxCharCount:375\
                 \   }  }"
-          /gettingTo:
+          /practicalInformation:
             jcr:primaryType: frontend:plugin
-            caption: Getting to
-            field: gettingTo
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            caption: Practical Information
+            compoundList: visitscotland:TravelInformationArticle,visitscotland:TravelInformationTab
+            contentPickerType: links
+            field: practicalInformation
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /gettingAround:
-            jcr:primaryType: frontend:plugin
-            caption: Getting Around
-            field: gettingAround
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
+              compoundNamesMaxLength: 90
+              maxitems: 3
+              showCompoundNames: false
+              showTitles: false
+              startCollapsed: false
+              titleMapping: []
           /translation:
             jcr:primaryType: frontend:plugin
             caption: Translation
@@ -158,3 +147,21 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ui.extension: translationDiff
+          /gettingTo:
+            jcr:primaryType: frontend:plugin
+            caption: Getting to (readonly)
+            field: gettingTo
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /gettingAround:
+            jcr:primaryType: frontend:plugin
+            caption: Getting Around (readonly)
+            field: gettingAround
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

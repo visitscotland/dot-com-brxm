@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableMap;
 import com.visitscotland.brxm.hippobeans.Day;
 import com.visitscotland.brxm.model.Coordinates;
 import com.visitscotland.brxm.model.FlatLink;
-import com.visitscotland.brxm.model.ItineraryPage;
 import com.visitscotland.utils.CoordinateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +18,8 @@ import java.util.regex.Pattern;
 
 /**
  * service class for using the google maps place and directions urls
+ *
+ * TODO - rework this class to make it a bit more efficient
  */
 @Component
 public class GoogleMapsService {
@@ -26,6 +27,7 @@ public class GoogleMapsService {
     private static final Logger logger = LoggerFactory.getLogger(GoogleMapsService.class);
 
     private static final String DIRECTIONS_URL = "https://www.google.com/maps/dir";
+    private static final String FWD_SLASH = "/";
 
     // regex to extract coordinates from url using @ coordinates
     private static final String URL_REGEX =
@@ -44,7 +46,6 @@ public class GoogleMapsService {
     /**
      * calculates the total distance across days from the coordinates contained in the map
      * url for each day
-     *
      * returns a distance of 0 if any issues occur to prevent erroneous values
      */
     public BigDecimal calculateDistanceFromDays(final List<Day> days) {
@@ -108,122 +109,74 @@ public class GoogleMapsService {
         }
     }
 
-    /*private boolean hasParameters(final String link) {
-        return link.contains("?") || link.matches(".*[a-zA-Z0-9]+=.*");
-    }*/
-
     /**
-     * takes a list of google place urls, extracts the coordinates and returns a google directions url
+     * generate intraday url from location urls
+     * @param previousUrl
+     * @param nextUrl
+     * @return
      */
-    public String getDirectionsUrl(final List<String> urls) {
+    public String getDirectionsUrlForIntraDay(final String previousUrl, final String nextUrl) {
 
         final StringBuilder urlBuilder = new StringBuilder();
-        if (urls == null || urls.isEmpty()) {
-            return null;
+
+        if (previousUrl != null && !previousUrl.isEmpty() && nextUrl != null && !nextUrl.isEmpty()) {
+            Matcher urlMatcher = URL_PATTERN.matcher(previousUrl);
+            if (urlMatcher.matches()) {
+                urlBuilder.append(FWD_SLASH).append(urlMatcher.group(1)).append(",").append(urlMatcher.group(2));
+            } else {
+                logger.info("Could not extract coordinates from previous url");
+                urlBuilder.setLength(0);
+                return urlBuilder.toString();
+            }
+            urlMatcher = URL_PATTERN.matcher(nextUrl);
+            if (urlMatcher.matches()) {
+                urlBuilder.append(FWD_SLASH).append(urlMatcher.group(1)).append(",").append(urlMatcher.group(2));
+            } else {
+                logger.info("Could not extract coordinates from next url");
+                urlBuilder.setLength(0);
+            }
+
+            if (urlBuilder.length() > 0) {
+                urlBuilder.insert(0, DIRECTIONS_URL);
+                urlBuilder.append(FWD_SLASH);
+            } else {
+                logger.warn("Failed to build url...");
+            }
         }
 
-        for (final String url : urls) {
-            if (url == null) {
-                logger.warn("Null URL encountered, skipping...");
-                continue;
-            }
-            final Matcher urlMatcher = URL_PATTERN.matcher(url);
-            if (urlMatcher.matches()) {
-                urlBuilder.append("/").append(urlMatcher.group(1)).append(",").append(urlMatcher.group(2));
-            } else {
-                logger.warn("url format not recognized. url: {}", url);
-            }
-        }
-        if (urlBuilder.length() > 0) {
-            urlBuilder.insert(0, DIRECTIONS_URL);
-            urlBuilder.append("/");
-            return urlBuilder.toString();
-        } else {
-            return null;
-        }
+        return urlBuilder.toString();
     }
 
-    /**
-     * extracts a map of direction urls from a list of coordinates
-     *
-     * @param coordinatesList
-     * @return urlBuilder.toString()
-     */
-    public String getDirectionsUrlFromCoordinates(List<Coordinates> coordinatesList) {
+    public BigDecimal getDistanceFromUrls (final String previousUrl, final String nextUrl) {
 
-        final StringBuilder urlBuilder = new StringBuilder();
-        if (coordinatesList == null || coordinatesList.isEmpty()) {
-            return null;
-        }
-        for (final Coordinates coordinates : coordinatesList) {
-            if (coordinates == null ) {
-                logger.warn("Null URL encountered, skipping...");
-                continue;
-            }
-            if (coordinates.getLatitude() == null || coordinates.getLongitude() == null ) {
-                logger.warn("Invalid or empty coordinates...");
-                continue;
-            }
+        Coordinates previous = new Coordinates();
+        Coordinates next = new Coordinates();
 
-            urlBuilder.append("/").append(coordinates.getLatitude().toString()).append(",").append(coordinates.getLongitude().toString());
+       try {
+           if (previousUrl != null && !previousUrl.isEmpty() && nextUrl != null && !nextUrl.isEmpty()) {
+               Matcher urlMatcher = URL_PATTERN.matcher(previousUrl);
+               if (urlMatcher.matches()) {
+                   previous.setLatitude(Double.valueOf(urlMatcher.group(1)));
+                   previous.setLongitude(Double.valueOf(urlMatcher.group(2)));
+               } else {
+                   logger.info("Could not extract coordinates from previous url");
+                   return BigDecimal.ZERO;
 
-        }
-        if (urlBuilder.length() > 0) {
-            urlBuilder.insert(0, DIRECTIONS_URL);
-            urlBuilder.append("/");
-            return urlBuilder.toString();
-        } else {
-            return null;
-        }
+               }
+               urlMatcher = URL_PATTERN.matcher(nextUrl);
+               if (urlMatcher.matches()) {
+                   next.setLatitude(Double.valueOf(urlMatcher.group(1)));
+                   next.setLongitude(Double.valueOf(urlMatcher.group(2)));
+               } else {
+                   logger.info("Could not extract coordinates from next url");
+                   return BigDecimal.ZERO;
+               }
+           }
+        } catch (NumberFormatException e ) {
+           logger.warn("A number format exception occurred whilst handling coordinates: ", e);
+           return BigDecimal.ZERO;
+       }
+        return getDistanceStops(previous, next);
 
-    }
-
-    /**
-     * creates a route url from coordinates extracted from the place urls of days in an itinerary
-     * *
-     * returns null if unable to extract any coordinates for a day to prevent erroneous route maps
-     * @param itineraryPage
-     * @return directionsByDayMap
-     */
-    public String getDirectionsUrlFromItinerary(ItineraryPage itineraryPage) {
-
-        final StringBuilder urlBuilder = new StringBuilder();
-        if (itineraryPage == null ) {
-            return null;
-        }
-
-        TreeMap<Integer, Coordinates> coordinatesMap = new TreeMap<>();
-
-        int dayCount = 0;
-        for (Day dayModule : itineraryPage.getDays()) {
-            final String url = dayModule.getMapLink().getLink();
-            if (url == null) {
-                logger.warn("Null url. Skipping...");
-                return null;
-            }
-            Matcher urlMatcher = URL_PATTERN.matcher(url);
-            if (urlMatcher.matches()) {
-                coordinatesMap.put(dayCount++, new Coordinates(Double.valueOf(urlMatcher.group(1)),Double.valueOf(urlMatcher.group(2))));
-            } else {
-                logger.warn("Url {} did is not a valid google place url.", url);
-                return null;
-            }
-        }
-
-        for (Coordinates coordinates : coordinatesMap.values()) {
-            if (coordinates == null || coordinates.getLatitude() == null || coordinates.getLongitude() == null) {
-                logger.warn("Null coordinates encountered, skipping...");
-                continue;
-            }
-
-            urlBuilder.append("/").append(coordinates.getLatitude().toString()).append(",").append(coordinates.getLongitude().toString());
-        }
-        if (urlBuilder.length() > 0) {
-            urlBuilder.insert(0, DIRECTIONS_URL);
-            urlBuilder.append("/");
-            return urlBuilder.toString();
-        } else {
-            return null;
-        }
     }
 }

@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.dms;
 
 
+@Deprecated(since = "2.14.0", forRemoval = true)
 public enum ICentresMapTab implements BespokeDmsMap{
 
     ICENTRE(DMSConstants.TYPE_SERVICES, DMSConstants.CAT_ICENTRE, DMSConstants.CAT_ICENTRE,"map.serv","");

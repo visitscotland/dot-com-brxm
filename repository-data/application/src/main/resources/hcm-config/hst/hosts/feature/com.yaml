@@ -11,3 +11,4 @@ definitions:
             jcr:primaryType: hst:mount
             hst:ismapped: false
             hst:namedpipeline: WebApplicationInvokingPipeline
+            visitscotland:cmsProperties: feature.cms.config

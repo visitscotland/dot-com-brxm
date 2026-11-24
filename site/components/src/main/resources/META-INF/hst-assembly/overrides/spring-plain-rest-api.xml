@@ -7,9 +7,13 @@
   <import resource="classpath:/org/hippoecm/hst/site/optional/jaxrs/SpringComponentManager-rest-jackson.xml"/>
   <import resource="classpath:/org/hippoecm/hst/site/optional/jaxrs/SpringComponentManager-rest-plain-pipeline.xml"/>
   <import resource="classpath:/org/hippoecm/hst/site/optional/jaxrs/SpringComponentManager-rest-content-pipeline.xml"/>
+  <import resource="classpath:/org/hippoecm/hst/site/optional/jaxrs/SpringComponentManager-rest-content-pipeline.xml"/>
 
 <!--  The following block has been kept commented out just in case we need to implement customized endpoint in the future -->
 <!--  The current documentation is a bit poor on this topic, and the essentials plugin is unstable -->
+
+  <bean id="hippoUtilsService" class="com.visitscotland.brxm.services.HippoUtilsService"/>
+  <bean id="commonUtilsService" class="com.visitscotland.brxm.services.CommonUtilsService"/>
 
   <bean id="customRestPlainResourceProviders" class="org.springframework.beans.factory.config.ListFactoryBean">
     <property name="sourceList">
@@ -22,6 +26,27 @@
         <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
           <constructor-arg>
             <bean class="com.visitscotland.brxm.event.EventsRestService"/>
+          </constructor-arg>
+        </bean>
+        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+          <constructor-arg>
+              <bean class="com.visitscotland.brxm.favourites.FavouritesRestService"/>
+          </constructor-arg>
+        </bean>
+        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+          <constructor-arg>
+            <bean class="com.visitscotland.brxm.rest.TaxonomyRestService">
+              <constructor-arg index="0" ref="hippoUtilsService"/>
+              <constructor-arg index="1" ref="commonUtilsService"/>
+            </bean>
+          </constructor-arg>
+        </bean>
+        <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+          <constructor-arg>
+            <bean class="com.visitscotland.brxm.rest.VsEventsRestService">
+              <constructor-arg index="0" ref="hippoUtilsService"/>
+              <constructor-arg index="1" ref="commonUtilsService"/>
+            </bean>
           </constructor-arg>
         </bean>
       </list>

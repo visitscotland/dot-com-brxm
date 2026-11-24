@@ -67,23 +67,6 @@ public class ItineraryDayMockBuilder {
         return this;
     }
 
-    public ItineraryDayMockBuilder tip(String title, boolean copy) {
-        if (currentStop == null){
-            Assertions.fail("The stop hasn't been defined");
-        }
-        StopTip tip = mock(StopTip.class);
-        if (title != null){
-            when(tip.getTitle()).thenReturn(title);
-        }
-        if (copy){
-            when(tip.getCopy()).thenReturn(mock(HippoHtml.class));
-        }
-
-        when(currentStop.getStopTip()).thenReturn(tip);
-
-        return this;
-    }
-
     public ItineraryDayMockBuilder addDescription(){
         if (currentStop == null){
             Assertions.fail("The stop hasn't been defined");
@@ -93,18 +76,6 @@ public class ItineraryDayMockBuilder {
         return this;
     }
 
-    public ItineraryDayMockBuilder addDmsStop(String dmsId) {
-        addStop();
-        dmsLink = mock(DMSLink.class);
-
-        when(currentStop.getStopItem()).thenReturn(dmsLink);
-        when(dmsLink.getProduct()).thenReturn(dmsId);
-
-        //This mocked value is not representative of the real object.
-        when(currentStop.getIdentifier()).thenReturn(dmsId);
-
-        return this;
-    }
 
     public ItineraryDayMockBuilder addExternalStop(String url, Boolean cta){
         addStop();
@@ -136,13 +107,6 @@ public class ItineraryDayMockBuilder {
         return this;
     }
 
-    public ItineraryDayMockBuilder timeToExplore(String tte){
-        if (link == null){
-            Assertions.fail("The Externalink hasn't been defined");
-        }
-        when(link.getTimeToExplore()).thenReturn(tte);
-        return this;
-    }
 
     public ItineraryDayMockBuilder ctaLabel(String label){
         if (link != null){

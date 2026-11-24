@@ -31,7 +31,7 @@
 </#compress>
 <div class="has-edit-button">
 	<@hst.manageContent hippobean=document/>
-
+	THIS FRONT END SOLUTION IS USING OLD FTL, DEPRECATED SINCE FEBRUARY 2026 !!!
 	<#if author??>
 		<@pageIntro content=document lightBackground=true author=author />
 		<@introImage mainImage=heroImage />

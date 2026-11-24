@@ -1,0 +1,5 @@
+/hst:hst/hst:configurations/travel-trade/hst:workspace/hst:sitemenus/main/suppliers:
+  .meta:order-before: keep-in-touch
+  jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: suppliers
+  hst:repobased: false

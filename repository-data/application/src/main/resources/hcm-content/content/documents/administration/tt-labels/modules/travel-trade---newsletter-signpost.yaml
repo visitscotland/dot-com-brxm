@@ -1,0 +1,91 @@
+/content/documents/administration/tt-labels/modules/travel-trade---newsletter-signpost:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: b0ffaa0a-feb2-4bc7-bf76-49845afed52d
+  hippo:name: Travel Trade - Newsletter Signpost
+  hippo:versionHistory: eea52ec5-d521-42c9-8ce8-5eb51e597517
+  /travel-trade---newsletter-signpost[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: df31a269-d088-4766-82ea-428890962278
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
+    hippostdpubwf:lastModificationDate: 2026-10-23T14:10:35.318+02:00
+    hippostdpubwf:lastModifiedBy: jose.calcines
+    resourcebundle:descriptions: ['', This label is not in use at the moment, '',
+      '', '', '', '', '', '', '']
+    resourcebundle:id: tt.newsletter-signpost
+    resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
+      newsletter.copy, newsletter.image, snow-alerts.title, snow-alerts.copy, snow-alerts.cta.text,
+      snow-alerts.cta.link, snow-alerts.image]
+    resourcebundle:messages: [Sign up to our VisitScotland Travel Trade eNewsletter,
+      /newsletter-sign-up/, Sign up now, 'Sign up now to receive inspirational information
+        about Scotland, product updates, events and webinar invites, all from VisitScotland
+        and relevant to your market. By signing up you are indicating your consent
+        to receiving our e-newsletter. You can unsubscribe at any time. We will also
+        use your details in accordance with our privacy policy. View our privacy centre.',
+      assets/images/illustrations/newsletter-background.jpg, Newsletter and Snow Alerts
+        sign up, Our newsletter is full of holiday inspiration and travel tips. We’ll
+        also send you up-to-date snow alerts during the snowsports season., Sign me
+        up, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
+  /travel-trade---newsletter-signpost[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 3410d0a7-60f1-4259-a630-8d5a7053bb69
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
+    hippostdpubwf:lastModificationDate: 2026-10-23T14:08:17.147+02:00
+    hippostdpubwf:lastModifiedBy: jose.calcines
+    resourcebundle:descriptions: ['', This label is not in use at the moment, '',
+      '', '', '', '', '', '', '']
+    resourcebundle:id: tt.newsletter-signpost
+    resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
+      newsletter.copy, newsletter.image, snow-alerts.title, snow-alerts.copy, snow-alerts.cta.text,
+      snow-alerts.cta.link, snow-alerts.image]
+    resourcebundle:messages: [Sign up to our VisitScotland Travel Trade eNewsletter,
+      /newsletter-sign-up/, Sign up now, 'Sign up now to receive inspirational information
+        about Scotland, product updates, events and webinar invites, all from VisitScotland
+        and relevant to your market. By signing up you are indicating your consent
+        to receiving our e-newsletter. You can unsubscribe at any time. We will also
+        use your details in accordance with our privacy policy. View our privacy centre.',
+      assets/images/illustrations/newsletter-background.jpg, Newsletter and Snow Alerts
+        sign up, Our newsletter is full of holiday inspiration and travel tips. We’ll
+        also send you up-to-date snow alerts during the snowsports season., Sign me
+        up, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]
+  /travel-trade---newsletter-signpost[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 2cbb4cd0-20b9-48c8-b65a-7d62f80283bb
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2021-05-17T15:10:33.190+01:00
+    hippostdpubwf:lastModificationDate: 2026-10-23T14:10:35.318+02:00
+    hippostdpubwf:lastModifiedBy: jose.calcines
+    hippostdpubwf:publicationDate: 2026-10-23T14:10:37.173+02:00
+    resourcebundle:descriptions: ['', This label is not in use at the moment, '',
+      '', '', '', '', '', '', '']
+    resourcebundle:id: tt.newsletter-signpost
+    resourcebundle:keys: [newsletter.title, newsletter.cta.link, newsletter.cta.text,
+      newsletter.copy, newsletter.image, snow-alerts.title, snow-alerts.copy, snow-alerts.cta.text,
+      snow-alerts.cta.link, snow-alerts.image]
+    resourcebundle:messages: [Sign up to our VisitScotland Travel Trade eNewsletter,
+      /newsletter-sign-up/, Sign up now, 'Sign up now to receive inspirational information
+        about Scotland, product updates, events and webinar invites, all from VisitScotland
+        and relevant to your market. By signing up you are indicating your consent
+        to receiving our e-newsletter. You can unsubscribe at any time. We will also
+        use your details in accordance with our privacy policy. View our privacy centre.',
+      assets/images/illustrations/newsletter-background.jpg, Newsletter and Snow Alerts
+        sign up, Our newsletter is full of holiday inspiration and travel tips. We’ll
+        also send you up-to-date snow alerts during the snowsports season., Sign me
+        up, 'https://www.visitscotland.com/see-do/active/skiing-snowsports/snow-alert-signup/',
+      assets/images/illustrations/ski-newletter.svg]

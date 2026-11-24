@@ -20,7 +20,6 @@ public class ResourceBundleService {
 
     private final Logger contentLogger;
 
-
     private final SiteProperties properties;
 
     public ResourceBundleService(ContentLogger contentLogger, @Lazy SiteProperties properties) {
@@ -172,7 +171,7 @@ public class ResourceBundleService {
      * @param locale     locale
      * @return resource bundle for a specific locale
      */
-    private ResourceBundle getResourceBundle(String bundleName, Locale locale) {
+    public ResourceBundle getResourceBundle(String bundleName, Locale locale) {
         if (locale == null) {
             return getResourceBundleRegistry().getBundle(bundleName);
         } else {

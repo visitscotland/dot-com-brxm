@@ -23,6 +23,7 @@ import java.util.Set;
  */
 public class JcrDocument {
     public static final String HIPPO_HANDLE = "hippo:handle";
+    public static final String HIPPO_NAMESPACE = "hipposysedit:namespace";
     public static final String HIPPO_TRANSLATED = HippoStdNodeType.NT_TRANSLATED;
     public static final String HIPPOSTD_STATE = HippoStdNodeType.HIPPOSTD_STATE;
     public static final String HIPPOSTD_PUBLISHABLE = HippoStdNodeType.NT_PUBLISHABLE;
@@ -55,7 +56,9 @@ public class JcrDocument {
             throw new IllegalArgumentException("the Node supplied must be a handle or a document variant, not null");
         }
 
-        if (handle.isNodeType(HIPPO_HANDLE)) {
+        if (handle.isNodeType(HIPPO_NAMESPACE)) {
+            throw new InvalidStateException("The namespace node does not need to be translated");
+        } else if (handle.isNodeType(HIPPO_HANDLE)) {
             this.handle = handle;
         } else {
             Node parent = handle.getParent();

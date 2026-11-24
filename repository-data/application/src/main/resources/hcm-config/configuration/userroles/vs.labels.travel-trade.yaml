@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:userroles/vs.labels.travel-trade:
+      jcr:primaryType: hipposys:userrole
+      hipposys:description: Travel Trade Labels for Navigation and special components
+      hipposys:system: false

@@ -1,0 +1,7 @@
+/content/gallery/travel-trade:
+  jcr:primaryType: hippogallery:stdImageGallery
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 31365d0e-42f6-44cf-8889-7570293d7c5d
+  hippo:name: Travel Trade
+  hippostd:foldertype: [new-visitscotland-Image-folder]
+  hippostd:gallerytype: ['visitscotland:Image']

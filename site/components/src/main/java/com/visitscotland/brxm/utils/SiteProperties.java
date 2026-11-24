@@ -61,6 +61,11 @@ public class SiteProperties extends Properties {
     public String getChannelOrder(){
         return readString(CHANNEL_ORDER);
     }
+
+    public boolean isMultiChannelSite() {
+        return readOptionalString(CHANNEL_ORDER).isPresent();
+    }
+
     public String getIknowCommunityUrl() {
         return readString(IKNOW_COMMUNITY_URL);
     }
@@ -84,8 +89,8 @@ public class SiteProperties extends Properties {
     public String getSiteICentre() {
         return readString(PATH_ICENTRE);
     }
-    public String getSiteMap() {
-        return readString(PATH_MAP);
+    public String getSiteMap(Locale locale) {
+        return readString(PATH_MAP, locale);
     }
     public String getSiteBanner() {
         return readString(PATH_BANNER);
@@ -100,6 +105,21 @@ public class SiteProperties extends Properties {
         return readString(GTM_PREVIEW_QUERY_STRING);
     }
 
+    // enable/disable favourites for each site
+    public boolean isFavouritesEnabled(Locale locale) {
+        return readBoolean(FAVOURITES_PAGE_ENABLED, locale);
+    }
+
+    public String getFavouritesUrl(Locale locale) {
+        return readString(FAVOURITES_PAGE_URL, locale);
+    }
+
+    public String getFavouritesEndpoint() { return readString(FAVOURITES_PAGE_ENDPOINT); }
+
+    public String getFavouritesBaseUrl() { return readString(FAVOURITES_BASE_URL); }
+
+    public String getFavouritesShareUrl() { return readString(FAVOURITES_SHARE_URL); }
+
     public boolean isTableOfContentsEnabled() {
         return readBoolean(TABLE_OF_CONTENTS_ENABLED);
     }
@@ -110,6 +130,10 @@ public class SiteProperties extends Properties {
 
     public boolean isGlobalSearchDmsBased() {
         return readBoolean(GLOBAL_SEARCH_DMS_BASED);
+    }
+
+    public String getObsSubmitUrl() {
+        return readString(OBS_SUBMIT_URL);
     }
 
     public Optional<String> getGlobalSearchEventsEndpoint() {
@@ -162,7 +186,8 @@ public class SiteProperties extends Properties {
     public String getFormBregLegalBasisText() {
         return readString(FORM_BREG_LEGAL_BASIS_TEXT);
     }
-    public Boolean isFormBregLegalBasisEnabled() {
+
+    public boolean isFormBregLegalBasisEnabled() {
         return readBoolean(FORM_BREG_LEGAL_BASIS_ENABLE);
     }
 

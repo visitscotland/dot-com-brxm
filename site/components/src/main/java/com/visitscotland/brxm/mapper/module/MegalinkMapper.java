@@ -173,7 +173,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
             //TODO: This if block can be removed after version 2.12.0
             return buildCardGroupModule(doc, locale, MegalinkLayout.fromValue(doc.getLayout()).orElseThrow());
         } else if (doc.getMegalinkItems().size() > 4) {
-            return listLayout(doc, locale);
+            return buildCardGroupModule(doc, locale, MegalinkLayout.HORIZONTAL_LINKS);
         } else if (doc.getMegalinkItems().size() == 4) {
             return buildCardGroupModule(doc, locale, MegalinkLayout.GRID_4);
         } else {

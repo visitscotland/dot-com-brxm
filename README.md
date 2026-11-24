@@ -70,7 +70,7 @@ will not be available.
 
 ### Development credentials
 - Username: admin
-- Password: admin (Do not share it. It is a secret)
+- Password: admin (Do not share it! It is a secret!)
 
 Windows Based Console
 
@@ -87,8 +87,9 @@ Before merging any changes, it’s important to validate them in an integrated e
 
 ### Validating New Data 
 
-If your change introduces new data (i.e. new field or module for the front end to consume), it must first be validated through the Resource API.
-This ensures the data is correctly structured, accessible, and behaves as expected before UI or workflow testing begins.
+If your change introduces new data (i.e. new field or module for the front end to consume), it must first be validated 
+through the Resource API. This ensures the data is correctly structured, accessible, and behaves as expected before 
+UI or workflow testing begins.
 
 ### Validating UI‑Impacting Changes
 
@@ -104,7 +105,7 @@ Follow these steps:
 temporary environment created for your PR. Open it to validate your UI changes end‑to‑end. After clicking on the first link
 you can use the rest of the links on that page to access to the different tools of the environment (i.e. CMS, Logs, etc.)
 
-## Releasing the project
+## Releases
 
 The commands to start and complete the release are the following
 
@@ -113,6 +114,10 @@ The commands to start and complete the release are the following
     ci/finish-release.sh
 
 You can check more in depth documentation in [this page](doc/how-to/release-process.md) 
+
+## Code Standards
+
+- [Unit Testing](doc/unit-test.md)
     
 ## Troubleshooting
 **I get the following error when I try to clone the message: _fatal: cannot create directory at '{some big path}': Filename too long_**

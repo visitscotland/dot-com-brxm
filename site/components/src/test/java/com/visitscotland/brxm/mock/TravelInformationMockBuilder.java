@@ -1,19 +1,23 @@
 package com.visitscotland.brxm.mock;
 
-
 import com.visitscotland.brxm.hippobeans.TravelInformation;
 import com.visitscotland.brxm.hippobeans.TravelInformationTab;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.mockito.Mockito;
 
-import static org.mockito.Mockito.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.mockito.Mockito.when;
 
 public class TravelInformationMockBuilder {
 
-    private TravelInformation mock;
+    private final TravelInformation mock;
 
     public TravelInformationMockBuilder() {
         mock = Mockito.mock(TravelInformation.class);
+        when(mock.getPracticalInformation()).thenReturn(new ArrayList<>());
     }
 
     public TravelInformation build() {
@@ -32,15 +36,12 @@ public class TravelInformationMockBuilder {
         return this;
     }
 
-    public TravelInformationMockBuilder gettingTo(TravelInformationTab gettingTo) {
-        when(mock.getGettingTo()).thenReturn(gettingTo);
+    public TravelInformationMockBuilder practicalInformation(
+            TravelInformationTab... tabs) {
+
+        when(mock.getPracticalInformation())
+                .thenReturn(Arrays.asList(tabs));
+
         return this;
     }
-
-    public TravelInformationMockBuilder gettingAround(TravelInformationTab gettingAround) {
-        when(mock.getGettingAround()).thenReturn(gettingAround);
-        return this;
-    }
-
-
 }

@@ -7,6 +7,7 @@ import com.visitscotland.brxm.hippobeans.Quote;
 import com.visitscotland.brxm.hippobeans.Video;
 import com.visitscotland.brxm.hippobeans.VideoLink;
 import com.visitscotland.brxm.mapper.ImageMapper;
+import com.visitscotland.brxm.mapper.MediaSectionMapper;
 import com.visitscotland.brxm.mapper.QuoteMapper;
 import com.visitscotland.brxm.model.ArticleModule;
 import com.visitscotland.brxm.services.LinkService;
@@ -38,6 +39,9 @@ class ArticleMapperTest {
 
     @Mock
     AnchorFormatter anchorFormatter;
+
+    @Mock
+    MediaSectionMapper mediaSectionMapper;
 
     @Mock
     QuoteMapper embedder;

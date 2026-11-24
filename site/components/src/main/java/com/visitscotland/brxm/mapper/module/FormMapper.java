@@ -1,28 +1,32 @@
 package com.visitscotland.brxm.mapper.module;
 
 import com.visitscotland.brxm.hippobeans.*;
+import com.visitscotland.brxm.hippobeans.capabilities.BregConsent;
+import com.visitscotland.brxm.model.SimpleFormConsent;
 import com.visitscotland.brxm.model.FormModule;
 import com.visitscotland.brxm.model.form.BregConfiguration;
 import com.visitscotland.brxm.model.form.CRMConfiguration;
 import com.visitscotland.brxm.model.form.FeplConfiguration;
 import com.visitscotland.brxm.model.form.MarketoConfiguration;
-import com.visitscotland.brxm.utils.ContentLogger;
-import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+import com.visitscotland.brxm.utils.ContentLogger;
+import com.visitscotland.brxm.utils.SiteProperties;
 import com.visitscotland.utils.Contract;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.MissingResourceException;
 
 @Component
 public class FormMapper extends ModuleMapper<Form, FormModule> {
 
+    private static final Logger log = LoggerFactory.getLogger(FormMapper.class);
     private final SiteProperties properties;
 
 
@@ -60,14 +64,14 @@ public class FormMapper extends ModuleMapper<Form, FormModule> {
 
         if (bean instanceof FormCompoundMarketo) {
             cfg.setJsonUrl(((FormCompoundMarketo) bean).getJsonUrl());
-        } else if (bean instanceof MarketoForm){
+        } else if (bean instanceof MarketoForm) {
             cfg.setJsonUrl(((MarketoForm) bean).getJsonUrl());
         }
 
         return cfg;
     }
 
-    private FeplConfiguration getFeplConfiguration(FormCompoundFepl fepl){
+    private FeplConfiguration getFeplConfiguration(FormCompoundFepl fepl) {
         FeplConfiguration cfg = new FeplConfiguration();
         cfg.setRecaptcha(properties.getFormsRecaptcha());
         cfg.setSubmitUrl(fepl.getUrl());
@@ -76,25 +80,22 @@ public class FormMapper extends ModuleMapper<Form, FormModule> {
         return cfg;
     }
 
-    private BregConfiguration getBregConfiguration(FormCompoundBreg breg){
+    private BregConfiguration getBregConfiguration(FormCompoundBreg breg) {
         BregConfiguration cfg = new BregConfiguration();
-        cfg.setRecaptcha(properties.getFormsRecaptcha());
         cfg.setSubmitUrl(breg.getUrl());
         cfg.setJsonUrl(breg.getJsonUrl());
         cfg.setActivityCode(breg.getActivityCode());
         cfg.setActivityDescription(breg.getActivityDescription());
         cfg.setActivitySource(breg.getActivitySource());
-        List<Entry> consents = breg.getConsents();
-        String consentValue = "";
-        for (Entry cons : consents) {
-            if (Contract.isEmpty(consentValue)){
-                consentValue = cons.getKey() + "," + cons.getValue();
-            } else {
-                consentValue = consentValue + ";" + cons.getKey() + "," + cons.getValue();
-            }
+
+        if (!breg.getUrl().contains("no-captcha")) {
+            cfg.setRecaptcha(properties.getFormsRecaptcha());
         }
 
-        cfg.setConsents(consentValue);
+        cfg.setConsentList(generateConsentList(breg.getConsents()));
+        cfg.setConsents(composeConsent(breg.getConsents()));
+
+
         if (properties.isFormBregLegalBasisEnabled()) {
             cfg.setLegalBasis(properties.getFormBregLegalBasisText());
         }
@@ -102,7 +103,49 @@ public class FormMapper extends ModuleMapper<Form, FormModule> {
         return cfg;
     }
 
-    private CRMConfiguration getCRMConfiguration(FormCompoundCRM crm){
+    private List<SimpleFormConsent> generateConsentList(List<BregConsent> consents) {
+        List<SimpleFormConsent> entries = new ArrayList<>();
+
+        for (BregConsent consent : consents) {
+            SimpleFormConsent entry = new SimpleFormConsent();
+            entry.setKey(consent.getKey());
+            entry.setValue(consent.getValue());
+            if (consent instanceof FormConsent) {
+                entry.setOptional(((FormConsent) consent).getOptional());
+                entry.setType(((FormConsent) consent).getConsentType());
+            }
+            entries.add(entry);
+        }
+
+        return entries;
+    }
+
+    /**
+     * @deprecated This method is deprecated because the consent composition should be done in BREG and not in the mapper.
+     * This method will be removed after the UI for BSH and BE are updated to the ConsentList solution
+     */
+    @Deprecated
+    private String composeConsent(List<BregConsent> consents) {
+        String consentComposition = "";
+        for (BregConsent cons : consents) {
+            String consValue = cons.getValue();
+            if (consValue.contains(",") || consValue.contains(";")) {
+                log.error("The consent message has been altered because it contains not allowed characters '{}'",
+                        consValue);
+                consValue = consValue.replace(",", " –").replace(";", " –");
+            }
+
+            if (Contract.isEmpty(consentComposition)) {
+                consentComposition = cons.getKey() + "," + consValue;
+            } else {
+                consentComposition = consentComposition + ";" + cons.getKey() + "," + consValue;
+            }
+        }
+        return consentComposition;
+    }
+
+
+    private CRMConfiguration getCRMConfiguration(FormCompoundCRM crm) {
         CRMConfiguration cfg = new CRMConfiguration();
         cfg.setRecaptcha(properties.getFormsRecaptcha());
         cfg.setSubmitUrl(crm.getUrl());

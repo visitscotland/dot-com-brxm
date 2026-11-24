@@ -28,6 +28,7 @@ public abstract class ContentComponent extends EssentialsContentComponent {
     private final HippoUtilsService hippoUtilsService;
     private final LocalizationComponent localizationComponent;
     private final ResourceBundleService bundle;
+
     public static final String PAGE_PATH = "content";
     private static final String ERROR_CODE = "errorCode";
 
@@ -50,11 +51,11 @@ public abstract class ContentComponent extends EssentialsContentComponent {
 
     @Override
     public void prepareBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
-        PageCompositionHelper helper = new PageCompositionHelper(bundle, request);
-
         super.prepareBeforeRender(request, response);
 
-        localizationComponent.setLocale(helper);
+        PageCompositionHelper pageConfig = new PageCompositionHelper(bundle,  request);
+
+        localizationComponent.setLocale(pageConfig);
         setStatusCode(request, response);
 
     }

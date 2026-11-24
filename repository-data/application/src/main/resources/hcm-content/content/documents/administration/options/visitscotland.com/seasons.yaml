@@ -1,0 +1,32 @@
+/content/documents/administration/options/visitscotland.com/seasons:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: e127a08a-65ba-4966-86db-7aef25a95966
+  hippo:name: Itinerary Seasons
+  /seasons:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 2230eb30-9e43-44ac-8902-6cf9e7fdfb13
+    hippo:availability: [live, preview]
+    hippotranslation:id: 420a4941-f22f-4973-9628-5bc4475e8385
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: spring
+      selection:label: Spring
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: summer
+      selection:label: Summer
+    /selection:listitem[3]:
+      jcr:primaryType: selection:listitem
+      selection:key: autumn
+      selection:label: Autumn
+    /selection:listitem[4]:
+      jcr:primaryType: selection:listitem
+      selection:key: winter
+      selection:label: Winter
+    /selection:listitem[5]:
+      jcr:primaryType: selection:listitem
+      selection:key: all
+      selection:label: All year

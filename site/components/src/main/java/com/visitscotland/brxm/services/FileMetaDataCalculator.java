@@ -29,7 +29,7 @@ public class FileMetaDataCalculator {
         HttpURLConnection connection = null;
         try {
             connection = connectionProvider.openConnection(link);
-            if (connection.getResponseCode() >= 400) {
+            if (connection.getResponseCode() >= 300) {
                 return null;
             }
             return new FileMetaData(link, connection.getContentLength(), connection.getContentType());
@@ -46,7 +46,7 @@ public class FileMetaDataCalculator {
     @Cacheable(value = "externalDocument")
     public Optional<String> getDisplayText(String link, Locale locale) {
         FileMetaData metaData = getFileMetaData(link);
-        if (metaData != null) {
+        if (metaData != null && metaData.getMimeType() != null) {
             Optional<String> displayType = getFileType(metaData.getMimeType(), link);
             return composeText(displayType, metaData.getContentLength(), locale);
         }

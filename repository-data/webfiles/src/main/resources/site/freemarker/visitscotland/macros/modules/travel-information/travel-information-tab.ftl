@@ -6,7 +6,7 @@
 
 <#include "../../../functions/helpers.ftl">
 
-<#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.TravelInformationModuleTab" -->
+<#-- @ftlvariable name="module" type="com.visitscotland.brxm.model.TravelInformationTransportModule" -->
 
 <#macro travelInformationTab module>
     <vs-tab-item title="${module.title}">

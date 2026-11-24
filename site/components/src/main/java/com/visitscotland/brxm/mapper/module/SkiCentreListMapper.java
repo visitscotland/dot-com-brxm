@@ -69,7 +69,7 @@ public class SkiCentreListMapper extends ModuleMapper<SkiCentreList, SkiListModu
                         module.addErrorMessage(message);
                         contentLogger.error("{} (Path={})", message, document.getPath());
                     }
-                    SkiModule skiModule = skiCentreMapper.getModule(skiDocument.get(0), locale);
+                    SkiModule skiModule = skiCentreMapper.getModule(skiDocument.get(0));
                     //Title is overridden with the title of the page.
                     skiModule.setTitle(page.getTitle());
                     skiModule.setIntroduction(null);

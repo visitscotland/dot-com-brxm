@@ -1,23 +1,24 @@
 /content/documents/administration/labels/modules/map:
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-  jcr:uuid: c443083d-2924-408b-85a5-0a08f3ac0bae
+  jcr:uuid: ba1184d2-e135-4e04-9164-0c97108bd0e6
   hippo:name: Map
-  hippo:versionHistory: 81c60db2-e8d3-47ce-ba72-56b928e6f342
+  hippo:versionHistory: fe026f3f-0c22-40b3-9040-e87b923ccc17
   /map[1]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 98b032e0-bd2a-47ed-b815-0193714e2100
+    jcr:uuid: 3ca6ab93-a988-4667-a44a-f2614289aec9
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-01-23T18:03:01.838Z
+    hippostdpubwf:lastModificationDate: 2026-11-20T10:56:34.602Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -27,7 +28,9 @@
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
       map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
-      map.search-map]
+      map.search-map, map.google-results-primary-message, map.google-results-supporting-message,
+      locationSelect, resetLocation, searchAreaButton, map.main-map.error-title, map.main-map.error-copy,
+      map.main-map.error-cta-title, map.main-map.error-cta-link]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
       Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
       Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
@@ -39,93 +42,120 @@
         you can''t zoom in any more', Explore, Distilleries, Type in your keyword,
       Search, Search Results for, Cookies need to be enabled to show this map, Refine
         your results, We couldn't find anything here. Try zooming out to explore more
-        locations., Search the map]
+        locations., Search the map, A selection of places matching your search is
+        shown below. Up to 20 results are displayed., Showing places matching your
+        search. Up to 20 results are displayed., Refine your results by location,
+      All locations, Search this area, Map temporarily unavailable, 'We''re having
+        trouble displaying the map at the moment. You can still explore Scotland using
+        search, navigation and destination pages while we work to restore the map.',
+      Explore Scotland’s Destinations, /places-to-go#section-1]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
-        schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
-      Unterkünfte, Aktivitäten, Sehenswürdigkeiten, Veranstaltungen, Gastronomie,
-      Shopping, Orte, iCentres, Regionen, Orte, 'JavaScript wird benötigt, um diese
-        Karte anzuzeigen.', Alle entfernen, Ergebnisse anzeigen, Filter angewendet,
-      Kartentyp wählen, Mehr laden, Ergebnisse werden geladen, Lädt, 'Bitte wählen
-        Sie einen oder mehrere Filter aus, um die Ergebnisse zu verfeinern.', 'Keine
-        Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.', '',
-      'Keine Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.',
-      Sie können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
-        vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
-      Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
-      Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
-        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen]
+        schließen, Kartenmenü, Einen Schritt zurückgehen, Filter zurücksetzen, Unterkünfte,
+      Aktivitäten, Sehenswürdigkeiten, Veranstaltungen, Gastronomie, Shopping, Orte,
+      iCentres, Regionen, Orte, 'JavaScript wird benötigt, um diese Karte anzuzeigen.',
+      Alle entfernen, Ergebnisse anzeigen, Filter angewendet, Kartentyp wählen, Mehr
+        laden, Ergebnisse werden geladen, Lädt, 'Bitte wählen Sie einen oder mehrere
+        Filter aus, um die Ergebnisse zu verfeinern.', 'Keine Ergebnisse gefunden,
+        bitte wählen Sie einen oder mehrere Filter aus.', '', 'Keine Ergebnisse gefunden,
+        bitte wählen Sie einen oder mehrere Filter aus.', Sie können die Karte nicht
+        weiter verkleinern., Sie können die Karte nicht weiter vergrößern., Entdecken
+        Sie, Destillerien, Geben Sie Ihren Suchbegriff ein, Suchen, Suchergebnisse
+        für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen', Verfeinern Sie
+        Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern Sie die
+        Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, 'Es werden Orte
+        angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20 Ergebnisse angezeigt.',
+      'Es werden Orte angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20
+        Ergebnisse angezeigt.', Ergebnisse nach Ort filtern, Alle Orte, In dieser
+        Region suchen, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
-        de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
-      Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares, iCentres,
-      Regiones, Lugares, Se requiere Javascript para visualizar este mapa., Borrar
-        todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa, Cargar
-        mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los resultados,
-      'No se encontraron resultados, por favor aplique filtro(s)', '', 'No se encontraron
-        resultados, por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte',
-      'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías, Escribe tu palabra
-        clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
-        para mostrar este mapa, Refinar resultados de búsqueda, No hemos encontrado
-        nada aquí. Intenta alejar el zoom para explorar más ubicaciones., Buscar en
-        el mapa]
+      Restablecer Mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
+        de búsqueda y filtro, Menú del mapa, Retroceder un paso, Restablecer filtros,
+      Alojamiento, Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares,
+      iCentres, Regiones, Lugares, Se requiere Javascript para visualizar este mapa.,
+      Borrar todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa,
+      Cargar más, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los
+        resultados, 'No se encontraron resultados, por favor aplique filtro(s)', '',
+      'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
+        no puedes alejarte más', 'Lo sentimos, ya no puedes hacer zoom', Explora,
+      Destilerías, Escribe tu palabra clave, Buscar, Resultados de búsqueda para,
+      Las cookies deben estar habilitadas para mostrar este mapa, Refina los resultados
+        de tu búsqueda, No hemos encontrado nada aquí. Intenta alejar el zoom para
+        explorar más ubicaciones., Buscar en el mapa, Aquí se muestran lugares que
+        coinciden con tu búsqueda. Se muestran un máximo de 20 resultados., Aquí se
+        muestran lugares que coinciden con tu búsqueda. Se muestran un máximo de 20
+        resultados., Filtrar los resultados por ubicación, Todos los lugares, Buscar
+        en esta zona, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
-        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
+        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez :', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
       Réinitialiser les filtres, Hébergements, Activités, Attractions, Événements,
-      Gastronomie, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript est requis
-        pour afficher cette carte., Tout effacer, Afficher les résultats, Filtres
-        appliqués, Sélectionner le type de carte, Charger plus, Chargement des résultats,
-      Chargement, Veuillez appliquer un filtre pour affiner les résultats, 'Aucun
-        résultat, veuillez appliquer un filtre', '', 'Aucun résultat, veuillez appliquer
-        un filtre.', 'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous
-        ne pouvez pas zoomer davantage', Explorez, Distilleries, Entrez un mot-clé,
-      Rechercher, Afficher les résultats pour, Les cookies doivent être activés pour
-        afficher cette carte, Affiner vos résultats de recherche, Nous n’avons rien
-        trouvé dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres
-        zones., Rechercher sur la carte]
+      Gastronomie et restauration, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript
+        est requis pour afficher cette carte., Tout effacer, Afficher les résultats,
+      Filtres appliqués, Sélectionner le type de carte, Afficher plus, Chargement
+        des résultats, Chargement, Veuillez appliquer un ou plusieurs filtre(s) pour
+        affiner votre recherche, 'Aucun résultat, veuillez appliquer un ou plusieurs
+        filtre(s)', '', 'Aucun résultat, veuillez appliquer un ou plusieurs filtre(s).',
+      'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous ne pouvez pas
+        zoomer davantage', Explorez, Distilleries, Entrez un mot-clé, Rechercher,
+      Afficher les résultats pour, Les cookies doivent être activés pour afficher
+        cette carte, Affiner vos résultats de recherche, Nous n’avons rien trouvé
+        dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres zones.,
+      Rechercher sur la carte, Affichage des lieux correspondant à votre recherche.
+        Un maximum de 20 résultats sont affichés., Affichage des lieux correspondant
+        à votre recherche. Un maximum de 20 résultats sont affichés., Filtrer les
+        résultats par lieu, Tous les lieux, Rechercher dans cette zone, '', '', '',
+      /places-to-go#section-1]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
-      Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
-        pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
-        filtri, Alloggi, Attività, Attrazioni, Eventi, Cibo e bevande, Shopping, Luoghi,
-      iCentres, Regioni, Luoghi, Per visualizzare la mappa è necessario l'uso di Javascript.,
-      Cancella tutto, Mostra i risultati, Filtri applicati, Selezionare il tipo di
-        mappa, Carica di più, Caricamento dei risultati, Caricamento, Applica i filtri
-        per affinare i risultati, 'Nessun risultato trovato, si prega di applicare
-        il/i filtro/i', '', 'Nessun risultato trovato, si prega di applicare il/i
-        filtro/i.', 'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti,
-        non è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola
-        chiave, Cerca, Risultati della ricerca per, I cookie devono essere attivati
-        per visualizzare questa mappa, Affina i tuoi risultati, Non abbiamo trovato
-        niente qui. Prova a zoomare indietro per vedere altri luoghi., Cerca sulla
-        mappa]
-    resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
-      Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
-      Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
-      Evenementen, Eten en drinken, Winkelen, Plaatsen, iCentres, Regio\'s, Plaatsen,
-      Javascript is nodig om deze kaart te tonen., Alles verwijderen, Toon resultaten,
-      Filters toegepast, Selecteer type kaart, Meer laden, Resultaten laden, Laden,
-      Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten gevonden,
-        pas filter(s) toe', '', 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas,
-        je kunt niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek,
-      Distilleerderijen, Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn
-        cookies nodig om deze kaart te tonen, Verfijn je zoekresultaten, Er zijn helaas
-        geen resultaten gevonden. Zoom uit om meerdere locaties te ontdekken., Zoek
-        op de kaart]
+      Reset, Ingrandisci, Riduci, Luoghi in primo piano, Scopri ora, Chiudi il pannello
+        di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta filtri, Alloggi,
+      Attività, Attrazioni, Eventi, Cibo e bevande, Shopping, Luoghi, iCentres, Regioni,
+      Luoghi, Per visualizzare la mappa è necessario l'uso di Javascript., Cancella
+        tutto, Mostra i risultati, Filtri applicati, Selezionare il tipo di mappa,
+      Carica di più, Caricamento dei risultati, Caricamento, Applica i filtri per
+        affinare i risultati, 'Nessun risultato trovato, si prega di applicare il/i
+        filtro/i', '', 'Nessun risultato trovato, si prega di applicare il/i filtro/i.',
+      'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti, non
+        è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola chiave,
+      Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
+        questa mappa, Affina i tuoi risultati, Non abbiamo trovato niente qui. Prova
+        a zoomare indietro per vedere altri luoghi., Cerca sulla mappa, Vengono visualizzati
+        i luoghi corrispondenti alla tua ricerca. Vengono visualizzati fino a 20 risultati.,
+      Vengono visualizzati i luoghi corrispondenti alla tua ricerca. Vengono visualizzati
+        fino a 20 risultati., Affina i risultati in base alla località, Tutte le località,
+      Cerca in questa zona, '', '', '', /places-to-go#section-1]
+    resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm afsluiten,
+      Heroriënteren, Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek-
+        en filtervenster, Legenda, Ga een stap terug, Filters herstellen, Accommodatie,
+      Activiteiten, Bezienswaardigheden, Evenementen, Eten en drinken, Winkelen, Plaatsen,
+      iCentres, Regio\'s, Plaatsen, Javascript is nodig om deze kaart te tonen., Alles
+        verwijderen, Toon resultaten, Filters toegepast, Selecteer type kaart, Meer
+        laden, Resultaten laden, Laden, Pas filter(s) toe om de resultaten te verfijnen,
+      'Geen resultaten gevonden, pas filter(s) toe', '', 'Geen resultaten gevonden,
+        pas filter(s) toe.', 'Helaas, je kunt niet verder uitzoomen', 'Helaas, je
+        kunt niet verder inzoomen', Ontdek, Distilleerderijen, Typ je zoekterm in,
+      Zoeken, Zoekresultaten voor, Er zijn cookies nodig om deze kaart te tonen, Verfijn
+        je zoekresultaten, Er zijn helaas geen resultaten gevonden. Zoom uit om meerdere
+        locaties te ontdekken., Zoek op de kaart, Hier vind je plekken die bij je
+        zoekopdracht passen. Er worden maximaal 20 resultaten getoond., Hier vind
+        je plekken die bij je zoekopdracht passen. Er worden maximaal 20 resultaten
+        getoond., Verfijn je zoekresultaten op locatie, Alle locaties, Zoek in deze
+        omgeving, '', '', '', /places-to-go#section-1]
   /map[2]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 6e396065-9cd1-412a-8a2a-9045ed038270
+    jcr:uuid: 4c3261fb-5d59-41c0-afac-dcf4331e9d7b
     hippo:availability: [preview]
     hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-01-23T18:05:07.592Z
+    hippostdpubwf:lastModificationDate: 2026-11-20T11:02:14.351Z
     hippostdpubwf:lastModifiedBy: admin
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -135,7 +165,9 @@
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
       map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
-      map.search-map]
+      map.search-map, map.google-results-primary-message, map.google-results-supporting-message,
+      locationSelect, resetLocation, searchAreaButton, map.main-map.error-title, map.main-map.error-copy,
+      map.main-map.error-cta-title, map.main-map.error-cta-link]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
       Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
       Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
@@ -147,94 +179,121 @@
         you can''t zoom in any more', Explore, Distilleries, Type in your keyword,
       Search, Search Results for, Cookies need to be enabled to show this map, Refine
         your results, We couldn't find anything here. Try zooming out to explore more
-        locations., Search the map]
+        locations., Search the map, A selection of places matching your search is
+        shown below. Up to 20 results are displayed., Showing places matching your
+        search. Up to 20 results are displayed., Refine your results by location,
+      All locations, Search this area, Map temporarily unavailable, 'We''re having
+        trouble displaying the map at the moment. You can still explore Scotland using
+        search, navigation and destination pages while we work to restore the map.',
+      Explore Scotland’s Destinations, /places-to-go#section-1]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
-        schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
-      Unterkünfte, Aktivitäten, Sehenswürdigkeiten, Veranstaltungen, Gastronomie,
-      Shopping, Orte, iCentres, Regionen, Orte, 'JavaScript wird benötigt, um diese
-        Karte anzuzeigen.', Alle entfernen, Ergebnisse anzeigen, Filter angewendet,
-      Kartentyp wählen, Mehr laden, Ergebnisse werden geladen, Lädt, 'Bitte wählen
-        Sie einen oder mehrere Filter aus, um die Ergebnisse zu verfeinern.', 'Keine
-        Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.', '',
-      'Keine Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.',
-      Sie können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
-        vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
-      Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
-      Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
-        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen]
+        schließen, Kartenmenü, Einen Schritt zurückgehen, Filter zurücksetzen, Unterkünfte,
+      Aktivitäten, Sehenswürdigkeiten, Veranstaltungen, Gastronomie, Shopping, Orte,
+      iCentres, Regionen, Orte, 'JavaScript wird benötigt, um diese Karte anzuzeigen.',
+      Alle entfernen, Ergebnisse anzeigen, Filter angewendet, Kartentyp wählen, Mehr
+        laden, Ergebnisse werden geladen, Lädt, 'Bitte wählen Sie einen oder mehrere
+        Filter aus, um die Ergebnisse zu verfeinern.', 'Keine Ergebnisse gefunden,
+        bitte wählen Sie einen oder mehrere Filter aus.', '', 'Keine Ergebnisse gefunden,
+        bitte wählen Sie einen oder mehrere Filter aus.', Sie können die Karte nicht
+        weiter verkleinern., Sie können die Karte nicht weiter vergrößern., Entdecken
+        Sie, Destillerien, Geben Sie Ihren Suchbegriff ein, Suchen, Suchergebnisse
+        für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen', Verfeinern Sie
+        Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern Sie die
+        Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, 'Es werden Orte
+        angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20 Ergebnisse angezeigt.',
+      'Es werden Orte angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20
+        Ergebnisse angezeigt.', Ergebnisse nach Ort filtern, Alle Orte, In dieser
+        Region suchen, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
-        de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
-      Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares, iCentres,
-      Regiones, Lugares, Se requiere Javascript para visualizar este mapa., Borrar
-        todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa, Cargar
-        mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los resultados,
-      'No se encontraron resultados, por favor aplique filtro(s)', '', 'No se encontraron
-        resultados, por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte',
-      'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías, Escribe tu palabra
-        clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
-        para mostrar este mapa, Refinar resultados de búsqueda, No hemos encontrado
-        nada aquí. Intenta alejar el zoom para explorar más ubicaciones., Buscar en
-        el mapa]
+      Restablecer Mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
+        de búsqueda y filtro, Menú del mapa, Retroceder un paso, Restablecer filtros,
+      Alojamiento, Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares,
+      iCentres, Regiones, Lugares, Se requiere Javascript para visualizar este mapa.,
+      Borrar todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa,
+      Cargar más, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los
+        resultados, 'No se encontraron resultados, por favor aplique filtro(s)', '',
+      'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
+        no puedes alejarte más', 'Lo sentimos, ya no puedes hacer zoom', Explora,
+      Destilerías, Escribe tu palabra clave, Buscar, Resultados de búsqueda para,
+      Las cookies deben estar habilitadas para mostrar este mapa, Refina los resultados
+        de tu búsqueda, No hemos encontrado nada aquí. Intenta alejar el zoom para
+        explorar más ubicaciones., Buscar en el mapa, Aquí se muestran lugares que
+        coinciden con tu búsqueda. Se muestran un máximo de 20 resultados., Aquí se
+        muestran lugares que coinciden con tu búsqueda. Se muestran un máximo de 20
+        resultados., Filtrar los resultados por ubicación, Todos los lugares, Buscar
+        en esta zona, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
-        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
+        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez :', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
       Réinitialiser les filtres, Hébergements, Activités, Attractions, Événements,
-      Gastronomie, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript est requis
-        pour afficher cette carte., Tout effacer, Afficher les résultats, Filtres
-        appliqués, Sélectionner le type de carte, Charger plus, Chargement des résultats,
-      Chargement, Veuillez appliquer un filtre pour affiner les résultats, 'Aucun
-        résultat, veuillez appliquer un filtre', '', 'Aucun résultat, veuillez appliquer
-        un filtre.', 'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous
-        ne pouvez pas zoomer davantage', Explorez, Distilleries, Entrez un mot-clé,
-      Rechercher, Afficher les résultats pour, Les cookies doivent être activés pour
-        afficher cette carte, Affiner vos résultats de recherche, Nous n’avons rien
-        trouvé dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres
-        zones., Rechercher sur la carte]
+      Gastronomie et restauration, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript
+        est requis pour afficher cette carte., Tout effacer, Afficher les résultats,
+      Filtres appliqués, Sélectionner le type de carte, Afficher plus, Chargement
+        des résultats, Chargement, Veuillez appliquer un ou plusieurs filtre(s) pour
+        affiner votre recherche, 'Aucun résultat, veuillez appliquer un ou plusieurs
+        filtre(s)', '', 'Aucun résultat, veuillez appliquer un ou plusieurs filtre(s).',
+      'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous ne pouvez pas
+        zoomer davantage', Explorez, Distilleries, Entrez un mot-clé, Rechercher,
+      Afficher les résultats pour, Les cookies doivent être activés pour afficher
+        cette carte, Affiner vos résultats de recherche, Nous n’avons rien trouvé
+        dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres zones.,
+      Rechercher sur la carte, Affichage des lieux correspondant à votre recherche.
+        Un maximum de 20 résultats sont affichés., Affichage des lieux correspondant
+        à votre recherche. Un maximum de 20 résultats sont affichés., Filtrer les
+        résultats par lieu, Tous les lieux, Rechercher dans cette zone, '', '', '',
+      /places-to-go#section-1]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
-      Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
-        pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
-        filtri, Alloggi, Attività, Attrazioni, Eventi, Cibo e bevande, Shopping, Luoghi,
-      iCentres, Regioni, Luoghi, Per visualizzare la mappa è necessario l'uso di Javascript.,
-      Cancella tutto, Mostra i risultati, Filtri applicati, Selezionare il tipo di
-        mappa, Carica di più, Caricamento dei risultati, Caricamento, Applica i filtri
-        per affinare i risultati, 'Nessun risultato trovato, si prega di applicare
-        il/i filtro/i', '', 'Nessun risultato trovato, si prega di applicare il/i
-        filtro/i.', 'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti,
-        non è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola
-        chiave, Cerca, Risultati della ricerca per, I cookie devono essere attivati
-        per visualizzare questa mappa, Affina i tuoi risultati, Non abbiamo trovato
-        niente qui. Prova a zoomare indietro per vedere altri luoghi., Cerca sulla
-        mappa]
-    resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
-      Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
-      Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
-      Evenementen, Eten en drinken, Winkelen, Plaatsen, iCentres, Regio\'s, Plaatsen,
-      Javascript is nodig om deze kaart te tonen., Alles verwijderen, Toon resultaten,
-      Filters toegepast, Selecteer type kaart, Meer laden, Resultaten laden, Laden,
-      Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten gevonden,
-        pas filter(s) toe', '', 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas,
-        je kunt niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek,
-      Distilleerderijen, Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn
-        cookies nodig om deze kaart te tonen, Verfijn je zoekresultaten, Er zijn helaas
-        geen resultaten gevonden. Zoom uit om meerdere locaties te ontdekken., Zoek
-        op de kaart]
+      Reset, Ingrandisci, Riduci, Luoghi in primo piano, Scopri ora, Chiudi il pannello
+        di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta filtri, Alloggi,
+      Attività, Attrazioni, Eventi, Cibo e bevande, Shopping, Luoghi, iCentres, Regioni,
+      Luoghi, Per visualizzare la mappa è necessario l'uso di Javascript., Cancella
+        tutto, Mostra i risultati, Filtri applicati, Selezionare il tipo di mappa,
+      Carica di più, Caricamento dei risultati, Caricamento, Applica i filtri per
+        affinare i risultati, 'Nessun risultato trovato, si prega di applicare il/i
+        filtro/i', '', 'Nessun risultato trovato, si prega di applicare il/i filtro/i.',
+      'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti, non
+        è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola chiave,
+      Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
+        questa mappa, Affina i tuoi risultati, Non abbiamo trovato niente qui. Prova
+        a zoomare indietro per vedere altri luoghi., Cerca sulla mappa, Vengono visualizzati
+        i luoghi corrispondenti alla tua ricerca. Vengono visualizzati fino a 20 risultati.,
+      Vengono visualizzati i luoghi corrispondenti alla tua ricerca. Vengono visualizzati
+        fino a 20 risultati., Affina i risultati in base alla località, Tutte le località,
+      Cerca in questa zona, '', '', '', /places-to-go#section-1]
+    resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm afsluiten,
+      Heroriënteren, Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek-
+        en filtervenster, Legenda, Ga een stap terug, Filters herstellen, Accommodatie,
+      Activiteiten, Bezienswaardigheden, Evenementen, Eten en drinken, Winkelen, Plaatsen,
+      iCentres, Regio\'s, Plaatsen, Javascript is nodig om deze kaart te tonen., Alles
+        verwijderen, Toon resultaten, Filters toegepast, Selecteer type kaart, Meer
+        laden, Resultaten laden, Laden, Pas filter(s) toe om de resultaten te verfijnen,
+      'Geen resultaten gevonden, pas filter(s) toe', '', 'Geen resultaten gevonden,
+        pas filter(s) toe.', 'Helaas, je kunt niet verder uitzoomen', 'Helaas, je
+        kunt niet verder inzoomen', Ontdek, Distilleerderijen, Typ je zoekterm in,
+      Zoeken, Zoekresultaten voor, Er zijn cookies nodig om deze kaart te tonen, Verfijn
+        je zoekresultaten, Er zijn helaas geen resultaten gevonden. Zoom uit om meerdere
+        locaties te ontdekken., Zoek op de kaart, Hier vind je plekken die bij je
+        zoekopdracht passen. Er worden maximaal 20 resultaten getoond., Hier vind
+        je plekken die bij je zoekopdracht passen. Er worden maximaal 20 resultaten
+        getoond., Verfijn je zoekresultaten op locatie, Alle locaties, Zoek in deze
+        omgeving, '', '', '', /places-to-go#section-1]
   /map[3]:
     jcr:primaryType: resourcebundle:resourcebundle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 09616f3c-8b62-4611-a521-e843d63ae204
+    jcr:uuid: 53fefaa2-72b7-4b01-af16-04e87c204c5f
     hippo:availability: [live]
     hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-03-02T10:09:34.350Z
-    hippostdpubwf:lastModificationDate: 2026-01-23T18:05:07.592Z
+    hippostdpubwf:lastModificationDate: 2026-11-20T11:02:14.351Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2026-01-23T18:05:18.295Z
+    hippostdpubwf:publicationDate: 2026-11-20T11:02:27.821Z
     resourcebundle:descriptions: ['', '', '', '', '', '', '', '', '', '', '', '',
       '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
-      '', '', '', '', '', '', '', '', '', '', '', '', '']
+      '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      '', '', '']
     resourcebundle:id: map
     resourcebundle:keys: [map.fullscreen, map.exitfullscreen, map.reset, map.zoomin,
       map.zoomout, map.feature-default-title, map.discover, map.close-panel, map.open-panel,
@@ -244,7 +303,9 @@
       map.loading, map.apply-filters, map-no-results, map.panel-bottom-msg, map.no-results,
       map.zoom-too-far, map.zoom-too-close, map.explore, map.distillery, map.placeholder,
       map.search, map.search-results, map.cookies-message, map.sub-filter, map.no-results-message,
-      map.search-map]
+      map.search-map, map.google-results-primary-message, map.google-results-supporting-message,
+      locationSelect, resetLocation, searchAreaButton, map.main-map.error-title, map.main-map.error-copy,
+      map.main-map.error-cta-title, map.main-map.error-cta-link]
     resourcebundle:messages: [Show fullscreen, Exit fullscreen, Reset Map, Zoom in,
       Zoom out, Featured Places, Discover, Close search and filter panel, Map menu,
       Go back one step, Reset filters, Accommodation, Activities, Attractions, Events,
@@ -256,76 +317,102 @@
         you can''t zoom in any more', Explore, Distilleries, Type in your keyword,
       Search, Search Results for, Cookies need to be enabled to show this map, Refine
         your results, We couldn't find anything here. Try zooming out to explore more
-        locations., Search the map]
+        locations., Search the map, A selection of places matching your search is
+        shown below. Up to 20 results are displayed., Showing places matching your
+        search. Up to 20 results are displayed., Refine your results by location,
+      All locations, Search this area, Map temporarily unavailable, 'We''re having
+        trouble displaying the map at the moment. You can still explore Scotland using
+        search, navigation and destination pages while we work to restore the map.',
+      Explore Scotland’s Destinations, /places-to-go#section-1]
     resourcebundle:messages_de: [Vollbild anzeigen, Vollbild schließen, Zurücksetzen,
       Vergrößern, Verkleinern, Besondere Orte, 'Jetzt entdecken:', Suche und Filter
-        schließen , Kartenmenü, Einen Schritt zurückgehen , Filter zurücksetzen ,
-      Unterkünfte, Aktivitäten, Sehenswürdigkeiten, Veranstaltungen, Gastronomie,
-      Shopping, Orte, iCentres, Regionen, Orte, 'JavaScript wird benötigt, um diese
-        Karte anzuzeigen.', Alle entfernen, Ergebnisse anzeigen, Filter angewendet,
-      Kartentyp wählen, Mehr laden, Ergebnisse werden geladen, Lädt, 'Bitte wählen
-        Sie einen oder mehrere Filter aus, um die Ergebnisse zu verfeinern.', 'Keine
-        Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.', '',
-      'Keine Ergebnisse gefunden, bitte wählen Sie einen oder mehrere Filter aus.',
-      Sie können die Karte nicht weiter verkleinern., Sie können die Karte nicht weiter
-        vergrößern., Entdecken Sie, Destillerien, Geben Sie Ihren Suchbegriff ein,
-      Suchen, Suchergebnisse für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen',
-      Verfeinern Sie Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern
-        Sie die Karte, um weitere Orte zu entdecken.', Auf der Karte suchen]
+        schließen, Kartenmenü, Einen Schritt zurückgehen, Filter zurücksetzen, Unterkünfte,
+      Aktivitäten, Sehenswürdigkeiten, Veranstaltungen, Gastronomie, Shopping, Orte,
+      iCentres, Regionen, Orte, 'JavaScript wird benötigt, um diese Karte anzuzeigen.',
+      Alle entfernen, Ergebnisse anzeigen, Filter angewendet, Kartentyp wählen, Mehr
+        laden, Ergebnisse werden geladen, Lädt, 'Bitte wählen Sie einen oder mehrere
+        Filter aus, um die Ergebnisse zu verfeinern.', 'Keine Ergebnisse gefunden,
+        bitte wählen Sie einen oder mehrere Filter aus.', '', 'Keine Ergebnisse gefunden,
+        bitte wählen Sie einen oder mehrere Filter aus.', Sie können die Karte nicht
+        weiter verkleinern., Sie können die Karte nicht weiter vergrößern., Entdecken
+        Sie, Destillerien, Geben Sie Ihren Suchbegriff ein, Suchen, Suchergebnisse
+        für, 'Es werden Cookies benötigt, um diese Karte anzuzeigen', Verfeinern Sie
+        Ihre Ergebnisse, 'Wir konnten hier leider nichts finden. Verkleinern Sie die
+        Karte, um weitere Orte zu entdecken.', Auf der Karte suchen, 'Es werden Orte
+        angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20 Ergebnisse angezeigt.',
+      'Es werden Orte angezeigt, die Ihrer Suche entsprechen. Es werden bis zu 20
+        Ergebnisse angezeigt.', Ergebnisse nach Ort filtern, Alle Orte, In dieser
+        Region suchen, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_es: [Mostrar pantalla completa, Cerrar pantalla completa,
-      Restablecer ángulo, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
-        de búsqueda y filtro, Menú, Retroceder un paso, Restablecer filtros, Alojamiento,
-      Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares, iCentres,
-      Regiones, Lugares, Se requiere Javascript para visualizar este mapa., Borrar
-        todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa, Cargar
-        mas, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los resultados,
-      'No se encontraron resultados, por favor aplique filtro(s)', '', 'No se encontraron
-        resultados, por favor aplica filtro(s).', 'Lo sentimos, ya no puedes alejarte',
-      'Lo sentimos, ya no puedes hacer zoom', Explora, Destilerías, Escribe tu palabra
-        clave, Buscar, Resultados de búsqueda para, Las cookies deben estar habilitadas
-        para mostrar este mapa, Refinar resultados de búsqueda, No hemos encontrado
-        nada aquí. Intenta alejar el zoom para explorar más ubicaciones., Buscar en
-        el mapa]
+      Restablecer Mapa, Ampliar, Reducir, Lugares destacados, Descubre, Cerrar panel
+        de búsqueda y filtro, Menú del mapa, Retroceder un paso, Restablecer filtros,
+      Alojamiento, Actividades, Atracciones, Eventos, Gastronomía, Compras, Lugares,
+      iCentres, Regiones, Lugares, Se requiere Javascript para visualizar este mapa.,
+      Borrar todo, Mostrar resultados, Filtros aplicados, Selecciona el tipo de mapa,
+      Cargar más, Carga de resultados, Cargando, Aplicar filtro(s) para refinar los
+        resultados, 'No se encontraron resultados, por favor aplique filtro(s)', '',
+      'No se encontraron resultados, por favor aplica filtro(s).', 'Lo sentimos, ya
+        no puedes alejarte más', 'Lo sentimos, ya no puedes hacer zoom', Explora,
+      Destilerías, Escribe tu palabra clave, Buscar, Resultados de búsqueda para,
+      Las cookies deben estar habilitadas para mostrar este mapa, Refina los resultados
+        de tu búsqueda, No hemos encontrado nada aquí. Intenta alejar el zoom para
+        explorar más ubicaciones., Buscar en el mapa, Aquí se muestran lugares que
+        coinciden con tu búsqueda. Se muestran un máximo de 20 resultados., Aquí se
+        muestran lugares que coinciden con tu búsqueda. Se muestran un máximo de 20
+        resultados., Filtrar los resultados por ubicación, Todos los lugares, Buscar
+        en esta zona, '', '', '', /places-to-go#section-1]
     resourcebundle:messages_fr: [Afficher en mode plein écran, Quitter le mode plein
-        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez:', Fermer
+        écran, Réinitialiser, Zoomer, Dézoomer, Lieux d’intérêt, 'Découvrez :', Fermer
         l’outil de recherche et les filtres, Menu de la carte, Revenir en arrière,
       Réinitialiser les filtres, Hébergements, Activités, Attractions, Événements,
-      Gastronomie, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript est requis
-        pour afficher cette carte., Tout effacer, Afficher les résultats, Filtres
-        appliqués, Sélectionner le type de carte, Charger plus, Chargement des résultats,
-      Chargement, Veuillez appliquer un filtre pour affiner les résultats, 'Aucun
-        résultat, veuillez appliquer un filtre', '', 'Aucun résultat, veuillez appliquer
-        un filtre.', 'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous
-        ne pouvez pas zoomer davantage', Explorez, Distilleries, Entrez un mot-clé,
-      Rechercher, Afficher les résultats pour, Les cookies doivent être activés pour
-        afficher cette carte, Affiner vos résultats de recherche, Nous n’avons rien
-        trouvé dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres
-        zones., Rechercher sur la carte]
+      Gastronomie et restauration, Boutiques, Lieux, iCentres, Régions, Lieux, JavaScript
+        est requis pour afficher cette carte., Tout effacer, Afficher les résultats,
+      Filtres appliqués, Sélectionner le type de carte, Afficher plus, Chargement
+        des résultats, Chargement, Veuillez appliquer un ou plusieurs filtre(s) pour
+        affiner votre recherche, 'Aucun résultat, veuillez appliquer un ou plusieurs
+        filtre(s)', '', 'Aucun résultat, veuillez appliquer un ou plusieurs filtre(s).',
+      'Désolé, vous ne pouvez pas dézoomer davantage', 'Désolé, vous ne pouvez pas
+        zoomer davantage', Explorez, Distilleries, Entrez un mot-clé, Rechercher,
+      Afficher les résultats pour, Les cookies doivent être activés pour afficher
+        cette carte, Affiner vos résultats de recherche, Nous n’avons rien trouvé
+        dans cette zone. Veuillez essayer de dézoomer pour explorer d’autres zones.,
+      Rechercher sur la carte, Affichage des lieux correspondant à votre recherche.
+        Un maximum de 20 résultats sont affichés., Affichage des lieux correspondant
+        à votre recherche. Un maximum de 20 résultats sont affichés., Filtrer les
+        résultats par lieu, Tous les lieux, Rechercher dans cette zone, '', '', '',
+      /places-to-go#section-1]
     resourcebundle:messages_it: [Mostra a schermo intero, Esci dallo schermo intero,
-      Reset, Ingrandisci, Riduci, Luoghi in primo piano, 'Scopri ora:', Chiudi il
-        pannello di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta
-        filtri, Alloggi, Attività, Attrazioni, Eventi, Cibo e bevande, Shopping, Luoghi,
-      iCentres, Regioni, Luoghi, Per visualizzare la mappa è necessario l'uso di Javascript.,
-      Cancella tutto, Mostra i risultati, Filtri applicati, Selezionare il tipo di
-        mappa, Carica di più, Caricamento dei risultati, Caricamento, Applica i filtri
-        per affinare i risultati, 'Nessun risultato trovato, si prega di applicare
-        il/i filtro/i', '', 'Nessun risultato trovato, si prega di applicare il/i
-        filtro/i.', 'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti,
-        non è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola
-        chiave, Cerca, Risultati della ricerca per, I cookie devono essere attivati
-        per visualizzare questa mappa, Affina i tuoi risultati, Non abbiamo trovato
-        niente qui. Prova a zoomare indietro per vedere altri luoghi., Cerca sulla
-        mappa]
-    resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm sluiten, Heroriënteren,
-      Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek- en filterpaneel,
-      Legenda, Een stap terug, Filters resetten, Accommodatie, Activiteiten, Bezienswaardigheden,
-      Evenementen, Eten en drinken, Winkelen, Plaatsen, iCentres, Regio\'s, Plaatsen,
-      Javascript is nodig om deze kaart te tonen., Alles verwijderen, Toon resultaten,
-      Filters toegepast, Selecteer type kaart, Meer laden, Resultaten laden, Laden,
-      Pas filter(s) toe om de resultaten te verfijnen, 'Geen resultaten gevonden,
-        pas filter(s) toe', '', 'Geen resultaten gevonden, pas filter(s) toe.', 'Helaas,
-        je kunt niet verder uitzoomen', 'Helaas, je kunt niet verder inzoomen', Ontdek,
-      Distilleerderijen, Typ je zoekterm in, Zoeken, Zoekresultaten voor, Er zijn
-        cookies nodig om deze kaart te tonen, Verfijn je zoekresultaten, Er zijn helaas
-        geen resultaten gevonden. Zoom uit om meerdere locaties te ontdekken., Zoek
-        op de kaart]
+      Reset, Ingrandisci, Riduci, Luoghi in primo piano, Scopri ora, Chiudi il pannello
+        di ricerca e filtri, Menu della mappa, Torna indietro, Reimposta filtri, Alloggi,
+      Attività, Attrazioni, Eventi, Cibo e bevande, Shopping, Luoghi, iCentres, Regioni,
+      Luoghi, Per visualizzare la mappa è necessario l'uso di Javascript., Cancella
+        tutto, Mostra i risultati, Filtri applicati, Selezionare il tipo di mappa,
+      Carica di più, Caricamento dei risultati, Caricamento, Applica i filtri per
+        affinare i risultati, 'Nessun risultato trovato, si prega di applicare il/i
+        filtro/i', '', 'Nessun risultato trovato, si prega di applicare il/i filtro/i.',
+      'Siamo spiacenti, non è più possibile rimpicciolire', 'Siamo spiacenti, non
+        è più possibile ingrandire', Esplora, Distillerie, Digita la tua parola chiave,
+      Cerca, Risultati della ricerca per, I cookie devono essere attivati per visualizzare
+        questa mappa, Affina i tuoi risultati, Non abbiamo trovato niente qui. Prova
+        a zoomare indietro per vedere altri luoghi., Cerca sulla mappa, Vengono visualizzati
+        i luoghi corrispondenti alla tua ricerca. Vengono visualizzati fino a 20 risultati.,
+      Vengono visualizzati i luoghi corrispondenti alla tua ricerca. Vengono visualizzati
+        fino a 20 risultati., Affina i risultati in base alla località, Tutte le località,
+      Cerca in questa zona, '', '', '', /places-to-go#section-1]
+    resourcebundle:messages_nl: [Volledig scherm tonen, Volledig scherm afsluiten,
+      Heroriënteren, Inzoomen, Uitzoomen, Bijzondere plaatsen, Ontdek, Sluit het zoek-
+        en filtervenster, Legenda, Ga een stap terug, Filters herstellen, Accommodatie,
+      Activiteiten, Bezienswaardigheden, Evenementen, Eten en drinken, Winkelen, Plaatsen,
+      iCentres, Regio\'s, Plaatsen, Javascript is nodig om deze kaart te tonen., Alles
+        verwijderen, Toon resultaten, Filters toegepast, Selecteer type kaart, Meer
+        laden, Resultaten laden, Laden, Pas filter(s) toe om de resultaten te verfijnen,
+      'Geen resultaten gevonden, pas filter(s) toe', '', 'Geen resultaten gevonden,
+        pas filter(s) toe.', 'Helaas, je kunt niet verder uitzoomen', 'Helaas, je
+        kunt niet verder inzoomen', Ontdek, Distilleerderijen, Typ je zoekterm in,
+      Zoeken, Zoekresultaten voor, Er zijn cookies nodig om deze kaart te tonen, Verfijn
+        je zoekresultaten, Er zijn helaas geen resultaten gevonden. Zoom uit om meerdere
+        locaties te ontdekken., Zoek op de kaart, Hier vind je plekken die bij je
+        zoekopdracht passen. Er worden maximaal 20 resultaten getoond., Hier vind
+        je plekken die bij je zoekopdracht passen. Er worden maximaal 20 resultaten
+        getoond., Verfijn je zoekresultaten op locatie, Alle locaties, Zoek in deze
+        omgeving, '', '', '', /places-to-go#section-1]

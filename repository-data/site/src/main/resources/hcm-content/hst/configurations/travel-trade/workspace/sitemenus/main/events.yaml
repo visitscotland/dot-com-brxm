@@ -1,0 +1,16 @@
+/hst:hst/hst:configurations/travel-trade/hst:workspace/hst:sitemenus/main/events:
+  jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: useful-information/whats-on
+  hst:repobased: false
+  /connect:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: useful-information/whats-on/connect
+    hst:repobased: false
+  /travel-trade-events:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: travel-trade-events
+    hst:repobased: false
+  /events-across-scotland:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: useful-information/whats-on/events-across-scotland
+    hst:repobased: false

@@ -1,0 +1,16 @@
+/content/documents/administration/options/visitscotland.com/article-layouts:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 44910fe0-c8a9-4192-88ac-a0af618aa652
+  hippo:name: Article layouts
+  /article-layouts:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: bd179df9-033a-4917-a45a-4afcaa253e5a
+    hippo:availability: [live, preview]
+    hippotranslation:id: a73ca79f-7286-47de-86ae-cfc890cb1de5
+    hippotranslation:locale: inherited - from query
+    /selection:listitem:
+      jcr:primaryType: selection:listitem
+      selection:key: accordion
+      selection:label: Accordion

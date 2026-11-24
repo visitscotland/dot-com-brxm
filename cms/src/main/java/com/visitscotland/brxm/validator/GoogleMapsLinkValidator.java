@@ -26,7 +26,7 @@ public class GoogleMapsLinkValidator implements Validator<Node>  {
     /**
      *     simple regex to check for Google urls (.com and .co.uk)
      */
-    private static final String BASIC_URL_REGEX = "(?i)https://www\\.google\\.(?:com|co\\.uk)/maps/.*";
+    private static final String BASIC_URL_REGEX = "(?i)https://www\\.google\\.(?:com|co\\.uk)/maps/@.*";
 
     static final String DAY = "visitscotland:Day";
     static final String MAP_LINK = "visitscotland:mapLink";

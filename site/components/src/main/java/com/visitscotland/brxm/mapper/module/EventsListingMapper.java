@@ -114,7 +114,7 @@ public class EventsListingMapper extends ModuleMapper<EventsListing, EventsLings
         List<EventFilter> filters = new ArrayList<>();
 
         addDateFields(filters);
-        addBooleanFields(filters, false, false);
+        addBooleanFields(filters, true, false);
         filters.add(buildMultiselectField(EVENT_TYPE_PARAM, EVENT_TYPE_LABEL, INDUSTRY_EVENTS_TYPES_VALUE_LIST, 2));
         filters.add(buildMultiselectField(SECTOR_PARAM, SECTOR_LABEL, SECTORS_VALUE_LIST, 3));
         filters.add(buildMultiselectField(REGION_PARAM, REGION_LABEL, REGIONS_VALUE_LIST, 4));

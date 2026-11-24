@@ -1,0 +1,33 @@
+/hst:hst/hst:configurations/travel-trade/hst:workspace/hst:sitemenus/main/resources:
+  .meta:order-before: events
+  jcr:primaryType: hst:sitemenuitem
+  hst:referencesitemapitem: resources
+  hst:repobased: false
+  /itineraries:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: resources/itineraries
+    hst:repobased: false
+  /inspiration:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: inspiration
+    hst:repobased: false
+  /product-presentation-videos:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: resources/product-presentation-videos
+    hst:repobased: false
+  /scotlands-meaningful-travel-map:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: resources/scotlands-meaningful-travel-map/
+    hst:repobased: false
+  /multimedia:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: resources/multimedia
+    hst:repobased: false
+  /maps-and-downloadable-guides:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: resources/maps-and-downloadable-guides/
+    hst:repobased: false
+  /creative-assets:
+    jcr:primaryType: hst:sitemenuitem
+    hst:referencesitemapitem: creative-assets
+    hst:repobased: false

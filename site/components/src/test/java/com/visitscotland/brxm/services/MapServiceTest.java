@@ -1,19 +1,35 @@
 package com.visitscotland.brxm.services;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.visitscotland.brxm.dms.DMSDataService;
+import com.visitscotland.brxm.dms.LocationLoader;
+import com.visitscotland.brxm.dms.model.LocationObject;
+import com.visitscotland.brxm.hippobeans.*;
+import com.visitscotland.brxm.mapper.ImageMapper;
+import com.visitscotland.brxm.model.FlatImage;
+import com.visitscotland.brxm.model.FlatLink;
+import com.visitscotland.brxm.model.LinkType;
+import com.visitscotland.brxm.model.MapsModule;
 import com.visitscotland.brxm.utils.ContentLogger;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.MockitoAnnotations;
 
+import java.util.List;
+import java.util.Locale;
+
+import static com.visitscotland.brxm.services.MapService.ID;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
 class MapServiceTest {
 
     @Mock
@@ -23,88 +39,192 @@ class MapServiceTest {
     private HippoUtilsService hippoUtilsService;
 
     @Mock
-    ContentLogger logger;
+    private ContentLogger logger;
 
-    @InjectMocks
-    MapService service;
+    private MapService service;
+
+    @Mock
+    ImageMapper imageMapper;
+    @Mock
+    LinkService linkService;
+    @Mock
+    LocationLoader locationLoader;
+    @Mock
+    GeometryViewportService geometryViewportService;
+    @Mock
+    ResourceBundleService bundle;
+    @Mock
+    DMSDataService dmsData;
+    @BeforeEach
+    void setup() {
+        MockitoAnnotations.openMocks(this);
+        mapper = new ObjectMapper();
+
+        service = new MapService(
+                dmsData,
+                bundle,
+                imageMapper,
+                linkService,
+                mapper,
+                locationLoader,
+                hippoUtilsService,
+                logger,
+                geometryViewportService
+        );
+    }
+
 
     @Test
     @DisplayName("VS-3996 - Create category node for maps json data")
     void buildCategoryNode() {
-        ObjectNode expected = mockCategory("acco", "Accommodation");
 
-        when(mapper.createObjectNode()).thenReturn(expected);
+        ObjectNode result = service.buildCategoryNode("acco", "Accommodation");
 
-        ObjectNode categoryNode = service.buildCategoryNode("acco", "Accommodation");
-
-        assertNotNull(categoryNode);
-        assertEquals(expected, categoryNode);
-        assertTrue(categoryNode.has(MapService.ID));
-        assertTrue(categoryNode.has(MapService.LABEL));
+        assertNotNull(result);
+        assertEquals("acco", result.get(ID).asText());
+        assertEquals("Accommodation", result.get(MapService.LABEL).asText());
+        assertFalse(result.has(MapService.CMS_DATA));
     }
+    @Test
+    @DisplayName("buildPageNode with Destination using realistic geometry")
+    void testBuildPageNodeDestinationWithGeometry() {
+        ObjectMapper om = new ObjectMapper();
 
-    //TODO subcategories are not in use for maps for now, we may need to remove these tests or fix them when we know the requirements
-/*    @Test
-    @DisplayName("VS-3996 - add filters node for maps json data with childs/subcategory")
-    void addFilterNodeWithSubcategory() throws TaxonomyException, RepositoryException {
-        ObjectNode expected = mockCategory("acco", "Accommodation");
+        // Mock Destination
+        Destination dest = mock(Destination.class);
+        when(dest.getTitle()).thenReturn("Title");
+        when(dest.getTeaser()).thenReturn("Teaser");
+        when(dest.getImage()).thenReturn(null);
+        when(dest.getKeys()).thenReturn(new String[]{});
+        when(dest.getLocation()).thenReturn("locId");
+        when(dest.getCanonicalUUID()).thenReturn("uuid-123");
 
-        Category category = mock(Category.class);
-        CategoryInfo categoryInfo = mock(CategoryInfo.class);
-        when(category.getKey()).thenReturn("acco");
-        when(category.getInfo(Locale.ENGLISH)).thenReturn(categoryInfo);
-        when(categoryInfo.getName()).thenReturn("Accommodation");
+        // Mock LocationObject
+        LocationObject location = mock(LocationObject.class);
+        when(location.getLongitude()).thenReturn(-3.0);
+        when(location.getLatitude()).thenReturn(55.0);
+        when(location.getId()).thenReturn("locId");
+        when(location.getName()).thenReturn("LocName");
+        when(locationLoader.getLocation("locId", Locale.UK)).thenReturn(location);
+        when(locationLoader.getLocation("locId", null)).thenReturn(location);
 
-        Category subCategory = mock(Category.class);
-        CategoryInfo subCategoryInfo = mock(CategoryInfo.class);
-        when(subCategory.getKey()).thenReturn("hotel");
-        when(subCategory.getInfo(Locale.ENGLISH)).thenReturn(subCategoryInfo);
-        when(subCategoryInfo.getName()).thenReturn("Hotel");
+        // Mock FlatLink
+        FlatLink flatLink = new FlatLink("Discover", "/link", LinkType.INTERNAL);
+        when(linkService.createSimpleLink(dest, null, Locale.UK)).thenReturn(flatLink);
 
-        List<Category> categories = new ArrayList<Category> ();
-        categories.add(subCategory);
-        Answer<List<? extends Category>> answer = invocationOnMock -> categories;
-        when(category.getChildren()).thenAnswer(answer);
+        // Mock resource bundle
+        when(bundle.getResourceBundle(anyString(), anyString(), any(Locale.class))).thenReturn("Discover");
 
-        ArrayNode childrenArray = Mockito.mock(ArrayNode.class);
-        when(mapper.createObjectNode()).thenReturn(expected);
-        when(mapper.createArrayNode()).thenReturn(childrenArray);
+        // Disambiguate ImageMapper overloaded methods
+        when(imageMapper.createImage(ArgumentMatchers.<Image>any(), any(), any())).thenReturn(null);
+        when(imageMapper.createImage(ArgumentMatchers.<InstagramImage>any(), any(), any())).thenReturn(null);
 
+        // Mock hippoUtilsService
+        when(hippoUtilsService.getValueFromList(anyString(), anyString())).thenReturn("placeId123");
 
-        ObjectNode categoryNode = service.addFilterNode(category, Locale.ENGLISH);
+        // Mock geometryViewportService
+        when(geometryViewportService.extractViewportFromGeometry(any(JsonNode.class)))
+                .thenReturn(om.createArrayNode());
+        when(geometryViewportService.calculateCenterFromViewport(any(JsonNode.class)))
+                .thenReturn(om.createObjectNode());
 
-        assertNotNull(categoryNode);
+        // Mock DMSDataService with realistic nested geometry
+        ObjectNode geometryNode = om.createObjectNode();
+        ObjectNode innerGeometry = om.createObjectNode();
+        innerGeometry.put("type", "bounds");
+        ArrayNode coords = om.createArrayNode();
+        coords.add(om.createArrayNode().add(-4.4165).add(57.37986));
+        coords.add(om.createArrayNode().add(-2.80701).add(56.71657));
+        innerGeometry.set("coordinates", coords);
+        geometryNode.set("geometry", innerGeometry);
 
-        assertTrue(categoryNode.has(MapService.SUBCATEGORY));
+        // The buildPageNode expects top-level node with type & coordinates
+        when(dmsData.getLocationBorders(anyString(), anyBoolean())).thenReturn(geometryNode.get("geometry"));
+
+        // Create feature and category nodes
+        ObjectNode feature = om.createObjectNode();
+        ObjectNode category = om.createObjectNode().put("id", "cat").put("label", "Cat");
+
+        // Call the method under test
+        service.buildPageNode(Locale.UK, category, null, dest, feature);
+
+        // Assertions
+        assertTrue(feature.has("properties"), "Feature must have properties");
+        assertTrue(feature.has("geometry"), "Feature must have geometry");
+
+        // Optional: check placeId
+        assertEquals("placeId123", feature.get("properties").get(MapService.PLACEID).asText(), "PlaceId must match mock");
     }
 
     @Test
-    @DisplayName("VS-3996 - add filters node for maps json data with no childs/subcategory")
-    void addFilterNodeNoSubcategory() {
-        ObjectNode expected = mockCategory("acco", "Accommodation");
+    @DisplayName("VS-3996 - Create category node with CMS flag")
+    void buildCategoryNodeCmsBased() {
+        ObjectNode result = service.buildCategoryNode("acco", "Accommodation", true);
 
-        Category category = mock(Category.class);
-        CategoryInfo categoryInfo = mock(CategoryInfo.class);
-        when(category.getKey()).thenReturn("acco");
-        when(category.getInfo(Locale.ENGLISH)).thenReturn(categoryInfo);
-        when(categoryInfo.getName()).thenReturn("Accommodation");
-        when(category.getChildren()).thenReturn(new ArrayList<>());
+        assertNotNull(result);
+        assertEquals("acco", result.get(ID).asText());
+        assertEquals("Accommodation", result.get(MapService.LABEL).asText());
+        assertTrue(result.get(MapService.CMS_DATA).asBoolean());
+    }
 
-        when(mapper.createObjectNode()).thenReturn(expected);
+    @Test
+    @DisplayName("Create property node with image and link")
+    void getPropertyNode_withImageAndLink() {
+        FlatImage image = new FlatImage();
+        image.setExternalImage("http://image.url");
 
-        ObjectNode categoryNode = service.addFilterNode(category, Locale.ENGLISH);
+        FlatLink link = new FlatLink("Discover", "/link", LinkType.EXTERNAL);
 
-        assertNotNull(categoryNode);
-        assertEquals(expected, categoryNode);
-        assertFalse(categoryNode.has(MapService.SUBCATEGORY));
-    }*/
+        ObjectNode categoryNode = mapper.createObjectNode().put("id", "testCat").put("label", "Test Cat");
 
-    private ObjectNode mockCategory(String id, String label){
-        ObjectNode expected = (new ObjectMapper()).createObjectNode();
-        expected.put(MapService.ID,id);
-        expected.put(MapService.LABEL,label);
+        ObjectNode result = service.getPropertyNode("Title", "Desc", image, categoryNode, link, "123");
 
-        return expected;
+        assertNotNull(result);
+        assertEquals("Title", result.get("title").asText());
+        assertEquals("Desc", result.get("description").asText());
+        assertEquals("123", result.get("id").asText());
+        assertTrue(result.has("image"));
+        assertTrue(result.has("link"));
+    }
+
+    @Test
+    @DisplayName("Create geometry node")
+    void getGeometryNode_test() {
+
+        ArrayNode coords = mapper.createArrayNode();
+        coords.add(1.0);
+        coords.add(2.0);
+
+        ObjectNode geoNode = service.getGeometryNode(coords, MapService.POINT);
+
+        assertEquals(MapService.POINT, geoNode.get(MapService.TYPE).asText());
+        assertEquals(coords, geoNode.get("coordinates"));
+    }
+
+    @Test
+    @DisplayName("Create coordinates array")
+    void getCoordinates_test() {
+        ArrayNode result = service.getCoordinates(1.0, 2.0);
+
+        assertEquals(1.0, result.get(0).asDouble());
+        assertEquals(2.0, result.get(1).asDouble());
+    }
+    @Test
+    @DisplayName("Add feature places node")
+    void addFeaturePlacesNode_test() {
+        MapsModule module = new MapsModule();
+        MapCategory cat = mock(MapCategory.class);
+        when(cat.getTitle()).thenReturn("Title");
+        when(cat.getMapPins()).thenReturn(List.of());
+
+        ArrayNode keys = mapper.createArrayNode();
+        ArrayNode features = mapper.createArrayNode();
+
+        service.addFeaturePlacesNode(module, List.of(cat), Locale.UK, keys, features);
+
+        assertEquals(0, keys.size(), "No keys should be added when mapPins is empty");
+        assertEquals(0, features.size(), "No features should be added when mapPins is empty");
+
     }
 
 }

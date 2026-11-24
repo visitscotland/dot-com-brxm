@@ -1,0 +1,6 @@
+/content/documents/administration/tt-labels/modules:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 95977e39-88a5-414d-b7f4-d58d533ee973
+  hippo:name: Modules
+  hippostd:foldertype: [new-untranslated-folder-resource-bundle, new-resource-bundle]

@@ -84,48 +84,83 @@ public class HTMLtoVueTransformer {
     }
 
     /**
-     * Process the anchor tags and transform them into Vue tags. It also adds the attribute type depending on the type
-     * of the link ({@code LinkType})
+     * Process anchor tags and transform them into Vue tags.
+     * Each anchor is processed independently to ensure that
+     * internal and external links retain their correct types.
      *
      * @see LinkType
      */
-    public String processLinks(final String html, String parentDocument){
+    public String processLinks(final String html, String parentDocument) {
 
-        /*
-         * Targets the opening tag of anchor links (a tag).
-         * - The tag must contain href attribute, otherwise it would be ignored
-         *
-         * Groups:
-         * 1. Opening anchor including a trailing space:  "<a "
-         * 2. The value of the attribute href
-         * 3. Closing tag: "</a>"
-         */
-        final Pattern aTag = Pattern.compile("(<a\\s)(?:.+\\s)?href\\s?=\\s?\"(.*?)\".*?(</a>)");
-        final int OPEN = 1;
-        final int HREF = 2;
-        final int CLOSE = 3;
+        // Match each anchor element independently.
+        final Pattern aTag = Pattern.compile(
+                "(?s)<a\\b([^>]*)>(.*?)</a>"
+        );
+
+        // Extract the href attribute, supporting single and double quotes.
+        final Pattern hrefAttribute = Pattern.compile(
+                "\\bhref\\s*=\\s*(['\"])(.*?)\\1",
+                Pattern.CASE_INSENSITIVE
+        );
 
         Matcher matcher = aTag.matcher(html);
-        String output = html;
+        StringBuffer output = new StringBuffer();
 
         while (matcher.find()) {
-            String closingTag;
-            String a = matcher.group();
-            FlatLink link = linkService.createExternalLink(matcher.group(HREF), parentDocument);
 
-            if (link.getType().equals(LinkType.DOWNLOAD)){
-                closingTag = linkService.getDownloadText(matcher.group(HREF))+ "</vs-link>";
+            String attributes = matcher.group(1);
+            String content = matcher.group(2);
+
+            Matcher hrefMatcher = hrefAttribute.matcher(attributes);
+
+            // Leave anchors without href unchanged.
+            if (!hrefMatcher.find()) {
+                matcher.appendReplacement(
+                        output,
+                        Matcher.quoteReplacement(matcher.group())
+                );
+                continue;
+            }
+
+            String href = hrefMatcher.group(2);
+
+            FlatLink link = linkService.createExternalLink(
+                    href,
+                    parentDocument
+            );
+
+            String closingTag;
+
+            if (link.getType().equals(LinkType.DOWNLOAD)) {
+                closingTag = linkService.getDownloadText(href)
+                        + "</vs-link>";
             } else {
                 closingTag = "</vs-link>";
             }
 
-            String vsLink = a.replace(matcher.group(OPEN), "<vs-link type=\""+ link.getType().getRichTextType()+"\" ")
-                    .replace(matcher.group(HREF), link.getLink())
-                    .replace(matcher.group(CLOSE), closingTag);
-            output = output.replace(a, vsLink);
+            // Replace only the href value, preserving other attributes.
+            String updatedAttributes =
+                    attributes.substring(0, hrefMatcher.start(2))
+                            + link.getLink()
+                            + attributes.substring(hrefMatcher.end(2));
+
+            String vsLink = "<vs-link type=\""
+                    + link.getType().getRichTextType()
+                    + "\""
+                    + updatedAttributes
+                    + ">"
+                    + content
+                    + closingTag;
+
+            matcher.appendReplacement(
+                    output,
+                    Matcher.quoteReplacement(vsLink)
+            );
         }
 
-        return output;
+        matcher.appendTail(output);
+
+        return output.toString();
     }
 
     /**
