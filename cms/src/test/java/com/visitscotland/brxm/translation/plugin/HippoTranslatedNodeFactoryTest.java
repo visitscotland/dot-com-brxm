@@ -4,6 +4,7 @@ import org.hippoecm.repository.api.HippoNode;
 import org.hippoecm.repository.translation.HippoTranslatedNode;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Answers;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.jcr.RepositoryException;
@@ -25,7 +26,7 @@ public class HippoTranslatedNodeFactoryTest {
 
     @Test
     public void createFromNode_passesThroughNode() throws Exception {
-        HippoNode mockNode = mock(HippoNode.class);
+        HippoNode mockNode = mock(HippoNode.class, Answers.RETURNS_DEEP_STUBS);
         when(mockNode.isNodeType(eq("hippotranslation:translated"))).thenReturn(true);
         HippoTranslatedNode translatedNode = new HippoTranslatedNodeFactory().createFromNode(mockNode);
         assertNotNull(translatedNode);
