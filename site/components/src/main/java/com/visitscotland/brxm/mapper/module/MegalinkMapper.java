@@ -132,7 +132,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
     }
 
     /**
-     * Calculate the index for the background color
+     * Calculate the index for the background colour
      * @param module group of links
      * @param compositionHelper helper to calculate theme
      */
