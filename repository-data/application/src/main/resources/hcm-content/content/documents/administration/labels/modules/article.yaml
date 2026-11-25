@@ -1,0 +1,53 @@
+/content/documents/administration/labels/modules/article:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: b4a88a68-8eb0-447a-9793-7263cb358f8f
+  hippo:name: Article
+  hippo:versionHistory: cbe37918-b56a-470e-8527-d3526b404b22
+  /article[1]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: b2150941-597b-4643-83f2-3d86d738d260
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-11-17T17:43:36.548Z
+    hippostdpubwf:lastModificationDate: 2026-11-18T10:40:23.715Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: article
+    resourcebundle:keys: [carousel.description]
+    resourcebundle:messages: [A collection of media that relates to]
+  /article[2]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 6366eb60-9586-4e8a-ae63-7590176af5cc
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-11-17T17:43:36.548Z
+    hippostdpubwf:lastModificationDate: 2026-11-18T10:40:36.760Z
+    hippostdpubwf:lastModifiedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: article
+    resourcebundle:keys: [carousel.description]
+    resourcebundle:messages: [A collection of media that relates to]
+  /article[3]:
+    jcr:primaryType: resourcebundle:resourcebundle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 0217eaa7-cf63-4984-b010-bbea7d68e264
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2026-11-17T17:43:36.548Z
+    hippostdpubwf:lastModificationDate: 2026-11-18T10:40:36.760Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2026-11-18T10:40:41.026Z
+    hippostdpubwf:publishedBy: admin
+    resourcebundle:descriptions: ['']
+    resourcebundle:id: article
+    resourcebundle:keys: [carousel.description]
+    resourcebundle:messages: [A collection of media that relates to]

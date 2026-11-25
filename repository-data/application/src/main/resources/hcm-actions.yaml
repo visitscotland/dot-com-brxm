@@ -191,3 +191,7 @@ action-lists:
 - 3.14.1:
     /content/documents/administration/bsh-labels/modules/events-listings-module: reload
     /content/documents/administration/labels/modules/map: reload
+- 3.14.2:
+    /content/documents/administration/labels/pages/itinerary: reload
+    /content/documents/administration/labels/modules/otyml: reload
+    /content/documents/administration/labels/modules/megalinks: reload    
