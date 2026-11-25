@@ -47,10 +47,6 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
         public static Optional<MegalinkLayout> fromValue(String value) { return Optional.ofNullable(BY_VALUE.get(value)); }
 
-        @Deprecated(since = "2.12.0")
-        public static boolean isCardGroup(MegalinkLayout layout) {
-            return GRID_3 == layout || GRID_4 == layout || GRID == layout ;
-        }
     }
 
     private static final Logger logger = LoggerFactory.getLogger(MegalinkMapper.class);
@@ -108,8 +104,8 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
     /**
      * Validates that the module has at least one link to render
-     * @param module
-     * @throws PageCompositionException
+     * @param module group of links
+     * @throws PageCompositionException  exception if no links
      */
     private void validateLinks(LinksModule<?> module) throws PageCompositionException {
         int numLinks = module.getLinks().size();
@@ -123,8 +119,8 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
     /**
      * Calculate the alignment for the module
-     * @param module
-     * @param compositionHelper
+     * @param module group of links
+     * @param compositionHelper helper to calculate theme
      */
     private void calculateAlignment(LinksModule<?> module, PageCompositionHelper compositionHelper) {
         if (module instanceof SingleImageLinksModule) {
@@ -137,8 +133,8 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
 
     /**
      * Calculate the index for the background colour
-     * @param module
-     * @param compositionHelper
+     * @param module group of links
+     * @param compositionHelper helper to calculate theme
      */
     private void calculateTheme(LinksModule<?> module, PageCompositionHelper compositionHelper) {
         module.setThemeIndex(compositionHelper.calculateThemeIndex(!Contract.isEmpty(module.getTitle())));
@@ -150,7 +146,7 @@ public class MegalinkMapper extends ModuleMapper<Megalinks, LinksModule<Enhanced
             logger.warn("The Megalinks layout hasn't been set for {}", doc.getPath());
         }
 
-        if (MegalinkLayout.isCardGroup(layout)) {
+        if (MegalinkLayout.GRID == layout) {
             return getCardGroupModule(doc, locale, layout);
         } else if (layout == MegalinkLayout.HORIZONTAL_LINKS) {
             if (doc.getMegalinkItems().size() >= MIN_ITEMS_CAROUSEL) {
