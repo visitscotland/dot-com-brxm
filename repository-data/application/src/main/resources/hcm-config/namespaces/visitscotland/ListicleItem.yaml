@@ -151,7 +151,7 @@ definitions:
           /products:
             jcr:primaryType: frontend:plugin
             caption: Main Product
-            compoundList: visitscotland:CMSLink,visitscotland:DMSLink,visitscotland:ExternalLink,visitscotland:ProductSearchLink
+            compoundList: visitscotland:CMSLink,visitscotland:DMSLink,visitscotland:ExternalLink
             contentPickerType: links
             field: products
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
@@ -162,7 +162,7 @@ definitions:
           /extraLinks:
             jcr:primaryType: frontend:plugin
             caption: Additional CTA
-            compoundList: visitscotland:CMSLink,visitscotland:DMSLink,visitscotland:ExternalLink,visitscotland:ProductSearchLink
+            compoundList: visitscotland:CMSLink,visitscotland:DMSLink,visitscotland:ExternalLink
             contentPickerType: links
             field: extraLinks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
