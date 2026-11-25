@@ -2,6 +2,7 @@ package com.visitscotland.brxm.model.megalinks;
 
 import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.FlatLink;
+import com.visitscotland.brxm.model.YoutubeVideo;
 
 import java.util.Date;
 import java.util.List;
@@ -26,6 +27,7 @@ public class EnhancedLink extends FlatLink {
     private List<String> topic;
     private List<String> region;
     private String readTime;
+    private YoutubeVideo videoMetadata;
 
     public FlatImage getImage() {
         return image;
@@ -171,5 +173,13 @@ public class EnhancedLink extends FlatLink {
 
     public void setAmbientVideo(String ambientVideo) {
         this.ambientVideo = ambientVideo;
+    }
+
+    public YoutubeVideo getVideoMetadata() {
+        return videoMetadata;
+    }
+
+    public void setVideoMetadata(YoutubeVideo videoMetadata) {
+        this.videoMetadata = videoMetadata;
     }
 }

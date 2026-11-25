@@ -8,13 +8,14 @@ import com.visitscotland.brxm.model.FlatImage;
 import com.visitscotland.brxm.model.MediaSection;
 import com.visitscotland.brxm.model.Module;
 import com.visitscotland.brxm.model.megalinks.EnhancedLink;
+import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
 import com.visitscotland.brxm.services.LinkService;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -34,11 +35,17 @@ class MediaSectionMapperTest {
     @Mock
     private LinkService linkService;
 
+    @Mock
+    private PageCompositionHelper helper;
+
     private MediaSectionMapper mapper;
+
+
 
     @BeforeEach
     void setUp() {
         mapper = new MediaSectionMapper(imageMapper, linkService);
+        lenient().when(helper.getLocale()).thenReturn(Locale.UK);
     }
 
     @Test
@@ -52,7 +59,7 @@ class MediaSectionMapperTest {
         when(mediaCollection.getMedia()).thenReturn(List.of(image));
         when(imageMapper.getImage(eq(image), any(Module.class), eq(Locale.UK))).thenReturn(flatImage);
 
-        MediaSection result = mapper.map(mediaCollection, new Module<>(), Locale.UK);
+        MediaSection result = mapper.map(mediaCollection, new Module<>(), helper);
 
         assertNotNull(result);
         assertEquals("image", result.getType());
@@ -70,7 +77,7 @@ class MediaSectionMapperTest {
         when(mediaCollection.getMedia()).thenReturn(List.of(videoLink));
         when(linkService.createVideo(any(Video.class), any(Module.class), eq(Locale.UK))).thenReturn(new EnhancedLink());
 
-        MediaSection result = mapper.map(mediaCollection, new Module<>(), Locale.UK);
+        MediaSection result = mapper.map(mediaCollection, new Module<>(), helper);
 
         assertNotNull(result);
         assertEquals("video", result.getType());
@@ -94,7 +101,7 @@ class MediaSectionMapperTest {
         when(linkService.createVideo(any(Video.class), any(Module.class), eq(Locale.UK)))
                 .thenReturn(enhancedLink);
 
-        MediaSection result = mapper.map(mediaCollection, new Module<>(), Locale.UK);
+        MediaSection result = mapper.map(mediaCollection, new Module<>(), helper);
 
         assertNotNull(result);
         assertEquals("carousel", result.getType());
@@ -112,7 +119,7 @@ class MediaSectionMapperTest {
         when(mediaCollection.getMedia()).thenReturn(List.of(mock(Image.class), mock(Image.class)));
         when(imageMapper.getImage(any(Image.class), any(Module.class), eq(Locale.UK))).thenReturn(new FlatImage());
 
-        MediaSection result = mapper.map(mediaCollection, new Module<>(), Locale.UK);
+        MediaSection result = mapper.map(mediaCollection, new Module<>(), helper);
 
         assertNotNull(result);
 
@@ -127,7 +134,7 @@ class MediaSectionMapperTest {
     @DisplayName("Returns null when compound media collection is null")
     void shouldReturnNullWhenCompoundIsNull() {
 
-        MediaSection result = mapper.map(null, new Module<>(), Locale.UK);
+        MediaSection result = mapper.map(null, new Module<>(), helper);
 
         assertNull(result);
 
@@ -142,7 +149,7 @@ class MediaSectionMapperTest {
 
         when(mediaCollection.getMedia()).thenReturn(Collections.emptyList());
 
-        MediaSection result = mapper.map(mediaCollection, new Module<>(), Locale.UK);
+        MediaSection result = mapper.map(mediaCollection, new Module<>(), helper);
 
         assertNotNull(result);
         assertEquals("unknown", result.getType());
@@ -160,11 +167,18 @@ class MediaSectionMapperTest {
         when(mediaCollection.getMedia()).thenReturn(List.of(unsupported));
         when(unsupported.getDisplayName()).thenReturn("Unsupported Asset");
 
-        MediaSection result = mapper.map(mediaCollection, module, Locale.UK);
+        MediaSection result = mapper.map(mediaCollection, module, helper);
 
         verify(module).addErrorMessage("Unsupported media type: Unsupported Asset");
 
         assertNotNull(result);
         assertTrue(result.getItems().isEmpty());
+    }
+
+    @Disabled
+    @Test
+    @DisplayName("VS-1643 Video Schema is included for Video Sections")
+    void addVideoSchema() {
+
     }
 }

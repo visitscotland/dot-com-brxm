@@ -103,6 +103,7 @@ public class PageTemplateInitializer  {
                 pageConfig.addAllSiteLabels(AMBIENT_VIDEO_BUNDLE);
             } else {
                 pageConfig.addAllSiteLabels(VIDEO_BUNDLE);
+                pageConfig.addVideoSchema(video);
             }
             pageTemplate.setVideo(video);
         }

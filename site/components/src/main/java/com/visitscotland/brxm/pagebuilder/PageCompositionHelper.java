@@ -3,6 +3,7 @@ package com.visitscotland.brxm.pagebuilder;
 import com.visitscotland.brxm.components.content.PageContentComponent;
 import com.visitscotland.brxm.hippobeans.Page;
 import com.visitscotland.brxm.model.Module;
+import com.visitscotland.brxm.model.megalinks.EnhancedLink;
 import com.visitscotland.brxm.pagebuilder.model.PageTemplate;
 import com.visitscotland.brxm.pagebuilder.page.PageTemplateAssembler;
 import com.visitscotland.brxm.services.ResourceBundleService;
@@ -23,6 +24,7 @@ public class PageCompositionHelper {
     public static final String LABELS = "labels";
     public static final String PAGE_CONFIGURATION = PageContentComponent.PAGE_CONFIGURATION;
     public static final String PAGE_TEMPLATE = "pageTemplate";
+    public static final String VIDEOS = "videoSchema";
 
     private final ResourceBundleService bundle;
     private final HstRequest request;
@@ -235,6 +237,27 @@ public class PageCompositionHelper {
 
     public boolean isEditMode() {
         return Boolean.TRUE.equals(request.getAttribute(PageContentComponent.EDIT_MODE));
+    }
+
+    public void addVideoSchema(EnhancedLink link) {
+        if (link != null && !Contract.isEmpty(link.getYoutubeId())) {
+            final Map<String, EnhancedLink> videoMap;
+            if (pageConfiguration().containsKey(VIDEOS)) {
+                //noinspection unchecked
+                videoMap = (Map<String, EnhancedLink>) pageConfiguration().get(VIDEOS);
+            } else  {
+                videoMap = new HashMap<>();
+                pageConfiguration().put(VIDEOS, videoMap);
+            }
+
+            if (videoMap.containsKey(link.getYoutubeId())) {
+                logger.warn("Video link to {} is duplicated in this page {}", link.getYoutubeId(), getRequestPathInfo());
+            } else {
+                videoMap.put(link.getYoutubeId(), link);
+            }
+
+
+        }
     }
 
 }

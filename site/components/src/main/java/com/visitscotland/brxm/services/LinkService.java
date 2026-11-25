@@ -700,15 +700,18 @@ public class LinkService {
         videoLink.setLink(video.getUrl());
         videoLink.setCta(bundle.getVideoCtaLabel(video.getLabel(), locale));
         videoLink.setType(LinkType.VIDEO);
+        videoLink.setPublishedDate(new Date());
 
         if (isYoutubeUrl(video.getUrl())) {
             String youtubeId = getYoutubeId(video.getUrl());
             videoLink.setYoutubeId(youtubeId);
             Optional<YoutubeVideo> videoInfo = youtubeApiService.getVideoInfo(youtubeId);
-            videoLink.setPublishedDate(videoInfo.map(YoutubeVideo::getPublishDate).orElse(new Date()));
-        } else {
-            videoLink.setPublishedDate(new Date());
+            if (videoInfo.isPresent()) {
+                videoLink.setVideoMetadata(videoInfo.get());
+                videoLink.setPublishedDate(videoInfo.get().getPublishDate());
+            }
         }
+
         return videoLink;
     }
 

@@ -41,22 +41,20 @@ public class YoutubeApiService {
     public Optional<YoutubeVideo> getVideoInfo(String youtubeId) {
         logger.debug("Retrieving information from YouTube API for video {}", youtubeId);
         String youtubeApiKey = properties.getYoutubeApiKey();
-        if (Contract.isEmpty(youtubeApiKey)) {
+        if (Contract.isEmpty(properties.getYoutubeApiKey())) {
             logger.warn("No YouTube API key set");
             return Optional.empty();
         }
         try {
-            String apiRequestUrl = String.format("%svideos?key=%s&part=snippet&id=%s", properties.getYoutubeApiBase(), youtubeApiKey, youtubeId);
-            URLConnection conn = commonUtilsService.openConnection(apiRequestUrl);
-            conn.setConnectTimeout(1000);
-            YoutubeListResponse jsonResponse = new ObjectMapper().readValue(conn.getInputStream(), YoutubeListResponse.class);
+            YoutubeListResponse jsonResponse = requestMetadata(youtubeId);
             if (jsonResponse != null && jsonResponse.items.size() == 1 && jsonResponse.items.get(0) != null) {
                 YoutubeSnippet snippet = jsonResponse.items.get(0).snippet;
                 YoutubeVideo youtubeVideo = new YoutubeVideo();
-                youtubeVideo.setDescription(youtubeVideo.getDescription());
+                youtubeVideo.setDescription(snippet.description);
                 youtubeVideo.setId(youtubeId);
                 youtubeVideo.setTitle(snippet.title);
                 youtubeVideo.setPublishDate(snippet.publishedAt);
+                youtubeVideo.setDuration(jsonResponse.items.get(0).contentDetails.duration);
                 return Optional.of(youtubeVideo);
             } else {
                 logger.warn("Failed to map youtube API response for video id {}", youtubeId);
@@ -72,6 +70,31 @@ public class YoutubeApiService {
             return Optional.empty();
         }
     }
+
+    private YoutubeListResponse requestMetadata(String youtubeId) throws IOException {
+        String apiRequestUrl = String.format("%svideos?key=%s&part=snippet,contentDetails&id=%s",
+                properties.getYoutubeApiBase(), properties.getYoutubeApiKey(), youtubeId);
+        URLConnection conn = commonUtilsService.openConnection(apiRequestUrl);
+        conn.setConnectTimeout(1000);
+
+        if (!Contract.isEmpty(properties.getYoutubeReferer())){
+            conn.setRequestProperty("Referer", properties.getYoutubeReferer());
+        }
+
+        return new ObjectMapper().readValue(conn.getInputStream(), YoutubeListResponse.class);
+    }
+}
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+class YoutubeListResponse {
+    public List<YoutubeItem> items;
+}
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+class YoutubeItem {
+    public String id;
+    public YoutubeSnippet snippet;
+    public YoutubeDetails contentDetails;
 }
 
 // Classes used by Jackson for marshalling JSON from YT API
@@ -83,12 +106,11 @@ class YoutubeSnippet {
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class YoutubeItem {
-    public String id;
-    public YoutubeSnippet snippet;
+class YoutubeDetails {
+    // ISO 8601 duration string
+    public String duration;
 }
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-class YoutubeListResponse {
-    public List<YoutubeItem> items;
-}
+
+
+
