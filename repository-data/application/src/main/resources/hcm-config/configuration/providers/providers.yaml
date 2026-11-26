@@ -1,0 +1,10 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/valuelist-service/hippo:moduleconfig/providers/service.locationlist.image:
+      jcr:primaryType: hipposys:moduleconfig
+      class: com.visitscotland.brxm.components.DmsLocationListProvider
+      location.levels: [ REGION, DESTINATION, DISTRICT ]
+    /hippo:configuration/hippo:modules/valuelist-service/hippo:moduleconfig/providers/service.locationlist.destination:
+      jcr:primaryType: hipposys:moduleconfig
+      class: com.visitscotland.brxm.components.DmsLocationListProvider
+      location.levels: [ REGION, DESTINATION, DISTRICT ]

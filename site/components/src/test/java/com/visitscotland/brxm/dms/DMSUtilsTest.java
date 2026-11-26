@@ -2,7 +2,7 @@ package com.visitscotland.brxm.dms;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.visitscotland.dataobjects.DataType;
+import com.visitscotland.brxm.dms.model.DataType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

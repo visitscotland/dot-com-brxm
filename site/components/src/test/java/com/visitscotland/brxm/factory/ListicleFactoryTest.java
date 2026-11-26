@@ -1,6 +1,7 @@
 package com.visitscotland.brxm.factory;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.visitscotland.brxm.dms.model.DataType;
 import com.visitscotland.brxm.hippobeans.*;
 import com.visitscotland.brxm.mapper.ImageMapper;
 import com.visitscotland.brxm.model.FlatImage;
@@ -15,7 +16,6 @@ import com.visitscotland.brxm.services.LinkService;
 import com.visitscotland.brxm.services.DocumentUtilsService;
 import com.visitscotland.brxm.utils.ContentLogger;
 import com.visitscotland.brxm.utils.VsException;
-import com.visitscotland.dataobjects.DataType;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Answers;

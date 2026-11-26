@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.Response;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -114,6 +114,7 @@ public class CommonUtilsService {
     @Deprecated(since = "2.8.5")
     @Cacheable (value="externalDocument")
     public Optional<String> getExternalDocumentSize(String link, Locale locale, boolean concatFormat) {
+        logger.warn("The size of the document {} has been calculated using deprecated logic. Please use FileMetaDataCalculator, which provides the recommended implementation.", link);
         DecimalFormatSymbols dfs = new DecimalFormatSymbols(locale);
         DecimalFormat decimalFormat = new DecimalFormat("#.#", dfs);
         try {

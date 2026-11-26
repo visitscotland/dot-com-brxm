@@ -21,7 +21,6 @@ import org.mockito.Answers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import vs.ase.dms.ProductTypes;
 
 import java.util.*;
 
@@ -73,7 +72,7 @@ class CannedSearchMapperTest {
                 .thenReturn("default cta");
 
         FlatLink flatLink = new FlatLink();
-        CannedSearch cannedSearch =  new CannedSearchMockBuilder().criteria(ProductTypes.ACCOMMODATION.getId()).build();
+        CannedSearch cannedSearch =  new CannedSearchMockBuilder().criteria("acco").build();
 
         when(linkService.createFindOutMoreLink(any(), any(), any())).thenReturn(flatLink);
         when(dmsData.cannedSearchHasResults(any())).thenReturn(true);
@@ -92,7 +91,7 @@ class CannedSearchMapperTest {
                 .thenReturn("default cta");
 
         FlatLink flatLink = new FlatLink();
-        CannedSearch cannedSearch =  new CannedSearchMockBuilder().criteria(ProductTypes.ACCOMMODATION.getId()).build();
+        CannedSearch cannedSearch =  new CannedSearchMockBuilder().criteria("acco").build();
 
         when(linkService.createFindOutMoreLink(any(), any(), any())).thenReturn(flatLink);
         when(dmsData.cannedSearchHasResults(any())).thenReturn(false);
@@ -107,7 +106,7 @@ class CannedSearchMapperTest {
     void whenCtaProvided_thenDefaultCtaUsed() {
         FlatLink flatLink = new FlatLink();
         flatLink.setLabel("View all castles");
-        CannedSearch cannedSearch =  new CannedSearchMockBuilder().criteria(ProductTypes.ACCOMMODATION.getId()).build();
+        CannedSearch cannedSearch =  new CannedSearchMockBuilder().criteria("acco").build();
 
         when(linkService.createFindOutMoreLink(any(), any(), any())).thenReturn(flatLink);
 
@@ -117,6 +116,7 @@ class CannedSearchMapperTest {
         Assertions.assertEquals(PSR_URL, module.getCannedSearchEndpoint());
     }
 
+    @Disabled("DMS Information is not being pulled through any longer")
     @DisplayName("VS-2715 - When the product type is an even the credit must be displayed")
     @Test
     void whenCreditProvided() {
@@ -127,7 +127,7 @@ class CannedSearchMapperTest {
                 .thenReturn("credit");
 
         FlatLink flatLink = new FlatLink();
-        CannedSearch cannedSearch =  new CannedSearchMockBuilder().criteria(ProductTypes.EVENT.getId()).build();
+        CannedSearch cannedSearch =  new CannedSearchMockBuilder().criteria("even").build();
 
         when((linkService).createFindOutMoreLink(any(), any(), any())).thenReturn(flatLink);
 

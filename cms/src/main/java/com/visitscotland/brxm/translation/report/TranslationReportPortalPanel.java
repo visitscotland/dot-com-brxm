@@ -1,7 +1,5 @@
-package com.visitscotland.brxm.report.translation;
+package com.visitscotland.brxm.translation.report;
 
-import org.apache.wicket.request.resource.ResourceReference;
-import org.apache.wicket.request.resource.PackageResourceReference;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.hippoecm.frontend.plugin.IPluginContext;

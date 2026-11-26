@@ -1,6 +1,6 @@
 package com.visitscotland.brxm.translation.plugin;
 
-import com.visitscotland.brxm.report.translation.TranslationPriority;
+import com.visitscotland.brxm.translation.report.TranslationPriority;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.repository.api.Document;
 import org.hippoecm.repository.api.Workflow;

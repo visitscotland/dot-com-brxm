@@ -9,6 +9,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.api.HippoNode;
 import org.hippoecm.repository.translation.HippoTranslationNodeType;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,18 +48,24 @@ public class DifferenceOpenUi {
     public static final String BLOCKED_CURRENT_DIALOG_TEMPLATE = "dialogCurrentBlocked";
     public static final String NO_TRANSLATIONS_DIALOG_TEMPLATE = "dialogNoTranslations";
 
-    private TranslationService translationService;
-    private JcrDocumentFactory jcrDocumentFactory;
-    private SessionFactory sessionFactory;
+    private final ObjectProvider<TranslationService> translationServiceProvider;
+    private final JcrDocumentFactory jcrDocumentFactory;
+    private final SessionFactory sessionFactory;
 
     @Autowired
-    public DifferenceOpenUi(TranslationService translationService,
+    public DifferenceOpenUi(ObjectProvider<TranslationService> translationService,
                             JcrDocumentFactory jcrDocumentFactory,
                             SessionFactory sessionFactory) {
-        this.translationService = translationService;
+        this.translationServiceProvider = translationService;
         this.jcrDocumentFactory = jcrDocumentFactory;
         this.sessionFactory = sessionFactory;
     }
+
+    private TranslationService getTranslationServiceProvider(){
+        return translationServiceProvider.getObject();
+    }
+
+
 
     @GetMapping("/vs-openui/diff")
     public String openUiComponent() {
@@ -66,9 +73,10 @@ public class DifferenceOpenUi {
     }
 
     @GetMapping("/vs-openui/diff/{nodeId}")
-    public String openUiButton(@PathVariable String nodeId, Model model) {
+    public String openUiButton(@PathVariable("nodeId") String nodeId, Model model) {
         try {
             model.addAttribute(ATTR_NODE_ID, nodeId);
+            TranslationService translationService = getTranslationServiceProvider();
             JcrDocument document = translationService.getDocument(nodeId);
             if (document.getVariantNode(JcrDocument.VARIANT_UNPUBLISHED) == null) {
                 return EMPTY_TEMPLATE;
@@ -89,10 +97,10 @@ public class DifferenceOpenUi {
     }
 
     @GetMapping("/vs-openui/diff/{nodeId}/view")
-    public String diffView(@PathVariable String nodeId, Model model) {
+    public String diffView(@PathVariable("nodeId") String nodeId, Model model) {
         try {
             model.addAttribute(ATTR_NODE_ID, nodeId);
-            String diff = translationService.getDocumentDifference(nodeId);
+            String diff = getTranslationServiceProvider().getDocumentDifference(nodeId);
             if ( null != diff ) {
                 model.addAttribute(ATTR_DIFF_CONTENT, diff);
             } else {
@@ -105,7 +113,7 @@ public class DifferenceOpenUi {
     }
 
     @GetMapping("/vs-openui/{nodeId}/dialog/translation/confirm")
-    public String dialogTranslationConfirm(@PathVariable String nodeId, Model model) {
+    public String dialogTranslationConfirm(@PathVariable("nodeId") String nodeId, Model model) {
         // Need a list of all the translation languages that the translation will be copied to
         try {
             Node englishNode = sessionFactory.getJcrSession().getNodeByIdentifier(nodeId);
@@ -129,32 +137,32 @@ public class DifferenceOpenUi {
     }
 
     @GetMapping("/vs-openui/{nodeId}/dialog/translation/complete")
-    public String dialogTranslationComplete(@PathVariable String nodeId, Model model) {
+    public String dialogTranslationComplete(@PathVariable("nodeId") String nodeId, Model model) {
         model.addAttribute(ATTR_NODE_ID, nodeId);
         return COMPLETE_DIALOG_TEMPLATE;
     }
 
     @GetMapping("/vs-openui/{nodeId}/dialog/translation/none")
-    public String dialogTranslationNone(@PathVariable String nodeId, Model model) {
+    public String dialogTranslationNone(@PathVariable("nodeId") String nodeId, Model model) {
         model.addAttribute(ATTR_NODE_ID, nodeId);
         return NO_TRANSLATIONS_DIALOG_TEMPLATE;
     }
 
     @GetMapping("/vs-openui/{nodeId}/dialog/translation/blocked")
-    public String dialogTranslationBlocked(@PathVariable String nodeId, Model model) {
+    public String dialogTranslationBlocked(@PathVariable("nodeId") String nodeId, Model model) {
         model.addAttribute(ATTR_NODE_ID, nodeId);
         // Need to lookup the foreign language versions that are being edited
         return BLOCKED_DIALOG_TEMPLATE;
     }
 
     @GetMapping("/vs-openui/{nodeId}/dialog/error")
-    public String dialogError(@PathVariable String nodeId, Model model) {
+    public String dialogError(@PathVariable("nodeId") String nodeId, Model model) {
         model.addAttribute(ATTR_NODE_ID, nodeId);
         return ERROR_TEMPLATE;
     }
 
     @GetMapping("/vs-openui/{nodeId}/dialog/current/blocked")
-    public String dialogCurrentBlocked(@PathVariable String nodeId, Model model) {
+    public String dialogCurrentBlocked(@PathVariable("nodeId") String nodeId, Model model) {
         model.addAttribute(ATTR_NODE_ID, nodeId);
         String editor;
         try {

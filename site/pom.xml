@@ -20,11 +20,8 @@
 
     <dependency>
       <groupId>com.visitscotland</groupId>
-      <artifactId>data-service-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.visitscotland</groupId>
       <artifactId>utils</artifactId>
+      <version>3.0.1</version>
     </dependency>
 
     <dependency>
@@ -43,14 +40,6 @@
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
     </dependency>
-
-    <!-- This library is not currently in use and it is adding some vulnerabilities
-      so it has been removed for the time being -->
-<!--    <dependency>-->
-<!--      <groupId>org.bloomreach.forge.ipfilter</groupId>-->
-<!--      <artifactId>bloomreach-ipfilter-hst</artifactId>-->
-<!--    </dependency>-->
-
   </dependencies>
 
   <modules>

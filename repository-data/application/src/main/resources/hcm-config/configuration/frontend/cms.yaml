@@ -32,17 +32,6 @@ definitions:
       plugin.class: com.onehippo.cms7.search.frontend.filters.GenericPropertyFilterPlugin
       wicket.id: ${search.extensions}
       wicket.model: ${model.search}
-    /hippo:configuration/hippo:frontend/cms/cms-services/DmsDestinationLocationListProvider:
-      jcr:primaryType: frontend:plugin
-      plugin.class: com.visitscotland.brxm.components.DmsLocationListProvider
-      valuelist.provider: service.locationlist.destination
-      location.levels: [REGION, DESTINATION, DISTRICT]
-    /hippo:configuration/hippo:frontend/cms/cms-services/DmsProductSearchLocationListProvider:
-      .meta:order-before: DmsImageLocationListProvider
-      jcr:primaryType: frontend:plugin
-      location.levels: []
-      plugin.class: com.visitscotland.brxm.components.DmsLocationListProvider
-      valuelist.provider: service.locationlist.psr
     /hippo:configuration/hippo:frontend/cms/ui-extensions/translationDiff:
       jcr:primaryType: frontend:uiExtension
       frontend:displayName: Translation Difference
@@ -63,22 +52,17 @@ definitions:
     /hippo:configuration/hippo:frontend/cms/hippo-reports/translation-report-portal-panel:
       .meta:order-before: translation-report-plugin
       jcr:primaryType: frontend:plugin
-      plugin.class: com.visitscotland.brxm.report.translation.TranslationReportPortalPanel
+      plugin.class: com.visitscotland.brxm.translation.report.TranslationReportPortalPanel
     /hippo:configuration/hippo:frontend/cms/hippo-reports/translation-report-plugin:
       .meta:order-before: sample-report-plugin
       jcr:primaryType: frontend:plugin
       background: 'true'
       height: '600'
-      plugin.class: com.visitscotland.brxm.report.translation.TranslationReportPlugin
+      plugin.class: com.visitscotland.brxm.translation.report.TranslationReportPlugin
       wicket.id: service.reports.translationreport
       width: '1'
     /hippo:configuration/hippo:frontend/cms/cms-tree-views/documents/addfolderPlugin:
       hipposys:userrole: xm.content.admin
-    /hippo:configuration/hippo:frontend/cms/cms-services/DmsImageLocationListProvider:
-      jcr:primaryType: frontend:plugin
-      location.levels: [REGION, DESTINATION, DISTRICT]
-      plugin.class: com.visitscotland.brxm.components.DmsLocationListProvider
-      valuelist.provider: service.locationlist.image
     /hippo:configuration/hippo:frontend/cms/cms-folder-views/hippostd:folder/root/filters/showFolderType:
       display: false
     /hippo:configuration/hippo:frontend/cms/cms-folder-views/hippostd:folder/root:

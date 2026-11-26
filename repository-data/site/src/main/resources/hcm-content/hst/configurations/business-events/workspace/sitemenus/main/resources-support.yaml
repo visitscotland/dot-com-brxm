@@ -1,0 +1,5 @@
+/hst:hst/hst:configurations/business-events/hst:workspace/hst:sitemenus/main/resources-support:
+  .meta:order-before: news
+  jcr:primaryType: hst:sitemenuitem
+  jcr:uuid: a90ce7c9-4a80-485d-8a9a-4bf6f4f5e16e
+  hst:repobased: false

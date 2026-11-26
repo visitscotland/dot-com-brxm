@@ -1,4 +1,4 @@
-package com.visitscotland.brxm.report.translation;
+package com.visitscotland.brxm.translation.report;
 
 import com.visitscotland.brxm.report.ReportException;
 import com.visitscotland.brxm.translation.SessionFactory;

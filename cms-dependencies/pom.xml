@@ -89,7 +89,7 @@
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
       <!-- Note: on versions lower than 15.3.0, use version 1.5.5 -->
-      <version>1.9.7</version>
+      <version>${micrometer.version}</version>
     </dependency>
     <dependency>
       <!-- This dependecy has been included for compatibility between BloomReach CMS and Spring actuators
@@ -98,7 +98,7 @@
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-jmx</artifactId>
       <!-- Note: on versions lower than 15.3.0, use version 1.5.5 -->
-      <version>1.9.7</version>
+      <version>${micrometer.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.slf4j</groupId>
