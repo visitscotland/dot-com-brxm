@@ -14,4 +14,4 @@ definitions:
         .meta:category: system
         .meta:add-new-system-values: true
         type: string
-        value: [vs.default-user.travel-trade, vs.labels.travel-trade]
+        value: [vs.default-user.travel-trade, vs.labels.travel-trade, xm.channel.webmaster]
