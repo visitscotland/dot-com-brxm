@@ -18,6 +18,7 @@ public interface EventSearchParameters {
     String TOPIC_PARAM = "topic";
     String REGION_PARAM = "region";
     String EVENT_TYPE_PARAM = "event-type";
+    String EVENT_LOCATION_PARAM = "event-location";
 
     //Sorting
     String SORT_BY_PARAM = "sort";

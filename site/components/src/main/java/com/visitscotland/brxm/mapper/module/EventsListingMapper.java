@@ -10,12 +10,11 @@ import com.visitscotland.brxm.services.HippoUtilsService;
 import com.visitscotland.brxm.utils.CMSProperties;
 import com.visitscotland.brxm.pagebuilder.PageCompositionException;
 import com.visitscotland.brxm.pagebuilder.PageCompositionHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.MissingResourceException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.visitscotland.brxm.event.EventSearchParameters.*;
@@ -33,6 +32,7 @@ public class EventsListingMapper extends ModuleMapper<EventsListing, EventsLings
     private final static String TRAINING_TOPICS_VALUE_LIST = "bsh-training-topics";
     private final static String INDUSTRY_EVENTS_TYPES_VALUE_LIST = "bsh-industry-event-types";
     private final static String REGIONS_VALUE_LIST = "bsh-regions";
+    private final static String EVENT_LOCATION_VALUE_LIST = "bsh-event-location";
 
     // Resource Bundle keys
     private final static String BUNDLE = "events-listings";
@@ -43,6 +43,7 @@ public class EventsListingMapper extends ModuleMapper<EventsListing, EventsLings
     private final static String IN_PERSON_LABEL = "location.in-person";
     private final static String NATIONAL_LABEL = "location.national";
     private final static String INTERNATIONAL_LABEL = "location.international";
+    private final static String EVENT_LOCATION_LABEL = "location.event-location";
     private final static String SECTOR_LABEL = "sector";
     private final static String TOPIC_LABEL = "training-topic";
     private final static String REGION_LABEL = "region";
@@ -51,6 +52,7 @@ public class EventsListingMapper extends ModuleMapper<EventsListing, EventsLings
     // Grouping indices
     private final static int DATE_GROUP = 0;
     private final static int BOOLEAN_GROUP = 1;
+    private static final Logger log = LoggerFactory.getLogger(EventsListingMapper.class);
 
     private final HippoUtilsService hippoUtilsService;
     private final ResourceBundleService bundle;
@@ -138,8 +140,8 @@ public class EventsListingMapper extends ModuleMapper<EventsListing, EventsLings
         List<EventFilter> filters = new ArrayList<>();
 
         addDateFields(filters);
-        addBooleanFields(filters, false, true);
-
+        addBooleanFields(filters, false, false);
+        filters.add(buildMultiselectField(EVENT_LOCATION_PARAM, EVENT_LOCATION_LABEL, EVENT_LOCATION_VALUE_LIST, 3));
         return filters;
     }
 

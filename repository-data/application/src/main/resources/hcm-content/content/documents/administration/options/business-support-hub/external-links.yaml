@@ -1,4 +1,5 @@
 /content/documents/administration/options/business-support-hub/external-links:
+  .meta:order-before: event-location
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: 5f777648-55cf-4690-9d32-760a6e68ef7e

@@ -1,4 +1,5 @@
 /content/documents/administration/options/business-support-hub/topic:
+  .meta:order-before: event-location
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
   jcr:uuid: 431a6525-685b-48d2-a1ae-8c6ed57fbe10

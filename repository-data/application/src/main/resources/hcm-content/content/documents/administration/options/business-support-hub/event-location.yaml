@@ -1,0 +1,20 @@
+/content/documents/administration/options/business-support-hub/event-location:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 19719fa7-3e1b-476c-8a01-ed6991f84c1d
+  hippo:name: Event Location
+  /event-location:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: 672a45e9-7953-4ce6-9184-be1d3c9356c6
+    hippo:availability: [live, preview]
+    hippotranslation:id: fc9472ae-da54-465b-8d1d-90d8d2e6dc7c
+    hippotranslation:locale: inherited - from query
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: national
+      selection:label: National
+    /selection:listitem[2]:
+      jcr:primaryType: selection:listitem
+      selection:key: international
+      selection:label: International

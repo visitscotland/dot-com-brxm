@@ -122,6 +122,24 @@ class EventHstQueryBuilder {
     /**
      * Add filters related to the location: national, international
      */
+    EventHstQueryBuilder addMultiselectInternationalFilters() {
+        if (getQueryParameters().containsKey(EVENT_LOCATION_PARAM) && getQueryParameters().get(EVENT_LOCATION_PARAM).length > 0) {
+            final String[] params = getQueryParameters().get(EVENT_LOCATION_PARAM);
+            for (final String param : params) {
+                if (param.equals(NATIONAL_PARAM)) {
+                    constraints.put(NATIONAL_PARAM, constraint(INTERNATIONAL).equalTo(false));
+                }
+                if (param.equals(INTERNATIONAL_PARAM)) {
+                    constraints.put(INTERNATIONAL_PARAM, constraint(INTERNATIONAL).equalTo(true));
+                }
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Add filters related to the location: national, international
+     */
     EventHstQueryBuilder addInternationalFilters() {
         if (getQueryParameters().containsKey(NATIONAL_PARAM)) {
             constraints.put(NATIONAL_PARAM, constraint(INTERNATIONAL).equalTo(false));
