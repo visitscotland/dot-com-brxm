@@ -111,18 +111,6 @@
         <version>${caffeine.version}</version>
       </dependency>
 
-
-
-
-      <dependency>
-        <!-- This dependency was introduced on version 15.x of BloomReach CMS to resolve an issue that only affected
-           cloud Environments. This dependency is not needed for our implementation, so it should be evaluated if it
-           can be removed once we upgrade to version 16.x -->
-        <groupId>com.zaxxer</groupId>
-        <artifactId>HikariCP</artifactId>
-        <version>5.0.1</version>
-      </dependency>
-
       <!-- Test Dependencies -->
       <dependency>
         <groupId>org.junit.jupiter</groupId>
