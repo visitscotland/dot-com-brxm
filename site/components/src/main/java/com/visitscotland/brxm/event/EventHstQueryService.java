@@ -64,7 +64,7 @@ public class EventHstQueryService {
                     .addPagination(getPageSize()).sort()
                     .addDatesFilters()
                     .addPriceFilters().addLocationFilters()
-                    .addInternationalFilters()
+                    .addMultiselectInternationalFilters()
                     .build();
 
             return hstQuery.execute();
