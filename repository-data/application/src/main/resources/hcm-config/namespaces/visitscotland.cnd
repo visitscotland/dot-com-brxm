@@ -221,6 +221,9 @@
 [visitscotland:SearchWidget] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 
+[visitscotland:SeasonalEventLink] > hippo:compound, hippostd:relaxed
+  orderable
+
 [visitscotland:SharedLink] > hippostd:relaxed, hippotranslation:translated, visitscotland:basedocument, visitscotland:translatable
   orderable
 

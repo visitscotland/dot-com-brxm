@@ -1,0 +1,130 @@
+definitions:
+  config:
+    /hippo:namespaces/visitscotland/SeasonalEventLink:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: daea5b41-5aba-4599-8975-e082759818ad
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 9135420f-72e4-491b-a891-0b312d12ec88
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: 279010e7-f378-4f6e-9d5c-34a7ee217d25
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          hipposysedit:uri: http://www.visitscotland.com/visitscotland/nt/1.0
+          /location:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:location
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, 'visitscotland:short-string-validator']
+          /dates:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:dates
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, 'visitscotland:short-string-validator']
+          /linkTypes:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: visitscotland:linkTypes
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
+          /tags:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: visitscotland:tags
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: visitscotland:SeasonalEventLink
+          visitscotland:location: ''
+          visitscotland:dates: ''
+          visitscotland:tags: []
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            extension.left: ${cluster.id}.left
+            extension.right: ${cluster.id}.right
+            plugin.class: org.hippoecm.frontend.editor.layout.TwoColumn
+            wicket.extensions: [extension.left, extension.right]
+          /left:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.left.item
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.left
+          /right:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.right.item
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+            wicket.id: ${cluster.id}.right
+          /dates:
+            jcr:primaryType: frontend:plugin
+            caption: Dates
+            field: dates
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /location:
+            jcr:primaryType: frontend:plugin
+            caption: Location
+            field: location
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /linkTypes:
+            jcr:primaryType: frontend:plugin
+            caption: Link Type
+            compoundList: visitscotland:CMSLink,visitscotland:ExternalLink
+            contentPickerType: links
+            field: linkTypes
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              compoundNamesMaxLength: 90
+              maxitems: 1
+              showCompoundNames: false
+              showTitles: false
+              startCollapsed: false
+              titleMapping: []
+          /tags:
+            jcr:primaryType: frontend:plugin
+            caption: Tag (Select one)
+            field: tags
+            multiselect.type: checkboxes
+            palette.alloworder: false
+            palette.maxrows: '20'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '20'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.right.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/administration/options/visitscotland.com/seasonal-events-tags

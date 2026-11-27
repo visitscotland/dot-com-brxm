@@ -4389,15 +4389,17 @@
             jcr:mixinTypes: ['mix:versionable']
             jcr:uuid: e3f5e71e-da33-48f1-90b3-93f704433bbf
             hippo:availability: [preview]
+            hippostd:retainable: false
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-07-10T13:34:45.173+01:00
-            hippostdpubwf:lastModificationDate: 2020-10-26T11:30:40.686Z
+            hippostdpubwf:lastModificationDate: 2026-11-27T11:07:37.141Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 51dfff09-00d0-4923-b704-26bb28e5b28b
             hippotranslation:locale: en
             visitscotland:teaser: Visit Outer Hebrides from behind of a camera.
             visitscotland:title: Photography Trail
+            visitscotland:translation: ''
             /visitscotland:image:
               jcr:primaryType: hippogallerypicker:imagelink
               hippo:docbase: 38e2d695-f644-4c92-a62a-a8a7247ba63b
@@ -4405,50 +4407,49 @@
               hippo:modes: []
               hippo:values: []
             /visitscotland:linkTypes:
-              jcr:primaryType: visitscotland:ExternalLink
-              visitscotland:label: ''
-              visitscotland:link: https://www.visitouterhebrides.co.uk/see-and-do/nature/photography-trail
+              jcr:primaryType: visitscotland:SeasonalEventLink
+              visitscotland:dates: asdad
+              visitscotland:location: asdasd
+              visitscotland:tags: [august]
+              /visitscotland:linkTypes:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: ''
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: c0e6cfc5-53fa-4a5f-89dd-9b23624d08a4
           /www.visitouterhebrides.co.uk---photography-trail[2]:
             jcr:primaryType: visitscotland:SharedLink
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 94cb6182-9bb8-42e5-a4c9-08aaf6e17cfe
             hippo:availability: []
+            hippostd:retainable: false
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-07-10T13:34:45.173+01:00
-            hippostdpubwf:lastModificationDate: 2020-11-26T13:36:46.993Z
+            hippostdpubwf:lastModificationDate: 2026-11-27T11:05:23.407Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 51dfff09-00d0-4923-b704-26bb28e5b28b
             hippotranslation:locale: en
-            visitscotland:teaser: When it comes to places to stay, Scotland has some
-              fantastic options; but there really is something extra special about
-              a waterside location. If it's a coastal break you fancy, you'll find
-              wonderful holiday cottages on seafronts, near beaches and shorelines.
-              Or you can stay at the edge of an inland loch or sea loch, by a canal,
-              and should you actually fancy staying on the water, there are great
-              choices when it comes to boating and sailing holidays.  Here are just
-              a few ideas for some lovely waterside locations and accommodation suggestions
-              for holidays on or by the water, perfect for a relaxing break.
-            visitscotland:title: When it comes to places to stay, Scotland has some
-              fantastic options; but there really is something extra special about
-              a waterside location. If it's a coastal break you fancy, you'll find
-              wonderful holiday cottages on seafronts, near beaches and shorelines.
-              Or you can stay at the edge of an inland loch or sea loch, by a canal,
-              and should you actually fancy staying on the water, there are great
-              choices when it comes to boating and sailing holidays.  Here are just
-              a few ideas for some lovely waterside locations and accommodation suggestions
-              for holidays on or by the water, perfect for a relaxing break.
+            visitscotland:teaser: Visit Outer Hebrides from behind of a camera.
+            visitscotland:title: Photography Trail
             visitscotland:translation: ''
             /visitscotland:image:
               jcr:primaryType: hippogallerypicker:imagelink
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:docbase: 38e2d695-f644-4c92-a62a-a8a7247ba63b
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
             /visitscotland:linkTypes:
-              jcr:primaryType: visitscotland:ExternalLink
-              visitscotland:label: ''
-              visitscotland:link: https://www.visitouterhebrides.co.uk/see-and-do/nature/photography-trail
+              jcr:primaryType: visitscotland:SeasonalEventLink
+              visitscotland:dates: asdad
+              visitscotland:location: asdasd
+              visitscotland:tags: [august]
+              /visitscotland:linkTypes:
+                jcr:primaryType: visitscotland:CMSLink
+                visitscotland:label: ''
+                /visitscotland:link:
+                  jcr:primaryType: hippo:mirror
+                  hippo:docbase: c0e6cfc5-53fa-4a5f-89dd-9b23624d08a4
           /www.visitouterhebrides.co.uk---photography-trail[3]:
             jcr:primaryType: visitscotland:SharedLink
             jcr:mixinTypes: ['mix:referenceable']
@@ -6689,9 +6690,10 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-07-10T13:34:45.173+01:00
-            hippostdpubwf:lastModificationDate: 2021-06-24T14:58:29.518+01:00
+            hippostdpubwf:lastModificationDate: 2026-11-27T15:38:08.006Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: ddf7cb45-1e57-4157-a0c7-04880361fd14
             hippotranslation:locale: en
@@ -6919,6 +6921,14 @@
               jcr:primaryType: visitscotland:ExternalDocument
               visitscotland:category: Things to do
               visitscotland:link: https://staging.visitscotland.com/ebrochures/en/what-to-see-and-do/perthshireanddundee.pdf
+      /events:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+        jcr:uuid: dfa6f13f-80f4-4f92-9085-09cd7fab6055
+        hippo:name: Events
+        hippostd:foldertype: [new-translated-folder-shared, new-shared-document]
+        hippotranslation:id: 398c14e0-8873-4535-b357-e77e138ef70c
+        hippotranslation:locale: en
     /video:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
