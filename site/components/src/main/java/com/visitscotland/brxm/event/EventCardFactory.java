@@ -51,14 +51,8 @@ public class EventCardFactory {
             setTravelTradeFields((TravelTradeEventBSH) document, card);
         }
 
-        if (document instanceof TrainingEventBSH) {
-            TrainingEventBSH event = (TrainingEventBSH) document;
-            if (event.getFeatured() != null) {
-                card.setFeatured(event.getFeatured());
-            } else {
-                card.setFeatured(false);
-            }
-
+        if (document.getFeatured() != null) {
+            card.setFeatured(document.getFeatured());
         } else {
             card.setFeatured(false);
         }
